@@ -36,12 +36,38 @@ uint8_t asciihex_to_byte(uint8_t t, uint8_t);
 
 
 
-/********** Received Packets **********/
+/********** FRAMES **********/
 /* Receive Options */
 /* Note: Other bits not used */
 #define OPT_DIGIMESH	0x11000000
 #define OPT_PACKETACK	0x00000001
 #define OPT_PACKETBCAST	0x00000010
+
+/* TX */
+#define FRAME_TX_HEAD_LEN 14 /* Length of tx frame header info */
+typedef struct {
+	uint16_t data_len;
+	uint8_t frametype;
+	uint8_t frameid;
+	uint8_t dst[8]; //change to char* -- no just make a wrapper function
+	uint8_t res[2]; //chat to char*
+	uint8_t b_rad;
+	uint8_t opt;
+	char*	data;
+	uint8_t checksum;
+}frameTX;
+
+/* RX */
+typedef struct {
+	uint16_t 	data_length; /* total in frame's data field */
+	uint8_t		frametype;
+	uint8_t 	src[8];
+	uint8_t 	res[2];
+	uint8_t 	opt;
+	uint8_t		data[100];
+	uint8_t		checksum;
+}frameRX;
+
 
 //typedef struct {
 	//uint8_t 	start;

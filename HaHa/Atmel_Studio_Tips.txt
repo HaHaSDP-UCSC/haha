@@ -1,0 +1,57 @@
+/*
+ * Atmel_Studio_Tips.txt
+ *
+ * Created: 3/19/2017 11:27:20 AM
+ *  Author: Brian
+ *
+ * The file includes tips and tricks for configuring your Atmel Studio. 
+ * It includes the folloing:
+ *  1) Settings to turn on to aid in development, namely in the editor.
+ *	2) Instructions for installing tools/extensions that will aid development.
+ *	3) Details of code styling format.
+ *	4) Development processes everyone should conform to (e.g. Task List).
+ */ 
+
+ *****some of this still needs to be formatted (like menu sequences)****
+
+ 1) SETTINGS
+	(a) MORE INTELLISENSE HINTS
+		<Explanation here>
+		Virtual Assistx Menu
+		--Turn on Display Indicator after column 80
+		--Show Quick Info tooltips for more symbols (turn on all options)
+		--Format doxygen comments in Quick Info tooltips
+	(b) LINE NUMBERS
+		Tools
+		--Options
+		---Text Editor
+		----All Language: tick Line Numbers
+
+2) EXTENSIONS
+	(a) GIT
+	Atmel Studio has a git *connector* extension. This means
+	you need to have GIT for Windows already installed. Then you configure AS
+	with the location and then you can commit/pull/etc right from within AS.
+	<Instructions here> **download the extension and then configure**
+	**Download GIt and GIT extensions** **Or Toirtoise**
+
+3)
+
+
+4) DEV PROCESSES
+	(a) Task Lists in Atmel Studio
+	Atmel Studio (as well as Visual Studio) includes a feature for 'Task Lists.'
+	This is used in industry very often (and many times coupled with GIT style
+	issue tracking with assignments) .
+	
+	The basic idea here is that by placing a special comment this 'Task' will be 
+	added to a list that can be easily viewed and the code/file accessed with by 
+	clicking the task. 
+	This is the format:
+		//TODO: explanation of what needs to be done.
+	
+	**we could double this with GIT tasks as well where we assign, but its good 
+	at the USER level so that they can easily find things they need to do, or 
+	make notes about some sort of 'bypass' they did for testing and need to undo 
+	at a later time.
+	

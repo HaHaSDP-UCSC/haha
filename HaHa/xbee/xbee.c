@@ -11,8 +11,9 @@
 
 
 /* Internal Functions */
-void _rxFrame_clear(rxPacketXbee *p);
+void _rxFrame_clear(frameRX *p);
 uint8_t _xbee_send(char* data, uint8_t len);
+uint8_t _frame_TX_tochar(char* buff, frameTX *txData, int size);
 
 /*
 StartDelimiter(1B) + Length(2B) +  Frame Data(variable) + Checksum(1B)
@@ -24,39 +25,7 @@ StartDelimiter(1B) + Length(2B) +  Frame Data(variable) + Checksum(1B)
 
 const uint8_t startdelim = 0x7E;
 
-/* Frames */
-//typedef struct {
-	//uint8_t length;
-	//uint8_t frametype; /* aka cmdID */
-	//void	*framedata;
-	//uint8_t framedata_len;
-	//uint8_t checksum;
-//}Frame;
 
-/* Frame data: TX */
-#define FRAME_TX_HEAD_LEN 14 /* Length of tx frame header info */
-typedef struct {
-	uint8_t data_len;
-	uint8_t frametype;
-	uint8_t frameid;
-	uint8_t dst[8]; //change to char* -- no just make a wrapper function
-	uint8_t res[2]; //chat to char*
-	uint8_t b_rad;
-	uint8_t opt;
-	char*	data;
-	uint8_t checksum;
-}frameTX;
-
-
-typedef struct {
-	uint16_t 	data_length; /* total in frame's data field */
-	uint8_t		frametype;
-	uint8_t 	src[8];
-	uint8_t 	res[2];
-	uint8_t 	opt;
-	uint8_t		data[100];
-	uint8_t		checksum;
-}frameRX;
 
 frameRX recvBuff[2];
 frameTX txData;
@@ -79,8 +48,8 @@ const char* const table_CORE[] =
 };
 
 void xbee_init(){
-	_rxPacket_clear(&recvBuff[0]);
-	_rxPacket_clear(&recvBuff[1]);
+	_rxFrame_clear(&recvBuff[0]);
+	_rxFrame_clear(&recvBuff[1]);
 }
 
 void xbee_enterCmdMode(){
@@ -105,6 +74,58 @@ void xbee_leaveCmdMode(){
 	SET_RX_CB_OFF;
 	uart_write("ATCN\r", 5);
 	SET_RX_CB_ON;
+}
+
+/**
+ * [calc_checksum description]
+ * @param  data [description]
+ * @param  len  [description]
+ * @return      [description]
+ */
+uint8_t calc_checksum(char *data, uint8_t len){
+	uint8_t total = 0;
+	for(int i=0; i<len; ++i){
+		total+= data[i];
+	}
+	return 0xFF - total;
+}
+
+/* Exposed send function */
+/* Assumes data is null-terminated */
+//TODO: This should be modified to take a size argument
+uint8_t xbee_send(char* dst, char* data)
+{
+	uint8_t len2 = 0, len = strlen(dst);
+	if(len != 16) return -1; //error
+
+	//Convert the destination to Hex
+	len /= 2; /* each byte = 2chars */
+	while(len2 < len){
+		txData.dst[len2] = asciihex_to_byte(dst[2*len2], dst[2*len2 + 1]);
+		len2++;
+	}
+
+	_xbee_send(data, strlen(data));
+}
+
+/* Internal send function */
+uint8_t _xbee_send(char* data, uint8_t len)
+{
+	//Generate the frame packet
+	txData.frametype = 0x10;
+	txData.frameid = 0x01; //generate this later
+
+	//Reserved: FF FE
+	txData.res[0] = 0xFF;
+	txData.res[1] = 0xFE;
+	txData.b_rad = 0;
+	txData.opt = OPT_DIGIMESH;
+	txData.data = data;
+	txData.data_len = len;
+
+	_xbee_sendFrame(&txData);
+
+	return 0;
 }
 
 uint8_t _frame_TX_tochar(char* buff, frameTX *txData, int size){
@@ -134,51 +155,33 @@ uint8_t _frame_TX_tochar(char* buff, frameTX *txData, int size){
 	return 0;
 }
 
-//uint8_t calc_checksum(Frame *tx){
-//uint8_t total = 0;
-//for(int i=0; i<tx->framedata_len; ++i){
-//total+= tx->framedata[i];
-////printf("%c", tx->framedata[i]);
-//}
-//return 0xFF - total;
-//}
-/**
- * [calc_checksum description]
- * @param  data [description]
- * @param  len  [description]
- * @return      [description]
- */
-uint8_t calc_checksum(char *data, uint8_t len){
-	uint8_t total = 0;
-	for(int i=0; i<len; ++i){
-		total+= data[i];
-	}
-	return 0xFF - total;
-}
-
 void _xbee_sendFrame(frameTX *tx){
 	//tx->checksum = calc_checksum(tx);
 	//tx->frametype = ((*frameTX)tx).frametype;
 	//tx->checksum = calc_checksum(tx->framedata, tx->framedata_len);
-	//printf("Sending Xbee:");
+	printf("Sending Xbee:");
 
 	/* Convert the data to a char* */
-	char buffFrameData[FRAME_TX_HEAD_LEN+txData.data_len];
-	_frame_TX_tochar(buffFrameData, &txData, txData.data_len);
+	uint8_t datalen = FRAME_TX_HEAD_LEN+tx->data_len;
+	char buffFrameData[datalen];
+	_frame_TX_tochar(buffFrameData, &tx, datalen);
 	//tx.framedata = buffFrameData;
 	//tx.framedata_len = FRAME_TX_HEAD_LEN + txData.data_len;
 	uint8_t zero = 0;
 	uart_write(&startdelim, 1);
 	uart_write(&zero, 1);
-	uart_write(&tx->framedata_len, 1);
-	uart_write(tx->framedata, tx->framedata_len);
+	uart_write(&tx->data_len, 1);
+	//uart_write(&tx->frametype, 1);
+	uart_write(buffFrameData, datalen);
 	uart_write(&tx->checksum, 1);
-	//printf("%c", startdelim);
-	//printf("%c", zero );
-	//printf("%c",tx->framedata_len);
-	//for(int i=0; i<tx->framedata_len; ++i)
-	//printf("%c", tx->framedata[i]);
-	//printf("%c",tx->checksum);
+	
+	printf("%c", startdelim);
+	printf("%c", zero );
+	printf("%c",tx->data_len);
+	//printf("%c",tx->frametype);
+	for(int i=0; i<datalen; ++i)
+	printf("%c", buffFrameData[i]);
+	printf("%c",tx->checksum);
 	
 	//uart_write(&startdelim, 1);
 	//uart_write(&zero, 1);
@@ -186,46 +189,6 @@ void _xbee_sendFrame(frameTX *tx){
 	//uart_write(tx->framedata, tx->framedata_len);
 	//uart_write(&tx->checksum, 1);
 };
-
-/* Exposed send function */
-/* Assumes data is null-terminated */
-uint8_t xbee_send(char* dst, char* data)
-{
-	uint8_t len2 = 0, len = strlen(dst);
-	if(len != 16) return -1; //error
-
-	//Convert the destination to Hex
-	len /= 2; /* each byte = 2chars */
-	while(len2 < len){
-		txData.dst[len2] = asciihex_to_byte(dst[2*len2], dst[2*len2 + 1]);
-		len2++;
-	}
-	_xbee_send(data, strlen(data));
-}
-
-/* Interal send function */
-uint8_t _xbee_send(char* data, uint8_t len)
-{
-	//Generate the frame packet
-	txData.frametype = 0x10;
-	txData.frameid = 0x01; //generate this later
-
-	//Reserved: FF FE
-	txData.res[0] = 0xFF;
-	txData.res[1] = 0xFE;
-
-	txData.b_rad = 0;
-	txData.opt = 0xc0;
-	txData.data = data;
-	txData.data_len = len;
-
-	_xbee_sendFrame(txData);
-
-	return 0;
-}
-
-
-
 
 uint8_t xbee_setAPI(uint8_t type){
 	
@@ -236,6 +199,7 @@ uint8_t xbee_setAPI(uint8_t type){
 	return 0;
 }
 
+/* test code
 //uint8_t gen_checksum(char* data){
 	//return 0;
 //}
@@ -251,13 +215,13 @@ uint8_t xbee_setAPI(uint8_t type){
 	//uint8_t		data[100];
 	//uint8_t		checksum;
 //}rxPacketXbee;
+*/
 
-void printPacket(rxPacketXbee *p){
+void printPacket(frameRX *p){
 	printf("\n\n**rxPacketXbee Print**\n");
-	printf("start:%x\nlength:%x\nframeType:%x\n", 
-				p->start,
-				p->length,
-				p->frameType
+	printf("length:%x\nframeType:%x\n", 
+				p->data_length,
+				p->frametype
 	);
 	printf("source:");
 	for(int i=0; i<8; ++i)
@@ -273,7 +237,7 @@ void printPacket(rxPacketXbee *p){
 
 uint8_t xbee_recv(char* data, uint8_t len){
 	//Need to process packets
-	rxPacketXbee *incoming = &recvBuff[RXBUFF_CUR];
+	frameRX *incoming = &recvBuff[RXBUFF_CUR];
 	static uint8_t state = 0;
 	static uint8_t currsrc = 0;
 	static uint8_t currres = 0;
@@ -287,28 +251,28 @@ uint8_t xbee_recv(char* data, uint8_t len){
 			case 0:
 					if(data[count++] == startdelim){
 						DPRINTF("Delim:%x\n", data[count-1]);
-						incoming->start = data[0];
+						//incoming->start = data[0];
 						state++;
 						continue;
 					}
 					break;
 			case 1:
-					incoming->length = data[count++] << 8;
-					DPRINTF("LengthMSB incoming:%x data:%x\n", incoming->length, data[count-1]);
+					incoming->data_length = data[count++] << 8;
+					DPRINTF("LengthMSB incoming:%x data:%x\n", incoming->data_length, data[count-1]);
 					state++;
 					continue;
 					break;
 			case 2: 
-					incoming->length |= data[count++];
-					datalen = incoming->length - 12; //12=other fields #of data
-					DPRINTF("LengthLSB incoming:%x data:%x\n", incoming->length, data[count-1]);
+					incoming->data_length |= data[count++];
+					datalen = incoming->data_length - 12; //12=other fields #of data
+					DPRINTF("LengthLSB incoming:%x data:%x\n", incoming->data_length, data[count-1]);
 					state++;
 					continue;
 					break;
 			case 3:
-					incoming->frameType = data[count++];
+					incoming->frametype = data[count++];
 					DPRINTF("Frame:%x\n", data[count-1]);
-					if(incoming->frameType != 0x90){ state=0; continue;}
+					if(incoming->frametype != 0x90){ state=0; continue;}
 					state++;
 					continue;
 					break;
@@ -372,10 +336,27 @@ _rxFrame_clear(frameRX *p){
 	//uint8_t 	opt;        1
 	//uint8_t		data[100];
 	//uint8_t		checksum;
-	p->start = 0;
-	p->length = 0;
-	p->frameType = 0;
+	p->data_length = 0;
+	p->frametype = 0;
 
 }
 
 
+
+
+
+
+
+/*************************** OLD STUFF ******************** */
+/*
+//~~~Frames~~~
+//typedef struct {
+//uint8_t length;
+//uint8_t frametype;
+//void	*framedata;
+//uint8_t framedata_len;
+//uint8_t checksum;
+//}Frame;
+
+
+*/

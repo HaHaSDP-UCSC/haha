@@ -14,7 +14,7 @@ int main(void)
 	xbee_init();
 	printf("Starting System...\n");
 	xbee_setAPI(1);
-	xbee_send("0013a200414F50E5", "This is a test of the service here");
+	xbee_send("0013a200414F50E5", "Test Data");
 	//uart_write(7E0005085241500000,18 );afj;ld
 	SET_SEND_XBEE(TRUE);
 	while (1) {

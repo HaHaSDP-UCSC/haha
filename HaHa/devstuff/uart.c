@@ -46,7 +46,7 @@ void uart_init_irqs(void)
 uint8_t uart_write(uint8_t* data, size_t size){
 	//printf("Writing To Uart:");
 	//for(int i=0; i<size; ++i){
-	//	printf("%c", data[i]);
+		//printf("%x", data[i]);
 	//}
 	//We block if the last one hasn't finished yet
 	while(!usart_async_is_tx_empty(&USART_1_0));
