@@ -1,0 +1,15 @@
+7E 
+00 17 
+10 
+55
+00 13 a2 00 41 4f 50 e5 
+FF 
+FE
+00 
+00 
+[54 65 73 74 20 44 61 74 61]  "Test Data"
+73--checksum
+
+checksum: all bytes of packet except start and length
+816
+
