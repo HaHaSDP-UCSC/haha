@@ -24,17 +24,10 @@ uint8_t _RX_CALLBACK;
 uint8_t SEND_XBEE;
 
 struct io_descriptor *usart_io;
-//uint8_t UART_BUFF;
-//uint8_t *uart_buffer[2];
-//uint8_t uart_buffer[USART_BUF_SIZE];
 char uart_buffer[2][USART_BUF_SIZE];
-//char _uartbuff0[USART_BUF_SIZE];
-//char _uartbuff1[USART_BUF_SIZE];
 uint8_t CURRENT_BUFFER;
-//uint8_t uart_buffer2[USART_BUF_SIZE];
-//uart_buffer[0] = uart_buffer1;
-//uart_buffer[1] = uart_buffer2;
 uint8_t data_received;
+
 void uart_getbuffer(char* buff, size_t len);
 uint8_t uart_read();
 uint8_t uart_write(uint8_t *data, size_t size);

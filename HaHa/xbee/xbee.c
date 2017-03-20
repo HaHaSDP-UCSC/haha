@@ -11,47 +11,70 @@
 
 
 /* Internal Functions */
-void _rxFrame_clear(frameRX *p);
-uint8_t _xbee_send(char* data, uint8_t len);
-uint8_t _frame_TX_tochar(char* buff, frameTX *txData, int size);
+static void _rxFrame_clear(frameRX *p);
+static uint8_t _xbee_send(char* data, uint8_t len);
+static uint8_t _frame_TX_tochar(char* buff, frameTX *txData, int size);
+static void _packet_Handler(void* frame, uint8_t type);
+static uint8_t _get_UART_Data(uint8_t numbytes);
+static void _print_Packet(frameRX *p);
 
 
-
+/* Frame data */
 const uint8_t startdelim = 0x7E;
-
-
-
 frameRX recvBuff[2];
-frameTX txData1;
-
+frameTX txData;
 uint8_t RXBUFF_CUR = 0;
+
+/* Frames to XBee */
+typedef enum frameRequestType {	FRAME_AT = 0x08,
+								FRAME_AT_QUEUE = 0x09,
+								FRAME_TX = 0x10, 
+								FRAME_TX_EXPLICIT = 0x11, 
+								FRAME_REMOTE_COMMAND = 0x17
+							  };
+/* Frames from XBee */
+typedef enum frameResponseType{	FRAME_AT_RESPONSE = 0x88,
+								FRAME_MODEM_STATUS = 0x8A,
+								FRAME_TX_STATUS = 0x8B,
+								FRAME_ROUTE_INFO = 0x8D,
+								FRAME_AGG_ADDR = 0x8E,
+								FRAME_RX = 0x90, //only for AO=0
+								FRAME_RX_EXPLICIT = 0x91, //only for AO=1
+								FRAME_DATA_SAMPE = 0x92,
+								FRAME_NODE_ID = 0x95,
+								FRAME_REMOTE_RESP = 0x97								
+								};
+
 
 void xbee_init(){
 	_rxFrame_clear(&recvBuff[0]);
 	_rxFrame_clear(&recvBuff[1]);
 }
 
+void xbee_register_callback(xbee_cb_t t){
+	recvBuff[0].callback = t;
+	recvBuff[1].callback = t;
+}
+
 void xbee_enterCmdMode(){
 	//Send '+++' to enter command mode guarded by 1 sec on each side
-	printf("Configuring Xbee for API mode...\n");
+	HAHADEBUG("Configuring XBee for API Mode...\n");
 	delay(1000);
 	uart_write("+++", 3);
 	delay(1000);
-	//Make sure returned 'OK<cr>'
-	uint8_t ret = 0;
-	SET_RX_CB_OFF;
-	while(ret < 3){
-		ret = uart_read();
-	}
+	//Make sure returned 'OK<cr>' (get 3 next 3 bytes from UART)
+	_get_UART_Data(3);
 	//Clear the buffered message
 	uart_clearbuffer();
-	SET_RX_CB_ON;
+	//SET_RX_CB_ON;
 }
 
 void xbee_leaveCmdMode(){
-	printf("Xbee leaving command mode...\n");
+	HAHADEBUG("Xbee leaving command mode...\n");
 	SET_RX_CB_OFF;
 	uart_write("ATCN\r", 5);
+	/* Get OK<CR> from UART */
+	_get_UART_Data(3);
 	SET_RX_CB_ON;
 }
 
@@ -62,18 +85,16 @@ void xbee_leaveCmdMode(){
  * @return      [description]
  */
 uint8_t calc_checksum(char *data, uint8_t len){
+	HAHADEBUG("Calculating checksum\n");
 	uint16_t total = 0;
 	for(int i=0; i<len; ++i){
 		total+= data[i];
 	}
-	printf("calcchecksum:%cEND", total);
 	return 0xFF - total;
 }
 
 /* Exposed send function */
-/* Assumes data is null-terminated */
-//TODO: This should be modified to take a size argument
-uint8_t xbee_send(char* dst, char* data)
+uint8_t xbee_send(char* dst, char* data, uint8_t datalen)
 {
 	HAHADEBUG("In xbee_send\n");
 	uint8_t len2 = 0, len = strlen(dst);
@@ -82,11 +103,11 @@ uint8_t xbee_send(char* dst, char* data)
 	//Convert the destination to Hex
 	len /= 2; /* each byte = 2chars */
 	while(len2 < len){
-		txData1.dst[len2] = asciihex_to_byte(dst[2*len2], dst[2*len2 + 1]);
+		txData.dst[len2] = asciihex_to_byte(dst[2*len2], dst[2*len2 + 1]);
 		len2++;
 	}
 
-	_xbee_send(data, strlen(data));
+	_xbee_send(data, datalen);
 }
 
 /* Internal send function */
@@ -94,18 +115,18 @@ uint8_t _xbee_send(char* data, uint8_t len)
 {
 	HAHADEBUG("in _xbee_send\n");
 	//Generate the frame packet
-	txData1.frametype = 0x10;
-	txData1.frameid = 0x55; //TODO:generate this later
+	txData.frametype = 0x10;
+	txData.frameid = 0x55; //TODO:generate this later
 
 	//Reserved: FF FE
-	txData1.res[0] = 0xFF;
-	txData1.res[1] = 0xFE;
-	txData1.b_rad = 0;
-	txData1.opt = OPT_DIGIMESH;
-	txData1.data = data;
-	txData1.data_len = len;
+	txData.res[0] = 0xFF;
+	txData.res[1] = 0xFE;
+	txData.b_rad = 0;
+	txData.opt = OPT_DIGIMESH;
+	txData.data = data;
+	txData.data_len = len;
 
-	_xbee_sendFrame(&txData1);
+	_xbee_sendFrame(&txData);
 
 	return 0;
 }
@@ -158,6 +179,7 @@ void _xbee_sendFrame(frameTX *tx){
 	uart_write(&tx->checksum, 1);
 
 #ifdef DEBUG_PRINT
+	printf("Sent Packet:[");
 	printf("%c", startdelim);
 	printf("%c", len_msb );
 	printf("%c", len_lsb );
@@ -165,6 +187,7 @@ void _xbee_sendFrame(frameTX *tx){
 	for(int i=0; i<datalen; ++i)
 	printf("%c", buffFrameData[i]);
 	printf("%c",tx->checksum);
+	printf("]\n");
 #endif
 	
 	//uart_write(&startdelim, 1);
@@ -201,26 +224,6 @@ uint8_t xbee_setAPI(uint8_t type){
 //}rxPacketXbee;
 */
 
-void printPacket(frameRX *p){
-	printf("\n\n**rxPacketXbee Print**\n");
-	printf("length:%x\nframeType:%x\n", 
-				p->data_length,
-				p->frametype
-	);
-	printf("source:");
-	for(int i=0; i<8; ++i)
-		printf("%x",p->src[i]);
-	printf("\n");
-	printf("options:%x\n", p->opt);
-	char buff[101];
-	sprintf(buff, p->data, 100);
-	buff[101] = '\0';
-	printf("data:[");
-	printBuff(p->data, p->data_length,"%c");
-	printf("]");
-	printf("checksum:%x\n", p->checksum);
-}
-
 uint8_t xbee_recv(char* data, uint8_t len){
 	//Need to process packets
 	printf("xbee_recv processing %d->%c bytes:[", len, len);
@@ -231,7 +234,6 @@ uint8_t xbee_recv(char* data, uint8_t len){
 	static uint8_t currsrc = 0;
 	static uint8_t currres = 0;
 	static uint8_t currdata = 0;
-	static uint8_t datalen = 0;
 	uint8_t count = 0;
 	HAHADEBUG("\nParsing UART Data\n");
 	while(count < len){
@@ -253,9 +255,9 @@ uint8_t xbee_recv(char* data, uint8_t len){
 					break;
 			case 2: 
 					incoming->data_length |= data[count++];
-					datalen = incoming->data_length - 12; //12=other fields #of data //TODO: add a #define for this
+					incoming->payload_length = incoming->data_length - FRAME_RX_HEAD_LEN;
 					HAHADEBUG("LengthLSB incoming:%x data was:%x\n", incoming->data_length, data[count-1]);
-					HAHADEBUG("Computed Data Packet Length:%d\n", datalen);
+					HAHADEBUG("Computed Data Packet Length:%d\n", incoming->payload_length);
 					state++;
 					continue;
 					break;
@@ -295,9 +297,8 @@ uint8_t xbee_recv(char* data, uint8_t len){
 			case 7:
 					incoming->data[currdata++] = data[count++];
 					HAHADEBUG("Data[%d]:%c %c\n",currdata-1,incoming->data[currdata-1], data[count-1]);
-					if(currdata >= datalen){ 
-						HAHADEBUG("Data Finished: total:%d\n", datalen);
-						datalen= 0;
+					if(currdata >= incoming->payload_length){ 
+						HAHADEBUG("Data Finished: total:%d\n", incoming->payload_length);
 						currdata = 0; 
 						state++;
 					}
@@ -308,12 +309,13 @@ uint8_t xbee_recv(char* data, uint8_t len){
 					HAHADEBUG("Chksum:%c %c\n",incoming->checksum, data[count-1]);
 					state = 0;
 					#ifdef DEBUG_PRINT
-						printPacket(incoming);
+						//printPacket(incoming);
 					#endif
 					/* Handle Packet */
-					_packet_Handler(incoming);
+					_packet_Handler(incoming, incoming->frametype);
+					incoming->payload_length = 0;
 					RXBUFF_CUR = !RXBUFF_CUR;
-					printf("xBeePacket CurrentBuff:%d[%x]->%d[%x]", !RXBUFF_CUR,!RXBUFF_CUR, RXBUFF_CUR,RXBUFF_CUR);
+					printf("xBeePacket CurrentBuff:%d[%x]->%d[%x]\n", !RXBUFF_CUR,!RXBUFF_CUR, RXBUFF_CUR,RXBUFF_CUR);
 					incoming = &recvBuff[RXBUFF_CUR];
 					continue;
 					break;
@@ -324,7 +326,7 @@ uint8_t xbee_recv(char* data, uint8_t len){
 }
 
 /*Interal Functions */
-_rxFrame_clear(frameRX *p){
+static _rxFrame_clear(frameRX *p){
 	//uint8_t 	start;
 	//uint16_t 	length;
 	//uint8_t 	frameType;  1
@@ -338,6 +340,63 @@ _rxFrame_clear(frameRX *p){
 
 }
 
+/* Will eventually return number of bytes
+*  For now it gobbles them up
+*/
+static uint8_t _get_UART_Data(uint8_t numbytes){
+	HAHADEBUG("In _get_UART_Data\n");
+	uint8_t ret = 0;
+	//SET_RX_CB_OFF; //Future use maybe
+	while(ret < numbytes){
+		ret = uart_read();
+	}
+	//SET_RX_CB_ON;
+	return ret;
+}
+
+static void _packet_Handler(void* frame, uint8_t type){
+	HAHADEBUG("In Packet Handler\n");
+	switch(type){
+		case FRAME_MODEM_STATUS:
+		case FRAME_TX_STATUS:
+		case FRAME_ROUTE_INFO:
+		case FRAME_AGG_ADDR:
+		case FRAME_RX_EXPLICIT:
+		case FRAME_DATA_SAMPE:
+		case FRAME_NODE_ID:
+		case FRAME_REMOTE_RESP:
+					break;
+		case FRAME_RX:
+					;
+					frameRX *p = (frameRX*)frame;
+					//printPacket(p);
+					(p->callback)(p->data,p->payload_length);
+					break;
+		default:
+					printf("Got to default\n");
+	}
+}
+
+/* Prints a RX Frame Packet */
+static void _print_Packet(frameRX *p){
+	printf("\n\n**rxPacketXbee Print**\n");
+	printf("length:%x\nframeType:%x\n",
+	p->data_length,
+	p->frametype
+	);
+	printf("source:");
+	for(int i=0; i<8; ++i)
+	printf("%x",p->src[i]);
+	printf("\n");
+	printf("options:%x\n", p->opt);
+	char buff[101];
+	sprintf(buff, p->data, 100);
+	buff[101] = '\0';
+	printf("data:[");
+	printBuff(p->data, p->data_length,"%c");
+	printf("]");
+	printf("checksum:%x\n", p->checksum);
+}
 
 
 

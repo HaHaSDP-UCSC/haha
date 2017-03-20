@@ -25,19 +25,14 @@ static void tx_cb_USART_1_0(const struct usart_async_descriptor *const io_descr)
 static void rx_cb(const struct usart_async_descriptor *const io_descr)
 {
 	/* RX completed */
-	//We have the option of turning this off with the switch
-	//if(!IS_RX_CB_ON) return;
-	//Send every byte received to xbee
-	//xbee_recv(io_descr->rx.buf, io_descr->rx.size)
-	//uart_read();
+	//RX_CB_ON and _OFF can be used here for future
 }
 
 void uart_init_irqs(void)
 {
 	usart_async_register_callback(&USART_1_0, USART_ASYNC_TXC_CB, tx_cb_USART_1_0);
-	/*usart_async_register_callback(&USART_1_0, USART_ASYNC_RXC_CB, rx_cb);
-	usart_async_register_callback(&USART_1_0, USART_ASYNC_ERROR_CB, err_cb);*/
 	usart_async_register_callback(&USART_1_0, USART_ASYNC_RXC_CB, rx_cb);
+	/*usart_async_register_callback(&USART_1_0, USART_ASYNC_ERROR_CB, err_cb);*/
 	usart_async_get_io_descriptor(&USART_1_0, &usart_io);
 	usart_async_enable(&USART_1_0);
 	SET_RX_CB_OFF;
@@ -50,11 +45,14 @@ uint8_t uart_write(uint8_t* data, size_t size){
 	//for(int i=0; i<size; ++i){
 		//printf("%x", data[i]);
 	//}
+
 	//We block if the last one hasn't finished yet
 	while(!usart_async_is_tx_empty(&USART_1_0));
-	//txdone = 0;
+	
 	return io_write(usart_io, data, size);
 
+	/////////////////////////////////
+	/* A possible update for later */
 	//If its larger than txbufflen we need to queue it
 	//Send the first 16
 	//if(size > 16){
@@ -74,12 +72,12 @@ uint8_t uart_write(uint8_t* data, size_t size){
 	//return io_write(usart_io, data, size);
 }
 
-void print_data(uint8_t *t, int len ){
-	printf("Printing Received Data:\n");
-	for(int i=0; i<len; ++i)
-	printf("%c", t[i]);
-	printf("\n");
-}
+//void print_data(uint8_t *t, int len ){
+	//printf("Printing Received Data:\n");
+	//for(int i=0; i<len; ++i)
+	//printf("%c", t[i]);
+	//printf("\n");
+//}
 
 uint8_t uart_read(){
 	//printf("uart_read()");
@@ -95,16 +93,17 @@ uint8_t uart_read(){
 	if(data_received >= USART_BUF_SIZE || (data_received && (timeout++ > 100000))) {
 		HAHADEBUG("Processing UART Received Data.\n");
 		if(SEND_XBEE){
-			printf("sendxbeerunning\n");
+			HAHADEBUG("Sending Received Data To Xbee Handler\n");
 			xbee_recv(uart_buffer[CURRENT_BUFFER], data_received);
 		}
 		else{
-			printf("NOTsendxbeerunning\n");
-			print_data(uart_buffer[CURRENT_BUFFER], data_received); // Process data
+			HAHADEBUG("Sending Received Data To Printer\n");
+			//print_data(uart_buffer[CURRENT_BUFFER], data_received); // Process data
+			printBuff(uart_buffer[CURRENT_BUFFER], data_received, "%c");
 		}
 		data_received = 0;
 		CURRENT_BUFFER = !CURRENT_BUFFER;
-		printf("UART CurrentBuff:%d[%x]->%d[%x]", !CURRENT_BUFFER,!CURRENT_BUFFER, CURRENT_BUFFER,CURRENT_BUFFER);
+		HAHADEBUG("UART CurrentBuff:%d[%x]->%d[%x]\n", !CURRENT_BUFFER,!CURRENT_BUFFER, CURRENT_BUFFER,CURRENT_BUFFER);
 		timeout = 0;
 	}
 	return data_received;
