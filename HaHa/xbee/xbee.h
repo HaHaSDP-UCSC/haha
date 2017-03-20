@@ -61,29 +61,29 @@ void xbee_register_callback(xbee_cb_t t);
 /* RX */
 #define FRAME_RX_HEAD_LEN 12
 typedef struct {
-	uint16_t 	data_length; /* total in frame's data field */
-	uint8_t		frametype;
-	uint8_t 	src[8];
-	uint8_t 	res[2];
-	uint8_t 	opt;
-	uint8_t		data[100];
-	uint8_t		checksum;
-	uint8_t		payload_length;
-	xbee_cb_t	callback;
+    uint16_t 	data_length; /* total in frame's data field */
+    uint8_t		frametype;
+    uint8_t 	src[8];
+    uint8_t 	res[2];
+    uint8_t 	opt;
+    uint8_t		data[100];
+    uint8_t		checksum;
+    uint8_t		payload_length;
+    xbee_cb_t	callback;
 }frameRX;
 
 /* TX */
 #define FRAME_TX_HEAD_LEN 14 /* Length of tx frame header info */
 typedef struct {
-	uint16_t data_len;
-	uint8_t frametype;
-	uint8_t frameid;
-	uint8_t dst[8]; //change to char* -- no just make a wrapper function
-	uint8_t res[2]; //chat to char*
-	uint8_t b_rad;
-	uint8_t opt;
-	char*	data;
-	uint8_t checksum;
+    uint16_t data_len;
+    uint8_t frametype;
+    uint8_t frameid;
+    uint8_t dst[8]; //change to char* -- no just make a wrapper function
+    uint8_t res[2]; //chat to char*
+    uint8_t b_rad;
+    uint8_t opt;
+    char*	data;
+    uint8_t checksum;
 }frameTX;
 
 

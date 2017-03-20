@@ -26,6 +26,13 @@
 		--Options
 		---Text Editor
 		----All Language: tick Line Numbers
+    (c) TABS->SPACES AND SMART TABS
+        TOOLS
+        --Options
+        ---Text Editor
+        ----All Languages
+        -----Tabs
+        ------Smart, Insert Spaces
 
 2) EXTENSIONS
 	(a) GIT
