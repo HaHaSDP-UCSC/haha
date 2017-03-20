@@ -16,11 +16,12 @@
 #define FALSE	0
 
 /*For debugging */
+
 #define DEBUG_PRINT 1
 #ifdef DEBUG_PRINT
-#define DPRINTF(format, args...) printf(format, ## args)
+#define HAHADEBUG(format, args...) printf(format, ## args)
 #else
-#define DPRINTF(format, args...)
+#define HAHADEBUG(format, args...)
 #endif
 
 //typedef enum printType {CHAR, HEX, INT};

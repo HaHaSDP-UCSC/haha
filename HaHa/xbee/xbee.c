@@ -26,21 +26,6 @@ frameTX txData1;
 
 uint8_t RXBUFF_CUR = 0;
 
-
-const char get_own_mac_low[] = 			"7E00040852534C06"; 	// AT+SL
-const char get_own_mac_high[]= 			"7E0004085253480A"; 	// AT+SH
-const char set_own_net_address[]= 		"7E000608524D59000000";	// AT+MY
-const char get_own_net_address[]= 		"7E000408524D59FF";		// AT+MY
-const char set_api_mode[] = 			"7E0005085241500113";	// AT+AP
-const char* const table_CORE[] =
-{
-	get_own_mac_low, 		// 0
-	get_own_mac_high,		// 1
-	set_own_net_address,	// 2
-	get_own_net_address,	// 3
-	set_api_mode,
-};
-
 void xbee_init(){
 	_rxFrame_clear(&recvBuff[0]);
 	_rxFrame_clear(&recvBuff[1]);
@@ -90,6 +75,7 @@ uint8_t calc_checksum(char *data, uint8_t len){
 //TODO: This should be modified to take a size argument
 uint8_t xbee_send(char* dst, char* data)
 {
+	HAHADEBUG("In xbee_send\n");
 	uint8_t len2 = 0, len = strlen(dst);
 	if(len != 16) return -1; //error
 
@@ -106,6 +92,7 @@ uint8_t xbee_send(char* dst, char* data)
 /* Internal send function */
 uint8_t _xbee_send(char* data, uint8_t len)
 {
+	HAHADEBUG("in _xbee_send\n");
 	//Generate the frame packet
 	txData1.frametype = 0x10;
 	txData1.frameid = 0x55; //TODO:generate this later
@@ -124,7 +111,7 @@ uint8_t _xbee_send(char* data, uint8_t len)
 }
 
 uint8_t _frame_TX_tochar(char* buff, frameTX *txData, int size){
-	printf("inTXChar:");
+	HAHADEBUG("In _frame_TX_tochar\n");
 	buff[0] = txData->frametype;
 	buff[1] = txData->frameid;
 	buff[2] = txData->dst[0];
@@ -152,40 +139,33 @@ uint8_t _frame_TX_tochar(char* buff, frameTX *txData, int size){
 }
 
 void _xbee_sendFrame(frameTX *tx){
+	HAHADEBUG("_xbee_sendFrame\n");
 	/* Convert the data to a char* */
 	uint8_t datalen = FRAME_TX_HEAD_LEN+tx->data_len;
-	printf("buffsize:%d\n",FRAME_TX_HEAD_LEN+tx->data_len);
 	char buffFrameData[datalen];
 	_frame_TX_tochar(buffFrameData, tx, tx->data_len);
 	tx->checksum = calc_checksum(buffFrameData, datalen);
-	printf("checksum:%d", tx->checksum);
-	printf("printing buffer:");
-	printBuff(buffFrameData, datalen, "%c");
-	printf("END");
-	//tx.framedata = buffFrameData;
-	//tx.framedata_len = FRAME_TX_HEAD_LEN + txData.data_len;
 
 	/* Gotta split the 16bit int into two 8bits */
 	uint8_t len_msb = ((datalen >> 8) & 0xFF);
 	uint8_t len_lsb = ((datalen >> 0) & 0xFF);
-	printf("len:%x",datalen);
-	printf("lenhi:%x", len_msb);
-	printf("lenlo:%x", len_lsb);
+	
+	/*Send out the UART */
 	uart_write(&startdelim, 1);
 	uart_write(&len_msb, 1);
 	uart_write(&len_lsb, 1);
-	//uart_write(&tx->frametype, 1);
 	uart_write(buffFrameData, datalen);
 	uart_write(&tx->checksum, 1);
-	
+
+#ifdef DEBUG_PRINT
 	printf("%c", startdelim);
 	printf("%c", len_msb );
 	printf("%c", len_lsb );
 	printf("%c",tx->data_len);
-	//printf("%c",tx->frametype);
 	for(int i=0; i<datalen; ++i)
 	printf("%c", buffFrameData[i]);
 	printf("%c",tx->checksum);
+#endif
 	
 	//uart_write(&startdelim, 1);
 	//uart_write(&zero, 1);
@@ -235,12 +215,17 @@ void printPacket(frameRX *p){
 	char buff[101];
 	sprintf(buff, p->data, 100);
 	buff[101] = '\0';
-	printf("data:%sDATAEND\n", buff);
+	printf("data:[");
+	printBuff(p->data, p->data_length,"%c");
+	printf("]");
 	printf("checksum:%x\n", p->checksum);
 }
 
 uint8_t xbee_recv(char* data, uint8_t len){
 	//Need to process packets
+	printf("xbee_recv processing %d->%c bytes:[", len, len);
+	printBuff(data, len, "%c");
+	printf("]");
 	frameRX *incoming = &recvBuff[RXBUFF_CUR];
 	static uint8_t state = 0;
 	static uint8_t currsrc = 0;
@@ -248,43 +233,43 @@ uint8_t xbee_recv(char* data, uint8_t len){
 	static uint8_t currdata = 0;
 	static uint8_t datalen = 0;
 	uint8_t count = 0;
-	DPRINTF("Parsing UART Data\n");
+	HAHADEBUG("Parsing UART Data\n");
 	while(count < len){
-		//DPRINTF("Running While Loop count:%d len:%d data:%c\n",count, len,incoming->data[count]);
+		//HAHADEBUG("Running While Loop count:%d len:%d data:%c\n",count, len,incoming->data[count]);
 		switch(state){
 			case 0:
 					if(data[count++] == startdelim){
-						DPRINTF("Delim:%x\n", data[count-1]);
-						//incoming->start = data[0];
+						HAHADEBUG("Delim:%x\n", data[count-1]);
 						state++;
 						continue;
 					}
 					break;
 			case 1:
-					incoming->data_length = data[count++] << 8;
-					DPRINTF("LengthMSB incoming:%x data:%x\n", incoming->data_length, data[count-1]);
+					incoming->data_length = data[count++];
+					incoming->data_length << 8;
+					HAHADEBUG("LengthMSB incoming:%x data was:%x\n", incoming->data_length, data[count-1]);
 					state++;
 					continue;
 					break;
 			case 2: 
 					incoming->data_length |= data[count++];
-					datalen = incoming->data_length - 12; //12=other fields #of data
-					DPRINTF("LengthLSB incoming:%x data:%x\n", incoming->data_length, data[count-1]);
+					datalen = incoming->data_length - 12; //12=other fields #of data //TODO: add a #define for this
+					HAHADEBUG("LengthLSB incoming:%x data was:%x\n", incoming->data_length, data[count-1]);
 					state++;
 					continue;
 					break;
 			case 3:
 					incoming->frametype = data[count++];
-					DPRINTF("Frame:%x\n", data[count-1]);
+					HAHADEBUG("Frame:%x\n", data[count-1]);
 					if(incoming->frametype != 0x90){ state=0; continue;}
 					state++;
 					continue;
 					break;
 			case 4:
 					incoming->src[currsrc++] = data[count++];
-					DPRINTF("Src[%d]:%x->%x\n",currsrc-1,incoming->src[currsrc-1], data[count-1]);
+					HAHADEBUG("Src[%d]:%x->%x\n",currsrc-1,incoming->src[currsrc-1], data[count-1]);
 					if(currsrc >= 8){ 
-						DPRINTF("ResEnd:\n");
+						HAHADEBUG("ResEnd:\n");
 						currsrc = 0; 
 						state++; 
 					}
@@ -292,9 +277,9 @@ uint8_t xbee_recv(char* data, uint8_t len){
 					break;
 			case 5:
 					incoming->res[currres++] = data[count++];
-					DPRINTF("Res[%d]:%x->%x\n",currres-1,incoming->res[currres-1], data[count-1]);
+					HAHADEBUG("Res[%d]:%x->%x\n",currres-1,incoming->res[currres-1], data[count-1]);
 					if(currres >= 2){ 
-						DPRINTF("SrcEnd:\n");
+						HAHADEBUG("SrcEnd:\n");
 						currres = 0; 
 						state++; 
 				}
@@ -302,15 +287,15 @@ uint8_t xbee_recv(char* data, uint8_t len){
 					break;
 			case 6:
 					incoming->opt = data[count++];
-					DPRINTF("Opt:%x\n", data[count-1]);
+					HAHADEBUG("Opt:%x\n", data[count-1]);
 					state++;
 					continue;
 					break;
 			case 7:
 					incoming->data[currdata++] = data[count++];
-					DPRINTF("Data[%d]:%c %c\n",currdata-1,incoming->data[currdata-1], data[count-1]);
+					HAHADEBUG("Data[%d]:%c %c\n",currdata-1,incoming->data[currdata-1], data[count-1]);
 					if(currdata >= datalen){ 
-						DPRINTF("Data Finished: total:%d\n", datalen);
+						HAHADEBUG("Data Finished: total:%d\n", datalen);
 						datalen= 0; 
 						state++;
 					}
@@ -318,10 +303,12 @@ uint8_t xbee_recv(char* data, uint8_t len){
 					break;
 			case 8:
 					incoming->checksum = data[count++];
-					DPRINTF("Chksum:%c %c\n",incoming->checksum, data[count-1]);
+					HAHADEBUG("Chksum:%c %c\n",incoming->checksum, data[count-1]);
 					state = 0;
-					RXBUFF_CUR = !RXBUFF_CUR;
 					printPacket(incoming);
+					RXBUFF_CUR = !RXBUFF_CUR;
+					printf("xBeePacket CurrentBuff:%d[%x]->%d[%x]", !RXBUFF_CUR,!RXBUFF_CUR, RXBUFF_CUR,RXBUFF_CUR);
+					incoming = &recvBuff[RXBUFF_CUR];
 					continue;
 					break;
 			default:

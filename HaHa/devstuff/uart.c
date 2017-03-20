@@ -29,6 +29,7 @@ static void rx_cb(const struct usart_async_descriptor *const io_descr)
 	//if(!IS_RX_CB_ON) return;
 	//Send every byte received to xbee
 	//xbee_recv(io_descr->rx.buf, io_descr->rx.size)
+	//uart_read();
 }
 
 void uart_init_irqs(void)
@@ -41,6 +42,7 @@ void uart_init_irqs(void)
 	usart_async_enable(&USART_1_0);
 	SET_RX_CB_OFF;
 	SET_SEND_XBEE(FALSE);
+	CURRENT_BUFFER = 0;
 }
 
 uint8_t uart_write(uint8_t* data, size_t size){
@@ -80,17 +82,29 @@ void print_data(uint8_t *t, int len ){
 }
 
 uint8_t uart_read(){
+	//printf("uart_read()");
 	static int timeout = 0;
-	data_received += io_read(usart_io, &uart_buffer[data_received],
+	data_received += io_read(usart_io, &uart_buffer[CURRENT_BUFFER][data_received],
 	USART_BUF_SIZE - data_received);
-	if(data_received && SEND_XBEE){
-		xbee_recv(uart_buffer, data_received);
-		data_received = 0;
-	}
+	//if(data_received && SEND_XBEE){
+		//printf("sendxbeerunning\n");
+		//xbee_recv(uart_buffer, data_received);
+		//data_received = 0;
+	//}
 	
-	if(!SEND_XBEE && (data_received >= USART_BUF_SIZE || (data_received && (timeout++ > 100000)))) {
-		print_data(uart_buffer, data_received); // Process data
-		data_received = 0; // Reset received data counter
+	if(data_received >= USART_BUF_SIZE || (data_received && (timeout++ > 100000))) {
+		HAHADEBUG("Processing UART Received Data.\n");
+		if(SEND_XBEE){
+			printf("sendxbeerunning\n");
+			xbee_recv(uart_buffer[CURRENT_BUFFER], data_received);
+		}
+		else{
+			printf("NOTsendxbeerunning\n");
+			print_data(uart_buffer[CURRENT_BUFFER], data_received); // Process data
+		}
+		data_received = 0;
+		CURRENT_BUFFER = !CURRENT_BUFFER;
+		printf("UART CurrentBuff:%d[%x]->%d[%x]", !CURRENT_BUFFER,!CURRENT_BUFFER, CURRENT_BUFFER,CURRENT_BUFFER);
 		timeout = 0;
 	}
 	return data_received;
