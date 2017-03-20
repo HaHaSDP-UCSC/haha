@@ -726,6 +726,9 @@
     <Folder Include="xbee\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Atmel_Studio_Tips.txt">
+      <SubType>compile</SubType>
+    </None>
     <None Include="debughooks.py">
       <SubType>compile</SubType>
     </None>

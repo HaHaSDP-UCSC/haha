@@ -15,20 +15,14 @@ void _rxFrame_clear(frameRX *p);
 uint8_t _xbee_send(char* data, uint8_t len);
 uint8_t _frame_TX_tochar(char* buff, frameTX *txData, int size);
 
-/*
-StartDelimiter(1B) + Length(2B) +  Frame Data(variable) + Checksum(1B)
-*  ______________     ___________     __________________     __________
-* |              |   |     |     |   |                  |   |          |
-* |     0x7E     | + | MSB | LSB | + |    Frame Data    | + |  1 Byte  |
-* |______________|   |_____|_____|   |__________________|   |__________|
-*/
+
 
 const uint8_t startdelim = 0x7E;
 
 
 
 frameRX recvBuff[2];
-frameTX txData;
+frameTX txData1;
 
 uint8_t RXBUFF_CUR = 0;
 
@@ -83,10 +77,11 @@ void xbee_leaveCmdMode(){
  * @return      [description]
  */
 uint8_t calc_checksum(char *data, uint8_t len){
-	uint8_t total = 0;
+	uint16_t total = 0;
 	for(int i=0; i<len; ++i){
 		total+= data[i];
 	}
+	printf("calcchecksum:%cEND", total);
 	return 0xFF - total;
 }
 
@@ -101,7 +96,7 @@ uint8_t xbee_send(char* dst, char* data)
 	//Convert the destination to Hex
 	len /= 2; /* each byte = 2chars */
 	while(len2 < len){
-		txData.dst[len2] = asciihex_to_byte(dst[2*len2], dst[2*len2 + 1]);
+		txData1.dst[len2] = asciihex_to_byte(dst[2*len2], dst[2*len2 + 1]);
 		len2++;
 	}
 
@@ -112,23 +107,24 @@ uint8_t xbee_send(char* dst, char* data)
 uint8_t _xbee_send(char* data, uint8_t len)
 {
 	//Generate the frame packet
-	txData.frametype = 0x10;
-	txData.frameid = 0x01; //generate this later
+	txData1.frametype = 0x10;
+	txData1.frameid = 0x55; //TODO:generate this later
 
 	//Reserved: FF FE
-	txData.res[0] = 0xFF;
-	txData.res[1] = 0xFE;
-	txData.b_rad = 0;
-	txData.opt = OPT_DIGIMESH;
-	txData.data = data;
-	txData.data_len = len;
+	txData1.res[0] = 0xFF;
+	txData1.res[1] = 0xFE;
+	txData1.b_rad = 0;
+	txData1.opt = OPT_DIGIMESH;
+	txData1.data = data;
+	txData1.data_len = len;
 
-	_xbee_sendFrame(&txData);
+	_xbee_sendFrame(&txData1);
 
 	return 0;
 }
 
 uint8_t _frame_TX_tochar(char* buff, frameTX *txData, int size){
+	printf("inTXChar:");
 	buff[0] = txData->frametype;
 	buff[1] = txData->frameid;
 	buff[2] = txData->dst[0];
@@ -156,27 +152,35 @@ uint8_t _frame_TX_tochar(char* buff, frameTX *txData, int size){
 }
 
 void _xbee_sendFrame(frameTX *tx){
-	//tx->checksum = calc_checksum(tx);
-	//tx->frametype = ((*frameTX)tx).frametype;
-	//tx->checksum = calc_checksum(tx->framedata, tx->framedata_len);
-	printf("Sending Xbee:");
-
 	/* Convert the data to a char* */
 	uint8_t datalen = FRAME_TX_HEAD_LEN+tx->data_len;
+	printf("buffsize:%d\n",FRAME_TX_HEAD_LEN+tx->data_len);
 	char buffFrameData[datalen];
-	_frame_TX_tochar(buffFrameData, &tx, datalen);
+	_frame_TX_tochar(buffFrameData, tx, tx->data_len);
+	tx->checksum = calc_checksum(buffFrameData, datalen);
+	printf("checksum:%d", tx->checksum);
+	printf("printing buffer:");
+	printBuff(buffFrameData, datalen, "%c");
+	printf("END");
 	//tx.framedata = buffFrameData;
 	//tx.framedata_len = FRAME_TX_HEAD_LEN + txData.data_len;
-	uint8_t zero = 0;
+
+	/* Gotta split the 16bit int into two 8bits */
+	uint8_t len_msb = ((datalen >> 8) & 0xFF);
+	uint8_t len_lsb = ((datalen >> 0) & 0xFF);
+	printf("len:%x",datalen);
+	printf("lenhi:%x", len_msb);
+	printf("lenlo:%x", len_lsb);
 	uart_write(&startdelim, 1);
-	uart_write(&zero, 1);
-	uart_write(&tx->data_len, 1);
+	uart_write(&len_msb, 1);
+	uart_write(&len_lsb, 1);
 	//uart_write(&tx->frametype, 1);
 	uart_write(buffFrameData, datalen);
 	uart_write(&tx->checksum, 1);
 	
 	printf("%c", startdelim);
-	printf("%c", zero );
+	printf("%c", len_msb );
+	printf("%c", len_lsb );
 	printf("%c",tx->data_len);
 	//printf("%c",tx->frametype);
 	for(int i=0; i<datalen; ++i)

@@ -23,14 +23,12 @@
 #define DPRINTF(format, args...)
 #endif
 
+//typedef enum printType {CHAR, HEX, INT};
+
 /* Delays in ~ms */
- static void delay(uint32_t ms)
- {
-	 for (uint32_t i = 0; i < ms; i++) {
-		 for (uint32_t j = 0; j < 5000; j++)
-		 asm volatile ("nop");
-	 }
- }
+void delay(uint32_t ms);
+
+void printBuff(char* data, uint8_t len, char* specifier);
 
 /* Takes two char and converts to Hex */
 uint8_t asciihex_to_byte(uint8_t d1, uint8_t d2);

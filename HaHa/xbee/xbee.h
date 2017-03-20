@@ -37,6 +37,14 @@ uint8_t asciihex_to_byte(uint8_t t, uint8_t);
 
 
 /********** FRAMES **********/
+/*
+StartDelimiter(1B) + Length(2B) +  Frame Data(variable) + Checksum(1B)
+*  ______________     ___________     __________________     __________
+* |              |   |     |     |   |                  |   |          |
+* |     0x7E     | + | MSB | LSB | + |    Frame Data    | + |  1 Byte  |
+* |______________|   |_____|_____|   |__________________|   |__________|
+*/
+
 /* Receive Options */
 /* Note: Other bits not used */
 #define OPT_DIGIMESH	0x11000000
