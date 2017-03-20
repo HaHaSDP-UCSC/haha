@@ -233,7 +233,7 @@ uint8_t xbee_recv(char* data, uint8_t len){
 	static uint8_t currdata = 0;
 	static uint8_t datalen = 0;
 	uint8_t count = 0;
-	HAHADEBUG("Parsing UART Data\n");
+	HAHADEBUG("\nParsing UART Data\n");
 	while(count < len){
 		//HAHADEBUG("Running While Loop count:%d len:%d data:%c\n",count, len,incoming->data[count]);
 		switch(state){
@@ -255,6 +255,7 @@ uint8_t xbee_recv(char* data, uint8_t len){
 					incoming->data_length |= data[count++];
 					datalen = incoming->data_length - 12; //12=other fields #of data //TODO: add a #define for this
 					HAHADEBUG("LengthLSB incoming:%x data was:%x\n", incoming->data_length, data[count-1]);
+					HAHADEBUG("Computed Data Packet Length:%d\n", datalen);
 					state++;
 					continue;
 					break;
@@ -296,7 +297,8 @@ uint8_t xbee_recv(char* data, uint8_t len){
 					HAHADEBUG("Data[%d]:%c %c\n",currdata-1,incoming->data[currdata-1], data[count-1]);
 					if(currdata >= datalen){ 
 						HAHADEBUG("Data Finished: total:%d\n", datalen);
-						datalen= 0; 
+						datalen= 0;
+						currdata = 0; 
 						state++;
 					}
 					continue;
@@ -305,7 +307,11 @@ uint8_t xbee_recv(char* data, uint8_t len){
 					incoming->checksum = data[count++];
 					HAHADEBUG("Chksum:%c %c\n",incoming->checksum, data[count-1]);
 					state = 0;
-					printPacket(incoming);
+					#ifdef DEBUG_PRINT
+						printPacket(incoming);
+					#endif
+					/* Handle Packet */
+					_packet_Handler(incoming);
 					RXBUFF_CUR = !RXBUFF_CUR;
 					printf("xBeePacket CurrentBuff:%d[%x]->%d[%x]", !RXBUFF_CUR,!RXBUFF_CUR, RXBUFF_CUR,RXBUFF_CUR);
 					incoming = &recvBuff[RXBUFF_CUR];

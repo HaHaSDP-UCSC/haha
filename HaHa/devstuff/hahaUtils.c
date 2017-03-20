@@ -9,7 +9,7 @@
 #include <ctype.h>
 #include <stdio_start.h>
 
-
+/* Delay in ms */
 void delay(uint32_t ms)
 {
 	for (uint32_t i = 0; i < ms; i++) {
@@ -18,6 +18,7 @@ void delay(uint32_t ms)
 	}
 }
 
+/* Print out a buffer */
 void printBuff(char* data, uint8_t len, char* specifier){
 	 for(int i=0; i<len; ++i){
 		printf(specifier, data[i]);
