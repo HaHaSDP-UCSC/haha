@@ -1,0 +1,36 @@
+\hypertarget{hpl__irq_8h}{}\section{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/hal/include/hpl\+\_\+irq.h File Reference}
+\label{hpl__irq_8h}\index{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/hal/include/hpl\+\_\+irq.\+h@{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/hal/include/hpl\+\_\+irq.\+h}}
+
+
+I\+RQ related functionality declaration.  
+
+
+{\ttfamily \#include $<$compiler.\+h$>$}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct__irq__descriptor}{\+\_\+irq\+\_\+descriptor}
+\begin{DoxyCompactList}\small\item\em I\+RQ descriptor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{Indent}\textbf{ H\+PL functions}\par
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \hyperlink{group___h_p_l_ga082e8d19d78ab2cf2f63ded8530c7852}{\+\_\+irq\+\_\+get\+\_\+current} (void)
+\begin{DoxyCompactList}\small\item\em Retrieve current I\+RQ number. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gae6a80cff8a450795dc3f2d6df1a19464}{\+\_\+irq\+\_\+disable} (uint8\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Disable the given I\+RQ. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga7720726f19dfdda1561a042483c97a58}{\+\_\+irq\+\_\+set} (uint8\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Set the given I\+RQ. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga80f1b1a044a8773e23b38517296620b4}{\+\_\+irq\+\_\+clear} (uint8\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Clear the given I\+RQ. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gac8b7aa49ad81aecd34603b4dc23dd143}{\+\_\+irq\+\_\+enable} (uint8\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Enable the given I\+RQ. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga1ee85f2f8227e335c654b9085e9b7d5c}{\+\_\+irq\+\_\+register} (const uint8\+\_\+t number, struct \hyperlink{struct__irq__descriptor}{\+\_\+irq\+\_\+descriptor} $\ast$const irq)
+\begin{DoxyCompactList}\small\item\em Register I\+RQ handler. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\subsection{Detailed Description}
+I\+RQ related functionality declaration. 
+
+Copyright (C) 2014 Atmel Corporation. All rights reserved.

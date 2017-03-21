@@ -1,0 +1,77 @@
+\hypertarget{structuart__config}{}\section{uart\+\_\+config Struct Reference}
+\label{structuart__config}\index{uart\+\_\+config@{uart\+\_\+config}}
+
+
+Configuration structure for the U\+A\+RT module.  
+
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structuart__config_a9f1c46bb7135a0a5dc0bce4f9982dc5f}\label{structuart__config_a9f1c46bb7135a0a5dc0bce4f9982dc5f}} 
+uint8\+\_\+t {\bfseries number}
+\item 
+\mbox{\Hypertarget{structuart__config_a3002fe5cb1c359f93dddb9198356bdcc}\label{structuart__config_a3002fe5cb1c359f93dddb9198356bdcc}} 
+uint32\+\_\+t {\bfseries baud\+\_\+rate}
+\item 
+uint8\+\_\+t \hyperlink{structuart__config_a93ee24cf6669fb4cfece78a53d3ec6c5}{data\+\_\+bits}
+\item 
+uint8\+\_\+t \hyperlink{structuart__config_a7b98cd63c531110dc3dc99e94db73642}{stop\+\_\+bits}
+\item 
+uint8\+\_\+t \hyperlink{structuart__config_a9371728729252797880de052aae01089}{parity}
+\item 
+uint8\+\_\+t \hyperlink{structuart__config_a30a786254694bfca26d7985545b6ffc6}{flow\+\_\+control}
+\item 
+uint8\+\_\+t \hyperlink{structuart__config_a9fb83c1cf1226b2dc4371bb79699dd71}{prescaler}
+\item 
+uint32\+\_\+t \hyperlink{structuart__config_a07d92658a8aea18961c39878c11fa689}{clock\+\_\+frequence}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Configuration structure for the U\+A\+RT module. 
+
+This is the configuration structure for the U\+A\+RT Module in S\+A\+M\+B11. It is used as an argument for uart\+\_\+init to provide the desired configurations for the module. The structure should be initialized using the uart\+\_\+get\+\_\+config\+\_\+defaults . 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structuart__config_a07d92658a8aea18961c39878c11fa689}\label{structuart__config_a07d92658a8aea18961c39878c11fa689}} 
+\index{uart\+\_\+config@{uart\+\_\+config}!clock\+\_\+frequence@{clock\+\_\+frequence}}
+\index{clock\+\_\+frequence@{clock\+\_\+frequence}!uart\+\_\+config@{uart\+\_\+config}}
+\subsubsection{\texorpdfstring{clock\+\_\+frequence}{clock\_frequence}}
+{\footnotesize\ttfamily uint32\+\_\+t uart\+\_\+config\+::clock\+\_\+frequence}
+
+source clock frequency prescaler \mbox{\Hypertarget{structuart__config_a93ee24cf6669fb4cfece78a53d3ec6c5}\label{structuart__config_a93ee24cf6669fb4cfece78a53d3ec6c5}} 
+\index{uart\+\_\+config@{uart\+\_\+config}!data\+\_\+bits@{data\+\_\+bits}}
+\index{data\+\_\+bits@{data\+\_\+bits}!uart\+\_\+config@{uart\+\_\+config}}
+\subsubsection{\texorpdfstring{data\+\_\+bits}{data\_bits}}
+{\footnotesize\ttfamily uint8\+\_\+t uart\+\_\+config\+::data\+\_\+bits}
+
+Baud rate \mbox{\Hypertarget{structuart__config_a30a786254694bfca26d7985545b6ffc6}\label{structuart__config_a30a786254694bfca26d7985545b6ffc6}} 
+\index{uart\+\_\+config@{uart\+\_\+config}!flow\+\_\+control@{flow\+\_\+control}}
+\index{flow\+\_\+control@{flow\+\_\+control}!uart\+\_\+config@{uart\+\_\+config}}
+\subsubsection{\texorpdfstring{flow\+\_\+control}{flow\_control}}
+{\footnotesize\ttfamily uint8\+\_\+t uart\+\_\+config\+::flow\+\_\+control}
+
+Parity type \mbox{\Hypertarget{structuart__config_a9371728729252797880de052aae01089}\label{structuart__config_a9371728729252797880de052aae01089}} 
+\index{uart\+\_\+config@{uart\+\_\+config}!parity@{parity}}
+\index{parity@{parity}!uart\+\_\+config@{uart\+\_\+config}}
+\subsubsection{\texorpdfstring{parity}{parity}}
+{\footnotesize\ttfamily uint8\+\_\+t uart\+\_\+config\+::parity}
+
+Number of stop bits \mbox{\Hypertarget{structuart__config_a9fb83c1cf1226b2dc4371bb79699dd71}\label{structuart__config_a9fb83c1cf1226b2dc4371bb79699dd71}} 
+\index{uart\+\_\+config@{uart\+\_\+config}!prescaler@{prescaler}}
+\index{prescaler@{prescaler}!uart\+\_\+config@{uart\+\_\+config}}
+\subsubsection{\texorpdfstring{prescaler}{prescaler}}
+{\footnotesize\ttfamily uint8\+\_\+t uart\+\_\+config\+::prescaler}
+
+flow control type \mbox{\Hypertarget{structuart__config_a7b98cd63c531110dc3dc99e94db73642}\label{structuart__config_a7b98cd63c531110dc3dc99e94db73642}} 
+\index{uart\+\_\+config@{uart\+\_\+config}!stop\+\_\+bits@{stop\+\_\+bits}}
+\index{stop\+\_\+bits@{stop\+\_\+bits}!uart\+\_\+config@{uart\+\_\+config}}
+\subsubsection{\texorpdfstring{stop\+\_\+bits}{stop\_bits}}
+{\footnotesize\ttfamily uint8\+\_\+t uart\+\_\+config\+::stop\+\_\+bits}
+
+Number of data bits 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/hpl/uart/\hyperlink{hpl__uart_8c}{hpl\+\_\+uart.\+c}\end{DoxyCompactItemize}

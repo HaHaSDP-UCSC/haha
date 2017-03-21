@@ -14,12 +14,8 @@
 extern "C" {
 #endif
 
-#include <hal_timer.h>
-
 #include <hal_usart_sync.h>
 #include <hal_usart_async.h>
-
-extern struct timer_descriptor TIMER_0;
 
 extern struct usart_sync_descriptor  TARGET_IO;
 extern struct usart_async_descriptor USART_1_0;
@@ -82,9 +78,9 @@ enum ram_isr_table_index {
 	RAM_ISR_TABLE_BLE_CORE           = 47,
 };
 
-#define CONF_DMAC_MAX_USED_DESC (/*DUALTIMER0*/ 0 + /*CLOCK*/ 0 + /*UART0*/ 0 + /*UART1*/ 0)
+#define CONF_DMAC_MAX_USED_DESC (/*CLOCK*/ 0 + /*UART0*/ 0 + /*UART1*/ 0)
 
-#define CONF_DMAC_MAX_USED_CH (/*DUALTIMER0*/ 0 + /*CLOCK*/ 0 + /*UART0*/ 0 + /*UART1*/ 0)
+#define CONF_DMAC_MAX_USED_CH (/*CLOCK*/ 0 + /*UART0*/ 0 + /*UART1*/ 0)
 
 /**
  * \brief Perform system initialization, initialize pins and clocks for

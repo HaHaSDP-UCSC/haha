@@ -1,0 +1,140 @@
+\hypertarget{hpl__uart_8c}{}\section{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/hpl/uart/hpl\+\_\+uart.c File Reference}
+\label{hpl__uart_8c}\index{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/hpl/uart/hpl\+\_\+uart.\+c@{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/hpl/uart/hpl\+\_\+uart.\+c}}
+
+
+S\+AM Serial Communication Interface.  
+
+
+{\ttfamily \#include $<$utils\+\_\+assert.\+h$>$}\newline
+{\ttfamily \#include $<$utils.\+h$>$}\newline
+{\ttfamily \#include $<$hpl\+\_\+usart\+\_\+async.\+h$>$}\newline
+{\ttfamily \#include $<$hpl\+\_\+usart\+\_\+sync.\+h$>$}\newline
+{\ttfamily \#include $<$hpl\+\_\+uart\+\_\+config.\+h$>$}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structuart__config}{uart\+\_\+config}
+\begin{DoxyCompactList}\small\item\em Configuration structure for the U\+A\+RT module. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{hpl__uart_8c_ad97f1728892384250c4f93b4b4706e40}\label{hpl__uart_8c_ad97f1728892384250c4f93b4b4706e40}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+U\+A\+R\+T\+\_\+0\+\_\+\+E\+N\+A\+B\+LE}~0
+\item 
+\mbox{\Hypertarget{hpl__uart_8c_acbc19956936bba02e5387c2debd6aad5}\label{hpl__uart_8c_acbc19956936bba02e5387c2debd6aad5}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+U\+A\+R\+T\+\_\+1\+\_\+\+E\+N\+A\+B\+LE}~0
+\item 
+\#define \hyperlink{hpl__uart_8c_a5e9bdee638cdfc768258e0155df437fc}{U\+A\+R\+T\+\_\+\+A\+M\+O\+U\+NT}~(C\+O\+N\+F\+\_\+\+U\+A\+R\+T\+\_\+0\+\_\+\+E\+N\+A\+B\+LE + C\+O\+N\+F\+\_\+\+U\+A\+R\+T\+\_\+1\+\_\+\+E\+N\+A\+B\+LE)
+\item 
+\#define \hyperlink{hpl__uart_8c_a53b06f9eff53ee8bca1d489cc7be7597}{U\+A\+R\+T\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+ON}(n)
+\begin{DoxyCompactList}\small\item\em Macro is used to fill U\+A\+RT configuration structure based on its number. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \hyperlink{group___h_p_l_gad1cc7b8e72fd67fdeec8062c802eb25a}{\+\_\+usart\+\_\+sync\+\_\+init} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device, void $\ast$const hw)
+\begin{DoxyCompactList}\small\item\em Initialize synchronous U\+A\+RT. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group___h_p_l_ga11745e0bd0c9d636afbefae8e209665e}{\+\_\+usart\+\_\+async\+\_\+init} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device, void $\ast$const hw)
+\begin{DoxyCompactList}\small\item\em Initialize asynchronous U\+A\+RT. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gac046761a56aaedeba5acad135cab707c}{\+\_\+usart\+\_\+sync\+\_\+deinit} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em De-\/initialize U\+A\+RT. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga57e2ef9f6ec11c53a9d88bdb7a82aac4}{\+\_\+usart\+\_\+async\+\_\+deinit} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em De-\/initialize U\+A\+RT. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga5ca07057bde212b46f6547e5bdb876de}{\+\_\+usart\+\_\+sync\+\_\+enable} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Enable U\+A\+RT module. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga86c4101798d9dbc584f1e56615140d6f}{\+\_\+usart\+\_\+async\+\_\+enable} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Enable U\+A\+RT module. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gac021f29c77d8a9bfabfdd7433dbbb024}{\+\_\+usart\+\_\+sync\+\_\+disable} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Disable U\+A\+RT module. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gadb6751e5c270eb88eb754f45e7b8a91f}{\+\_\+usart\+\_\+async\+\_\+disable} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Disable U\+A\+RT module. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga882c8cecf50eb1276401d6874956b903}{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+baud\+\_\+rate} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device, const uint32\+\_\+t baud\+\_\+rate)
+\begin{DoxyCompactList}\small\item\em Set baud rate. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gab3211a57f9d6f2e355db5b67ce3fe905}{\+\_\+usart\+\_\+async\+\_\+set\+\_\+baud\+\_\+rate} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device, const uint32\+\_\+t baud\+\_\+rate)
+\begin{DoxyCompactList}\small\item\em Set baud rate. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga1b30e54d42d94ab59067e121d286d47a}{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+data\+\_\+order} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_ga426849bbd9655cec091101ebc9123eb4}{usart\+\_\+data\+\_\+order} order)
+\begin{DoxyCompactList}\small\item\em Set data order. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga8f29c61bfbc9298ba0e25be2980ddd15}{\+\_\+usart\+\_\+async\+\_\+set\+\_\+data\+\_\+order} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_ga426849bbd9655cec091101ebc9123eb4}{usart\+\_\+data\+\_\+order} order)
+\begin{DoxyCompactList}\small\item\em Set data order. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga2dd82ebe0069e4c61fda94ac0dda1a63}{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+mode} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_ga1c465965478e0f6908a4c99d4f3ad20f}{usart\+\_\+mode} mode)
+\begin{DoxyCompactList}\small\item\em Set mode. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gaee0a2babdf7b777fa4754028c92fc2e8}{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+parity} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_ga867cc5f0ea7d3bf651d68f0046cf6f41}{usart\+\_\+parity} parity)
+\begin{DoxyCompactList}\small\item\em Set parity. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga739cdfde316390a089c38355bc4f596e}{\+\_\+usart\+\_\+async\+\_\+set\+\_\+parity} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_ga867cc5f0ea7d3bf651d68f0046cf6f41}{usart\+\_\+parity} parity)
+\begin{DoxyCompactList}\small\item\em Set parity. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga93c7de4ab355c189e306288d21642ff3}{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+stop\+\_\+bits} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_ga88311517c5168c29a681604a8a33b06e}{usart\+\_\+stop\+\_\+bits} stop\+\_\+bits)
+\begin{DoxyCompactList}\small\item\em Set stop bits mode. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga7f2ef73e4b9da5be12fc0eabb97ab67b}{\+\_\+usart\+\_\+async\+\_\+set\+\_\+stop\+\_\+bits} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_ga88311517c5168c29a681604a8a33b06e}{usart\+\_\+stop\+\_\+bits} stop\+\_\+bits)
+\begin{DoxyCompactList}\small\item\em Set stop bits mode. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga45ebffe94571d266e42b3dd882ad559d}{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+character\+\_\+size} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_ga631ce7b4f60dccd392e6d6ef7d3cd4e2}{usart\+\_\+character\+\_\+size} size)
+\begin{DoxyCompactList}\small\item\em Set character size. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gaf834af5cc0738976ddbc200901aef105}{\+\_\+usart\+\_\+async\+\_\+set\+\_\+character\+\_\+size} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_ga631ce7b4f60dccd392e6d6ef7d3cd4e2}{usart\+\_\+character\+\_\+size} size)
+\begin{DoxyCompactList}\small\item\em Set character size. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___h_p_l_ga512c769b924d59433542bf347980334b}{\+\_\+usart\+\_\+sync\+\_\+get\+\_\+status} (const struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Retrieve uart status. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___h_p_l_ga09d708dc23dacf358d3de8a3a0545c1a}{\+\_\+usart\+\_\+async\+\_\+get\+\_\+status} (const struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Retrieve uart status. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga6f9cc0e2020d49845bef97301bc692e0}{\+\_\+usart\+\_\+sync\+\_\+write\+\_\+byte} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device, uint8\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em Write a byte to the given U\+A\+RT instance. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga3a2887cd1710eaad2df0e66b9e830faa}{\+\_\+usart\+\_\+async\+\_\+write\+\_\+byte} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device, uint8\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em Write a byte to the given U\+A\+RT instance. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group___h_p_l_gad6e42aaa92499103016d605362e35d97}{\+\_\+usart\+\_\+sync\+\_\+read\+\_\+byte} (const struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Read a byte from the given U\+A\+RT instance. \end{DoxyCompactList}\item 
+bool \hyperlink{group___h_p_l_ga8bad9999c03b728f47848b2337393ec4}{\+\_\+usart\+\_\+sync\+\_\+is\+\_\+byte\+\_\+sent} (const struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Check if U\+A\+RT is ready to send next byte. \end{DoxyCompactList}\item 
+bool \hyperlink{group___h_p_l_gaf96fbe9e0e063f4ae332451b7a540e2c}{\+\_\+usart\+\_\+async\+\_\+is\+\_\+byte\+\_\+sent} (const struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Check if U\+A\+RT is ready to send next byte. \end{DoxyCompactList}\item 
+bool \hyperlink{group___h_p_l_ga5bf04a89be94430de57acf53f9b35dd2}{\+\_\+usart\+\_\+sync\+\_\+is\+\_\+byte\+\_\+received} (const struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Check if there is data received by U\+A\+RT. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gae43bb6755eb8c462a9884e6cdca602aa}{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+flow\+\_\+control\+\_\+state} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device, const union \hyperlink{unionusart__flow__control__state}{usart\+\_\+flow\+\_\+control\+\_\+state} state)
+\begin{DoxyCompactList}\small\item\em Set the state of flow control pins. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gafdf581028b78744fccccae79d45a2078}{\+\_\+usart\+\_\+async\+\_\+set\+\_\+flow\+\_\+control\+\_\+state} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device, const union \hyperlink{unionusart__flow__control__state}{usart\+\_\+flow\+\_\+control\+\_\+state} state)
+\begin{DoxyCompactList}\small\item\em Set the state of flow control pins. \end{DoxyCompactList}\item 
+union \hyperlink{unionusart__flow__control__state}{usart\+\_\+flow\+\_\+control\+\_\+state} \hyperlink{group___h_p_l_ga5b6662f283d7a2791c7eed77635e9238}{\+\_\+usart\+\_\+sync\+\_\+get\+\_\+flow\+\_\+control\+\_\+state} (const struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Retrieve the state of flow control pins. \end{DoxyCompactList}\item 
+union \hyperlink{unionusart__flow__control__state}{usart\+\_\+flow\+\_\+control\+\_\+state} \hyperlink{group___h_p_l_gaa9850f9d97cb87f80fa615e95330ce35}{\+\_\+usart\+\_\+async\+\_\+get\+\_\+flow\+\_\+control\+\_\+state} (const struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Retrieve the state of flow control pins. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga5dcb14840b2011da3a1d0f774dafa28d}{\+\_\+usart\+\_\+async\+\_\+enable\+\_\+byte\+\_\+sent\+\_\+irq} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Enable data register empty interrupt. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga89bf3d02a7a3cca261900906ffd9ca76}{\+\_\+usart\+\_\+async\+\_\+enable\+\_\+tx\+\_\+done\+\_\+irq} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Enable transmission complete interrupt. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gadd7a2a78a76c6286f474bdce333c4904}{\+\_\+usart\+\_\+async\+\_\+set\+\_\+irq\+\_\+state} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_gace00dc77ac02c91f8bf35551b484927c}{\+\_\+usart\+\_\+async\+\_\+callback\+\_\+type} type, const bool state)
+\begin{DoxyCompactList}\small\item\em Enable/disable U\+A\+RT interrupt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+S\+AM Serial Communication Interface. 
+
+Copyright (C) 2016 Atmel Corporation. All rights reserved.
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{hpl__uart_8c_a5e9bdee638cdfc768258e0155df437fc}\label{hpl__uart_8c_a5e9bdee638cdfc768258e0155df437fc}} 
+\index{hpl\+\_\+uart.\+c@{hpl\+\_\+uart.\+c}!U\+A\+R\+T\+\_\+\+A\+M\+O\+U\+NT@{U\+A\+R\+T\+\_\+\+A\+M\+O\+U\+NT}}
+\index{U\+A\+R\+T\+\_\+\+A\+M\+O\+U\+NT@{U\+A\+R\+T\+\_\+\+A\+M\+O\+U\+NT}!hpl\+\_\+uart.\+c@{hpl\+\_\+uart.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+\+A\+M\+O\+U\+NT}{UART\_AMOUNT}}
+{\footnotesize\ttfamily \#define U\+A\+R\+T\+\_\+\+A\+M\+O\+U\+NT~(C\+O\+N\+F\+\_\+\+U\+A\+R\+T\+\_\+0\+\_\+\+E\+N\+A\+B\+LE + C\+O\+N\+F\+\_\+\+U\+A\+R\+T\+\_\+1\+\_\+\+E\+N\+A\+B\+LE)}
+
+Amount of U\+A\+RT. \mbox{\Hypertarget{hpl__uart_8c_a53b06f9eff53ee8bca1d489cc7be7597}\label{hpl__uart_8c_a53b06f9eff53ee8bca1d489cc7be7597}} 
+\index{hpl\+\_\+uart.\+c@{hpl\+\_\+uart.\+c}!U\+A\+R\+T\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+ON@{U\+A\+R\+T\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+ON}}
+\index{U\+A\+R\+T\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+ON@{U\+A\+R\+T\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+ON}!hpl\+\_\+uart.\+c@{hpl\+\_\+uart.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+ON}{UART\_CONFIGURATION}}
+{\footnotesize\ttfamily \#define U\+A\+R\+T\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+ON(\begin{DoxyParamCaption}\item[{}]{n }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{                                                                                                          
+              \(\backslash\)
+        (n), CONF\_UART\_##n##\_BAUD\_RATE, CONF\_UART\_##n##\_CHSIZE, CONF\_UART\_##n##\_SBMODE, CONF\_UART\_##n##
+      \_PARITY,        \(\backslash\)
+            CONF\_UART\_##n##\_FLOW\_CONTROL, CONF\_UART\_##n##\_CLOCK\_PRESCALER, CONF\_UART\_##n##\_CLOCK\_FREQUENCY,
+                  \(\backslash\)
+    \}
+\end{DoxyCode}
+
+
+Macro is used to fill U\+A\+RT configuration structure based on its number. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em n} & The number of structures \\
+\hline
+\end{DoxyParams}

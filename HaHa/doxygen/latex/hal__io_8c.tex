@@ -1,0 +1,31 @@
+\hypertarget{hal__io_8c}{}\section{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/hal/src/hal\+\_\+io.c File Reference}
+\label{hal__io_8c}\index{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/hal/src/hal\+\_\+io.\+c@{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/hal/src/hal\+\_\+io.\+c}}
+
+
+IO functionality implementation.  
+
+
+{\ttfamily \#include $<$hal\+\_\+io.\+h$>$}\newline
+{\ttfamily \#include $<$utils\+\_\+assert.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{hal__io_8c_ae578001fe043b4cca7a0edd801cfe9c4}\label{hal__io_8c_ae578001fe043b4cca7a0edd801cfe9c4}} 
+\#define \hyperlink{hal__io_8c_ae578001fe043b4cca7a0edd801cfe9c4}{D\+R\+I\+V\+E\+R\+\_\+\+V\+E\+R\+S\+I\+ON}~0x00000001u
+\begin{DoxyCompactList}\small\item\em Driver version. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{hal__io_8c_a081053bb07051453fcafb199d9ff4504}\label{hal__io_8c_a081053bb07051453fcafb199d9ff4504}} 
+uint32\+\_\+t {\bfseries io\+\_\+get\+\_\+version} (void)
+\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__helper__io_ga81aac60d5ce6feb0c44f8937d7c02f14}{io\+\_\+write} (struct \hyperlink{structio__descriptor}{io\+\_\+descriptor} $\ast$const io\+\_\+descr, const uint8\+\_\+t $\ast$const buf, const uint16\+\_\+t length)
+\begin{DoxyCompactList}\small\item\em IO write interface. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__helper__io_gaf5e8722129933fa8e014144fd7505be6}{io\+\_\+read} (struct \hyperlink{structio__descriptor}{io\+\_\+descriptor} $\ast$const io\+\_\+descr, uint8\+\_\+t $\ast$const buf, const uint16\+\_\+t length)
+\begin{DoxyCompactList}\small\item\em IO read interface. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+IO functionality implementation. 
+
+Copyright (C) 2015 Atmel Corporation. All rights reserved.

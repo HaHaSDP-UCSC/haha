@@ -107,39 +107,33 @@
           <AcmeProjectActionInfo Action="File" Source="stdio_redirect/stdio_io.c" IsConfig="false" Hash="UrJDbXkOHViVdylqxwrS5Q" />
           <AcmeProjectActionInfo Action="File" Source="stdio_redirect/stdio_io.h" IsConfig="false" Hash="UYaiMoABsPInCz1RsJpDLA" />
           <AcmeProjectActionInfo Action="File" Source="main.c" IsConfig="false" Hash="k0AH7j+BrmdFhBPzCCMptA" />
-          <AcmeProjectActionInfo Action="File" Source="driver_init.c" IsConfig="false" Hash="2tDqmA+UD711WoKt3GZE7g" />
+          <AcmeProjectActionInfo Action="File" Source="driver_init.c" IsConfig="false" Hash="UQpi9u9AjNg71pkzm2zwBQ" />
           <AcmeProjectActionInfo Action="File" Source="driver_init.h" IsConfig="false" Hash="SltZtHb82r+2OH4A3Mgrew" />
-          <AcmeProjectActionInfo Action="File" Source="atmel_start_pins.h" IsConfig="false" Hash="KVIpEcDzQeKVubDVFu1j9A" />
-          <AcmeProjectActionInfo Action="File" Source="examples/driver_examples.h" IsConfig="false" Hash="Dg3mWumbWss8DJWQcpGC7g" />
+          <AcmeProjectActionInfo Action="File" Source="atmel_start_pins.h" IsConfig="false" Hash="HIUfyX2ODNag6BnlYhinSg" />
+          <AcmeProjectActionInfo Action="File" Source="examples/driver_examples.h" IsConfig="false" Hash="HMg6uvXzlWmVn3+wcd4HKg" />
           <AcmeProjectActionInfo Action="File" Source="examples/driver_examples.c" IsConfig="false" Hash="9Z8TiZOTy7kc6QxK+2PJkg" />
-          <AcmeProjectActionInfo Action="File" Source="hal/include/hal_timer.h" IsConfig="false" Hash="sIvhYIKyn8tUhrd5GFCTUQ" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hal_usart_async.h" IsConfig="false" Hash="NXUwpYZNEfkUh8Ir+M6bmQ" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hal_usart_sync.h" IsConfig="false" Hash="kVXWpGwgKyulDlCMSVp95Q" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_missing_features.h" IsConfig="false" Hash="vAzoGbU054TTH+gYslbAIQ" />
-          <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_timer.h" IsConfig="false" Hash="N4ikReB+OwFhHYK7TuXmjA" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_usart_async.h" IsConfig="false" Hash="IWgXoAE2w3eks9ZNNMGjFA" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_usart_sync.h" IsConfig="false" Hash="Ky06f1/meq0Z7kkTcw4f4Q" />
-          <AcmeProjectActionInfo Action="File" Source="hal/src/hal_timer.c" IsConfig="false" Hash="js/FnptfDLXOwYy2OQo4GA" />
           <AcmeProjectActionInfo Action="File" Source="hal/src/hal_usart_async.c" IsConfig="false" Hash="2ICy230i3mUMVSZbz0MRXg" />
           <AcmeProjectActionInfo Action="File" Source="hal/src/hal_usart_sync.c" IsConfig="false" Hash="iFGrnjhoo8l2JaY9Ks9hFg" />
           <AcmeProjectActionInfo Action="File" Source="hal/utils/include/parts.h" IsConfig="false" Hash="e1lYPtbC0xCC/Tkl0pO2Cw" />
           <AcmeProjectActionInfo Action="File" Source="hpl/core/hpl_core_port.h" IsConfig="false" Hash="YtBUToB/FufKdW6gt8XGPg" />
           <AcmeProjectActionInfo Action="File" Source="hpl/core/hpl_init.c" IsConfig="false" Hash="/VhvurqhsYi0FmTfNAQgBg" />
-          <AcmeProjectActionInfo Action="File" Source="hpl/dualtimer/hpl_dualtimer.c" IsConfig="false" Hash="fWlbK6T5+nmZg8Dz4ZfdSA" />
-          <AcmeProjectActionInfo Action="File" Source="hpl/dualtimer/hpl_dualtimer.h" IsConfig="false" Hash="nQTvKeDWKybvnI6yGr5RiQ" />
           <AcmeProjectActionInfo Action="File" Source="stdio_start.c" IsConfig="false" Hash="XIWlmmCCHbQfLAO7w5Aqew" />
           <AcmeProjectActionInfo Action="File" Source="stdio_start.h" IsConfig="false" Hash="5j2k69zdoQpbzluEyr/rHQ" />
           <AcmeProjectActionInfo Action="File" Source="atmel_start.h" IsConfig="false" Hash="2egLiIjDbiIMVY40GrF1qQ" />
           <AcmeProjectActionInfo Action="File" Source="atmel_start.c" IsConfig="false" Hash="TggT11yVSQznOIYPXesZFg" />
-          <AcmeProjectActionInfo Action="File" Source="config/hpl_dualtimer_config.h" IsConfig="true" Hash="Rw2dF8oW5E/9zMeRGROfsw" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_lpmcu_misc_regs_config.h" IsConfig="true" Hash="ZJSVdZN5Dh23J3xQYc0x9g" />
-          <AcmeProjectActionInfo Action="File" Source="config/hpl_uart_config.h" IsConfig="true" Hash="w3IuqFgCdyftGlfxNjLTsQ" />
-          <AcmeProjectActionInfo Action="File" Source="config/peripheral_clk_config.h" IsConfig="true" Hash="U+lIb0l/bSNTyMOJYl8Vig" />
+          <AcmeProjectActionInfo Action="File" Source="config/hpl_uart_config.h" IsConfig="true" Hash="e0IGsr0WpsLgOEu34y3f7Q" />
+          <AcmeProjectActionInfo Action="File" Source="config/peripheral_clk_config.h" IsConfig="true" Hash="yKLVS9RVUbmFHs4tNIvTOA" />
           <AcmeProjectActionInfo Action="File" Source="config/stdio_redirect_config.h" IsConfig="true" Hash="CKmkBk12sfr7mb+HRQBuzg" />
         </AcmeActionInfos>
       </AcmeProjectConfig>
     </AcmeProjectConfig>
-    <AtzipPath>.atmel-start-backup\Atmel_Start_7.atzip</AtzipPath>
+    <AtzipPath>.atmel-start-backup\Atmel_Start_8.atzip</AtzipPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
@@ -164,7 +158,6 @@
       <Value>../hal/include</Value>
       <Value>../hal/utils/include</Value>
       <Value>../hpl/core</Value>
-      <Value>../hpl/dualtimer</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
       <Value>../hpl/uart</Value>
@@ -198,7 +191,6 @@
       <Value>../hal/include</Value>
       <Value>../hal/utils/include</Value>
       <Value>../hpl/core</Value>
-      <Value>../hpl/dualtimer</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
       <Value>../hpl/uart</Value>
@@ -216,7 +208,6 @@
       <Value>../hal/include</Value>
       <Value>../hal/utils/include</Value>
       <Value>../hpl/core</Value>
-      <Value>../hpl/dualtimer</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
       <Value>../hpl/uart</Value>
@@ -251,7 +242,6 @@
       <Value>../hal/include</Value>
       <Value>../hal/utils/include</Value>
       <Value>../hpl/core</Value>
-      <Value>../hpl/dualtimer</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
       <Value>../hpl/uart</Value>
@@ -286,7 +276,6 @@
       <Value>../hal/include</Value>
       <Value>../hal/utils/include</Value>
       <Value>../hpl/core</Value>
-      <Value>../hpl/dualtimer</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
       <Value>../hpl/uart</Value>
@@ -305,7 +294,6 @@
       <Value>../hal/include</Value>
       <Value>../hal/utils/include</Value>
       <Value>../hpl/core</Value>
-      <Value>../hpl/dualtimer</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
       <Value>../hpl/uart</Value>
@@ -345,7 +333,6 @@
       <Value>../hal/include</Value>
       <Value>../hal/utils/include</Value>
       <Value>../hpl/core</Value>
-      <Value>../hpl/dualtimer</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
       <Value>../hpl/uart</Value>
@@ -381,7 +368,6 @@
       <Value>../hal/include</Value>
       <Value>../hal/utils/include</Value>
       <Value>../hpl/core</Value>
-      <Value>../hpl/dualtimer</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
       <Value>../hpl/uart</Value>
@@ -400,7 +386,6 @@
       <Value>../hal/include</Value>
       <Value>../hal/utils/include</Value>
       <Value>../hpl/core</Value>
-      <Value>../hpl/dualtimer</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
       <Value>../hpl/uart</Value>
@@ -428,7 +413,13 @@
     <Compile Include="atmel_start_pins.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Config\hpl_dualtimer_config.h">
+    <Compile Include="base\base.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="base\basecomm.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="base\basecomm.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Config\hpl_lpmcu_misc_regs_config.h">
@@ -452,16 +443,10 @@
     <Compile Include="Device_Startup\system_samb11.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="devstuff\hahaUtils.c">
+    <Compile Include="utils\hahaUtils.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="devstuff\uart.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="devstuff\uart.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="devstuff\hahaUtils.h">
+    <Compile Include="utils\hahaUtils.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="driver_init.c">
@@ -476,7 +461,7 @@
     <Compile Include="examples\driver_examples.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="haha\network.h">
+    <Compile Include="network\network.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hal\include\hal_atomic.h">
@@ -489,9 +474,6 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hal\include\hal_io.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="hal\include\hal_timer.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hal\include\hal_usart_async.h">
@@ -518,9 +500,6 @@
     <Compile Include="hal\include\hpl_missing_features.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="hal\include\hpl_timer.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="hal\include\hpl_usart.h">
       <SubType>compile</SubType>
     </Compile>
@@ -540,9 +519,6 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hal\src\hal_io.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="hal\src\hal_timer.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hal\src\hal_usart_async.c">
@@ -597,12 +573,6 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hpl\core\hpl_init.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="hpl\dualtimer\hpl_dualtimer.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="hpl\dualtimer\hpl_dualtimer.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hpl\gpio\hpl_gpio.c">
@@ -695,19 +665,28 @@
     <Compile Include="stdio_start.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="xbee\xbee.c">
+    <Compile Include="networkdevice\networkdevice.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="xbee\xbee.h">
+    <Compile Include="networkdevice\networkdevice.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="uart\uart.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="uart\uart.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Config\" />
     <Folder Include="Device_Startup\" />
-    <Folder Include="devstuff" />
+    <Folder Include="base" />
+    <Folder Include="button" />
+    <Folder Include="doc" />
+    <Folder Include="utils" />
     <Folder Include="examples\" />
-    <Folder Include="haha" />
+    <Folder Include="network" />
     <Folder Include="hal\" />
     <Folder Include="hal\include\" />
     <Folder Include="hal\src\" />
@@ -716,23 +695,23 @@
     <Folder Include="hal\utils\src\" />
     <Folder Include="hpl\" />
     <Folder Include="hpl\core\" />
-    <Folder Include="hpl\dualtimer\" />
     <Folder Include="hpl\gpio\" />
     <Folder Include="hpl\lpmcu_misc_regs\" />
     <Folder Include="hpl\uart\" />
     <Folder Include="hri\" />
+    <Folder Include="uart" />
     <Folder Include="stdio_redirect\" />
     <Folder Include="stdio_redirect\gcc\" />
-    <Folder Include="xbee\" />
+    <Folder Include="networkdevice" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Atmel_Studio_Tips.txt">
-      <SubType>compile</SubType>
-    </None>
     <None Include="debughooks.py">
       <SubType>compile</SubType>
     </None>
     <None Include="Device_Startup\samb11_sram.ld">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="doc\Atmel_Studio_Tips.txt">
       <SubType>compile</SubType>
     </None>
   </ItemGroup>

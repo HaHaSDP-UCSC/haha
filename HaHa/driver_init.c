@@ -11,8 +11,6 @@
 #include <hal_init.h>
 #include <hpl_irq.h>
 
-#include <hpl_dualtimer.h>
-
 #if CONF_DMAC_MAX_USED_DESC > 0
 #include <hpl_dma.h>
 #include <hpl_prov_dma_ctrl_v100.h>
@@ -31,22 +29,11 @@ uint32_t dmac_ch_used = CONF_DMAC_MAX_USED_CH;
 extern struct _irq_descriptor *_irq_table[PERIPH_COUNT_IRQn];
 extern void                    Default_Handler(void);
 
-struct timer_descriptor       TIMER_0;
 struct usart_async_descriptor USART_1_0;
 
 static uint8_t USART_1_0_buffer[USART_1_0_BUFFER_SIZE];
 
 struct usart_sync_descriptor TARGET_IO;
-
-/**
- * \brief Timer initialization function
- *
- * Enables Timer peripheral, clocks and initializes Timer driver
- */
-static void TIMER_0_init(void)
-{
-	timer_init(&TIMER_0, (uint8_t *)DUALTIMER0 + 0 * 0x20, _dt_get_timer());
-}
 
 void TARGET_IO_PORT_init(void)
 {
@@ -103,23 +90,6 @@ void USART_1_0_init(void)
 	USART_1_0_CLOCK_init();
 	usart_async_init(&USART_1_0, UART1, USART_1_0_buffer, USART_1_0_BUFFER_SIZE, (void *)NULL);
 	USART_1_0_PORT_init();
-}
-
-void DUALTIMER0_Handler(void)
-{
-	if (_irq_table[DUALTIMER0_IRQn]) {
-		_irq_table[DUALTIMER0_IRQn]->handler(_irq_table[DUALTIMER0_IRQn]->parameter);
-	} else {
-		Default_Handler();
-	}
-}
-
-void DUALTIMER0_register_isr(void)
-{
-	uint32_t *temp;
-
-	temp  = (uint32_t *)(RAM_ISR_TABLE_DUALTIMER * 4 + ISR_RAM_MAP_START_ADDRESS);
-	*temp = (uint32_t)DUALTIMER0_Handler;
 }
 
 void UART0_RX_Handler(void)
@@ -181,10 +151,6 @@ void UART1_register_isr(void)
 void system_init(void)
 {
 	init_mcu();
-
-	DUALTIMER0_register_isr();
-
-	TIMER_0_init();
 
 	UART0_register_isr();
 

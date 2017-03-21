@@ -1,0 +1,500 @@
+\hypertarget{group__doc__driver__hal__usart__async}{}\section{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}
+\label{group__doc__driver__hal__usart__async}\index{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structusart__async__callbacks}{usart\+\_\+async\+\_\+callbacks}
+\begin{DoxyCompactList}\small\item\em U\+S\+A\+RT callbacks. \end{DoxyCompactList}\item 
+struct \hyperlink{structusart__async__status}{usart\+\_\+async\+\_\+status}
+\begin{DoxyCompactList}\small\item\em U\+S\+A\+RT status Status descriptor holds the current status of transfer. \end{DoxyCompactList}\item 
+struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor}
+\begin{DoxyCompactList}\small\item\em Asynchronous U\+S\+A\+RT descriptor structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__doc__driver__hal__usart__async_ga6991341cd882eb58bccc1de667d1b336}{U\+S\+A\+R\+T\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+B\+U\+SY}~0x0001
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__doc__driver__hal__usart__async_ga430e4080a53e1f39c4d46da01200f633}\label{group__doc__driver__hal__usart__async_ga430e4080a53e1f39c4d46da01200f633}} 
+typedef void($\ast$ \hyperlink{group__doc__driver__hal__usart__async_ga430e4080a53e1f39c4d46da01200f633}{usart\+\_\+cb\+\_\+t}) (const struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} $\ast$const descr)
+\begin{DoxyCompactList}\small\item\em U\+S\+A\+RT callback type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__doc__driver__hal__usart__async_ga5a82ef383f62daa061a55838c8fc6d39}\label{group__doc__driver__hal__usart__async_ga5a82ef383f62daa061a55838c8fc6d39}} 
+enum \hyperlink{group__doc__driver__hal__usart__async_ga5a82ef383f62daa061a55838c8fc6d39}{usart\+\_\+async\+\_\+callback\+\_\+type} \{ {\bfseries U\+S\+A\+R\+T\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+R\+X\+C\+\_\+\+CB}, 
+{\bfseries U\+S\+A\+R\+T\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+T\+X\+C\+\_\+\+CB}, 
+{\bfseries U\+S\+A\+R\+T\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+E\+R\+R\+O\+R\+\_\+\+CB}
+ \}\begin{DoxyCompactList}\small\item\em U\+S\+A\+RT callback types. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__async_gaafe146c618b950c9715efb0fdc6a7484}{usart\+\_\+async\+\_\+init} (struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} $\ast$const descr, void $\ast$const hw, uint8\+\_\+t $\ast$const rx\+\_\+buffer, const uint16\+\_\+t rx\+\_\+buffer\+\_\+length, void $\ast$const func)
+\begin{DoxyCompactList}\small\item\em Initialize usart interface. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__async_gab7ef65ba7b4afd13cb11dcc72315ca43}{usart\+\_\+async\+\_\+deinit} (struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} $\ast$const descr)
+\begin{DoxyCompactList}\small\item\em De-\/initialize usart interface. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__async_gaa752e7d978b7f3bc35c97f9a7eb5f98a}{usart\+\_\+async\+\_\+enable} (struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} $\ast$const descr)
+\begin{DoxyCompactList}\small\item\em Enable usart interface. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__async_ga575b7b546a7357088530a9cebf60ad9a}{usart\+\_\+async\+\_\+disable} (struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} $\ast$const descr)
+\begin{DoxyCompactList}\small\item\em Disable usart interface. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__async_ga964be25acbad24e7d0cb9e72f5f5582f}{usart\+\_\+async\+\_\+get\+\_\+io\+\_\+descriptor} (struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} $\ast$const descr, struct \hyperlink{structio__descriptor}{io\+\_\+descriptor} $\ast$$\ast$io)
+\begin{DoxyCompactList}\small\item\em Retrieve IO descriptor. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__async_ga2d7d4ba3ab10f19c2e8a7901f2b6b276}{usart\+\_\+async\+\_\+register\+\_\+callback} (struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} $\ast$const descr, const enum \hyperlink{group__doc__driver__hal__usart__async_ga5a82ef383f62daa061a55838c8fc6d39}{usart\+\_\+async\+\_\+callback\+\_\+type} type, \hyperlink{group__doc__driver__hal__usart__async_ga430e4080a53e1f39c4d46da01200f633}{usart\+\_\+cb\+\_\+t} cb)
+\begin{DoxyCompactList}\small\item\em Register usart callback. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__async_gacbc3f9aec99169e42d49555cf829a3d1}{usart\+\_\+async\+\_\+set\+\_\+flow\+\_\+control} (struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} $\ast$const descr, const union \hyperlink{unionusart__flow__control__state}{usart\+\_\+flow\+\_\+control\+\_\+state} state)
+\begin{DoxyCompactList}\small\item\em Specify action for flow control pins. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__async_gab6bb473a5047ae890b1406ffcca3042d}{usart\+\_\+async\+\_\+set\+\_\+baud\+\_\+rate} (struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} $\ast$const descr, const uint32\+\_\+t baud\+\_\+rate)
+\begin{DoxyCompactList}\small\item\em Set usart baud rate. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__async_ga1ed416c72b54e87f8da098f148e0c7fc}{usart\+\_\+async\+\_\+set\+\_\+data\+\_\+order} (struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} $\ast$const descr, const enum \hyperlink{group___h_p_l_ga426849bbd9655cec091101ebc9123eb4}{usart\+\_\+data\+\_\+order} data\+\_\+order)
+\begin{DoxyCompactList}\small\item\em Set usart data order. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__async_ga8b2ee777456a88b7843366761a8356c9}{usart\+\_\+async\+\_\+set\+\_\+mode} (struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} $\ast$const descr, const enum \hyperlink{group___h_p_l_ga1c465965478e0f6908a4c99d4f3ad20f}{usart\+\_\+mode} mode)
+\begin{DoxyCompactList}\small\item\em Set usart mode. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__async_ga6cee441159bf41f74a105042fb6c8477}{usart\+\_\+async\+\_\+set\+\_\+parity} (struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} $\ast$const descr, const enum \hyperlink{group___h_p_l_ga867cc5f0ea7d3bf651d68f0046cf6f41}{usart\+\_\+parity} parity)
+\begin{DoxyCompactList}\small\item\em Set usart parity. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__async_ga1749b4fd6293a49428cf4baf74656dd5}{usart\+\_\+async\+\_\+set\+\_\+stopbits} (struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} $\ast$const descr, const enum \hyperlink{group___h_p_l_ga88311517c5168c29a681604a8a33b06e}{usart\+\_\+stop\+\_\+bits} stop\+\_\+bits)
+\begin{DoxyCompactList}\small\item\em Set usart stop bits. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__async_ga949ebae93032ed1a276be009cc1539d6}{usart\+\_\+async\+\_\+set\+\_\+character\+\_\+size} (struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} $\ast$const descr, const enum \hyperlink{group___h_p_l_ga631ce7b4f60dccd392e6d6ef7d3cd4e2}{usart\+\_\+character\+\_\+size} size)
+\begin{DoxyCompactList}\small\item\em Set usart character size. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__async_gaf451cb5a13be66b9357354b1b503c892}{usart\+\_\+async\+\_\+flow\+\_\+control\+\_\+status} (const struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} $\ast$const descr, union \hyperlink{unionusart__flow__control__state}{usart\+\_\+flow\+\_\+control\+\_\+state} $\ast$const state)
+\begin{DoxyCompactList}\small\item\em Retrieve the state of flow control pins. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__async_ga25db066e0587014aab7038cc9295b177}{usart\+\_\+async\+\_\+is\+\_\+tx\+\_\+empty} (const struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} $\ast$const descr)
+\begin{DoxyCompactList}\small\item\em Check if the usart transmitter is empty. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__async_gac8f1c592dc9a82c918eb5c7b2d036963}{usart\+\_\+async\+\_\+is\+\_\+rx\+\_\+not\+\_\+empty} (const struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} $\ast$const descr)
+\begin{DoxyCompactList}\small\item\em Check if the usart receiver is not empty. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__async_gabf0f8fdd20b3b586cb5c0d7fcd4e2114}{usart\+\_\+async\+\_\+get\+\_\+status} (struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} $\ast$const descr, struct \hyperlink{structusart__async__status}{usart\+\_\+async\+\_\+status} $\ast$const status)
+\begin{DoxyCompactList}\small\item\em Retrieve the current interface status. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__async_gaaccb76b1f2ca76451e29b1f674a0c646}{usart\+\_\+async\+\_\+flush\+\_\+rx\+\_\+buffer} (struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} $\ast$const descr)
+\begin{DoxyCompactList}\small\item\em flush usart ringbuf \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group__doc__driver__hal__usart__async_ga8fd83888546106a6a65e1951e4065d9f}{usart\+\_\+async\+\_\+get\+\_\+version} (void)
+\begin{DoxyCompactList}\small\item\em Retrieve the current driver version. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__doc__driver__hal__usart__async_ga6991341cd882eb58bccc1de667d1b336}\label{group__doc__driver__hal__usart__async_ga6991341cd882eb58bccc1de667d1b336}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}!U\+S\+A\+R\+T\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+B\+U\+SY@{U\+S\+A\+R\+T\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+B\+U\+SY}}
+\index{U\+S\+A\+R\+T\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+B\+U\+SY@{U\+S\+A\+R\+T\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+B\+U\+SY}!Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}}
+\subsubsection{\texorpdfstring{U\+S\+A\+R\+T\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+B\+U\+SY}{USART\_ASYNC\_STATUS\_BUSY}}
+{\footnotesize\ttfamily \#define U\+S\+A\+R\+T\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+B\+U\+SY~0x0001}
+
+U\+S\+A\+RT write busy 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group__doc__driver__hal__usart__async_gab7ef65ba7b4afd13cb11dcc72315ca43}\label{group__doc__driver__hal__usart__async_gab7ef65ba7b4afd13cb11dcc72315ca43}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}!usart\+\_\+async\+\_\+deinit@{usart\+\_\+async\+\_\+deinit}}
+\index{usart\+\_\+async\+\_\+deinit@{usart\+\_\+async\+\_\+deinit}!Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}}
+\subsubsection{\texorpdfstring{usart\+\_\+async\+\_\+deinit()}{usart\_async\_deinit()}}
+{\footnotesize\ttfamily int32\+\_\+t usart\+\_\+async\+\_\+deinit (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} $\ast$const}]{descr }\end{DoxyParamCaption})}
+
+
+
+De-\/initialize usart interface. 
+
+This function de-\/initializes the given IO descriptor. It checks if the given hardware is initialized and if the given hardware is permitted to be de-\/initialized.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em descr} & An usart descriptor which is used to communicate via U\+S\+A\+RT\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+De-\/initialization status. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__doc__driver__hal__usart__async_ga575b7b546a7357088530a9cebf60ad9a}\label{group__doc__driver__hal__usart__async_ga575b7b546a7357088530a9cebf60ad9a}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}!usart\+\_\+async\+\_\+disable@{usart\+\_\+async\+\_\+disable}}
+\index{usart\+\_\+async\+\_\+disable@{usart\+\_\+async\+\_\+disable}!Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}}
+\subsubsection{\texorpdfstring{usart\+\_\+async\+\_\+disable()}{usart\_async\_disable()}}
+{\footnotesize\ttfamily int32\+\_\+t usart\+\_\+async\+\_\+disable (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} $\ast$const}]{descr }\end{DoxyParamCaption})}
+
+
+
+Disable usart interface. 
+
+Disables the usart interface
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em descr} & An usart descriptor which is used to communicate via U\+S\+A\+RT\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Disabling status. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__doc__driver__hal__usart__async_gaa752e7d978b7f3bc35c97f9a7eb5f98a}\label{group__doc__driver__hal__usart__async_gaa752e7d978b7f3bc35c97f9a7eb5f98a}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}!usart\+\_\+async\+\_\+enable@{usart\+\_\+async\+\_\+enable}}
+\index{usart\+\_\+async\+\_\+enable@{usart\+\_\+async\+\_\+enable}!Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}}
+\subsubsection{\texorpdfstring{usart\+\_\+async\+\_\+enable()}{usart\_async\_enable()}}
+{\footnotesize\ttfamily int32\+\_\+t usart\+\_\+async\+\_\+enable (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} $\ast$const}]{descr }\end{DoxyParamCaption})}
+
+
+
+Enable usart interface. 
+
+Enables the usart interface
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em descr} & An usart descriptor which is used to communicate via U\+S\+A\+RT\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Enabling status. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__doc__driver__hal__usart__async_gaf451cb5a13be66b9357354b1b503c892}\label{group__doc__driver__hal__usart__async_gaf451cb5a13be66b9357354b1b503c892}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}!usart\+\_\+async\+\_\+flow\+\_\+control\+\_\+status@{usart\+\_\+async\+\_\+flow\+\_\+control\+\_\+status}}
+\index{usart\+\_\+async\+\_\+flow\+\_\+control\+\_\+status@{usart\+\_\+async\+\_\+flow\+\_\+control\+\_\+status}!Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}}
+\subsubsection{\texorpdfstring{usart\+\_\+async\+\_\+flow\+\_\+control\+\_\+status()}{usart\_async\_flow\_control\_status()}}
+{\footnotesize\ttfamily int32\+\_\+t usart\+\_\+async\+\_\+flow\+\_\+control\+\_\+status (\begin{DoxyParamCaption}\item[{const struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} $\ast$const}]{descr,  }\item[{union \hyperlink{unionusart__flow__control__state}{usart\+\_\+flow\+\_\+control\+\_\+state} $\ast$const}]{state }\end{DoxyParamCaption})}
+
+
+
+Retrieve the state of flow control pins. 
+
+This function retrieves the of flow control pins if the flow control is enabled. Function can return U\+S\+A\+R\+T\+\_\+\+F\+L\+O\+W\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+S\+T\+A\+T\+E\+\_\+\+U\+N\+A\+V\+A\+I\+L\+A\+B\+LE in case if the flow control is done by the hardware and pins state can not be read out.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em descr} & An usart descriptor which is used to communicate via U\+S\+A\+RT \\
+\hline
+\mbox{\tt out}  & {\em state} & The state of flow control pins\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The status of flow control state reading. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__doc__driver__hal__usart__async_gaaccb76b1f2ca76451e29b1f674a0c646}\label{group__doc__driver__hal__usart__async_gaaccb76b1f2ca76451e29b1f674a0c646}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}!usart\+\_\+async\+\_\+flush\+\_\+rx\+\_\+buffer@{usart\+\_\+async\+\_\+flush\+\_\+rx\+\_\+buffer}}
+\index{usart\+\_\+async\+\_\+flush\+\_\+rx\+\_\+buffer@{usart\+\_\+async\+\_\+flush\+\_\+rx\+\_\+buffer}!Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}}
+\subsubsection{\texorpdfstring{usart\+\_\+async\+\_\+flush\+\_\+rx\+\_\+buffer()}{usart\_async\_flush\_rx\_buffer()}}
+{\footnotesize\ttfamily int32\+\_\+t usart\+\_\+async\+\_\+flush\+\_\+rx\+\_\+buffer (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} $\ast$const}]{descr }\end{DoxyParamCaption})}
+
+
+
+flush usart ringbuf 
+
+This function flush usart rx ringbuf.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em descr} & The pointer to usart descriptor\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+E\+R\+R\+\_\+\+N\+O\+NE
+\end{DoxyReturn}
+flush usart ringbuf \mbox{\Hypertarget{group__doc__driver__hal__usart__async_ga964be25acbad24e7d0cb9e72f5f5582f}\label{group__doc__driver__hal__usart__async_ga964be25acbad24e7d0cb9e72f5f5582f}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}!usart\+\_\+async\+\_\+get\+\_\+io\+\_\+descriptor@{usart\+\_\+async\+\_\+get\+\_\+io\+\_\+descriptor}}
+\index{usart\+\_\+async\+\_\+get\+\_\+io\+\_\+descriptor@{usart\+\_\+async\+\_\+get\+\_\+io\+\_\+descriptor}!Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}}
+\subsubsection{\texorpdfstring{usart\+\_\+async\+\_\+get\+\_\+io\+\_\+descriptor()}{usart\_async\_get\_io\_descriptor()}}
+{\footnotesize\ttfamily int32\+\_\+t usart\+\_\+async\+\_\+get\+\_\+io\+\_\+descriptor (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} $\ast$const}]{descr,  }\item[{struct \hyperlink{structio__descriptor}{io\+\_\+descriptor} $\ast$$\ast$}]{io }\end{DoxyParamCaption})}
+
+
+
+Retrieve IO descriptor. 
+
+This function retrieves the IO descriptor of the given U\+S\+A\+RT descriptor.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em descr} & An usart descriptor which is used to communicate via U\+S\+A\+RT \\
+\hline
+\mbox{\tt out}  & {\em io} & An io descriptor to retrieve\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The status of IO descriptor retrieving. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__doc__driver__hal__usart__async_gabf0f8fdd20b3b586cb5c0d7fcd4e2114}\label{group__doc__driver__hal__usart__async_gabf0f8fdd20b3b586cb5c0d7fcd4e2114}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}!usart\+\_\+async\+\_\+get\+\_\+status@{usart\+\_\+async\+\_\+get\+\_\+status}}
+\index{usart\+\_\+async\+\_\+get\+\_\+status@{usart\+\_\+async\+\_\+get\+\_\+status}!Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}}
+\subsubsection{\texorpdfstring{usart\+\_\+async\+\_\+get\+\_\+status()}{usart\_async\_get\_status()}}
+{\footnotesize\ttfamily int32\+\_\+t usart\+\_\+async\+\_\+get\+\_\+status (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} $\ast$const}]{descr,  }\item[{struct \hyperlink{structusart__async__status}{usart\+\_\+async\+\_\+status} $\ast$const}]{status }\end{DoxyParamCaption})}
+
+
+
+Retrieve the current interface status. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em descr} & An usart descriptor which is used to communicate via U\+S\+A\+RT \\
+\hline
+\mbox{\tt out}  & {\em status} & The state of U\+S\+A\+RT\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The status of U\+S\+A\+RT status retrieving. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__doc__driver__hal__usart__async_ga8fd83888546106a6a65e1951e4065d9f}\label{group__doc__driver__hal__usart__async_ga8fd83888546106a6a65e1951e4065d9f}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}!usart\+\_\+async\+\_\+get\+\_\+version@{usart\+\_\+async\+\_\+get\+\_\+version}}
+\index{usart\+\_\+async\+\_\+get\+\_\+version@{usart\+\_\+async\+\_\+get\+\_\+version}!Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}}
+\subsubsection{\texorpdfstring{usart\+\_\+async\+\_\+get\+\_\+version()}{usart\_async\_get\_version()}}
+{\footnotesize\ttfamily uint32\+\_\+t usart\+\_\+async\+\_\+get\+\_\+version (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Retrieve the current driver version. 
+
+\begin{DoxyReturn}{Returns}
+Current driver version 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__doc__driver__hal__usart__async_gaafe146c618b950c9715efb0fdc6a7484}\label{group__doc__driver__hal__usart__async_gaafe146c618b950c9715efb0fdc6a7484}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}!usart\+\_\+async\+\_\+init@{usart\+\_\+async\+\_\+init}}
+\index{usart\+\_\+async\+\_\+init@{usart\+\_\+async\+\_\+init}!Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}}
+\subsubsection{\texorpdfstring{usart\+\_\+async\+\_\+init()}{usart\_async\_init()}}
+{\footnotesize\ttfamily int32\+\_\+t usart\+\_\+async\+\_\+init (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} $\ast$const}]{descr,  }\item[{void $\ast$const}]{hw,  }\item[{uint8\+\_\+t $\ast$const}]{rx\+\_\+buffer,  }\item[{const uint16\+\_\+t}]{rx\+\_\+buffer\+\_\+length,  }\item[{void $\ast$const}]{func }\end{DoxyParamCaption})}
+
+
+
+Initialize usart interface. 
+
+This function initializes the given IO descriptor to be used as U\+S\+A\+RT interface descriptor. It checks if the given hardware is not initialized and if the given hardware is permitted to be initialized.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em descr} & An usart descriptor which is used to communicate vias U\+S\+A\+RT \\
+\hline
+\mbox{\tt in}  & {\em hw} & The pointer to hardware instance \\
+\hline
+\mbox{\tt in}  & {\em rx\+\_\+buffer} & An rx buffer \\
+\hline
+\mbox{\tt in}  & {\em rx\+\_\+buffer\+\_\+length} & The length of the buffer above \\
+\hline
+\mbox{\tt in}  & {\em func} & The pointer to as set of functions pointers\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Initialization status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em -\/1} & Passed parameters were invalid or the interface is already initialized \\
+\hline
+{\em 0} & The initialization is completed successfully \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__doc__driver__hal__usart__async_gac8f1c592dc9a82c918eb5c7b2d036963}\label{group__doc__driver__hal__usart__async_gac8f1c592dc9a82c918eb5c7b2d036963}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}!usart\+\_\+async\+\_\+is\+\_\+rx\+\_\+not\+\_\+empty@{usart\+\_\+async\+\_\+is\+\_\+rx\+\_\+not\+\_\+empty}}
+\index{usart\+\_\+async\+\_\+is\+\_\+rx\+\_\+not\+\_\+empty@{usart\+\_\+async\+\_\+is\+\_\+rx\+\_\+not\+\_\+empty}!Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}}
+\subsubsection{\texorpdfstring{usart\+\_\+async\+\_\+is\+\_\+rx\+\_\+not\+\_\+empty()}{usart\_async\_is\_rx\_not\_empty()}}
+{\footnotesize\ttfamily int32\+\_\+t usart\+\_\+async\+\_\+is\+\_\+rx\+\_\+not\+\_\+empty (\begin{DoxyParamCaption}\item[{const struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} $\ast$const}]{descr }\end{DoxyParamCaption})}
+
+
+
+Check if the usart receiver is not empty. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em descr} & An usart descriptor which is used to communicate via U\+S\+A\+RT\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The status of U\+S\+A\+RT RX empty checking. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 1} & the usart receiver is not empty \\
+\hline
+{\em 0} & the usart receiver is empty \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__doc__driver__hal__usart__async_ga25db066e0587014aab7038cc9295b177}\label{group__doc__driver__hal__usart__async_ga25db066e0587014aab7038cc9295b177}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}!usart\+\_\+async\+\_\+is\+\_\+tx\+\_\+empty@{usart\+\_\+async\+\_\+is\+\_\+tx\+\_\+empty}}
+\index{usart\+\_\+async\+\_\+is\+\_\+tx\+\_\+empty@{usart\+\_\+async\+\_\+is\+\_\+tx\+\_\+empty}!Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}}
+\subsubsection{\texorpdfstring{usart\+\_\+async\+\_\+is\+\_\+tx\+\_\+empty()}{usart\_async\_is\_tx\_empty()}}
+{\footnotesize\ttfamily int32\+\_\+t usart\+\_\+async\+\_\+is\+\_\+tx\+\_\+empty (\begin{DoxyParamCaption}\item[{const struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} $\ast$const}]{descr }\end{DoxyParamCaption})}
+
+
+
+Check if the usart transmitter is empty. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em descr} & An usart descriptor which is used to communicate via U\+S\+A\+RT\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The status of U\+S\+A\+RT TX empty checking. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & the usart transmitter is not empty \\
+\hline
+{\em 1} & the usart transmitter is empty \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__doc__driver__hal__usart__async_ga2d7d4ba3ab10f19c2e8a7901f2b6b276}\label{group__doc__driver__hal__usart__async_ga2d7d4ba3ab10f19c2e8a7901f2b6b276}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}!usart\+\_\+async\+\_\+register\+\_\+callback@{usart\+\_\+async\+\_\+register\+\_\+callback}}
+\index{usart\+\_\+async\+\_\+register\+\_\+callback@{usart\+\_\+async\+\_\+register\+\_\+callback}!Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}}
+\subsubsection{\texorpdfstring{usart\+\_\+async\+\_\+register\+\_\+callback()}{usart\_async\_register\_callback()}}
+{\footnotesize\ttfamily int32\+\_\+t usart\+\_\+async\+\_\+register\+\_\+callback (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} $\ast$const}]{descr,  }\item[{const enum \hyperlink{group__doc__driver__hal__usart__async_ga5a82ef383f62daa061a55838c8fc6d39}{usart\+\_\+async\+\_\+callback\+\_\+type}}]{type,  }\item[{\hyperlink{group__doc__driver__hal__usart__async_ga430e4080a53e1f39c4d46da01200f633}{usart\+\_\+cb\+\_\+t}}]{cb }\end{DoxyParamCaption})}
+
+
+
+Register usart callback. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em descr} & An usart descriptor which is used to communicate via U\+S\+A\+RT \\
+\hline
+\mbox{\tt in}  & {\em type} & Callback type \\
+\hline
+\mbox{\tt in}  & {\em cb} & A callback function\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The status of callback assignment. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em -\/1} & Passed parameters were invalid or the interface is not initialized \\
+\hline
+{\em 0} & A callback is registered successfully \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__doc__driver__hal__usart__async_gab6bb473a5047ae890b1406ffcca3042d}\label{group__doc__driver__hal__usart__async_gab6bb473a5047ae890b1406ffcca3042d}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}!usart\+\_\+async\+\_\+set\+\_\+baud\+\_\+rate@{usart\+\_\+async\+\_\+set\+\_\+baud\+\_\+rate}}
+\index{usart\+\_\+async\+\_\+set\+\_\+baud\+\_\+rate@{usart\+\_\+async\+\_\+set\+\_\+baud\+\_\+rate}!Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}}
+\subsubsection{\texorpdfstring{usart\+\_\+async\+\_\+set\+\_\+baud\+\_\+rate()}{usart\_async\_set\_baud\_rate()}}
+{\footnotesize\ttfamily int32\+\_\+t usart\+\_\+async\+\_\+set\+\_\+baud\+\_\+rate (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} $\ast$const}]{descr,  }\item[{const uint32\+\_\+t}]{baud\+\_\+rate }\end{DoxyParamCaption})}
+
+
+
+Set usart baud rate. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em descr} & An usart descriptor which is used to communicate via U\+S\+A\+RT \\
+\hline
+\mbox{\tt in}  & {\em baud\+\_\+rate} & A baud rate to set\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The status of baud rate setting. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__doc__driver__hal__usart__async_ga949ebae93032ed1a276be009cc1539d6}\label{group__doc__driver__hal__usart__async_ga949ebae93032ed1a276be009cc1539d6}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}!usart\+\_\+async\+\_\+set\+\_\+character\+\_\+size@{usart\+\_\+async\+\_\+set\+\_\+character\+\_\+size}}
+\index{usart\+\_\+async\+\_\+set\+\_\+character\+\_\+size@{usart\+\_\+async\+\_\+set\+\_\+character\+\_\+size}!Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}}
+\subsubsection{\texorpdfstring{usart\+\_\+async\+\_\+set\+\_\+character\+\_\+size()}{usart\_async\_set\_character\_size()}}
+{\footnotesize\ttfamily int32\+\_\+t usart\+\_\+async\+\_\+set\+\_\+character\+\_\+size (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} $\ast$const}]{descr,  }\item[{const enum \hyperlink{group___h_p_l_ga631ce7b4f60dccd392e6d6ef7d3cd4e2}{usart\+\_\+character\+\_\+size}}]{size }\end{DoxyParamCaption})}
+
+
+
+Set usart character size. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em descr} & An usart descriptor which is used to communicate via U\+S\+A\+RT \\
+\hline
+\mbox{\tt in}  & {\em size} & A character size to set\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The status of character size setting. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__doc__driver__hal__usart__async_ga1ed416c72b54e87f8da098f148e0c7fc}\label{group__doc__driver__hal__usart__async_ga1ed416c72b54e87f8da098f148e0c7fc}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}!usart\+\_\+async\+\_\+set\+\_\+data\+\_\+order@{usart\+\_\+async\+\_\+set\+\_\+data\+\_\+order}}
+\index{usart\+\_\+async\+\_\+set\+\_\+data\+\_\+order@{usart\+\_\+async\+\_\+set\+\_\+data\+\_\+order}!Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}}
+\subsubsection{\texorpdfstring{usart\+\_\+async\+\_\+set\+\_\+data\+\_\+order()}{usart\_async\_set\_data\_order()}}
+{\footnotesize\ttfamily int32\+\_\+t usart\+\_\+async\+\_\+set\+\_\+data\+\_\+order (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} $\ast$const}]{descr,  }\item[{const enum \hyperlink{group___h_p_l_ga426849bbd9655cec091101ebc9123eb4}{usart\+\_\+data\+\_\+order}}]{data\+\_\+order }\end{DoxyParamCaption})}
+
+
+
+Set usart data order. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em descr} & An usart descriptor which is used to communicate via U\+S\+A\+RT \\
+\hline
+\mbox{\tt in}  & {\em data\+\_\+order} & A data order to set\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The status of data order setting. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__doc__driver__hal__usart__async_gacbc3f9aec99169e42d49555cf829a3d1}\label{group__doc__driver__hal__usart__async_gacbc3f9aec99169e42d49555cf829a3d1}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}!usart\+\_\+async\+\_\+set\+\_\+flow\+\_\+control@{usart\+\_\+async\+\_\+set\+\_\+flow\+\_\+control}}
+\index{usart\+\_\+async\+\_\+set\+\_\+flow\+\_\+control@{usart\+\_\+async\+\_\+set\+\_\+flow\+\_\+control}!Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}}
+\subsubsection{\texorpdfstring{usart\+\_\+async\+\_\+set\+\_\+flow\+\_\+control()}{usart\_async\_set\_flow\_control()}}
+{\footnotesize\ttfamily int32\+\_\+t usart\+\_\+async\+\_\+set\+\_\+flow\+\_\+control (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} $\ast$const}]{descr,  }\item[{const union \hyperlink{unionusart__flow__control__state}{usart\+\_\+flow\+\_\+control\+\_\+state}}]{state }\end{DoxyParamCaption})}
+
+
+
+Specify action for flow control pins. 
+
+This function sets action (or state) for flow control pins if the flow control is enabled. It sets state of flow control pins only if automatic support of the flow control is not supported by the hardware.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em descr} & An usart descriptor which is used to communicate via U\+S\+A\+RT \\
+\hline
+\mbox{\tt in}  & {\em state} & A state to set to flow control pins\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The status of flow control action setup. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__doc__driver__hal__usart__async_ga8b2ee777456a88b7843366761a8356c9}\label{group__doc__driver__hal__usart__async_ga8b2ee777456a88b7843366761a8356c9}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}!usart\+\_\+async\+\_\+set\+\_\+mode@{usart\+\_\+async\+\_\+set\+\_\+mode}}
+\index{usart\+\_\+async\+\_\+set\+\_\+mode@{usart\+\_\+async\+\_\+set\+\_\+mode}!Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}}
+\subsubsection{\texorpdfstring{usart\+\_\+async\+\_\+set\+\_\+mode()}{usart\_async\_set\_mode()}}
+{\footnotesize\ttfamily int32\+\_\+t usart\+\_\+async\+\_\+set\+\_\+mode (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} $\ast$const}]{descr,  }\item[{const enum \hyperlink{group___h_p_l_ga1c465965478e0f6908a4c99d4f3ad20f}{usart\+\_\+mode}}]{mode }\end{DoxyParamCaption})}
+
+
+
+Set usart mode. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em descr} & An usart descriptor which is used to communicate via U\+S\+A\+RT \\
+\hline
+\mbox{\tt in}  & {\em mode} & A mode to set\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The status of mode setting. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__doc__driver__hal__usart__async_ga6cee441159bf41f74a105042fb6c8477}\label{group__doc__driver__hal__usart__async_ga6cee441159bf41f74a105042fb6c8477}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}!usart\+\_\+async\+\_\+set\+\_\+parity@{usart\+\_\+async\+\_\+set\+\_\+parity}}
+\index{usart\+\_\+async\+\_\+set\+\_\+parity@{usart\+\_\+async\+\_\+set\+\_\+parity}!Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}}
+\subsubsection{\texorpdfstring{usart\+\_\+async\+\_\+set\+\_\+parity()}{usart\_async\_set\_parity()}}
+{\footnotesize\ttfamily int32\+\_\+t usart\+\_\+async\+\_\+set\+\_\+parity (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} $\ast$const}]{descr,  }\item[{const enum \hyperlink{group___h_p_l_ga867cc5f0ea7d3bf651d68f0046cf6f41}{usart\+\_\+parity}}]{parity }\end{DoxyParamCaption})}
+
+
+
+Set usart parity. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em descr} & An usart descriptor which is used to communicate via U\+S\+A\+RT \\
+\hline
+\mbox{\tt in}  & {\em parity} & A parity to set\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The status of parity setting. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__doc__driver__hal__usart__async_ga1749b4fd6293a49428cf4baf74656dd5}\label{group__doc__driver__hal__usart__async_ga1749b4fd6293a49428cf4baf74656dd5}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}!usart\+\_\+async\+\_\+set\+\_\+stopbits@{usart\+\_\+async\+\_\+set\+\_\+stopbits}}
+\index{usart\+\_\+async\+\_\+set\+\_\+stopbits@{usart\+\_\+async\+\_\+set\+\_\+stopbits}!Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}}
+\subsubsection{\texorpdfstring{usart\+\_\+async\+\_\+set\+\_\+stopbits()}{usart\_async\_set\_stopbits()}}
+{\footnotesize\ttfamily int32\+\_\+t usart\+\_\+async\+\_\+set\+\_\+stopbits (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} $\ast$const}]{descr,  }\item[{const enum \hyperlink{group___h_p_l_ga88311517c5168c29a681604a8a33b06e}{usart\+\_\+stop\+\_\+bits}}]{stop\+\_\+bits }\end{DoxyParamCaption})}
+
+
+
+Set usart stop bits. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em descr} & An usart descriptor which is used to communicate via U\+S\+A\+RT \\
+\hline
+\mbox{\tt in}  & {\em stop\+\_\+bits} & Stop bits to set\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The status of stop bits setting. 
+\end{DoxyReturn}

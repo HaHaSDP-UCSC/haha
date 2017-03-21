@@ -1,0 +1,70 @@
+\hypertarget{utils__assert_8h}{}\section{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/hal/utils/include/utils\+\_\+assert.h File Reference}
+\label{utils__assert_8h}\index{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/hal/utils/include/utils\+\_\+assert.\+h@{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/hal/utils/include/utils\+\_\+assert.\+h}}
+
+
+Asserts related functionality.  
+
+
+{\ttfamily \#include $<$compiler.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{utils__assert_8h_ac22830a985e1daed0c9eadba8c6f606e}{A\+S\+S\+E\+RT}(condition)~A\+S\+S\+E\+R\+T\+\_\+\+I\+M\+PL((condition), \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em Assert macro. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{utils__assert_8h_aa8072e041006c526471cd731d62da4ac}\label{utils__assert_8h_aa8072e041006c526471cd731d62da4ac}} 
+\#define {\bfseries A\+S\+S\+E\+R\+T\+\_\+\+I\+M\+PL}(condition,  file,  line)~((void)0)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{utils__assert_8h_a2b3996392d905d2f6a2f85ad2b173f64}{assert} (const bool condition, const char $\ast$const file, const int line)
+\begin{DoxyCompactList}\small\item\em Assert function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Asserts related functionality. 
+
+Copyright (C) 2014 Atmel Corporation. All rights reserved.
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{utils__assert_8h_ac22830a985e1daed0c9eadba8c6f606e}\label{utils__assert_8h_ac22830a985e1daed0c9eadba8c6f606e}} 
+\index{utils\+\_\+assert.\+h@{utils\+\_\+assert.\+h}!A\+S\+S\+E\+RT@{A\+S\+S\+E\+RT}}
+\index{A\+S\+S\+E\+RT@{A\+S\+S\+E\+RT}!utils\+\_\+assert.\+h@{utils\+\_\+assert.\+h}}
+\subsubsection{\texorpdfstring{A\+S\+S\+E\+RT}{ASSERT}}
+{\footnotesize\ttfamily \#define A\+S\+S\+E\+RT(\begin{DoxyParamCaption}\item[{}]{condition }\end{DoxyParamCaption})~A\+S\+S\+E\+R\+T\+\_\+\+I\+M\+PL((condition), \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+)}
+
+
+
+Assert macro. 
+
+This macro is used to throw asserts. It can be mapped to different function based on debug level.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em condition} & A condition to be checked; assert is thrown if the given condifition is false \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{utils__assert_8h_a2b3996392d905d2f6a2f85ad2b173f64}\label{utils__assert_8h_a2b3996392d905d2f6a2f85ad2b173f64}} 
+\index{utils\+\_\+assert.\+h@{utils\+\_\+assert.\+h}!assert@{assert}}
+\index{assert@{assert}!utils\+\_\+assert.\+h@{utils\+\_\+assert.\+h}}
+\subsubsection{\texorpdfstring{assert()}{assert()}}
+{\footnotesize\ttfamily void assert (\begin{DoxyParamCaption}\item[{const bool}]{condition,  }\item[{const char $\ast$const}]{file,  }\item[{const int}]{line }\end{DoxyParamCaption})}
+
+
+
+Assert function. 
+
+This function is used to throw asserts.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em condition} & A condition to be checked; assert is thrown if the given condition is false \\
+\hline
+\mbox{\tt in}  & {\em file} & File name \\
+\hline
+\mbox{\tt in}  & {\em line} & Line number \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,55 @@
+\hypertarget{hal__usart__sync_8h}{}\section{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/hal/include/hal\+\_\+usart\+\_\+sync.h File Reference}
+\label{hal__usart__sync_8h}\index{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/hal/include/hal\+\_\+usart\+\_\+sync.\+h@{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/hal/include/hal\+\_\+usart\+\_\+sync.\+h}}
+
+
+U\+S\+A\+RT related functionality declaration.  
+
+
+{\ttfamily \#include \char`\"{}hal\+\_\+io.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$hpl\+\_\+usart\+\_\+sync.\+h$>$}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structusart__sync__descriptor}{usart\+\_\+sync\+\_\+descriptor}
+\begin{DoxyCompactList}\small\item\em Synchronous U\+S\+A\+RT descriptor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__sync_gaa3cca792d7af7f180c5084af8ffd11c3}{usart\+\_\+sync\+\_\+init} (struct \hyperlink{structusart__sync__descriptor}{usart\+\_\+sync\+\_\+descriptor} $\ast$const descr, void $\ast$const hw, void $\ast$const func)
+\begin{DoxyCompactList}\small\item\em Initialize usart interface. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__sync_gae8076ed0a30199bd526f1da22e2095d3}{usart\+\_\+sync\+\_\+deinit} (struct \hyperlink{structusart__sync__descriptor}{usart\+\_\+sync\+\_\+descriptor} $\ast$const descr)
+\begin{DoxyCompactList}\small\item\em De-\/initialize usart interface. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__sync_ga351aa9c8c94b4e8b0eb5efb1ecd74a82}{usart\+\_\+sync\+\_\+enable} (struct \hyperlink{structusart__sync__descriptor}{usart\+\_\+sync\+\_\+descriptor} $\ast$const descr)
+\begin{DoxyCompactList}\small\item\em Enable usart interface. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__sync_ga76abe691b76e4b95b4e3a7d5bc79b026}{usart\+\_\+sync\+\_\+disable} (struct \hyperlink{structusart__sync__descriptor}{usart\+\_\+sync\+\_\+descriptor} $\ast$const descr)
+\begin{DoxyCompactList}\small\item\em Disable usart interface. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__sync_gaf0b9c8819dc24f75e4f87f050edc81f5}{usart\+\_\+sync\+\_\+get\+\_\+io\+\_\+descriptor} (struct \hyperlink{structusart__sync__descriptor}{usart\+\_\+sync\+\_\+descriptor} $\ast$const descr, struct \hyperlink{structio__descriptor}{io\+\_\+descriptor} $\ast$$\ast$io)
+\begin{DoxyCompactList}\small\item\em Retrieve IO descriptor. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__sync_ga23977cbdcabc4a624dde31be5ebba482}{usart\+\_\+sync\+\_\+set\+\_\+flow\+\_\+control} (struct \hyperlink{structusart__sync__descriptor}{usart\+\_\+sync\+\_\+descriptor} $\ast$const descr, const union \hyperlink{unionusart__flow__control__state}{usart\+\_\+flow\+\_\+control\+\_\+state} state)
+\begin{DoxyCompactList}\small\item\em Specify action for flow control pins. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__sync_gaa6c286d38362477d8d11e0d2a46b6b19}{usart\+\_\+sync\+\_\+set\+\_\+baud\+\_\+rate} (struct \hyperlink{structusart__sync__descriptor}{usart\+\_\+sync\+\_\+descriptor} $\ast$const descr, const uint32\+\_\+t baud\+\_\+rate)
+\begin{DoxyCompactList}\small\item\em Set usart baud rate. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__sync_ga4f750fb4f18d022fe95ca98a434a9f28}{usart\+\_\+sync\+\_\+set\+\_\+data\+\_\+order} (struct \hyperlink{structusart__sync__descriptor}{usart\+\_\+sync\+\_\+descriptor} $\ast$const descr, const enum \hyperlink{group___h_p_l_ga426849bbd9655cec091101ebc9123eb4}{usart\+\_\+data\+\_\+order} data\+\_\+order)
+\begin{DoxyCompactList}\small\item\em Set usart data order. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__sync_gad9c806a6bb34a0cd643e922db4561a7e}{usart\+\_\+sync\+\_\+set\+\_\+mode} (struct \hyperlink{structusart__sync__descriptor}{usart\+\_\+sync\+\_\+descriptor} $\ast$const descr, const enum \hyperlink{group___h_p_l_ga1c465965478e0f6908a4c99d4f3ad20f}{usart\+\_\+mode} mode)
+\begin{DoxyCompactList}\small\item\em Set usart mode. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__sync_ga69fa5d85a169234c2da5b9c82dc1996a}{usart\+\_\+sync\+\_\+set\+\_\+parity} (struct \hyperlink{structusart__sync__descriptor}{usart\+\_\+sync\+\_\+descriptor} $\ast$const descr, const enum \hyperlink{group___h_p_l_ga867cc5f0ea7d3bf651d68f0046cf6f41}{usart\+\_\+parity} parity)
+\begin{DoxyCompactList}\small\item\em Set usart parity. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__sync_ga51ced5cb2b2a5ac61f17a41e87739dde}{usart\+\_\+sync\+\_\+set\+\_\+stopbits} (struct \hyperlink{structusart__sync__descriptor}{usart\+\_\+sync\+\_\+descriptor} $\ast$const descr, const enum \hyperlink{group___h_p_l_ga88311517c5168c29a681604a8a33b06e}{usart\+\_\+stop\+\_\+bits} stop\+\_\+bits)
+\begin{DoxyCompactList}\small\item\em Set usart stop bits. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__sync_ga11ad11c2436f8315ff90f9868aaa5b84}{usart\+\_\+sync\+\_\+set\+\_\+character\+\_\+size} (struct \hyperlink{structusart__sync__descriptor}{usart\+\_\+sync\+\_\+descriptor} $\ast$const descr, const enum \hyperlink{group___h_p_l_ga631ce7b4f60dccd392e6d6ef7d3cd4e2}{usart\+\_\+character\+\_\+size} size)
+\begin{DoxyCompactList}\small\item\em Set usart character size. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__sync_ga34932fa96b2190715b37f2c2c784a2f4}{usart\+\_\+sync\+\_\+flow\+\_\+control\+\_\+status} (const struct \hyperlink{structusart__sync__descriptor}{usart\+\_\+sync\+\_\+descriptor} $\ast$const descr, union \hyperlink{unionusart__flow__control__state}{usart\+\_\+flow\+\_\+control\+\_\+state} $\ast$const state)
+\begin{DoxyCompactList}\small\item\em Retrieve the state of flow control pins. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__sync_ga9620a8556a276388486b87b5a2e3ce6d}{usart\+\_\+sync\+\_\+is\+\_\+tx\+\_\+empty} (const struct \hyperlink{structusart__sync__descriptor}{usart\+\_\+sync\+\_\+descriptor} $\ast$const descr)
+\begin{DoxyCompactList}\small\item\em Check if the usart transmitter is empty. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__sync_ga7fce368c2675b3a31208dbc87facdf68}{usart\+\_\+sync\+\_\+is\+\_\+rx\+\_\+not\+\_\+empty} (const struct \hyperlink{structusart__sync__descriptor}{usart\+\_\+sync\+\_\+descriptor} $\ast$const descr)
+\begin{DoxyCompactList}\small\item\em Check if the usart receiver is not empty. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group__doc__driver__hal__usart__sync_ga98d59e6800ac84a46f7a27e6fb9bb9fd}{usart\+\_\+sync\+\_\+get\+\_\+version} (void)
+\begin{DoxyCompactList}\small\item\em Retrieve the current driver version. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+U\+S\+A\+RT related functionality declaration. 
+
+Copyright (C) 2014 Atmel Corporation. All rights reserved.

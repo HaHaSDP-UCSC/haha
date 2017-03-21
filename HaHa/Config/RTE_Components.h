@@ -39,7 +39,7 @@
  *
  * \acme_license_stop
  *
- * Project: Atmel_Debug_Xbee
+ * Project: HaHa
  * Target:  ATSAMB11G18A 
  *
  **/

@@ -1,0 +1,128 @@
+\hypertarget{group__doc__driver__hal__helper__atomic}{}\section{Doc\+\_\+driver\+\_\+hal\+\_\+helper\+\_\+atomic}
+\label{group__doc__driver__hal__helper__atomic}\index{Doc\+\_\+driver\+\_\+hal\+\_\+helper\+\_\+atomic@{Doc\+\_\+driver\+\_\+hal\+\_\+helper\+\_\+atomic}}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__doc__driver__hal__helper__atomic_ga039bfe712b6ba4388a35672f54763391}{C\+R\+I\+T\+I\+C\+A\+L\+\_\+\+S\+E\+C\+T\+I\+O\+N\+\_\+\+E\+N\+T\+ER}()
+\begin{DoxyCompactList}\small\item\em Helper macro for entering critical sections. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__doc__driver__hal__helper__atomic_ga6b32c9f95e7c6b604d621e215c514015}{C\+R\+I\+T\+I\+C\+A\+L\+\_\+\+S\+E\+C\+T\+I\+O\+N\+\_\+\+L\+E\+A\+VE}()
+\begin{DoxyCompactList}\small\item\em Helper macro for leaving critical sections. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__doc__driver__hal__helper__atomic_ga6b3a0c9eea25111ac1877e0302e2fe1c}\label{group__doc__driver__hal__helper__atomic_ga6b3a0c9eea25111ac1877e0302e2fe1c}} 
+typedef uint32\+\_\+t \hyperlink{group__doc__driver__hal__helper__atomic_ga6b3a0c9eea25111ac1877e0302e2fe1c}{hal\+\_\+atomic\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Type for the register holding global interrupt enable flag. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__doc__driver__hal__helper__atomic_ga3bd20e6e0bdec53177758490510ba916}{atomic\+\_\+enter\+\_\+critical} (\hyperlink{group__doc__driver__hal__helper__atomic_ga6b3a0c9eea25111ac1877e0302e2fe1c}{hal\+\_\+atomic\+\_\+t} volatile $\ast$atomic)
+\begin{DoxyCompactList}\small\item\em Disable interrupts, enter critical section. \end{DoxyCompactList}\item 
+void \hyperlink{group__doc__driver__hal__helper__atomic_gaef0ccaa2438aca5ea074b36252d65990}{atomic\+\_\+leave\+\_\+critical} (\hyperlink{group__doc__driver__hal__helper__atomic_ga6b3a0c9eea25111ac1877e0302e2fe1c}{hal\+\_\+atomic\+\_\+t} volatile $\ast$atomic)
+\begin{DoxyCompactList}\small\item\em Exit atomic section. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group__doc__driver__hal__helper__atomic_ga75fe13100e2799eb24a80123bc8c3787}{atomic\+\_\+get\+\_\+version} (void)
+\begin{DoxyCompactList}\small\item\em Retrieve the current driver version. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__doc__driver__hal__helper__atomic_ga039bfe712b6ba4388a35672f54763391}\label{group__doc__driver__hal__helper__atomic_ga039bfe712b6ba4388a35672f54763391}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+helper\+\_\+atomic@{Doc\+\_\+driver\+\_\+hal\+\_\+helper\+\_\+atomic}!C\+R\+I\+T\+I\+C\+A\+L\+\_\+\+S\+E\+C\+T\+I\+O\+N\+\_\+\+E\+N\+T\+ER@{C\+R\+I\+T\+I\+C\+A\+L\+\_\+\+S\+E\+C\+T\+I\+O\+N\+\_\+\+E\+N\+T\+ER}}
+\index{C\+R\+I\+T\+I\+C\+A\+L\+\_\+\+S\+E\+C\+T\+I\+O\+N\+\_\+\+E\+N\+T\+ER@{C\+R\+I\+T\+I\+C\+A\+L\+\_\+\+S\+E\+C\+T\+I\+O\+N\+\_\+\+E\+N\+T\+ER}!Doc\+\_\+driver\+\_\+hal\+\_\+helper\+\_\+atomic@{Doc\+\_\+driver\+\_\+hal\+\_\+helper\+\_\+atomic}}
+\subsubsection{\texorpdfstring{C\+R\+I\+T\+I\+C\+A\+L\+\_\+\+S\+E\+C\+T\+I\+O\+N\+\_\+\+E\+N\+T\+ER}{CRITICAL\_SECTION\_ENTER}}
+{\footnotesize\ttfamily \#define C\+R\+I\+T\+I\+C\+A\+L\+\_\+\+S\+E\+C\+T\+I\+O\+N\+\_\+\+E\+N\+T\+ER(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{                                                                                                          
+              \(\backslash\)
+        volatile \hyperlink{group__doc__driver__hal__helper__atomic_ga6b3a0c9eea25111ac1877e0302e2fe1c}{hal\_atomic\_t} \_\_atomic;                                                        
+                              \(\backslash\)
+        atomic\_enter\_critical(&\_\_atomic);
+\end{DoxyCode}
+
+
+Helper macro for entering critical sections. 
+
+This macro is recommended to be used instead of a direct call hal\+\_\+enter\+Critical() function to to enter critical sections. No semicolon required after the macro.\hypertarget{group__doc__driver__hal__helper__atomic_atomic_usage}{}\subsection{Usage Example}\label{group__doc__driver__hal__helper__atomic_atomic_usage}
+
+\begin{DoxyCode}
+\hyperlink{group__doc__driver__hal__helper__atomic_ga039bfe712b6ba4388a35672f54763391}{CRITICAL\_SECTION\_ENTER}()
+Critical code
+\hyperlink{group__doc__driver__hal__helper__atomic_ga6b32c9f95e7c6b604d621e215c514015}{CRITICAL\_SECTION\_LEAVE}()
+\end{DoxyCode}
+ \mbox{\Hypertarget{group__doc__driver__hal__helper__atomic_ga6b32c9f95e7c6b604d621e215c514015}\label{group__doc__driver__hal__helper__atomic_ga6b32c9f95e7c6b604d621e215c514015}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+helper\+\_\+atomic@{Doc\+\_\+driver\+\_\+hal\+\_\+helper\+\_\+atomic}!C\+R\+I\+T\+I\+C\+A\+L\+\_\+\+S\+E\+C\+T\+I\+O\+N\+\_\+\+L\+E\+A\+VE@{C\+R\+I\+T\+I\+C\+A\+L\+\_\+\+S\+E\+C\+T\+I\+O\+N\+\_\+\+L\+E\+A\+VE}}
+\index{C\+R\+I\+T\+I\+C\+A\+L\+\_\+\+S\+E\+C\+T\+I\+O\+N\+\_\+\+L\+E\+A\+VE@{C\+R\+I\+T\+I\+C\+A\+L\+\_\+\+S\+E\+C\+T\+I\+O\+N\+\_\+\+L\+E\+A\+VE}!Doc\+\_\+driver\+\_\+hal\+\_\+helper\+\_\+atomic@{Doc\+\_\+driver\+\_\+hal\+\_\+helper\+\_\+atomic}}
+\subsubsection{\texorpdfstring{C\+R\+I\+T\+I\+C\+A\+L\+\_\+\+S\+E\+C\+T\+I\+O\+N\+\_\+\+L\+E\+A\+VE}{CRITICAL\_SECTION\_LEAVE}}
+{\footnotesize\ttfamily \#define C\+R\+I\+T\+I\+C\+A\+L\+\_\+\+S\+E\+C\+T\+I\+O\+N\+\_\+\+L\+E\+A\+VE(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\hyperlink{group__doc__driver__hal__helper__atomic_gaef0ccaa2438aca5ea074b36252d65990}{atomic\_leave\_critical}(&\_\_atomic);                                                     
+                                   \(\backslash\)
+    \}
+\end{DoxyCode}
+
+
+Helper macro for leaving critical sections. 
+
+This macro is recommended to be used instead of a direct call hal\+\_\+leave\+Critical() function to to leave critical sections. No semicolon required after the macro.\hypertarget{group__doc__driver__hal__helper__atomic_atomic_usage}{}\subsection{Usage Example}\label{group__doc__driver__hal__helper__atomic_atomic_usage}
+
+\begin{DoxyCode}
+\hyperlink{group__doc__driver__hal__helper__atomic_ga039bfe712b6ba4388a35672f54763391}{CRITICAL\_SECTION\_ENTER}()
+Some critical code
+\hyperlink{group__doc__driver__hal__helper__atomic_ga6b32c9f95e7c6b604d621e215c514015}{CRITICAL\_SECTION\_LEAVE}()
+\end{DoxyCode}
+ 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group__doc__driver__hal__helper__atomic_ga3bd20e6e0bdec53177758490510ba916}\label{group__doc__driver__hal__helper__atomic_ga3bd20e6e0bdec53177758490510ba916}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+helper\+\_\+atomic@{Doc\+\_\+driver\+\_\+hal\+\_\+helper\+\_\+atomic}!atomic\+\_\+enter\+\_\+critical@{atomic\+\_\+enter\+\_\+critical}}
+\index{atomic\+\_\+enter\+\_\+critical@{atomic\+\_\+enter\+\_\+critical}!Doc\+\_\+driver\+\_\+hal\+\_\+helper\+\_\+atomic@{Doc\+\_\+driver\+\_\+hal\+\_\+helper\+\_\+atomic}}
+\subsubsection{\texorpdfstring{atomic\+\_\+enter\+\_\+critical()}{atomic\_enter\_critical()}}
+{\footnotesize\ttfamily void atomic\+\_\+enter\+\_\+critical (\begin{DoxyParamCaption}\item[{\hyperlink{group__doc__driver__hal__helper__atomic_ga6b3a0c9eea25111ac1877e0302e2fe1c}{hal\+\_\+atomic\+\_\+t} volatile $\ast$}]{atomic }\end{DoxyParamCaption})}
+
+
+
+Disable interrupts, enter critical section. 
+
+Disables global interrupts. Supports nested critical sections, so that global interrupts are only re-\/enabled upon leaving the outermost nested critical section.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em atomic} & The pointer to a variable to store the value of global interrupt enable flag \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__doc__driver__hal__helper__atomic_ga75fe13100e2799eb24a80123bc8c3787}\label{group__doc__driver__hal__helper__atomic_ga75fe13100e2799eb24a80123bc8c3787}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+helper\+\_\+atomic@{Doc\+\_\+driver\+\_\+hal\+\_\+helper\+\_\+atomic}!atomic\+\_\+get\+\_\+version@{atomic\+\_\+get\+\_\+version}}
+\index{atomic\+\_\+get\+\_\+version@{atomic\+\_\+get\+\_\+version}!Doc\+\_\+driver\+\_\+hal\+\_\+helper\+\_\+atomic@{Doc\+\_\+driver\+\_\+hal\+\_\+helper\+\_\+atomic}}
+\subsubsection{\texorpdfstring{atomic\+\_\+get\+\_\+version()}{atomic\_get\_version()}}
+{\footnotesize\ttfamily uint32\+\_\+t atomic\+\_\+get\+\_\+version (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Retrieve the current driver version. 
+
+\begin{DoxyReturn}{Returns}
+Current driver version 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__doc__driver__hal__helper__atomic_gaef0ccaa2438aca5ea074b36252d65990}\label{group__doc__driver__hal__helper__atomic_gaef0ccaa2438aca5ea074b36252d65990}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+helper\+\_\+atomic@{Doc\+\_\+driver\+\_\+hal\+\_\+helper\+\_\+atomic}!atomic\+\_\+leave\+\_\+critical@{atomic\+\_\+leave\+\_\+critical}}
+\index{atomic\+\_\+leave\+\_\+critical@{atomic\+\_\+leave\+\_\+critical}!Doc\+\_\+driver\+\_\+hal\+\_\+helper\+\_\+atomic@{Doc\+\_\+driver\+\_\+hal\+\_\+helper\+\_\+atomic}}
+\subsubsection{\texorpdfstring{atomic\+\_\+leave\+\_\+critical()}{atomic\_leave\_critical()}}
+{\footnotesize\ttfamily void atomic\+\_\+leave\+\_\+critical (\begin{DoxyParamCaption}\item[{\hyperlink{group__doc__driver__hal__helper__atomic_ga6b3a0c9eea25111ac1877e0302e2fe1c}{hal\+\_\+atomic\+\_\+t} volatile $\ast$}]{atomic }\end{DoxyParamCaption})}
+
+
+
+Exit atomic section. 
+
+Enables global interrupts. Supports nested critical sections, so that global interrupts are only re-\/enabled upon leaving the outermost nested critical section.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em atomic} & The pointer to a variable which stores the latest stored value of global interrupt enable flag \\
+\hline
+\end{DoxyParams}

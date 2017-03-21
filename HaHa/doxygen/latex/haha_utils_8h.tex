@@ -1,0 +1,107 @@
+\hypertarget{haha_utils_8h}{}\section{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/devstuff/haha\+Utils.h File Reference}
+\label{haha_utils_8h}\index{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/devstuff/haha\+Utils.\+h@{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/devstuff/haha\+Utils.\+h}}
+
+
+Utility functions/variables and debug functionality.  
+
+
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdio\+\_\+start.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{haha_utils_8h_abb452686968e48b67397da5f97445f5b}\label{haha_utils_8h_abb452686968e48b67397da5f97445f5b}} 
+\#define {\bfseries bool}~uint8\+\_\+t
+\item 
+\mbox{\Hypertarget{haha_utils_8h_aa8cecfc5c5c054d2875c03e77b7be15d}\label{haha_utils_8h_aa8cecfc5c5c054d2875c03e77b7be15d}} 
+\#define {\bfseries T\+R\+UE}~1
+\item 
+\mbox{\Hypertarget{haha_utils_8h_aa93f0eb578d23995850d61f7d61c55c1}\label{haha_utils_8h_aa93f0eb578d23995850d61f7d61c55c1}} 
+\#define {\bfseries F\+A\+L\+SE}~0
+\item 
+\#define \hyperlink{haha_utils_8h_ad5aeca1a1a793c8ba18f85cbac89e768}{D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT}~1
+\item 
+\mbox{\Hypertarget{haha_utils_8h_a185c556500093ce1d9b97379ab00449f}\label{haha_utils_8h_a185c556500093ce1d9b97379ab00449f}} 
+\#define {\bfseries H\+A\+H\+A\+D\+E\+B\+UG}(format,  args...)~printf(format, \#\# args)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{haha_utils_8h_a7f2dfce1046bdd2a2b753643726c2346}{delay} (uint32\+\_\+t ms)
+\begin{DoxyCompactList}\small\item\em \{ Delays execution in ms \} \end{DoxyCompactList}\item 
+void \hyperlink{haha_utils_8h_ada9e8340bd19f1dd65b4862295e6b0a3}{print\+Buff} (char $\ast$data, uint8\+\_\+t len, char $\ast$specifier)
+\begin{DoxyCompactList}\small\item\em \{ Print a buffer to stdout \} \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{haha_utils_8h_aa74dea5951b0fe8a0afab70b3c83cbb3}{asciihex\+\_\+to\+\_\+byte} (uint8\+\_\+t d1, uint8\+\_\+t d2)
+\begin{DoxyCompactList}\small\item\em \{ Takes two char and converts to Hex \} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Utility functions/variables and debug functionality. 
+
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{haha_utils_8h_ad5aeca1a1a793c8ba18f85cbac89e768}\label{haha_utils_8h_ad5aeca1a1a793c8ba18f85cbac89e768}} 
+\index{haha\+Utils.\+h@{haha\+Utils.\+h}!D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT@{D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT}}
+\index{D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT@{D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT}!haha\+Utils.\+h@{haha\+Utils.\+h}}
+\subsubsection{\texorpdfstring{D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT}{DEBUG\_PRINT}}
+{\footnotesize\ttfamily \#define D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT~1}
+
+\{ \#define for debug printing \} 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{haha_utils_8h_aa74dea5951b0fe8a0afab70b3c83cbb3}\label{haha_utils_8h_aa74dea5951b0fe8a0afab70b3c83cbb3}} 
+\index{haha\+Utils.\+h@{haha\+Utils.\+h}!asciihex\+\_\+to\+\_\+byte@{asciihex\+\_\+to\+\_\+byte}}
+\index{asciihex\+\_\+to\+\_\+byte@{asciihex\+\_\+to\+\_\+byte}!haha\+Utils.\+h@{haha\+Utils.\+h}}
+\subsubsection{\texorpdfstring{asciihex\+\_\+to\+\_\+byte()}{asciihex\_to\_byte()}}
+{\footnotesize\ttfamily uint8\+\_\+t asciihex\+\_\+to\+\_\+byte (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{d1,  }\item[{uint8\+\_\+t}]{d2 }\end{DoxyParamCaption})}
+
+
+
+\{ Takes two char and converts to Hex \} 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em d1} & First ascii character \\
+\hline
+\mbox{\tt in}  & {\em d2} & Second ascii character\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{ The converted hexadecimal value \} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{haha_utils_8h_a7f2dfce1046bdd2a2b753643726c2346}\label{haha_utils_8h_a7f2dfce1046bdd2a2b753643726c2346}} 
+\index{haha\+Utils.\+h@{haha\+Utils.\+h}!delay@{delay}}
+\index{delay@{delay}!haha\+Utils.\+h@{haha\+Utils.\+h}}
+\subsubsection{\texorpdfstring{delay()}{delay()}}
+{\footnotesize\ttfamily void delay (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{ms }\end{DoxyParamCaption})}
+
+
+
+\{ Delays execution in ms \} 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ms} & The milliseconds \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{haha_utils_8h_ada9e8340bd19f1dd65b4862295e6b0a3}\label{haha_utils_8h_ada9e8340bd19f1dd65b4862295e6b0a3}} 
+\index{haha\+Utils.\+h@{haha\+Utils.\+h}!print\+Buff@{print\+Buff}}
+\index{print\+Buff@{print\+Buff}!haha\+Utils.\+h@{haha\+Utils.\+h}}
+\subsubsection{\texorpdfstring{print\+Buff()}{printBuff()}}
+{\footnotesize\ttfamily void print\+Buff (\begin{DoxyParamCaption}\item[{char $\ast$}]{data,  }\item[{uint8\+\_\+t}]{len,  }\item[{char $\ast$}]{specifier }\end{DoxyParamCaption})}
+
+
+
+\{ Print a buffer to stdout \} 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em data} & The data \\
+\hline
+\mbox{\tt in}  & {\em len} & The length \\
+\hline
+ & {\em specifier} & The specifier \\
+\hline
+\end{DoxyParams}

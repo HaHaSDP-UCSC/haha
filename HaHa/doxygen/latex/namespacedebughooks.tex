@@ -1,0 +1,48 @@
+\hypertarget{namespacedebughooks}{}\section{debughooks Namespace Reference}
+\label{namespacedebughooks}\index{debughooks@{debughooks}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacedebughooks_acdaada684f14959e258414534d569f71}\label{namespacedebughooks_acdaada684f14959e258414534d569f71}} 
+def {\bfseries should\+\_\+process\+\_\+breakpoint} (api, adr, bp\+Id, obj)
+\item 
+\mbox{\Hypertarget{namespacedebughooks_a0ee6ce3e0aacdd1e5758492f69f995f8}\label{namespacedebughooks_a0ee6ce3e0aacdd1e5758492f69f995f8}} 
+def {\bfseries on\+\_\+reset} (api, reset\+Adr)
+\item 
+\mbox{\Hypertarget{namespacedebughooks_ac7b06df66dc219922f1ad5a6734f71c6}\label{namespacedebughooks_ac7b06df66dc219922f1ad5a6734f71c6}} 
+def {\bfseries on\+\_\+launch} (api, debug\+Props)
+\item 
+\mbox{\Hypertarget{namespacedebughooks_a71d3491d80d320fc8f85383489af96ec}\label{namespacedebughooks_a71d3491d80d320fc8f85383489af96ec}} 
+def {\bfseries Handle\+App\+Entry\+Breakpoint} (api)
+\item 
+\mbox{\Hypertarget{namespacedebughooks_a673ca6fc076f03549c0078ee764a5786}\label{namespacedebughooks_a673ca6fc076f03549c0078ee764a5786}} 
+def {\bfseries Handle\+Patch\+Breakpoint} (api)
+\item 
+\mbox{\Hypertarget{namespacedebughooks_a80cb4755d936e703c396376b7d9b05b5}\label{namespacedebughooks_a80cb4755d936e703c396376b7d9b05b5}} 
+def {\bfseries Get\+Stack\+Addr\+And\+Size} (api, map\+File)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacedebughooks_a4453080c049b935096a9399726aaff65}\label{namespacedebughooks_a4453080c049b935096a9399726aaff65}} 
+bool {\bfseries debug\+Out\+Of\+Ram} = False
+\item 
+\mbox{\Hypertarget{namespacedebughooks_ace200a02851163ba9904ccdde2991a30}\label{namespacedebughooks_ace200a02851163ba9904ccdde2991a30}} 
+int {\bfseries patch\+Break\+Point\+Id} = -\/1
+\item 
+\mbox{\Hypertarget{namespacedebughooks_af0787e398633654faa72900223e5dd40}\label{namespacedebughooks_af0787e398633654faa72900223e5dd40}} 
+int {\bfseries app\+Entry\+Break\+Point\+Id} = -\/1
+\item 
+\mbox{\Hypertarget{namespacedebughooks_a7085fd6725027f087010919eb35a91a9}\label{namespacedebughooks_a7085fd6725027f087010919eb35a91a9}} 
+int {\bfseries post\+Flash\+Download\+Addr} = 0x1236
+\item 
+\mbox{\Hypertarget{namespacedebughooks_a10baaf1b59cde3b326d8dcc5ed34bfbf}\label{namespacedebughooks_a10baaf1b59cde3b326d8dcc5ed34bfbf}} 
+int {\bfseries entry\+Point\+Adr} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}DebugScript for SAMB devices.
+If programming mode is set to managed by script it will debug out of ram.
+\end{DoxyVerb}
+ 

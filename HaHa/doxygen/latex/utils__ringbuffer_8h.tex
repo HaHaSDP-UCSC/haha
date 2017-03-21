@@ -1,0 +1,33 @@
+\hypertarget{utils__ringbuffer_8h}{}\section{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/hal/utils/include/utils\+\_\+ringbuffer.h File Reference}
+\label{utils__ringbuffer_8h}\index{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/hal/utils/include/utils\+\_\+ringbuffer.\+h@{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/hal/utils/include/utils\+\_\+ringbuffer.\+h}}
+
+
+Ringbuffer declaration.  
+
+
+{\ttfamily \#include \char`\"{}compiler.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utils\+\_\+assert.\+h\char`\"{}}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structringbuffer}{ringbuffer}
+\begin{DoxyCompactList}\small\item\em Ring buffer element type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__utils__ringbuffer_ga3a02282691d4059ff63caf89b946fbfd}{ringbuffer\+\_\+init} (struct \hyperlink{structringbuffer}{ringbuffer} $\ast$const rb, void $\ast$buf, uint32\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Ring buffer init. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__utils__ringbuffer_ga46163f27edc3b85af50cbc4579e2e8aa}{ringbuffer\+\_\+get} (struct \hyperlink{structringbuffer}{ringbuffer} $\ast$const rb, uint8\+\_\+t $\ast$data)
+\begin{DoxyCompactList}\small\item\em Get one byte from ringbuffer, user needs to handle the concurrent access on buffer via put/get/flush. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__utils__ringbuffer_ga57c5e4794358ac7f4592fe10c8fccb39}{ringbuffer\+\_\+put} (struct \hyperlink{structringbuffer}{ringbuffer} $\ast$const rb, uint8\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em Put one byte to ringbuffer, user needs to handle the concurrent access on buffer via put/get/flush. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group__doc__driver__hal__utils__ringbuffer_ga3b4f3772fa2886e7f9429895c1044409}{ringbuffer\+\_\+num} (const struct \hyperlink{structringbuffer}{ringbuffer} $\ast$const rb)
+\begin{DoxyCompactList}\small\item\em Return the element number of ringbuffer. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group__doc__driver__hal__utils__ringbuffer_ga804ce09a6a02d883da66618ff16cd8f0}{ringbuffer\+\_\+flush} (struct \hyperlink{structringbuffer}{ringbuffer} $\ast$const rb)
+\begin{DoxyCompactList}\small\item\em Flush ringbuffer, user needs to handle the concurrent access on buffer via put/get/flush. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Ringbuffer declaration. 
+
+Copyright (C) 2014 Atmel Corporation. All rights reserved.

@@ -15,25 +15,6 @@ middlewares:
     dependencies:
       Target IO: TARGET_IO
 drivers:
-  TIMER_0:
-    user_label: TIMER_0
-    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::DUALTIMER0::driver_config_definition::Timer::HAL:Driver:Timer
-    functionality: Timer
-    api: HAL:Driver:Timer
-    configuration:
-      dualtimer_advanced_configuration: true
-      dualtimer_counter_size: Counter in 32-bit mode
-      timer_prescaler: No Clock Divided
-      timer_tick: 1000
-    optional_signals: []
-    variant: null
-    clocks:
-      domain_group:
-        nodes:
-        - name: DUALTIMER
-          input: DUALTIMER Divider
-        configuration:
-          dualtimer_clock_source: DUALTIMER Divider
   CLOCK:
     user_label: CLOCK
     definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::CLOCK::driver_config_definition::CLOCK::HAL:HPL:LPMCUMISCREGS

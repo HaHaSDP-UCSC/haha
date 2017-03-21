@@ -1,0 +1,35 @@
+\hypertarget{hal__atomic_8h}{}\section{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/hal/include/hal\+\_\+atomic.h File Reference}
+\label{hal__atomic_8h}\index{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/hal/include/hal\+\_\+atomic.\+h@{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/hal/include/hal\+\_\+atomic.\+h}}
+
+
+Critical sections related functionality declaration.  
+
+
+{\ttfamily \#include $<$compiler.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__doc__driver__hal__helper__atomic_ga039bfe712b6ba4388a35672f54763391}{C\+R\+I\+T\+I\+C\+A\+L\+\_\+\+S\+E\+C\+T\+I\+O\+N\+\_\+\+E\+N\+T\+ER}()
+\begin{DoxyCompactList}\small\item\em Helper macro for entering critical sections. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__doc__driver__hal__helper__atomic_ga6b32c9f95e7c6b604d621e215c514015}{C\+R\+I\+T\+I\+C\+A\+L\+\_\+\+S\+E\+C\+T\+I\+O\+N\+\_\+\+L\+E\+A\+VE}()
+\begin{DoxyCompactList}\small\item\em Helper macro for leaving critical sections. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uint32\+\_\+t \hyperlink{group__doc__driver__hal__helper__atomic_ga6b3a0c9eea25111ac1877e0302e2fe1c}{hal\+\_\+atomic\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Type for the register holding global interrupt enable flag. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__doc__driver__hal__helper__atomic_ga3bd20e6e0bdec53177758490510ba916}{atomic\+\_\+enter\+\_\+critical} (\hyperlink{group__doc__driver__hal__helper__atomic_ga6b3a0c9eea25111ac1877e0302e2fe1c}{hal\+\_\+atomic\+\_\+t} volatile $\ast$atomic)
+\begin{DoxyCompactList}\small\item\em Disable interrupts, enter critical section. \end{DoxyCompactList}\item 
+void \hyperlink{group__doc__driver__hal__helper__atomic_gaef0ccaa2438aca5ea074b36252d65990}{atomic\+\_\+leave\+\_\+critical} (\hyperlink{group__doc__driver__hal__helper__atomic_ga6b3a0c9eea25111ac1877e0302e2fe1c}{hal\+\_\+atomic\+\_\+t} volatile $\ast$atomic)
+\begin{DoxyCompactList}\small\item\em Exit atomic section. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group__doc__driver__hal__helper__atomic_ga75fe13100e2799eb24a80123bc8c3787}{atomic\+\_\+get\+\_\+version} (void)
+\begin{DoxyCompactList}\small\item\em Retrieve the current driver version. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Critical sections related functionality declaration. 
+
+Copyright (C) 2014 Atmel Corporation. All rights reserved.

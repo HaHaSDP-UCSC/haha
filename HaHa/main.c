@@ -1,9 +1,9 @@
 #include <atmel_start.h>
 #include "stdio_start.h"
-#include "devstuff/uart.h"
+#include "uart/uart.h"
 #include <string.h>
-#include "xbee/xbee.h"
-#include "devstuff/hahaUtils.h"
+#include "networkdevice/networkdevice.h"
+#include "utils/hahaUtils.h"
 
 
 void printpacket1(char* d, uint8_t len){
