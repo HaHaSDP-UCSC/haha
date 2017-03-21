@@ -1,14 +1,14 @@
 var searchData=
 [
-  ['send_5fxbee',['SEND_XBEE',['../uart_8h.html#a85c3bac403cb969504e543cfff8e651d',1,'uart.h']]],
-  ['size_5fof_5fmask',['size_of_mask',['../group__doc__driver__hal__utils__macro.html#gacb24f277663a5c87482fbcdbef5f2bd2',1,'utils.h']]],
-  ['startup_5fsamb11_2ec',['startup_samb11.c',['../startup__samb11_8c.html',1,'']]],
-  ['stdio_5fio_2ec',['stdio_io.c',['../stdio__io_8c.html',1,'']]],
-  ['stdio_5fio_2eh',['stdio_io.h',['../stdio__io_8h.html',1,'']]],
-  ['stdio_5fio_5finit',['stdio_io_init',['../stdio__io_8c.html#a832670dfdc8f3deb3b9b0a725c636409',1,'stdio_io_init(struct io_descriptor *io):&#160;stdio_io.c'],['../stdio__io_8h.html#a832670dfdc8f3deb3b9b0a725c636409',1,'stdio_io_init(struct io_descriptor *io):&#160;stdio_io.c']]],
-  ['stdio_5fio_5fread',['stdio_io_read',['../stdio__io_8c.html#ac791b192543d77c693e6ad6d63ce8a45',1,'stdio_io_read(uint8_t *buf, const int32_t len):&#160;stdio_io.c'],['../stdio__io_8h.html#ac791b192543d77c693e6ad6d63ce8a45',1,'stdio_io_read(uint8_t *buf, const int32_t len):&#160;stdio_io.c']]],
-  ['stdio_5fio_5fset_5fio',['stdio_io_set_io',['../stdio__io_8c.html#a31d48bd5f32a5ae99cc00a6ea7991a25',1,'stdio_io_set_io(struct io_descriptor *io):&#160;stdio_io.c'],['../stdio__io_8h.html#a31d48bd5f32a5ae99cc00a6ea7991a25',1,'stdio_io_set_io(struct io_descriptor *io):&#160;stdio_io.c']]],
-  ['stdio_5fio_5fwrite',['stdio_io_write',['../stdio__io_8c.html#a01a0bad87561dd4fb0fef82f0419b1e1',1,'stdio_io_write(const uint8_t *buf, const int32_t len):&#160;stdio_io.c'],['../stdio__io_8h.html#a01a0bad87561dd4fb0fef82f0419b1e1',1,'stdio_io_write(const uint8_t *buf, const int32_t len):&#160;stdio_io.c']]],
-  ['stop_5fbits',['stop_bits',['../structuart__config.html#a7b98cd63c531110dc3dc99e94db73642',1,'uart_config']]],
-  ['system_5fsamb11_2ec',['system_samb11.c',['../system__samb11_8c.html',1,'']]]
+  ['read',['read',['../structio__descriptor.html#a8ad97905c11dc07cd30373afc0fc146f',1,'io_descriptor']]],
+  ['read_2ec',['read.c',['../read_8c.html',1,'']]],
+  ['ringbuffer',['ringbuffer',['../structringbuffer.html',1,'']]],
+  ['ringbuffer_5fflush',['ringbuffer_flush',['../group__doc__driver__hal__utils__ringbuffer.html#ga804ce09a6a02d883da66618ff16cd8f0',1,'ringbuffer_flush(struct ringbuffer *const rb):&#160;utils_ringbuffer.c'],['../group__doc__driver__hal__utils__ringbuffer.html#ga804ce09a6a02d883da66618ff16cd8f0',1,'ringbuffer_flush(struct ringbuffer *const rb):&#160;utils_ringbuffer.c']]],
+  ['ringbuffer_5fget',['ringbuffer_get',['../group__doc__driver__hal__utils__ringbuffer.html#ga46163f27edc3b85af50cbc4579e2e8aa',1,'ringbuffer_get(struct ringbuffer *const rb, uint8_t *data):&#160;utils_ringbuffer.c'],['../group__doc__driver__hal__utils__ringbuffer.html#ga46163f27edc3b85af50cbc4579e2e8aa',1,'ringbuffer_get(struct ringbuffer *const rb, uint8_t *data):&#160;utils_ringbuffer.c']]],
+  ['ringbuffer_5finit',['ringbuffer_init',['../group__doc__driver__hal__utils__ringbuffer.html#ga3a02282691d4059ff63caf89b946fbfd',1,'ringbuffer_init(struct ringbuffer *const rb, void *buf, uint32_t size):&#160;utils_ringbuffer.c'],['../group__doc__driver__hal__utils__ringbuffer.html#ga3a02282691d4059ff63caf89b946fbfd',1,'ringbuffer_init(struct ringbuffer *const rb, void *buf, uint32_t size):&#160;utils_ringbuffer.c']]],
+  ['ringbuffer_5fnum',['ringbuffer_num',['../group__doc__driver__hal__utils__ringbuffer.html#ga3b4f3772fa2886e7f9429895c1044409',1,'ringbuffer_num(const struct ringbuffer *const rb):&#160;utils_ringbuffer.c'],['../group__doc__driver__hal__utils__ringbuffer.html#ga3b4f3772fa2886e7f9429895c1044409',1,'ringbuffer_num(const struct ringbuffer *const rb):&#160;utils_ringbuffer.c']]],
+  ['ringbuffer_5fput',['ringbuffer_put',['../group__doc__driver__hal__utils__ringbuffer.html#ga57c5e4794358ac7f4592fe10c8fccb39',1,'ringbuffer_put(struct ringbuffer *const rb, uint8_t data):&#160;utils_ringbuffer.c'],['../group__doc__driver__hal__utils__ringbuffer.html#ga57c5e4794358ac7f4592fe10c8fccb39',1,'ringbuffer_put(struct ringbuffer *const rb, uint8_t data):&#160;utils_ringbuffer.c']]],
+  ['round_5fup',['round_up',['../group__doc__driver__hal__utils__macro.html#gab4181d52c8a5083a8f30e3063893f3da',1,'utils.h']]],
+  ['rte_5fcomponents_2eh',['RTE_Components.h',['../_r_t_e___components_8h.html',1,'']]],
+  ['rxcnt',['rxcnt',['../structusart__async__status.html#ac32698399322fed11e6914cbd88f5ee5',1,'usart_async_status']]]
 ];
