@@ -51,6 +51,7 @@ void xbee_init(){
     _rxFrame_clear(&recvBuff[1]);
 }
 
+//TODO: Rework this to allow different callbacks for each frame type
 void xbee_register_callback(xbee_cb_t t){
     recvBuff[0].callback = t;
     recvBuff[1].callback = t;
