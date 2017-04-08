@@ -443,6 +443,9 @@
     <Compile Include="Device_Startup\system_samb11.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="network\flags.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="utils\hahaUtils.c">
       <SubType>compile</SubType>
     </Compile>

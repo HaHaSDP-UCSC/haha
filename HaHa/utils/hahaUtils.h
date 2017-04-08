@@ -16,10 +16,9 @@
 #include <stdio.h>
 #include <stdio_start.h>
 
-#define bool	uint8_t
+//#define bool	uint8_t
 #define TRUE	1
 #define FALSE	0
-
 /*For debugging */
 /**
  * { #define for debug printing }

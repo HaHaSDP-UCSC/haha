@@ -13,6 +13,7 @@
 /* Internal Functions */
 static void _rxFrame_clear(frameRX *p);
 static uint8_t _xbee_send(char* data, uint8_t len);
+void _xbee_sendFrame(frameTX *tx);
 static uint8_t _frame_TX_tochar(char* buff, frameTX *txData, int size);
 static void _packet_Handler(frameIncoming * p);
 static uint8_t _get_UART_Data(uint8_t numbytes);
@@ -32,8 +33,8 @@ uint8_t RXBUFF_CUR = 0;
 
 
 void xbee_init(){
-    _rxFrame_clear(&recvBuff[0]);
-    _rxFrame_clear(&recvBuff[1]);
+    //_rxFrame_clear(&recvBuff[0]);
+    //_rxFrame_clear(&recvBuff[1]);
 }
 
 void xbee_register_callback(xbee_cb_t t, frameResponseType type){
@@ -102,6 +103,7 @@ uint8_t xbee_send(char* dst, char* data, uint8_t datalen)
     }
 
     _xbee_send(data, datalen);
+    return 0;
 }
 
 /* Internal send function */
@@ -240,7 +242,7 @@ uint8_t xbee_recv(char* data, uint8_t len){
                      break;
              case 1:
                      incoming->data_length = data[count++];
-                     incoming->data_length << 8;
+                     incoming->data_length = incoming->data_length << 8;
                      HAHADEBUG("LengthMSB incoming:%x data was:%x\n", incoming->data_length, data[count-1]);
                      state++;
                      continue;
@@ -290,13 +292,14 @@ uint8_t xbee_recv(char* data, uint8_t len){
             default:
                     state = 0;
        }
-    }                                         
+    }  
+    return 0;                                       
 }    
 
 
 
 /************** Internal Functions *******************/
-static _rxFrame_clear(frameRX *p){
+static void _rxFrame_clear(frameRX *p){
     //uint8_t 	start;
     //uint16_t 	length;
     //uint8_t 	frameType;  1
@@ -402,6 +405,8 @@ uint8_t _parseRX(frameIncoming *frame, frameRX *out){
                     state = 0;
         }
     }
+    
+    return 0;
 }
 
 /* Prints a RX Frame Packet */

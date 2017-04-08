@@ -15,7 +15,7 @@
  //#include "driver_examples.h"
  //#include "driver_init.h"
  //#include "atmel_start_pins.h"
- #include "stdio_start.h"
+#include "stdio_start.h"
 
 #define USART_BUF_SIZE 16
 #define CB_OFF 0
@@ -24,15 +24,20 @@
 #define SET_RX_CB_OFF		SET_RX_CB(CB_OFF)
 #define SET_RX_CB_ON		SET_RX_CB(CB_ON)
 #define IS_RX_CB_ON			(_RX_CALLBACK == CB_ON)
-#define SET_SEND_XBEE(val)	(SEND_XBEE = val);
+/* Configure to send UART data to the Xbee function (net device) */
+#define SET_SEND_NETDEV(val)	(SEND_NETDEV = val);
+
+/* Callback for UART to send received data to net device */
+typedef void (*uart_netdev_cb_t)(char *, uint8_t);
+uart_netdev_cb_t netdev_recv_callback;
 /**
  * { Flag controller whether UART RX callback is used }
  */
 uint8_t _RX_CALLBACK;
 /**
- * { Flag on whether to send data to XBee receive function }
+ * { Flag on whether to send data to NetDev registered callback function }
  */
-uint8_t SEND_XBEE;
+uint8_t SEND_NETDEV;
 
 struct io_descriptor *usart_io;
 char uart_buffer[2][USART_BUF_SIZE];
@@ -70,5 +75,14 @@ uint8_t uart_clearbuffer();
  * @brief      { Initializes and registers interrupts for UART }
  */
 void uart_init_irqs(void);
+
+/**
+ * @brief      { Register the function to UART data to net device }
+ *
+ * @param[in]  t     { Function to call when UART data is received }
+ */
+static void uart_register_netdev_callback(uart_netdev_cb_t t){
+    netdev_recv_callback = t;
+}
 
 #endif

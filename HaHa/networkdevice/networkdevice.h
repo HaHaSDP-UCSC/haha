@@ -185,8 +185,8 @@ typedef struct {
     uint16_t data_len;
     uint8_t frametype;
     uint8_t frameid;
-    uint8_t dst[8]; //change to char* -- no just make a wrapper function
-    uint8_t res[2]; //chat to char*
+    uint8_t dst[8];
+    uint8_t res[2]; 
     uint8_t b_rad;
     uint8_t opt;
     char*	data;

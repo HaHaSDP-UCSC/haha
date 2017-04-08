@@ -15,6 +15,7 @@
 #define TX_BUF_LEN   16
 uint8_t txdone;
 uint8_t txBuff[NUM_TX_BUFFS];
+uint8_t rx_bytes_no_read;
 
 static void tx_cb_USART_1_0(const struct usart_async_descriptor *const io_descr)
 {
@@ -25,7 +26,9 @@ static void tx_cb_USART_1_0(const struct usart_async_descriptor *const io_descr)
 static void rx_cb(const struct usart_async_descriptor *const io_descr)
 {
     /* RX completed */
-    //RX_CB_ON and _OFF can be used here for future
+    /* Make sure we never overflow */
+    if(rx_bytes_no_read++ >= USART_BUF_SIZE)
+        uart_read();
 }
 
 void uart_init_irqs(void)
@@ -35,9 +38,10 @@ void uart_init_irqs(void)
     /*usart_async_register_callback(&USART_1_0, USART_ASYNC_ERROR_CB, err_cb);*/
     usart_async_get_io_descriptor(&USART_1_0, &usart_io);
     usart_async_enable(&USART_1_0);
-    SET_RX_CB_OFF;
-    SET_SEND_XBEE(FALSE);
+    //SET_RX_CB_OFF;
+    SET_SEND_NETDEV(FALSE);
     CURRENT_BUFFER = 0;
+    data_received = 0;
 }
 
 uint8_t uart_write(uint8_t* data, size_t size){
@@ -84,6 +88,7 @@ uint8_t uart_read(){
     static int timeout = 0;
     data_received += io_read(usart_io, &uart_buffer[CURRENT_BUFFER][data_received],
     USART_BUF_SIZE - data_received);
+    rx_bytes_no_read = 0;
     //if(data_received && SEND_XBEE){
         //printf("sendxbeerunning\n");
         //xbee_recv(uart_buffer, data_received);
@@ -92,13 +97,13 @@ uint8_t uart_read(){
     
     if(data_received >= USART_BUF_SIZE || (data_received && (timeout++ > 100000))) {
         HAHADEBUG("Processing UART Received Data.\n");
-        if(SEND_XBEE){
+        if(SEND_NETDEV){
             HAHADEBUG("Sending Received Data To Xbee Handler\n");
-            xbee_recv(uart_buffer[CURRENT_BUFFER], data_received);
+            //xbee_recv(uart_buffer[CURRENT_BUFFER], data_received);
+            netdev_recv_callback(uart_buffer[CURRENT_BUFFER], data_received);
         }
         else{
             HAHADEBUG("Sending Received Data To Printer\n");
-            //print_data(uart_buffer[CURRENT_BUFFER], data_received); // Process data
             printBuff(uart_buffer[CURRENT_BUFFER], data_received, "%c");
         }
         data_received = 0;

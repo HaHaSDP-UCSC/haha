@@ -22,9 +22,10 @@ int main(void)
     printf("Starting System...\n");
     xbee_setAPI(1);
     xbee_send("0013a200414F50EA", "Test Data", 9);
-    delay(1000); //wait for xBee response
-    //uart_write(7E0005085241500000,18 );afj;ld
-    SET_SEND_XBEE(TRUE);
+    //delay(1000); //wait for xBee response
+    //uart_write(7E0005085241500000,18 );
+    uart_register_netdev_callback(xbee_recv);
+    SET_SEND_NETDEV(TRUE);
     xbee_register_callback(printpacket1, FRAME_RX);
     while (1) {
         uart_read();

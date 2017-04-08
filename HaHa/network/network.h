@@ -8,6 +8,7 @@
 /* BASE COMMUNICATION */
 typedef char* opcode;
 
+/* Application Packets */
 typedef struct {
 	//Packet params here
 	opcode opcode;
