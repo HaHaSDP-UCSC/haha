@@ -1,6 +1,0 @@
-/*
- * Atmel_Studio_Tips.txt
- *
- * Created: 3/19/2017 10:28:37 AM
- *  Author: Brian
- */ 
