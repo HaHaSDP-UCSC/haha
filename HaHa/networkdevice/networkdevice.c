@@ -14,36 +14,21 @@
 static void _rxFrame_clear(frameRX *p);
 static uint8_t _xbee_send(char* data, uint8_t len);
 static uint8_t _frame_TX_tochar(char* buff, frameTX *txData, int size);
-static void _packet_Handler(void* frame, uint8_t type);
+static void _packet_Handler(frameIncoming * p);
 static uint8_t _get_UART_Data(uint8_t numbytes);
 static void _print_Packet(frameRX *p);
+static void _print_FrameIncoming(frameIncoming *p);
+uint8_t _verify_checksum(frameIncoming *f);
+static void _checksum_fail();
+static uint8_t _parseRX(frameIncoming *frame, frameRX *out);
 
 
 /* Frame data */
 const uint8_t startdelim = 0x7E;
-frameRX recvBuff[2];
+frameIncoming recvBuff[2];
 frameTX txData;
+frameRX rxData;
 uint8_t RXBUFF_CUR = 0;
-
-/* Frames to XBee */
-typedef enum frameRequestType {	FRAME_AT = 0x08,
-                                FRAME_AT_QUEUE = 0x09,
-                                FRAME_TX = 0x10, 
-                                FRAME_TX_EXPLICIT = 0x11, 
-                                FRAME_REMOTE_COMMAND = 0x17
-                              };
-/* Frames from XBee */
-typedef enum frameResponseType{	FRAME_AT_RESPONSE = 0x88,
-                                FRAME_MODEM_STATUS = 0x8A,
-                                FRAME_TX_STATUS = 0x8B,
-                                FRAME_ROUTE_INFO = 0x8D,
-                                FRAME_AGG_ADDR = 0x8E,
-                                FRAME_RX = 0x90, //only for AO=0
-                                FRAME_RX_EXPLICIT = 0x91, //only for AO=1
-                                FRAME_DATA_SAMPE = 0x92,
-                                FRAME_NODE_ID = 0x95,
-                                FRAME_REMOTE_RESP = 0x97								
-                                };
 
 
 void xbee_init(){
@@ -51,10 +36,24 @@ void xbee_init(){
     _rxFrame_clear(&recvBuff[1]);
 }
 
-//TODO: Rework this to allow different callbacks for each frame type
-void xbee_register_callback(xbee_cb_t t){
-    recvBuff[0].callback = t;
-    recvBuff[1].callback = t;
+void xbee_register_callback(xbee_cb_t t, frameResponseType type){
+    switch (type){
+        case FRAME_MODEM_STATUS:
+        case FRAME_TX_STATUS:
+        case FRAME_ROUTE_INFO:
+        case FRAME_AGG_ADDR:
+        case FRAME_RX_EXPLICIT:
+        case FRAME_DATA_SAMPE:
+        case FRAME_NODE_ID:
+        case FRAME_REMOTE_RESP:
+                    break;
+        case FRAME_RX:
+                    rxData.callback = t;
+                    break; 
+        default:
+                    HAHADEBUG("Invalid callback register type");
+    }
+    
 }
 
 void xbee_enterCmdMode(){
@@ -79,12 +78,6 @@ void xbee_leaveCmdMode(){
     SET_RX_CB_ON;
 }
 
-/**
- * [calc_checksum description]
- * @param  data [description]
- * @param  len  [description]
- * @return      [description]
- */
 uint8_t calc_checksum(char *data, uint8_t len){
     HAHADEBUG("Calculating checksum\n");
     uint16_t total = 0;
@@ -117,7 +110,7 @@ uint8_t _xbee_send(char* data, uint8_t len)
     HAHADEBUG("in _xbee_send\n");
     //Generate the frame packet
     txData.frametype = 0x10;
-    txData.frameid = 0x55; //TODO:generate this later
+    txData.frameid = 0x55; //TODO:Generate if want tracking
 
     //Reserved: FF FE
     txData.res[0] = 0xFF;
@@ -226,107 +219,83 @@ uint8_t xbee_setAPI(uint8_t type){
 */
 
 uint8_t xbee_recv(char* data, uint8_t len){
-    //Need to process packets
-    printf("xbee_recv processing %d->%c bytes:[", len, len);
-    printBuff(data, len, "%c");
-    printf("]");
-    frameRX *incoming = &recvBuff[RXBUFF_CUR];
-    static uint8_t state = 0;
-    static uint8_t currsrc = 0;
-    static uint8_t currres = 0;
-    static uint8_t currdata = 0;
-    uint8_t count = 0;
-    HAHADEBUG("\nParsing UART Data\n");
-    while(count < len){
-        //HAHADEBUG("Running While Loop count:%d len:%d data:%c\n",count, len,incoming->data[count]);
-        switch(state){
-            case 0:
-                    if(data[count++] == startdelim){
-                        HAHADEBUG("Delim:%x\n", data[count-1]);
-                        state++;
-                        continue;
-                    }
-                    break;
-            case 1:
-                    incoming->data_length = data[count++];
-                    incoming->data_length << 8;
-                    HAHADEBUG("LengthMSB incoming:%x data was:%x\n", incoming->data_length, data[count-1]);
-                    state++;
-                    continue;
-                    break;
-            case 2: 
-                    incoming->data_length |= data[count++];
-                    incoming->payload_length = incoming->data_length - FRAME_RX_HEAD_LEN;
-                    HAHADEBUG("LengthLSB incoming:%x data was:%x\n", incoming->data_length, data[count-1]);
-                    HAHADEBUG("Computed Data Packet Length:%d\n", incoming->payload_length);
-                    state++;
-                    continue;
-                    break;
-            case 3:
-                    incoming->frametype = data[count++];
-                    HAHADEBUG("Frame:%x\n", data[count-1]);
-                    if(incoming->frametype != 0x90){ state=0; continue;}
-                    state++;
-                    continue;
-                    break;
-            case 4:
-                    incoming->src[currsrc++] = data[count++];
-                    HAHADEBUG("Src[%d]:%x->%x\n",currsrc-1,incoming->src[currsrc-1], data[count-1]);
-                    if(currsrc >= 8){ 
-                        HAHADEBUG("ResEnd:\n");
-                        currsrc = 0; 
-                        state++; 
-                    }
-                    continue;
-                    break;
-            case 5:
-                    incoming->res[currres++] = data[count++];
-                    HAHADEBUG("Res[%d]:%x->%x\n",currres-1,incoming->res[currres-1], data[count-1]);
-                    if(currres >= 2){ 
-                        HAHADEBUG("SrcEnd:\n");
-                        currres = 0; 
-                        state++; 
-                }
-                    continue;
-                    break;
-            case 6:
-                    incoming->opt = data[count++];
-                    HAHADEBUG("Opt:%x\n", data[count-1]);
-                    state++;
-                    continue;
-                    break;
-            case 7:
+     printf("xbee_recv processing %d->%c bytes:[", len, len);
+     printBuff(data, len, "%c");
+     printf("]\n");
+     frameIncoming *incoming = &recvBuff[RXBUFF_CUR];
+     static uint8_t state = 0;
+     //static uint8_t currsrc = 0;
+     //static uint8_t currres = 0;
+     static uint8_t currdata = 0;
+     uint8_t count = 0;
+     HAHADEBUG("\nParsing UART Data\n");
+     while(count < len){
+         switch(state){
+             case 0:
+                     if(data[count++] == startdelim){
+                         HAHADEBUG("Delim:%x\n", data[count-1]);
+                         state++;
+                         continue;
+                     }
+                     break;
+             case 1:
+                     incoming->data_length = data[count++];
+                     incoming->data_length << 8;
+                     HAHADEBUG("LengthMSB incoming:%x data was:%x\n", incoming->data_length, data[count-1]);
+                     state++;
+                     continue;
+                     break;
+             case 2:
+                     incoming->data_length |= data[count++];
+                     incoming->real_length = incoming->data_length - 1;
+                     HAHADEBUG("LengthLSB incoming:%x data was:%x\n", incoming->data_length, data[count-1]);
+                     HAHADEBUG("Packet Length minus frametype:%x\n", incoming->real_length);
+                     state++;
+                     continue;
+                     break;
+             case 3: /*Technically frametype is part of the 'framedata' but we
+                       chop it off for packet processing */
+                     incoming->frametype = data[count++];
+                     HAHADEBUG("Frame:%x\n", data[count-1]);
+                     state++;
+                     continue;
+                     break;
+             case 4: 
                     incoming->data[currdata++] = data[count++];
-                    HAHADEBUG("Data[%d]:%c %c\n",currdata-1,incoming->data[currdata-1], data[count-1]);
-                    if(currdata >= incoming->payload_length){ 
-                        HAHADEBUG("Data Finished: total:%d\n", incoming->payload_length);
-                        currdata = 0; 
+                    HAHADEBUG("Data[%d]:%c->%c\n",currdata-1,incoming->data[currdata-1], data[count-1]);
+                    if(currdata >= incoming->real_length){
+                        HAHADEBUG("Data Finished: total:%d\n", incoming->real_length);
+                        currdata = 0;
                         state++;
                     }
                     continue;
                     break;
-            case 8:
+             case 5:
                     incoming->checksum = data[count++];
-                    HAHADEBUG("Chksum:%c %c\n",incoming->checksum, data[count-1]);
-                    state = 0;
-                    #ifdef DEBUG_PRINT
-                        //printPacket(incoming);
-                    #endif
-                    /* Handle Packet */
-                    _packet_Handler(incoming, incoming->frametype);
-                    incoming->payload_length = 0;
                     RXBUFF_CUR = !RXBUFF_CUR;
-                    printf("xBeePacket CurrentBuff:%d[%x]->%d[%x]\n", !RXBUFF_CUR,!RXBUFF_CUR, RXBUFF_CUR,RXBUFF_CUR);
+                    state = 0;
+                    HAHADEBUG("Chksum:%c->%c\n",incoming->checksum, data[count-1]);
+                    HAHADEBUG("xbee_recv CurrentBuff:%d[%x]->%d[%x]\n", !RXBUFF_CUR,!RXBUFF_CUR, RXBUFF_CUR,RXBUFF_CUR);
+                    #ifdef DEBUG_PRINT
+                        _print_FrameIncoming(incoming);
+                    #endif
+                    if(!_verify_checksum(incoming)){
+                        _checksum_fail();
+                    }                        
+                    else
+                        _packet_Handler(incoming);
                     incoming = &recvBuff[RXBUFF_CUR];
                     continue;
                     break;
             default:
                     state = 0;
-        }
-    }
-}
+       }
+    }                                         
+}    
 
-/*Interal Functions */
+
+
+/************** Internal Functions *******************/
 static _rxFrame_clear(frameRX *p){
     //uint8_t 	start;
     //uint16_t 	length;
@@ -336,7 +305,7 @@ static _rxFrame_clear(frameRX *p){
     //uint8_t 	opt;        1
     //uint8_t		data[100];
     //uint8_t		checksum;
-    p->data_length = 0;
+    //p->data_length = 0;
     p->frametype = 0;
 
 }
@@ -355,9 +324,10 @@ static uint8_t _get_UART_Data(uint8_t numbytes){
     return ret;
 }
 
-static void _packet_Handler(void* frame, uint8_t type){
+//TODO: Flush out remaining types we want to handle
+static void _packet_Handler(frameIncoming *f){
     HAHADEBUG("In Packet Handler\n");
-    switch(type){
+    switch(f->frametype){
         case FRAME_MODEM_STATUS:
         case FRAME_TX_STATUS:
         case FRAME_ROUTE_INFO:
@@ -369,8 +339,8 @@ static void _packet_Handler(void* frame, uint8_t type){
                     break;
         case FRAME_RX:
                     ;
-                    frameRX *p = (frameRX*)frame;
-                    //printPacket(p);
+                    frameRX *p = &rxData;
+                    _parseRX(f, p);
                     (p->callback)(p->data,p->payload_length);
                     break;
         default:
@@ -378,11 +348,67 @@ static void _packet_Handler(void* frame, uint8_t type){
     }
 }
 
+/*** Packet Parsers ***/
+uint8_t _parseRX(frameIncoming *frame, frameRX *out){
+    out->frametype = frame->frametype;
+    out->checksum = frame->checksum;
+    out->payload_length = frame->data_length - FRAME_RX_HEAD_LEN;
+    uint8_t *data = frame->data;
+    uint8_t state = 0;
+    uint8_t currsrc = 0;
+    uint8_t currres = 0;
+    uint8_t currdata = 0;
+    uint8_t count = 0;
+    HAHADEBUG("\nParsing RX Frame Packet\n");
+    while(count < frame->real_length){
+        switch(state){
+           case 0:
+                    out->src[currsrc++] = data[count++];
+                    HAHADEBUG("Src[%d]:%x->%x\n",currsrc-1,out->src[currsrc-1], data[count-1]);
+                    if(currsrc >= 8){
+                        HAHADEBUG("SrcEnd:\n");
+                        currsrc = 0;
+                        state++;
+                    }
+                    continue;
+                    break;
+            case 1:
+                    out->res[currres++] = data[count++];
+                    HAHADEBUG("Res[%d]:%x->%x\n",currres-1,out->res[currres-1], data[count-1]);
+                    if(currres >= 2){
+                        HAHADEBUG("ResEnd:\n");
+                        currres = 0;
+                        state++;
+                    }
+                    continue;
+                    break;
+            case 2:
+                    out->opt = data[count++];
+                    HAHADEBUG("Opt:%x\n", data[count-1]);
+                    state++;
+                    continue;
+                    break;
+            case 3:
+                    out->data[currdata++] = data[count++];
+                    HAHADEBUG("Data[%d]:%c %c\n",currdata-1,out->data[currdata-1], data[count-1]);
+                    if(currdata >= out->payload_length){
+                        HAHADEBUG("Data Finished: total:%d\n", out->payload_length);
+                        currdata = 0;
+                        state++;
+                    }
+                    continue;
+                    break;
+            default:
+                    state = 0;
+        }
+    }
+}
+
 /* Prints a RX Frame Packet */
 static void _print_Packet(frameRX *p){
     printf("\n\n**rxPacketXbee Print**\n");
-    printf("length:%x\nframeType:%x\n",
-    p->data_length,
+    printf("payload length:%x\nframeType:%x\n",
+    p->payload_length,
     p->frametype
     );
     printf("source:");
@@ -394,26 +420,37 @@ static void _print_Packet(frameRX *p){
     sprintf(buff, p->data, 100);
     buff[101] = '\0';
     printf("data:[");
-    printBuff(p->data, p->data_length,"%c");
+    printBuff(p->data, p->payload_length,"%c");
     printf("]");
     printf("checksum:%x\n", p->checksum);
 }
 
+/* Prints a RX Frame Packet */
+static void _print_FrameIncoming(frameIncoming *p){
+    printf("\n\n**FrameIncoming Print**\n");
+    printf("length:%x\nframeType:%x\n",
+    p->data_length,
+    p->frametype
+    );
+    printf("Actual length of datafield:%x\n", p->real_length);
+    printf("data:[");
+    printBuff(p->data, p->real_length, "%c");
+    printf("]\n");
+    printf("checksum:%x\n", p->checksum);
+}
 
+/* Verify incoming frame Checksum */
+uint8_t _verify_checksum(frameIncoming *f){
+    HAHADEBUG("Verifying checksum\n");
+    uint8_t sum = f->frametype;
+    for(int i=0; i<f->real_length; ++i)
+    sum += f->data[i];
+    sum += f->checksum;
+    HAHADEBUG("Checksum:%x\n", sum);
+    return sum == 0xFF;
+}
 
-
-
-
-/*************************** OLD STUFF ******************** */
-/*
-//~~~Frames~~~
-//typedef struct {
-//uint8_t length;
-//uint8_t frametype;
-//void	*framedata;
-//uint8_t framedata_len;
-//uint8_t checksum;
-//}Frame;
-
-
-*/
+/* Handle checksum failures */
+static void _checksum_fail(){
+    HAHADEBUG("**Checksum Failed!**\n");
+}                            

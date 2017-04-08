@@ -83,6 +83,7 @@ uint8_t gen_checksum(char* data);
 
 /********** FRAMES **********/
 /*
+* FrameData[0] contains frame type
 StartDelimiter(1B) + Length(2B) +  Frame Data(variable) + Checksum(1B)
 *  ______________     ___________     __________________     __________
 * |              |   |     |     |   |                  |   |          |
@@ -106,6 +107,28 @@ StartDelimiter(1B) + Length(2B) +  Frame Data(variable) + Checksum(1B)
 #define OPT_PACKETBCAST	0x00000010
 
 /* CallBacks */
+/* Frames to XBee */
+typedef enum {	
+    FRAME_AT = 0x08,
+    FRAME_AT_QUEUE = 0x09,
+    FRAME_TX = 0x10,
+    FRAME_TX_EXPLICIT = 0x11,
+    FRAME_REMOTE_COMMAND = 0x17
+}frameRequestType;
+
+/* Frames from XBee */
+typedef enum {	
+    FRAME_AT_RESPONSE = 0x88,
+    FRAME_MODEM_STATUS = 0x8A,
+    FRAME_TX_STATUS = 0x8B,
+    FRAME_ROUTE_INFO = 0x8D,
+    FRAME_AGG_ADDR = 0x8E,
+    FRAME_RX = 0x90, //only for AO=0
+    FRAME_RX_EXPLICIT = 0x91, //only for AO=1
+    FRAME_DATA_SAMPE = 0x92,
+    FRAME_NODE_ID = 0x95,
+    FRAME_REMOTE_RESP = 0x97
+}frameResponseType;
 /**
  * { Xbee callback function type }
  */
@@ -115,7 +138,19 @@ typedef void (*xbee_cb_t)(char *, uint8_t);
  *
  * @param[in]  t     { Function to call when app data is received }
  */
-void xbee_register_callback(xbee_cb_t t);
+void xbee_register_callback(xbee_cb_t t, frameResponseType type);
+
+/* Incoming Frames from Xbee */
+/**
+ * { XBee generic frame packet }
+ */
+typedef struct {
+    uint16_t 	data_length; /* total in frame's data field, use for checksum */
+    uint16_t 	real_length; /* total in data field minus the frametype */
+    uint8_t		frametype;
+    uint8_t		data[150];
+    uint8_t		checksum;
+}frameIncoming;
 
 
 /* RX */
@@ -127,7 +162,7 @@ void xbee_register_callback(xbee_cb_t t);
  * { XBee RX frame packet }
  */
 typedef struct {
-    uint16_t 	data_length; /* total in frame's data field */
+    //uint16_t 	data_length; /* total in frame's data field */
     uint8_t		frametype;
     uint8_t 	src[8];
     uint8_t 	res[2];
