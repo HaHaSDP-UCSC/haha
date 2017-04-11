@@ -1,10 +1,9 @@
 /*
- * lighting.h
- *
- * Created: 4/10/2017 7:58:25 PM
- *  Author: kevin
+ * @file lighting.h
+ * @brief Lights in the alert system.
+ * @author Kevin Lee
+ * @date 4/8/2017 4:37:47 PM
  */ 
-
 
 #ifndef LIGHTING_H_
 #define LIGHTING_H_

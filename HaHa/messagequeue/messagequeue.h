@@ -1,8 +1,8 @@
 /*
- * messagequeue.h
- * A queue of expected messages to be serviced.
- * Created: 4/8/2017 4:37:47 PM
- *  Author: kevin
+ * @file messagequeue.h
+ * @brief A queue of expected messages to be serviced.
+ * @author Kevin Lee
+ * @date 4/8/2017 4:37:47 PM
  */ 
 
 #ifndef MESSAGEQUEUE_H_

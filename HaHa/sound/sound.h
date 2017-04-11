@@ -1,10 +1,9 @@
 /*
- * sound.h
- *
- * Created: 4/10/2017 7:56:41 PM
- *  Author: kevin
+ * @file sound.h
+ * @brief Sound System in the alert system.
+ * @author Kevin Lee
+ * @date 4/8/2017 4:37:47 PM
  */ 
-
 
 #ifndef SOUND_H_
 #define SOUND_H_

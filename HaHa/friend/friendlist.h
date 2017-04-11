@@ -1,9 +1,10 @@
 /*
- * IncFile1.h
- *
- * Created: 4/8/2017 11:16:20 PM
- *  Author: kevin
+ * @file friendlist.h
+ * @brief List of Friends as well as data that need to be stored for them.
+ * @author Kevin Lee
+ * @date 4/8/2017 4:37:47 PM
  */ 
+
 
 #ifndef FRIENDLIST_H_
 #define FRIENDLIST_H_

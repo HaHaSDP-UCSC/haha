@@ -1,8 +1,8 @@
 /*
- * sound.c
- *
- * Created: 4/10/2017 7:56:32 PM
- *  Author: kevin
+ * @file sound.c
+ * @brief Sound System in the alert system implementation.
+ * @author Kevin Lee
+ * @date 4/8/2017 4:37:47 PM
  */ 
 
 #include "sound.h"

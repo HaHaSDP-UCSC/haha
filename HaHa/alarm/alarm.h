@@ -1,11 +1,9 @@
 /*
- * alarm.h
- *
- * Created: 4/10/2017 7:59:34 PM
- *  Author: kevin
+ * @file alarm.h
+ * @brief Alarm system that controls the lights and sounds.
+ * @author Kevin Lee
+ * @date 4/8/2017 4:37:47 PM
  */ 
-
-
 
 #ifndef ALARM_H_
 #define ALARM_H_

@@ -1,4 +1,10 @@
-#include <atmel_start.h>
+/*
+ * @file main.c
+ * @brief Main program of the HaHa Alert System.
+ * @author Kevin Lee
+ * @date 4/8/2017 4:37:47 PM
+ */ 
+ #include <atmel_start.h>
 #include "stdio_start.h"
 #include "uart/uart.h"
 #include <string.h>
@@ -20,6 +26,7 @@ int main(void)
     uart_init_irqs();
     xbee_init();
     printf("Starting System...\n");
+	printe("Test STDERR Print\n");
     xbee_setAPI(1);
     xbee_send("0013a200414F50EA", "Test Data", 9);
     //delay(1000); //wait for xBee response

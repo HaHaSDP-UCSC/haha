@@ -1,8 +1,8 @@
 /*
- * neighborlist.h
- * A list of neighbors.
- * Created: 4/8/2017 11:31:29 PM
- *  Author: kevin
+ * @file neighborlist.h
+ * @brief List of Neighbors with accompanying data.
+ * @author Kevin Lee
+ * @date 4/8/2017 4:37:47 PM
  */ 
 
 

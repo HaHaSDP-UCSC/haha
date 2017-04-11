@@ -1,8 +1,8 @@
 /*
- * lighting.c
- *
- * Created: 4/10/2017 7:57:41 PM
- *  Author: kevin
+ * @file lighting.c
+ * @brief Lights in the alert system implementation.
+ * @author Kevin Lee
+ * @date 4/8/2017 4:37:47 PM
  */ 
 
 #include "lighting.h"
