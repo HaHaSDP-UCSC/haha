@@ -5,14 +5,18 @@
  *  Author: kevin
  */ 
 
-#define MAXQUEUESIZE 256
-
 #ifndef MESSAGEQUEUE_H_
 #define MESSAGEQUEUE_H_
 
+#include "utils/hahaUtils.h"
+#include "friend/friendlist.h"
+#include "neighbor/neighborlist.h"
+
+#define MAXQUEUESIZE 256
+
 typedef struct {
 	uint8_t id; //Internal Friend ID, if this is a friend.
-	char networkAddr[NETADDR]; //TODO Finalize Data Structure.
+	char networkAddr[MAXNETADDR]; //TODO Finalize Data Structure.
 	uint16_t port; //Network port.
 	long expiration; //TODO Time structure.
 	uint8_t messagetype; //Expected Response.
