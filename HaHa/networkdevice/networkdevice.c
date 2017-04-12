@@ -449,7 +449,7 @@ uint8_t _verify_checksum(frameIncoming *f){
     HAHADEBUG("Verifying checksum\n");
     uint8_t sum = f->frametype;
     for(int i=0; i<f->real_length; ++i)
-    sum += f->data[i];
+        sum += f->data[i];
     sum += f->checksum;
     HAHADEBUG("Checksum:%x\n", sum);
     return sum == 0xFF;
