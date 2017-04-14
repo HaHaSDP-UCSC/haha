@@ -1,8 +1,8 @@
 /*
- * friendlist.c
- *
- * Created: 4/8/2017 11:16:13 PM
- *  Author: kevin
+ * @file friendlist.c
+ * @brief List of Neighbors with accompanying data implementation.
+ * @author Kevin Lee
+ * @date 4/8/2017 4:37:47 PM
  */ 
 #include "friendlist.h"
 
