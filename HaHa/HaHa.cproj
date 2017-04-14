@@ -26,7 +26,7 @@
     <preserveEEPROM>true</preserveEEPROM>
     <OverrideVtorValue>exception_table</OverrideVtorValue>
     <BootSegment>2</BootSegment>
-    <eraseonlaunchrule>6</eraseonlaunchrule>
+    <eraseonlaunchrule>7</eraseonlaunchrule>
     <AsfFrameworkConfig>
       <framework-data xmlns="">
         <options />
@@ -404,6 +404,12 @@
     <OutputPath>bin\Assembly\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="alarm\alarm.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="alarm\alarm.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="atmel_start.c">
       <SubType>compile</SubType>
     </Compile>
@@ -443,7 +449,37 @@
     <Compile Include="Device_Startup\system_samb11.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="friend\friendlist.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="friend\friendlist.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lighting\lighting.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lighting\lighting.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="messagequeue\messagequeue.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="messagequeue\messagequeue.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="neighbor\neighborlist.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="neighbor\neighborlist.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="network\flags.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="sound\sound.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="sound\sound.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="utils\hahaUtils.c">
@@ -682,11 +718,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="alarm\" />
     <Folder Include="Config\" />
     <Folder Include="Device_Startup\" />
     <Folder Include="base" />
     <Folder Include="button" />
     <Folder Include="doc" />
+    <Folder Include="friend\" />
+    <Folder Include="lighting\" />
+    <Folder Include="messagequeue\" />
+    <Folder Include="neighbor\" />
+    <Folder Include="sound\" />
     <Folder Include="utils" />
     <Folder Include="examples\" />
     <Folder Include="network" />
