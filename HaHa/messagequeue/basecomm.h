@@ -16,6 +16,7 @@
 #include "packet.h"
 #include "networkdevice/networkdevice.h"
 #include "network/network.h"
+#include <string.h>
 //#include "network.h"
 //#include "base.h"
 //#include "baseopcode.h"

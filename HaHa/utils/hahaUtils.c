@@ -6,8 +6,8 @@
  * @date 2017-03-17
  */
 #include "utils/hahaUtils.h"
-//#include <ctype.h>
-//#include <stdio_start.h>
+#include <stdio_start.h>
+#include <ctype.h>
 
 /* Delay in ms */
 void delay(uint32_t ms)
