@@ -1,0 +1,123 @@
+format_version: '2'
+name: My Project
+board:
+  identifier: SAMB11XplainedPro
+  device: ATSAMB11G18A-MU
+details: null
+application: null
+middlewares: {}
+drivers:
+  CLOCK:
+    user_label: CLOCK
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::CLOCK::driver_config_definition::CLOCK::HAL:HPL:LPMCUMISCREGS
+    functionality: System
+    api: HAL:HPL:LPMCUMISCREGS
+    configuration:
+      arm_clock_oscillator: External Oscillator 26MHz
+      cpu_clock_source: ARM clock
+      cpu_prescaler: '1'
+      dualtimer_divider_oscillator: ARM clock
+      dualtimer_prescaler: '1'
+      enable_arm_clock: true
+      enable_cpu_clock: true
+      enable_dualtimer_divider: true
+      enable_i2c0_divider: true
+      enable_i2c1_divider: true
+      enable_pwm0_divider: true
+      enable_pwm1_divider: true
+      enable_pwm2_divider: true
+      enable_pwm3_divider: true
+      enable_rcosc: false
+      enable_spi0_divider: true
+      enable_spi1_divider: true
+      enable_uart0_divider: true
+      enable_uart1_divider: true
+      enable_xosc: false
+      i2c0_divider_oscillator: ARM clock
+      i2c0_prescaler: '1'
+      i2c1_divider_oscillator: ARM clock
+      i2c1_prescaler: '1'
+      pwm0_divider_oscillator: ARM clock
+      pwm0_prescaler: '1'
+      pwm1_divider_oscillator: ARM clock
+      pwm1_prescaler: '1'
+      pwm2_divider_oscillator: ARM clock
+      pwm2_prescaler: '1'
+      pwm3_divider_oscillator: ARM clock
+      pwm3_prescaler: '1'
+      rc26m_arch_enable: true
+      spi0_divider_oscillator: ARM clock
+      spi0_prescaler: '1'
+      spi1_divider_oscillator: ARM clock
+      spi1_prescaler: '1'
+      uart0_divider_oscillator: ARM clock
+      uart0_prescaler: '1'
+      uart1_divider_oscillator: ARM clock
+      uart1_prescaler: '1'
+      xosc26m_arch_enable: true
+    optional_signals: []
+    variant: null
+    clocks:
+      domain_group:
+        nodes:
+        - name: CPU
+          input: CPU
+        configuration: {}
+pads:
+  DISP_BRIGHT:
+    name: LP_GPIO_13
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_13
+    mode: Digital output
+    user_label: DISP_BRIGHT
+    configuration:
+      pad_initial_level: High
+  DISP_B3:
+    name: LP_GPIO_14
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_14
+    mode: Digital output
+    user_label: DISP_B3
+    configuration:
+      pad_initial_level: High
+  DISP_B2:
+    name: LP_GPIO_15
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_15
+    mode: Digital output
+    user_label: DISP_B2
+    configuration:
+      pad_initial_level: High
+  DISP_B1:
+    name: LP_GPIO_16
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_16
+    mode: Digital output
+    user_label: DISP_B1
+    configuration:
+      pad_initial_level: High
+  DISP_B0:
+    name: LP_GPIO_17
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_17
+    mode: Digital output
+    user_label: DISP_B0
+    configuration:
+      pad_initial_level: High
+  DISP_E:
+    name: LP_GPIO_18
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_18
+    mode: Digital output
+    user_label: DISP_E
+    configuration:
+      pad_initial_level: High
+  DISP_REG:
+    name: LP_GPIO_19
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_19
+    mode: Digital output
+    user_label: DISP_REG
+    configuration:
+      pad_initial_level: High
+  DISP_CTRST:
+    name: LP_GPIO_20
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_20
+    mode: Digital output
+    user_label: DISP_CTRST
+    configuration:
+      pad_initial_level: High
+toolchain_options: []
