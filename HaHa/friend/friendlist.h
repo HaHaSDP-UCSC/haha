@@ -8,10 +8,8 @@
 #ifndef FRIENDLIST_H_
 #define FRIENDLIST_H_
 
-#define MAXFIRSTNAME 17
-#define MAXLASTNAME 17
-#define MAXNETADDR 0 //TODO fix.
-#define MAXPORT 2
+#include "utils/hahaUtils.h"
+#include "messagequeue/packet.h"
 
 typedef struct {
 	uint8_t id; //Internal ID.

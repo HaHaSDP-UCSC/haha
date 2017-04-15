@@ -19,7 +19,7 @@ typedef struct {
 	char networkAddr[MAXNETADDR]; //TODO Finalize Data Structure.
 	uint16_t port; //Network port.
 	long expiration; //TODO Time structure.
-	uint8_t messagetype; //Expected Response.
+	opcode opcode; //Expected Response.
 	} Message;
 
 Message messageQueue[MAXQUEUESIZE];

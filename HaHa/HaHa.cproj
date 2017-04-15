@@ -461,10 +461,22 @@
     <Compile Include="lighting\lighting.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="messagequeue\basecomm.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="messagequeue\basecomm.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="messagequeue\flags.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="messagequeue\messagequeue.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="messagequeue\messagequeue.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="messagequeue\packet.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="neighbor\neighborlist.c">

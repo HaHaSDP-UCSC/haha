@@ -1,26 +1,29 @@
 /**
- * \file
- *
- * \brief Utility functions/variables and debug functionality
+ * @file hahaUtils.h
+ * @brief stdlib for HAHA project, contains imports and defines
+ * @author August, Kevin, Brian
+ * @version
+ * @date 2017-04-14
  */
+
 #ifndef _HA_UTILS
 #define _HA_UTILS
-/*
-* utils.h
-*
-* Created: 3/8/2017 12:55:35 PM
-*  Author: Brian
-*/
 
 #include <ctype.h>
 #include <stdio.h>
 #include <stdio_start.h>
+#include <string.h>
+//#include <stdbool.h>
 
-//#define bool	uint8_t
-#define TRUE	1
-#define FALSE	0
+#define TRUE	true
+#define FALSE	false
 
-#define COLORED TRUE
+/* Print preferences */
+/* Set to false if you want to turn it off. */
+#define COLORED    true /* Set this to false to disable terminal colors.  */
+#define DEBUGMES   true /* Set this to false to disable debug messages.   */
+#define VERBOSEMES true /* Set this to false to disable verbose messages. */
+#define ERRORMES   true /* Set this to false to disable error messages.   */
 
 //Color codes for text
 #define CDEF  "\033[0m"
@@ -36,7 +39,7 @@
 /**
  * { #define for debug printing }
  */
-#define DEBUG_PRINT TRUE
+#define DEBUG_PRINT true
 #ifdef DEBUG_PRINT
 #define HAHADEBUG(format, args...) printf(format, ## args)
 #else
@@ -46,11 +49,44 @@
 /************************************************************************/
 /* Quick Standard Error Print                                           */
 /************************************************************************/
+#if ERRORMES
 #if COLORED
-#define printe(args...) fprintf(stderr, CRED); fprintf(stderr, args); fprintf(stderr, CDEF);
+#define printe(args...) fprintf(stderr, CGRN), fprintf(stderr, args), \
+fprintf(stderr, CDEF);
 #else
 #define printe(args...) fprintf(stderr, args);
-#endif
+#endif // COLORED
+#else
+#define printe(...) (void)0;
+#endif // ERRORMES
+
+/************************************************************************/
+/* Quick Standard Print Verbose Messages                                */
+/************************************************************************/
+#if VERBOSEMES
+#if COLORED
+#define printv(args...) fprintf(stdout, CGRN); fprintf(stdout, args); \
+fprintf(stdout, CDEF);
+#else
+#define printv(args...) fprintf(stdout, args);
+#endif // COLORED
+#else
+#define printv(...) (void)0;
+#endif // VERBOSE
+
+/************************************************************************/
+/* Quick Standard Print Debug Messages                                  */
+/************************************************************************/
+#if DEBUGMES
+#if COLORED
+#define printd(args...) fprintf(stdout, CBLU); fprintf(stdout, args); \
+fprintf(stdout, CDEF);
+#else
+#define printd(args...) fprintf(stdout, args)
+#endif // COLORED
+#else
+#define printd(...) (void)0;
+#endif // DEBUG
 
 //typedef enum printType {CHAR, HEX, INT};
 

@@ -10,7 +10,7 @@
 bool soundStatus = false;
 
 bool getSoundStatus() {
-	return lightingStatus;
+	return soundStatus;
 }
 
 bool setSound(bool active, int soundPattern) {

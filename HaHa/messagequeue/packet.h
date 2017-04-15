@@ -8,6 +8,21 @@
 #ifndef PACKET_H_
 #define PACKET_H_
 
+#include "flags.h"
+#include "utils/hahaUtils.h"
+
+//typedef char *opcode;
+typedef char opcode;
+typedef BYTE ttl;
+typedef uint16_t uid;
+
+#define MAXFIRSTNAME 17
+#define MAXLASTNAME 17
+#define MAXPHONE 2
+#define MAXHOMEADDR 2
+#define MAXNETADDR 0 //TODO fix.
+#define MAXPORT 2
+
 typedef enum {
 	PING_REQUEST = 0x01,
 	HELP_REQUEST,
@@ -23,13 +38,8 @@ typedef enum {
 	UNFRIEND_REQUEST
 } op;
 
-typedef unsigned char opcode;
-typedef unsigned char ttl;
-typedef uint16_t uid;
-
 typedef struct {
 	//Packet params here
-	//opcode opcode;
 	opcode opcode;
 	flags flags;
 	uid SRCUID;
@@ -42,6 +52,8 @@ typedef struct {
 	ttl ttl;
 } Packet;
 
+
+/* Handling received packets */
 int pingHandler(Packet p);
 
 int helpRequestHandler(Packet p);
@@ -58,5 +70,8 @@ int findNeighborsResponseHandler(Packet p);
 int friendRequestHandler(Packet p);
 int friendResponseHandler(Packet p);
 int unfriendRequestHandler(Packet p);
+
+/* Handles sending packets */
+//TODO add.
 
 #endif /* PACKET_H_ */

@@ -10,6 +10,7 @@
 
 typedef unsigned char BYTE; /* Allow for device specifics */
 typedef BYTE flags;
+
 /* Flags */
 #define FLAG_ACK 0x01
 #define FLAG_ACCEPT 0x02
