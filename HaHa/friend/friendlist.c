@@ -1,6 +1,6 @@
 /*
  * @file friendlist.c
- * @brief List of Neighbors with accompanying data implementation.
+ * @brief List of friends with accompanying data implementation.
  * @author Kevin Lee
  * @date 4/8/2017 4:37:47 PM
  */ 

@@ -1,21 +1,45 @@
-/* Definitions of network types */
-#ifndef _HA_NETDEFS
-#define _HA_NETDEFS
+///* Definitions of network types */
+//#ifndef _HA_NETDEFS
+//#define _HA_NETDEFS
+//
+////#include "devtools.h"
+//#include "flags.h"
+//
+///* BASE COMMUNICATION */
+//typedef char* opcode;
+//
+///* Application Packets */
+//typedef struct {
+	////Packet params here
+	//opcode opcode;
+	//flags flags;
+	//char* src;
+	//char* dst;
+	//char* data;
+//} Packet;
+//
+//#endif
 
-//#include "devtools.h"
-#include "flags.h"
+//TODO @brian, new network.h
+/* Definition of different network layers. Network data should be passed up
+ * through this.
+ */
 
-/* BASE COMMUNICATION */
-typedef char* opcode;
+#ifndef _HA_NETWORK
+#define _HA_NETWORK
 
-/* Application Packets */
+#include "utils/hahaUtils.h"
+#include "messagequeue/packet.h"
+#define netaddr char *//TODO @brian define better to comply with xbee
+
 typedef struct {
-	//Packet params here
+	//TODO @brian Network information to send/receive packet. May need more.
 	opcode opcode;
-	flags flags;
-	char* src;
-	char* dst;
-	char* data;
-} Packet;
-
-#endif
+	netaddr src;
+	netaddr dest;
+	bool broadcast;
+	BYTE ttl;
+	} Network;
+	
+bool networkStatus(); //TODO flesh out.
+#endif /* NETWORK_H_ */

@@ -419,15 +419,6 @@
     <Compile Include="atmel_start_pins.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="base\base.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="base\basecomm.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="base\basecomm.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="Config\hpl_lpmcu_misc_regs_config.h">
       <SubType>compile</SubType>
     </Compile>
@@ -461,10 +452,22 @@
     <Compile Include="lighting\lighting.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="messagequeue\basecomm.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="messagequeue\basecomm.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="messagequeue\flags.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="messagequeue\messagequeue.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="messagequeue\messagequeue.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="messagequeue\packet.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="neighbor\neighborlist.c">
@@ -721,7 +724,6 @@
     <Folder Include="alarm\" />
     <Folder Include="Config\" />
     <Folder Include="Device_Startup\" />
-    <Folder Include="base" />
     <Folder Include="button" />
     <Folder Include="doc" />
     <Folder Include="friend\" />
@@ -750,9 +752,6 @@
     <Folder Include="networkdevice" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Atmel_Studio_Tips.txt">
-      <SubType>compile</SubType>
-    </None>
     <None Include="debughooks.py">
       <SubType>compile</SubType>
     </None>

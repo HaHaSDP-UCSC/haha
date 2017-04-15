@@ -6,7 +6,6 @@
 */
 #include "networkdevice/networkdevice.h"
 #include "uart/uart.h"
-#include <string.h>
 #include "utils/hahaUtils.h"
 
 
