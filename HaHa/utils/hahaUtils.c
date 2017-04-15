@@ -1,13 +1,13 @@
-/*
- * hahaUtils.c
- *
- * Created: 3/13/2017 3:45:10 AM
- *  Author: Brian
- */ 
-
+/**
+ * @file hahaUtils.c
+ * @brief stdlib for HAHA project, contains imports and defines implementation
+ * @author Brian
+ * @version
+ * @date 2017-03-17
+ */
 #include "utils/hahaUtils.h"
-#include <ctype.h>
-#include <stdio_start.h>
+//#include <ctype.h>
+//#include <stdio_start.h>
 
 /* Delay in ms */
 void delay(uint32_t ms)

@@ -51,7 +51,7 @@
 /************************************************************************/
 #if ERRORMES
 #if COLORED
-#define printe(args...) fprintf(stderr, CGRN), fprintf(stderr, args), \
+#define printe(args...) fprintf(stderr, CRED), fprintf(stderr, args), \
 fprintf(stderr, CDEF);
 #else
 #define printe(args...) fprintf(stderr, args);
