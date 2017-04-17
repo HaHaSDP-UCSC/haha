@@ -12,6 +12,4 @@
 #include "utils/hahaUtils.h"
 
 
-
-
 #endif /* NEIGHBORLIST_H_ */
