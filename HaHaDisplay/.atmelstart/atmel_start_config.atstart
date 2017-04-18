@@ -5,7 +5,15 @@ board:
   device: ATSAMB11G18A-MU
 details: null
 application: null
-middlewares: {}
+middlewares:
+  STDIO_REDIRECT_0:
+    user_label: STDIO_REDIRECT_0
+    configuration: {}
+    definition: Atmel:STDIO_redirect:0.0.1::STDIO_Redirect
+    functionality: STDIO_Redirect
+    api: STDIO:Redirect:IO
+    dependencies:
+      Target IO: TARGET_IO
 drivers:
   CLOCK:
     user_label: CLOCK
@@ -63,6 +71,29 @@ drivers:
         - name: CPU
           input: CPU
         configuration: {}
+  TARGET_IO:
+    user_label: TARGET_IO
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::UART0::driver_config_definition::UART::HAL:Driver:USART.Sync
+    functionality: USART
+    api: HAL:Driver:USART_Sync
+    configuration:
+      uart_advanced: false
+      uart_arch_flow_control: false
+      uart_baud_rate: 115200
+      uart_character_size: 8 bits
+      uart_parity: Even parity
+      uart_rx_enable: true
+      uart_stop_bit: One stop bit
+      uart_tx_enable: true
+    optional_signals: []
+    variant: null
+    clocks:
+      domain_group:
+        nodes:
+        - name: UART
+          input: UART0 Divider
+        configuration:
+          uart_clock_source: UART0 Divider
 pads:
   DISP_BRIGHT:
     name: LP_GPIO_13

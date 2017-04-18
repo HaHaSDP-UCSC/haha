@@ -14,6 +14,14 @@
 extern "C" {
 #endif
 
+#include <hal_usart_sync.h>
+
+extern struct usart_sync_descriptor TARGET_IO;
+
+void TARGET_IO_PORT_init(void);
+void TARGET_IO_CLOCK_init(void);
+void TARGET_IO_init(void);
+
 /* ISR RAM table address, definition from rom code. */
 #define ISR_RAM_MAP_START_ADDRESS (0x10000000)
 
@@ -64,9 +72,9 @@ enum ram_isr_table_index {
 	RAM_ISR_TABLE_BLE_CORE           = 47,
 };
 
-#define CONF_DMAC_MAX_USED_DESC (/*CLOCK*/ 0)
+#define CONF_DMAC_MAX_USED_DESC (/*CLOCK*/ 0 + /*UART0*/ 0)
 
-#define CONF_DMAC_MAX_USED_CH (/*CLOCK*/ 0)
+#define CONF_DMAC_MAX_USED_CH (/*CLOCK*/ 0 + /*UART0*/ 0)
 
 /**
  * \brief Perform system initialization, initialize pins and clocks for

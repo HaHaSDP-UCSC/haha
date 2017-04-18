@@ -36,12 +36,21 @@
       <require Dname="ATSAMB11G18A"/>
       <accept Tcompiler="GCC"/>
     </condition>
+    <condition id="IAR">
+      <require Dname="ATSAMB11G18A"/>
+      <accept Tcompiler="IAR"/>
+    </condition>
+    <condition id="ARMCC">
+      <require Dname="ATSAMB11G18A"/>
+      <accept Tcompiler="ARMCC"/>
+    </condition>
   </conditions>
   <components generator="AtmelStart">
     <component Cclass="AtmelStart" Cgroup="Framework" Cversion="1.0.0" condition="CMSIS Device Startup">
       <description>Atmel Start Framework</description>
       <RTE_Components_h>#define ATMEL_START</RTE_Components_h>
       <files>
+        <file category="doc" condition="ARMCC, GCC, IAR" name="hal/documentation/usart_sync.rst"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hal_atomic.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hal_gpio.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hal_init.h"/>
@@ -51,6 +60,7 @@
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hpl_gpio.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hpl_init.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hpl_irq.h"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hpl_usart.h"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hal/src/hal_atomic.c"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hal/src/hal_gpio.c"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hal/src/hal_init.c"/>
@@ -59,13 +69,16 @@
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/utils/include/err_codes.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/utils/include/utils.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/utils/include/utils_assert.h"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="hal/utils/include/utils_increment_macro.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/utils/include/utils_list.h"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="hal/utils/include/utils_repeat_macro.h"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hal/utils/src/utils_assert.c"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hal/utils/src/utils_list.c"/>
         <file category="source" condition="GCC" name="hal/utils/src/utils_syscalls.c"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hpl/core/hpl_core_m0_base.c"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hpl/gpio/hpl_gpio.c"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hpl/lpmcu_misc_regs/hpl_lpmcu_misc_regs.c"/>
+        <file category="source" condition="ARMCC, GCC, IAR" name="hpl/uart/hpl_uart.c"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hri/hri_aon_gp_regs_b11.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hri/hri_aon_pwr_seq_b11.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hri/hri_aon_sleep_timer_b11.h"/>
@@ -86,20 +99,36 @@
         <file category="header" condition="ARMCC, GCC, IAR" name="hri/hri_timer_b11.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hri/hri_uart_b11.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hri/hri_wdt_b11.h"/>
+        <file category="doc" condition="ARMCC, GCC, IAR" name="documentation/stdio.rst"/>
+        <file category="source" condition="GCC" name="stdio_redirect/gcc/read.c"/>
+        <file category="source" condition="GCC" name="stdio_redirect/gcc/write.c"/>
+        <file category="source" condition="IAR" name="stdio_redirect/iar/read.c"/>
+        <file category="source" condition="IAR" name="stdio_redirect/iar/write.c"/>
+        <file category="source" condition="ARMCC" name="stdio_redirect/keil/Retarget.c"/>
+        <file category="source" condition="ARMCC, GCC, IAR" name="stdio_redirect/stdio_io.c"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="stdio_redirect/stdio_io.h"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="main.c"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="driver_init.c"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="driver_init.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="atmel_start_pins.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="examples/driver_examples.h"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="examples/driver_examples.c"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hal_usart_sync.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hpl_missing_features.h"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hpl_usart_async.h"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hpl_usart_sync.h"/>
+        <file category="source" condition="ARMCC, GCC, IAR" name="hal/src/hal_usart_sync.c"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/utils/include/parts.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hpl/core/hpl_core_port.h"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hpl/core/hpl_init.c"/>
+        <file category="source" condition="ARMCC, GCC, IAR" name="stdio_start.c"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="stdio_start.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="atmel_start.h"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="atmel_start.c"/>
         <file attr="config" category="header" condition="ARMCC, GCC, IAR" name="config/hpl_lpmcu_misc_regs_config.h"/>
+        <file attr="config" category="header" condition="ARMCC, GCC, IAR" name="config/hpl_uart_config.h"/>
         <file attr="config" category="header" condition="ARMCC, GCC, IAR" name="config/peripheral_clk_config.h"/>
+        <file attr="config" category="header" condition="ARMCC, GCC, IAR" name="config/stdio_redirect_config.h"/>
         <file category="include" condition="ARMCC, GCC, IAR" name=""/>
         <file category="include" condition="ARMCC, GCC, IAR" name="config"/>
         <file category="include" condition="ARMCC, GCC, IAR" name="examples"/>
@@ -108,7 +137,11 @@
         <file category="include" condition="ARMCC, GCC, IAR" name="hpl/core"/>
         <file category="include" condition="ARMCC, GCC, IAR" name="hpl/gpio"/>
         <file category="include" condition="ARMCC, GCC, IAR" name="hpl/lpmcu_misc_regs"/>
+        <file category="include" condition="ARMCC, GCC, IAR" name="hpl/uart"/>
         <file category="include" condition="ARMCC, GCC, IAR" name="hri"/>
+        <file category="include" condition="ARMCC, GCC, IAR" name=""/>
+        <file category="include" condition="ARMCC, GCC, IAR" name="config"/>
+        <file category="include" condition="ARMCC, GCC, IAR" name="stdio_redirect"/>
         <file category="include" condition="ARMCC, GCC, IAR" name=""/>
       </files>
     </component>

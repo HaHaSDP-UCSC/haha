@@ -110,7 +110,7 @@
         </AcmeActionInfos>
       </AcmeProjectConfig>
     </AcmeProjectConfig>
-    <AtzipPath>.atmel-start-backup\Atmel_Start_2.atzip</AtzipPath>
+    <AtzipPath>.atmel-start-backup\Atmel_Start_4.atzip</AtzipPath>
     <avrtool>com.atmel.avrdbg.tool.edbg</avrtool>
     <avrtoolserialnumber>ATML2534030200004453</avrtoolserialnumber>
     <avrdeviceexpectedsignature>0x2000B0</avrdeviceexpectedsignature>
@@ -153,7 +153,9 @@
       <Value>../hpl/core</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
+      <Value>../hpl/uart</Value>
       <Value>../hri</Value>
+      <Value>../stdio_redirect</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
   <armgcc.compiler.optimization.level>Optimize for size (-Os)</armgcc.compiler.optimization.level>
@@ -184,7 +186,9 @@
       <Value>../hpl/core</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
+      <Value>../hpl/uart</Value>
       <Value>../hri</Value>
+      <Value>../stdio_redirect</Value>
     </ListValues>
   </armgcc.assembler.general.IncludePaths>
   <armgcc.preprocessingassembler.general.IncludePaths>
@@ -199,7 +203,9 @@
       <Value>../hpl/core</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
+      <Value>../hpl/uart</Value>
       <Value>../hri</Value>
+      <Value>../stdio_redirect</Value>
     </ListValues>
   </armgcc.preprocessingassembler.general.IncludePaths>
 </ArmGcc>
@@ -231,7 +237,9 @@
       <Value>../hpl/core</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
+      <Value>../hpl/uart</Value>
       <Value>../hri</Value>
+      <Value>../stdio_redirect</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
   <armgcc.compiler.optimization.level>Optimize (-O1)</armgcc.compiler.optimization.level>
@@ -263,7 +271,9 @@
       <Value>../hpl/core</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
+      <Value>../hpl/uart</Value>
       <Value>../hri</Value>
+      <Value>../stdio_redirect</Value>
     </ListValues>
   </armgcc.assembler.general.IncludePaths>
   <armgcc.assembler.debugging.DebugLevel>Default (-g)</armgcc.assembler.debugging.DebugLevel>
@@ -279,7 +289,9 @@
       <Value>../hpl/core</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
+      <Value>../hpl/uart</Value>
       <Value>../hri</Value>
+      <Value>../stdio_redirect</Value>
     </ListValues>
   </armgcc.preprocessingassembler.general.IncludePaths>
   <armgcc.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcc.preprocessingassembler.debugging.DebugLevel>
@@ -300,10 +312,16 @@
     <Compile Include="Config\hpl_lpmcu_misc_regs_config.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Config\hpl_uart_config.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Config\peripheral_clk_config.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Config\RTE_Components.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Config\stdio_redirect_config.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Device_Startup\startup_samb11.c">
@@ -336,6 +354,9 @@
     <Compile Include="hal\include\hal_io.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="hal\include\hal_usart_sync.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="hal\include\hpl_core.h">
       <SubType>compile</SubType>
     </Compile>
@@ -354,6 +375,15 @@
     <Compile Include="hal\include\hpl_missing_features.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="hal\include\hpl_usart.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="hal\include\hpl_usart_async.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="hal\include\hpl_usart_sync.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="hal\src\hal_atomic.c">
       <SubType>compile</SubType>
     </Compile>
@@ -364,6 +394,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hal\src\hal_io.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="hal\src\hal_usart_sync.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hal\utils\include\compiler.h">
@@ -381,7 +414,13 @@
     <Compile Include="hal\utils\include\utils_assert.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="hal\utils\include\utils_increment_macro.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="hal\utils\include\utils_list.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="hal\utils\include\utils_repeat_macro.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hal\utils\src\utils_assert.c">
@@ -406,6 +445,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hpl\lpmcu_misc_regs\hpl_lpmcu_misc_regs.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="hpl\uart\hpl_uart.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hri\hri_aon_gp_regs_b11.h">
@@ -471,16 +513,31 @@
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="menu\hd44780.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="menu\hd44780.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="menu\hd44780_settings.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="menu\lcd.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="menu\lcd.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="stdio_redirect\gcc\read.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="stdio_redirect\gcc\write.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="stdio_redirect\stdio_io.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="stdio_redirect\stdio_io.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="stdio_start.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="stdio_start.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="utils\hahaUtils.c">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>
@@ -498,8 +555,12 @@
     <Folder Include="hpl\core\" />
     <Folder Include="hpl\gpio\" />
     <Folder Include="hpl\lpmcu_misc_regs\" />
+    <Folder Include="hpl\uart\" />
     <Folder Include="hri\" />
     <Folder Include="menu" />
+    <Folder Include="stdio_redirect\" />
+    <Folder Include="stdio_redirect\gcc\" />
+    <Folder Include="utils" />
   </ItemGroup>
   <ItemGroup>
     <None Include="debughooks.py">
@@ -508,7 +569,7 @@
     <None Include="Device_Startup\samb11_sram.ld">
       <SubType>compile</SubType>
     </None>
-    <None Include="menu\hd44780.txt">
+    <None Include="utils\hahaUtils.h">
       <SubType>compile</SubType>
     </None>
   </ItemGroup>

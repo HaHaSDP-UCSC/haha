@@ -26,6 +26,51 @@ uint32_t dmac_ch_used = CONF_DMAC_MAX_USED_CH;
 extern struct _irq_descriptor *_irq_table[PERIPH_COUNT_IRQn];
 extern void                    Default_Handler(void);
 
+struct usart_sync_descriptor TARGET_IO;
+
+void TARGET_IO_PORT_init(void)
+{
+}
+
+void TARGET_IO_CLOCK_init(void)
+{
+}
+
+void TARGET_IO_init(void)
+{
+	TARGET_IO_CLOCK_init();
+	usart_sync_init(&TARGET_IO, UART0, (void *)NULL);
+	TARGET_IO_PORT_init();
+}
+
+void UART0_RX_Handler(void)
+{
+	if (_irq_table[UART0_RX_IRQn + (0 << 1)]) {
+		_irq_table[UART0_RX_IRQn + (0 << 1)]->handler(_irq_table[UART0_RX_IRQn + (0 << 1)]->parameter);
+	} else {
+		Default_Handler();
+	}
+}
+
+void UART0_TX_Handler(void)
+{
+	if (_irq_table[UART0_TX_IRQn + (0 << 1)]) {
+		_irq_table[UART0_TX_IRQn + (0 << 1)]->handler(_irq_table[UART0_TX_IRQn + (0 << 1)]->parameter);
+	} else {
+		Default_Handler();
+	}
+}
+void UART0_register_isr(void)
+{
+	uint32_t *temp;
+
+	temp  = (uint32_t *)((RAM_ISR_TABLE_UARTRX0 + (0 << 1)) * 4 + ISR_RAM_MAP_START_ADDRESS);
+	*temp = (uint32_t)UART0_RX_Handler;
+
+	temp  = (uint32_t *)((RAM_ISR_TABLE_UARTTX0 + (0 << 1)) * 4 + ISR_RAM_MAP_START_ADDRESS);
+	*temp = (uint32_t)UART0_TX_Handler;
+}
+
 void system_init(void)
 {
 	init_mcu();
@@ -141,4 +186,8 @@ void system_init(void)
 	                   true);
 
 	gpio_set_pin_function(DISP_CTRST, GPIO_PIN_FUNCTION_OFF);
+
+	UART0_register_isr();
+
+	TARGET_IO_init();
 }

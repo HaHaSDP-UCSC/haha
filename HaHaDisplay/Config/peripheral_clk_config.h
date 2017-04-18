@@ -12,6 +12,25 @@
 #define CONF_CPU_FREQUENCY 26000000
 #endif
 
+// <h> UART0 Clock Settings
+// <y> UART0 Clock source
+// <UART0_CLOCK_SOURCE">UART0 Divider
+// <i> This defines the clock source for the UART0
+// <id> uart_clock_source
+#ifndef CONF_UART0_SRC
+#define CONF_UART0_SRC UART0_CLOCK_SOURCE
+#endif
+
+// </h>
+
+/**
+ * \def UART0 FREQUENCY
+ * \brief UART0's Clock frequency
+ */
+#ifndef CONF_UART0_FREQUENCY
+#define CONF_UART0_FREQUENCY 26000000
+#endif
+
 // <<< end of configuration section >>>
 
 #endif // PERIPHERAL_CLK_CONFIG_H
