@@ -9,14 +9,8 @@
 #ifndef _HA_UTILS
 #define _HA_UTILS
 
-#include <ctype.h>
+#include <stdbool.h>
 #include <stdio.h>
-#include <stdio_start.h>
-#include <string.h>
-//#include <stdbool.h>
-
-#define TRUE	true
-#define FALSE	false
 
 /* Print preferences */
 /* Set to false if you want to turn it off. */

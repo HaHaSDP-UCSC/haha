@@ -7,3 +7,7 @@
 
 #include "messagequeue.h"
 
+/* Initializes the message queue with pending friend messages.*/
+void initPendingMessages() {
+	
+}

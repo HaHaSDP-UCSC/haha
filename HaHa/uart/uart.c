@@ -39,7 +39,7 @@ void uart_init_irqs(void)
     usart_async_get_io_descriptor(&USART_1_0, &usart_io);
     usart_async_enable(&USART_1_0);
     //SET_RX_CB_OFF;
-    SET_SEND_NETDEV(FALSE);
+    SET_SEND_NETDEV(false);
     CURRENT_BUFFER = 0;
     data_received = 0;
 }
