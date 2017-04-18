@@ -1,6 +1,10 @@
 #ifndef HD44780_SETTINGS_H
 #define HD44780_SETTINGS_H
 
+#include "atmel_start_pins.h"
+
+#define _BV(bit) 1 << bit
+
 #define F_CPU                    8000000     // Set Clock Frequency
 
 #define USE_ADELAY_LIBRARY       0           // Set to 1 to use my ADELAY library, 0 to use internal delay functions
@@ -12,25 +16,25 @@
 
 #if (LCD_BITS==8)                            // If using 8 bit mode, you must configure DB0-DB7
   #define LCD_DB0_PORT           PORTC
-  #define LCD_DB0_PIN            0
+  #define LCD_DB0_PIN            DISP_B0
   #define LCD_DB1_PORT           PORTC
-  #define LCD_DB1_PIN            1
+  #define LCD_DB1_PIN            DISP_B1
   #define LCD_DB2_PORT           PORTC
-  #define LCD_DB2_PIN            2
+  #define LCD_DB2_PIN            DISP_B2
   #define LCD_DB3_PORT           PORTC
-  #define LCD_DB3_PIN            3
+  #define LCD_DB3_PIN            DISP_B3
 #endif
-#define LCD_DB4_PORT             PORTC       // If using 4 bit omde, yo umust configure DB4-DB7
-#define LCD_DB4_PIN              4
-#define LCD_DB5_PORT             PORTC
-#define LCD_DB5_PIN              5
-#define LCD_DB6_PORT             PORTC
-#define LCD_DB6_PIN              6
-#define LCD_DB7_PORT             PORTC
-#define LCD_DB7_PIN              7
+#define LCD_DB4_PORT             DISP_B0       // If using 4 bit mode, you must configure DB4-DB7
+#define LCD_DB4_PIN              17
+#define LCD_DB5_PORT             DISP_B1
+#define LCD_DB5_PIN              16
+#define LCD_DB6_PORT             DISP_B2
+#define LCD_DB6_PIN              15
+#define LCD_DB7_PORT             DISP_B3
+#define LCD_DB7_PIN              14
 
-#define LCD_RS_PORT              PORTC       // Port for RS line
-#define LCD_RS_PIN               4           // Pin for RS line
+#define LCD_RS_PORT              DISP_CTRST       // Port for RS line
+#define LCD_RS_PIN               20          // Pin for RS line
 
 #define LCD_RW_PORT              PORTC       // Port for RW line (ONLY used if RW_LINE_IMPLEMENTED=1)
 #define LCD_RW_PIN               6           // Pin for RW line (ONLY used if RW_LINE_IMPLEMENTED=1)
@@ -40,9 +44,9 @@
                                              // pin which each display will have its own
 
                                              // Display 1 Settings - if you only have 1 display, YOU MUST SET THESE
-#define LCD_DISPLAY_LINES        2           // Number of Lines, Only Used for Set I/O Mode Command
-#define LCD_E_PORT               PORTC       // Port for E line
-#define LCD_E_PIN                5           // Pin for E line
+#define LCD_DISPLAY_LINES        4           // Number of Lines, Only Used for Set I/O Mode Command
+#define LCD_E_PORT               DISP_E       // Port for E line
+#define LCD_E_PIN                18      // Pin for E line
 
 #if (LCD_DISPLAYS>=2)                        // If you have 2 displays, set these and change LCD_DISPLAYS=2
   #define LCD_DISPLAY2_LINES     2           // Number of Lines, Only Used for Set I/O Mode Command

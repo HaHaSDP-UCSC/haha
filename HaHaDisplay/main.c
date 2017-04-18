@@ -1,4 +1,5 @@
 #include <atmel_start.h>
+#include "menu/hd44780.h"
 
 int main(void)
 {
