@@ -6,7 +6,3 @@
  */ 
 #include "friendlist.h"
 
-/* Initializes the message queue with pending friend messages.*/
-void initPendingMessages() {
-	
-}

@@ -1,6 +1,6 @@
 /*
  * @file packet.h
- * @brief Packet creation and handling.
+ * @brief Application Packet creation and handling.
  * @author Kevin Lee
  * @date 4/14/2017
  */ 
@@ -23,8 +23,10 @@ typedef uint16_t uid;
 #define MAXNETADDR 0 //TODO fix.
 #define MAXPORT 2
 
+#define START_OPCODE 0x01
+
 typedef enum {
-	PING_REQUEST = 0x01,
+	PING_REQUEST = START_OPCODE,
 	HELP_REQUEST,
 	HELP_RESPONSE,
 	HELP_FROM_ANYONE_REQUEST,
@@ -54,22 +56,22 @@ typedef struct {
 
 
 /* Handling received packets */
-int pingHandler(Packet p);
+bool pingHandler(Packet p);
 
-int helpRequestHandler(Packet p);
-int helpResponseHandler(Packet p);
-int helpFromAnyoneRequestHandler(Packet p);
-int helpFromAnyoneResponseHandler(Packet p);
+bool helpRequestHandler(Packet p);
+bool helpResponseHandler(Packet p);
+bool helpFromAnyoneRequestHandler(Packet p);
+bool helpFromAnyoneResponseHandler(Packet p);
 
-int findHopsRequestHandler(Packet p);
-int findHopsResponseHandler(Packet p);
+bool findHopsRequestHandler(Packet p);
+bool findHopsResponseHandler(Packet p);
 
-int findNeighborsRequestHandler(Packet p);
-int findNeighborsResponseHandler(Packet p);
+bool findNeighborsRequestHandler(Packet p);
+bool findNeighborsResponseHandler(Packet p);
 
-int friendRequestHandler(Packet p);
-int friendResponseHandler(Packet p);
-int unfriendRequestHandler(Packet p);
+bool friendRequestHandler(Packet p);
+bool friendResponseHandler(Packet p);
+bool unfriendRequestHandler(Packet p);
 
 /* Handles sending packets */
 //TODO add.
