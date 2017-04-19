@@ -7,12 +7,17 @@ int main(void)
 
 	/* Replace with your application code */
 	lcd_init();
-	char* hello = "Hello world!";
+	//char* hello = "Hello world!";
 	/*for(int i = 0; i < strlen(hello); i++) {
 		lcd_write_char(hello[i]);
 	}
 	*/
+	
 	lcd_write_char('h');
 	while (1) {
+		gpio_set_pin_level(DISP_CTRST, true);
+		delay(100);
+		gpio_set_pin_level(DISP_CTRST, false);
+		delay(100);
 	}
 }

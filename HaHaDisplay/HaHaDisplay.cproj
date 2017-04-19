@@ -58,6 +58,7 @@
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_gpio.h" IsConfig="false" Hash="tNY4SK0LIEtxI+XKyKphuA" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_init.h" IsConfig="false" Hash="mu+BMSLTW/FQMhb507My1w" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_irq.h" IsConfig="false" Hash="WVfontf7K1xt8omRuJwfnQ" />
+          <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_usart.h" IsConfig="false" Hash="naiHtTkchhUfQcBG9NzZRg" />
           <AcmeProjectActionInfo Action="File" Source="hal/src/hal_atomic.c" IsConfig="false" Hash="4ZwWKpehDnF3jXZIcWH70w" />
           <AcmeProjectActionInfo Action="File" Source="hal/src/hal_gpio.c" IsConfig="false" Hash="oX0BqN7TgFxWj2/sKF1t1Q" />
           <AcmeProjectActionInfo Action="File" Source="hal/src/hal_init.c" IsConfig="false" Hash="l9xQ9qU1tRNd0CyJc1wkYA" />
@@ -66,13 +67,16 @@
           <AcmeProjectActionInfo Action="File" Source="hal/utils/include/err_codes.h" IsConfig="false" Hash="tnQWPe33eyYYugtr95bcIw" />
           <AcmeProjectActionInfo Action="File" Source="hal/utils/include/utils.h" IsConfig="false" Hash="ZyrqZmj6xcvzGvu0XOMEeQ" />
           <AcmeProjectActionInfo Action="File" Source="hal/utils/include/utils_assert.h" IsConfig="false" Hash="L4JjVwx1NTGaWWkAn4FtVg" />
+          <AcmeProjectActionInfo Action="File" Source="hal/utils/include/utils_increment_macro.h" IsConfig="false" Hash="thtpTAZXIK1JmuTigaJkdg" />
           <AcmeProjectActionInfo Action="File" Source="hal/utils/include/utils_list.h" IsConfig="false" Hash="FxpbqMD3vOdKz+y/pUgdKA" />
+          <AcmeProjectActionInfo Action="File" Source="hal/utils/include/utils_repeat_macro.h" IsConfig="false" Hash="r9HYGVofKEZ3ZSpxSAL/bg" />
           <AcmeProjectActionInfo Action="File" Source="hal/utils/src/utils_assert.c" IsConfig="false" Hash="rQik+u5KC8ysETQ9twsFUA" />
           <AcmeProjectActionInfo Action="File" Source="hal/utils/src/utils_list.c" IsConfig="false" Hash="31KnwgRqWMDU3DHou3VE6w" />
           <AcmeProjectActionInfo Action="File" Source="hal/utils/src/utils_syscalls.c" IsConfig="false" Hash="+7vLvt63CJ8VswQa7P+Y+A" />
           <AcmeProjectActionInfo Action="File" Source="hpl/core/hpl_core_m0_base.c" IsConfig="false" Hash="1edUIm2isdfuT6vzilzyXw" />
           <AcmeProjectActionInfo Action="File" Source="hpl/gpio/hpl_gpio.c" IsConfig="false" Hash="0T8tQWu7EWaioac5/lSkbw" />
           <AcmeProjectActionInfo Action="File" Source="hpl/lpmcu_misc_regs/hpl_lpmcu_misc_regs.c" IsConfig="false" Hash="K0jDJ/Tlil9s4lwBvwUWsw" />
+          <AcmeProjectActionInfo Action="File" Source="hpl/uart/hpl_uart.c" IsConfig="false" Hash="GGieG9GPJEiGDx2Z6sCL2Q" />
           <AcmeProjectActionInfo Action="File" Source="hri/hri_aon_gp_regs_b11.h" IsConfig="false" Hash="FK6LFX3fsMG6+u8rIo8OtA" />
           <AcmeProjectActionInfo Action="File" Source="hri/hri_aon_pwr_seq_b11.h" IsConfig="false" Hash="B+AND2ee1P2s0HiieoaWFA" />
           <AcmeProjectActionInfo Action="File" Source="hri/hri_aon_sleep_timer_b11.h" IsConfig="false" Hash="101TOlEtQkYW1FwT4EvVtQ" />
@@ -93,24 +97,39 @@
           <AcmeProjectActionInfo Action="File" Source="hri/hri_timer_b11.h" IsConfig="false" Hash="9AsiNlYAQbKFsu3b21CObA" />
           <AcmeProjectActionInfo Action="File" Source="hri/hri_uart_b11.h" IsConfig="false" Hash="foe55Rnvt8jg42RDarHaeg" />
           <AcmeProjectActionInfo Action="File" Source="hri/hri_wdt_b11.h" IsConfig="false" Hash="yEIRv7BILWaMts8ljypZUg" />
+          <AcmeProjectActionInfo Action="File" Source="stdio_redirect/gcc/read.c" IsConfig="false" Hash="Kq/SBc4hfCIRGg6xRTn61g" />
+          <AcmeProjectActionInfo Action="File" Source="stdio_redirect/gcc/write.c" IsConfig="false" Hash="BZYQcal4DKU0psZnxZzC8w" />
+          <AcmeProjectActionInfo Action="File" Source="stdio_redirect/iar/read.c" IsConfig="false" Hash="5wEKRCdFZnZZffSZQTEznQ" />
+          <AcmeProjectActionInfo Action="File" Source="stdio_redirect/iar/write.c" IsConfig="false" Hash="e927wQlEkx2RXhjD1KfVCQ" />
+          <AcmeProjectActionInfo Action="File" Source="stdio_redirect/keil/Retarget.c" IsConfig="false" Hash="v1d9icEoMQzswc2H0pudmg" />
+          <AcmeProjectActionInfo Action="File" Source="stdio_redirect/stdio_io.c" IsConfig="false" Hash="UrJDbXkOHViVdylqxwrS5Q" />
+          <AcmeProjectActionInfo Action="File" Source="stdio_redirect/stdio_io.h" IsConfig="false" Hash="UYaiMoABsPInCz1RsJpDLA" />
           <AcmeProjectActionInfo Action="File" Source="main.c" IsConfig="false" Hash="k0AH7j+BrmdFhBPzCCMptA" />
-          <AcmeProjectActionInfo Action="File" Source="driver_init.c" IsConfig="false" Hash="b9BSyln++KT+onb+6bVDAQ" />
-          <AcmeProjectActionInfo Action="File" Source="driver_init.h" IsConfig="false" Hash="ysdpW1PtSd+DqG1eThk0/g" />
+          <AcmeProjectActionInfo Action="File" Source="driver_init.c" IsConfig="false" Hash="hZMdq7xA6SMTDYyfN05/4g" />
+          <AcmeProjectActionInfo Action="File" Source="driver_init.h" IsConfig="false" Hash="pl+k1oboBOMMKAprxAlZ4A" />
           <AcmeProjectActionInfo Action="File" Source="atmel_start_pins.h" IsConfig="false" Hash="yozB0b33mOnaBJOhCpq1KQ" />
-          <AcmeProjectActionInfo Action="File" Source="examples/driver_examples.h" IsConfig="false" Hash="fj41Eo5iNCUEWVZFumDRUA" />
-          <AcmeProjectActionInfo Action="File" Source="examples/driver_examples.c" IsConfig="false" Hash="ktkB/D+YINGKHPIQ5kckOQ" />
+          <AcmeProjectActionInfo Action="File" Source="examples/driver_examples.h" IsConfig="false" Hash="kAQtSMrY70XRivE4mQsZew" />
+          <AcmeProjectActionInfo Action="File" Source="examples/driver_examples.c" IsConfig="false" Hash="hJRkmFqpagOYpFy3c2hJKg" />
+          <AcmeProjectActionInfo Action="File" Source="hal/include/hal_usart_sync.h" IsConfig="false" Hash="kVXWpGwgKyulDlCMSVp95Q" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_missing_features.h" IsConfig="false" Hash="vAzoGbU054TTH+gYslbAIQ" />
+          <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_usart_async.h" IsConfig="false" Hash="IWgXoAE2w3eks9ZNNMGjFA" />
+          <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_usart_sync.h" IsConfig="false" Hash="Ky06f1/meq0Z7kkTcw4f4Q" />
+          <AcmeProjectActionInfo Action="File" Source="hal/src/hal_usart_sync.c" IsConfig="false" Hash="iFGrnjhoo8l2JaY9Ks9hFg" />
           <AcmeProjectActionInfo Action="File" Source="hal/utils/include/parts.h" IsConfig="false" Hash="e1lYPtbC0xCC/Tkl0pO2Cw" />
           <AcmeProjectActionInfo Action="File" Source="hpl/core/hpl_core_port.h" IsConfig="false" Hash="YtBUToB/FufKdW6gt8XGPg" />
           <AcmeProjectActionInfo Action="File" Source="hpl/core/hpl_init.c" IsConfig="false" Hash="/VhvurqhsYi0FmTfNAQgBg" />
-          <AcmeProjectActionInfo Action="File" Source="atmel_start.h" IsConfig="false" Hash="coGK3tlHwWYxcWMOAC7mEg" />
-          <AcmeProjectActionInfo Action="File" Source="atmel_start.c" IsConfig="false" Hash="bn5r93ntFMNhq0KaPV3+pw" />
+          <AcmeProjectActionInfo Action="File" Source="stdio_start.c" IsConfig="false" Hash="XIWlmmCCHbQfLAO7w5Aqew" />
+          <AcmeProjectActionInfo Action="File" Source="stdio_start.h" IsConfig="false" Hash="5j2k69zdoQpbzluEyr/rHQ" />
+          <AcmeProjectActionInfo Action="File" Source="atmel_start.h" IsConfig="false" Hash="2egLiIjDbiIMVY40GrF1qQ" />
+          <AcmeProjectActionInfo Action="File" Source="atmel_start.c" IsConfig="false" Hash="TggT11yVSQznOIYPXesZFg" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_lpmcu_misc_regs_config.h" IsConfig="true" Hash="ZJSVdZN5Dh23J3xQYc0x9g" />
-          <AcmeProjectActionInfo Action="File" Source="config/peripheral_clk_config.h" IsConfig="true" Hash="dIDxq0BPTT6GEacBHxRQYQ" />
+          <AcmeProjectActionInfo Action="File" Source="config/hpl_uart_config.h" IsConfig="true" Hash="eEmx+IKEBqC6c65MoMFWhg" />
+          <AcmeProjectActionInfo Action="File" Source="config/peripheral_clk_config.h" IsConfig="true" Hash="Jf4BMZK24evK/EwUnbcDPQ" />
+          <AcmeProjectActionInfo Action="File" Source="config/stdio_redirect_config.h" IsConfig="true" Hash="CKmkBk12sfr7mb+HRQBuzg" />
         </AcmeActionInfos>
       </AcmeProjectConfig>
     </AcmeProjectConfig>
-    <AtzipPath>.atmel-start-backup\Atmel_Start_2.atzip</AtzipPath>
+    <AtzipPath>.atmel-start-backup\Atmel_Start_4.atzip</AtzipPath>
     <avrtool>com.atmel.avrdbg.tool.edbg</avrtool>
     <avrtoolserialnumber>ATML2534030200004453</avrtoolserialnumber>
     <avrdeviceexpectedsignature>0x2000B0</avrdeviceexpectedsignature>
