@@ -85,7 +85,7 @@ void system_init(void)
 	                   // <id> pad_initial_level
 	                   // <false"> Low
 	                   // <true"> High
-	                   true);
+	                   false);
 
 	gpio_set_pin_function(DISP_BRIGHT, GPIO_PIN_FUNCTION_OFF);
 
@@ -99,7 +99,7 @@ void system_init(void)
 	                   // <id> pad_initial_level
 	                   // <false"> Low
 	                   // <true"> High
-	                   true);
+	                   false);
 
 	gpio_set_pin_function(DISP_B3, GPIO_PIN_FUNCTION_OFF);
 
@@ -113,7 +113,7 @@ void system_init(void)
 	                   // <id> pad_initial_level
 	                   // <false"> Low
 	                   // <true"> High
-	                   true);
+	                   false);
 
 	gpio_set_pin_function(DISP_B2, GPIO_PIN_FUNCTION_OFF);
 
@@ -127,7 +127,7 @@ void system_init(void)
 	                   // <id> pad_initial_level
 	                   // <false"> Low
 	                   // <true"> High
-	                   true);
+	                   false);
 
 	gpio_set_pin_function(DISP_B1, GPIO_PIN_FUNCTION_OFF);
 
@@ -141,7 +141,7 @@ void system_init(void)
 	                   // <id> pad_initial_level
 	                   // <false"> Low
 	                   // <true"> High
-	                   true);
+	                   false);
 
 	gpio_set_pin_function(DISP_B0, GPIO_PIN_FUNCTION_OFF);
 
@@ -155,7 +155,7 @@ void system_init(void)
 	                   // <id> pad_initial_level
 	                   // <false"> Low
 	                   // <true"> High
-	                   true);
+	                   false);
 
 	gpio_set_pin_function(DISP_E, GPIO_PIN_FUNCTION_OFF);
 
@@ -169,7 +169,7 @@ void system_init(void)
 	                   // <id> pad_initial_level
 	                   // <false"> Low
 	                   // <true"> High
-	                   true);
+	                   false);
 
 	gpio_set_pin_function(DISP_REG, GPIO_PIN_FUNCTION_OFF);
 
@@ -183,7 +183,7 @@ void system_init(void)
 	                   // <id> pad_initial_level
 	                   // <false"> Low
 	                   // <true"> High
-	                   true);
+	                   false);
 
 	gpio_set_pin_function(DISP_CTRST, GPIO_PIN_FUNCTION_OFF);
 
