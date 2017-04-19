@@ -577,6 +577,7 @@
     <Folder Include="hpl\uart\" />
     <Folder Include="hri\" />
     <Folder Include="menu" />
+    <Folder Include="docs" />
     <Folder Include="stdio_redirect\" />
     <Folder Include="stdio_redirect\gcc\" />
     <Folder Include="utils" />
@@ -586,6 +587,9 @@
       <SubType>compile</SubType>
     </None>
     <None Include="Device_Startup\samb11_sram.ld">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="docs\PINOUT.md">
       <SubType>compile</SubType>
     </None>
     <None Include="utils\hahaUtils.h">
