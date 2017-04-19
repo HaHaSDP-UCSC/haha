@@ -22,5 +22,6 @@
 void lcd_init(void);
 void lcd_pin_write(void);
 void lcd_pin_cmd(int RS, int B7, int B6, int B5, int B4);
+void lcd_write_char(char c);
 
 #endif /* _HA_LCD_H_ */

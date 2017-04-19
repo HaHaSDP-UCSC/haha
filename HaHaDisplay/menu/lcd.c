@@ -10,7 +10,7 @@
 #include "lcd.h"
 
 void lcd_init(void) {
-	gpio_set_pin_level(DISP_E, true);
+	gpio_set_pin_level(DISP_E, false);
 	// Function set
 	lcd_pin_cmd(0, 0, 0, 1, 1);
 	delay(100);
@@ -37,9 +37,9 @@ void lcd_init(void) {
 }
 
 void lcd_pin_write(void) {
-	gpio_set_pin_level(DISP_E, false);
-	delay(10);
 	gpio_set_pin_level(DISP_E, true);
+	delay(10);
+	gpio_set_pin_level(DISP_E, false);
 }
 
 void lcd_pin_cmd(int RS, int B7, int B6, int B5, int B4) {
@@ -49,4 +49,8 @@ void lcd_pin_cmd(int RS, int B7, int B6, int B5, int B4) {
 	if(B5 >= 0) gpio_set_pin_level(DISP_B1, B5 ? true : false);
 	if(B4 >= 0) gpio_set_pin_level(DISP_B0, B4 ? true : false);
 	lcd_pin_write();
+}
+
+void lcd_write_char(char c) {
+	lcd_pin_cmd(1, c & (1 << 3), c & (1 << 2), c & (1 << 1), c & (1 << 0));
 }
