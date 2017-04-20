@@ -8,8 +8,9 @@
 #ifndef FLAGS_H_
 #define FLAGS_H_
 
-typedef unsigned char BYTE; /* Allow for device specifics */
-typedef BYTE flags;
+#include "utils/hahaUtils.h"
+
+typedef uint8_t flags;
 
 /* Flags */
 #define FLAG_ACK 0x01

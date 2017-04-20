@@ -12,17 +12,17 @@
 #include "messagequeue/packet.h"
 #include "network/network.h"
 
-#define FRIENDLISTSIZE 10
+#define FRIENDLISTSIZE 10 //TODO make this an option and smaller.
 
 typedef struct {
-	BYTE id; //Internal ID. 
-	BYTE priority;
-	char firstname[MAXFIRSTNAME];
-	char lastname[MAXLASTNAME];
-	char networkaddr[MAXNETADDR]; //TODO Finalize data structure.
+	uint8_t id; //Internal ID. Ties into the friendlist.
+	uint8_t priority; //What level they are on the friend list.
+	char firstname[MAXFIRSTNAME]; //First Name
+	char lastname[MAXLASTNAME]; //Last Name
+	unsigned char networkaddr[MAXNETADDR]; //Network Address.
 	uint16_t port; //Network port.
-	long lastresponse; //TODO time data structure
-	uint16_t responseflag; //16 Available flags for expected responses.
+	int lastresponse; //32-bit offset from boot timer.
+	uint16_t responseflag; //16 Available flags for expected responses. //TODO includes if registered friend.
 } Friend;
 
 Friend friendList[FRIENDLISTSIZE];
