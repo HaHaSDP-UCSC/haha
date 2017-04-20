@@ -14,9 +14,9 @@ int main(void)
 	
 	//lcd_write_char('h');
 	while (1) {
-		gpio_set_pin_level(DISP_CTRST, true);
-		delay(100);
-		gpio_set_pin_level(DISP_CTRST, false);
-		delay(100);
+		gpio_set_pin_level(20, true);
+		delay(1000);
+		gpio_set_pin_level(20, false);
+		delay(1000);
 	}
 }

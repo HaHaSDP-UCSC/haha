@@ -98,56 +98,56 @@ pads:
   DISP_BRIGHT:
     name: LP_GPIO_13
     definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_13
-    mode: Advanced
+    mode: Digital output
     user_label: DISP_BRIGHT
     configuration:
       pad_initial_level: Low
   DISP_B3:
     name: LP_GPIO_14
     definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_14
-    mode: Advanced
+    mode: Digital output
     user_label: DISP_B3
     configuration:
       pad_initial_level: Low
   DISP_B2:
     name: LP_GPIO_15
     definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_15
-    mode: Advanced
+    mode: Digital output
     user_label: DISP_B2
     configuration:
       pad_initial_level: Low
   DISP_B1:
     name: LP_GPIO_16
     definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_16
-    mode: Advanced
+    mode: Digital output
     user_label: DISP_B1
     configuration:
       pad_initial_level: Low
   DISP_B0:
     name: LP_GPIO_17
     definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_17
-    mode: Advanced
+    mode: Digital output
     user_label: DISP_B0
     configuration:
       pad_initial_level: Low
   DISP_E:
     name: LP_GPIO_18
     definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_18
-    mode: Advanced
+    mode: Digital output
     user_label: DISP_E
     configuration:
       pad_initial_level: Low
   DISP_REG:
     name: LP_GPIO_19
     definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_19
-    mode: Advanced
+    mode: Digital output
     user_label: DISP_REG
     configuration:
       pad_initial_level: Low
   DISP_CTRST:
     name: LP_GPIO_20
     definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_20
-    mode: Advanced
+    mode: Digital output
     user_label: DISP_CTRST
     configuration:
       pad_initial_level: Low
