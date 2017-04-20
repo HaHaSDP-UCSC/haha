@@ -63,7 +63,7 @@ bool sendPacket(Packet *p, Network *netdest) {
  */
 bool recvPacket(Packet *p, Network *netsrc) {
 	
-	//TODO @brian hook xbee_sendPacket into function.
+	//TODO @brian hook xbee_recvPacket into function.
 	
 	/**
 	//char buffer[BUFFERSIZE];

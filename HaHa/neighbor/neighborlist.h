@@ -11,7 +11,7 @@
 #include "utils/hahaUtils.h"
 #include "messagequeue/packet.h"
 
-#define NEIGHBORLISTSIZE 256
+#define NEIGHBORLISTSIZE 256 //TODO make this an option, also smaller.
 
 typedef struct {
 	unsigned char networkaddr[MAXNETADDR]; //Network Address.
@@ -21,11 +21,15 @@ typedef struct {
 	uint8_t neighborFlags; //8 Available flags for expected responses.
 } Neighbor;
 
-Neighbor neighborList[NEIGHBORLISTSIZE];
+Neighbor neighborList[NEIGHBORLISTSIZE]; //TODO perhaps make this hidden in c file.
 
 //TODO @kevin @brian storage for NeighborList.
 bool initNeighborList();
 bool writeToNeighborListStorage(); //TODO internal, may not be necessary.
 bool readFromNeighborListStorage();  //TODO internal, may not be necessary.
+
+bool updateNeighborList(); /* Updates the list. */
+bool addNeighbor(); //Add neighbor if they respond to neighbor request.
+bool removeNeighbor(); //Remove based on last response.
 
 #endif /* NEIGHBORLIST_H_ */

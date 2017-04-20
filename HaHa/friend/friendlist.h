@@ -12,7 +12,7 @@
 #include "messagequeue/packet.h"
 #include "network/network.h"
 
-#define FRIENDLISTSIZE 10
+#define FRIENDLISTSIZE 10 //TODO make this an option and smaller.
 
 typedef struct {
 	uint8_t id; //Internal ID. Ties into the friendlist.
