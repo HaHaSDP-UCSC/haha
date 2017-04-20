@@ -13,14 +13,14 @@
 
 //typedef char *opcode;
 typedef char opcode;
-typedef BYTE ttl;
+typedef uint8_t ttl;
 typedef uint16_t uid;
 
 #define MAXFIRSTNAME 17
 #define MAXLASTNAME 17
 #define MAXPHONE 2
 #define MAXHOMEADDR 2
-#define MAXNETADDR 0 //TODO fix.
+#define MAXNETADDR 4 //4 Bytes (32-bits)
 #define MAXPORT 2
 
 #define START_OPCODE 0x01
