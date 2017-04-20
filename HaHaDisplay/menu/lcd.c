@@ -1,9 +1,10 @@
-/*
- * lcd.c
- *
- * Created: 2017-04-18 12:56:40
- *  Author: August Valera (avalera)
- */ 
+/**
+ * @file lcd.c
+ * @brief LCD display
+ * @author August Valera (avalera)
+ * @version
+ * @date 2017-04-20
+ */
 
 #include "atmel_start.h"
 #include "utils/hahaUtils.h"
