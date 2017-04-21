@@ -155,7 +155,7 @@ void system_init(void)
 	                   // <id> pad_initial_level
 	                   // <false"> Low
 	                   // <true"> High
-	                   false);
+	                   true);
 
 	gpio_set_pin_function(DISP_E, GPIO_PIN_FUNCTION_OFF);
 

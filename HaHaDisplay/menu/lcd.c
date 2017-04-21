@@ -23,14 +23,6 @@ void lcd_init(void) {
 	lcd_pin_cmd(0, 0, 0, 0, 0);
 	lcd_pin_cmd(0, 1, DISP_CONF_D, DISP_CONF_C, DISP_CONF_B);
 	delay(100);
-	// Display ON/OFF control
-	lcd_pin_cmd(0, 0, 0, 0, 0);
-	lcd_pin_cmd(0, 1, 0, DISP_CONF_C, DISP_CONF_B);
-	delay(1000);
-	// Display ON/OFF control
-	lcd_pin_cmd(0, 0, 0, 0, 0);
-	lcd_pin_cmd(0, 1, 1, DISP_CONF_C, DISP_CONF_B);
-	delay(1000);
 	// Display clear
 	lcd_pin_cmd(0, 0, 0, 0, 0);
 	lcd_pin_cmd(0, 0, 0, 0, 1);
@@ -43,7 +35,7 @@ void lcd_init(void) {
 
 void lcd_pin_write(void) {
 	gpio_set_pin_level(DISP_E, true);
-	delay(10);
+	delay(100);
 	gpio_set_pin_level(DISP_E, false);
 }
 

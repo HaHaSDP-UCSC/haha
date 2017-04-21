@@ -14,7 +14,7 @@
 
 #define DISP_CONF_D 1 // Display ON/OFF (when off, data still stored in DDRAM)
 #define DISP_CONF_C 1 // Cursor ON/OFF
-#define DISP_CONF_B 0 // Cursor blink ON/OFF
+#define DISP_CONF_B 1 // Cursor blink ON/OFF
 
 #define DISP_CONF_I_D 1 // Cursor increment/decrement (1: increment)
 #define DISP_CONF_S 0 // Shift (0: no shift)

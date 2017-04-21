@@ -13,10 +13,9 @@ int main(void)
 	}
 	
 	//lcd_write_char('h');
+	//lcd_write_char('e');
+	printf("test");
 	while (1) {
-		gpio_set_pin_level(20, true);
-		delay(1000);
-		gpio_set_pin_level(20, false);
-		delay(1000);
+		
 	}
 }

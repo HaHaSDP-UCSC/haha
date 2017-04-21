@@ -136,7 +136,7 @@ pads:
     mode: Digital output
     user_label: DISP_E
     configuration:
-      pad_initial_level: Low
+      pad_initial_level: High
   DISP_REG:
     name: LP_GPIO_19
     definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_19
