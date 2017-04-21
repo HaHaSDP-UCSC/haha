@@ -14,23 +14,23 @@ void lcd_init(void) {
 	gpio_set_pin_level(DISP_E, false);
 	// Function set
 	lcd_pin_cmd(0, 0, 0, 1, 0);
-	delay(100);
+	//delay(10);
 	// Function set
 	lcd_pin_cmd(0, 0, 0, 1, 0);
 	lcd_pin_cmd(0, DISP_CONF_N, DISP_CONF_F, -1, -1);
-	delay(100);
+	//delay(10);
 	// Display ON/OFF control
 	lcd_pin_cmd(0, 0, 0, 0, 0);
 	lcd_pin_cmd(0, 1, DISP_CONF_D, DISP_CONF_C, DISP_CONF_B);
-	delay(100);
+	//delay(10);
 	// Display clear
 	lcd_pin_cmd(0, 0, 0, 0, 0);
 	lcd_pin_cmd(0, 0, 0, 0, 1);
-	delay(100);
+	//delay(10);
 	// Entry mode set
 	lcd_pin_cmd(0, 0, 0, 0, 0);
 	lcd_pin_cmd(0, 0, 1, DISP_CONF_I_D, DISP_CONF_S);
-	delay(100);
+	//delay(10);
 }
 
 void lcd_pin_write(void) {
