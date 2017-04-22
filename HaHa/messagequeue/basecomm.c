@@ -63,7 +63,7 @@ bool sendPacket(Packet *p, Network *netdest) {
  */
 bool recvPacket(Packet *p, Network *netsrc) {
 	
-	//TODO @brian hook xbee_sendPacket into function.
+	//TODO @brian hook xbee_recvPacket into function.
 	
 	/**
 	//char buffer[BUFFERSIZE];
@@ -251,6 +251,7 @@ bool convertFromPacketToData(Packet *p, unsigned char *data) {
 	unsigned char opcode = p->opcode;
 	unsigned char flags = p->flags;
 	setPacketFields fields = { 0 }; //Boolean fields for adding modules.
+		//TODO change this to false instead of 0, test to make sure it works.
 
 	int offset = 0;
 	data[offset++] = opcode;

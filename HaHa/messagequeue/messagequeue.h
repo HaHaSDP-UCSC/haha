@@ -16,12 +16,27 @@
 
 typedef struct {
 	uint8_t id; //Internal Friend ID, if this is a friend.
-	char networkAddr[MAXNETADDR]; //TODO Finalize Data Structure.
+	unsigned char networkAddr[MAXNETADDR];  //Network Address.
 	uint16_t port; //Network port.
-	long expiration; //TODO Time structure.
-	opcode opcode; //Expected Response.
+	int expiration; //Expiration time.
+	opcode opcode; //Expected Packet Response.
 	} Message;
 
 Message messageQueue[MAXQUEUESIZE];
 
+int queueTime = 0;
+
+bool initMessageQueue(); //Initializes the message queue.
+bool addToQueue(Message mes); //Add message to queue.
+bool removeFromQueue(Message mes); //Delete message from queue.
+bool checkQueue(); /* Checks queue for a message match. */
+bool flushOldMessages(); /* Checks for old messages to be deleted. */
+
+//Internal //TODO move this to the c file.
+/*
+bool generateMessage(Friend friend, bool permanent, Message *mes); //Generate message.
+bool initPermanentMessages(); //Loads permanent messages into queue.
+//TODO @kevin @brian^^alternative to this would be checking opcode to see if automatic response.
+bool initPendingMessages(); //Initializes messages from friends into the queue.
+*/
 #endif /* MESSAGEQUEUE_H_ */

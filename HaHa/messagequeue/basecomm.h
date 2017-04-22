@@ -16,11 +16,8 @@
 #include "packet.h"
 #include "networkdevice/networkdevice.h"
 #include "network/network.h"
-//#include "network.h"
-//#include "base.h"
-//#include "baseopcode.h"
+#include <string.h>
 
-//#define BUFFERSIZE 1000
 #define MAXBUFFER 100 //Maximum size of application layer packet. //TODO define
 
 bool init_network(); //TODO @brian@kevin Unknown needed params

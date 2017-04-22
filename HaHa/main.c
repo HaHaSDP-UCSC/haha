@@ -7,7 +7,7 @@
 #include <atmel_start.h>
 #include "stdio_start.h"
 #include "uart/uart.h"
-#include <string.h>
+//#include <string.h>
 #include "networkdevice/networkdevice.h"
 #include "utils/hahaUtils.h"
 
@@ -33,7 +33,7 @@ int main(void)
     init_sys();
     xbee_send("0013a200414F50EA", "Test Data", 9);
     uart_register_netdev_callback(xbee_recv);
-    SET_SEND_NETDEV(TRUE);
+    SET_SEND_NETDEV(true);
     xbee_register_callback(printpacket1, FRAME_RX);
     
     /* Main Application Loop */

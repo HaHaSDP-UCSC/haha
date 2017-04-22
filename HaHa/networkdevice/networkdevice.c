@@ -4,9 +4,10 @@
 * Created: 3/5/2017 6:03:43 PM
 *  Author: Brian
 */
-#include "networkdevice/networkdevice.h"
+#include "networkdevice.h"
 #include "uart/uart.h"
 #include "utils/hahaUtils.h"
+#include <string.h>
 
 
 /* Internal Functions */
