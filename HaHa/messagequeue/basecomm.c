@@ -20,8 +20,8 @@ typedef struct {
 	bool ttl;
 } setPacketFields;
 
-bool convertFromPacketToData(Packet *p, unsigned char *data);
-bool convertFromDataToPacket(Packet *p, unsigned char *data, int datalen);
+int convertFromPacketToData(Packet *p, unsigned char *data);
+int convertFromDataToPacket(Packet *p, unsigned char *data, int datalen);
 
 /**
  * Initializes the network.
@@ -239,7 +239,7 @@ bool formDataToPacket(Packet *p, unsigned char *data, int *oldoffset,
  * Processes Packet data to send on network. Converts into byte data.
  * They are processed based on their opcode.
  */
-bool convertFromPacketToData(Packet *p, unsigned char *data) {
+int convertFromPacketToData(Packet *p, unsigned char *data) {
 	printd("Convert Packet to Data.\n");
 
 	if (p == NULL) {
@@ -435,7 +435,7 @@ bool convertFromPacketToData(Packet *p, unsigned char *data) {
  * Processes received data from network. Converts into packet form.
  * They are processed based on their opcode.
  */
-bool convertFromDataToPacket(Packet *p, unsigned char *data, int datalen) {
+int convertFromDataToPacket(Packet *p, unsigned char *data, int datalen) {
 	printd("Convert Data to Packet.\n");
 	printf("Datalen: %d\n", datalen);
 
