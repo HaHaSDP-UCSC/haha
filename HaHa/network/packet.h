@@ -12,7 +12,7 @@
 #include "utils/hahaUtils.h"
 
 //typedef char *opcode;
-typedef char opcode;
+typedef uint8_t opcode;
 typedef uint8_t ttl;
 typedef uint16_t uid;
 

@@ -65,27 +65,198 @@ $(function() {
 <div class="title">Packet Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="packet_8h_source.html">packet.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for Packet:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_packet__coll__graph.png" border="0" usemap="#_packet_coll__map" alt="Collaboration graph"/></div>
+<map name="_packet_coll__map" id="_packet_coll__map">
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:add7e8d0db5c932cdf6ff0252697b88b0"><td class="memItemLeft" align="right" valign="top"><a id="add7e8d0db5c932cdf6ff0252697b88b0"></a>
-opcode&#160;</td><td class="memItemRight" valign="bottom"><b>opcode</b></td></tr>
+<tr class="memitem:a5167d164b320ac43373775bbf1546d2f"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_packet.html#a5167d164b320ac43373775bbf1546d2f">id</a></td></tr>
+<tr class="separator:a5167d164b320ac43373775bbf1546d2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add7e8d0db5c932cdf6ff0252697b88b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="packet_8h.html#a5ce68aceddf17a30aa045fc04914e798">opcode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_packet.html#add7e8d0db5c932cdf6ff0252697b88b0">opcode</a></td></tr>
 <tr class="separator:add7e8d0db5c932cdf6ff0252697b88b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06b33fa705a08bf26d8f15f4e5a5eacc"><td class="memItemLeft" align="right" valign="top"><a id="a06b33fa705a08bf26d8f15f4e5a5eacc"></a>
-flags&#160;</td><td class="memItemRight" valign="bottom"><b>flags</b></td></tr>
+<tr class="memitem:a06b33fa705a08bf26d8f15f4e5a5eacc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="flags_8h.html#a261da8bdf9ce262f07bc17c9b2834bb5">flags</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_packet.html#a06b33fa705a08bf26d8f15f4e5a5eacc">flags</a></td></tr>
 <tr class="separator:a06b33fa705a08bf26d8f15f4e5a5eacc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd4ca96c59b8446f7fb688c489e8b53f"><td class="memItemLeft" align="right" valign="top"><a id="abd4ca96c59b8446f7fb688c489e8b53f"></a>
-char *&#160;</td><td class="memItemRight" valign="bottom"><b>src</b></td></tr>
-<tr class="separator:abd4ca96c59b8446f7fb688c489e8b53f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac190cf6efc3180c1167886410748f1b9"><td class="memItemLeft" align="right" valign="top"><a id="ac190cf6efc3180c1167886410748f1b9"></a>
-char *&#160;</td><td class="memItemRight" valign="bottom"><b>dst</b></td></tr>
-<tr class="separator:ac190cf6efc3180c1167886410748f1b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ce50b69127890b9012cb91f287f137f"><td class="memItemLeft" align="right" valign="top"><a id="a6ce50b69127890b9012cb91f287f137f"></a>
-char *&#160;</td><td class="memItemRight" valign="bottom"><b>data</b></td></tr>
-<tr class="separator:a6ce50b69127890b9012cb91f287f137f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cef7ca885da48680c0646ae307db4a4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="packet_8h.html#ac065f913fb79988aec421b0f5eebbc77">uid</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_packet.html#a3cef7ca885da48680c0646ae307db4a4">SRCUID</a></td></tr>
+<tr class="separator:a3cef7ca885da48680c0646ae307db4a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4f0e5f73729e408a82f9792c67680d2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="packet_8h.html#ac065f913fb79988aec421b0f5eebbc77">uid</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_packet.html#ad4f0e5f73729e408a82f9792c67680d2">DESTUID</a></td></tr>
+<tr class="separator:ad4f0e5f73729e408a82f9792c67680d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3bf059f5b682b83661111cb32720455"><td class="memItemLeft" align="right" valign="top"><a class="el" href="packet_8h.html#ac065f913fb79988aec421b0f5eebbc77">uid</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_packet.html#aa3bf059f5b682b83661111cb32720455">ORIGINUID</a></td></tr>
+<tr class="separator:aa3bf059f5b682b83661111cb32720455"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0001fb805cfd15a0776622ff27135a02"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_packet.html#a0001fb805cfd15a0776622ff27135a02">SRCFIRSTNAME</a> [<a class="el" href="packet_8h.html#ac3dd1c10edba39fc5737be5b96a91d2a">MAXFIRSTNAME</a>]</td></tr>
+<tr class="separator:a0001fb805cfd15a0776622ff27135a02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2499b774247b7a099cf3878265d23a2f"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_packet.html#a2499b774247b7a099cf3878265d23a2f">SRCLASTNAME</a> [<a class="el" href="packet_8h.html#ac3dd1c10edba39fc5737be5b96a91d2a">MAXFIRSTNAME</a>]</td></tr>
+<tr class="separator:a2499b774247b7a099cf3878265d23a2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1db398486aded3d3f00350f1ac77458"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_packet.html#ab1db398486aded3d3f00350f1ac77458">SRCPHONE</a> [<a class="el" href="packet_8h.html#a2f035f148b6abcc902e7711997c031d7">MAXPHONE</a>]</td></tr>
+<tr class="separator:ab1db398486aded3d3f00350f1ac77458"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bac977ea6fbf7dd57a22398aa280fca"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_packet.html#a4bac977ea6fbf7dd57a22398aa280fca">SRCHOMEADDR</a> [<a class="el" href="packet_8h.html#acc141dd006defc06f8e58a57259526f9">MAXHOMEADDR</a>]</td></tr>
+<tr class="separator:a4bac977ea6fbf7dd57a22398aa280fca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63433ac4a59b48ac4c2dee5c330eb99d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="packet_8h.html#a22ca626eb8f0deb847d1fae89476e26d">ttl</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_packet.html#a63433ac4a59b48ac4c2dee5c330eb99d">ttl</a></td></tr>
+<tr class="separator:a63433ac4a59b48ac4c2dee5c330eb99d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ad4f0e5f73729e408a82f9792c67680d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4f0e5f73729e408a82f9792c67680d2">&#9670;&nbsp;</a></span>DESTUID</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="packet_8h.html#ac065f913fb79988aec421b0f5eebbc77">uid</a> Packet::DESTUID</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a06b33fa705a08bf26d8f15f4e5a5eacc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06b33fa705a08bf26d8f15f4e5a5eacc">&#9670;&nbsp;</a></span>flags</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="flags_8h.html#a261da8bdf9ce262f07bc17c9b2834bb5">flags</a> Packet::flags</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5167d164b320ac43373775bbf1546d2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5167d164b320ac43373775bbf1546d2f">&#9670;&nbsp;</a></span>id</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t Packet::id</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="add7e8d0db5c932cdf6ff0252697b88b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add7e8d0db5c932cdf6ff0252697b88b0">&#9670;&nbsp;</a></span>opcode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="packet_8h.html#a5ce68aceddf17a30aa045fc04914e798">opcode</a> Packet::opcode</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa3bf059f5b682b83661111cb32720455"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3bf059f5b682b83661111cb32720455">&#9670;&nbsp;</a></span>ORIGINUID</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="packet_8h.html#ac065f913fb79988aec421b0f5eebbc77">uid</a> Packet::ORIGINUID</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0001fb805cfd15a0776622ff27135a02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0001fb805cfd15a0776622ff27135a02">&#9670;&nbsp;</a></span>SRCFIRSTNAME</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char Packet::SRCFIRSTNAME[<a class="el" href="packet_8h.html#ac3dd1c10edba39fc5737be5b96a91d2a">MAXFIRSTNAME</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4bac977ea6fbf7dd57a22398aa280fca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bac977ea6fbf7dd57a22398aa280fca">&#9670;&nbsp;</a></span>SRCHOMEADDR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char Packet::SRCHOMEADDR[<a class="el" href="packet_8h.html#acc141dd006defc06f8e58a57259526f9">MAXHOMEADDR</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2499b774247b7a099cf3878265d23a2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2499b774247b7a099cf3878265d23a2f">&#9670;&nbsp;</a></span>SRCLASTNAME</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char Packet::SRCLASTNAME[<a class="el" href="packet_8h.html#ac3dd1c10edba39fc5737be5b96a91d2a">MAXFIRSTNAME</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab1db398486aded3d3f00350f1ac77458"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1db398486aded3d3f00350f1ac77458">&#9670;&nbsp;</a></span>SRCPHONE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char Packet::SRCPHONE[<a class="el" href="packet_8h.html#a2f035f148b6abcc902e7711997c031d7">MAXPHONE</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3cef7ca885da48680c0646ae307db4a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cef7ca885da48680c0646ae307db4a4">&#9670;&nbsp;</a></span>SRCUID</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="packet_8h.html#ac065f913fb79988aec421b0f5eebbc77">uid</a> Packet::SRCUID</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a63433ac4a59b48ac4c2dee5c330eb99d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63433ac4a59b48ac4c2dee5c330eb99d">&#9670;&nbsp;</a></span>ttl</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="packet_8h.html#a22ca626eb8f0deb847d1fae89476e26d">ttl</a> Packet::ttl</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>E:/HaHaProject/AtmelXbee/ATProjects/HaHa/HaHa/network/<a class="el" href="network_8h_source.html">network.h</a></li>
+<li>E:/HaHaProject/AtmelXbee/ATProjects/HaHa/HaHa/network/<a class="el" href="packet_8h_source.html">packet.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -2,28 +2,63 @@
 \label{haha_utils_8h}\index{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/utils/haha\+Utils.\+h@{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/utils/haha\+Utils.\+h}}
 
 
-Utility functions/variables and debug functionality.  
+stdlib for H\+A\+HA project, contains imports and defines  
 
 
-{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
-{\ttfamily \#include $<$stdio\+\_\+start.\+h$>$}\newline
+Include dependency graph for haha\+Utils.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{haha_utils_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{haha_utils_8h__dep__incl}
+\end{center}
+\end{figure}
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{haha_utils_8h_abb452686968e48b67397da5f97445f5b}\label{haha_utils_8h_abb452686968e48b67397da5f97445f5b}} 
-\#define {\bfseries bool}~uint8\+\_\+t
+\#define \hyperlink{haha_utils_8h_a6dc8f5f6cd3fb1bdf454fe905019a666}{C\+O\+L\+O\+R\+ED}~true /$\ast$ Set this to false to disable terminal colors.  $\ast$/
 \item 
-\mbox{\Hypertarget{haha_utils_8h_aa8cecfc5c5c054d2875c03e77b7be15d}\label{haha_utils_8h_aa8cecfc5c5c054d2875c03e77b7be15d}} 
-\#define {\bfseries T\+R\+UE}~1
+\#define \hyperlink{haha_utils_8h_ab0bdd8bad8700ee39fe1dc8c408d8ed9}{D\+E\+B\+U\+G\+M\+ES}~true /$\ast$ Set this to false to disable debug messages.   $\ast$/
 \item 
-\mbox{\Hypertarget{haha_utils_8h_aa93f0eb578d23995850d61f7d61c55c1}\label{haha_utils_8h_aa93f0eb578d23995850d61f7d61c55c1}} 
-\#define {\bfseries F\+A\+L\+SE}~0
+\#define \hyperlink{haha_utils_8h_ad8634d556daf48dd56c6428d5440b427}{V\+E\+R\+B\+O\+S\+E\+M\+ES}~true /$\ast$ Set this to false to disable verbose messages. $\ast$/
 \item 
-\#define \hyperlink{haha_utils_8h_ad5aeca1a1a793c8ba18f85cbac89e768}{D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT}~1
+\#define \hyperlink{haha_utils_8h_a6c81297036840d807519c25c2864faec}{E\+R\+R\+O\+R\+M\+ES}~true /$\ast$ Set this to false to disable error messages.   $\ast$/
 \item 
-\mbox{\Hypertarget{haha_utils_8h_a185c556500093ce1d9b97379ab00449f}\label{haha_utils_8h_a185c556500093ce1d9b97379ab00449f}} 
-\#define {\bfseries H\+A\+H\+A\+D\+E\+B\+UG}(format,  args...)~printf(format, \#\# args)
+\#define \hyperlink{haha_utils_8h_a4660a4489dafda043e5a799208b9c895}{C\+D\+EF}~\char`\"{}\textbackslash{}033\mbox{[}0m\char`\"{}
+\item 
+\#define \hyperlink{haha_utils_8h_ab93994c82cc32f5aaa86dc9fe39b3942}{C\+R\+ED}~\char`\"{}\textbackslash{}x1B\mbox{[}31m\char`\"{}
+\item 
+\#define \hyperlink{haha_utils_8h_a106b9f1df0722c47b7865fe3eb5e20e7}{C\+G\+RN}~\char`\"{}\textbackslash{}x1B\mbox{[}32m\char`\"{}
+\item 
+\#define \hyperlink{haha_utils_8h_a9102ff0836b098fbba474475aa0fb259}{C\+B\+LU}~\char`\"{}\textbackslash{}x1B\mbox{[}34m\char`\"{}
+\item 
+\#define \hyperlink{haha_utils_8h_aae917ceb13ecf0bd2128f658408c4339}{C\+Y\+EL}~\char`\"{}\textbackslash{}x1B\mbox{[}33m\char`\"{}
+\item 
+\#define \hyperlink{haha_utils_8h_a90e4aa451b27ddde03d994400ebf76e4}{C\+M\+AG}~\char`\"{}\textbackslash{}x1B\mbox{[}35m\char`\"{}
+\item 
+\#define \hyperlink{haha_utils_8h_a4952d2edac374fbe8457c41a0e2fecfc}{C\+C\+YN}~\char`\"{}\textbackslash{}x1B\mbox{[}36m\char`\"{}
+\item 
+\#define \hyperlink{haha_utils_8h_a3acd22b1fe80d6d32e7fa03eceb9d285}{C\+W\+HT}~\char`\"{}\textbackslash{}x1B\mbox{[}37m\char`\"{}
+\item 
+\#define \hyperlink{haha_utils_8h_ad5aeca1a1a793c8ba18f85cbac89e768}{D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT}~true
+\item 
+\#define \hyperlink{haha_utils_8h_a185c556500093ce1d9b97379ab00449f}{H\+A\+H\+A\+D\+E\+B\+UG}(format,  args...)~printf(format, \#\# args)
+\item 
+\#define \hyperlink{haha_utils_8h_ab20bc9edcf1eba7f7e4631d26e822cd1}{printe}(...)~(void)0;
+\item 
+\#define \hyperlink{haha_utils_8h_aa68d15b6b79a3dfcdb44c9da43a5b999}{printv}(...)~(void)0;
+\item 
+\#define \hyperlink{haha_utils_8h_a4f2705df522fd01ea20cea002f2d4304}{printd}(...)~(void)0;
 \end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -33,22 +68,129 @@ void \hyperlink{haha_utils_8h_a7f2dfce1046bdd2a2b753643726c2346}{delay} (uint32\
 void \hyperlink{haha_utils_8h_ada9e8340bd19f1dd65b4862295e6b0a3}{print\+Buff} (char $\ast$data, uint8\+\_\+t len, char $\ast$specifier)
 \begin{DoxyCompactList}\small\item\em \{ Print a buffer to stdout \} \end{DoxyCompactList}\item 
 uint8\+\_\+t \hyperlink{haha_utils_8h_aa74dea5951b0fe8a0afab70b3c83cbb3}{asciihex\+\_\+to\+\_\+byte} (uint8\+\_\+t d1, uint8\+\_\+t d2)
-\begin{DoxyCompactList}\small\item\em \{ Takes two char and converts to Hex \} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em \{ Takes two char and converts to Hex \} \end{DoxyCompactList}\item 
+uint64\+\_\+t \hyperlink{haha_utils_8h_af4ffcf442beeb20b004279ba81a35a1a}{byte\+\_\+array\+\_\+to\+\_\+64} (uint8\+\_\+t $\ast$s)
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-Utility functions/variables and debug functionality. 
+stdlib for H\+A\+HA project, contains imports and defines 
 
+\begin{DoxyAuthor}{Author}
+August, Kevin, Brian 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2017-\/04-\/14 
+\end{DoxyDate}
 
 
 \subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{haha_utils_8h_a9102ff0836b098fbba474475aa0fb259}\label{haha_utils_8h_a9102ff0836b098fbba474475aa0fb259}} 
+\index{haha\+Utils.\+h@{haha\+Utils.\+h}!C\+B\+LU@{C\+B\+LU}}
+\index{C\+B\+LU@{C\+B\+LU}!haha\+Utils.\+h@{haha\+Utils.\+h}}
+\subsubsection{\texorpdfstring{C\+B\+LU}{CBLU}}
+{\footnotesize\ttfamily \#define C\+B\+LU~\char`\"{}\textbackslash{}x1B\mbox{[}34m\char`\"{}}
+
+\mbox{\Hypertarget{haha_utils_8h_a4952d2edac374fbe8457c41a0e2fecfc}\label{haha_utils_8h_a4952d2edac374fbe8457c41a0e2fecfc}} 
+\index{haha\+Utils.\+h@{haha\+Utils.\+h}!C\+C\+YN@{C\+C\+YN}}
+\index{C\+C\+YN@{C\+C\+YN}!haha\+Utils.\+h@{haha\+Utils.\+h}}
+\subsubsection{\texorpdfstring{C\+C\+YN}{CCYN}}
+{\footnotesize\ttfamily \#define C\+C\+YN~\char`\"{}\textbackslash{}x1B\mbox{[}36m\char`\"{}}
+
+\mbox{\Hypertarget{haha_utils_8h_a4660a4489dafda043e5a799208b9c895}\label{haha_utils_8h_a4660a4489dafda043e5a799208b9c895}} 
+\index{haha\+Utils.\+h@{haha\+Utils.\+h}!C\+D\+EF@{C\+D\+EF}}
+\index{C\+D\+EF@{C\+D\+EF}!haha\+Utils.\+h@{haha\+Utils.\+h}}
+\subsubsection{\texorpdfstring{C\+D\+EF}{CDEF}}
+{\footnotesize\ttfamily \#define C\+D\+EF~\char`\"{}\textbackslash{}033\mbox{[}0m\char`\"{}}
+
+\mbox{\Hypertarget{haha_utils_8h_a106b9f1df0722c47b7865fe3eb5e20e7}\label{haha_utils_8h_a106b9f1df0722c47b7865fe3eb5e20e7}} 
+\index{haha\+Utils.\+h@{haha\+Utils.\+h}!C\+G\+RN@{C\+G\+RN}}
+\index{C\+G\+RN@{C\+G\+RN}!haha\+Utils.\+h@{haha\+Utils.\+h}}
+\subsubsection{\texorpdfstring{C\+G\+RN}{CGRN}}
+{\footnotesize\ttfamily \#define C\+G\+RN~\char`\"{}\textbackslash{}x1B\mbox{[}32m\char`\"{}}
+
+\mbox{\Hypertarget{haha_utils_8h_a90e4aa451b27ddde03d994400ebf76e4}\label{haha_utils_8h_a90e4aa451b27ddde03d994400ebf76e4}} 
+\index{haha\+Utils.\+h@{haha\+Utils.\+h}!C\+M\+AG@{C\+M\+AG}}
+\index{C\+M\+AG@{C\+M\+AG}!haha\+Utils.\+h@{haha\+Utils.\+h}}
+\subsubsection{\texorpdfstring{C\+M\+AG}{CMAG}}
+{\footnotesize\ttfamily \#define C\+M\+AG~\char`\"{}\textbackslash{}x1B\mbox{[}35m\char`\"{}}
+
+\mbox{\Hypertarget{haha_utils_8h_a6dc8f5f6cd3fb1bdf454fe905019a666}\label{haha_utils_8h_a6dc8f5f6cd3fb1bdf454fe905019a666}} 
+\index{haha\+Utils.\+h@{haha\+Utils.\+h}!C\+O\+L\+O\+R\+ED@{C\+O\+L\+O\+R\+ED}}
+\index{C\+O\+L\+O\+R\+ED@{C\+O\+L\+O\+R\+ED}!haha\+Utils.\+h@{haha\+Utils.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+L\+O\+R\+ED}{COLORED}}
+{\footnotesize\ttfamily \#define C\+O\+L\+O\+R\+ED~true /$\ast$ Set this to false to disable terminal colors.  $\ast$/}
+
+\mbox{\Hypertarget{haha_utils_8h_ab93994c82cc32f5aaa86dc9fe39b3942}\label{haha_utils_8h_ab93994c82cc32f5aaa86dc9fe39b3942}} 
+\index{haha\+Utils.\+h@{haha\+Utils.\+h}!C\+R\+ED@{C\+R\+ED}}
+\index{C\+R\+ED@{C\+R\+ED}!haha\+Utils.\+h@{haha\+Utils.\+h}}
+\subsubsection{\texorpdfstring{C\+R\+ED}{CRED}}
+{\footnotesize\ttfamily \#define C\+R\+ED~\char`\"{}\textbackslash{}x1B\mbox{[}31m\char`\"{}}
+
+\mbox{\Hypertarget{haha_utils_8h_a3acd22b1fe80d6d32e7fa03eceb9d285}\label{haha_utils_8h_a3acd22b1fe80d6d32e7fa03eceb9d285}} 
+\index{haha\+Utils.\+h@{haha\+Utils.\+h}!C\+W\+HT@{C\+W\+HT}}
+\index{C\+W\+HT@{C\+W\+HT}!haha\+Utils.\+h@{haha\+Utils.\+h}}
+\subsubsection{\texorpdfstring{C\+W\+HT}{CWHT}}
+{\footnotesize\ttfamily \#define C\+W\+HT~\char`\"{}\textbackslash{}x1B\mbox{[}37m\char`\"{}}
+
+\mbox{\Hypertarget{haha_utils_8h_aae917ceb13ecf0bd2128f658408c4339}\label{haha_utils_8h_aae917ceb13ecf0bd2128f658408c4339}} 
+\index{haha\+Utils.\+h@{haha\+Utils.\+h}!C\+Y\+EL@{C\+Y\+EL}}
+\index{C\+Y\+EL@{C\+Y\+EL}!haha\+Utils.\+h@{haha\+Utils.\+h}}
+\subsubsection{\texorpdfstring{C\+Y\+EL}{CYEL}}
+{\footnotesize\ttfamily \#define C\+Y\+EL~\char`\"{}\textbackslash{}x1B\mbox{[}33m\char`\"{}}
+
 \mbox{\Hypertarget{haha_utils_8h_ad5aeca1a1a793c8ba18f85cbac89e768}\label{haha_utils_8h_ad5aeca1a1a793c8ba18f85cbac89e768}} 
 \index{haha\+Utils.\+h@{haha\+Utils.\+h}!D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT@{D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT}}
 \index{D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT@{D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT}!haha\+Utils.\+h@{haha\+Utils.\+h}}
 \subsubsection{\texorpdfstring{D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT}{DEBUG\_PRINT}}
-{\footnotesize\ttfamily \#define D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT~1}
+{\footnotesize\ttfamily \#define D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT~true}
 
-\{ \#define for debug printing \} 
+\{ \#define for debug printing \} \mbox{\Hypertarget{haha_utils_8h_ab0bdd8bad8700ee39fe1dc8c408d8ed9}\label{haha_utils_8h_ab0bdd8bad8700ee39fe1dc8c408d8ed9}} 
+\index{haha\+Utils.\+h@{haha\+Utils.\+h}!D\+E\+B\+U\+G\+M\+ES@{D\+E\+B\+U\+G\+M\+ES}}
+\index{D\+E\+B\+U\+G\+M\+ES@{D\+E\+B\+U\+G\+M\+ES}!haha\+Utils.\+h@{haha\+Utils.\+h}}
+\subsubsection{\texorpdfstring{D\+E\+B\+U\+G\+M\+ES}{DEBUGMES}}
+{\footnotesize\ttfamily \#define D\+E\+B\+U\+G\+M\+ES~true /$\ast$ Set this to false to disable debug messages.   $\ast$/}
+
+\mbox{\Hypertarget{haha_utils_8h_a6c81297036840d807519c25c2864faec}\label{haha_utils_8h_a6c81297036840d807519c25c2864faec}} 
+\index{haha\+Utils.\+h@{haha\+Utils.\+h}!E\+R\+R\+O\+R\+M\+ES@{E\+R\+R\+O\+R\+M\+ES}}
+\index{E\+R\+R\+O\+R\+M\+ES@{E\+R\+R\+O\+R\+M\+ES}!haha\+Utils.\+h@{haha\+Utils.\+h}}
+\subsubsection{\texorpdfstring{E\+R\+R\+O\+R\+M\+ES}{ERRORMES}}
+{\footnotesize\ttfamily \#define E\+R\+R\+O\+R\+M\+ES~true /$\ast$ Set this to false to disable error messages.   $\ast$/}
+
+\mbox{\Hypertarget{haha_utils_8h_a185c556500093ce1d9b97379ab00449f}\label{haha_utils_8h_a185c556500093ce1d9b97379ab00449f}} 
+\index{haha\+Utils.\+h@{haha\+Utils.\+h}!H\+A\+H\+A\+D\+E\+B\+UG@{H\+A\+H\+A\+D\+E\+B\+UG}}
+\index{H\+A\+H\+A\+D\+E\+B\+UG@{H\+A\+H\+A\+D\+E\+B\+UG}!haha\+Utils.\+h@{haha\+Utils.\+h}}
+\subsubsection{\texorpdfstring{H\+A\+H\+A\+D\+E\+B\+UG}{HAHADEBUG}}
+{\footnotesize\ttfamily \#define H\+A\+H\+A\+D\+E\+B\+UG(\begin{DoxyParamCaption}\item[{}]{format,  }\item[{}]{args... }\end{DoxyParamCaption})~printf(format, \#\# args)}
+
+\mbox{\Hypertarget{haha_utils_8h_a4f2705df522fd01ea20cea002f2d4304}\label{haha_utils_8h_a4f2705df522fd01ea20cea002f2d4304}} 
+\index{haha\+Utils.\+h@{haha\+Utils.\+h}!printd@{printd}}
+\index{printd@{printd}!haha\+Utils.\+h@{haha\+Utils.\+h}}
+\subsubsection{\texorpdfstring{printd}{printd}}
+{\footnotesize\ttfamily \#define printd(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~(void)0;}
+
+\mbox{\Hypertarget{haha_utils_8h_ab20bc9edcf1eba7f7e4631d26e822cd1}\label{haha_utils_8h_ab20bc9edcf1eba7f7e4631d26e822cd1}} 
+\index{haha\+Utils.\+h@{haha\+Utils.\+h}!printe@{printe}}
+\index{printe@{printe}!haha\+Utils.\+h@{haha\+Utils.\+h}}
+\subsubsection{\texorpdfstring{printe}{printe}}
+{\footnotesize\ttfamily \#define printe(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~(void)0;}
+
+\mbox{\Hypertarget{haha_utils_8h_aa68d15b6b79a3dfcdb44c9da43a5b999}\label{haha_utils_8h_aa68d15b6b79a3dfcdb44c9da43a5b999}} 
+\index{haha\+Utils.\+h@{haha\+Utils.\+h}!printv@{printv}}
+\index{printv@{printv}!haha\+Utils.\+h@{haha\+Utils.\+h}}
+\subsubsection{\texorpdfstring{printv}{printv}}
+{\footnotesize\ttfamily \#define printv(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~(void)0;}
+
+\mbox{\Hypertarget{haha_utils_8h_ad8634d556daf48dd56c6428d5440b427}\label{haha_utils_8h_ad8634d556daf48dd56c6428d5440b427}} 
+\index{haha\+Utils.\+h@{haha\+Utils.\+h}!V\+E\+R\+B\+O\+S\+E\+M\+ES@{V\+E\+R\+B\+O\+S\+E\+M\+ES}}
+\index{V\+E\+R\+B\+O\+S\+E\+M\+ES@{V\+E\+R\+B\+O\+S\+E\+M\+ES}!haha\+Utils.\+h@{haha\+Utils.\+h}}
+\subsubsection{\texorpdfstring{V\+E\+R\+B\+O\+S\+E\+M\+ES}{VERBOSEMES}}
+{\footnotesize\ttfamily \#define V\+E\+R\+B\+O\+S\+E\+M\+ES~true /$\ast$ Set this to false to disable verbose messages. $\ast$/}
+
+
 
 \subsection{Function Documentation}
 \mbox{\Hypertarget{haha_utils_8h_aa74dea5951b0fe8a0afab70b3c83cbb3}\label{haha_utils_8h_aa74dea5951b0fe8a0afab70b3c83cbb3}} 
@@ -71,6 +213,12 @@ Utility functions/variables and debug functionality.
 \begin{DoxyReturn}{Returns}
 \{ The converted hexadecimal value \} 
 \end{DoxyReturn}
+\mbox{\Hypertarget{haha_utils_8h_af4ffcf442beeb20b004279ba81a35a1a}\label{haha_utils_8h_af4ffcf442beeb20b004279ba81a35a1a}} 
+\index{haha\+Utils.\+h@{haha\+Utils.\+h}!byte\+\_\+array\+\_\+to\+\_\+64@{byte\+\_\+array\+\_\+to\+\_\+64}}
+\index{byte\+\_\+array\+\_\+to\+\_\+64@{byte\+\_\+array\+\_\+to\+\_\+64}!haha\+Utils.\+h@{haha\+Utils.\+h}}
+\subsubsection{\texorpdfstring{byte\+\_\+array\+\_\+to\+\_\+64()}{byte\_array\_to\_64()}}
+{\footnotesize\ttfamily uint64\+\_\+t byte\+\_\+array\+\_\+to\+\_\+64 (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{s }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{haha_utils_8h_a7f2dfce1046bdd2a2b753643726c2346}\label{haha_utils_8h_a7f2dfce1046bdd2a2b753643726c2346}} 
 \index{haha\+Utils.\+h@{haha\+Utils.\+h}!delay@{delay}}
 \index{delay@{delay}!haha\+Utils.\+h@{haha\+Utils.\+h}}

@@ -5,6 +5,14 @@
 Different macros.  
 
 
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utils_8h__dep__incl}
+\end{center}
+\end{figure}
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -18,17 +26,17 @@ Different macros.
 \begin{DoxyCompactList}\small\item\em Set maximum alignment for subsequent struct and union definitions to {\itshape alignment}. \end{DoxyCompactList}\item 
 \#define \hyperlink{group__doc__driver__hal__utils__macro_ga38d28b622a4bc7b0f3fb2be2ef1e0086}{C\+O\+M\+P\+I\+L\+E\+R\+\_\+\+P\+A\+C\+K\+\_\+\+R\+E\+S\+ET}()~\hyperlink{group__doc__driver__hal__utils__macro_ga85a3ab5701281268521f109ed0078668}{C\+O\+M\+P\+I\+L\+E\+R\+\_\+\+P\+R\+A\+G\+MA}(pack())
 \begin{DoxyCompactList}\small\item\em Set default alignment for subsequent struct and union definitions. \end{DoxyCompactList}\item 
-\#define {\bfseries L\+E\+\_\+\+B\+Y\+T\+E0}(a)~((uint8\+\_\+t)(a))
+\#define \hyperlink{group__doc__driver__hal__utils__macro_gaab4d1853098bbbfe4567d6cd7f2c099a}{L\+E\+\_\+\+B\+Y\+T\+E0}(a)~((uint8\+\_\+t)(a))
 \item 
-\#define {\bfseries L\+E\+\_\+\+B\+Y\+T\+E1}(a)~((uint8\+\_\+t)((a) $>$$>$ 8))
+\#define \hyperlink{group__doc__driver__hal__utils__macro_ga2c2cccafec8ecf0d26a8bdcf8f7748d3}{L\+E\+\_\+\+B\+Y\+T\+E1}(a)~((uint8\+\_\+t)((a) $>$$>$ 8))
 \item 
-\#define {\bfseries L\+E\+\_\+\+B\+Y\+T\+E2}(a)~((uint8\+\_\+t)((a) $>$$>$ 16))
+\#define \hyperlink{group__doc__driver__hal__utils__macro_gac21be76d243d97c095fe4ec85c94968c}{L\+E\+\_\+\+B\+Y\+T\+E2}(a)~((uint8\+\_\+t)((a) $>$$>$ 16))
 \item 
-\#define {\bfseries L\+E\+\_\+\+B\+Y\+T\+E3}(a)~((uint8\+\_\+t)((a) $>$$>$ 24))
+\#define \hyperlink{group__doc__driver__hal__utils__macro_ga3ef5f564d5325745d309b92ca5be0462}{L\+E\+\_\+\+B\+Y\+T\+E3}(a)~((uint8\+\_\+t)((a) $>$$>$ 24))
 \item 
-\#define {\bfseries L\+E\+\_\+2\+\_\+\+U16}(p)~((p)\mbox{[}0\mbox{]} + ((p)\mbox{[}1\mbox{]} $<$$<$ 8))
+\#define \hyperlink{group__doc__driver__hal__utils__macro_ga28c4c688462eddbe0385bdece51c5f33}{L\+E\+\_\+2\+\_\+\+U16}(p)~((p)\mbox{[}0\mbox{]} + ((p)\mbox{[}1\mbox{]} $<$$<$ 8))
 \item 
-\#define {\bfseries L\+E\+\_\+2\+\_\+\+U32}(p)~((p)\mbox{[}0\mbox{]} + ((p)\mbox{[}1\mbox{]} $<$$<$ 8) + ((p)\mbox{[}2\mbox{]} $<$$<$ 16) + ((p)\mbox{[}3\mbox{]} $<$$<$ 24))
+\#define \hyperlink{group__doc__driver__hal__utils__macro_gac21ac7b0f38e7b8138886c362d9cc663}{L\+E\+\_\+2\+\_\+\+U32}(p)~((p)\mbox{[}0\mbox{]} + ((p)\mbox{[}1\mbox{]} $<$$<$ 8) + ((p)\mbox{[}2\mbox{]} $<$$<$ 16) + ((p)\mbox{[}3\mbox{]} $<$$<$ 24))
 \item 
 \#define \hyperlink{group__doc__driver__hal__utils__macro_gacb24f277663a5c87482fbcdbef5f2bd2}{size\+\_\+of\+\_\+mask}(mask)~(32 -\/ \hyperlink{group__doc__driver__hal__utils__macro_ga004f88903a09b9c23017e697eaf5a845}{clz}(mask) -\/ \hyperlink{group__doc__driver__hal__utils__macro_gab069bfec305db5213465d3b689836404}{ctz}(mask))
 \begin{DoxyCompactList}\small\item\em Counts the number of bits in a mask (no more than 32 bits) \end{DoxyCompactList}\item 

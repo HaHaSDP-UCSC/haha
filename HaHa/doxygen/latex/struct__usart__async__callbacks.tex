@@ -9,25 +9,58 @@ U\+S\+A\+RT interrupt callbacks.
 
 {\ttfamily \#include $<$hpl\+\_\+usart\+\_\+async.\+h$>$}
 
+
+
+Collaboration diagram for \+\_\+usart\+\_\+async\+\_\+callbacks\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{struct__usart__async__callbacks__coll__graph}
+\end{center}
+\end{figure}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{struct__usart__async__callbacks_a8213240efd24edc2266b1d499b42e945}\label{struct__usart__async__callbacks_a8213240efd24edc2266b1d499b42e945}} 
-void($\ast$ {\bfseries tx\+\_\+byte\+\_\+sent} )(struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$device)
+void($\ast$ \hyperlink{struct__usart__async__callbacks_a8213240efd24edc2266b1d499b42e945}{tx\+\_\+byte\+\_\+sent} )(struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$device)
 \item 
-\mbox{\Hypertarget{struct__usart__async__callbacks_af3670aee54cc400737048dde5c64d30e}\label{struct__usart__async__callbacks_af3670aee54cc400737048dde5c64d30e}} 
-void($\ast$ {\bfseries rx\+\_\+done\+\_\+cb} )(struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$device, uint8\+\_\+t data)
+void($\ast$ \hyperlink{struct__usart__async__callbacks_af3670aee54cc400737048dde5c64d30e}{rx\+\_\+done\+\_\+cb} )(struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$device, uint8\+\_\+t data)
 \item 
-\mbox{\Hypertarget{struct__usart__async__callbacks_a71fe195e0159ee0b107df69b2b02f619}\label{struct__usart__async__callbacks_a71fe195e0159ee0b107df69b2b02f619}} 
-void($\ast$ {\bfseries tx\+\_\+done\+\_\+cb} )(struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$device)
+void($\ast$ \hyperlink{struct__usart__async__callbacks_a71fe195e0159ee0b107df69b2b02f619}{tx\+\_\+done\+\_\+cb} )(struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$device)
 \item 
-\mbox{\Hypertarget{struct__usart__async__callbacks_a7b926fce0dbc8debda16675111ae754a}\label{struct__usart__async__callbacks_a7b926fce0dbc8debda16675111ae754a}} 
-void($\ast$ {\bfseries error\+\_\+cb} )(struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$device)
+void($\ast$ \hyperlink{struct__usart__async__callbacks_a7b926fce0dbc8debda16675111ae754a}{error\+\_\+cb} )(struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$device)
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 U\+S\+A\+RT interrupt callbacks. 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{struct__usart__async__callbacks_a7b926fce0dbc8debda16675111ae754a}\label{struct__usart__async__callbacks_a7b926fce0dbc8debda16675111ae754a}} 
+\index{\+\_\+usart\+\_\+async\+\_\+callbacks@{\+\_\+usart\+\_\+async\+\_\+callbacks}!error\+\_\+cb@{error\+\_\+cb}}
+\index{error\+\_\+cb@{error\+\_\+cb}!\+\_\+usart\+\_\+async\+\_\+callbacks@{\+\_\+usart\+\_\+async\+\_\+callbacks}}
+\subsubsection{\texorpdfstring{error\+\_\+cb}{error\_cb}}
+{\footnotesize\ttfamily void($\ast$ \+\_\+usart\+\_\+async\+\_\+callbacks\+::error\+\_\+cb) (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$device)}
+
+\mbox{\Hypertarget{struct__usart__async__callbacks_af3670aee54cc400737048dde5c64d30e}\label{struct__usart__async__callbacks_af3670aee54cc400737048dde5c64d30e}} 
+\index{\+\_\+usart\+\_\+async\+\_\+callbacks@{\+\_\+usart\+\_\+async\+\_\+callbacks}!rx\+\_\+done\+\_\+cb@{rx\+\_\+done\+\_\+cb}}
+\index{rx\+\_\+done\+\_\+cb@{rx\+\_\+done\+\_\+cb}!\+\_\+usart\+\_\+async\+\_\+callbacks@{\+\_\+usart\+\_\+async\+\_\+callbacks}}
+\subsubsection{\texorpdfstring{rx\+\_\+done\+\_\+cb}{rx\_done\_cb}}
+{\footnotesize\ttfamily void($\ast$ \+\_\+usart\+\_\+async\+\_\+callbacks\+::rx\+\_\+done\+\_\+cb) (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$device, uint8\+\_\+t data)}
+
+\mbox{\Hypertarget{struct__usart__async__callbacks_a8213240efd24edc2266b1d499b42e945}\label{struct__usart__async__callbacks_a8213240efd24edc2266b1d499b42e945}} 
+\index{\+\_\+usart\+\_\+async\+\_\+callbacks@{\+\_\+usart\+\_\+async\+\_\+callbacks}!tx\+\_\+byte\+\_\+sent@{tx\+\_\+byte\+\_\+sent}}
+\index{tx\+\_\+byte\+\_\+sent@{tx\+\_\+byte\+\_\+sent}!\+\_\+usart\+\_\+async\+\_\+callbacks@{\+\_\+usart\+\_\+async\+\_\+callbacks}}
+\subsubsection{\texorpdfstring{tx\+\_\+byte\+\_\+sent}{tx\_byte\_sent}}
+{\footnotesize\ttfamily void($\ast$ \+\_\+usart\+\_\+async\+\_\+callbacks\+::tx\+\_\+byte\+\_\+sent) (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$device)}
+
+\mbox{\Hypertarget{struct__usart__async__callbacks_a71fe195e0159ee0b107df69b2b02f619}\label{struct__usart__async__callbacks_a71fe195e0159ee0b107df69b2b02f619}} 
+\index{\+\_\+usart\+\_\+async\+\_\+callbacks@{\+\_\+usart\+\_\+async\+\_\+callbacks}!tx\+\_\+done\+\_\+cb@{tx\+\_\+done\+\_\+cb}}
+\index{tx\+\_\+done\+\_\+cb@{tx\+\_\+done\+\_\+cb}!\+\_\+usart\+\_\+async\+\_\+callbacks@{\+\_\+usart\+\_\+async\+\_\+callbacks}}
+\subsubsection{\texorpdfstring{tx\+\_\+done\+\_\+cb}{tx\_done\_cb}}
+{\footnotesize\ttfamily void($\ast$ \+\_\+usart\+\_\+async\+\_\+callbacks\+::tx\+\_\+done\+\_\+cb) (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$device)}
+
+
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

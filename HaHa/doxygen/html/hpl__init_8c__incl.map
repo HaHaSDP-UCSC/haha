@@ -1,0 +1,27 @@
+<map id="E:/HaHaProject/AtmelXbee/ATProjects/HaHa/HaHa/hpl/core/hpl_init.c" name="E:/HaHaProject/AtmelXbee/ATProjects/HaHa/HaHa/hpl/core/hpl_init.c">
+<area shape="rect" id="node2" href="$hpl__gpio_8h.html" title="Port related functionality declaration. " alt="" coords="1321,109,1402,136"/>
+<area shape="rect" id="node31" href="$hpl__init_8h.html" title="Init related functionality declaration. " alt="" coords="1427,109,1501,136"/>
+<area shape="rect" id="node3" href="$compiler_8h.html" title="compiler.h" alt="" coords="1371,184,1453,211"/>
+<area shape="rect" id="node7" href="$parts_8h.html" title="Atmel part identification macros. " alt="" coords="1474,259,1537,285"/>
+<area shape="rect" id="node30" href="$err__codes_8h.html" title="Error code definitions. " alt="" coords="1561,259,1652,285"/>
+<area shape="rect" id="node9" href="$hri__b11_8h.html" title="SAM B11 HRI top&#45;level header file. " alt="" coords="1525,333,1600,360"/>
+<area shape="rect" id="node11" href="$hri__aon__gp__regs__b11_8h.html" title="SAM AON_GP_REGS. " alt="" coords="89,415,245,442"/>
+<area shape="rect" id="node12" href="$hri__aon__pwr__seq__b11_8h.html" title="SAM AON_PWR_SEQ. " alt="" coords="269,415,427,442"/>
+<area shape="rect" id="node13" href="$hri__aon__sleep__timer__b11_8h.html" title="SAM AON_SLEEP_TIMER. " alt="" coords="452,408,591,449"/>
+<area shape="rect" id="node14" href="$hri__arm__bpu__b11_8h.html" title="SAM ARM_BPU. " alt="" coords="615,415,747,442"/>
+<area shape="rect" id="node15" href="$hri__arm__dwt__b11_8h.html" title="SAM ARM_DWT. " alt="" coords="772,415,903,442"/>
+<area shape="rect" id="node16" href="$hri__arm__rom__b11_8h.html" title="SAM ARM_ROM. " alt="" coords="927,415,1060,442"/>
+<area shape="rect" id="node17" href="$hri__arm__sysctrl__b11_8h.html" title="SAM ARM_SYSCTRL. " alt="" coords="1085,415,1235,442"/>
+<area shape="rect" id="node18" href="$hri__dualtimer__b11_8h.html" title="SAM DUALTIMER. " alt="" coords="1259,415,1394,442"/>
+<area shape="rect" id="node19" href="$hri__efuse__misc__regs__b11_8h.html" title="SAM EFUSE_MISC_REGS. " alt="" coords="1419,408,1560,449"/>
+<area shape="rect" id="node20" href="$hri__gpio__b11_8h.html" title="SAM GPIO. " alt="" coords="1584,415,1691,442"/>
+<area shape="rect" id="node21" href="$hri__i2c__b11_8h.html" title="SAM I2C. " alt="" coords="1715,415,1813,442"/>
+<area shape="rect" id="node22" href="$hri__lp__clk__cal__regs__b11_8h.html" title="SAM LP_CLK_CAL_REGS. " alt="" coords="1837,408,1971,449"/>
+<area shape="rect" id="node23" href="$hri__lpmcu__misc__regs__b11_8h.html" title="SAM LPMCU_MISC_REGS. " alt="" coords="1995,408,2141,449"/>
+<area shape="rect" id="node24" href="$hri__prov__dma__ctrl__b11_8h.html" title="SAM PROV_DMA_CTRL. " alt="" coords="2165,415,2328,442"/>
+<area shape="rect" id="node25" href="$hri__spi__b11_8h.html" title="SAM SPI. " alt="" coords="2352,415,2451,442"/>
+<area shape="rect" id="node26" href="$hri__spi__flash__b11_8h.html" title="SAM SPI_FLASH. " alt="" coords="2475,415,2608,442"/>
+<area shape="rect" id="node27" href="$hri__timer__b11_8h.html" title="SAM TIMER. " alt="" coords="2633,415,2743,442"/>
+<area shape="rect" id="node28" href="$hri__uart__b11_8h.html" title="SAM UART. " alt="" coords="2768,415,2872,442"/>
+<area shape="rect" id="node29" href="$hri__wdt__b11_8h.html" title="SAM WDT. " alt="" coords="2897,415,2999,442"/>
+</map>

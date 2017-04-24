@@ -17,16 +17,14 @@ struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descript
 \subsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{group__doc__driver__hal__usart__async_ga430e4080a53e1f39c4d46da01200f633}\label{group__doc__driver__hal__usart__async_ga430e4080a53e1f39c4d46da01200f633}} 
 typedef void($\ast$ \hyperlink{group__doc__driver__hal__usart__async_ga430e4080a53e1f39c4d46da01200f633}{usart\+\_\+cb\+\_\+t}) (const struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} $\ast$const descr)
 \begin{DoxyCompactList}\small\item\em U\+S\+A\+RT callback type. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{group__doc__driver__hal__usart__async_ga5a82ef383f62daa061a55838c8fc6d39}\label{group__doc__driver__hal__usart__async_ga5a82ef383f62daa061a55838c8fc6d39}} 
-enum \hyperlink{group__doc__driver__hal__usart__async_ga5a82ef383f62daa061a55838c8fc6d39}{usart\+\_\+async\+\_\+callback\+\_\+type} \{ {\bfseries U\+S\+A\+R\+T\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+R\+X\+C\+\_\+\+CB}, 
-{\bfseries U\+S\+A\+R\+T\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+T\+X\+C\+\_\+\+CB}, 
-{\bfseries U\+S\+A\+R\+T\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+E\+R\+R\+O\+R\+\_\+\+CB}
+enum \hyperlink{group__doc__driver__hal__usart__async_ga5a82ef383f62daa061a55838c8fc6d39}{usart\+\_\+async\+\_\+callback\+\_\+type} \{ \hyperlink{group__doc__driver__hal__usart__async_gga5a82ef383f62daa061a55838c8fc6d39a53f74860827af0c754db79111ea4a8af}{U\+S\+A\+R\+T\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+R\+X\+C\+\_\+\+CB}, 
+\hyperlink{group__doc__driver__hal__usart__async_gga5a82ef383f62daa061a55838c8fc6d39a72dc4487f710fa4b902fbd97a0dbe391}{U\+S\+A\+R\+T\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+T\+X\+C\+\_\+\+CB}, 
+\hyperlink{group__doc__driver__hal__usart__async_gga5a82ef383f62daa061a55838c8fc6d39a5dff48ffecc0bfaf55c0fbc9f27ca8d2}{U\+S\+A\+R\+T\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+E\+R\+R\+O\+R\+\_\+\+CB}
  \}\begin{DoxyCompactList}\small\item\em U\+S\+A\+RT callback types. \end{DoxyCompactList}
 \end{DoxyCompactItemize}
 \subsection*{Functions}
@@ -83,6 +81,46 @@ uint32\+\_\+t \hyperlink{group__doc__driver__hal__usart__async_ga8fd83888546106a
 {\footnotesize\ttfamily \#define U\+S\+A\+R\+T\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+B\+U\+SY~0x0001}
 
 U\+S\+A\+RT write busy 
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{group__doc__driver__hal__usart__async_ga430e4080a53e1f39c4d46da01200f633}\label{group__doc__driver__hal__usart__async_ga430e4080a53e1f39c4d46da01200f633}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}!usart\+\_\+cb\+\_\+t@{usart\+\_\+cb\+\_\+t}}
+\index{usart\+\_\+cb\+\_\+t@{usart\+\_\+cb\+\_\+t}!Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}}
+\subsubsection{\texorpdfstring{usart\+\_\+cb\+\_\+t}{usart\_cb\_t}}
+{\footnotesize\ttfamily typedef void($\ast$ usart\+\_\+cb\+\_\+t) (const struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} $\ast$const descr)}
+
+
+
+U\+S\+A\+RT callback type. 
+
+
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{group__doc__driver__hal__usart__async_ga5a82ef383f62daa061a55838c8fc6d39}\label{group__doc__driver__hal__usart__async_ga5a82ef383f62daa061a55838c8fc6d39}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}!usart\+\_\+async\+\_\+callback\+\_\+type@{usart\+\_\+async\+\_\+callback\+\_\+type}}
+\index{usart\+\_\+async\+\_\+callback\+\_\+type@{usart\+\_\+async\+\_\+callback\+\_\+type}!Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}}
+\subsubsection{\texorpdfstring{usart\+\_\+async\+\_\+callback\+\_\+type}{usart\_async\_callback\_type}}
+{\footnotesize\ttfamily enum \hyperlink{group__doc__driver__hal__usart__async_ga5a82ef383f62daa061a55838c8fc6d39}{usart\+\_\+async\+\_\+callback\+\_\+type}}
+
+
+
+U\+S\+A\+RT callback types. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+A\+R\+T\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+R\+X\+C\+\_\+\+CB@{U\+S\+A\+R\+T\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+R\+X\+C\+\_\+\+CB}!Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}}\index{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}!U\+S\+A\+R\+T\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+R\+X\+C\+\_\+\+CB@{U\+S\+A\+R\+T\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+R\+X\+C\+\_\+\+CB}}}\mbox{\Hypertarget{group__doc__driver__hal__usart__async_gga5a82ef383f62daa061a55838c8fc6d39a53f74860827af0c754db79111ea4a8af}\label{group__doc__driver__hal__usart__async_gga5a82ef383f62daa061a55838c8fc6d39a53f74860827af0c754db79111ea4a8af}} 
+U\+S\+A\+R\+T\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+R\+X\+C\+\_\+\+CB&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+A\+R\+T\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+T\+X\+C\+\_\+\+CB@{U\+S\+A\+R\+T\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+T\+X\+C\+\_\+\+CB}!Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}}\index{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}!U\+S\+A\+R\+T\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+T\+X\+C\+\_\+\+CB@{U\+S\+A\+R\+T\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+T\+X\+C\+\_\+\+CB}}}\mbox{\Hypertarget{group__doc__driver__hal__usart__async_gga5a82ef383f62daa061a55838c8fc6d39a72dc4487f710fa4b902fbd97a0dbe391}\label{group__doc__driver__hal__usart__async_gga5a82ef383f62daa061a55838c8fc6d39a72dc4487f710fa4b902fbd97a0dbe391}} 
+U\+S\+A\+R\+T\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+T\+X\+C\+\_\+\+CB&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+A\+R\+T\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+E\+R\+R\+O\+R\+\_\+\+CB@{U\+S\+A\+R\+T\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+E\+R\+R\+O\+R\+\_\+\+CB}!Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}}\index{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+async}!U\+S\+A\+R\+T\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+E\+R\+R\+O\+R\+\_\+\+CB@{U\+S\+A\+R\+T\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+E\+R\+R\+O\+R\+\_\+\+CB}}}\mbox{\Hypertarget{group__doc__driver__hal__usart__async_gga5a82ef383f62daa061a55838c8fc6d39a5dff48ffecc0bfaf55c0fbc9f27ca8d2}\label{group__doc__driver__hal__usart__async_gga5a82ef383f62daa061a55838c8fc6d39a5dff48ffecc0bfaf55c0fbc9f27ca8d2}} 
+U\+S\+A\+R\+T\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+E\+R\+R\+O\+R\+\_\+\+CB&\\
+\hline
+
+\end{DoxyEnumFields}
+
 
 \subsection{Function Documentation}
 \mbox{\Hypertarget{group__doc__driver__hal__usart__async_gab7ef65ba7b4afd13cb11dcc72315ca43}\label{group__doc__driver__hal__usart__async_gab7ef65ba7b4afd13cb11dcc72315ca43}} 

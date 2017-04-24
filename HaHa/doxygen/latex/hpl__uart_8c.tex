@@ -10,6 +10,14 @@ S\+AM Serial Communication Interface.
 {\ttfamily \#include $<$hpl\+\_\+usart\+\_\+async.\+h$>$}\newline
 {\ttfamily \#include $<$hpl\+\_\+usart\+\_\+sync.\+h$>$}\newline
 {\ttfamily \#include $<$hpl\+\_\+uart\+\_\+config.\+h$>$}\newline
+Include dependency graph for hpl\+\_\+uart.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hpl__uart_8c__incl}
+\end{center}
+\end{figure}
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -18,13 +26,11 @@ struct \hyperlink{structuart__config}{uart\+\_\+config}
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{hpl__uart_8c_ad97f1728892384250c4f93b4b4706e40}\label{hpl__uart_8c_ad97f1728892384250c4f93b4b4706e40}} 
-\#define {\bfseries C\+O\+N\+F\+\_\+\+U\+A\+R\+T\+\_\+0\+\_\+\+E\+N\+A\+B\+LE}~0
+\#define \hyperlink{hpl__uart_8c_ad97f1728892384250c4f93b4b4706e40}{C\+O\+N\+F\+\_\+\+U\+A\+R\+T\+\_\+0\+\_\+\+E\+N\+A\+B\+LE}~0
 \item 
-\mbox{\Hypertarget{hpl__uart_8c_acbc19956936bba02e5387c2debd6aad5}\label{hpl__uart_8c_acbc19956936bba02e5387c2debd6aad5}} 
-\#define {\bfseries C\+O\+N\+F\+\_\+\+U\+A\+R\+T\+\_\+1\+\_\+\+E\+N\+A\+B\+LE}~0
+\#define \hyperlink{hpl__uart_8c_acbc19956936bba02e5387c2debd6aad5}{C\+O\+N\+F\+\_\+\+U\+A\+R\+T\+\_\+1\+\_\+\+E\+N\+A\+B\+LE}~0
 \item 
-\#define \hyperlink{hpl__uart_8c_a5e9bdee638cdfc768258e0155df437fc}{U\+A\+R\+T\+\_\+\+A\+M\+O\+U\+NT}~(C\+O\+N\+F\+\_\+\+U\+A\+R\+T\+\_\+0\+\_\+\+E\+N\+A\+B\+LE + C\+O\+N\+F\+\_\+\+U\+A\+R\+T\+\_\+1\+\_\+\+E\+N\+A\+B\+LE)
+\#define \hyperlink{hpl__uart_8c_a5e9bdee638cdfc768258e0155df437fc}{U\+A\+R\+T\+\_\+\+A\+M\+O\+U\+NT}~(\hyperlink{hpl__uart_8c_ad97f1728892384250c4f93b4b4706e40}{C\+O\+N\+F\+\_\+\+U\+A\+R\+T\+\_\+0\+\_\+\+E\+N\+A\+B\+LE} + \hyperlink{hpl__uart_8c_acbc19956936bba02e5387c2debd6aad5}{C\+O\+N\+F\+\_\+\+U\+A\+R\+T\+\_\+1\+\_\+\+E\+N\+A\+B\+LE})
 \item 
 \#define \hyperlink{hpl__uart_8c_a53b06f9eff53ee8bca1d489cc7be7597}{U\+A\+R\+T\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+ON}(n)
 \begin{DoxyCompactList}\small\item\em Macro is used to fill U\+A\+RT configuration structure based on its number. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -107,11 +113,23 @@ S\+AM Serial Communication Interface.
 Copyright (C) 2016 Atmel Corporation. All rights reserved.
 
 \subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{hpl__uart_8c_ad97f1728892384250c4f93b4b4706e40}\label{hpl__uart_8c_ad97f1728892384250c4f93b4b4706e40}} 
+\index{hpl\+\_\+uart.\+c@{hpl\+\_\+uart.\+c}!C\+O\+N\+F\+\_\+\+U\+A\+R\+T\+\_\+0\+\_\+\+E\+N\+A\+B\+LE@{C\+O\+N\+F\+\_\+\+U\+A\+R\+T\+\_\+0\+\_\+\+E\+N\+A\+B\+LE}}
+\index{C\+O\+N\+F\+\_\+\+U\+A\+R\+T\+\_\+0\+\_\+\+E\+N\+A\+B\+LE@{C\+O\+N\+F\+\_\+\+U\+A\+R\+T\+\_\+0\+\_\+\+E\+N\+A\+B\+LE}!hpl\+\_\+uart.\+c@{hpl\+\_\+uart.\+c}}
+\subsubsection{\texorpdfstring{C\+O\+N\+F\+\_\+\+U\+A\+R\+T\+\_\+0\+\_\+\+E\+N\+A\+B\+LE}{CONF\_UART\_0\_ENABLE}}
+{\footnotesize\ttfamily \#define C\+O\+N\+F\+\_\+\+U\+A\+R\+T\+\_\+0\+\_\+\+E\+N\+A\+B\+LE~0}
+
+\mbox{\Hypertarget{hpl__uart_8c_acbc19956936bba02e5387c2debd6aad5}\label{hpl__uart_8c_acbc19956936bba02e5387c2debd6aad5}} 
+\index{hpl\+\_\+uart.\+c@{hpl\+\_\+uart.\+c}!C\+O\+N\+F\+\_\+\+U\+A\+R\+T\+\_\+1\+\_\+\+E\+N\+A\+B\+LE@{C\+O\+N\+F\+\_\+\+U\+A\+R\+T\+\_\+1\+\_\+\+E\+N\+A\+B\+LE}}
+\index{C\+O\+N\+F\+\_\+\+U\+A\+R\+T\+\_\+1\+\_\+\+E\+N\+A\+B\+LE@{C\+O\+N\+F\+\_\+\+U\+A\+R\+T\+\_\+1\+\_\+\+E\+N\+A\+B\+LE}!hpl\+\_\+uart.\+c@{hpl\+\_\+uart.\+c}}
+\subsubsection{\texorpdfstring{C\+O\+N\+F\+\_\+\+U\+A\+R\+T\+\_\+1\+\_\+\+E\+N\+A\+B\+LE}{CONF\_UART\_1\_ENABLE}}
+{\footnotesize\ttfamily \#define C\+O\+N\+F\+\_\+\+U\+A\+R\+T\+\_\+1\+\_\+\+E\+N\+A\+B\+LE~0}
+
 \mbox{\Hypertarget{hpl__uart_8c_a5e9bdee638cdfc768258e0155df437fc}\label{hpl__uart_8c_a5e9bdee638cdfc768258e0155df437fc}} 
 \index{hpl\+\_\+uart.\+c@{hpl\+\_\+uart.\+c}!U\+A\+R\+T\+\_\+\+A\+M\+O\+U\+NT@{U\+A\+R\+T\+\_\+\+A\+M\+O\+U\+NT}}
 \index{U\+A\+R\+T\+\_\+\+A\+M\+O\+U\+NT@{U\+A\+R\+T\+\_\+\+A\+M\+O\+U\+NT}!hpl\+\_\+uart.\+c@{hpl\+\_\+uart.\+c}}
 \subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+\+A\+M\+O\+U\+NT}{UART\_AMOUNT}}
-{\footnotesize\ttfamily \#define U\+A\+R\+T\+\_\+\+A\+M\+O\+U\+NT~(C\+O\+N\+F\+\_\+\+U\+A\+R\+T\+\_\+0\+\_\+\+E\+N\+A\+B\+LE + C\+O\+N\+F\+\_\+\+U\+A\+R\+T\+\_\+1\+\_\+\+E\+N\+A\+B\+LE)}
+{\footnotesize\ttfamily \#define U\+A\+R\+T\+\_\+\+A\+M\+O\+U\+NT~(\hyperlink{hpl__uart_8c_ad97f1728892384250c4f93b4b4706e40}{C\+O\+N\+F\+\_\+\+U\+A\+R\+T\+\_\+0\+\_\+\+E\+N\+A\+B\+LE} + \hyperlink{hpl__uart_8c_acbc19956936bba02e5387c2debd6aad5}{C\+O\+N\+F\+\_\+\+U\+A\+R\+T\+\_\+1\+\_\+\+E\+N\+A\+B\+LE})}
 
 Amount of U\+A\+RT. \mbox{\Hypertarget{hpl__uart_8c_a53b06f9eff53ee8bca1d489cc7be7597}\label{hpl__uart_8c_a53b06f9eff53ee8bca1d489cc7be7597}} 
 \index{hpl\+\_\+uart.\+c@{hpl\+\_\+uart.\+c}!U\+A\+R\+T\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+ON@{U\+A\+R\+T\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+ON}}

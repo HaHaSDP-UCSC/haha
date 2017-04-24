@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['packet',['Packet',['../struct_packet.html',1,'']]]
+  ['message',['Message',['../struct_message.html',1,'']]]
 ];

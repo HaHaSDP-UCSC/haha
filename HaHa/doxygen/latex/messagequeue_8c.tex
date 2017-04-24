@@ -1,0 +1,81 @@
+\hypertarget{messagequeue_8c}{}\section{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/messagequeue/messagequeue.c File Reference}
+\label{messagequeue_8c}\index{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/messagequeue/messagequeue.\+c@{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/messagequeue/messagequeue.\+c}}
+{\ttfamily \#include \char`\"{}messagequeue.\+h\char`\"{}}\newline
+Include dependency graph for messagequeue.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{messagequeue_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{messagequeue_8c_ab16338596d257a6f5812ddfec69071ab}{generate\+Message} (\hyperlink{struct_friend}{Friend} friend, bool permanent, \hyperlink{struct_message}{Message} $\ast$mes)
+\item 
+bool \hyperlink{messagequeue_8c_a2fbe18023092eca48ff30ffb1b477363}{init\+Pending\+Messages} ()
+\item 
+bool \hyperlink{messagequeue_8c_a67a1de79c9fc6b8bbaaeb986d519b6ec}{init\+Permanent\+Messages} ()
+\item 
+bool \hyperlink{messagequeue_8c_a16c87307c6fa91ee8efbcfd2dd78f14e}{init\+Message\+Queue} ()
+\item 
+bool \hyperlink{messagequeue_8c_ad2dbd5929bc3bf587187fb724aec4906}{add\+To\+Queue} (\hyperlink{struct_message}{Message} mes)
+\item 
+bool \hyperlink{messagequeue_8c_aba80587693ceebf09034cb8a9eb754b4}{remove\+From\+Queue} (\hyperlink{struct_message}{Message} mes)
+\item 
+bool \hyperlink{messagequeue_8c_afc46a5a224f5e27a22d773ca574cd3fe}{check\+Queue} (\hyperlink{struct_message}{Message} mes)
+\item 
+bool \hyperlink{messagequeue_8c_a8479d6b0d962af3cd60c4a2506542b93}{flush\+Old\+Messages} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{messagequeue_8c_ad2dbd5929bc3bf587187fb724aec4906}\label{messagequeue_8c_ad2dbd5929bc3bf587187fb724aec4906}} 
+\index{messagequeue.\+c@{messagequeue.\+c}!add\+To\+Queue@{add\+To\+Queue}}
+\index{add\+To\+Queue@{add\+To\+Queue}!messagequeue.\+c@{messagequeue.\+c}}
+\subsubsection{\texorpdfstring{add\+To\+Queue()}{addToQueue()}}
+{\footnotesize\ttfamily bool add\+To\+Queue (\begin{DoxyParamCaption}\item[{\hyperlink{struct_message}{Message}}]{mes }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{messagequeue_8c_afc46a5a224f5e27a22d773ca574cd3fe}\label{messagequeue_8c_afc46a5a224f5e27a22d773ca574cd3fe}} 
+\index{messagequeue.\+c@{messagequeue.\+c}!check\+Queue@{check\+Queue}}
+\index{check\+Queue@{check\+Queue}!messagequeue.\+c@{messagequeue.\+c}}
+\subsubsection{\texorpdfstring{check\+Queue()}{checkQueue()}}
+{\footnotesize\ttfamily bool check\+Queue (\begin{DoxyParamCaption}\item[{\hyperlink{struct_message}{Message}}]{mes }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{messagequeue_8c_a8479d6b0d962af3cd60c4a2506542b93}\label{messagequeue_8c_a8479d6b0d962af3cd60c4a2506542b93}} 
+\index{messagequeue.\+c@{messagequeue.\+c}!flush\+Old\+Messages@{flush\+Old\+Messages}}
+\index{flush\+Old\+Messages@{flush\+Old\+Messages}!messagequeue.\+c@{messagequeue.\+c}}
+\subsubsection{\texorpdfstring{flush\+Old\+Messages()}{flushOldMessages()}}
+{\footnotesize\ttfamily bool flush\+Old\+Messages (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{messagequeue_8c_ab16338596d257a6f5812ddfec69071ab}\label{messagequeue_8c_ab16338596d257a6f5812ddfec69071ab}} 
+\index{messagequeue.\+c@{messagequeue.\+c}!generate\+Message@{generate\+Message}}
+\index{generate\+Message@{generate\+Message}!messagequeue.\+c@{messagequeue.\+c}}
+\subsubsection{\texorpdfstring{generate\+Message()}{generateMessage()}}
+{\footnotesize\ttfamily bool generate\+Message (\begin{DoxyParamCaption}\item[{\hyperlink{struct_friend}{Friend}}]{friend,  }\item[{bool}]{permanent,  }\item[{\hyperlink{struct_message}{Message} $\ast$}]{mes }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{messagequeue_8c_a16c87307c6fa91ee8efbcfd2dd78f14e}\label{messagequeue_8c_a16c87307c6fa91ee8efbcfd2dd78f14e}} 
+\index{messagequeue.\+c@{messagequeue.\+c}!init\+Message\+Queue@{init\+Message\+Queue}}
+\index{init\+Message\+Queue@{init\+Message\+Queue}!messagequeue.\+c@{messagequeue.\+c}}
+\subsubsection{\texorpdfstring{init\+Message\+Queue()}{initMessageQueue()}}
+{\footnotesize\ttfamily bool init\+Message\+Queue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{messagequeue_8c_a2fbe18023092eca48ff30ffb1b477363}\label{messagequeue_8c_a2fbe18023092eca48ff30ffb1b477363}} 
+\index{messagequeue.\+c@{messagequeue.\+c}!init\+Pending\+Messages@{init\+Pending\+Messages}}
+\index{init\+Pending\+Messages@{init\+Pending\+Messages}!messagequeue.\+c@{messagequeue.\+c}}
+\subsubsection{\texorpdfstring{init\+Pending\+Messages()}{initPendingMessages()}}
+{\footnotesize\ttfamily bool init\+Pending\+Messages (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{messagequeue_8c_a67a1de79c9fc6b8bbaaeb986d519b6ec}\label{messagequeue_8c_a67a1de79c9fc6b8bbaaeb986d519b6ec}} 
+\index{messagequeue.\+c@{messagequeue.\+c}!init\+Permanent\+Messages@{init\+Permanent\+Messages}}
+\index{init\+Permanent\+Messages@{init\+Permanent\+Messages}!messagequeue.\+c@{messagequeue.\+c}}
+\subsubsection{\texorpdfstring{init\+Permanent\+Messages()}{initPermanentMessages()}}
+{\footnotesize\ttfamily bool init\+Permanent\+Messages (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{messagequeue_8c_aba80587693ceebf09034cb8a9eb754b4}\label{messagequeue_8c_aba80587693ceebf09034cb8a9eb754b4}} 
+\index{messagequeue.\+c@{messagequeue.\+c}!remove\+From\+Queue@{remove\+From\+Queue}}
+\index{remove\+From\+Queue@{remove\+From\+Queue}!messagequeue.\+c@{messagequeue.\+c}}
+\subsubsection{\texorpdfstring{remove\+From\+Queue()}{removeFromQueue()}}
+{\footnotesize\ttfamily bool remove\+From\+Queue (\begin{DoxyParamCaption}\item[{\hyperlink{struct_message}{Message}}]{mes }\end{DoxyParamCaption})}
+

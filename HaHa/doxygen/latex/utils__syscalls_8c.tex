@@ -9,44 +9,41 @@ Syscalls for S\+A\+M0 (G\+CC).
 {\ttfamily \#include $<$stdarg.\+h$>$}\newline
 {\ttfamily \#include $<$sys/types.\+h$>$}\newline
 {\ttfamily \#include $<$sys/stat.\+h$>$}\newline
+Include dependency graph for utils\+\_\+syscalls.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utils__syscalls_8c__incl}
+\end{center}
+\end{figure}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{utils__syscalls_8c_aae54d7b9578ba1fc171ce6f30f4c68a3}\label{utils__syscalls_8c_aae54d7b9578ba1fc171ce6f30f4c68a3}} 
 caddr\+\_\+t \hyperlink{utils__syscalls_8c_aae54d7b9578ba1fc171ce6f30f4c68a3}{\+\_\+sbrk} (int incr)
 \begin{DoxyCompactList}\small\item\em Replacement of C library of \+\_\+sbrk. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{utils__syscalls_8c_aa1f9baeed1efaed3c37861c144b6845b}\label{utils__syscalls_8c_aa1f9baeed1efaed3c37861c144b6845b}} 
 int \hyperlink{utils__syscalls_8c_aa1f9baeed1efaed3c37861c144b6845b}{link} (char $\ast$old, char $\ast$\+\_\+new)
 \begin{DoxyCompactList}\small\item\em Replacement of C library of link. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{utils__syscalls_8c_a5aab5e2acfd600e3667dc915a2bbc7cb}\label{utils__syscalls_8c_a5aab5e2acfd600e3667dc915a2bbc7cb}} 
 int \hyperlink{utils__syscalls_8c_a5aab5e2acfd600e3667dc915a2bbc7cb}{\+\_\+close} (int file)
 \begin{DoxyCompactList}\small\item\em Replacement of C library of \+\_\+close. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{utils__syscalls_8c_a41eef54307912a82d20e71c3d47315aa}\label{utils__syscalls_8c_a41eef54307912a82d20e71c3d47315aa}} 
 int \hyperlink{utils__syscalls_8c_a41eef54307912a82d20e71c3d47315aa}{\+\_\+fstat} (int file, struct stat $\ast$st)
 \begin{DoxyCompactList}\small\item\em Replacement of C library of \+\_\+fstat. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{utils__syscalls_8c_ad3134a3dc296622b8d1c5456e481505b}\label{utils__syscalls_8c_ad3134a3dc296622b8d1c5456e481505b}} 
 int \hyperlink{utils__syscalls_8c_ad3134a3dc296622b8d1c5456e481505b}{\+\_\+isatty} (int file)
 \begin{DoxyCompactList}\small\item\em Replacement of C library of \+\_\+isatty. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{utils__syscalls_8c_a7a61311bdf1cb025fc07dc2bdae22ce4}\label{utils__syscalls_8c_a7a61311bdf1cb025fc07dc2bdae22ce4}} 
 int \hyperlink{utils__syscalls_8c_a7a61311bdf1cb025fc07dc2bdae22ce4}{\+\_\+lseek} (int file, int ptr, int dir)
 \begin{DoxyCompactList}\small\item\em Replacement of C library of \+\_\+lseek. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{utils__syscalls_8c_abc96bd69b58b2deaddb484478d911c1b}\label{utils__syscalls_8c_abc96bd69b58b2deaddb484478d911c1b}} 
 void \hyperlink{utils__syscalls_8c_abc96bd69b58b2deaddb484478d911c1b}{\+\_\+exit} (int status)
 \begin{DoxyCompactList}\small\item\em Replacement of C library of \+\_\+exit. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{utils__syscalls_8c_a3ada001944b574974184d2377be0bec3}\label{utils__syscalls_8c_a3ada001944b574974184d2377be0bec3}} 
 void \hyperlink{utils__syscalls_8c_a3ada001944b574974184d2377be0bec3}{\+\_\+kill} (int pid, int sig)
 \begin{DoxyCompactList}\small\item\em Replacement of C library of \+\_\+kill. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{utils__syscalls_8c_a945e539df8e0f66d3c73c533fe1968ee}\label{utils__syscalls_8c_a945e539df8e0f66d3c73c533fe1968ee}} 
 int \hyperlink{utils__syscalls_8c_a945e539df8e0f66d3c73c533fe1968ee}{\+\_\+getpid} (void)
 \begin{DoxyCompactList}\small\item\em Replacement of C library of \+\_\+getpid. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{utils__syscalls_8c_ad65a8842cc674e3ddf69355898c0ecbf}\label{utils__syscalls_8c_ad65a8842cc674e3ddf69355898c0ecbf}} 
-int {\bfseries errno}
+int \hyperlink{utils__syscalls_8c_ad65a8842cc674e3ddf69355898c0ecbf}{errno}
 \item 
-\mbox{\Hypertarget{utils__syscalls_8c_abb406f6b7d63af84fda76dbcdbac66c5}\label{utils__syscalls_8c_abb406f6b7d63af84fda76dbcdbac66c5}} 
-int {\bfseries \+\_\+end}
+int \hyperlink{utils__syscalls_8c_abb406f6b7d63af84fda76dbcdbac66c5}{\+\_\+end}
 \end{DoxyCompactItemize}
 
 
@@ -54,3 +51,110 @@ int {\bfseries \+\_\+end}
 Syscalls for S\+A\+M0 (G\+CC). 
 
 Copyright (C) 2015-\/2016 Atmel Corporation. All rights reserved.
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{utils__syscalls_8c_a5aab5e2acfd600e3667dc915a2bbc7cb}\label{utils__syscalls_8c_a5aab5e2acfd600e3667dc915a2bbc7cb}} 
+\index{utils\+\_\+syscalls.\+c@{utils\+\_\+syscalls.\+c}!\+\_\+close@{\+\_\+close}}
+\index{\+\_\+close@{\+\_\+close}!utils\+\_\+syscalls.\+c@{utils\+\_\+syscalls.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+close()}{\_close()}}
+{\footnotesize\ttfamily int \+\_\+close (\begin{DoxyParamCaption}\item[{int}]{file }\end{DoxyParamCaption})}
+
+
+
+Replacement of C library of \+\_\+close. 
+
+\mbox{\Hypertarget{utils__syscalls_8c_abc96bd69b58b2deaddb484478d911c1b}\label{utils__syscalls_8c_abc96bd69b58b2deaddb484478d911c1b}} 
+\index{utils\+\_\+syscalls.\+c@{utils\+\_\+syscalls.\+c}!\+\_\+exit@{\+\_\+exit}}
+\index{\+\_\+exit@{\+\_\+exit}!utils\+\_\+syscalls.\+c@{utils\+\_\+syscalls.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+exit()}{\_exit()}}
+{\footnotesize\ttfamily void \+\_\+exit (\begin{DoxyParamCaption}\item[{int}]{status }\end{DoxyParamCaption})}
+
+
+
+Replacement of C library of \+\_\+exit. 
+
+\mbox{\Hypertarget{utils__syscalls_8c_a41eef54307912a82d20e71c3d47315aa}\label{utils__syscalls_8c_a41eef54307912a82d20e71c3d47315aa}} 
+\index{utils\+\_\+syscalls.\+c@{utils\+\_\+syscalls.\+c}!\+\_\+fstat@{\+\_\+fstat}}
+\index{\+\_\+fstat@{\+\_\+fstat}!utils\+\_\+syscalls.\+c@{utils\+\_\+syscalls.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+fstat()}{\_fstat()}}
+{\footnotesize\ttfamily int \+\_\+fstat (\begin{DoxyParamCaption}\item[{int}]{file,  }\item[{struct stat $\ast$}]{st }\end{DoxyParamCaption})}
+
+
+
+Replacement of C library of \+\_\+fstat. 
+
+\mbox{\Hypertarget{utils__syscalls_8c_a945e539df8e0f66d3c73c533fe1968ee}\label{utils__syscalls_8c_a945e539df8e0f66d3c73c533fe1968ee}} 
+\index{utils\+\_\+syscalls.\+c@{utils\+\_\+syscalls.\+c}!\+\_\+getpid@{\+\_\+getpid}}
+\index{\+\_\+getpid@{\+\_\+getpid}!utils\+\_\+syscalls.\+c@{utils\+\_\+syscalls.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+getpid()}{\_getpid()}}
+{\footnotesize\ttfamily int \+\_\+getpid (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Replacement of C library of \+\_\+getpid. 
+
+\mbox{\Hypertarget{utils__syscalls_8c_ad3134a3dc296622b8d1c5456e481505b}\label{utils__syscalls_8c_ad3134a3dc296622b8d1c5456e481505b}} 
+\index{utils\+\_\+syscalls.\+c@{utils\+\_\+syscalls.\+c}!\+\_\+isatty@{\+\_\+isatty}}
+\index{\+\_\+isatty@{\+\_\+isatty}!utils\+\_\+syscalls.\+c@{utils\+\_\+syscalls.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+isatty()}{\_isatty()}}
+{\footnotesize\ttfamily int \+\_\+isatty (\begin{DoxyParamCaption}\item[{int}]{file }\end{DoxyParamCaption})}
+
+
+
+Replacement of C library of \+\_\+isatty. 
+
+\mbox{\Hypertarget{utils__syscalls_8c_a3ada001944b574974184d2377be0bec3}\label{utils__syscalls_8c_a3ada001944b574974184d2377be0bec3}} 
+\index{utils\+\_\+syscalls.\+c@{utils\+\_\+syscalls.\+c}!\+\_\+kill@{\+\_\+kill}}
+\index{\+\_\+kill@{\+\_\+kill}!utils\+\_\+syscalls.\+c@{utils\+\_\+syscalls.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+kill()}{\_kill()}}
+{\footnotesize\ttfamily void \+\_\+kill (\begin{DoxyParamCaption}\item[{int}]{pid,  }\item[{int}]{sig }\end{DoxyParamCaption})}
+
+
+
+Replacement of C library of \+\_\+kill. 
+
+\mbox{\Hypertarget{utils__syscalls_8c_a7a61311bdf1cb025fc07dc2bdae22ce4}\label{utils__syscalls_8c_a7a61311bdf1cb025fc07dc2bdae22ce4}} 
+\index{utils\+\_\+syscalls.\+c@{utils\+\_\+syscalls.\+c}!\+\_\+lseek@{\+\_\+lseek}}
+\index{\+\_\+lseek@{\+\_\+lseek}!utils\+\_\+syscalls.\+c@{utils\+\_\+syscalls.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+lseek()}{\_lseek()}}
+{\footnotesize\ttfamily int \+\_\+lseek (\begin{DoxyParamCaption}\item[{int}]{file,  }\item[{int}]{ptr,  }\item[{int}]{dir }\end{DoxyParamCaption})}
+
+
+
+Replacement of C library of \+\_\+lseek. 
+
+\mbox{\Hypertarget{utils__syscalls_8c_aae54d7b9578ba1fc171ce6f30f4c68a3}\label{utils__syscalls_8c_aae54d7b9578ba1fc171ce6f30f4c68a3}} 
+\index{utils\+\_\+syscalls.\+c@{utils\+\_\+syscalls.\+c}!\+\_\+sbrk@{\+\_\+sbrk}}
+\index{\+\_\+sbrk@{\+\_\+sbrk}!utils\+\_\+syscalls.\+c@{utils\+\_\+syscalls.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+sbrk()}{\_sbrk()}}
+{\footnotesize\ttfamily caddr\+\_\+t \+\_\+sbrk (\begin{DoxyParamCaption}\item[{int}]{incr }\end{DoxyParamCaption})}
+
+
+
+Replacement of C library of \+\_\+sbrk. 
+
+\mbox{\Hypertarget{utils__syscalls_8c_aa1f9baeed1efaed3c37861c144b6845b}\label{utils__syscalls_8c_aa1f9baeed1efaed3c37861c144b6845b}} 
+\index{utils\+\_\+syscalls.\+c@{utils\+\_\+syscalls.\+c}!link@{link}}
+\index{link@{link}!utils\+\_\+syscalls.\+c@{utils\+\_\+syscalls.\+c}}
+\subsubsection{\texorpdfstring{link()}{link()}}
+{\footnotesize\ttfamily int link (\begin{DoxyParamCaption}\item[{char $\ast$}]{old,  }\item[{char $\ast$}]{\+\_\+new }\end{DoxyParamCaption})}
+
+
+
+Replacement of C library of link. 
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{utils__syscalls_8c_abb406f6b7d63af84fda76dbcdbac66c5}\label{utils__syscalls_8c_abb406f6b7d63af84fda76dbcdbac66c5}} 
+\index{utils\+\_\+syscalls.\+c@{utils\+\_\+syscalls.\+c}!\+\_\+end@{\+\_\+end}}
+\index{\+\_\+end@{\+\_\+end}!utils\+\_\+syscalls.\+c@{utils\+\_\+syscalls.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+end}{\_end}}
+{\footnotesize\ttfamily int \+\_\+end}
+
+\mbox{\Hypertarget{utils__syscalls_8c_ad65a8842cc674e3ddf69355898c0ecbf}\label{utils__syscalls_8c_ad65a8842cc674e3ddf69355898c0ecbf}} 
+\index{utils\+\_\+syscalls.\+c@{utils\+\_\+syscalls.\+c}!errno@{errno}}
+\index{errno@{errno}!utils\+\_\+syscalls.\+c@{utils\+\_\+syscalls.\+c}}
+\subsubsection{\texorpdfstring{errno}{errno}}
+{\footnotesize\ttfamily int errno}
+

@@ -6,40 +6,53 @@ Port related functionality declaration.
 
 
 {\ttfamily \#include $<$compiler.\+h$>$}\newline
+Include dependency graph for hpl\+\_\+gpio.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hpl__gpio_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hpl__gpio_8h__dep__incl}
+\end{center}
+\end{figure}
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
 \#define \hyperlink{group___h_p_l_ga50e2e0aca2b651e066ebc5aeb5fdad25}{G\+P\+I\+O\+\_\+\+P\+IN}(n)~(((n)\&0x1\+Fu) $<$$<$ 0)
 \begin{DoxyCompactList}\small\item\em Macros for the pin and port group, lower 5 bits stands for pin number in the group, higher 3 bits stands for port group. \end{DoxyCompactList}\item 
-\#define {\bfseries G\+P\+I\+O\+\_\+\+P\+O\+RT}(n)~((n) $>$$>$ 5)
+\#define \hyperlink{group___h_p_l_ga9797315af6a0aa3291bb73648a3b1379}{G\+P\+I\+O\+\_\+\+P\+O\+RT}(n)~((n) $>$$>$ 5)
 \item 
-\#define {\bfseries G\+P\+IO}(port,  pin)~((((port)\&0x7u) $<$$<$ 5) + ((pin)\&0x1\+Fu))
+\#define \hyperlink{group___h_p_l_gaf065b9160b968f60a562bdc5c4454a5a}{G\+P\+IO}(port,  pin)~((((port)\&0x7u) $<$$<$ 5) + ((pin)\&0x1\+Fu))
 \item 
-\#define {\bfseries G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N\+\_\+\+O\+FF}~0xffffffff
+\#define \hyperlink{group___h_p_l_ga4ac520942c3dfa92e76b896518718576}{G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N\+\_\+\+O\+FF}~0xffffffff
 \end{DoxyCompactItemize}
 \subsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{group___h_p_l_gab9959d4bcdc5049e5898d5100ada3197}\label{group___h_p_l_gab9959d4bcdc5049e5898d5100ada3197}} 
-enum \hyperlink{group___h_p_l_gab9959d4bcdc5049e5898d5100ada3197}{gpio\+\_\+pull\+\_\+mode} \{ {\bfseries G\+P\+I\+O\+\_\+\+P\+U\+L\+L\+\_\+\+O\+FF}, 
-{\bfseries G\+P\+I\+O\+\_\+\+P\+U\+L\+L\+\_\+\+UP}, 
-{\bfseries G\+P\+I\+O\+\_\+\+P\+U\+L\+L\+\_\+\+D\+O\+WN}
+enum \hyperlink{group___h_p_l_gab9959d4bcdc5049e5898d5100ada3197}{gpio\+\_\+pull\+\_\+mode} \{ \hyperlink{group___h_p_l_ggab9959d4bcdc5049e5898d5100ada3197a904014efc4ca8e6ab21b5fdf8dead41b}{G\+P\+I\+O\+\_\+\+P\+U\+L\+L\+\_\+\+O\+FF}, 
+\hyperlink{group___h_p_l_ggab9959d4bcdc5049e5898d5100ada3197ae7d1b2a9078939dd744dd9a7cd61d9df}{G\+P\+I\+O\+\_\+\+P\+U\+L\+L\+\_\+\+UP}, 
+\hyperlink{group___h_p_l_ggab9959d4bcdc5049e5898d5100ada3197a93970a9b4ab92816371682f4e537a8e2}{G\+P\+I\+O\+\_\+\+P\+U\+L\+L\+\_\+\+D\+O\+WN}
  \}\begin{DoxyCompactList}\small\item\em P\+O\+RT pull mode settings. \end{DoxyCompactList}
 \item 
-\mbox{\Hypertarget{group___h_p_l_gaccc7d029df9e5a96151a68e64f4be7e2}\label{group___h_p_l_gaccc7d029df9e5a96151a68e64f4be7e2}} 
-enum \hyperlink{group___h_p_l_gaccc7d029df9e5a96151a68e64f4be7e2}{gpio\+\_\+direction} \{ {\bfseries G\+P\+I\+O\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+O\+FF}, 
-{\bfseries G\+P\+I\+O\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+IN}, 
-{\bfseries G\+P\+I\+O\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+O\+UT}
+enum \hyperlink{group___h_p_l_gaccc7d029df9e5a96151a68e64f4be7e2}{gpio\+\_\+direction} \{ \hyperlink{group___h_p_l_ggaccc7d029df9e5a96151a68e64f4be7e2ae5e30917e4c3b63976e3785711a268f6}{G\+P\+I\+O\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+O\+FF}, 
+\hyperlink{group___h_p_l_ggaccc7d029df9e5a96151a68e64f4be7e2aea9c54895635603d054830602ba5fb4e}{G\+P\+I\+O\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+IN}, 
+\hyperlink{group___h_p_l_ggaccc7d029df9e5a96151a68e64f4be7e2a869f710c2bafc06d7ef192861b8358ab}{G\+P\+I\+O\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+O\+UT}
  \}\begin{DoxyCompactList}\small\item\em P\+O\+RT direction settins. \end{DoxyCompactList}
 \item 
-\mbox{\Hypertarget{group___h_p_l_ga6d50d8c4b17ff573c07340d4d7965bc1}\label{group___h_p_l_ga6d50d8c4b17ff573c07340d4d7965bc1}} 
 enum \hyperlink{group___h_p_l_ga6d50d8c4b17ff573c07340d4d7965bc1}{gpio\+\_\+port} \{ \newline
-{\bfseries G\+P\+I\+O\+\_\+\+P\+O\+R\+TA}, 
-{\bfseries G\+P\+I\+O\+\_\+\+P\+O\+R\+TB}, 
-{\bfseries G\+P\+I\+O\+\_\+\+P\+O\+R\+TC}, 
-{\bfseries G\+P\+I\+O\+\_\+\+P\+O\+R\+TD}, 
+\hyperlink{group___h_p_l_gga6d50d8c4b17ff573c07340d4d7965bc1a0d36b47f173bbc4bdced28d8a54fe4ac}{G\+P\+I\+O\+\_\+\+P\+O\+R\+TA}, 
+\hyperlink{group___h_p_l_gga6d50d8c4b17ff573c07340d4d7965bc1a258a8ca8e34cedcfba339d2463ae0c2a}{G\+P\+I\+O\+\_\+\+P\+O\+R\+TB}, 
+\hyperlink{group___h_p_l_gga6d50d8c4b17ff573c07340d4d7965bc1a3266325667899f8d82c0624c493fda51}{G\+P\+I\+O\+\_\+\+P\+O\+R\+TC}, 
+\hyperlink{group___h_p_l_gga6d50d8c4b17ff573c07340d4d7965bc1a4db7e328496cabe7a12e3879f7be8e39}{G\+P\+I\+O\+\_\+\+P\+O\+R\+TD}, 
 \newline
-{\bfseries G\+P\+I\+O\+\_\+\+P\+O\+R\+TE}
+\hyperlink{group___h_p_l_gga6d50d8c4b17ff573c07340d4d7965bc1ae00a95999282684e3c5d713937bc74e3}{G\+P\+I\+O\+\_\+\+P\+O\+R\+TE}
  \}\begin{DoxyCompactList}\small\item\em P\+O\+RT group abstraction. \end{DoxyCompactList}
 \end{DoxyCompactItemize}
 \subsection*{Functions}

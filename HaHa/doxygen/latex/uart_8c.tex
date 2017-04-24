@@ -1,0 +1,157 @@
+\hypertarget{uart_8c}{}\section{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/uart/uart.c File Reference}
+\label{uart_8c}\index{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/uart/uart.\+c@{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/uart/uart.\+c}}
+{\ttfamily \#include \char`\"{}uart.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}driver\+\_\+init.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utils/haha\+Utils.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}networkdevice/networkdevice.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$hal\+\_\+usart\+\_\+async.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+Include dependency graph for uart.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{uart_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{uart_8c_ac96a7e33d40430484ac749dff5ec1a94}{N\+U\+M\+\_\+\+T\+X\+\_\+\+B\+U\+F\+FS}~2
+\item 
+\#define \hyperlink{uart_8c_acb9bb94d445ea434b66653d3a0291e6f}{T\+X\+\_\+\+B\+U\+F\+\_\+\+L\+EN}~16
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{uart_8c_a95ccdf02806d883570d362c73b97edd9}{uart\+\_\+init\+\_\+irqs} (void)
+\begin{DoxyCompactList}\small\item\em \{ Initializes and registers interrupts for U\+A\+RT \} \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{uart_8c_aa7f5b88c96f5c6f3b5417e23d75013b5}{uart\+\_\+write} (uint8\+\_\+t $\ast$data, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em \{ Writes data out the U\+A\+RT \} \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{uart_8c_a36dc9f821cef4846d8c18298b88cf8f4}{uart\+\_\+read} ()
+\begin{DoxyCompactList}\small\item\em \{ Reads data received by U\+A\+RT into rotating buffer \} \end{DoxyCompactList}\item 
+void \hyperlink{uart_8c_a64ede5fd1a39830dc7b19aaa021849ce}{uart\+\_\+getbuffer} (char $\ast$buff, size\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em \{ Returns the contents of the U\+A\+RT buffer \} \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{uart_8c_aa520859fda043c3bedd6f727c673c7cc}{uart\+\_\+clearbuffer} ()
+\begin{DoxyCompactList}\small\item\em \{ Clear the U\+A\+RT receive buffer \} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \hyperlink{uart_8c_a1049cc8a2d19fec8174397cf32f58063}{txdone}
+\item 
+uint8\+\_\+t \hyperlink{uart_8c_acd3b5d98cad9dd0da2fc7fdf304fd01f}{tx\+Buff} \mbox{[}\hyperlink{uart_8c_ac96a7e33d40430484ac749dff5ec1a94}{N\+U\+M\+\_\+\+T\+X\+\_\+\+B\+U\+F\+FS}\mbox{]}
+\item 
+uint8\+\_\+t \hyperlink{uart_8c_a53bcfce2263f37bc708b46d4f101972b}{rx\+\_\+bytes\+\_\+no\+\_\+read}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{uart_8c_ac96a7e33d40430484ac749dff5ec1a94}\label{uart_8c_ac96a7e33d40430484ac749dff5ec1a94}} 
+\index{uart.\+c@{uart.\+c}!N\+U\+M\+\_\+\+T\+X\+\_\+\+B\+U\+F\+FS@{N\+U\+M\+\_\+\+T\+X\+\_\+\+B\+U\+F\+FS}}
+\index{N\+U\+M\+\_\+\+T\+X\+\_\+\+B\+U\+F\+FS@{N\+U\+M\+\_\+\+T\+X\+\_\+\+B\+U\+F\+FS}!uart.\+c@{uart.\+c}}
+\subsubsection{\texorpdfstring{N\+U\+M\+\_\+\+T\+X\+\_\+\+B\+U\+F\+FS}{NUM\_TX\_BUFFS}}
+{\footnotesize\ttfamily \#define N\+U\+M\+\_\+\+T\+X\+\_\+\+B\+U\+F\+FS~2}
+
+\mbox{\Hypertarget{uart_8c_acb9bb94d445ea434b66653d3a0291e6f}\label{uart_8c_acb9bb94d445ea434b66653d3a0291e6f}} 
+\index{uart.\+c@{uart.\+c}!T\+X\+\_\+\+B\+U\+F\+\_\+\+L\+EN@{T\+X\+\_\+\+B\+U\+F\+\_\+\+L\+EN}}
+\index{T\+X\+\_\+\+B\+U\+F\+\_\+\+L\+EN@{T\+X\+\_\+\+B\+U\+F\+\_\+\+L\+EN}!uart.\+c@{uart.\+c}}
+\subsubsection{\texorpdfstring{T\+X\+\_\+\+B\+U\+F\+\_\+\+L\+EN}{TX\_BUF\_LEN}}
+{\footnotesize\ttfamily \#define T\+X\+\_\+\+B\+U\+F\+\_\+\+L\+EN~16}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{uart_8c_aa520859fda043c3bedd6f727c673c7cc}\label{uart_8c_aa520859fda043c3bedd6f727c673c7cc}} 
+\index{uart.\+c@{uart.\+c}!uart\+\_\+clearbuffer@{uart\+\_\+clearbuffer}}
+\index{uart\+\_\+clearbuffer@{uart\+\_\+clearbuffer}!uart.\+c@{uart.\+c}}
+\subsubsection{\texorpdfstring{uart\+\_\+clearbuffer()}{uart\_clearbuffer()}}
+{\footnotesize\ttfamily uint8\+\_\+t uart\+\_\+clearbuffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\{ Clear the U\+A\+RT receive buffer \} 
+
+\begin{DoxyReturn}{Returns}
+\{ Returns 0 if successful \} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{uart_8c_a64ede5fd1a39830dc7b19aaa021849ce}\label{uart_8c_a64ede5fd1a39830dc7b19aaa021849ce}} 
+\index{uart.\+c@{uart.\+c}!uart\+\_\+getbuffer@{uart\+\_\+getbuffer}}
+\index{uart\+\_\+getbuffer@{uart\+\_\+getbuffer}!uart.\+c@{uart.\+c}}
+\subsubsection{\texorpdfstring{uart\+\_\+getbuffer()}{uart\_getbuffer()}}
+{\footnotesize\ttfamily void uart\+\_\+getbuffer (\begin{DoxyParamCaption}\item[{char $\ast$}]{buff,  }\item[{size\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+
+
+\{ Returns the contents of the U\+A\+RT buffer \} 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em buff} & The buffer to put data into \\
+\hline
+\mbox{\tt in}  & {\em len} & The length the buffer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{uart_8c_a95ccdf02806d883570d362c73b97edd9}\label{uart_8c_a95ccdf02806d883570d362c73b97edd9}} 
+\index{uart.\+c@{uart.\+c}!uart\+\_\+init\+\_\+irqs@{uart\+\_\+init\+\_\+irqs}}
+\index{uart\+\_\+init\+\_\+irqs@{uart\+\_\+init\+\_\+irqs}!uart.\+c@{uart.\+c}}
+\subsubsection{\texorpdfstring{uart\+\_\+init\+\_\+irqs()}{uart\_init\_irqs()}}
+{\footnotesize\ttfamily void uart\+\_\+init\+\_\+irqs (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+\{ Initializes and registers interrupts for U\+A\+RT \} 
+
+\mbox{\Hypertarget{uart_8c_a36dc9f821cef4846d8c18298b88cf8f4}\label{uart_8c_a36dc9f821cef4846d8c18298b88cf8f4}} 
+\index{uart.\+c@{uart.\+c}!uart\+\_\+read@{uart\+\_\+read}}
+\index{uart\+\_\+read@{uart\+\_\+read}!uart.\+c@{uart.\+c}}
+\subsubsection{\texorpdfstring{uart\+\_\+read()}{uart\_read()}}
+{\footnotesize\ttfamily uint8\+\_\+t uart\+\_\+read (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\{ Reads data received by U\+A\+RT into rotating buffer \} 
+
+\begin{DoxyReturn}{Returns}
+\{ Number of bytes read \} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{uart_8c_aa7f5b88c96f5c6f3b5417e23d75013b5}\label{uart_8c_aa7f5b88c96f5c6f3b5417e23d75013b5}} 
+\index{uart.\+c@{uart.\+c}!uart\+\_\+write@{uart\+\_\+write}}
+\index{uart\+\_\+write@{uart\+\_\+write}!uart.\+c@{uart.\+c}}
+\subsubsection{\texorpdfstring{uart\+\_\+write()}{uart\_write()}}
+{\footnotesize\ttfamily uint8\+\_\+t uart\+\_\+write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{data,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+\{ Writes data out the U\+A\+RT \} 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em data} & The data \\
+\hline
+\mbox{\tt in}  & {\em size} & The size of data\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{ Number of bytes sent out U\+A\+RT \} 
+\end{DoxyReturn}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{uart_8c_a53bcfce2263f37bc708b46d4f101972b}\label{uart_8c_a53bcfce2263f37bc708b46d4f101972b}} 
+\index{uart.\+c@{uart.\+c}!rx\+\_\+bytes\+\_\+no\+\_\+read@{rx\+\_\+bytes\+\_\+no\+\_\+read}}
+\index{rx\+\_\+bytes\+\_\+no\+\_\+read@{rx\+\_\+bytes\+\_\+no\+\_\+read}!uart.\+c@{uart.\+c}}
+\subsubsection{\texorpdfstring{rx\+\_\+bytes\+\_\+no\+\_\+read}{rx\_bytes\_no\_read}}
+{\footnotesize\ttfamily uint8\+\_\+t rx\+\_\+bytes\+\_\+no\+\_\+read}
+
+\mbox{\Hypertarget{uart_8c_acd3b5d98cad9dd0da2fc7fdf304fd01f}\label{uart_8c_acd3b5d98cad9dd0da2fc7fdf304fd01f}} 
+\index{uart.\+c@{uart.\+c}!tx\+Buff@{tx\+Buff}}
+\index{tx\+Buff@{tx\+Buff}!uart.\+c@{uart.\+c}}
+\subsubsection{\texorpdfstring{tx\+Buff}{txBuff}}
+{\footnotesize\ttfamily uint8\+\_\+t tx\+Buff\mbox{[}\hyperlink{uart_8c_ac96a7e33d40430484ac749dff5ec1a94}{N\+U\+M\+\_\+\+T\+X\+\_\+\+B\+U\+F\+FS}\mbox{]}}
+
+\mbox{\Hypertarget{uart_8c_a1049cc8a2d19fec8174397cf32f58063}\label{uart_8c_a1049cc8a2d19fec8174397cf32f58063}} 
+\index{uart.\+c@{uart.\+c}!txdone@{txdone}}
+\index{txdone@{txdone}!uart.\+c@{uart.\+c}}
+\subsubsection{\texorpdfstring{txdone}{txdone}}
+{\footnotesize\ttfamily uint8\+\_\+t txdone}
+

@@ -7,17 +7,23 @@ IO functionality implementation.
 
 {\ttfamily \#include $<$hal\+\_\+io.\+h$>$}\newline
 {\ttfamily \#include $<$utils\+\_\+assert.\+h$>$}\newline
+Include dependency graph for hal\+\_\+io.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hal__io_8c__incl}
+\end{center}
+\end{figure}
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{hal__io_8c_ae578001fe043b4cca7a0edd801cfe9c4}\label{hal__io_8c_ae578001fe043b4cca7a0edd801cfe9c4}} 
 \#define \hyperlink{hal__io_8c_ae578001fe043b4cca7a0edd801cfe9c4}{D\+R\+I\+V\+E\+R\+\_\+\+V\+E\+R\+S\+I\+ON}~0x00000001u
 \begin{DoxyCompactList}\small\item\em Driver version. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{hal__io_8c_a081053bb07051453fcafb199d9ff4504}\label{hal__io_8c_a081053bb07051453fcafb199d9ff4504}} 
-uint32\+\_\+t {\bfseries io\+\_\+get\+\_\+version} (void)
+uint32\+\_\+t \hyperlink{hal__io_8c_a081053bb07051453fcafb199d9ff4504}{io\+\_\+get\+\_\+version} (void)
 \item 
 int32\+\_\+t \hyperlink{group__doc__driver__hal__helper__io_ga81aac60d5ce6feb0c44f8937d7c02f14}{io\+\_\+write} (struct \hyperlink{structio__descriptor}{io\+\_\+descriptor} $\ast$const io\+\_\+descr, const uint8\+\_\+t $\ast$const buf, const uint16\+\_\+t length)
 \begin{DoxyCompactList}\small\item\em IO write interface. \end{DoxyCompactList}\item 
@@ -29,3 +35,24 @@ int32\+\_\+t \hyperlink{group__doc__driver__hal__helper__io_gaf5e8722129933fa8e0
 IO functionality implementation. 
 
 Copyright (C) 2015 Atmel Corporation. All rights reserved.
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{hal__io_8c_ae578001fe043b4cca7a0edd801cfe9c4}\label{hal__io_8c_ae578001fe043b4cca7a0edd801cfe9c4}} 
+\index{hal\+\_\+io.\+c@{hal\+\_\+io.\+c}!D\+R\+I\+V\+E\+R\+\_\+\+V\+E\+R\+S\+I\+ON@{D\+R\+I\+V\+E\+R\+\_\+\+V\+E\+R\+S\+I\+ON}}
+\index{D\+R\+I\+V\+E\+R\+\_\+\+V\+E\+R\+S\+I\+ON@{D\+R\+I\+V\+E\+R\+\_\+\+V\+E\+R\+S\+I\+ON}!hal\+\_\+io.\+c@{hal\+\_\+io.\+c}}
+\subsubsection{\texorpdfstring{D\+R\+I\+V\+E\+R\+\_\+\+V\+E\+R\+S\+I\+ON}{DRIVER\_VERSION}}
+{\footnotesize\ttfamily \#define D\+R\+I\+V\+E\+R\+\_\+\+V\+E\+R\+S\+I\+ON~0x00000001u}
+
+
+
+Driver version. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{hal__io_8c_a081053bb07051453fcafb199d9ff4504}\label{hal__io_8c_a081053bb07051453fcafb199d9ff4504}} 
+\index{hal\+\_\+io.\+c@{hal\+\_\+io.\+c}!io\+\_\+get\+\_\+version@{io\+\_\+get\+\_\+version}}
+\index{io\+\_\+get\+\_\+version@{io\+\_\+get\+\_\+version}!hal\+\_\+io.\+c@{hal\+\_\+io.\+c}}
+\subsubsection{\texorpdfstring{io\+\_\+get\+\_\+version()}{io\_get\_version()}}
+{\footnotesize\ttfamily uint32\+\_\+t io\+\_\+get\+\_\+version (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+

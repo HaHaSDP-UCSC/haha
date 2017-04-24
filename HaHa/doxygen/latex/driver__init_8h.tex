@@ -1,0 +1,371 @@
+\hypertarget{driver__init_8h}{}\section{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/driver\+\_\+init.h File Reference}
+\label{driver__init_8h}\index{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/driver\+\_\+init.\+h@{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/driver\+\_\+init.\+h}}
+{\ttfamily \#include \char`\"{}atmel\+\_\+start\+\_\+pins.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$hal\+\_\+usart\+\_\+sync.\+h$>$}\newline
+{\ttfamily \#include $<$hal\+\_\+usart\+\_\+async.\+h$>$}\newline
+Include dependency graph for driver\+\_\+init.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{driver__init_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{driver__init_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{driver__init_8h_a2ee670e0c85b7a68b38b20fbeef090c9}{I\+S\+R\+\_\+\+R\+A\+M\+\_\+\+M\+A\+P\+\_\+\+S\+T\+A\+R\+T\+\_\+\+A\+D\+D\+R\+E\+SS}~(0x10000000)
+\item 
+\#define \hyperlink{driver__init_8h_a471ffe7d803eb0ce9bc7873739a6b710}{C\+O\+N\+F\+\_\+\+D\+M\+A\+C\+\_\+\+M\+A\+X\+\_\+\+U\+S\+E\+D\+\_\+\+D\+E\+SC}~(/$\ast$C\+L\+O\+CK$\ast$/ 0 + /$\ast$U\+A\+R\+T0$\ast$/ 0 + /$\ast$U\+A\+R\+T1$\ast$/ 0)
+\item 
+\#define \hyperlink{driver__init_8h_ae425e0999ef4a00672a04ab5bf3b1efb}{C\+O\+N\+F\+\_\+\+D\+M\+A\+C\+\_\+\+M\+A\+X\+\_\+\+U\+S\+E\+D\+\_\+\+CH}~(/$\ast$C\+L\+O\+CK$\ast$/ 0 + /$\ast$U\+A\+R\+T0$\ast$/ 0 + /$\ast$U\+A\+R\+T1$\ast$/ 0)
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7}{ram\+\_\+isr\+\_\+table\+\_\+index} \{ \newline
+\hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a8948cadb9078ec9b98791b53cf5d6fe9}{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+R\+E\+S\+ET} = 1, 
+\hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a5b52b8159ca01b520dd1b409a0c59faf}{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+N\+MI} = 2, 
+\hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7ac10469e49a9613635af254ba8a2491cf}{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+H\+A\+R\+D\+F\+A\+U\+LT} = 3, 
+\hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7abc2f6b905cc3b5e4221c1f1603aff568}{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+VC} = 11, 
+\newline
+\hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7ac7cdbc656b14d43a2d0b45bbf1334089}{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+P\+E\+N\+D\+SV} = 14, 
+\hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a067c910b3e8cd7cf7efcaebe78613381}{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+Y\+S\+T\+I\+CK} = 15, 
+\hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7aa5bc264928619e56b0e01a18935854fa}{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+U\+A\+R\+T\+R\+X0} = 16, 
+\hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7ad8fc0914d6ba2c256df3674302931cd7}{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+U\+A\+R\+T\+T\+X0} = 17, 
+\newline
+\hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a431b6bc60e20acec487251e0c12bbde3}{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+U\+A\+R\+T\+R\+X1} = 18, 
+\hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7afd5dcc17757300986714ae43df67cd2b}{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+U\+A\+R\+T\+T\+X1} = 19, 
+\hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a6a224758f28ccc1c92d8486045040507}{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+P\+I\+R\+X0} = 20, 
+\hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7aa419d07100c96715c754a75b18fccb54}{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+P\+I\+T\+X0} = 21, 
+\newline
+\hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a1bf2fe0bdda87209e2e89412d1fd36ae}{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+P\+I\+R\+X1} = 22, 
+\hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7af6a09ce2eaf25667299e9bcb7566c3cb}{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+P\+I\+T\+X1} = 23, 
+\hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a9059314d1fccb55c063ed09d01bf6e73}{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+I2\+C\+R\+X0} = 24, 
+\hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a95499f9226d45f4011fdfe917007d40b}{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+I2\+C\+T\+X0} = 25, 
+\newline
+\hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7ada7a637224ee63eb41e8b2f0d0afd2dd}{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+I2\+C\+R\+X1} = 26, 
+\hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a4b27aa2a1cd68ea017f10eef69f2eeb5}{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+I2\+C\+T\+X1} = 27, 
+\hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7af9f61732a7f4814702a0bbd44c727e56}{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+W\+D\+T0} = 28, 
+\hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a0559c323538e3e0c26361ea2b096fc05}{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+W\+D\+T1} = 29, 
+\newline
+\hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a8c8c7711ae53ea1863f2d2c13e673c10}{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+D\+U\+A\+L\+T\+I\+M\+ER} = 30, 
+\hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a3163a7259319b2b743426a8533c66b2d}{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+L\+E\+\_\+\+P\+E\+R\+I\+P\+H\+\_\+\+R\+E\+GS} = 31, 
+\hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a31d9b4e8b08a4e90d2481e36187735ca}{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+E\+C\+U\+R\+I\+TY} = 32, 
+\hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7ac1a1250ba2f257107dc16ff1ffc7e685}{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+E\+F\+U\+S\+E\+\_\+\+O\+U\+T\+\_\+\+O\+F\+\_\+\+R\+E\+S\+ET} = 33, 
+\newline
+\hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7afae72b1701dd22adab6cfa8de73c58ed}{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+P\+I\+\_\+\+F\+L\+A\+SH} = 34, 
+\hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a3c2bb699512b54e831f86840e75721b9}{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+L\+P\+\_\+\+C\+L\+K\+\_\+\+C\+A\+L\+\_\+\+D\+O\+NE} = 35, 
+\hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a40a567234267a0372d9e195f3c1a455b}{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+R\+O\+W\+N\+O\+U\+T\+\_\+\+D\+E\+T\+E\+C\+T\+ED} = 36, 
+\hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a73dfee3a829b45542450f1648c4beccd}{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+L\+E\+\_\+\+C\+O\+R\+E\+\_\+\+R\+E\+S\+ET} = 37, 
+\newline
+\hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a95d4cc9758bee1ef1503e3a0f01fe98f}{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+L\+E\+\_\+\+L\+P\+\_\+\+C\+O\+R\+E\+\_\+\+R\+E\+S\+ET} = 38, 
+\hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a2aec64ae22a237543e6a8bffa042dff9}{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+P\+O\+R\+T0\+\_\+\+C\+O\+MB} = 39, 
+\hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7ab6c52b0a417d8091f628e982b759a1aa}{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+P\+O\+R\+T1\+\_\+\+C\+O\+MB} = 40, 
+\hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a7f994c900ad5b1b12061d403ac053f43}{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+P\+O\+R\+T2\+\_\+\+C\+O\+MB} = 41, 
+\newline
+\hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a1cb16634c55449013a62beffb4436767}{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+T\+I\+M\+E\+R0} = 42, 
+\hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a40bf66d79dcc2260ea00e7e157d83fbd}{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+A\+O\+N\+\_\+\+S\+L\+E\+E\+P\+\_\+\+T\+I\+M\+ER} = 43, 
+\hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a27a73ac1b6160738ee73f9652b9eefd3}{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+L\+E\+\_\+\+O\+S\+C\+\_\+\+EN} = 44, 
+\hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7af3937e18d7ec748814676a6763b7249b}{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+L\+E\+\_\+\+W\+A\+K\+E\+U\+P\+\_\+\+LP} = 45, 
+\newline
+\hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a92de6a8434246a06770edd379363c621}{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+R\+X\+T\+X\+\_\+\+S\+E\+Q\+\_\+\+S\+L\+E\+EP} = 46, 
+\hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7acec014a9879ac6702cef883a2787d553}{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+L\+E\+\_\+\+C\+O\+RE} = 47
+ \}\begin{DoxyCompactList}\small\item\em I\+SR R\+AM table index. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{driver__init_8h_a6b7d62851fc294b7c1a77e0bb6501105}{T\+A\+R\+G\+E\+T\+\_\+\+I\+O\+\_\+\+P\+O\+R\+T\+\_\+init} (void)
+\item 
+void \hyperlink{driver__init_8h_ad2c576f765b266e67221deab332dbcbe}{T\+A\+R\+G\+E\+T\+\_\+\+I\+O\+\_\+\+C\+L\+O\+C\+K\+\_\+init} (void)
+\item 
+void \hyperlink{driver__init_8h_a13e123724869bcbd8e9da60fcf1ad028}{T\+A\+R\+G\+E\+T\+\_\+\+I\+O\+\_\+init} (void)
+\item 
+void \hyperlink{driver__init_8h_ad8b264dd41e89b515841c725ca1876c5}{U\+S\+A\+R\+T\+\_\+1\+\_\+0\+\_\+\+P\+O\+R\+T\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em U\+S\+A\+RT pinmux initialization function. \end{DoxyCompactList}\item 
+void \hyperlink{driver__init_8h_aec2e3ac07a004a8e22e88b08078adb7a}{U\+S\+A\+R\+T\+\_\+1\+\_\+0\+\_\+\+C\+L\+O\+C\+K\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em U\+S\+A\+RT Clock initialization function. \end{DoxyCompactList}\item 
+void \hyperlink{driver__init_8h_a806bd7b8050792e1f8f4545314642779}{U\+S\+A\+R\+T\+\_\+1\+\_\+0\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em U\+S\+A\+RT initialization function. \end{DoxyCompactList}\item 
+void \hyperlink{driver__init_8h_a43f5e0d6db0fb41a437cc9096b32e9b5}{system\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Perform system initialization, initialize pins and clocks for peripherals. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structusart__sync__descriptor}{usart\+\_\+sync\+\_\+descriptor} \hyperlink{driver__init_8h_a3c128fe8fcaee8e036cc1c979ee7b2a1}{T\+A\+R\+G\+E\+T\+\_\+\+IO}
+\item 
+struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} \hyperlink{driver__init_8h_ab2fa8c74f93df5817964273d48139a83}{U\+S\+A\+R\+T\+\_\+1\+\_\+0}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{driver__init_8h_ae425e0999ef4a00672a04ab5bf3b1efb}\label{driver__init_8h_ae425e0999ef4a00672a04ab5bf3b1efb}} 
+\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!C\+O\+N\+F\+\_\+\+D\+M\+A\+C\+\_\+\+M\+A\+X\+\_\+\+U\+S\+E\+D\+\_\+\+CH@{C\+O\+N\+F\+\_\+\+D\+M\+A\+C\+\_\+\+M\+A\+X\+\_\+\+U\+S\+E\+D\+\_\+\+CH}}
+\index{C\+O\+N\+F\+\_\+\+D\+M\+A\+C\+\_\+\+M\+A\+X\+\_\+\+U\+S\+E\+D\+\_\+\+CH@{C\+O\+N\+F\+\_\+\+D\+M\+A\+C\+\_\+\+M\+A\+X\+\_\+\+U\+S\+E\+D\+\_\+\+CH}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+N\+F\+\_\+\+D\+M\+A\+C\+\_\+\+M\+A\+X\+\_\+\+U\+S\+E\+D\+\_\+\+CH}{CONF\_DMAC\_MAX\_USED\_CH}}
+{\footnotesize\ttfamily \#define C\+O\+N\+F\+\_\+\+D\+M\+A\+C\+\_\+\+M\+A\+X\+\_\+\+U\+S\+E\+D\+\_\+\+CH~(/$\ast$C\+L\+O\+CK$\ast$/ 0 + /$\ast$U\+A\+R\+T0$\ast$/ 0 + /$\ast$U\+A\+R\+T1$\ast$/ 0)}
+
+\mbox{\Hypertarget{driver__init_8h_a471ffe7d803eb0ce9bc7873739a6b710}\label{driver__init_8h_a471ffe7d803eb0ce9bc7873739a6b710}} 
+\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!C\+O\+N\+F\+\_\+\+D\+M\+A\+C\+\_\+\+M\+A\+X\+\_\+\+U\+S\+E\+D\+\_\+\+D\+E\+SC@{C\+O\+N\+F\+\_\+\+D\+M\+A\+C\+\_\+\+M\+A\+X\+\_\+\+U\+S\+E\+D\+\_\+\+D\+E\+SC}}
+\index{C\+O\+N\+F\+\_\+\+D\+M\+A\+C\+\_\+\+M\+A\+X\+\_\+\+U\+S\+E\+D\+\_\+\+D\+E\+SC@{C\+O\+N\+F\+\_\+\+D\+M\+A\+C\+\_\+\+M\+A\+X\+\_\+\+U\+S\+E\+D\+\_\+\+D\+E\+SC}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+N\+F\+\_\+\+D\+M\+A\+C\+\_\+\+M\+A\+X\+\_\+\+U\+S\+E\+D\+\_\+\+D\+E\+SC}{CONF\_DMAC\_MAX\_USED\_DESC}}
+{\footnotesize\ttfamily \#define C\+O\+N\+F\+\_\+\+D\+M\+A\+C\+\_\+\+M\+A\+X\+\_\+\+U\+S\+E\+D\+\_\+\+D\+E\+SC~(/$\ast$C\+L\+O\+CK$\ast$/ 0 + /$\ast$U\+A\+R\+T0$\ast$/ 0 + /$\ast$U\+A\+R\+T1$\ast$/ 0)}
+
+\mbox{\Hypertarget{driver__init_8h_a2ee670e0c85b7a68b38b20fbeef090c9}\label{driver__init_8h_a2ee670e0c85b7a68b38b20fbeef090c9}} 
+\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!I\+S\+R\+\_\+\+R\+A\+M\+\_\+\+M\+A\+P\+\_\+\+S\+T\+A\+R\+T\+\_\+\+A\+D\+D\+R\+E\+SS@{I\+S\+R\+\_\+\+R\+A\+M\+\_\+\+M\+A\+P\+\_\+\+S\+T\+A\+R\+T\+\_\+\+A\+D\+D\+R\+E\+SS}}
+\index{I\+S\+R\+\_\+\+R\+A\+M\+\_\+\+M\+A\+P\+\_\+\+S\+T\+A\+R\+T\+\_\+\+A\+D\+D\+R\+E\+SS@{I\+S\+R\+\_\+\+R\+A\+M\+\_\+\+M\+A\+P\+\_\+\+S\+T\+A\+R\+T\+\_\+\+A\+D\+D\+R\+E\+SS}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}
+\subsubsection{\texorpdfstring{I\+S\+R\+\_\+\+R\+A\+M\+\_\+\+M\+A\+P\+\_\+\+S\+T\+A\+R\+T\+\_\+\+A\+D\+D\+R\+E\+SS}{ISR\_RAM\_MAP\_START\_ADDRESS}}
+{\footnotesize\ttfamily \#define I\+S\+R\+\_\+\+R\+A\+M\+\_\+\+M\+A\+P\+\_\+\+S\+T\+A\+R\+T\+\_\+\+A\+D\+D\+R\+E\+SS~(0x10000000)}
+
+
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7}\label{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7}} 
+\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!ram\+\_\+isr\+\_\+table\+\_\+index@{ram\+\_\+isr\+\_\+table\+\_\+index}}
+\index{ram\+\_\+isr\+\_\+table\+\_\+index@{ram\+\_\+isr\+\_\+table\+\_\+index}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}
+\subsubsection{\texorpdfstring{ram\+\_\+isr\+\_\+table\+\_\+index}{ram\_isr\_table\_index}}
+{\footnotesize\ttfamily enum \hyperlink{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7}{ram\+\_\+isr\+\_\+table\+\_\+index}}
+
+
+
+I\+SR R\+AM table index. 
+
+Enum for the index of the I\+SR in R\+Am. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+R\+E\+S\+ET@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+R\+E\+S\+ET}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+R\+E\+S\+ET@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+R\+E\+S\+ET}}}\mbox{\Hypertarget{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a8948cadb9078ec9b98791b53cf5d6fe9}\label{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a8948cadb9078ec9b98791b53cf5d6fe9}} 
+R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+R\+E\+S\+ET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+N\+MI@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+N\+MI}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+N\+MI@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+N\+MI}}}\mbox{\Hypertarget{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a5b52b8159ca01b520dd1b409a0c59faf}\label{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a5b52b8159ca01b520dd1b409a0c59faf}} 
+R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+N\+MI&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+H\+A\+R\+D\+F\+A\+U\+LT@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+H\+A\+R\+D\+F\+A\+U\+LT}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+H\+A\+R\+D\+F\+A\+U\+LT@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+H\+A\+R\+D\+F\+A\+U\+LT}}}\mbox{\Hypertarget{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7ac10469e49a9613635af254ba8a2491cf}\label{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7ac10469e49a9613635af254ba8a2491cf}} 
+R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+H\+A\+R\+D\+F\+A\+U\+LT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+VC@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+VC}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+VC@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+VC}}}\mbox{\Hypertarget{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7abc2f6b905cc3b5e4221c1f1603aff568}\label{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7abc2f6b905cc3b5e4221c1f1603aff568}} 
+R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+VC&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+P\+E\+N\+D\+SV@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+P\+E\+N\+D\+SV}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+P\+E\+N\+D\+SV@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+P\+E\+N\+D\+SV}}}\mbox{\Hypertarget{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7ac7cdbc656b14d43a2d0b45bbf1334089}\label{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7ac7cdbc656b14d43a2d0b45bbf1334089}} 
+R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+P\+E\+N\+D\+SV&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+Y\+S\+T\+I\+CK@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+Y\+S\+T\+I\+CK}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+Y\+S\+T\+I\+CK@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+Y\+S\+T\+I\+CK}}}\mbox{\Hypertarget{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a067c910b3e8cd7cf7efcaebe78613381}\label{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a067c910b3e8cd7cf7efcaebe78613381}} 
+R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+Y\+S\+T\+I\+CK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+U\+A\+R\+T\+R\+X0@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+U\+A\+R\+T\+R\+X0}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+U\+A\+R\+T\+R\+X0@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+U\+A\+R\+T\+R\+X0}}}\mbox{\Hypertarget{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7aa5bc264928619e56b0e01a18935854fa}\label{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7aa5bc264928619e56b0e01a18935854fa}} 
+R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+U\+A\+R\+T\+R\+X0&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+U\+A\+R\+T\+T\+X0@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+U\+A\+R\+T\+T\+X0}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+U\+A\+R\+T\+T\+X0@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+U\+A\+R\+T\+T\+X0}}}\mbox{\Hypertarget{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7ad8fc0914d6ba2c256df3674302931cd7}\label{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7ad8fc0914d6ba2c256df3674302931cd7}} 
+R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+U\+A\+R\+T\+T\+X0&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+U\+A\+R\+T\+R\+X1@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+U\+A\+R\+T\+R\+X1}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+U\+A\+R\+T\+R\+X1@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+U\+A\+R\+T\+R\+X1}}}\mbox{\Hypertarget{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a431b6bc60e20acec487251e0c12bbde3}\label{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a431b6bc60e20acec487251e0c12bbde3}} 
+R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+U\+A\+R\+T\+R\+X1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+U\+A\+R\+T\+T\+X1@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+U\+A\+R\+T\+T\+X1}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+U\+A\+R\+T\+T\+X1@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+U\+A\+R\+T\+T\+X1}}}\mbox{\Hypertarget{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7afd5dcc17757300986714ae43df67cd2b}\label{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7afd5dcc17757300986714ae43df67cd2b}} 
+R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+U\+A\+R\+T\+T\+X1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+P\+I\+R\+X0@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+P\+I\+R\+X0}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+P\+I\+R\+X0@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+P\+I\+R\+X0}}}\mbox{\Hypertarget{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a6a224758f28ccc1c92d8486045040507}\label{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a6a224758f28ccc1c92d8486045040507}} 
+R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+P\+I\+R\+X0&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+P\+I\+T\+X0@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+P\+I\+T\+X0}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+P\+I\+T\+X0@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+P\+I\+T\+X0}}}\mbox{\Hypertarget{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7aa419d07100c96715c754a75b18fccb54}\label{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7aa419d07100c96715c754a75b18fccb54}} 
+R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+P\+I\+T\+X0&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+P\+I\+R\+X1@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+P\+I\+R\+X1}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+P\+I\+R\+X1@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+P\+I\+R\+X1}}}\mbox{\Hypertarget{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a1bf2fe0bdda87209e2e89412d1fd36ae}\label{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a1bf2fe0bdda87209e2e89412d1fd36ae}} 
+R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+P\+I\+R\+X1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+P\+I\+T\+X1@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+P\+I\+T\+X1}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+P\+I\+T\+X1@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+P\+I\+T\+X1}}}\mbox{\Hypertarget{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7af6a09ce2eaf25667299e9bcb7566c3cb}\label{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7af6a09ce2eaf25667299e9bcb7566c3cb}} 
+R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+P\+I\+T\+X1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+I2\+C\+R\+X0@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+I2\+C\+R\+X0}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+I2\+C\+R\+X0@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+I2\+C\+R\+X0}}}\mbox{\Hypertarget{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a9059314d1fccb55c063ed09d01bf6e73}\label{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a9059314d1fccb55c063ed09d01bf6e73}} 
+R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+I2\+C\+R\+X0&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+I2\+C\+T\+X0@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+I2\+C\+T\+X0}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+I2\+C\+T\+X0@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+I2\+C\+T\+X0}}}\mbox{\Hypertarget{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a95499f9226d45f4011fdfe917007d40b}\label{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a95499f9226d45f4011fdfe917007d40b}} 
+R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+I2\+C\+T\+X0&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+I2\+C\+R\+X1@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+I2\+C\+R\+X1}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+I2\+C\+R\+X1@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+I2\+C\+R\+X1}}}\mbox{\Hypertarget{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7ada7a637224ee63eb41e8b2f0d0afd2dd}\label{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7ada7a637224ee63eb41e8b2f0d0afd2dd}} 
+R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+I2\+C\+R\+X1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+I2\+C\+T\+X1@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+I2\+C\+T\+X1}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+I2\+C\+T\+X1@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+I2\+C\+T\+X1}}}\mbox{\Hypertarget{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a4b27aa2a1cd68ea017f10eef69f2eeb5}\label{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a4b27aa2a1cd68ea017f10eef69f2eeb5}} 
+R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+I2\+C\+T\+X1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+W\+D\+T0@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+W\+D\+T0}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+W\+D\+T0@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+W\+D\+T0}}}\mbox{\Hypertarget{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7af9f61732a7f4814702a0bbd44c727e56}\label{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7af9f61732a7f4814702a0bbd44c727e56}} 
+R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+W\+D\+T0&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+W\+D\+T1@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+W\+D\+T1}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+W\+D\+T1@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+W\+D\+T1}}}\mbox{\Hypertarget{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a0559c323538e3e0c26361ea2b096fc05}\label{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a0559c323538e3e0c26361ea2b096fc05}} 
+R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+W\+D\+T1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+D\+U\+A\+L\+T\+I\+M\+ER@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+D\+U\+A\+L\+T\+I\+M\+ER}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+D\+U\+A\+L\+T\+I\+M\+ER@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+D\+U\+A\+L\+T\+I\+M\+ER}}}\mbox{\Hypertarget{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a8c8c7711ae53ea1863f2d2c13e673c10}\label{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a8c8c7711ae53ea1863f2d2c13e673c10}} 
+R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+D\+U\+A\+L\+T\+I\+M\+ER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+L\+E\+\_\+\+P\+E\+R\+I\+P\+H\+\_\+\+R\+E\+GS@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+L\+E\+\_\+\+P\+E\+R\+I\+P\+H\+\_\+\+R\+E\+GS}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+L\+E\+\_\+\+P\+E\+R\+I\+P\+H\+\_\+\+R\+E\+GS@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+L\+E\+\_\+\+P\+E\+R\+I\+P\+H\+\_\+\+R\+E\+GS}}}\mbox{\Hypertarget{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a3163a7259319b2b743426a8533c66b2d}\label{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a3163a7259319b2b743426a8533c66b2d}} 
+R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+L\+E\+\_\+\+P\+E\+R\+I\+P\+H\+\_\+\+R\+E\+GS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+E\+C\+U\+R\+I\+TY@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+E\+C\+U\+R\+I\+TY}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+E\+C\+U\+R\+I\+TY@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+E\+C\+U\+R\+I\+TY}}}\mbox{\Hypertarget{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a31d9b4e8b08a4e90d2481e36187735ca}\label{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a31d9b4e8b08a4e90d2481e36187735ca}} 
+R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+E\+C\+U\+R\+I\+TY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+E\+F\+U\+S\+E\+\_\+\+O\+U\+T\+\_\+\+O\+F\+\_\+\+R\+E\+S\+ET@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+E\+F\+U\+S\+E\+\_\+\+O\+U\+T\+\_\+\+O\+F\+\_\+\+R\+E\+S\+ET}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+E\+F\+U\+S\+E\+\_\+\+O\+U\+T\+\_\+\+O\+F\+\_\+\+R\+E\+S\+ET@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+E\+F\+U\+S\+E\+\_\+\+O\+U\+T\+\_\+\+O\+F\+\_\+\+R\+E\+S\+ET}}}\mbox{\Hypertarget{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7ac1a1250ba2f257107dc16ff1ffc7e685}\label{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7ac1a1250ba2f257107dc16ff1ffc7e685}} 
+R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+E\+F\+U\+S\+E\+\_\+\+O\+U\+T\+\_\+\+O\+F\+\_\+\+R\+E\+S\+ET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+P\+I\+\_\+\+F\+L\+A\+SH@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+P\+I\+\_\+\+F\+L\+A\+SH}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+P\+I\+\_\+\+F\+L\+A\+SH@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+P\+I\+\_\+\+F\+L\+A\+SH}}}\mbox{\Hypertarget{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7afae72b1701dd22adab6cfa8de73c58ed}\label{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7afae72b1701dd22adab6cfa8de73c58ed}} 
+R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+S\+P\+I\+\_\+\+F\+L\+A\+SH&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+L\+P\+\_\+\+C\+L\+K\+\_\+\+C\+A\+L\+\_\+\+D\+O\+NE@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+L\+P\+\_\+\+C\+L\+K\+\_\+\+C\+A\+L\+\_\+\+D\+O\+NE}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+L\+P\+\_\+\+C\+L\+K\+\_\+\+C\+A\+L\+\_\+\+D\+O\+NE@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+L\+P\+\_\+\+C\+L\+K\+\_\+\+C\+A\+L\+\_\+\+D\+O\+NE}}}\mbox{\Hypertarget{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a3c2bb699512b54e831f86840e75721b9}\label{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a3c2bb699512b54e831f86840e75721b9}} 
+R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+L\+P\+\_\+\+C\+L\+K\+\_\+\+C\+A\+L\+\_\+\+D\+O\+NE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+R\+O\+W\+N\+O\+U\+T\+\_\+\+D\+E\+T\+E\+C\+T\+ED@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+R\+O\+W\+N\+O\+U\+T\+\_\+\+D\+E\+T\+E\+C\+T\+ED}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+R\+O\+W\+N\+O\+U\+T\+\_\+\+D\+E\+T\+E\+C\+T\+ED@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+R\+O\+W\+N\+O\+U\+T\+\_\+\+D\+E\+T\+E\+C\+T\+ED}}}\mbox{\Hypertarget{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a40a567234267a0372d9e195f3c1a455b}\label{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a40a567234267a0372d9e195f3c1a455b}} 
+R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+R\+O\+W\+N\+O\+U\+T\+\_\+\+D\+E\+T\+E\+C\+T\+ED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+L\+E\+\_\+\+C\+O\+R\+E\+\_\+\+R\+E\+S\+ET@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+L\+E\+\_\+\+C\+O\+R\+E\+\_\+\+R\+E\+S\+ET}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+L\+E\+\_\+\+C\+O\+R\+E\+\_\+\+R\+E\+S\+ET@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+L\+E\+\_\+\+C\+O\+R\+E\+\_\+\+R\+E\+S\+ET}}}\mbox{\Hypertarget{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a73dfee3a829b45542450f1648c4beccd}\label{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a73dfee3a829b45542450f1648c4beccd}} 
+R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+L\+E\+\_\+\+C\+O\+R\+E\+\_\+\+R\+E\+S\+ET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+L\+E\+\_\+\+L\+P\+\_\+\+C\+O\+R\+E\+\_\+\+R\+E\+S\+ET@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+L\+E\+\_\+\+L\+P\+\_\+\+C\+O\+R\+E\+\_\+\+R\+E\+S\+ET}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+L\+E\+\_\+\+L\+P\+\_\+\+C\+O\+R\+E\+\_\+\+R\+E\+S\+ET@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+L\+E\+\_\+\+L\+P\+\_\+\+C\+O\+R\+E\+\_\+\+R\+E\+S\+ET}}}\mbox{\Hypertarget{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a95d4cc9758bee1ef1503e3a0f01fe98f}\label{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a95d4cc9758bee1ef1503e3a0f01fe98f}} 
+R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+L\+E\+\_\+\+L\+P\+\_\+\+C\+O\+R\+E\+\_\+\+R\+E\+S\+ET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+P\+O\+R\+T0\+\_\+\+C\+O\+MB@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+P\+O\+R\+T0\+\_\+\+C\+O\+MB}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+P\+O\+R\+T0\+\_\+\+C\+O\+MB@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+P\+O\+R\+T0\+\_\+\+C\+O\+MB}}}\mbox{\Hypertarget{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a2aec64ae22a237543e6a8bffa042dff9}\label{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a2aec64ae22a237543e6a8bffa042dff9}} 
+R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+P\+O\+R\+T0\+\_\+\+C\+O\+MB&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+P\+O\+R\+T1\+\_\+\+C\+O\+MB@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+P\+O\+R\+T1\+\_\+\+C\+O\+MB}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+P\+O\+R\+T1\+\_\+\+C\+O\+MB@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+P\+O\+R\+T1\+\_\+\+C\+O\+MB}}}\mbox{\Hypertarget{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7ab6c52b0a417d8091f628e982b759a1aa}\label{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7ab6c52b0a417d8091f628e982b759a1aa}} 
+R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+P\+O\+R\+T1\+\_\+\+C\+O\+MB&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+P\+O\+R\+T2\+\_\+\+C\+O\+MB@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+P\+O\+R\+T2\+\_\+\+C\+O\+MB}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+P\+O\+R\+T2\+\_\+\+C\+O\+MB@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+P\+O\+R\+T2\+\_\+\+C\+O\+MB}}}\mbox{\Hypertarget{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a7f994c900ad5b1b12061d403ac053f43}\label{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a7f994c900ad5b1b12061d403ac053f43}} 
+R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+P\+O\+R\+T2\+\_\+\+C\+O\+MB&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+T\+I\+M\+E\+R0@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+T\+I\+M\+E\+R0}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+T\+I\+M\+E\+R0@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+T\+I\+M\+E\+R0}}}\mbox{\Hypertarget{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a1cb16634c55449013a62beffb4436767}\label{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a1cb16634c55449013a62beffb4436767}} 
+R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+T\+I\+M\+E\+R0&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+A\+O\+N\+\_\+\+S\+L\+E\+E\+P\+\_\+\+T\+I\+M\+ER@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+A\+O\+N\+\_\+\+S\+L\+E\+E\+P\+\_\+\+T\+I\+M\+ER}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+A\+O\+N\+\_\+\+S\+L\+E\+E\+P\+\_\+\+T\+I\+M\+ER@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+A\+O\+N\+\_\+\+S\+L\+E\+E\+P\+\_\+\+T\+I\+M\+ER}}}\mbox{\Hypertarget{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a40bf66d79dcc2260ea00e7e157d83fbd}\label{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a40bf66d79dcc2260ea00e7e157d83fbd}} 
+R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+A\+O\+N\+\_\+\+S\+L\+E\+E\+P\+\_\+\+T\+I\+M\+ER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+L\+E\+\_\+\+O\+S\+C\+\_\+\+EN@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+L\+E\+\_\+\+O\+S\+C\+\_\+\+EN}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+L\+E\+\_\+\+O\+S\+C\+\_\+\+EN@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+L\+E\+\_\+\+O\+S\+C\+\_\+\+EN}}}\mbox{\Hypertarget{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a27a73ac1b6160738ee73f9652b9eefd3}\label{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a27a73ac1b6160738ee73f9652b9eefd3}} 
+R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+L\+E\+\_\+\+O\+S\+C\+\_\+\+EN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+L\+E\+\_\+\+W\+A\+K\+E\+U\+P\+\_\+\+LP@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+L\+E\+\_\+\+W\+A\+K\+E\+U\+P\+\_\+\+LP}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+L\+E\+\_\+\+W\+A\+K\+E\+U\+P\+\_\+\+LP@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+L\+E\+\_\+\+W\+A\+K\+E\+U\+P\+\_\+\+LP}}}\mbox{\Hypertarget{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7af3937e18d7ec748814676a6763b7249b}\label{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7af3937e18d7ec748814676a6763b7249b}} 
+R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+L\+E\+\_\+\+W\+A\+K\+E\+U\+P\+\_\+\+LP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+R\+X\+T\+X\+\_\+\+S\+E\+Q\+\_\+\+S\+L\+E\+EP@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+R\+X\+T\+X\+\_\+\+S\+E\+Q\+\_\+\+S\+L\+E\+EP}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+R\+X\+T\+X\+\_\+\+S\+E\+Q\+\_\+\+S\+L\+E\+EP@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+R\+X\+T\+X\+\_\+\+S\+E\+Q\+\_\+\+S\+L\+E\+EP}}}\mbox{\Hypertarget{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a92de6a8434246a06770edd379363c621}\label{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7a92de6a8434246a06770edd379363c621}} 
+R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+R\+X\+T\+X\+\_\+\+S\+E\+Q\+\_\+\+S\+L\+E\+EP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+L\+E\+\_\+\+C\+O\+RE@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+L\+E\+\_\+\+C\+O\+RE}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+L\+E\+\_\+\+C\+O\+RE@{R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+L\+E\+\_\+\+C\+O\+RE}}}\mbox{\Hypertarget{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7acec014a9879ac6702cef883a2787d553}\label{driver__init_8h_a515ccfbae8b628acc4f5f42dcc1636c7acec014a9879ac6702cef883a2787d553}} 
+R\+A\+M\+\_\+\+I\+S\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+B\+L\+E\+\_\+\+C\+O\+RE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{driver__init_8h_a43f5e0d6db0fb41a437cc9096b32e9b5}\label{driver__init_8h_a43f5e0d6db0fb41a437cc9096b32e9b5}} 
+\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!system\+\_\+init@{system\+\_\+init}}
+\index{system\+\_\+init@{system\+\_\+init}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}
+\subsubsection{\texorpdfstring{system\+\_\+init()}{system\_init()}}
+{\footnotesize\ttfamily void system\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Perform system initialization, initialize pins and clocks for peripherals. 
+
+\mbox{\Hypertarget{driver__init_8h_ad2c576f765b266e67221deab332dbcbe}\label{driver__init_8h_ad2c576f765b266e67221deab332dbcbe}} 
+\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!T\+A\+R\+G\+E\+T\+\_\+\+I\+O\+\_\+\+C\+L\+O\+C\+K\+\_\+init@{T\+A\+R\+G\+E\+T\+\_\+\+I\+O\+\_\+\+C\+L\+O\+C\+K\+\_\+init}}
+\index{T\+A\+R\+G\+E\+T\+\_\+\+I\+O\+\_\+\+C\+L\+O\+C\+K\+\_\+init@{T\+A\+R\+G\+E\+T\+\_\+\+I\+O\+\_\+\+C\+L\+O\+C\+K\+\_\+init}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}
+\subsubsection{\texorpdfstring{T\+A\+R\+G\+E\+T\+\_\+\+I\+O\+\_\+\+C\+L\+O\+C\+K\+\_\+init()}{TARGET\_IO\_CLOCK\_init()}}
+{\footnotesize\ttfamily void T\+A\+R\+G\+E\+T\+\_\+\+I\+O\+\_\+\+C\+L\+O\+C\+K\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{driver__init_8h_a13e123724869bcbd8e9da60fcf1ad028}\label{driver__init_8h_a13e123724869bcbd8e9da60fcf1ad028}} 
+\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!T\+A\+R\+G\+E\+T\+\_\+\+I\+O\+\_\+init@{T\+A\+R\+G\+E\+T\+\_\+\+I\+O\+\_\+init}}
+\index{T\+A\+R\+G\+E\+T\+\_\+\+I\+O\+\_\+init@{T\+A\+R\+G\+E\+T\+\_\+\+I\+O\+\_\+init}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}
+\subsubsection{\texorpdfstring{T\+A\+R\+G\+E\+T\+\_\+\+I\+O\+\_\+init()}{TARGET\_IO\_init()}}
+{\footnotesize\ttfamily void T\+A\+R\+G\+E\+T\+\_\+\+I\+O\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{driver__init_8h_a6b7d62851fc294b7c1a77e0bb6501105}\label{driver__init_8h_a6b7d62851fc294b7c1a77e0bb6501105}} 
+\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!T\+A\+R\+G\+E\+T\+\_\+\+I\+O\+\_\+\+P\+O\+R\+T\+\_\+init@{T\+A\+R\+G\+E\+T\+\_\+\+I\+O\+\_\+\+P\+O\+R\+T\+\_\+init}}
+\index{T\+A\+R\+G\+E\+T\+\_\+\+I\+O\+\_\+\+P\+O\+R\+T\+\_\+init@{T\+A\+R\+G\+E\+T\+\_\+\+I\+O\+\_\+\+P\+O\+R\+T\+\_\+init}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}
+\subsubsection{\texorpdfstring{T\+A\+R\+G\+E\+T\+\_\+\+I\+O\+\_\+\+P\+O\+R\+T\+\_\+init()}{TARGET\_IO\_PORT\_init()}}
+{\footnotesize\ttfamily void T\+A\+R\+G\+E\+T\+\_\+\+I\+O\+\_\+\+P\+O\+R\+T\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{driver__init_8h_aec2e3ac07a004a8e22e88b08078adb7a}\label{driver__init_8h_aec2e3ac07a004a8e22e88b08078adb7a}} 
+\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!U\+S\+A\+R\+T\+\_\+1\+\_\+0\+\_\+\+C\+L\+O\+C\+K\+\_\+init@{U\+S\+A\+R\+T\+\_\+1\+\_\+0\+\_\+\+C\+L\+O\+C\+K\+\_\+init}}
+\index{U\+S\+A\+R\+T\+\_\+1\+\_\+0\+\_\+\+C\+L\+O\+C\+K\+\_\+init@{U\+S\+A\+R\+T\+\_\+1\+\_\+0\+\_\+\+C\+L\+O\+C\+K\+\_\+init}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+A\+R\+T\+\_\+1\+\_\+0\+\_\+\+C\+L\+O\+C\+K\+\_\+init()}{USART\_1\_0\_CLOCK\_init()}}
+{\footnotesize\ttfamily void U\+S\+A\+R\+T\+\_\+1\+\_\+0\+\_\+\+C\+L\+O\+C\+K\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+U\+S\+A\+RT Clock initialization function. 
+
+Enables register interface and peripheral clock \mbox{\Hypertarget{driver__init_8h_a806bd7b8050792e1f8f4545314642779}\label{driver__init_8h_a806bd7b8050792e1f8f4545314642779}} 
+\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!U\+S\+A\+R\+T\+\_\+1\+\_\+0\+\_\+init@{U\+S\+A\+R\+T\+\_\+1\+\_\+0\+\_\+init}}
+\index{U\+S\+A\+R\+T\+\_\+1\+\_\+0\+\_\+init@{U\+S\+A\+R\+T\+\_\+1\+\_\+0\+\_\+init}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+A\+R\+T\+\_\+1\+\_\+0\+\_\+init()}{USART\_1\_0\_init()}}
+{\footnotesize\ttfamily void U\+S\+A\+R\+T\+\_\+1\+\_\+0\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+U\+S\+A\+RT initialization function. 
+
+Enables U\+S\+A\+RT peripheral, clocks and initializes U\+S\+A\+RT driver \mbox{\Hypertarget{driver__init_8h_ad8b264dd41e89b515841c725ca1876c5}\label{driver__init_8h_ad8b264dd41e89b515841c725ca1876c5}} 
+\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!U\+S\+A\+R\+T\+\_\+1\+\_\+0\+\_\+\+P\+O\+R\+T\+\_\+init@{U\+S\+A\+R\+T\+\_\+1\+\_\+0\+\_\+\+P\+O\+R\+T\+\_\+init}}
+\index{U\+S\+A\+R\+T\+\_\+1\+\_\+0\+\_\+\+P\+O\+R\+T\+\_\+init@{U\+S\+A\+R\+T\+\_\+1\+\_\+0\+\_\+\+P\+O\+R\+T\+\_\+init}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+A\+R\+T\+\_\+1\+\_\+0\+\_\+\+P\+O\+R\+T\+\_\+init()}{USART\_1\_0\_PORT\_init()}}
+{\footnotesize\ttfamily void U\+S\+A\+R\+T\+\_\+1\+\_\+0\+\_\+\+P\+O\+R\+T\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+U\+S\+A\+RT pinmux initialization function. 
+
+Set each required pin to U\+S\+A\+RT functionality 
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{driver__init_8h_a3c128fe8fcaee8e036cc1c979ee7b2a1}\label{driver__init_8h_a3c128fe8fcaee8e036cc1c979ee7b2a1}} 
+\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!T\+A\+R\+G\+E\+T\+\_\+\+IO@{T\+A\+R\+G\+E\+T\+\_\+\+IO}}
+\index{T\+A\+R\+G\+E\+T\+\_\+\+IO@{T\+A\+R\+G\+E\+T\+\_\+\+IO}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}
+\subsubsection{\texorpdfstring{T\+A\+R\+G\+E\+T\+\_\+\+IO}{TARGET\_IO}}
+{\footnotesize\ttfamily struct \hyperlink{structusart__sync__descriptor}{usart\+\_\+sync\+\_\+descriptor} T\+A\+R\+G\+E\+T\+\_\+\+IO}
+
+\mbox{\Hypertarget{driver__init_8h_ab2fa8c74f93df5817964273d48139a83}\label{driver__init_8h_ab2fa8c74f93df5817964273d48139a83}} 
+\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!U\+S\+A\+R\+T\+\_\+1\+\_\+0@{U\+S\+A\+R\+T\+\_\+1\+\_\+0}}
+\index{U\+S\+A\+R\+T\+\_\+1\+\_\+0@{U\+S\+A\+R\+T\+\_\+1\+\_\+0}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+A\+R\+T\+\_\+1\+\_\+0}{USART\_1\_0}}
+{\footnotesize\ttfamily struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} U\+S\+A\+R\+T\+\_\+1\+\_\+0}
+

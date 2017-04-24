@@ -6,13 +6,28 @@ Asserts related functionality.
 
 
 {\ttfamily \#include $<$compiler.\+h$>$}\newline
+Include dependency graph for utils\+\_\+assert.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utils__assert_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utils__assert_8h__dep__incl}
+\end{center}
+\end{figure}
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{utils__assert_8h_ac22830a985e1daed0c9eadba8c6f606e}{A\+S\+S\+E\+RT}(condition)~A\+S\+S\+E\+R\+T\+\_\+\+I\+M\+PL((condition), \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+)
+\#define \hyperlink{utils__assert_8h_ac22830a985e1daed0c9eadba8c6f606e}{A\+S\+S\+E\+RT}(condition)~\hyperlink{utils__assert_8h_aa8072e041006c526471cd731d62da4ac}{A\+S\+S\+E\+R\+T\+\_\+\+I\+M\+PL}((condition), \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+)
 \begin{DoxyCompactList}\small\item\em Assert macro. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{utils__assert_8h_aa8072e041006c526471cd731d62da4ac}\label{utils__assert_8h_aa8072e041006c526471cd731d62da4ac}} 
-\#define {\bfseries A\+S\+S\+E\+R\+T\+\_\+\+I\+M\+PL}(condition,  file,  line)~((void)0)
+\#define \hyperlink{utils__assert_8h_aa8072e041006c526471cd731d62da4ac}{A\+S\+S\+E\+R\+T\+\_\+\+I\+M\+PL}(condition,  file,  line)~((void)0)
 \end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -31,7 +46,7 @@ Copyright (C) 2014 Atmel Corporation. All rights reserved.
 \index{utils\+\_\+assert.\+h@{utils\+\_\+assert.\+h}!A\+S\+S\+E\+RT@{A\+S\+S\+E\+RT}}
 \index{A\+S\+S\+E\+RT@{A\+S\+S\+E\+RT}!utils\+\_\+assert.\+h@{utils\+\_\+assert.\+h}}
 \subsubsection{\texorpdfstring{A\+S\+S\+E\+RT}{ASSERT}}
-{\footnotesize\ttfamily \#define A\+S\+S\+E\+RT(\begin{DoxyParamCaption}\item[{}]{condition }\end{DoxyParamCaption})~A\+S\+S\+E\+R\+T\+\_\+\+I\+M\+PL((condition), \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+)}
+{\footnotesize\ttfamily \#define A\+S\+S\+E\+RT(\begin{DoxyParamCaption}\item[{}]{condition }\end{DoxyParamCaption})~\hyperlink{utils__assert_8h_aa8072e041006c526471cd731d62da4ac}{A\+S\+S\+E\+R\+T\+\_\+\+I\+M\+PL}((condition), \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+)}
 
 
 
@@ -44,6 +59,12 @@ This macro is used to throw asserts. It can be mapped to different function base
 \mbox{\tt in}  & {\em condition} & A condition to be checked; assert is thrown if the given condifition is false \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{utils__assert_8h_aa8072e041006c526471cd731d62da4ac}\label{utils__assert_8h_aa8072e041006c526471cd731d62da4ac}} 
+\index{utils\+\_\+assert.\+h@{utils\+\_\+assert.\+h}!A\+S\+S\+E\+R\+T\+\_\+\+I\+M\+PL@{A\+S\+S\+E\+R\+T\+\_\+\+I\+M\+PL}}
+\index{A\+S\+S\+E\+R\+T\+\_\+\+I\+M\+PL@{A\+S\+S\+E\+R\+T\+\_\+\+I\+M\+PL}!utils\+\_\+assert.\+h@{utils\+\_\+assert.\+h}}
+\subsubsection{\texorpdfstring{A\+S\+S\+E\+R\+T\+\_\+\+I\+M\+PL}{ASSERT\_IMPL}}
+{\footnotesize\ttfamily \#define A\+S\+S\+E\+R\+T\+\_\+\+I\+M\+PL(\begin{DoxyParamCaption}\item[{}]{condition,  }\item[{}]{file,  }\item[{}]{line }\end{DoxyParamCaption})~((void)0)}
+
 
 
 \subsection{Function Documentation}

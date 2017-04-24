@@ -3,7 +3,7 @@
   <SettingsFile>E:\HaHaProject\AtmelXbee\ATProjects\HaHa\HaHa\doxySettings.xml</SettingsFile>
   <ProjectName>HaHa</ProjectName>
   <DoxyExePath>C:\Users\Brian\Documents\MyToolset\doxygen\doxygen.exe</DoxyExePath>
-  <UseDefaultSettings>true</UseDefaultSettings>
+  <UseDefaultSettings>false</UseDefaultSettings>
   <GenerateAsPartOfBuild>false</GenerateAsPartOfBuild>
   <ConfigFilePath>E:\HaHaProject\AtmelXbee\ATProjects\HaHa\HaHa\doxyfile</ConfigFilePath>
   <OutputDirPath>E:\HaHaProject\AtmelXbee\ATProjects\HaHa\HaHa\doxygen</OutputDirPath>

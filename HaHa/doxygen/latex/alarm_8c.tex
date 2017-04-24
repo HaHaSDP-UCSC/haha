@@ -1,0 +1,70 @@
+\hypertarget{alarm_8c}{}\section{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/alarm/alarm.c File Reference}
+\label{alarm_8c}\index{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/alarm/alarm.\+c@{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/alarm/alarm.\+c}}
+{\ttfamily \#include \char`\"{}alarm.\+h\char`\"{}}\newline
+Include dependency graph for alarm.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=298pt]{alarm_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{alarm_8c_a1f3b9f59712b48ab186b60997617e4d6}{set\+Alarm} (bool active, bool allow\+Sound, bool allow\+Light)
+\begin{DoxyCompactList}\small\item\em Sets the alarm. \end{DoxyCompactList}\item 
+bool \hyperlink{alarm_8c_a9ddfb89a4cacc765e5ecc817f2063bf3}{get\+Alarm\+Status} ()
+\begin{DoxyCompactList}\small\item\em Gets the alarm status. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{alarm_8c_af1ad5a639328d70ea194c2e009ca6716}{alarmstatus} = false
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{alarm_8c_a9ddfb89a4cacc765e5ecc817f2063bf3}\label{alarm_8c_a9ddfb89a4cacc765e5ecc817f2063bf3}} 
+\index{alarm.\+c@{alarm.\+c}!get\+Alarm\+Status@{get\+Alarm\+Status}}
+\index{get\+Alarm\+Status@{get\+Alarm\+Status}!alarm.\+c@{alarm.\+c}}
+\subsubsection{\texorpdfstring{get\+Alarm\+Status()}{getAlarmStatus()}}
+{\footnotesize\ttfamily bool get\+Alarm\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the alarm status. 
+
+\begin{DoxyReturn}{Returns}
+The alarm status. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{alarm_8c_a1f3b9f59712b48ab186b60997617e4d6}\label{alarm_8c_a1f3b9f59712b48ab186b60997617e4d6}} 
+\index{alarm.\+c@{alarm.\+c}!set\+Alarm@{set\+Alarm}}
+\index{set\+Alarm@{set\+Alarm}!alarm.\+c@{alarm.\+c}}
+\subsubsection{\texorpdfstring{set\+Alarm()}{setAlarm()}}
+{\footnotesize\ttfamily bool set\+Alarm (\begin{DoxyParamCaption}\item[{bool}]{active,  }\item[{bool}]{allow\+Sound,  }\item[{bool}]{allow\+Light }\end{DoxyParamCaption})}
+
+
+
+Sets the alarm. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em active} & The active \\
+\hline
+\mbox{\tt in}  & {\em allow\+Sound} & The allow sound \\
+\hline
+\mbox{\tt in}  & {\em allow\+Light} & The allow light\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success or failure. 
+\end{DoxyReturn}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{alarm_8c_af1ad5a639328d70ea194c2e009ca6716}\label{alarm_8c_af1ad5a639328d70ea194c2e009ca6716}} 
+\index{alarm.\+c@{alarm.\+c}!alarmstatus@{alarmstatus}}
+\index{alarmstatus@{alarmstatus}!alarm.\+c@{alarm.\+c}}
+\subsubsection{\texorpdfstring{alarmstatus}{alarmstatus}}
+{\footnotesize\ttfamily bool alarmstatus = false}
+

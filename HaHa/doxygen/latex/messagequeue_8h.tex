@@ -1,0 +1,108 @@
+\hypertarget{messagequeue_8h}{}\section{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/messagequeue/messagequeue.h File Reference}
+\label{messagequeue_8h}\index{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/messagequeue/messagequeue.\+h@{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/messagequeue/messagequeue.\+h}}
+{\ttfamily \#include \char`\"{}utils/haha\+Utils.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}friend/friendlist.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}neighbor/neighborlist.\+h\char`\"{}}\newline
+Include dependency graph for messagequeue.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{messagequeue_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=271pt]{messagequeue_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_message}{Message}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{messagequeue_8h_a8064615b9f07036146ddba2d78ab43ac}{M\+A\+X\+Q\+U\+E\+U\+E\+S\+I\+ZE}~256
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{messagequeue_8h_a16c87307c6fa91ee8efbcfd2dd78f14e}{init\+Message\+Queue} ()
+\item 
+bool \hyperlink{messagequeue_8h_ad2dbd5929bc3bf587187fb724aec4906}{add\+To\+Queue} (\hyperlink{struct_message}{Message} mes)
+\item 
+bool \hyperlink{messagequeue_8h_aba80587693ceebf09034cb8a9eb754b4}{remove\+From\+Queue} (\hyperlink{struct_message}{Message} mes)
+\item 
+bool \hyperlink{messagequeue_8h_a5d173fe65707a70702eef10c2c2ecd34}{check\+Queue} ()
+\item 
+bool \hyperlink{messagequeue_8h_a8479d6b0d962af3cd60c4a2506542b93}{flush\+Old\+Messages} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_message}{Message} \hyperlink{messagequeue_8h_a33b7cdfeea975ef384bcb8c59548fcca}{message\+Queue} \mbox{[}\hyperlink{messagequeue_8h_a8064615b9f07036146ddba2d78ab43ac}{M\+A\+X\+Q\+U\+E\+U\+E\+S\+I\+ZE}\mbox{]}
+\item 
+int \hyperlink{messagequeue_8h_adaf943c172048072b9661b452c627cc7}{queue\+Time} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{messagequeue_8h_a8064615b9f07036146ddba2d78ab43ac}\label{messagequeue_8h_a8064615b9f07036146ddba2d78ab43ac}} 
+\index{messagequeue.\+h@{messagequeue.\+h}!M\+A\+X\+Q\+U\+E\+U\+E\+S\+I\+ZE@{M\+A\+X\+Q\+U\+E\+U\+E\+S\+I\+ZE}}
+\index{M\+A\+X\+Q\+U\+E\+U\+E\+S\+I\+ZE@{M\+A\+X\+Q\+U\+E\+U\+E\+S\+I\+ZE}!messagequeue.\+h@{messagequeue.\+h}}
+\subsubsection{\texorpdfstring{M\+A\+X\+Q\+U\+E\+U\+E\+S\+I\+ZE}{MAXQUEUESIZE}}
+{\footnotesize\ttfamily \#define M\+A\+X\+Q\+U\+E\+U\+E\+S\+I\+ZE~256}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{messagequeue_8h_ad2dbd5929bc3bf587187fb724aec4906}\label{messagequeue_8h_ad2dbd5929bc3bf587187fb724aec4906}} 
+\index{messagequeue.\+h@{messagequeue.\+h}!add\+To\+Queue@{add\+To\+Queue}}
+\index{add\+To\+Queue@{add\+To\+Queue}!messagequeue.\+h@{messagequeue.\+h}}
+\subsubsection{\texorpdfstring{add\+To\+Queue()}{addToQueue()}}
+{\footnotesize\ttfamily bool add\+To\+Queue (\begin{DoxyParamCaption}\item[{\hyperlink{struct_message}{Message}}]{mes }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{messagequeue_8h_a5d173fe65707a70702eef10c2c2ecd34}\label{messagequeue_8h_a5d173fe65707a70702eef10c2c2ecd34}} 
+\index{messagequeue.\+h@{messagequeue.\+h}!check\+Queue@{check\+Queue}}
+\index{check\+Queue@{check\+Queue}!messagequeue.\+h@{messagequeue.\+h}}
+\subsubsection{\texorpdfstring{check\+Queue()}{checkQueue()}}
+{\footnotesize\ttfamily bool check\+Queue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{messagequeue_8h_a8479d6b0d962af3cd60c4a2506542b93}\label{messagequeue_8h_a8479d6b0d962af3cd60c4a2506542b93}} 
+\index{messagequeue.\+h@{messagequeue.\+h}!flush\+Old\+Messages@{flush\+Old\+Messages}}
+\index{flush\+Old\+Messages@{flush\+Old\+Messages}!messagequeue.\+h@{messagequeue.\+h}}
+\subsubsection{\texorpdfstring{flush\+Old\+Messages()}{flushOldMessages()}}
+{\footnotesize\ttfamily bool flush\+Old\+Messages (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{messagequeue_8h_a16c87307c6fa91ee8efbcfd2dd78f14e}\label{messagequeue_8h_a16c87307c6fa91ee8efbcfd2dd78f14e}} 
+\index{messagequeue.\+h@{messagequeue.\+h}!init\+Message\+Queue@{init\+Message\+Queue}}
+\index{init\+Message\+Queue@{init\+Message\+Queue}!messagequeue.\+h@{messagequeue.\+h}}
+\subsubsection{\texorpdfstring{init\+Message\+Queue()}{initMessageQueue()}}
+{\footnotesize\ttfamily bool init\+Message\+Queue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{messagequeue_8h_aba80587693ceebf09034cb8a9eb754b4}\label{messagequeue_8h_aba80587693ceebf09034cb8a9eb754b4}} 
+\index{messagequeue.\+h@{messagequeue.\+h}!remove\+From\+Queue@{remove\+From\+Queue}}
+\index{remove\+From\+Queue@{remove\+From\+Queue}!messagequeue.\+h@{messagequeue.\+h}}
+\subsubsection{\texorpdfstring{remove\+From\+Queue()}{removeFromQueue()}}
+{\footnotesize\ttfamily bool remove\+From\+Queue (\begin{DoxyParamCaption}\item[{\hyperlink{struct_message}{Message}}]{mes }\end{DoxyParamCaption})}
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{messagequeue_8h_a33b7cdfeea975ef384bcb8c59548fcca}\label{messagequeue_8h_a33b7cdfeea975ef384bcb8c59548fcca}} 
+\index{messagequeue.\+h@{messagequeue.\+h}!message\+Queue@{message\+Queue}}
+\index{message\+Queue@{message\+Queue}!messagequeue.\+h@{messagequeue.\+h}}
+\subsubsection{\texorpdfstring{message\+Queue}{messageQueue}}
+{\footnotesize\ttfamily \hyperlink{struct_message}{Message} message\+Queue\mbox{[}\hyperlink{messagequeue_8h_a8064615b9f07036146ddba2d78ab43ac}{M\+A\+X\+Q\+U\+E\+U\+E\+S\+I\+ZE}\mbox{]}}
+
+\mbox{\Hypertarget{messagequeue_8h_adaf943c172048072b9661b452c627cc7}\label{messagequeue_8h_adaf943c172048072b9661b452c627cc7}} 
+\index{messagequeue.\+h@{messagequeue.\+h}!queue\+Time@{queue\+Time}}
+\index{queue\+Time@{queue\+Time}!messagequeue.\+h@{messagequeue.\+h}}
+\subsubsection{\texorpdfstring{queue\+Time}{queueTime}}
+{\footnotesize\ttfamily int queue\+Time = 0}
+

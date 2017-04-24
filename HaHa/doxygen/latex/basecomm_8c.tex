@@ -1,0 +1,120 @@
+\hypertarget{basecomm_8c}{}\section{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/messagequeue/basecomm.c File Reference}
+\label{basecomm_8c}\index{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/messagequeue/basecomm.\+c@{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/messagequeue/basecomm.\+c}}
+
+
+Application layer packet creation and parsing.  
+
+
+{\ttfamily \#include \char`\"{}basecomm.\+h\char`\"{}}\newline
+Include dependency graph for basecomm.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{basecomm_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structset_packet_fields}{set\+Packet\+Fields}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{basecomm_8c_a8c8cba5db9e97c8509b667540cdd1751}{M\+I\+N\+P\+A\+C\+K\+E\+T\+S\+I\+ZE}~4
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{basecomm_8c_a225d9f1ae0e50be163129458bad8fa31}{convert\+From\+Packet\+To\+Data} (\hyperlink{struct_packet}{Packet} $\ast$p, unsigned char $\ast$data)
+\item 
+bool \hyperlink{basecomm_8c_a6f221f86aef4e40b1c4000a714ac4b02}{convert\+From\+Data\+To\+Packet} (\hyperlink{struct_packet}{Packet} $\ast$p, unsigned char $\ast$data, int datalen)
+\item 
+bool \hyperlink{basecomm_8c_a2d6bbd7ff50a0ecab9e4a9fd00c70856}{init\+\_\+network} ()
+\item 
+bool \hyperlink{basecomm_8c_a0efcd5c5e2ff45dfd8c4172bb397492c}{send\+Packet} (\hyperlink{struct_packet}{Packet} $\ast$p, \hyperlink{struct_network}{Network} $\ast$netdest)
+\item 
+bool \hyperlink{basecomm_8c_a4b3d9df06232c6df9ef84a895629d1b9}{recv\+Packet} (\hyperlink{struct_packet}{Packet} $\ast$p, \hyperlink{struct_network}{Network} $\ast$netsrc)
+\item 
+bool \hyperlink{basecomm_8c_a1ec2905166d9f0ca663bb41732a34333}{form\+Packet\+To\+Data} (\hyperlink{struct_packet}{Packet} $\ast$p, unsigned char $\ast$data, int $\ast$oldoffset, \hyperlink{structset_packet_fields}{set\+Packet\+Fields} fields)
+\item 
+bool \hyperlink{basecomm_8c_a2cadbfb9e3fac3d2142d8d62bf342624}{form\+Data\+To\+Packet} (\hyperlink{struct_packet}{Packet} $\ast$p, unsigned char $\ast$data, int $\ast$oldoffset, \hyperlink{structset_packet_fields}{set\+Packet\+Fields} fields)
+\item 
+bool \hyperlink{basecomm_8c_a7d366474202463708c11e858fbb73d94}{network\+Up} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Application layer packet creation and parsing. 
+
+\begin{DoxyAuthor}{Author}
+Kevin Lee 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2017-\/03-\/07 
+\end{DoxyDate}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{basecomm_8c_a8c8cba5db9e97c8509b667540cdd1751}\label{basecomm_8c_a8c8cba5db9e97c8509b667540cdd1751}} 
+\index{basecomm.\+c@{basecomm.\+c}!M\+I\+N\+P\+A\+C\+K\+E\+T\+S\+I\+ZE@{M\+I\+N\+P\+A\+C\+K\+E\+T\+S\+I\+ZE}}
+\index{M\+I\+N\+P\+A\+C\+K\+E\+T\+S\+I\+ZE@{M\+I\+N\+P\+A\+C\+K\+E\+T\+S\+I\+ZE}!basecomm.\+c@{basecomm.\+c}}
+\subsubsection{\texorpdfstring{M\+I\+N\+P\+A\+C\+K\+E\+T\+S\+I\+ZE}{MINPACKETSIZE}}
+{\footnotesize\ttfamily \#define M\+I\+N\+P\+A\+C\+K\+E\+T\+S\+I\+ZE~4}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{basecomm_8c_a6f221f86aef4e40b1c4000a714ac4b02}\label{basecomm_8c_a6f221f86aef4e40b1c4000a714ac4b02}} 
+\index{basecomm.\+c@{basecomm.\+c}!convert\+From\+Data\+To\+Packet@{convert\+From\+Data\+To\+Packet}}
+\index{convert\+From\+Data\+To\+Packet@{convert\+From\+Data\+To\+Packet}!basecomm.\+c@{basecomm.\+c}}
+\subsubsection{\texorpdfstring{convert\+From\+Data\+To\+Packet()}{convertFromDataToPacket()}}
+{\footnotesize\ttfamily bool convert\+From\+Data\+To\+Packet (\begin{DoxyParamCaption}\item[{\hyperlink{struct_packet}{Packet} $\ast$}]{p,  }\item[{unsigned char $\ast$}]{data,  }\item[{int}]{datalen }\end{DoxyParamCaption})}
+
+Processes received data from network. Converts into packet form. They are processed based on their opcode. if (!is\+Expecting(opcode, P\+I\+N\+G\+\_\+\+R\+E\+Q\+U\+E\+S\+T\+\_\+\+F\+L\+AG)) \{ //drop packet \}\mbox{\Hypertarget{basecomm_8c_a225d9f1ae0e50be163129458bad8fa31}\label{basecomm_8c_a225d9f1ae0e50be163129458bad8fa31}} 
+\index{basecomm.\+c@{basecomm.\+c}!convert\+From\+Packet\+To\+Data@{convert\+From\+Packet\+To\+Data}}
+\index{convert\+From\+Packet\+To\+Data@{convert\+From\+Packet\+To\+Data}!basecomm.\+c@{basecomm.\+c}}
+\subsubsection{\texorpdfstring{convert\+From\+Packet\+To\+Data()}{convertFromPacketToData()}}
+{\footnotesize\ttfamily bool convert\+From\+Packet\+To\+Data (\begin{DoxyParamCaption}\item[{\hyperlink{struct_packet}{Packet} $\ast$}]{p,  }\item[{unsigned char $\ast$}]{data }\end{DoxyParamCaption})}
+
+Processes \hyperlink{struct_packet}{Packet} data to send on network. Converts into byte data. They are processed based on their opcode. \mbox{\Hypertarget{basecomm_8c_a2cadbfb9e3fac3d2142d8d62bf342624}\label{basecomm_8c_a2cadbfb9e3fac3d2142d8d62bf342624}} 
+\index{basecomm.\+c@{basecomm.\+c}!form\+Data\+To\+Packet@{form\+Data\+To\+Packet}}
+\index{form\+Data\+To\+Packet@{form\+Data\+To\+Packet}!basecomm.\+c@{basecomm.\+c}}
+\subsubsection{\texorpdfstring{form\+Data\+To\+Packet()}{formDataToPacket()}}
+{\footnotesize\ttfamily bool form\+Data\+To\+Packet (\begin{DoxyParamCaption}\item[{\hyperlink{struct_packet}{Packet} $\ast$}]{p,  }\item[{unsigned char $\ast$}]{data,  }\item[{int $\ast$}]{oldoffset,  }\item[{\hyperlink{structset_packet_fields}{set\+Packet\+Fields}}]{fields }\end{DoxyParamCaption})}
+
+Creates a packet from a standardized structure to be received. \mbox{\Hypertarget{basecomm_8c_a1ec2905166d9f0ca663bb41732a34333}\label{basecomm_8c_a1ec2905166d9f0ca663bb41732a34333}} 
+\index{basecomm.\+c@{basecomm.\+c}!form\+Packet\+To\+Data@{form\+Packet\+To\+Data}}
+\index{form\+Packet\+To\+Data@{form\+Packet\+To\+Data}!basecomm.\+c@{basecomm.\+c}}
+\subsubsection{\texorpdfstring{form\+Packet\+To\+Data()}{formPacketToData()}}
+{\footnotesize\ttfamily bool form\+Packet\+To\+Data (\begin{DoxyParamCaption}\item[{\hyperlink{struct_packet}{Packet} $\ast$}]{p,  }\item[{unsigned char $\ast$}]{data,  }\item[{int $\ast$}]{oldoffset,  }\item[{\hyperlink{structset_packet_fields}{set\+Packet\+Fields}}]{fields }\end{DoxyParamCaption})}
+
+Creates a packet from a standardized structure to be sent. \mbox{\Hypertarget{basecomm_8c_a2d6bbd7ff50a0ecab9e4a9fd00c70856}\label{basecomm_8c_a2d6bbd7ff50a0ecab9e4a9fd00c70856}} 
+\index{basecomm.\+c@{basecomm.\+c}!init\+\_\+network@{init\+\_\+network}}
+\index{init\+\_\+network@{init\+\_\+network}!basecomm.\+c@{basecomm.\+c}}
+\subsubsection{\texorpdfstring{init\+\_\+network()}{init\_network()}}
+{\footnotesize\ttfamily bool init\+\_\+network (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Initializes the network. \mbox{\Hypertarget{basecomm_8c_a7d366474202463708c11e858fbb73d94}\label{basecomm_8c_a7d366474202463708c11e858fbb73d94}} 
+\index{basecomm.\+c@{basecomm.\+c}!network\+Up@{network\+Up}}
+\index{network\+Up@{network\+Up}!basecomm.\+c@{basecomm.\+c}}
+\subsubsection{\texorpdfstring{network\+Up()}{networkUp()}}
+{\footnotesize\ttfamily bool network\+Up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{basecomm_8c_a4b3d9df06232c6df9ef84a895629d1b9}\label{basecomm_8c_a4b3d9df06232c6df9ef84a895629d1b9}} 
+\index{basecomm.\+c@{basecomm.\+c}!recv\+Packet@{recv\+Packet}}
+\index{recv\+Packet@{recv\+Packet}!basecomm.\+c@{basecomm.\+c}}
+\subsubsection{\texorpdfstring{recv\+Packet()}{recvPacket()}}
+{\footnotesize\ttfamily bool recv\+Packet (\begin{DoxyParamCaption}\item[{\hyperlink{struct_packet}{Packet} $\ast$}]{p,  }\item[{\hyperlink{struct_network}{Network} $\ast$}]{netsrc }\end{DoxyParamCaption})}
+
+Checks for a packet on the network layer. This then processes the packet. char buffer\mbox{[}B\+U\+F\+F\+E\+R\+S\+I\+ZE\mbox{]}; int receivelen; if ((receivelen = \+\_\+recv\+\_\+packet(buffer, B\+U\+F\+F\+E\+R\+S\+I\+Z\+E)) $<$= 0) \{ printe(\char`\"{}\+No packet to receive.\textbackslash{}n\char`\"{}); return false; \} convert\+From\+Data\+To\+Packet(p, (unsigned char $\ast$) buffer, receivelen); return true;\mbox{\Hypertarget{basecomm_8c_a0efcd5c5e2ff45dfd8c4172bb397492c}\label{basecomm_8c_a0efcd5c5e2ff45dfd8c4172bb397492c}} 
+\index{basecomm.\+c@{basecomm.\+c}!send\+Packet@{send\+Packet}}
+\index{send\+Packet@{send\+Packet}!basecomm.\+c@{basecomm.\+c}}
+\subsubsection{\texorpdfstring{send\+Packet()}{sendPacket()}}
+{\footnotesize\ttfamily bool send\+Packet (\begin{DoxyParamCaption}\item[{\hyperlink{struct_packet}{Packet} $\ast$}]{p,  }\item[{\hyperlink{struct_network}{Network} $\ast$}]{netdest }\end{DoxyParamCaption})}
+
+Take the packet data and send to network device. Returns if successful or not. if (\+\_\+send\+\_\+packet((char $\ast$) data, datalen, \char`\"{}127.\+0.\+0.\+1\char`\"{}, dest) $<$= 0) \{ printe(\char`\"{}\+Error sending packet.\textbackslash{}n\char`\"{}); return false; \} return true;

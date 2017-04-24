@@ -8,10 +8,8 @@ struct \hyperlink{structio__descriptor}{io\+\_\+descriptor}
 \subsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{group__doc__driver__hal__helper__io_gacb03c48993a6786f00946c196c40add1}\label{group__doc__driver__hal__helper__io_gacb03c48993a6786f00946c196c40add1}} 
 typedef int32\+\_\+t($\ast$ \hyperlink{group__doc__driver__hal__helper__io_gacb03c48993a6786f00946c196c40add1}{io\+\_\+write\+\_\+t}) (struct \hyperlink{structio__descriptor}{io\+\_\+descriptor} $\ast$const io\+\_\+descr, const uint8\+\_\+t $\ast$const buf, const uint16\+\_\+t length)
 \begin{DoxyCompactList}\small\item\em IO write function pointer type. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__doc__driver__hal__helper__io_ga4d9ae58de2887289fe09eac6f0aa8be7}\label{group__doc__driver__hal__helper__io_ga4d9ae58de2887289fe09eac6f0aa8be7}} 
 typedef int32\+\_\+t($\ast$ \hyperlink{group__doc__driver__hal__helper__io_ga4d9ae58de2887289fe09eac6f0aa8be7}{io\+\_\+read\+\_\+t}) (struct \hyperlink{structio__descriptor}{io\+\_\+descriptor} $\ast$const io\+\_\+descr, uint8\+\_\+t $\ast$const buf, const uint16\+\_\+t length)
 \begin{DoxyCompactList}\small\item\em IO read function pointer type. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Functions}
@@ -24,6 +22,29 @@ int32\+\_\+t \hyperlink{group__doc__driver__hal__helper__io_gaf5e8722129933fa8e0
 
 
 \subsection{Detailed Description}
+
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{group__doc__driver__hal__helper__io_ga4d9ae58de2887289fe09eac6f0aa8be7}\label{group__doc__driver__hal__helper__io_ga4d9ae58de2887289fe09eac6f0aa8be7}} 
+\index{I\+O Driver@{I\+O Driver}!io\+\_\+read\+\_\+t@{io\+\_\+read\+\_\+t}}
+\index{io\+\_\+read\+\_\+t@{io\+\_\+read\+\_\+t}!I\+O Driver@{I\+O Driver}}
+\subsubsection{\texorpdfstring{io\+\_\+read\+\_\+t}{io\_read\_t}}
+{\footnotesize\ttfamily typedef int32\+\_\+t($\ast$ io\+\_\+read\+\_\+t) (struct \hyperlink{structio__descriptor}{io\+\_\+descriptor} $\ast$const io\+\_\+descr, uint8\+\_\+t $\ast$const buf, const uint16\+\_\+t length)}
+
+
+
+IO read function pointer type. 
+
+\mbox{\Hypertarget{group__doc__driver__hal__helper__io_gacb03c48993a6786f00946c196c40add1}\label{group__doc__driver__hal__helper__io_gacb03c48993a6786f00946c196c40add1}} 
+\index{I\+O Driver@{I\+O Driver}!io\+\_\+write\+\_\+t@{io\+\_\+write\+\_\+t}}
+\index{io\+\_\+write\+\_\+t@{io\+\_\+write\+\_\+t}!I\+O Driver@{I\+O Driver}}
+\subsubsection{\texorpdfstring{io\+\_\+write\+\_\+t}{io\_write\_t}}
+{\footnotesize\ttfamily typedef int32\+\_\+t($\ast$ io\+\_\+write\+\_\+t) (struct \hyperlink{structio__descriptor}{io\+\_\+descriptor} $\ast$const io\+\_\+descr, const uint8\+\_\+t $\ast$const buf, const uint16\+\_\+t length)}
+
+
+
+IO write function pointer type. 
+
 
 
 \subsection{Function Documentation}

@@ -1,5 +1,7 @@
 var searchData=
 [
+  ['_5f_5fattribute_5f_5f',['__attribute__',['../read_8c.html#aeb0fee7e25692380f5346f304f4b6e5a',1,'__attribute__((weak)):&#160;read.c'],['../write_8c.html#aeb0fee7e25692380f5346f304f4b6e5a',1,'__attribute__((weak)):&#160;write.c']]],
+  ['_5f_5flibc_5finit_5farray',['__libc_init_array',['../startup__samb11_8c.html#a5f388c8556f7cb6a84b5692db6b6ad80',1,'startup_samb11.c']]],
   ['_5fclose',['_close',['../utils__syscalls_8c.html#a5aab5e2acfd600e3667dc915a2bbc7cb',1,'utils_syscalls.c']]],
   ['_5fexit',['_exit',['../utils__syscalls_8c.html#abc96bd69b58b2deaddb484478d911c1b',1,'utils_syscalls.c']]],
   ['_5fext_5firq_5fdeinit',['_ext_irq_deinit',['../group___h_p_l.html#gad29f685cb658b260303c55fb7a88cdb0',1,'hpl_ext_irq.h']]],
@@ -75,5 +77,7 @@ var searchData=
   ['_5fusart_5fsync_5fset_5fmode',['_usart_sync_set_mode',['../group___h_p_l.html#ga2dd82ebe0069e4c61fda94ac0dda1a63',1,'_usart_sync_set_mode(struct _usart_sync_device *const device, const enum usart_mode mode):&#160;hpl_uart.c'],['../group___h_p_l.html#ga2dd82ebe0069e4c61fda94ac0dda1a63',1,'_usart_sync_set_mode(struct _usart_sync_device *const device, const enum usart_mode mode):&#160;hpl_uart.c']]],
   ['_5fusart_5fsync_5fset_5fparity',['_usart_sync_set_parity',['../group___h_p_l.html#gaee0a2babdf7b777fa4754028c92fc2e8',1,'_usart_sync_set_parity(struct _usart_sync_device *const device, const enum usart_parity parity):&#160;hpl_uart.c'],['../group___h_p_l.html#gaee0a2babdf7b777fa4754028c92fc2e8',1,'_usart_sync_set_parity(struct _usart_sync_device *const device, const enum usart_parity parity):&#160;hpl_uart.c']]],
   ['_5fusart_5fsync_5fset_5fstop_5fbits',['_usart_sync_set_stop_bits',['../group___h_p_l.html#ga93c7de4ab355c189e306288d21642ff3',1,'_usart_sync_set_stop_bits(struct _usart_sync_device *const device, const enum usart_stop_bits stop_bits):&#160;hpl_uart.c'],['../group___h_p_l.html#ga93c7de4ab355c189e306288d21642ff3',1,'_usart_sync_set_stop_bits(struct _usart_sync_device *const device, const enum usart_stop_bits stop_bits):&#160;hpl_uart.c']]],
-  ['_5fusart_5fsync_5fwrite_5fbyte',['_usart_sync_write_byte',['../group___h_p_l.html#ga6f9cc0e2020d49845bef97301bc692e0',1,'_usart_sync_write_byte(struct _usart_sync_device *const device, uint8_t data):&#160;hpl_uart.c'],['../group___h_p_l.html#ga6f9cc0e2020d49845bef97301bc692e0',1,'_usart_sync_write_byte(struct _usart_sync_device *const device, uint8_t data):&#160;hpl_uart.c']]]
+  ['_5fusart_5fsync_5fwrite_5fbyte',['_usart_sync_write_byte',['../group___h_p_l.html#ga6f9cc0e2020d49845bef97301bc692e0',1,'_usart_sync_write_byte(struct _usart_sync_device *const device, uint8_t data):&#160;hpl_uart.c'],['../group___h_p_l.html#ga6f9cc0e2020d49845bef97301bc692e0',1,'_usart_sync_write_byte(struct _usart_sync_device *const device, uint8_t data):&#160;hpl_uart.c']]],
+  ['_5fverify_5fchecksum',['_verify_checksum',['../networkdevice_8c.html#aa05acb053c519e7e8248f8691e556dbc',1,'networkdevice.c']]],
+  ['_5fxbee_5fsendframe',['_xbee_sendFrame',['../networkdevice_8c.html#ae85cca4773b57a0ce88146dd5d8d349b',1,'networkdevice.c']]]
 ];

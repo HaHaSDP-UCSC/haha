@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['clock_5ffrequence',['clock_frequence',['../structuart__config.html#a07d92658a8aea18961c39878c11fa689',1,'uart_config']]]
+  ['alarmstatus',['alarmstatus',['../alarm_8c.html#af1ad5a639328d70ea194c2e009ca6716',1,'alarm.c']]],
+  ['appentrybreakpointid',['appEntryBreakPointId',['../namespacedebughooks.html#af0787e398633654faa72900223e5dd40',1,'debughooks']]]
 ];
