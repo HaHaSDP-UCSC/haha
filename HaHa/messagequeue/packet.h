@@ -56,22 +56,7 @@ typedef struct {
 
 
 /* Handling received packets */
-bool pingHandler(Packet p);
-
-bool helpRequestHandler(Packet p);
-bool helpResponseHandler(Packet p);
-bool helpFromAnyoneRequestHandler(Packet p);
-bool helpFromAnyoneResponseHandler(Packet p);
-
-bool findHopsRequestHandler(Packet p);
-bool findHopsResponseHandler(Packet p);
-
-bool findNeighborsRequestHandler(Packet p);
-bool findNeighborsResponseHandler(Packet p);
-
-bool friendRequestHandler(Packet p);
-bool friendResponseHandler(Packet p);
-bool unfriendRequestHandler(Packet p);
+//Moved to network.h 
 
 /* Handles sending packets */
 //TODO add.

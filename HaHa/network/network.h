@@ -50,8 +50,6 @@ bool networkStatus(); //TODO flesh out.
 void app_packet_handler(char* data, uint8_t id);
 
 /* Op Code Handlers */
-//TODO @brian are these different from packet.h handlers?
-/**
 void ping_request_handler();
 void help_request_handler();
 void help_response_handler();
@@ -64,6 +62,5 @@ void find_neighbors_response_handler();
 void friend_request_handler();
 void friend_response_handler();
 void unfriend_request_handler();
-*/
 
 #endif /* NETWORK_H_ */
