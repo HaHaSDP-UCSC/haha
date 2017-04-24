@@ -1,29 +1,9 @@
-///* Definitions of network types */
-//#ifndef _HA_NETDEFS
-//#define _HA_NETDEFS
-//
-////#include "devtools.h"
-//#include "flags.h"
-//
-///* BASE COMMUNICATION */
-//typedef char* opcode;
-//
-///* Application Packets */
-//typedef struct {
-	////Packet params here
-	//opcode opcode;
-	//flags flags;
-	//char* src;
-	//char* dst;
-	//char* data;
-//} Packet;
-//
-//#endif
-
-//TODO @brian, new network.h
-/* Definition of different network layers. Network data should be passed up
- * through this.
- */
+/*
+ * @file network.h
+ * @brief Definition of different network layers. Net data passed through this.
+ * @author Kevin Lee, Brian Nichols
+ * @date 4/8/2017 4:37:47 PM
+ */ 
 
 #ifndef _HA_NETWORK
 #define _HA_NETWORK
@@ -43,7 +23,7 @@ typedef struct {
 } Network;
 
 unsigned int netIDLast;
-Network NET_ARRAY[MAX_NET_ARRAY];
+Network NET_ARRAY[MAX_NET_ARRAY]; //TODO @brian@kevin what is this for?
 
 bool networkStatus(); //TODO flesh out.
 

@@ -1,8 +1,8 @@
 /*
- * network.c
- *
- * Created: 4/23/2017 7:07:33 PM
- *  Author: Brian
+ * @file network.c
+ * @brief Definition of different network layers. Net data passed through this.
+ * @author Brian Nichols
+ * @date 4/23/2017 4:37:47 PM
  */ 
 #include "network.h"
 #include "networkdevice/networkdevice.h"
