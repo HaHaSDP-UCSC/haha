@@ -8,6 +8,8 @@
 #include "utils/hahaUtils.h"
 #include <stdio_start.h>
 #include <ctype.h>
+#include <stdint.h>
+#include <inttypes.h>
 
 /* Delay in ms */
 void delay(uint32_t ms)
@@ -24,6 +26,21 @@ void printBuff(char* data, uint8_t len, char* specifier){
         printf(specifier, data[i]);
     }
  }
+ 
+uint64_t byte_array_to_64(uint8_t* s){
+    printBuff(s, 8, "0x%x ");
+    uint64_t ret = 0;
+    for(int i=0; i<8; ++i){
+        ret <<= 8;
+        ret += s[i];
+    }
+    printf("low: %d 0x%08x\n", 5, ret);
+    printf("hi: %d 0x%08x\n", 5, ret>>32);
+    printf("\nreturning: %d 0x%08x%08x\n",5, ret, ret);
+    printf("\nreturning: %d 0x%08x%08x\n", ret, ret);
+    printf("\nreturning: %d 0x%08x%08x\n",5, ret, ret);
+    return ret;
+}
 
  /* Takes two char and converts to Hex */
  uint8_t asciihex_to_byte(uint8_t d1, uint8_t d2){

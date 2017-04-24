@@ -13,7 +13,7 @@
 #define _HA_BASECOMM
 
 #include "utils/hahaUtils.h"
-#include "packet.h"
+#include "network/packet.h"
 #include "networkdevice/networkdevice.h"
 #include "network/network.h"
 #include <string.h>

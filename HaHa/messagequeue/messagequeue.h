@@ -20,7 +20,7 @@ typedef struct {
 	uint16_t port; //Network port.
 	int expiration; //Expiration time.
 	opcode opcode; //Expected Packet Response.
-	} Message;
+} Message;
 
 Message messageQueue[MAXQUEUESIZE];
 

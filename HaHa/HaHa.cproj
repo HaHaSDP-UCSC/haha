@@ -458,16 +458,10 @@
     <Compile Include="messagequeue\basecomm.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="messagequeue\flags.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="messagequeue\messagequeue.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="messagequeue\messagequeue.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="messagequeue\packet.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="neighbor\neighborlist.c">
@@ -477,6 +471,15 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="network\flags.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="network\network.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="network\packet.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="network\packet.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="sound\sound.c">

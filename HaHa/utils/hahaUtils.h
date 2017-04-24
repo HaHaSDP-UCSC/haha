@@ -109,4 +109,6 @@ void printBuff(char* data, uint8_t len, char* specifier);
  */
 uint8_t asciihex_to_byte(uint8_t d1, uint8_t d2);
 
+uint64_t byte_array_to_64(uint8_t* s);
+
 #endif

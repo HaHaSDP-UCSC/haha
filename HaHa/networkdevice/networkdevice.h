@@ -13,7 +13,7 @@
  */ 
 
 //#include "network/network.h"
-#include "messagequeue/packet.h"
+#include "network/packet.h"
 #include <stdio.h>
 
 /**
@@ -44,13 +44,7 @@ uint8_t xbee_setAPI(uint8_t type);
  *
  * @return     { Network address high bytes }
  */
-uint8_t xbee_getOwnNetHigh();
-/**
- * @brief      { Network address low bytes}
- *
- * @return     { Network address low bytes }
- */
-uint8_t xbee_getOwnNetLow();
+uint8_t xbee_getOwnNet();
 
 /**
  * @brief      { Send a packet to another XBee node }
@@ -61,7 +55,19 @@ uint8_t xbee_getOwnNetLow();
  *
  * @return     { returns 0 if sucessful }
  */
-uint8_t xbee_send(char* dst, char* data, uint8_t len);
+uint8_t xbee_send_(uint64_t dst, char* data, uint8_t len);
+
+/**
+ * @brief      { Send a packet to another XBee node }
+ *
+ * @param      dst   The destination
+ * @param      data  The data
+ * @param[in]  len   The length
+ *
+ * @return     { returns 0 if sucessful }
+ */
+uint8_t xbee_send_hex(char* dst, char* data, uint8_t len);
+
 /**
  * @brief      { Receives UART data and parses into frame packets}
  *
@@ -133,7 +139,7 @@ typedef enum {
 /**
  * { Xbee callback function type }
  */
-typedef void (*xbee_cb_t)(char *, uint8_t);
+typedef void (*xbee_cb_t)(char *data, uint16_t len, char* src, uint8_t id);
 /**
  * @brief      { Register the function to send received payload }
  *

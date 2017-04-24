@@ -9,7 +9,7 @@
 #define NEIGHBORLIST_H_
 
 #include "utils/hahaUtils.h"
-#include "messagequeue/packet.h"
+#include "network/packet.h"
 
 #define NEIGHBORLISTSIZE 256 //TODO make this an option, also smaller.
 

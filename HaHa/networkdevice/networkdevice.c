@@ -30,9 +30,13 @@ frameIncoming recvBuff[2];
 frameTX txData;
 frameRX rxData;
 uint8_t RXBUFF_CUR = 0;
+uint8_t rxID;
+uint8_t txID;
 
 
 void xbee_init(){
+    rxID = 0;
+    txID = 1;
     //_rxFrame_clear(&recvBuff[0]);
     //_rxFrame_clear(&recvBuff[1]);
 }
@@ -89,9 +93,24 @@ uint8_t calc_checksum(char *data, uint8_t len){
 }
 
 /* Exposed send function */
-uint8_t xbee_send(char* dst, char* data, uint8_t datalen)
-{
+uint8_t xbee_send(uint64_t dst, char* data, uint8_t datalen){
     HAHADEBUG("In xbee_send\n");
+    txData.dst[0] = (dst >> 56) & 0xFF;
+    txData.dst[1] = (dst >> 48) & 0xFF;
+    txData.dst[2] = (dst >> 40) & 0xFF;
+    txData.dst[3] = (dst >> 32) & 0xFF;
+    txData.dst[4] = (dst >> 24) & 0xFF;
+    txData.dst[5] = (dst >> 16) & 0xFF;
+    txData.dst[6] = (dst >> 8) & 0xFF;
+    txData.dst[7] = dst & 0xFF;
+    printf("Sending to:");
+    printBuff(txData.dst, 8, "0x%x ");
+    _xbee_send(data, datalen);
+}
+
+uint8_t xbee_send_hex(char* dst, char* data, uint8_t datalen)
+{
+    HAHADEBUG("In xbee_send_hex\n");
     uint8_t len2 = 0, len = strlen(dst);
     if(len != 16) return -1; //error
 
@@ -112,7 +131,7 @@ uint8_t _xbee_send(char* data, uint8_t len)
     HAHADEBUG("in _xbee_send\n");
     //Generate the frame packet
     txData.frametype = 0x10;
-    txData.frameid = 0x55; //TODO:Generate if want tracking
+    txData.frameid = txID++;
 
     //Reserved: FF FE
     txData.res[0] = 0xFF;
@@ -165,7 +184,7 @@ void _xbee_sendFrame(frameTX *tx){
 
     /* Gotta split the 16bit int into two 8bits */
     uint8_t len_msb = ((datalen >> 8) & 0xFF);
-    uint8_t len_lsb = ((datalen >> 0) & 0xFF);
+    uint8_t len_lsb = datalen; //((datalen >> 0) & 0xFF);
     
     /*Send out the UART */
     uart_write(&startdelim, 1);
@@ -344,7 +363,8 @@ static void _packet_Handler(frameIncoming *f){
                     ;
                     frameRX *p = &rxData;
                     _parseRX(f, p);
-                    (p->callback)(p->data,p->payload_length);
+                    uint64_t src = byte_array_to_64(p->src);
+                    (p->callback)(p->data, p->payload_length, src, rxID++);
                     break;
         default:
                     printf("Got to default\n");

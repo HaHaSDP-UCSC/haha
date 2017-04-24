@@ -29,7 +29,8 @@
 #define _HA_NETWORK
 
 #include "utils/hahaUtils.h"
-#include "messagequeue/packet.h"
+#include "packet.h"
+
 #define netaddr char *//TODO @brian define better to comply with xbee
 #define MAX_NET_ARRAY 10
 typedef struct {
@@ -46,21 +47,6 @@ Network NET_ARRAY[MAX_NET_ARRAY];
 
 bool networkStatus(); //TODO flesh out.
 
-/* Function that will be registered with net drive as callback */
-void app_packet_handler(char* data, uint8_t id);
-
-/* Op Code Handlers */
-void ping_request_handler();
-void help_request_handler();
-void help_response_handler();
-void help_request_anyone_handler();
-void help_response_anyone_handler();
-void find_hops_request_handler();
-void find_hops_response_handler();
-void find_neighbors_request_handler();
-void find_neighbors_response_handler();
-void friend_request_handler();
-void friend_response_handler();
-void unfriend_request_handler();
+void network_init();
 
 #endif /* NETWORK_H_ */

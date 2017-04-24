@@ -9,7 +9,7 @@
 #define FRIENDLIST_H_
 
 #include "utils/hahaUtils.h"
-#include "messagequeue/packet.h"
+#include "network/packet.h"
 #include "network/network.h"
 
 #define FRIENDLISTSIZE 10 //TODO make this an option and smaller.
