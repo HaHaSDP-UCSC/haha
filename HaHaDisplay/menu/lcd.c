@@ -11,31 +11,36 @@
 #include "lcd.h"
 
 void lcd_init(void) {
+	// Lines with "CrystalFontz" were added by that datasheet and not part of the Hitachi spec
 	gpio_set_pin_level(DISP_E, false);
 	// Function set
+	lcd_pin_cmd(0, 0, 0, 1, 1); // Crystalfontz
+	// Function set
 	lcd_pin_cmd(0, 0, 0, 1, 0);
-	//delay(10);
+	lcd_pin_cmd(0, DISP_CONF_N, DISP_CONF_F, -1, -1); // Crystalfontz
 	// Function set
 	lcd_pin_cmd(0, 0, 0, 1, 0);
 	lcd_pin_cmd(0, DISP_CONF_N, DISP_CONF_F, -1, -1);
-	//delay(10);
 	// Display ON/OFF control
 	lcd_pin_cmd(0, 0, 0, 0, 0);
 	lcd_pin_cmd(0, 1, DISP_CONF_D, DISP_CONF_C, DISP_CONF_B);
-	//delay(10);
+	
+	lcd_clear();
+}
+
+void lcd_clear() {
 	// Display clear
 	lcd_pin_cmd(0, 0, 0, 0, 0);
 	lcd_pin_cmd(0, 0, 0, 0, 1);
-	//delay(10);
+	delay(2); // Crystalfontz requires 1.52ms wait
 	// Entry mode set
 	lcd_pin_cmd(0, 0, 0, 0, 0);
 	lcd_pin_cmd(0, 0, 1, DISP_CONF_I_D, DISP_CONF_S);
-	//delay(10);
 }
 
 void lcd_pin_write(void) {
 	gpio_set_pin_level(DISP_E, true);
-	delay(100);
+	delay(1);
 	gpio_set_pin_level(DISP_E, false);
 }
 

@@ -18,9 +18,6 @@ int main(void)
 		lcd_write_char(hello[i]);
 	}
 	
-	//lcd_write_char('h');
-	//lcd_write_char('e');
-	printf("test");
 	while (1) {
 		
 	}
