@@ -6,19 +6,18 @@ int main(void)
 	atmel_start_init();
 
 	/* Replace with your application code */
-	lcd_init();
-	/*
-	for(int i = 0; i < 10; i++) {
-		delay(1000);
-		printf("%d\n", i);
-	}
-	*/
-	char* hello = "Hello world!";
-	for(int i = 0; i < strlen(hello); i++) {
-		lcd_write_char(hello[i]);
-	}
+	_lcd_init();
 	
+	bool hello = true;
+	char* string;
 	while (1) {
-		
+		if(hello) string = "Hello, world!";
+		else string = "HA-HA Button SDP Project @UCSC";
+		for(int i = 0; i < strlen(string); i++) {
+			_lcd_write_char(string[i]);
+		}
+		delay(5000);
+		_lcd_clear();
+		hello = !hello;
 	}
 }

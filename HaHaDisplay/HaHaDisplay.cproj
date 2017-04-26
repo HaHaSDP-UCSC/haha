@@ -532,10 +532,10 @@
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="menu\lcd.c">
+    <Compile Include="lcd\lcddevice.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="menu\lcd.h">
+    <Compile Include="lcd\lcddevice.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="stdio_redirect\gcc\read.c">
@@ -576,7 +576,7 @@
     <Folder Include="hpl\lpmcu_misc_regs\" />
     <Folder Include="hpl\uart\" />
     <Folder Include="hri\" />
-    <Folder Include="menu" />
+    <Folder Include="lcd" />
     <Folder Include="docs" />
     <Folder Include="stdio_redirect\" />
     <Folder Include="stdio_redirect\gcc\" />

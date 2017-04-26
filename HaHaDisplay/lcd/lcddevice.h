@@ -1,13 +1,13 @@
 /**
- * @file lcd.h
+ * @file lcddevice.h
  * @brief LCD display
  * @author August Valera (avalera)
  * @version
  * @date 2017-04-20
  */
 
-#ifndef _HA_LCD_H_
-#define _HA_LCD_H_
+#ifndef _HA_LCDDEVICE_H_
+#define _HA_LCDDEVICE_H_
 
 #define DISP_CONF_N 0 // Line number (0: 1 line display, 1: 2 line display)
 #define DISP_CONF_F 0 // Font type (0: 5x8 dots, 1: 5x11 dots)
@@ -23,13 +23,15 @@
 /**
  * @brief initializes the LCD display
  */
-void lcd_init(void);
+void _lcd_init(void);
 
+
+void _lcd_clear();
 
 /**
  * @brief toggles LCD E pin to write current register contents to LCD
  */
-void lcd_pin_write(void);
+void _lcd_pin_write(void);
 
 
 /**
@@ -41,7 +43,7 @@ void lcd_pin_write(void);
  * @param B5 register
  * @param B4 register
  */
-void lcd_pin_cmd(int RS, int B7, int B6, int B5, int B4);
+void _lcd_pin_set(int RS, int B7, int B6, int B5, int B4);
 
 
 /**
@@ -49,6 +51,6 @@ void lcd_pin_cmd(int RS, int B7, int B6, int B5, int B4);
  *
  * @param c character
  */
-void lcd_write_char(char c);
+void _lcd_write_char(char c);
 
-#endif /* _HA_LCD_H_ */
+#endif /* _HA_LCDDEVICE_H_ */
