@@ -75,7 +75,7 @@ bool recvPacket(Packet *p, Network *netsrc) {
 	convertFromDataToPacket(p, (unsigned char *) buffer, receivelen);
 	return true;
 	*/
-	//TODO @MESSAGEQ send to message queue.
+	//TODO @brian send to message queue.
 	return false;
 }
 
@@ -341,7 +341,7 @@ int convertFromPacketToData(Packet *p, unsigned char *data) {
 			fields.ttl = true; //Add TTL to packet.
 			success = formPacketToData(p, data, &offset, fields);
 		} else {
-			fields.srcuid = true; //Addd SRCUID to packet.
+			fields.srcuid = true; //Add SRCUID to packet.
 			fields.destuid = true; //Add DESTUID to packet.
 			success = formPacketToData(p, data, &offset, fields);
 		}
