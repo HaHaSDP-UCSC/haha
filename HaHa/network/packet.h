@@ -41,8 +41,6 @@ typedef enum {
 	UNFRIEND_REQUEST
 } Op;
 
-
-
 typedef struct {
 	//Packet params here
     uint8_t id;
@@ -51,15 +49,15 @@ typedef struct {
 	uid SRCUID;
 	uid DESTUID;
 	uid ORIGINUID;
-	char SRCFIRSTNAME[MAXFIRSTNAME]; //TODO optimize for space.
-	char SRCLASTNAME[MAXFIRSTNAME]; //TODO optimize for space.
-	char SRCPHONE[MAXPHONE]; //TODO optimize for space.
-	char SRCHOMEADDR[MAXHOMEADDR]; //TODO optimize for space.
+	char SRCFIRSTNAME[MAXFIRSTNAME];
+	char SRCLASTNAME[MAXFIRSTNAME];
+	char SRCPHONE[MAXPHONE];
+	char SRCHOMEADDR[MAXHOMEADDR];
 	ttl ttl;
 } Packet;
 
 /* Handling received packets */
-void app_packet_handler(char* data, uint16_t len, uint64_t src, uint8_t id);
+void app_packet_handler(char* data, uint16_t len, uint8_t* src, uint8_t id);
 
 /* Op Code Handlers */
 typedef void (*opcode_handler_fn_t)(char *data, uint8_t len);
@@ -72,23 +70,8 @@ opcode_parser_fn_t haha_packet_parsers[12];
  * @param[in]  t     { Function to call for opcode }
  */
 void register_opcode_handler_function(opcode_handler_fn_t t, Op opcode);
-//void register_opcode_parser_function(opcode_parser_fn_t t, Op opcode);
 //Call from network_init()
 void opcodes_init();
-
-/* Parses packets after app_packet_handler() recvs and parses opcode */
-//void ping_request_parse(char* data, uint16_t len, uint64_t src, uint8_t id);
-//void help_request_parse(char* data, uint16_t len, uint8_t id);
-//void help_response_parse(char* data, uint16_t len, uint8_t id);
-//void help_request_anyone_parse(char* data, uint16_t len, uint8_t id);
-//void help_response_anyone_parse(char* data, uint16_t len, uint8_t id);
-//void find_hops_request_parse(char* data, uint16_t len, uint8_t id);
-//void find_hops_response_parse(char* data, uint16_t len, uint8_t id);
-//void find_neighbors_request_parse(char* data, uint16_t len, uint8_t id);
-//void find_neighbors_response_parse(char* data, uint16_t len, uint8_t id);
-//void friend_request_parse(char* data, uint16_t len, uint8_t id);
-//void friend_response_parse(char* data, uint16_t len, uint8_t id);
-//void unfriend_request_parse(char* data, uint16_t len, uint8_t id);
 
 /* Handle the packets */
 void ping_request_handler(Packet *p);

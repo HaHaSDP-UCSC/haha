@@ -21,19 +21,7 @@ void opcodes_init(){
 	//haha_packet_handlers[FRIEND_REQUEST] = friend_request_handler;
 	//haha_packet_handlers[FRIEND_RESPONSE] = friend_response_handler;
 	//haha_packet_handlers[UNFRIEND_REQUEST] = unfriend_request_handler;
-    
-    haha_packet_parsers[PING_REQUEST] = ping_request_parse;
-    //haha_packet_parsers[HELP_REQUEST] = help_request_handler;
-    //haha_packet_parsers[HELP_RESPONSE] = help_response_handler;
-    //haha_packet_parsers[HELP_FROM_ANYONE_REQUEST] = help_request_anyone_handler;
-    //haha_packet_parsers[HELP_FROM_ANYONE_RESPONSE] = help_response_anyone_handler;
-    //haha_packet_parsers[FIND_HOPS_REQUEST] = find_hops_request_handler;
-    //haha_packet_parsers[FIND_HOPS_RESPONSE] = find_hops_response_handler;
-    //haha_packet_parsers[FIND_NEIGHBORS_REQUEST] = find_neighbors_request_handler;
-    //haha_packet_parsers[FIND_NEIGHBORS_RESPONSE] = find_neighbors_response_handler;
-    //haha_packet_parsers[FRIEND_REQUEST] = friend_request_handler;
-    //haha_packet_parsers[FRIEND_RESPONSE] = friend_response_handler;
-    //haha_packet_parsers[UNFRIEND_REQUEST] = unfriend_request_handler;
+
 }    
 
 void app_packet_handler(char* data, uint16_t len, uint8_t* src, uint8_t id){
@@ -81,21 +69,6 @@ void register_opcode_parser_function(opcode_parser_fn_t t, Op opcode){
     haha_packet_parsers[opcode] = t;
 }
 
-void ping_request_parse(char* data, uint16_t len, uint64_t src, uint8_t id){
-    printf("ping received from %x", src);
-}
-void help_request_parse(char* data, uint16_t len, uint8_t id);
-void help_response_parse(char* data, uint16_t len, uint8_t id);
-void help_request_anyone_parse(char* data, uint16_t len, uint8_t id);
-void help_response_anyone_parse(char* data, uint16_t len, uint8_t id);
-void find_hops_request_parse(char* data, uint16_t len, uint8_t id);
-void find_hops_response_parse(char* data, uint16_t len, uint8_t id);
-void find_neighbors_request_parse(char* data, uint16_t len, uint8_t id);
-void find_neighbors_response_parse(char* data, uint16_t len, uint8_t id);
-void friend_request_parse(char* data, uint16_t len, uint8_t id);
-void friend_response_parse(char* data, uint16_t len, uint8_t id);
-void unfriend_request_parse(char* data, uint16_t len, uint8_t id);
-    
 void ping_request_handler(Packet *p){
        
 }   

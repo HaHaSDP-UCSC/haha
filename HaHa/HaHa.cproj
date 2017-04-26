@@ -404,12 +404,6 @@
     <OutputPath>bin\Assembly\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="alarm\alarm.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="alarm\alarm.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="atmel_start.c">
       <SubType>compile</SubType>
     </Compile>
@@ -440,22 +434,22 @@
     <Compile Include="Device_Startup\system_samb11.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="friend\friendlist.c">
+    <Compile Include="lightsound\alarm\alarm.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="friend\friendlist.h">
+    <Compile Include="lightsound\alarm\alarm.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="lighting\lighting.c">
+    <Compile Include="lightsound\lighting\lighting.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="lighting\lighting.h">
+    <Compile Include="lightsound\lighting\lighting.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="messagequeue\basecomm.c">
+    <Compile Include="lightsound\sound\sound.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="messagequeue\basecomm.h">
+    <Compile Include="lightsound\sound\sound.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="messagequeue\messagequeue.c">
@@ -464,10 +458,22 @@
     <Compile Include="messagequeue\messagequeue.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="neighbor\friendlist.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="neighbor\friendlist.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="neighbor\neighborlist.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="neighbor\neighborlist.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="network\basecomm.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="network\basecomm.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="network\flags.h">
@@ -480,12 +486,6 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="network\packet.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="sound\sound.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="sound\sound.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="utils\hahaUtils.c">
@@ -724,16 +724,16 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="alarm\" />
     <Folder Include="Config\" />
     <Folder Include="Device_Startup\" />
     <Folder Include="button" />
     <Folder Include="doc" />
-    <Folder Include="friend\" />
-    <Folder Include="lighting\" />
+    <Folder Include="lightsound\alarm\" />
+    <Folder Include="lightsound\lighting\" />
+    <Folder Include="lightsound\sound\" />
     <Folder Include="messagequeue\" />
     <Folder Include="neighbor\" />
-    <Folder Include="sound\" />
+    <Folder Include="lightsound" />
     <Folder Include="utils" />
     <Folder Include="examples\" />
     <Folder Include="network" />

@@ -9,7 +9,7 @@
 #define MESSAGEQUEUE_H_
 
 #include "utils/hahaUtils.h"
-#include "friend/friendlist.h"
+#include "neighbor/friendlist.h"
 #include "neighbor/neighborlist.h"
 
 #define MAXQUEUESIZE 256
