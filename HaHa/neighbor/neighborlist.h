@@ -9,11 +9,12 @@
 #define NEIGHBORLIST_H_
 
 #include "utils/hahaUtils.h"
-#include "network/packet.h"
+#include "network/network.h"
+
 
 #define NEIGHBORLISTSIZE 256 //TODO make this an option, also smaller.
 
-typedef struct {
+typedef struct Neighbor {
 	unsigned char networkaddr[MAXNETADDR]; //Network Address.
 	uint16_t port; //Network port.
 	int lastresponse; //32-bit offset from boot timer.
@@ -31,5 +32,6 @@ bool readFromNeighborListStorage();  //TODO internal, may not be necessary.
 bool updateNeighborList(); /* Updates the list. */
 bool addNeighbor(); //Add neighbor if they respond to neighbor request.
 bool removeNeighbor(); //Remove based on last response.
+bool checkForNeighbor(); //Checks for specified neighbor.
 
 #endif /* NEIGHBORLIST_H_ */

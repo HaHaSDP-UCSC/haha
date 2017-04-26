@@ -14,7 +14,7 @@
 
 #define MAXQUEUESIZE 256
 
-typedef struct {
+typedef struct Message {
 	uint8_t id; //Internal Friend ID, if this is a friend.
 	unsigned char networkAddr[MAXNETADDR];  //Network Address.
 	uint16_t port; //Network port.
@@ -28,7 +28,7 @@ int queueTime = 0;
 
 bool initMessageQueue(); //Initializes the message queue.
 bool addToQueue(Message mes); //Add message to queue.
-bool removeFromQueue(Message mes); //Delete message from queue.
+bool removeFromQueue(int queuenumber); //Delete message from queue.
 bool checkQueue(); /* Checks queue for a message match. */
 bool flushOldMessages(); /* Checks for old messages to be deleted. */
 
