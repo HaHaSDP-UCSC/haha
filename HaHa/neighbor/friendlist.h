@@ -21,7 +21,7 @@ typedef struct {
 	char lastname[MAXLASTNAME]; //Last Name
 	unsigned char networkaddr[MAXNETADDR]; //Network Address.
 	uint16_t port; //Network port.
-	int lastresponse; //32-bit offset from boot timer.
+	uint32_t lastresponse; //32-bit offset from boot timer.
 	uint16_t responseflag; //16 Available flags for expected responses. //TODO includes if registered friend.
 } Friend;
 

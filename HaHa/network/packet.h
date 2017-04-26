@@ -49,10 +49,10 @@ typedef struct {
 	uid SRCUID;
 	uid DESTUID;
 	uid ORIGINUID;
-	char SRCFIRSTNAME[MAXFIRSTNAME]; //TODO optimize for space.
-	char SRCLASTNAME[MAXFIRSTNAME]; //TODO optimize for space.
-	char SRCPHONE[MAXPHONE]; //TODO optimize for space.
-	char SRCHOMEADDR[MAXHOMEADDR]; //TODO optimize for space.
+	char SRCFIRSTNAME[MAXFIRSTNAME];
+	char SRCLASTNAME[MAXFIRSTNAME];
+	char SRCPHONE[MAXPHONE];
+	char SRCHOMEADDR[MAXHOMEADDR];
 	ttl ttl;
 } Packet;
 
