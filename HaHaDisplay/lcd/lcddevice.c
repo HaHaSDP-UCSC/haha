@@ -70,10 +70,11 @@ void _lcd_write_string(char* str) {
     _lcd_write_char(str[i]);
 }
 
-void _lcd_write_buffer(char** buf) {
+void _lcd_update(char** buf) {
   _lcd_clear();
-  _lcd_write_str(buf[0]);
-  _lcd_write_str(buf[2]);
-  _lcd_write_str(buf[1]);
-  _lcd_write_str(buf[3]);
+  _lcd_write_string(buf[0]);
+  _lcd_write_string(buf[2]);
+  _lcd_line_next();
+  _lcd_write_string(buf[1]);
+  _lcd_write_string(buf[3]);
 }

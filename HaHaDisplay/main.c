@@ -6,7 +6,7 @@ int main(void)
 	atmel_start_init();
 
 	/* Replace with your application code */
-	_lcd_init();
+	lcd_init();
 	
 	bool hello = true;
 	char* string;

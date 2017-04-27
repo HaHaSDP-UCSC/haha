@@ -78,6 +78,6 @@ void _lcd_write_string(char* str);
  *
  * @param buf buffer
  */
-void _lcd_write_buffer(char** buf);
+void _lcd_update(char** buf);
 
 #endif /* _HA_LCDDEVICE_H_ */

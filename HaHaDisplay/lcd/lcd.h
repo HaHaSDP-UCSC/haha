@@ -10,5 +10,8 @@
 #ifndef _HA_LCD_H_
 #define _HA_LCD_H_
 
+#include "lcddevice.h"
+
+char lcd_buffer[LCD_COLS][LCD_ROWS];
 
 #endif /* _HA_LCD_H_ */
