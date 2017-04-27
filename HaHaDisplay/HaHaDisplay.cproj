@@ -529,6 +529,12 @@
     <Compile Include="hri\hri_wdt_b11.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="lcd\lcd.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lcd\lcd.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
