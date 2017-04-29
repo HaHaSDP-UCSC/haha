@@ -46,16 +46,23 @@ bool sendPacket(Packet *p, Network *netdest) {
 		printe("Error converting packet.\n");
 		return false;
 	}
-
+    
+    printd("Sending to:");
+    printBuff(netdest->dest, 8, "%c");
+    if(xbee_send_hex(netdest->dest, data, datalen) <=0){
+        printe("Error sending packet.\n");
+        return false;
+    }
+    
+    return true;        
 	//TODO @brian hook xbee_sendPacket into this.
 	/**
 	if (_send_packet((char *) data, datalen, "127.0.0.1", dest) <= 0) {
-		printe("Error sending packet.\n");
-		return false;
+		
 	}
 	return true;
 	*/
-	return false; //TODO FIX
+	//return false; //TODO FIX
 }
 
 /**
@@ -458,10 +465,9 @@ int convertFromDataToPacket(Packet *p, unsigned char *data, int datalen) {
 
 	//TODO Do a check to see if this packet needs to be processed.
 	//If the packet is not expected, drop the packet.
+    //This is taken care of in app_packet_handler in network.c
 	/**
-	 * if (!isExpecting(opcode, PING_REQUEST_FLAG)) {
-	 *  //drop packet
-	 * }
+	 * 
 	 */
 	int success = 0;
 

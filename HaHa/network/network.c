@@ -6,12 +6,27 @@
  */ 
 #include "network.h"
 #include "networkdevice/networkdevice.h"
-#include "packet.h"
-#include "stdlib.h"
-#include "string.h"
+//#include "packet.h"
+//#include "stdlib.h"
+//#include "string.h"
 
 
 void network_init(){
     xbee_init();
     opcodes_init();
+}
+
+void netArrayAdd(Network* add){
+    NET_ARRAY[netIDLast] = *add;
+    netIDLast = (netIDLast + 1) % MAX_NET_ARRAY;
+}
+
+/* Return index of net array with id netID */
+uint8_t netArrayReturn(uint8_t netID){
+    for(int i=0; i<MAX_NET_ARRAY; ++i){
+        //if(NET_ARRAY[i].id == netID)
+            return i;
+    }
+    
+    return NOT_FOUND;
 }

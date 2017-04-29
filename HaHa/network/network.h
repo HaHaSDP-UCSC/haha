@@ -9,24 +9,30 @@
 #define _HA_NETWORK
 
 #include "utils/hahaUtils.h"
-#include "packet.h"
+//#include "packet.h"
 
-#define netaddr char *//TODO @brian define better to comply with xbee
+#define netaddr char*
 #define MAX_NET_ARRAY 10
+#define NOT_FOUND -1
 typedef struct {
-	//TODO @brian Network information to send/receive packet. May need more.
-	opcode opcode;
 	netaddr src;
 	netaddr dest;
 	bool broadcast;
 	uint8_t ttl;
+    char *data;
+    uint16_t len;
+    uint8_t id;
 } Network;
 
 unsigned int netIDLast;
-Network NET_ARRAY[MAX_NET_ARRAY]; //TODO @brian@kevin what is this for?
+Network NET_ARRAY[MAX_NET_ARRAY];
 
 bool networkStatus(); //TODO flesh out.
 
 void network_init();
+
+void netArrayAdd(Network* add);
+/* Return index of net array with id netID */
+uint8_t netArrayReturn(uint8_t netID);
 
 #endif /* NETWORK_H_ */

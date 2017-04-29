@@ -12,8 +12,8 @@
  *  Author: Brian
  */ 
 
-//#include "network/network.h"
-#include "network/packet.h"
+#include "network/network.h"
+//#include "network/packet.h"
 #include <stdio.h>
 
 /**
@@ -77,16 +77,11 @@ uint8_t xbee_send_hex(char* dst, char* data, uint8_t len);
  * @return     { returns 0 if packet is processed }
  */
 uint8_t xbee_recv(char* data, uint8_t len);
-/**
- * @brief      { Calculate the XBee checksum }
- *
- * @param      data  The data
- *
- * @return     { returns 0 on success }
- */
-uint8_t gen_checksum(char* data);
 
-
+uint8_t cmd_AT_set(char* cmd, uint8_t* value, uint8_t len);
+uint8_t cmd_AT_get(char* cmd);
+    
+uint8_t calc_checksum(char *data, uint16_t len);
 
 /********** FRAMES **********/
 /*
@@ -136,10 +131,12 @@ typedef enum {
     FRAME_NODE_ID = 0x95,
     FRAME_REMOTE_RESP = 0x97
 }frameResponseType;
+
 /**
  * { Xbee callback function type }
  */
-typedef void (*xbee_cb_t)(char *data, uint16_t len, char* src, uint8_t id);
+//typedef void (*xbee_cb_t)(char *data, uint16_t len, char* src, uint8_t id);
+typedef void (*xbee_cb_t)(Network* info);
 /**
  * @brief      { Register the function to send received payload }
  *
@@ -199,14 +196,6 @@ typedef struct {
     char*	data;
     uint8_t checksum;
 }frameTX;
-
-
-
-
-
-
-
-
 
 
 

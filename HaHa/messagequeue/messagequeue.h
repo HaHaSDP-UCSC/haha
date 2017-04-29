@@ -16,15 +16,16 @@
 
 typedef struct Message {
 	uint8_t id; //Internal Friend ID, if this is a friend.
-	unsigned char networkAddr[MAXNETADDR];  //Network Address.
-	uint16_t port; //Network port.
+	char networkAddr[MAXNETADDR];  //Network Address.
+	//uint16_t port; //Network port.
+    uint16_t srcid;
 	int expiration; //Expiration time.
 	opcode opcode; //Expected Packet Response.
 } Message;
 
 Message messageQueue[MAXQUEUESIZE];
 
-int queueTime = 0;
+int queueTime;
 
 bool initMessageQueue(); //Initializes the message queue.
 bool addToQueue(Message mes); //Add message to queue.

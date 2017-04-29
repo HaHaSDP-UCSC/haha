@@ -10,6 +10,7 @@
 
 #include "utils/hahaUtils.h"
 #include "network/network.h"
+#include "network/packet.h"
 
 
 #define NEIGHBORLISTSIZE 256 //TODO make this an option, also smaller.

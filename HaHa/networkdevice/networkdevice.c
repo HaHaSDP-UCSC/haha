@@ -7,6 +7,7 @@
 #include "networkdevice.h"
 #include "uart/uart.h"
 #include "utils/hahaUtils.h"
+#include "network/network.h"
 #include <string.h>
 
 
@@ -83,12 +84,48 @@ void xbee_leaveCmdMode(){
     SET_RX_CB_ON;
 }
 
-uint8_t calc_checksum(char *data, uint8_t len){
+uint8_t cmd_AT_set(char* cmd, uint8_t* value, uint8_t len){
+    uint16_t total_len = 4+len; //not including start, total, checksum
+    char data[total_len + 4]; //include start, total, checksum
+    data[0] = startdelim;
+    data[1] = (total_len >> 8) & 0xFF;
+    data[2] = total_len;
+    data[3] = FRAME_AT;
+    data[4] = txID++;
+    
+    data[5] = cmd[0];
+    data[6] = cmd[1];
+    for(int i=7; i<7+len; ++i)
+        data[i] = value[i-7];
+    data[7+len] = calc_checksum(data[3], total_len);
+    int bytes = uart_write(data, total_len + 4);
+    printf("wrote:%d bytes\n", bytes);
+    
+}
+uint8_t cmd_AT_get(char* cmd){
+    HAHADEBUG("Getting AT command:%s\n", cmd);
+    uint16_t total_len = 4; //not including start, total, checksum
+    char data[4 + total_len]; //cinldue start, total, checksum
+    data[0] = startdelim;
+    data[1] = (total_len >> 8) & 0xFF;
+    data[2] = total_len;
+    data[3] = FRAME_AT;
+    data[4] = txID++;
+    
+    data[5] = cmd[0];
+    data[6] = cmd[1];
+    data[7] = calc_checksum(data+3, total_len);
+    int bytes = uart_write(data, total_len + 4);
+    //printf("wrote:%d bytes\n", bytes);
+}
+
+uint8_t calc_checksum(char *data, uint16_t len){
     HAHADEBUG("Calculating checksum\n");
     uint16_t total = 0;
     for(int i=0; i<len; ++i){
         total+= data[i];
     }
+    HAHADEBUG("Checksum: %d - %d = %d\n", 0xFF, total, 0xFF-total);
     return 0xFF - total;
 }
 
@@ -111,8 +148,8 @@ uint8_t xbee_send(uint64_t dst, char* data, uint8_t datalen){
 uint8_t xbee_send_hex(char* dst, char* data, uint8_t datalen)
 {
     HAHADEBUG("In xbee_send_hex\n");
-    uint8_t len2 = 0, len = strlen(dst);
-    if(len != 16) return -1; //error
+    uint8_t len2 = 0, len = 16;// strlen(dst);
+    //if(len != 16) return -1; //error
 
     //Convert the destination to Hex
     len /= 2; /* each byte = 2chars */
@@ -120,7 +157,28 @@ uint8_t xbee_send_hex(char* dst, char* data, uint8_t datalen)
         txData.dst[len2] = asciihex_to_byte(dst[2*len2], dst[2*len2 + 1]);
         len2++;
     }
+    HAHADEBUG("sending to:");
+    for(int i=0; i<8; ++i)
+        HAHADEBUG("%c", txData.dst[i]);
+    _xbee_send(data, datalen);
+    return 0;
+}
 
+uint8_t xbee_send1(char* dst, char* data, uint8_t datalen)
+{
+    HAHADEBUG("In xbee_send_hex\n");
+    //uint8_t len2 = 0, len = 16;// strlen(dst);
+    //if(len != 16) return -1; //error
+
+    //Convert the destination to Hex
+    //len /= 2; /* each byte = 2chars */
+    //while(len2 < len){
+        //txData.dst[len2] = dst[] //asciihex_to_byte(dst[2*len2], dst[2*len2 + 1]);
+        //len2++;
+    //}
+    HAHADEBUG("sending to:");
+    for(int i=0; i<8; ++i)
+    HAHADEBUG("%c", txData.dst[i]);
     _xbee_send(data, datalen);
     return 0;
 }
@@ -251,6 +309,7 @@ uint8_t xbee_recv(char* data, uint8_t len){
      uint8_t count = 0;
      HAHADEBUG("\nParsing UART Data\n");
      while(count < len){
+         //if(data[count] == startdelim) state = 0;
          switch(state){
              case 0:
                      if(data[count++] == startdelim){
@@ -359,12 +418,23 @@ static void _packet_Handler(frameIncoming *f){
         case FRAME_NODE_ID:
         case FRAME_REMOTE_RESP:
                     break;
+        case FRAME_AT_RESPONSE:
+                    printf("AT CMD![");
+                    printBuff(f->data, f->data_length, "%c");
+                    printf("]\n");
+                    break;
         case FRAME_RX:
                     ;
                     frameRX *p = &rxData;
                     _parseRX(f, p);
-                    uint64_t src = byte_array_to_64(p->src);
-                    (p->callback)(p->data, p->payload_length, src, rxID++);
+                    //uint64_t src = byte_array_to_64(p->src);
+                    Network* r = malloc(sizeof(Network));
+                    r->src = p->src;
+                    r->data = p->data;
+                    r->len = p->payload_length;
+                    r->id = rxID++;
+                    (p->callback)(r);
+                    //(p->callback)(p->data, p->payload_length, p->src, rxID++);
                     break;
         default:
                     printf("Got to default\n");

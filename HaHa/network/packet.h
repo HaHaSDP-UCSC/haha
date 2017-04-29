@@ -10,6 +10,7 @@
 
 #include "flags.h"
 #include "utils/hahaUtils.h"
+#include "network.h"
 
 //typedef char *opcode;
 typedef uint8_t opcode;
@@ -20,7 +21,7 @@ typedef uint16_t uid;
 #define MAXLASTNAME 17
 #define MAXPHONE 2
 #define MAXHOMEADDR 2
-#define MAXNETADDR 4 //4 Bytes (32-bits)
+#define MAXNETADDR 8 //8 Bytes (64-bits)
 #define MAXPORT 2
 
 #define START_OPCODE 0x01
@@ -57,13 +58,14 @@ typedef struct {
 } Packet;
 
 /* Handling received packets */
-void app_packet_handler(char* data, uint16_t len, uint8_t* src, uint8_t id);
+//void app_packet_handler(char* data, uint16_t len, uint8_t* src, uint8_t id);
+void app_packet_handler(Network* info);
 
 /* Op Code Handlers */
-typedef void (*opcode_handler_fn_t)(char *data, uint8_t len);
-typedef void (*opcode_parser_fn_t)(char *data, uint16_t len, uint64_t src, uint8_t id);
+typedef void (*opcode_handler_fn_t)(Packet *p);
+//typedef void (*opcode_parser_fn_t)(char *data, uint16_t len, uint64_t src, uint8_t id);
 opcode_handler_fn_t haha_packet_handlers[12];
-opcode_parser_fn_t haha_packet_parsers[12];
+//opcode_parser_fn_t haha_packet_parsers[12];
 /**
  * @brief      { Register opcode functions }
  *

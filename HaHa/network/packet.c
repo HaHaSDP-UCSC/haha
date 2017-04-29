@@ -7,6 +7,10 @@
 
 #include "packet.h"
 #include "network.h"
+#include "flags.h"
+#include "messagequeue/messagequeue.h"
+#include "basecomm.h"
+#include <stdlib.h>
  
 void opcodes_init(){
     haha_packet_handlers[PING_REQUEST] = ping_request_handler;
@@ -24,53 +28,55 @@ void opcodes_init(){
 
 }    
 
-void app_packet_handler(char* data, uint16_t len, uint8_t* src, uint8_t id){
+//void app_packet_handler(char* data, uint16_t len, uint8_t* src, uint8_t id){
+void app_packet_handler(Network *info){
     HAHADEBUG("In app packet handler\n");
-    //Parse opcode and send to handler
-    //char ct[3];
-    //char* t;
-    //ct[0] = data[0];
-    //ct[1] = data[1];
-    //ct[2] = '\0';
-    uint8_t opcode = data[0];
+    uint8_t opcode = info->data[0];
     HAHADEBUG("Found opcode: 0x%x\n", opcode);
-    //int source = 0x0013A200414F50ea;
-    //HAHADEBUG("Source: 0x%x%x",source>>32, source);
-    //HAHADEBUG("Source: %d 0x%x%x",0,source>>32, source);
+    printf("Netstuff:");
+    printBuff(info->src, 8, "%c");
+    //For packets that need a corresponding message queue entry, check and then 
+    //drop if there isn't a corresponding event.
+    //if (!isExpecting(opcode, PING_REQUEST_FLAG)) {
+        //*  //drop packet
+    //}
     
-    HAHADEBUG("Source: %d 0x%x",0,src, src);
-    //HAHADEBUG("%d %x\n%d\n",0, src);
-    char dst[10];
-     //dst[0] = (src >> 56) & 0xFF;
-     //dst[1] = (src >> 48) & 0xFF;
-     //dst[2] = (src >> 40) & 0xFF;
-     //dst[3] = (src >> 32) & 0xFF;
-     //dst[4] = (src >> 24) & 0xFF;
-     //dst[5] = (src >> 16) & 0xFF;
-     //dst[6] = (src >> 8) & 0xFF;
-     //dst[7] = src& 0xFF;
-          //dst[0] = (src >> 0) & 0xFF;
-          //dst[1] = (src >> 8) & 0xFF;
-          //dst[2] = (src >> 16) & 0xFF;
-          //dst[3] = (src >> 24) & 0xFF;
-          //dst[4] = (src >> 32) & 0xFF;
-          //dst[5] = (src >> 48) & 0xFF;
-          //dst[6] = (src >> 56) & 0xFF;
-          //dst[7] = src& 0xFF;
-     //printBuff(dst, 8, "0x%x ");
-    haha_packet_parsers[opcode](data, len, src, id);
+    //Send to parser
+    Packet *p = malloc(sizeof(Packet));
+    assert(p != NULL);
+    int success = convertFromDataToPacket(p, info->data, info->len);
+    if(!success){
+        HAHADEBUG("Error in packet.");
+        free(p);
+        return;
+    }        
+    p->id = info->id;
+    (haha_packet_handlers[p->opcode])(p);
+    netArrayAdd(info);
 } 
 
 void register_opcode_handler_function(opcode_handler_fn_t t, Op opcode){
     haha_packet_handlers[opcode] = t;
 }
 
-void register_opcode_parser_function(opcode_parser_fn_t t, Op opcode){
-    haha_packet_parsers[opcode] = t;
-}
-
 void ping_request_handler(Packet *p){
-       
+    if(IS_ACK(p->flags)){
+        printf("IS Ping Ack");
+    }
+    else{
+        printf("Is Ping Request");
+        //Ping request network should still be in queue
+        int i = netArrayReturn(p->id);
+        if(i == NOT_FOUND){
+             HAHADEBUG("net item not found");
+             return;
+        }             
+        Network* net = &NET_ARRAY[i];
+        netaddr t = net->dest;
+        net->dest = net->src;
+        net->src = t;
+        sendPacket(p, net);
+    }        
 }   
 void help_request_handler(Packet *p);
 void help_response_handler(Packet *p);

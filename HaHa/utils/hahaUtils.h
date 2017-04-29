@@ -14,7 +14,7 @@
 
 /* Print preferences */
 /* Set to false if you want to turn it off. */
-#define COLORED    true /* Set this to false to disable terminal colors.  */
+#define COLORED    false /* Set this to false to disable terminal colors.  */
 #define DEBUGMES   true /* Set this to false to disable debug messages.   */
 #define VERBOSEMES true /* Set this to false to disable verbose messages. */
 #define ERRORMES   true /* Set this to false to disable error messages.   */

@@ -14,7 +14,7 @@
 
 #include "utils/hahaUtils.h"
 #include "network/packet.h"
-#include "networkdevice/networkdevice.h"
+//#include "networkdevice/networkdevice.h"
 #include "network/network.h"
 #include <string.h>
 

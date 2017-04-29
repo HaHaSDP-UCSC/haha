@@ -12,7 +12,7 @@
 #include <string.h>
 
 #define NUM_TX_BUFFS 2
-#define TX_BUF_LEN   16
+#define TX_BUF_LEN   100
 uint8_t txdone;
 uint8_t txBuff[NUM_TX_BUFFS];
 uint8_t rx_bytes_no_read;
@@ -27,8 +27,11 @@ static void rx_cb(const struct usart_async_descriptor *const io_descr)
 {
     /* RX completed */
     /* Make sure we never overflow */
-    if(rx_bytes_no_read++ >= USART_BUF_SIZE)
-        uart_read();
+    /* DONT USE THIS */
+    //if(rx_bytes_no_read++ >= USART_BUF_SIZE - 5){
+        //printf("NO READ!!\n");
+        //uart_read();
+    //}        
 }
 
 void uart_init_irqs(void)
@@ -100,7 +103,11 @@ uint8_t uart_read(){
         if(SEND_NETDEV){
             HAHADEBUG("Sending Received Data To Xbee Handler\n");
             //xbee_recv(uart_buffer[CURRENT_BUFFER], data_received);
+            //int tempsize = data_received;
+            //char bufft[data_received];
+            //memcpy(bufft, uart_buffer[CURRENT_BUFFER], tempsize);
             netdev_recv_callback(uart_buffer[CURRENT_BUFFER], data_received);
+            //netdev_recv_callback(bufft, tempsize);
         }
         else{
             HAHADEBUG("Sending Received Data To Printer\n");

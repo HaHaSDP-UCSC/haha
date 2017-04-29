@@ -60,7 +60,7 @@ bool addFriend(Friend friend) {
  *
  * @return     true if successful, false otherwise.
  */
-bool removeFriend(Network net) {
+bool removeFriend(Network* net) {
 	return false; //TODO Implement	
 }
 
@@ -71,6 +71,6 @@ bool removeFriend(Network net) {
  *
  * @return     true if successful, false otherwise.
  */
-bool checkForFriend(Network net) {
+bool checkForFriend(Network* net) {
 	return false; //TODO Implement	
 }
