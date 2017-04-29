@@ -13,6 +13,6 @@
 #include "lcddevice.h"
 #include "utils/hahaUtils.h"
 
-char lcd_buffer[LCD_COLS][LCD_ROWS];
+char lcd_buffer[LCD_ROWS][LCD_COLS + 1]; // Extra space for null terminator
 
 #endif /* _HA_LCD_H_ */

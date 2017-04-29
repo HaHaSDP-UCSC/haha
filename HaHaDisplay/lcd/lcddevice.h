@@ -73,13 +73,15 @@ void _lcd_write_char(char c);
  *
  * @param str string
  */
-void _lcd_write_string(char* str);
+void _lcd_write_string(char str[]);
+
+void _lcd_write_string_pad(char str[]);
 
 /**
  * @brief writes entire display buffer
  *
  * @param buf buffer
  */
-void _lcd_update(char** buf);
+void _lcd_update(char buf[][LCD_COLS + 1]);
 
 #endif /* _HA_LCDDEVICE_H_ */

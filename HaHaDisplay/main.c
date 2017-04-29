@@ -1,4 +1,5 @@
 #include <atmel_start.h>
+#include "lcd/lcd.h"
 
 int main(void)
 {
@@ -8,17 +9,16 @@ int main(void)
 	/* Replace with your application code */
 	lcd_init();
 	
-	bool hello = true;
+	lcd_clear();
+	
+	int i = 0, j = 0;
 	while (1) {
-		_lcd_clear();
-		if(hello) {
-			_lcd_write_string("Hello World!");
-			_lcd_line_next();
-			_lcd_write_string("This is a test.");
-		} else {
-			_lcd_write_string("HA-HA Button SDP Project @UCSC");
-		}
-		delay(5000);
-		hello = !hello;
+		if(i == 0 && j == 0) lcd_clear();
+		char c = j < 10 ? '0' + j : 'a' + j - 10;
+		lcd_set_char(i, j, c);
+		if((j = ++j % LCD_COLS) == 0)
+			i = ++i % LCD_ROWS;
+		lcd_update();
+		delay(300);
 	}
 }

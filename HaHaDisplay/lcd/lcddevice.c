@@ -64,16 +64,22 @@ void _lcd_write_char(char c) {
   _lcd_pin_set(1, c & (1 << 3), c & (1 << 2), c & (1 << 1), c & (1 << 0));
 }
 
-void _lcd_write_string(char* str) {
+void _lcd_write_string(char str[]) {
   for(int i = 0; i < strlen(str); i++)
     _lcd_write_char(str[i]);
 }
 
-void _lcd_update(char** buf) {
+void _lcd_write_string_pad(char str[]) {
+	_lcd_write_string(str);
+	for(int cols = strlen(str); cols < LCD_COLS; cols++) 
+		_lcd_write_char(' ');
+}
+
+void _lcd_update(char buf[][LCD_COLS + 1]) {
   _lcd_clear();
-  _lcd_write_string(buf[0]);
-  _lcd_write_string(buf[2]);
+  _lcd_write_string_pad(buf[0]);
+  _lcd_write_string_pad(buf[2]);
   _lcd_line_next();
-  _lcd_write_string(buf[1]);
-  _lcd_write_string(buf[3]);
+  _lcd_write_string_pad(buf[1]);
+  _lcd_write_string_pad(buf[3]);
 }

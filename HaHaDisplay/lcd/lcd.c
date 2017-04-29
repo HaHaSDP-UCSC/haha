@@ -10,6 +10,7 @@
 
 void lcd_init() {
 	_lcd_init();
+	lcd_clear();
 }
 
 void lcd_update() {
@@ -17,16 +18,18 @@ void lcd_update() {
 }
 
 void lcd_clear() {
-	for(int row = 0; row < LCD_ROWS; row++)
+	for(int row = 0; row < LCD_ROWS; row++) {
 		for(int col = 0; col < LCD_COLS; col++)
-			lcd_buffer[row][col] = " ";
+			lcd_buffer[row][col] = ' ';
+		lcd_buffer[row][LCD_COLS] = '\0';
+	}
 }
 
 void lcd_set_line(int row, char* str) {
 	if(row >= 0 && row < LCD_ROWS) {
-		strncpy(lcd_buffer[row][0], str, LCD_COLS);
+		strncpy(lcd_buffer[row], str, LCD_COLS);
 		for(int col = strlen(str); col < LCD_COLS; col++)
-			lcd_buffer[row][col] = " ";
+			lcd_buffer[row][col] = ' ';
 	}
 }
 
