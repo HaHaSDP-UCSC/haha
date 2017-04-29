@@ -9,17 +9,16 @@ int main(void)
 	lcd_init();
 	
 	bool hello = true;
-	char* string;
 	while (1) {
-		if(hello) string = "Hello, world!";
-		else string = "HA-HA Button SDP Project @UCSC";
-		_lcd_write_string(string);
+		_lcd_clear();
 		if(hello) {
+			_lcd_write_string("Hello World!");
 			_lcd_line_next();
 			_lcd_write_string("This is a test.");
+		} else {
+			_lcd_write_string("HA-HA Button SDP Project @UCSC");
 		}
 		delay(5000);
-		_lcd_clear();
 		hello = !hello;
 	}
 }

@@ -11,6 +11,7 @@
 #define _HA_LCD_H_
 
 #include "lcddevice.h"
+#include "utils/hahaUtils.h"
 
 char lcd_buffer[LCD_COLS][LCD_ROWS];
 

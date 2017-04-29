@@ -7,7 +7,6 @@
  */
 
 #include "atmel_start.h"
-#include "utils/hahaUtils.h"
 #include "lcddevice.h"
 
 void _lcd_init(void)
@@ -25,7 +24,7 @@ void _lcd_init(void)
   // Display ON/OFF control
   _lcd_pin_set(0, 0, 0, 0, 0);
   _lcd_pin_set(0, 1, DISP_CONF_D, DISP_CONF_C, DISP_CONF_B);
-
+  // Clear
   _lcd_clear();
 }
 

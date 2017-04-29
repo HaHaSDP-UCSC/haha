@@ -11,6 +11,7 @@
 
 #include <stdbool.h>
 #include <stdio.h>
+#include <string.h>
 
 /* Print preferences */
 /* Set to false if you want to turn it off. */
