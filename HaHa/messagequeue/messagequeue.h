@@ -14,21 +14,25 @@
 
 #define MAXQUEUESIZE 256
 
+#define DEFMESSAGETIMEOUT 300 //300 ticks, 5 minutes
+
+
 typedef struct Message {
-	uint8_t id; //Internal Friend ID, if this is a friend.
-	char networkAddr[MAXNETADDR];  //Network Address.
-	//uint16_t port; //Network port.
-    uint16_t srcid;
-	int expiration; //Expiration time.
 	opcode opcode; //Expected Packet Response.
+	uint8_t id; //Internal Friend ID, if this is a friend.
+	bool permanent; //If permanent, does not check expiration date.
+	bool broadcast; //If broadcast, does not check network address.
+	uint32_t expiration; //Expiration time.
+	char networkAddr[MAXNETADDR];  //Network Address.
+	uint16_t srcid;
 } Message;
 
 Message messageQueue[MAXQUEUESIZE];
 
-int queueTime;
+uint32_t queueTime;
 
 bool initMessageQueue(); //Initializes the message queue.
-bool addToQueue(Message mes); //Add message to queue.
+bool addToQueue(Message *mes); //Add message to queue.
 bool removeFromQueue(int queuenumber); //Delete message from queue.
 bool checkQueue(); /* Checks queue for a message match. */
 bool flushOldMessages(); /* Checks for old messages to be deleted. */
