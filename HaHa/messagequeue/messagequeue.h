@@ -27,14 +27,18 @@ typedef struct Message {
 	uint16_t srcid;
 } Message;
 
-Message messageQueue[MAXQUEUESIZE];
+typedef struct {
+	//opcode opcode;
+	char networkAddr[MAXNETADDR];
+	uint16_t srcid;
+} Event;
 
 uint32_t queueTime;
 
 bool initMessageQueue(); //Initializes the message queue.
-bool addToQueue(Message *mes); //Add message to queue.
+bool addToQueue(Packet *p, Network *net); //Add message to queue.
 bool removeFromQueue(int queuenumber); //Delete message from queue.
-bool checkQueue(); /* Checks queue for a message match. */
+int checkQueue(opcode op, Network *net, Event eventList[]); /* Checks queue for a message match. */
 bool flushOldMessages(); /* Checks for old messages to be deleted. */
 
 //Internal //TODO move this to the c file.

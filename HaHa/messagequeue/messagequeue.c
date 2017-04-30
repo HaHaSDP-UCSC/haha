@@ -12,6 +12,8 @@
 /* INTERNAL METHODS                                                     */
 /************************************************************************/
 
+Message messageQueue[MAXQUEUESIZE];
+
 /**
 * @brief      Generates a message based on friend parameters.
 *
@@ -64,6 +66,9 @@ uint32_t timeout, netaddr addr, uint16_t srcuid) {
 * @return     true if successful, false otherwise.
 */
 bool initPendingMessages() {
+	for (int i = 0; i < FRIENDLISTSIZE; i++) {
+		//TODO pull data from storage system.
+	}
 	return false; //TODO implement
 }
 
@@ -107,7 +112,7 @@ bool initMessageQueue() {
 *
 * @return     true if successful, false otherwise.
 */
-bool addToQueue(Message *mes) {
+bool addToQueue(Packet *p, Network *net) {
 	return false; //TODO implement
 }
 
@@ -128,17 +133,37 @@ bool removeFromQueue(int queuenumber) {
 *
 * @param[in]  mes   The message, based on some of the params in the struct.
 *
-* @return     true if successful, false otherwise.
+* @return     Number of opcodes present, or negative if failure.
 */
-bool checkQueue(Message *mes) {
+int checkQueue(opcode op, Network *net, Event eventList[]) {
 	/* Parameters to compare: opcode, id, Network Address, port, */
 	/* Checks queue for a message match. If match and not permanent, delete. */
-	if (mes->opcode >= MAX_OPCODE) {
+	int numOpcodesPresent = 0;
+	
+	if (op > MAX_OPCODE || op == 0) {
 		printe("Opcode out of range.\n");
-		return false;
+		return -1;
 	}
 	
-	return false; //TODO implement
+	//Request messages of the broadcast variety and 
+	if (op == HELP_FROM_ANYONE_REQUEST || op == FIND_HOPS_REQUEST 
+	|| op == FIND_NEIGHBORS_REQUEST || op == FRIEND_REQUEST 
+	|| op == UNFRIEND_REQUEST) {
+		//Permanent message gets automatically handled.
+		//TODO check for errors.
+		return 1;
+	}
+	int j = 0;
+	for (int i = 0; i < MAXQUEUESIZE; i++) {
+		if (messageQueue[i].opcode == op) {
+			numOpcodesPresent++;
+			eventList[j].srcid = messageQueue[i].srcid;
+			strcpy(eventList[j].networkAddr, messageQueue[i].networkAddr); //TODO check bounds
+			j++;
+		}
+	}
+
+	return numOpcodesPresent; //TODO verify correctness
 }
 
 /**
@@ -152,5 +177,5 @@ bool flushOldMessages() {
 			removeFromQueue(i);
 		}
 	}
-	return false; //TODO implement
+	return false; //TODO verify this works.
 }
