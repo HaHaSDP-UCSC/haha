@@ -10,7 +10,8 @@
 
 #include "utils/hahaUtils.h"
 #include "network/network.h"
-#include "network/packet.h"
+//#include "network/packet.h"
+#include "messagequeue/messagequeue.h"
 
 #define FRIENDLISTSIZE 10 //TODO make this an option and smaller.
 
@@ -31,8 +32,10 @@ Friend friendList[FRIENDLISTSIZE];
 bool initFriendList();
 bool writeToFriendListStorage(); //TODO INTERNAL REMOVE
 bool readFromFriendListStorage(); //TODO INTERNAL REMOVE
-bool addFriend();
+bool addFriend(Friend *f);
 bool removeFriend(Network* net); //Remove based on srcuid and netaddr.
 bool checkForFriend(Network* net);
+
+void addTestFriend(char *fname, char*lname, char* addr);
 
 #endif /* FRIENDLIST_H_ */

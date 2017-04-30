@@ -105,6 +105,7 @@ uint8_t uart_read(){
             //xbee_recv(uart_buffer[CURRENT_BUFFER], data_received);
             //int tempsize = data_received;
             //char bufft[data_received];
+            //char * bufft = malloc(sizeof(char) * data_received);
             //memcpy(bufft, uart_buffer[CURRENT_BUFFER], tempsize);
             netdev_recv_callback(uart_buffer[CURRENT_BUFFER], data_received);
             //netdev_recv_callback(bufft, tempsize);

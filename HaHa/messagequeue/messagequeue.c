@@ -7,6 +7,9 @@
 
 #include "messagequeue.h"
 
+bool _compactQueue(Message * q);
+uint8_t m_lastID;
+
 /************************************************************************/
 /* INTERNAL METHODS                                                     */
 /************************************************************************/
@@ -21,7 +24,7 @@
  * @return     true if successful, false otherwise, Message mes.
  */
 bool generateMessage(Friend friend, bool permanent, Message *mes) {
-	return false; //TODO implement
+     //Check if m_lastID is about to rollover, if so compact message queue
 }
 
 /**
@@ -42,6 +45,12 @@ bool initPermanentMessages() {
 	return false; //TODO implement
 }
 
+bool _compactQueue(Message * q){
+    //Compact down all entries of message queue
+    //make change ids of entries to be increasing
+    //update m_lastID to be next available id (also size of mqueue)
+}
+
 
 /************************************************************************/
 /* EXTERNAL METHODS                                                     */
@@ -53,8 +62,9 @@ bool initPermanentMessages() {
  * @return     true if successful, false otherwise.
  */
 bool initMessageQueue() {
+    m_lastID = 0;
 	initPermanentMessages();
-	initPendingMessages();
+	initPendingMessages(); //rememeber set m_lastID if there are pending
 	return false; //TODO implement
 }
 
@@ -65,8 +75,15 @@ bool initMessageQueue() {
  *
  * @return     true if successful, false otherwise.
  */
-bool addToQueue(Message mes) {
-	return false; //TODO implement
+bool addToQueue(Message* mes) {
+    if(m_lastID == MAXQUEUESIZE - 1)
+        _compactQueue(messageQueue);
+    mes->id = m_lastID;
+    messageQueue[m_lastID] = *mes;
+    
+    m_lastID = (m_lastID + 1) % MAXQUEUESIZE; //failsafe
+    printf("ADDED MESSAGE TO Q:%d-%d\n",mes->id, mes->opcode );
+    return true;
 }
 
 /**
@@ -87,7 +104,7 @@ bool removeFromQueue(int queuenumber) {
  *
  * @return     true if successful, false otherwise.
  */
-bool checkQueue(Message mes) {
+bool checkQueue(Message* mes) {
 	/* Parameters to compare: opcode, id, Network Address, port, */
 	/*Checks queue for a message match. If match and not permanent, delete.*/
 	return false; //TODO implement
@@ -100,4 +117,8 @@ bool checkQueue(Message mes) {
  */
 bool flushOldMessages() {
 	return false; //TODO implement
+}
+
+bool initMessage(Message * m){
+   
 }

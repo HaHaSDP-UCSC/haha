@@ -49,10 +49,14 @@ bool sendPacket(Packet *p, Network *netdest) {
     
     printd("Sending to:");
     printBuff(netdest->dest, 8, "%c");
-    if(xbee_send_hex(netdest->dest, data, datalen) <=0){
+    printf("computed data len:%d", datalen);
+    uint8_t sentBytes = xbee_send_byte(netdest->dest, data, datalen);
+    if( sentBytes <=0){
         printe("Error sending packet.\n");
         return false;
     }
+    else
+        printf("send packet with %d bytes total", sentBytes);
     
     return true;        
 	//TODO @brian hook xbee_sendPacket into this.

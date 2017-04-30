@@ -13,6 +13,7 @@
 #include "neighbor/neighborlist.h"
 
 #define MAXQUEUESIZE 256
+#define DEFAULT_TTL 1000; //TODO: figure out approrpiate number
 
 typedef struct Message {
 	uint8_t id; //Internal Friend ID, if this is a friend.
@@ -28,10 +29,11 @@ Message messageQueue[MAXQUEUESIZE];
 int queueTime;
 
 bool initMessageQueue(); //Initializes the message queue.
-bool addToQueue(Message mes); //Add message to queue.
+bool addToQueue(Message* mes); //Add message to queue.
 bool removeFromQueue(int queuenumber); //Delete message from queue.
-bool checkQueue(); /* Checks queue for a message match. */
+bool checkQueue(Message* mes);/* Checks queue for a message match. */
 bool flushOldMessages(); /* Checks for old messages to be deleted. */
+bool initMessage(Message* m); /* Initialize a blank Message */
 
 //Internal //TODO move this to the c file.
 /*
