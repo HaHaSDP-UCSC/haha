@@ -8,6 +8,9 @@
 #include "messagequeue.h"
 #include <string.h>
 
+bool _compactQueue(Message * q);
+uint8_t m_lastID;
+
 /************************************************************************/
 /* INTERNAL METHODS                                                     */
 /************************************************************************/
@@ -188,6 +191,12 @@ bool checkPermanentMessages() {
 	return false; //TODO implement
 }
 
+bool _compactQueue(Message * q){
+    //Compact down all entries of message queue
+    //make change ids of entries to be increasing
+    //update m_lastID to be next available id (also size of mqueue)
+}
+
 
 /************************************************************************/
 /* EXTERNAL METHODS                                                     */
@@ -199,29 +208,28 @@ bool checkPermanentMessages() {
 * @return     true if successful, false otherwise.
 */
 bool initMessageQueue() {
-	/**if (!initPermanentMessages()) {
-	printe("Initializing permanent messages failed.\n");
-	//TODO error
-	}*/
-	if (!initPendingMessages()) {
-		printe("Initializing pending messages failed.\n");
-		//TODO error
-	}
-	
-	
+    m_lastID = 0;
+	initPermanentMessages();
+	initPendingMessages(); //rememeber set m_lastID if there are pending
 	return false; //TODO implement
 }
 
 /**
-* @brief      Adds a message to the queue.
-*
-* @param[in]  mes   The message to be added.
-*
-* @return     true if successful, false otherwise.
-*/
-//bool addToQueue(Packet *p, Network *net) {
-bool addToQueue(Message *mes) {
-	return false; //TODO implement
+ * @brief      Adds a message to the queue.
+ *
+ * @param[in]  mes   The message to be added.
+ *
+ * @return     true if successful, false otherwise.
+ */
+bool addToQueue(Message* mes) {
+    if(m_lastID == MAXQUEUESIZE - 1)
+        _compactQueue(messageQueue);
+    mes->id = m_lastID;
+    messageQueue[m_lastID] = *mes;
+    
+    m_lastID = (m_lastID + 1) % MAXQUEUESIZE; //failsafe
+    printf("ADDED MESSAGE TO Q:%d-%d\n",mes->id, mes->opcode );
+    return true;
 }
 
 /**

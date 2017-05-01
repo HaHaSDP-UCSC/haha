@@ -14,6 +14,8 @@
 #define netaddr char*
 #define MAX_NET_ARRAY 10
 #define NOT_FOUND -1
+
+netaddr myNetID;
 typedef struct {
 	netaddr src;
 	netaddr dest;

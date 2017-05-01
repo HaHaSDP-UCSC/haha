@@ -17,7 +17,7 @@
  //#include "atmel_start_pins.h"
 #include "stdio_start.h"
 
-#define USART_BUF_SIZE 16
+#define USART_BUF_SIZE 128
 #define CB_OFF 0
 #define CB_ON 1
 #define SET_RX_CB(val)		(_RX_CALLBACK = val)

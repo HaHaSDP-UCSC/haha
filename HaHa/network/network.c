@@ -14,6 +14,7 @@
 void network_init(){
     xbee_init();
     opcodes_init();
+    myNetID = "0013A200414f50e9"; //get from xbee function
 }
 
 void netArrayAdd(Network* add){

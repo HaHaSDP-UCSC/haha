@@ -13,6 +13,7 @@
 #include "neighbor/neighborlist.h"
 
 #define MAXQUEUESIZE 256
+#define DEFAULT_TTL 1000; //TODO: figure out approrpiate number
 
 #define DEFMESSAGETIMEOUT 300 //300 ticks, 5 minutes
 #define BROADCASTHOP 64 //Maximum neighbor devices to explore.
@@ -41,6 +42,7 @@ bool addToQueue(Message *mes); //Add message to queue.
 bool removeFromQueue(int queuenumber); //Delete message from queue.
 int checkQueue(opcode op, Network *net, Event eventList[]); /* Checks queue for a message match. */
 bool flushOldMessages(); /* Checks for old messages to be deleted. */
+bool initMessage(Message* m); /* Initialize a blank Message */
 
 //Internal //TODO move this to the c file.
 /*

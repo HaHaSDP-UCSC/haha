@@ -82,6 +82,25 @@ fprintf(stdout, CDEF);
 #define printd(...) (void)0;
 #endif // DEBUG
 
+
+
+//APP SETTINGS
+#define MAXFIRSTNAME 17
+#define MAXLASTNAME 17
+#define MAXPHONE 2
+#define MAXHOMEADDR 2
+#define MAXNETADDR 8 //8 Bytes (64-bits)
+#define MAXPORT 2
+#define START_OPCODE 0x01
+#define MAX_OPCODE 0x0C
+
+//typedef char *opcode;
+typedef uint8_t opcode;
+typedef uint8_t ttl;
+typedef uint16_t uid;
+
+
+
 //typedef enum printType {CHAR, HEX, INT};
 
 /* Delays in ~ms */
@@ -108,6 +127,8 @@ void printBuff(char* data, uint8_t len, char* specifier);
  * @return     { The converted hexadecimal value }
  */
 uint8_t asciihex_to_byte(uint8_t d1, uint8_t d2);
+
+char* convert_asciihex_to_byte(char* addr);
 
 uint64_t byte_array_to_64(uint8_t* s);
 

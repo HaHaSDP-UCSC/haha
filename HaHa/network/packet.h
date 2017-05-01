@@ -11,21 +11,7 @@
 #include "flags.h"
 #include "utils/hahaUtils.h"
 #include "network.h"
-
-//typedef char *opcode;
-typedef uint8_t opcode;
-typedef uint8_t ttl;
-typedef uint16_t uid;
-
-#define MAXFIRSTNAME 17
-#define MAXLASTNAME 17
-#define MAXPHONE 2
-#define MAXHOMEADDR 2
-#define MAXNETADDR 8 //8 Bytes (64-bits)
-#define MAXPORT 2
-
-#define START_OPCODE 0x01
-#define MAX_OPCODE 0x0C
+#include "neighbor/friendlist.h"
 
 typedef enum {
 	PING_REQUEST = START_OPCODE,
@@ -90,6 +76,7 @@ void friend_response_handler(Packet *p);
 void unfriend_request_handler(Packet *p);
 
 /* Handles sending packets */
-//TODO add.
+
+void send_ping_request(Friend *f);
 
 #endif /* PACKET_H_ */

@@ -14,7 +14,7 @@
 /* Internal Functions */
 static void _rxFrame_clear(frameRX *p);
 static uint8_t _xbee_send(char* data, uint8_t len);
-void _xbee_sendFrame(frameTX *tx);
+static uint8_t _xbee_sendFrame(frameTX *tx);
 static uint8_t _frame_TX_tochar(char* buff, frameTX *txData, int size);
 static void _packet_Handler(frameIncoming * p);
 static uint8_t _get_UART_Data(uint8_t numbytes);
@@ -164,7 +164,7 @@ uint8_t xbee_send_hex(char* dst, char* data, uint8_t datalen)
     return 0;
 }
 
-uint8_t xbee_send1(char* dst, char* data, uint8_t datalen)
+uint8_t xbee_send_byte(char* dst, char* data, uint8_t len)
 {
     HAHADEBUG("In xbee_send_hex\n");
     //uint8_t len2 = 0, len = 16;// strlen(dst);
@@ -176,11 +176,14 @@ uint8_t xbee_send1(char* dst, char* data, uint8_t datalen)
         //txData.dst[len2] = dst[] //asciihex_to_byte(dst[2*len2], dst[2*len2 + 1]);
         //len2++;
     //}
+    for(int i=0; i<8; ++i){
+        txData.dst[i] = dst[i];
+    }
     HAHADEBUG("sending to:");
     for(int i=0; i<8; ++i)
     HAHADEBUG("%c", txData.dst[i]);
-    _xbee_send(data, datalen);
-    return 0;
+    
+    return _xbee_send(data, len);
 }
 
 /* Internal send function */
@@ -199,9 +202,7 @@ uint8_t _xbee_send(char* data, uint8_t len)
     txData.data = data;
     txData.data_len = len;
 
-    _xbee_sendFrame(&txData);
-
-    return 0;
+    return _xbee_sendFrame(&txData);
 }
 
 uint8_t _frame_TX_tochar(char* buff, frameTX *txData, int size){
@@ -232,7 +233,7 @@ uint8_t _frame_TX_tochar(char* buff, frameTX *txData, int size){
     return 0;
 }
 
-void _xbee_sendFrame(frameTX *tx){
+uint8_t _xbee_sendFrame(frameTX *tx){
     HAHADEBUG("_xbee_sendFrame\n");
     /* Convert the data to a char* */
     uint8_t datalen = FRAME_TX_HEAD_LEN+tx->data_len;
@@ -256,7 +257,7 @@ void _xbee_sendFrame(frameTX *tx){
     printf("%c", startdelim);
     printf("%c", len_msb );
     printf("%c", len_lsb );
-    printf("%c",tx->data_len);
+    //printf("%c",tx->data_len);
     for(int i=0; i<datalen; ++i)
     printf("%c", buffFrameData[i]);
     printf("%c",tx->checksum);
@@ -268,6 +269,7 @@ void _xbee_sendFrame(frameTX *tx){
     //uart_write(&tx->framedata_len, 1);
     //uart_write(tx->framedata, tx->framedata_len);
     //uart_write(&tx->checksum, 1);
+    return datalen;
 };
 
 uint8_t xbee_setAPI(uint8_t type){
@@ -328,8 +330,8 @@ uint8_t xbee_recv(char* data, uint8_t len){
              case 2:
                      incoming->data_length |= data[count++];
                      incoming->real_length = incoming->data_length - 1;
-                     HAHADEBUG("LengthLSB incoming:%x data was:%x\n", incoming->data_length, data[count-1]);
-                     HAHADEBUG("Packet Length minus frametype:%x\n", incoming->real_length);
+                     HAHADEBUG("LengthLSB incoming:%x(%d) data was:%x(%d)\n", incoming->data_length,incoming->data_length, data[count-1],data[count-1]);
+                     HAHADEBUG("Packet Length minus frametype:%x(%d)\n", incoming->real_length,incoming->real_length);
                      state++;
                      continue;
                      break;
@@ -409,15 +411,20 @@ static uint8_t _get_UART_Data(uint8_t numbytes){
 static void _packet_Handler(frameIncoming *f){
     HAHADEBUG("In Packet Handler\n");
     switch(f->frametype){
-        case FRAME_MODEM_STATUS:
+        case FRAME_MODEM_STATUS: break;
         case FRAME_TX_STATUS:
-        case FRAME_ROUTE_INFO:
-        case FRAME_AGG_ADDR:
-        case FRAME_RX_EXPLICIT:
-        case FRAME_DATA_SAMPE:
-        case FRAME_NODE_ID:
-        case FRAME_REMOTE_RESP:
+                    //frameTXStatus *p = &rxData;
+                    //printf("TX Status Packet\n");
+                    //_parseTXStatus(f, p);
+                    //uint8_t id = 
+                    printf("TX Status for pid:%d");
                     break;
+        case FRAME_ROUTE_INFO: break;
+        case FRAME_AGG_ADDR: break;
+        case FRAME_RX_EXPLICIT: break;
+        case FRAME_DATA_SAMPE: break;
+        case FRAME_NODE_ID: break;
+        case FRAME_REMOTE_RESP: break;
         case FRAME_AT_RESPONSE:
                     printf("AT CMD![");
                     printBuff(f->data, f->data_length, "%c");

@@ -12,6 +12,7 @@
 //#include "network/network.h"
 #include "utils/hahaUtils.h"
 #include "messagequeue/messagequeue.h"
+#include "neighbor/friendlist.h"
 
 void printpacket1(char* d, uint8_t len){
     printf("in Callback print\n");
@@ -45,6 +46,9 @@ int main(void)
     char buff[80]; // large enough
     int count = 0;
     char c;
+    
+    addTestFriend("Brian", "Nichols","0013A200414F50EA");
+    send_ping_request(&friendList[1]);
     while (1) {
         uart_read();              
         

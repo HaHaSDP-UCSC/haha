@@ -68,6 +68,8 @@ uint8_t xbee_send_(uint64_t dst, char* data, uint8_t len);
  */
 uint8_t xbee_send_hex(char* dst, char* data, uint8_t len);
 
+uint8_t xbee_send_byte(char* dst, char* data, uint8_t len);
+
 /**
  * @brief      { Receives UART data and parses into frame packets}
  *
@@ -98,7 +100,7 @@ StartDelimiter(1B) + Length(2B) +  Frame Data(variable) + Checksum(1B)
 /**
  * { XBee TX frame send type: DigiMesh }
  */
-#define OPT_DIGIMESH	0x11000000
+#define OPT_DIGIMESH	0xC0
 /**
  * { XBee TX frame send type: Packet Acknowledgement }
  */
@@ -197,7 +199,22 @@ typedef struct {
     uint8_t checksum;
 }frameTX;
 
-
+/**
+ * { XBee TX status frame packet }
+ */
+typedef struct {
+    //uint16_t 	data_length; /* total in frame's data field */
+    uint8_t		frametype;
+    uint8_t     frameid;
+    uint8_t     length;
+    uint8_t 	dst[8];
+    uint8_t 	res[2]; //0xFFFE
+    uint8_t 	txretry;
+    uint8_t		deliverystatus;
+    uint8_t		checksum;
+    uint8_t		payload_length;
+    xbee_cb_t	callback;
+}frameTXStatus;
 
 
 
