@@ -40,7 +40,7 @@ uint32_t queueTime; //System timer. Driven by a super timer //TODO create super 
 bool initMessageQueue(); //Initializes the message queue.
 bool addToQueue(Message *mes); //Add message to queue.
 bool removeFromQueue(int queuenumber); //Delete message from queue.
-int checkQueue(opcode op, Network *net, Event eventList[]); /* Checks queue for a message match. */
+int checkQueue(opcode op, flags f, Network *net, Event eventList[]); /* Checks queue for a message match. */
 bool flushOldMessages(); /* Checks for old messages to be deleted. */
 bool initMessage(Message* m); /* Initialize a blank Message */
 

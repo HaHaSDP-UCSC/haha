@@ -133,12 +133,15 @@ bool setSettingsByOpcode(Message *mes, opcode opcode) {
 *
 * @param[in]  Friend	  Input friend
 * @param[in]  permanent  The permanent tag to the message.
-* @param      mes        A pointer to the message to be created.
+* @param      mes        A pointer to the message to be created. Needs to be allocated
 *
 * @return     true if successful, false otherwise, Message mes.
 */
 bool generateFriendMessage(Friend *friend, Message *mes, opcode op) {
-	//friend->id = 0;
+	//mes = malloc(sizeof(Message));
+	mes->id = friend->id;
+	strcpy(mes->srcAddr, friend->networkaddr);
+	mes->srcid = friend->port;
 	if (setSettingsByOpcode(mes, op)) {
 		printe("Message has invalid opcode.\n");
 		return false;
@@ -149,7 +152,7 @@ bool generateFriendMessage(Friend *friend, Message *mes, opcode op) {
 /**
 * @brief      Generates a normal message to allow into the message queue.
 *
-* @param      mes        A pointer to the message to be created.
+* @param      mes        A pointer to the message to be created. Needs to be allocated
 * @param[in]  broadcast  Any address is accepted.
 * @param[in]  permanent  The permanent tag to the message.
 *
@@ -192,9 +195,10 @@ bool checkPermanentMessages() {
 }
 
 bool _compactQueue(Message * q){
-    //Compact down all entries of message queue
-    //make change ids of entries to be increasing
-    //update m_lastID to be next available id (also size of mqueue)
+	//Compact down all entries of message queue
+	//make change ids of entries to be increasing
+	//update m_lastID to be next available id (also size of mqueue)
+	return false; //TODO implement
 }
 
 
@@ -208,28 +212,28 @@ bool _compactQueue(Message * q){
 * @return     true if successful, false otherwise.
 */
 bool initMessageQueue() {
-    m_lastID = 0;
-	initPermanentMessages();
+	m_lastID = 0;
+	//initPermanentMessages();
 	initPendingMessages(); //rememeber set m_lastID if there are pending
 	return false; //TODO implement
 }
 
 /**
- * @brief      Adds a message to the queue.
- *
- * @param[in]  mes   The message to be added.
- *
- * @return     true if successful, false otherwise.
- */
+* @brief      Adds a message to the queue.
+*
+* @param[in]  mes   The message to be added.
+*
+* @return     true if successful, false otherwise.
+*/
 bool addToQueue(Message* mes) {
-    if(m_lastID == MAXQUEUESIZE - 1)
-        _compactQueue(messageQueue);
-    mes->id = m_lastID;
-    messageQueue[m_lastID] = *mes;
-    
-    m_lastID = (m_lastID + 1) % MAXQUEUESIZE; //failsafe
-    printf("ADDED MESSAGE TO Q:%d-%d\n",mes->id, mes->opcode );
-    return true;
+	if(m_lastID == MAXQUEUESIZE - 1)
+	_compactQueue(messageQueue);
+	//mes->id = m_lastID; //TODO @brian@kevin, ID is used pointing to a friend.
+	messageQueue[m_lastID] = *mes; //TODO @brian@kevin does this copy the entire struct?
+	
+	m_lastID = (m_lastID + 1) % MAXQUEUESIZE; //failsafe
+	printf("ADDED MESSAGE TO Q:%d-%d\n", m_lastID, mes->opcode );
+	return true;
 }
 
 /**
@@ -251,9 +255,10 @@ bool removeFromQueue(int queuenumber) {
 *
 * @return     Number of opcodes present, or negative if failure.
 */
-int checkQueue(opcode op, Network *net, Event eventList[]) {
+int checkQueue(opcode op, flags f, Network *net, Event eventList[]) {
 	/* Parameters to compare: opcode, id, Network Address, port, */
-	/* Checks queue for a message match. If match and not permanent, delete. */
+	/* Checks queue for a message match. If match and not permanent, subtract mes->numQueue. */
+	/* if mes->numQueue is 0, delete from thing. */
 	int numOpcodesPresent = 0;
 	
 	if (op > MAX_OPCODE || op == 0) {
@@ -261,6 +266,11 @@ int checkQueue(opcode op, Network *net, Event eventList[]) {
 		return -1;
 	}
 	
+	//Not ACK, therefore can not be expected to exist in the queue.
+	if (IS_ACK(f) == false) {
+		return 1; //Automatically go to next processing request step.
+	}
+
 	//Request messages of the broadcast variety and
 	if (op == HELP_FROM_ANYONE_REQUEST || op == FIND_HOPS_REQUEST
 	|| op == FIND_NEIGHBORS_REQUEST || op == FRIEND_REQUEST
@@ -269,6 +279,7 @@ int checkQueue(opcode op, Network *net, Event eventList[]) {
 		//TODO check for errors.
 		return 1;
 	}
+	
 	int j = 0;
 	for (int i = 0; i < MAXQUEUESIZE; i++) {
 		if (messageQueue[i].opcode == op) {
