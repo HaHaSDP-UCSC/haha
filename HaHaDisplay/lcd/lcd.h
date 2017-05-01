@@ -11,7 +11,7 @@
 #define _HA_LCD_H_
 
 #include "lcddevice.h"
-#include "utils/hahaUtils.h"
+#include "utils/hahalib.h"
 
 char lcd_buffer[LCD_ROWS][LCD_COLS + 1]; // Extra space for null terminator
 

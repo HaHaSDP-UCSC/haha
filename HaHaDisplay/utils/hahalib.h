@@ -6,8 +6,8 @@
  * @date 2017-04-14
  */
 
-#ifndef _HA_UTILS
-#define _HA_UTILS
+#ifndef _HA_LIB_
+#define _HA_LIB_
 
 #include <stdbool.h>
 #include <stdio.h>

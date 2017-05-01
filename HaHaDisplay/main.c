@@ -1,5 +1,6 @@
 #include <atmel_start.h>
 #include "lcd/lcd.h"
+#include "menu/ui.h"
 
 int main(void)
 {
@@ -11,6 +12,7 @@ int main(void)
 	
 	lcd_clear();
 	
+	/*
 	int i = 0, j = 0;
 	while (1) {
 		if(i == 0 && j == 0) lcd_clear();
@@ -20,5 +22,12 @@ int main(void)
 			i = ++i % LCD_ROWS;
 		lcd_update();
 		delay(300);
+	}
+	*/
+	Menu* menu = ui_init();
+	while(1) {
+		menu_move(menu, MENU_DOWN);
+		menu_set_lcd(menu);
+		delay(1000);
 	}
 }

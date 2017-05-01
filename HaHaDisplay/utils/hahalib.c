@@ -5,7 +5,7 @@
  * @version
  * @date 2017-03-17
  */
-#include "utils/hahaUtils.h"
+#include "utils/hahalib.h"
 #include <stdio_start.h>
 #include <ctype.h>
 
