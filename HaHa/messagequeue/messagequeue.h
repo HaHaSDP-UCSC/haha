@@ -15,23 +15,32 @@
 #define MAXQUEUESIZE 256
 #define DEFAULT_TTL 1000; //TODO: figure out approrpiate number
 
+#define DEFMESSAGETIMEOUT 300 //300 ticks, 5 minutes
+#define BROADCASTHOP 64 //Maximum neighbor devices to explore.
+
 typedef struct Message {
-	uint8_t id; //Internal Friend ID, if this is a friend.
-	char networkAddr[MAXNETADDR];  //Network Address.
-	//uint16_t port; //Network port.
-    uint16_t srcid;
-	int expiration; //Expiration time.
 	opcode opcode; //Expected Packet Response.
+	uint8_t id; //Internal Friend ID, if this is a friend.
+	bool permanent; //If permanent, does not check expiration date.
+	bool broadcast; //If broadcast, does not check network address.
+	uint32_t expiration; //Expiration time.
+	char srcAddr[MAXNETADDR]; //Source Network Address.
+	uint16_t srcid;
+	uint8_t numUses; //How many times can be used before it expires (BRDCST)
 } Message;
 
-Message messageQueue[MAXQUEUESIZE];
+typedef struct {
+	//opcode opcode;
+	char srcAddr[MAXNETADDR];
+	uint16_t srcid;
+} Event;
 
-int queueTime;
+uint32_t queueTime; //System timer. Driven by a super timer //TODO create super timer
 
 bool initMessageQueue(); //Initializes the message queue.
-bool addToQueue(Message* mes); //Add message to queue.
+bool addToQueue(Message *mes); //Add message to queue.
 bool removeFromQueue(int queuenumber); //Delete message from queue.
-bool checkQueue(Message* mes);/* Checks queue for a message match. */
+int checkQueue(opcode op, Network *net, Event eventList[]); /* Checks queue for a message match. */
 bool flushOldMessages(); /* Checks for old messages to be deleted. */
 bool initMessage(Message* m); /* Initialize a blank Message */
 
