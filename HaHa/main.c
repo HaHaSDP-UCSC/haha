@@ -48,7 +48,7 @@ int main(void)
     char c;
     
     addTestFriend("Brian", "Nichols","0013A200414F50EA");
-    //send_ping_request(&friendList[1]);
+    send_ping_request(&friendList[1]);
     while (1) {
         uart_read();              
         

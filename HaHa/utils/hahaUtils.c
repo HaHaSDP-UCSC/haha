@@ -10,6 +10,7 @@
 #include <ctype.h>
 #include <stdint.h>
 #include <inttypes.h>
+#include <stdlib.h>
 
 /* Delay in ms */
 void delay(uint32_t ms)
@@ -45,11 +46,11 @@ uint64_t byte_array_to_64(uint8_t* s){
 //Assumes is 16 bytes
 char* convert_asciihex_to_byte(char* addr){
     uint8_t len2 = 0, len = 16;// strlen(dst);
-    char *ret = malloc(sizeof(char) * 17);
+    uint8_t *ret = malloc(sizeof(uint8_t) * 17);
     
     len /= 2; /* each byte = 2chars */
     while(len2 < len){
-        ret[len2] = asciihex_to_byte(ret[2*len2], ret[2*len2 + 1]);
+        ret[len2] = asciihex_to_byte(addr[2*len2], addr[2*len2 + 1]);
         len2++;
     }
     ret[16] = 0;

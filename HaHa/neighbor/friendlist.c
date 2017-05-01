@@ -56,6 +56,9 @@ bool addFriend(Friend *f) {
         friendList[f->priority] = *f;
     Friend* ftemp = &friendList[f->priority];
     printf("Added friend: %s", ftemp->firstname);
+    printf("netaddr:[");
+    printBuff(f->networkaddr, 8, "%c");
+    printf("]\n");
     return true;
 }
 
@@ -86,7 +89,14 @@ void addTestFriend(char *fname, char*lname, char* addr){
     strcpy(f->firstname, fname);
     strcpy(f->lastname, lname);
     f->id = 1;
-    strcpy(f->networkaddr,convert_asciihex_to_byte(addr));
+    //printf("%s", addr);
+    //printBuff(addr, 8, "%c");
+    //printBuff(convert_asciihex_to_byte(addr), 8, "%c");
+    uint8_t* t = convert_asciihex_to_byte(addr);
+    memcpy(f->networkaddr,t, 8);
+    printBuff(f->networkaddr, 8, "%c");
+    printBuff(t, 8, "%c");
+    //strcpy(f->networkaddr,addr);
     f->port = 0x1;
     f->priority = 0x1;
     addFriend(f);

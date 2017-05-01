@@ -69,7 +69,7 @@ void register_opcode_handler_function(opcode_handler_fn_t t, Op opcode){
 }   
 
 void copy_friend_to_packet(Friend *f, Packet* p){
-    strcpy(p->DESTUID, f->port);
+    p->DESTUID = f->port;
     strcpy(p->SRCFIRSTNAME, f->firstname);
     strcpy(p->SRCLASTNAME, f->lastname);
 }
@@ -77,15 +77,19 @@ void copy_friend_to_packet(Friend *f, Packet* p){
 void send_ping_request(Friend *f){
     Network* n = malloc(sizeof(Network));
     Packet* p = malloc(sizeof(Packet));
-    
-    strcpy(n->dest, f->networkaddr);
+    //printf("PACKET:");
+    //printBuff(f->networkaddr, 8, "%c");
+    //memcpy(n->dest, f->networkaddr, 8);
+    n->dest = f->networkaddr;
+    printNetAddr(n->dest);
     copy_friend_to_packet(f, p);
     p->opcode = 0x1;
+    p->DESTUID = 0x1;
     CLR_FLAGS(p->flags);
     sendPacket(p, n);
     //Add a corresponding message
     Message *m = malloc(sizeof(Message));
-    strcpy(m->networkAddr, n->dest);
+    memcpy(m->networkAddr, n->dest, 8);
     m->opcode = PING_REQUEST;
     m->srcid = 0x1; //TODO: somehow track current user
     addToQueue(m);
