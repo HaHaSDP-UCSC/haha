@@ -17,7 +17,7 @@
 #define FRIENDLISTSIZE 10 //TODO make this an option and smaller.
 
 typedef struct {
-	//uint8_t id; //Internal ID. Ties into the friendlist.
+	uint8_t id; //Internal ID. Ties into the friendlist.
 	uint8_t priority; //What level they are on the friend list.
 	char firstname[MAXFIRSTNAME]; //First Name
 	char lastname[MAXLASTNAME]; //Last Name

@@ -89,7 +89,7 @@ void send_ping_request(Friend *f){
     sendPacket(p, n);
     //Add a corresponding message
     Message *m = malloc(sizeof(Message));
-    memcpy(m->networkAddr, n->dest, 8);
+    memcpy(m->srcAddr, n->dest, 8);
     m->opcode = PING_REQUEST;
     m->srcid = 0x1; //TODO: somehow track current user
     addToQueue(m);
