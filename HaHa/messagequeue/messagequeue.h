@@ -15,7 +15,7 @@
 #define MAXQUEUESIZE 256
 
 #define DEFMESSAGETIMEOUT 300 //300 ticks, 5 minutes
-
+#define BROADCASTHOP 64 //Maximum neighbor devices to explore.
 
 typedef struct Message {
 	opcode opcode; //Expected Packet Response.
@@ -23,20 +23,21 @@ typedef struct Message {
 	bool permanent; //If permanent, does not check expiration date.
 	bool broadcast; //If broadcast, does not check network address.
 	uint32_t expiration; //Expiration time.
-	char networkAddr[MAXNETADDR];  //Network Address.
+	char srcAddr[MAXNETADDR]; //Source Network Address.
 	uint16_t srcid;
+	uint8_t numUses; //How many times can be used before it expires (BRDCST)
 } Message;
 
 typedef struct {
 	//opcode opcode;
-	char networkAddr[MAXNETADDR];
+	char srcAddr[MAXNETADDR];
 	uint16_t srcid;
 } Event;
 
-uint32_t queueTime;
+uint32_t queueTime; //System timer. Driven by a super timer //TODO create super timer
 
 bool initMessageQueue(); //Initializes the message queue.
-bool addToQueue(Packet *p, Network *net); //Add message to queue.
+bool addToQueue(Message *mes); //Add message to queue.
 bool removeFromQueue(int queuenumber); //Delete message from queue.
 int checkQueue(opcode op, Network *net, Event eventList[]); /* Checks queue for a message match. */
 bool flushOldMessages(); /* Checks for old messages to be deleted. */

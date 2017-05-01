@@ -286,6 +286,7 @@ int convertFromPacketToData(Packet *p, unsigned char *data) {
 		if (!IS_ACK(flags)) {
 			fields.srcuid = true; //Add SRCUID to packet.
 			fields.srchomeaddr = true; //Add SRCHOMEADDR to packet.
+			fields.srcname = true; //TODO @kevin@brian RECENTLY ADDED
 			fields.srcphone = true; //Add SRCPHONE
 			success = formPacketToData(p, data, &offset, fields);
 		} else {
@@ -489,6 +490,7 @@ int convertFromDataToPacket(Packet *p, unsigned char *data, int datalen) {
 		if (!IS_ACK(flags)) {
 			fields.srcuid = true; //Add SRCUID to packet.
 			fields.srchomeaddr = true; //Add SRCHOMEADDR to packet.
+			fields.srcname = true; //TODO @kevin@brian RECENTLY ADDED
 			fields.srcphone = true; //Add SRCPHONE to packet
 			success = formDataToPacket(p, data, &offset, fields);
 		} else {

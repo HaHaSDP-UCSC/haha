@@ -14,6 +14,117 @@
 
 Message messageQueue[MAXQUEUESIZE];
 
+/* Helper */
+/* Get Default Message Settings for each Opcode */
+//WARNING INCOMPLETE
+bool setSettingsByOpcode(Message *mes, opcode opcode) {
+	uint32_t timeout = DEFMESSAGETIMEOUT;
+	mes->opcode = opcode;
+	switch(opcode) {
+		//TODO THE VARIABLES ARE NOT SET CORRECTLY.
+		//PING REQ
+		case 1:
+		timeout = timeout;
+		mes->permanent = false;
+		mes->broadcast = false;
+		mes->numUses = 1;
+		break;
+		
+		//HELP REQ
+		case 2:
+		timeout = timeout;
+		mes->permanent = false;
+		mes->broadcast = false;
+		mes->numUses = 1;
+		break;
+		
+		//HELP RESP
+		case 3:
+		timeout = timeout;
+		mes->permanent = false;
+		mes->broadcast = false;
+		mes->numUses = 1;
+		break;
+		
+		//HELP FROM ANYONE REQ
+		case 4:
+		timeout = timeout;
+		mes->permanent = true;
+		mes->broadcast = true;
+		mes->numUses = 1;
+		break;
+		
+		//HELP FROM ANYONE RESP
+		case 5:
+		timeout = timeout;
+		mes->permanent = false;
+		mes->broadcast = false;
+		mes->numUses = 1;
+		break;
+		
+		//FIND HOPS REQ
+		case 6:
+		timeout = timeout;
+		mes->permanent = false;
+		mes->broadcast = true;
+		mes->numUses = 1;
+		break;
+		
+		//FIND HOPS RESP
+		case 7:
+		timeout = timeout;
+		mes->permanent = true;
+		mes->broadcast = false;
+		mes->numUses = BROADCASTHOP;
+		break;
+		
+		//FIND NEIGHBOR REQ
+		case 8:
+		timeout = timeout;
+		mes->permanent = false;
+		mes->broadcast = false;
+		mes->numUses = 1;
+		break;
+		
+		//FIND NEIGHBOR RESP
+		case 9:
+		timeout = timeout;
+		mes->permanent = false;
+		mes->broadcast = false;
+		mes->numUses = BROADCASTHOP;
+		break;
+		
+		//FRIEND REQ
+		case 10:
+		timeout = timeout;
+		mes->permanent = false;
+		mes->broadcast = false;
+		mes->numUses = 1;
+		break;
+		
+		//FRIEND RESP
+		case 11:
+		timeout = timeout;
+		mes->permanent = true;
+		mes->broadcast = false;
+		mes->numUses = 1;
+		break;
+		
+		//UNFRIEND REQ
+		case 12:
+		timeout = timeout;
+		mes->permanent = true;
+		mes->broadcast = false;
+		mes->numUses = 1;
+		break;
+		default:
+		return false;
+	}
+	
+	mes->expiration = queueTime;
+	return true; //TODO Finish IMPLEMENT
+}
+
 /**
 * @brief      Generates a message based on friend parameters.
 *
@@ -23,8 +134,12 @@ Message messageQueue[MAXQUEUESIZE];
 *
 * @return     true if successful, false otherwise, Message mes.
 */
-bool generateFriendMessage(Friend *friend, bool permanent, Message *mes) {
+bool generateFriendMessage(Friend *friend, Message *mes, opcode op) {
 	//friend->id = 0;
+	if (setSettingsByOpcode(mes, op)) {
+		printe("Message has invalid opcode.\n");
+		return false;
+	}
 	return false; //TODO implement
 }
 
@@ -37,25 +152,17 @@ bool generateFriendMessage(Friend *friend, bool permanent, Message *mes) {
 *
 * @return     true if successful, false otherwise, Message mes.
 */
-bool generateMessage(Message *mes, bool broadcast, bool permanent, opcode op,
-uint32_t timeout, netaddr addr, uint16_t srcuid) {
-	if (op > MAX_OPCODE) {
+bool generateMessage(Message *mes, opcode op, netaddr addr, uint16_t srcuid) {
+	if (setSettingsByOpcode(mes, op)) {
 		printe("Message has invalid opcode.\n");
 		return false;
 	}
-	mes->opcode = op;
 	mes->id = FRIENDLISTSIZE; //Not a friend, out of boundary.
-	mes->broadcast = broadcast;
-	if (permanent) {
-		mes->permanent = true;
-		} else {
-		mes->expiration = queueTime + timeout;
-	}
 	if (strlen(addr) > MAXNETADDR) {
 		printe("Network address too large.\n");
 		return false;
 	}
-	strcpy(mes->networkAddr, addr);
+	strcpy(mes->srcAddr, addr);
 	mes->srcid = srcuid;
 	
 	return true; //TODO test implementation.
@@ -112,7 +219,8 @@ bool initMessageQueue() {
 *
 * @return     true if successful, false otherwise.
 */
-bool addToQueue(Packet *p, Network *net) {
+//bool addToQueue(Packet *p, Network *net) {
+bool addToQueue(Message *mes) {
 	return false; //TODO implement
 }
 
@@ -145,9 +253,9 @@ int checkQueue(opcode op, Network *net, Event eventList[]) {
 		return -1;
 	}
 	
-	//Request messages of the broadcast variety and 
-	if (op == HELP_FROM_ANYONE_REQUEST || op == FIND_HOPS_REQUEST 
-	|| op == FIND_NEIGHBORS_REQUEST || op == FRIEND_REQUEST 
+	//Request messages of the broadcast variety and
+	if (op == HELP_FROM_ANYONE_REQUEST || op == FIND_HOPS_REQUEST
+	|| op == FIND_NEIGHBORS_REQUEST || op == FRIEND_REQUEST
 	|| op == UNFRIEND_REQUEST) {
 		//Permanent message gets automatically handled.
 		//TODO check for errors.
@@ -158,7 +266,7 @@ int checkQueue(opcode op, Network *net, Event eventList[]) {
 		if (messageQueue[i].opcode == op) {
 			numOpcodesPresent++;
 			eventList[j].srcid = messageQueue[i].srcid;
-			strcpy(eventList[j].networkAddr, messageQueue[i].networkAddr); //TODO check bounds
+			strcpy(eventList[j].srcAddr, messageQueue[i].srcAddr); //TODO check bounds
 			j++;
 		}
 	}
