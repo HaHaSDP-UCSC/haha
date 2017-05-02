@@ -48,7 +48,10 @@ int main(void)
     char c;
     
     addTestFriend("Brian", "Nichols","0013A200414F50EA");
+    addTestLocalUser("Kevin", "Lee", 0x1);
     send_ping_request(&friendList[1]);
+    
+    send_help_request(friendList[1]);
     while (1) {
         uart_read();              
         

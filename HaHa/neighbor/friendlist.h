@@ -15,28 +15,32 @@
 
 //Not to be larger than uint8_t
 #define FRIENDLISTSIZE 10 //TODO make this an option and smaller.
+#define MAXLOCAL 5
 
 typedef struct {
 	uint8_t id; //Internal ID. Ties into the friendlist.
 	uint8_t priority; //What level they are on the friend list.
 	char firstname[MAXFIRSTNAME]; //First Name
 	char lastname[MAXLASTNAME]; //Last Name
-	unsigned char networkaddr[MAXNETADDR]; //Network Address.
+	char networkaddr[MAXNETADDR]; //Network Address.
 	uint16_t port; //Network port.
 	uint32_t lastresponse; //32-bit offset from boot timer.
 	uint16_t responseflag; //16 Available flags for expected responses. //TODO includes if registered friend.
 } Friend;
 
 Friend friendList[FRIENDLISTSIZE];
+Friend localUsers[5];
 
 //TODO @kevin @brian storage for FriendList.
 bool initFriendList();
 bool writeToFriendListStorage(); //TODO INTERNAL REMOVE
 bool readFromFriendListStorage(); //TODO INTERNAL REMOVE
 bool addFriend(Friend *f);
-//bool removeFriend(Network* net); //Remove based on srcuid and netaddr.
-//bool checkForFriend(Network* net);
+bool removeFriend(Network* net); //Remove based on srcuid and netaddr.
+bool checkForFriend(Network* net);
+bool addLocalUser(Friend *f);
 
 void addTestFriend(char *fname, char*lname, char* addr);
+void addTestLocalUser(char *fname, char*lname, uint16_t port);
 
 #endif /* FRIENDLIST_H_ */

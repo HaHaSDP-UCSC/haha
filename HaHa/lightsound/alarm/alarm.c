@@ -6,6 +6,9 @@
  */
 
 #include "alarm.h"
+#include "../lighting/lighting.h"
+#include "../sound/sound.h"
+
 
 bool alarmstatus = false;
 
@@ -19,7 +22,12 @@ bool alarmstatus = false;
  * @return     Success or failure.
  */
 bool setAlarm(bool active, bool allowSound, bool allowLight) {
-	return false; //TODO program this.	
+    if(active)
+        printd("ALARM ON!!!!!!!!!\n");
+    else
+        printd("Alarm Off");
+    setLighting(true, 0x1);
+    setSound(true, 0x1);
 }
 
 /**
@@ -28,5 +36,7 @@ bool setAlarm(bool active, bool allowSound, bool allowLight) {
  * @return     The alarm status.
  */
 bool getAlarmStatus() {
+    char* t = alarmstatus ? "ON" : "OFF";
+    printd("Alarm is: %s", t);
 	return alarmstatus;
 }

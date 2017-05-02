@@ -36,10 +36,14 @@ typedef struct {
 	uid SRCUID;
 	uid DESTUID;
 	uid ORIGINUID;
-	char SRCFIRSTNAME[MAXFIRSTNAME];
-	char SRCLASTNAME[MAXFIRSTNAME];
-	char SRCPHONE[MAXPHONE];
-	char SRCHOMEADDR[MAXHOMEADDR];
+	//char SRCFIRSTNAME[MAXFIRSTNAME];
+	//char SRCLASTNAME[MAXFIRSTNAME];
+	//char SRCPHONE[MAXPHONE];
+	//char SRCHOMEADDR[MAXHOMEADDR];
+    char *SRCFIRSTNAME; //These already exist in other structures, just need pointers
+    char *SRCLASTNAME;
+    char *SRCPHONE;
+    char *SRCHOMEADDR;
 	ttl ttl;
 } Packet;
 

@@ -17,7 +17,7 @@
 void opcodes_init(){
     haha_packet_handlers[PING_REQUEST] = ping_request_handler;
 	haha_packet_handlers[HELP_REQUEST] = help_request_handler;
-	//haha_packet_handlers[HELP_RESPONSE] = help_response_handler;
+	haha_packet_handlers[HELP_RESPONSE] = help_response_handler;
 	//haha_packet_handlers[HELP_FROM_ANYONE_REQUEST] = help_request_anyone_handler;
 	//haha_packet_handlers[HELP_FROM_ANYONE_RESPONSE] = help_response_anyone_handler;
 	//haha_packet_handlers[FIND_HOPS_REQUEST] = find_hops_request_handler;
@@ -89,16 +89,34 @@ void send_ping_request(Friend *f){
     sendPacket(p, n);
     //Add a corresponding message
     Message *m = malloc(sizeof(Message));
-    memcpy(m->srcAddr, n->dest, 8);
-    m->opcode = PING_REQUEST;
-    m->srcid = 0x1; //TODO: somehow track current user
+    //setSettingsByOpcode(m, PING_REQUEST);
+    generateFriendMessage(f, m, PING_REQUEST);
+    //memcpy(m->srcAddr, n->dest, 8);
     addToQueue(m);
 }
 
 void ping_request_handler(Packet *p){
     printf("in ping handler\n");
+    int i = netArrayReturn(p->id);
+    if(i == NOT_FOUND){
+        printd("net item not found");
+        return;
+    }
+    Network* net = &NET_ARRAY[i];
     if(IS_ACK(p->flags)){
         printf("IS Ping ACK!\n");
+        //Lookup message/event
+        Event *e = malloc(sizeof(Event) * MAXQUEUESIZE);
+        int numEntries = checkQueue(PING_REQUEST, p->flags, net, e);
+        if(numEntries){
+            printd("Found %d message for opcode %d\n", numEntries, p->opcode);
+            printNetAddr(net->src);
+            //TODO update friendlist last response
+            uint8_t index = checkForFriend(net);
+            friendList[i].lastresponse = 0x1; //TODO: track time
+        }
+        removeFromQueueEvents(e, numEntries);
+        free(e);
     }
     else{
         printf("Is Ping Request\n");
@@ -117,25 +135,56 @@ void ping_request_handler(Packet *p){
         net->dest = net->src;
         //net->src = myNetID;
         p2.SRCUID = 0x1;
-        strcpy(p2.SRCFIRSTNAME, "Brian");
-        strcpy(p2.SRCLASTNAME, "Nichols");
+        char *fname = malloc(sizeof("Brian"));
+        char *lname = malloc(sizeof("Nichols"));
+        strcpy(fname, "Brian");
+        strcpy(lname, "Nichols");
+        p2.SRCFIRSTNAME = fname;
+        p2.SRCLASTNAME = lname;
+        //strcpy(p2.SRCFIRSTNAME, fname);
+        //strcpy(p2.SRCLASTNAME, "Nichols");
         printNetAddr(net->dest);
         sendPacket(&p2, net);
         free(p);
     }        
 }   
 
-void _send_help_request(netaddr t){
-    
+void _send_help_request(netaddr *t){
+
 }
 
-void send_help_request(Friend f){
-    
+void send_help_request(Friend* f){
+    Network* n = malloc(sizeof(Network));
+    Packet* p = malloc(sizeof(Packet));
+    //printf("PACKET:");
+    //printBuff(f->networkaddr, 8, "%c");
+    //memcpy(n->dest, f->networkaddr, 8);
+    n->dest = f->networkaddr;
+    printNetAddr(n->dest);
+    copy_friend_to_packet(f, p);
+    p->opcode = 0x2; //check
+    p->DESTUID = f->port; //get from friend
+    p->SRCFIRSTNAME = f->firstname;
+    p->SRCLASTNAME = f->lastname;
+    CLR_FLAGS(p->flags);
+    sendPacket(p, n);
+    //Add a corresponding message
+    Message *m = malloc(sizeof(Message));
+    setSettingsByOpcode(m, PING_REQUEST);
+    memcpy(m->srcAddr, n->dest, 8);
+    addToQueue(m);
 }
 void help_request_handler(Packet *p){
+    //Check if friend
+    
+    //Add Message/Event
+    
+    //Turn on lights/siren
     
 }
-void help_response_handler(Packet *p);
+void help_response_handler(Packet *p){
+    
+}
 void help_request_anyone_handler(Packet *p);
 void help_response_anyone_handler(Packet *p);
 void find_hops_request_handler(Packet *p);

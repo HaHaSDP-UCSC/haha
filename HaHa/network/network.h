@@ -15,7 +15,7 @@
 #define MAX_NET_ARRAY 10
 #define NOT_FOUND -1
 
-netaddr myNetID;
+netaddr myNetAddr;
 typedef struct {
 	netaddr src;
 	netaddr dest;
@@ -36,5 +36,6 @@ void network_init();
 void netArrayAdd(Network* add);
 /* Return index of net array with id netID */
 uint8_t netArrayReturn(uint8_t netID);
+bool netCompare(netaddr *n1, netaddr *n2);
 
 #endif /* NETWORK_H_ */

@@ -140,7 +140,8 @@ bool setSettingsByOpcode(Message *mes, opcode opcode) {
 bool generateFriendMessage(Friend *friend, Message *mes, opcode op) {
 	//mes = malloc(sizeof(Message));
 	mes->id = friend->id;
-	strcpy(mes->srcAddr, friend->networkaddr);
+	//strcpy(mes->srcAddr, friend->networkaddr);
+    mes->srcAddr = friend->networkaddr;
 	mes->srcid = friend->port;
 	if (setSettingsByOpcode(mes, op)) {
 		printe("Message has invalid opcode.\n");
@@ -231,8 +232,9 @@ bool addToQueue(Message* mes) {
 	//mes->id = m_lastID; //TODO @brian@kevin, ID is used pointing to a friend.
 	messageQueue[m_lastID] = *mes; //TODO @brian@kevin does this copy the entire struct?
 	
-	m_lastID = (m_lastID + 1) % MAXQUEUESIZE; //failsafe
+	
 	printf("ADDED MESSAGE TO Q:%d-%d\n", m_lastID, mes->opcode );
+    m_lastID = (m_lastID + 1) % MAXQUEUESIZE; //failsafe
 	return true;
 }
 
@@ -244,8 +246,17 @@ bool addToQueue(Message* mes) {
 * @return     true if successful, false otherwise.
 */
 bool removeFromQueue(int queuenumber) {
+    printd("changing queue#%d opcode: %d->%d", queuenumber, messageQueue[queuenumber].opcode, 0 );
 	messageQueue[queuenumber].opcode = 0; //Set to invalid opcode.
 	return false; //TODO implement
+}
+
+bool removeFromQueueEvents(Event *e, uint8_t len){
+    printd("Removing %d entries from queue\n", len);
+    for(int i=0; i<len; ++i){
+        removeFromQueue(e[i].qnum);
+    }
+    return true;
 }
 
 /**
@@ -286,6 +297,7 @@ int checkQueue(opcode op, flags f, Network *net, Event eventList[]) {
 			numOpcodesPresent++;
 			eventList[j].srcid = messageQueue[i].srcid;
 			strcpy(eventList[j].srcAddr, messageQueue[i].srcAddr); //TODO check bounds
+            eventList[j].qnum = i;
 			j++;
 		}
 	}

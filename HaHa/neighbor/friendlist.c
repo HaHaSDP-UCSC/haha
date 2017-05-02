@@ -7,6 +7,8 @@
 #include "friendlist.h"
 #include "messagequeue/messagequeue.h"
 
+uint8_t numLocal = 0;
+
 /************************************************************************/
 /* INTERNAL METHODS                                                     */
 /************************************************************************/
@@ -55,10 +57,10 @@ bool addFriend(Friend *f) {
     //else
         friendList[f->priority] = *f;
     Friend* ftemp = &friendList[f->priority];
-    printf("Added friend: %s", ftemp->firstname);
-    printf("netaddr:[");
+    printd("Added friend: %s %s", ftemp->firstname, ftemp->lastname);
+    printd("netaddr:[");
     printBuff(f->networkaddr, 8, "%c");
-    printf("]\n");
+    printd("]\n");
     return true;
 }
 
@@ -81,7 +83,15 @@ bool removeFriend(Network* net) {
  * @return     true if successful, false otherwise.
  */
 bool checkForFriend(Network* net) {
-	return false; //TODO Implement	
+    printd("Searching for friend with addr:");
+    printBuff(net->src, 8, "%x");
+    printd("\n");
+    for(int i=0; i<FRIENDLISTSIZE; ++i){
+        printd("searching entry %d", i);
+        if(netCompare(friendList[i].networkaddr, net->src))
+	        return i;
+    }            
+    return false;
 }
 
 void addTestFriend(char *fname, char*lname, char* addr){
@@ -89,11 +99,9 @@ void addTestFriend(char *fname, char*lname, char* addr){
     strcpy(f->firstname, fname);
     strcpy(f->lastname, lname);
     f->id = 1;
-    //printf("%s", addr);
-    //printBuff(addr, 8, "%c");
-    //printBuff(convert_asciihex_to_byte(addr), 8, "%c");
     uint8_t* t = convert_asciihex_to_byte(addr);
     memcpy(f->networkaddr,t, 8);
+    printd("Adding test friend\n");
     printBuff(f->networkaddr, 8, "%c");
     printBuff(t, 8, "%c");
     //strcpy(f->networkaddr,addr);
@@ -102,3 +110,11 @@ void addTestFriend(char *fname, char*lname, char* addr){
     addFriend(f);
 }
 
+void addTestLocalUser(char *fname, char*lname, uint16_t port){
+    Friend *f = malloc(sizeof(Friend));
+    strcpy(f->firstname, fname);
+    strcpy(f->lastname, lname);
+    f->port = port;
+    printd("Adding test Local User\n");
+    Friend* ftemp = &localUsers[numLocal++];
+}
