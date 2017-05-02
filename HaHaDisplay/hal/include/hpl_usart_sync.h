@@ -83,7 +83,7 @@ struct _usart_sync_device {
 int32_t _usart_sync_init(struct _usart_sync_device *const device, void *const hw);
 
 /**
- * \brief De-initialize USART
+ * \brief Deinitialize USART
  *
  * This function closes the given USART by disabling its clock.
  *

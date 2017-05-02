@@ -9,22 +9,6 @@
 #include "driver_init.h"
 #include <utils.h>
 #include <hal_init.h>
-#include <hpl_irq.h>
-
-#if CONF_DMAC_MAX_USED_DESC > 0
-#include <hpl_dma.h>
-#include <hpl_prov_dma_ctrl_v100.h>
-
-COMPILER_ALIGNED(16)
-DmacDescriptor _descriptor_section[CONF_DMAC_MAX_USED_DESC] SECTION_DMAC_DESCRIPTOR;
-
-struct _dma_resource _resource[CONF_DMAC_MAX_USED_CH];
-
-uint32_t dmac_ch_used = CONF_DMAC_MAX_USED_CH;
-#endif
-
-extern struct _irq_descriptor *_irq_table[PERIPH_COUNT_IRQn];
-extern void                    Default_Handler(void);
 
 struct usart_sync_descriptor TARGET_IO;
 
@@ -43,32 +27,9 @@ void TARGET_IO_init(void)
 	TARGET_IO_PORT_init();
 }
 
-void UART0_RX_Handler(void)
-{
-	if (_irq_table[UART0_RX_IRQn + (0 << 1)]) {
-		_irq_table[UART0_RX_IRQn + (0 << 1)]->handler(_irq_table[UART0_RX_IRQn + (0 << 1)]->parameter);
-	} else {
-		Default_Handler();
-	}
-}
-
-void UART0_TX_Handler(void)
-{
-	if (_irq_table[UART0_TX_IRQn + (0 << 1)]) {
-		_irq_table[UART0_TX_IRQn + (0 << 1)]->handler(_irq_table[UART0_TX_IRQn + (0 << 1)]->parameter);
-	} else {
-		Default_Handler();
-	}
-}
 void UART0_register_isr(void)
 {
 	uint32_t *temp;
-
-	temp  = (uint32_t *)((RAM_ISR_TABLE_UARTRX0 + (0 << 1)) * 4 + ISR_RAM_MAP_START_ADDRESS);
-	*temp = (uint32_t)UART0_RX_Handler;
-
-	temp  = (uint32_t *)((RAM_ISR_TABLE_UARTTX0 + (0 << 1)) * 4 + ISR_RAM_MAP_START_ADDRESS);
-	*temp = (uint32_t)UART0_TX_Handler;
 }
 
 void system_init(void)
@@ -186,6 +147,21 @@ void system_init(void)
 	                   false);
 
 	gpio_set_pin_function(DISP_CTRST, GPIO_PIN_FUNCTION_OFF);
+
+	// GPIO on LP_GPIO_23
+
+	// Set pin direction to input
+	gpio_set_pin_direction(SW0, GPIO_DIRECTION_IN);
+
+	gpio_set_pin_pull_mode(SW0,
+	                       // <y> Pull configuration
+	                       // <id> pad_pull_config
+	                       // <GPIO_PULL_OFF"> Off
+	                       // <GPIO_PULL_UP"> Pull-up
+	                       // <GPIO_PULL_DOWN"> Pull-down
+	                       GPIO_PULL_UP);
+
+	gpio_set_pin_function(SW0, GPIO_PIN_FUNCTION_OFF);
 
 	UART0_register_isr();
 

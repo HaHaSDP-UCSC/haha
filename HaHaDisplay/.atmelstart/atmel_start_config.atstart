@@ -95,6 +95,13 @@ drivers:
         configuration:
           uart_clock_source: UART0 Divider
 pads:
+  SW0:
+    name: LP_GPIO_23
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_23
+    mode: Digital input
+    user_label: SW0
+    configuration:
+      pad_pull_config: Pull-up
   DISP_BRIGHT:
     name: LP_GPIO_13
     definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_13

@@ -77,10 +77,10 @@ extern "C" {
 int32_t _ext_irq_init(void (*cb)(const uint32_t pin));
 
 /**
- * \brief De-initialize external interrupt module
+ * \brief Deinitialize external interrupt module
  *
  * \return Initialization status.
- * \retval -1 External irq module is already de-initialized
+ * \retval -1 External irq module is already deinitialized
  * \retval 0 The de-initialization is completed successfully
  */
 int32_t _ext_irq_deinit(void);

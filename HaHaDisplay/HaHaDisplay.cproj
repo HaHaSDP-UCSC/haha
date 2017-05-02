@@ -129,7 +129,7 @@
         </AcmeActionInfos>
       </AcmeProjectConfig>
     </AcmeProjectConfig>
-    <AtzipPath>.atmel-start-backup\Atmel_Start_6.atzip</AtzipPath>
+    <AtzipPath>.atmel-start-backup\Atmel_Start_3.atzip</AtzipPath>
     <avrtool>com.atmel.avrdbg.tool.edbg</avrtool>
     <avrtoolserialnumber>ATML2534030200004453</avrtoolserialnumber>
     <avrdeviceexpectedsignature>0x2000B0</avrdeviceexpectedsignature>
@@ -460,7 +460,7 @@
     <Compile Include="hpl\core\hpl_init.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="hpl\gpio\hpl_gpio.c">
+    <Compile Include="hpl\gpio\hpl_gpio_base.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hpl\lpmcu_misc_regs\hpl_lpmcu_misc_regs.c">

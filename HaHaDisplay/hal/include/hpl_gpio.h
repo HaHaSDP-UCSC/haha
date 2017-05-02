@@ -113,7 +113,8 @@ void _gpio_init(void);
  *                      GPIO_DIRECTION_OUT  = set pin direction to output
  *                      and disable input buffer
  */
-void _gpio_set_direction(const enum gpio_port port, const uint32_t mask, const enum gpio_direction direction);
+static inline void _gpio_set_direction(const enum gpio_port port, const uint32_t mask,
+                                       const enum gpio_direction direction);
 
 /**
  * \brief Set output level on port with mask
@@ -127,7 +128,7 @@ void _gpio_set_direction(const enum gpio_port port, const uint32_t mask, const e
  * \param[in] level true  = pin level is set to 1
  *                  false = pin level is set to 0
  */
-void _gpio_set_level(const enum gpio_port port, const uint32_t mask, const bool level);
+static inline void _gpio_set_level(const enum gpio_port port, const uint32_t mask, const bool level);
 
 /**
  * \brief Change output level to the opposite with mask
@@ -139,7 +140,7 @@ void _gpio_set_level(const enum gpio_port port, const uint32_t mask, const bool 
  * \param[in] mask  Bit mask where 1 means apply direction setting to
  *                  the corresponding pin
  */
-void _gpio_toggle_level(const enum gpio_port port, const uint32_t mask);
+static inline void _gpio_toggle_level(const enum gpio_port port, const uint32_t mask);
 
 /**
  * \brief Get input levels on all port pins
@@ -150,7 +151,7 @@ void _gpio_toggle_level(const enum gpio_port port, const uint32_t mask);
  * \param[in] port  Ports are grouped into groups of maximum 32 pins,
  *                  GPIO_PORTA = group 0, GPIO_PORTB = group 1, etc
  */
-uint32_t _gpio_get_level(const enum gpio_port port);
+static inline uint32_t _gpio_get_level(const enum gpio_port port);
 
 /**
  * \brief Set pin pull mode
@@ -169,7 +170,8 @@ uint32_t _gpio_get_level(const enum gpio_port port);
  *                      GPIO_PULL_UP   = pull resistor on pin will pull pin
  *                      level to VCC
  */
-void _gpio_set_pin_pull_mode(const enum gpio_port port, const uint8_t pin, const enum gpio_pull_mode pull_mode);
+static inline void _gpio_set_pin_pull_mode(const enum gpio_port port, const uint8_t pin,
+                                           const enum gpio_pull_mode pull_mode);
 
 /**
  * \brief Set gpio function
@@ -181,8 +183,9 @@ void _gpio_set_pin_pull_mode(const enum gpio_port port, const uint8_t pin, const
  *                     found in the header files for the device
  *
  */
-void _gpio_set_pin_function(const uint32_t gpio, const uint32_t function);
+static inline void _gpio_set_pin_function(const uint32_t gpio, const uint32_t function);
 
+#include <hpl_gpio_base.h>
 //@}
 
 #ifdef __cplusplus

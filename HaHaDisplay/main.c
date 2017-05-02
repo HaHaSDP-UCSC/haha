@@ -25,9 +25,14 @@ int main(void)
 	}
 	*/
 	Menu* menu = ui_init();
+	menu_move(menu, MENU_DOWN);
+	menu_move(menu, MENU_UP);
+	menu_set_lcd(menu);
 	while(1) {
-		menu_move(menu, MENU_DOWN);
-		menu_set_lcd(menu);
-		delay(1000);
+		if(! gpio_get_pin_level(SW0)) {
+			menu_move(menu, MENU_DOWN);
+			menu_set_lcd(menu);
+		} 
+		delay(100);
 	}
 }
