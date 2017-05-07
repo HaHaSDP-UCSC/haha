@@ -1,7 +1,7 @@
 /**
  * \file
  *
- * \brief IO USART related functionality implementation.
+ * \brief I/O USART related functionality implementation.
  *
  * Copyright (C) 2014 - 2016 Atmel Corporation. All rights reserved.
  *
@@ -108,7 +108,7 @@ int32_t usart_sync_disable(struct usart_sync_descriptor *const descr)
 }
 
 /**
- * \brief Retrieve IO descriptor
+ * \brief Retrieve I/O descriptor
  */
 int32_t usart_sync_get_io_descriptor(struct usart_sync_descriptor *const descr, struct io_descriptor **io)
 {

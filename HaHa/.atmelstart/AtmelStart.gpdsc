@@ -50,9 +50,12 @@
       <description>Atmel Start Framework</description>
       <RTE_Components_h>#define ATMEL_START</RTE_Components_h>
       <files>
+        <file category="doc" condition="ARMCC, GCC, IAR" name="hal/documentation/ext_irq.rst"/>
+        <file category="doc" condition="ARMCC, GCC, IAR" name="hal/documentation/timer.rst"/>
         <file category="doc" condition="ARMCC, GCC, IAR" name="hal/documentation/usart_async.rst"/>
         <file category="doc" condition="ARMCC, GCC, IAR" name="hal/documentation/usart_sync.rst"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hal_atomic.h"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hal_ext_irq.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hal_gpio.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hal_init.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hal_io.h"/>
@@ -79,9 +82,8 @@
         <file category="source" condition="ARMCC, GCC, IAR" name="hal/utils/src/utils_ringbuffer.c"/>
         <file category="source" condition="GCC" name="hal/utils/src/utils_syscalls.c"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hpl/core/hpl_core_m0_base.c"/>
-        <file category="source" condition="ARMCC, GCC, IAR" name="hpl/gpio/hpl_gpio.c"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="hpl/gpio/hpl_gpio_base.h"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hpl/lpmcu_misc_regs/hpl_lpmcu_misc_regs.c"/>
-        <file category="source" condition="ARMCC, GCC, IAR" name="hpl/uart/hpl_uart.c"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hri/hri_aon_gp_regs_b11.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hri/hri_aon_pwr_seq_b11.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hri/hri_aon_sleep_timer_b11.h"/>
@@ -110,36 +112,71 @@
         <file category="source" condition="ARMCC" name="stdio_redirect/keil/Retarget.c"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="stdio_redirect/stdio_io.c"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="stdio_redirect/stdio_io.h"/>
+        <file category="doc" condition="ARMCC, GCC, IAR" name="doc/ble_manager_doc.rst"/>
+        <file category="source" condition="ARMCC, GCC, IAR" name="thirdparty/wireless/ble_sdk/ble_services/ble_mgr/ble_manager.c"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="thirdparty/wireless/ble_sdk/inc/at_ble_api.h"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="thirdparty/wireless/ble_sdk/inc/at_ble_errno.h"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="thirdparty/wireless/ble_sdk/inc/at_ble_trace.h"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="thirdparty/wireless/ble_sdk/inc/common.h"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="thirdparty/wireless/ble_sdk/inc/event_handler.h"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="thirdparty/wireless/ble_sdk/inc/gpio_from_sdk.h"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="thirdparty/wireless/ble_sdk/inc/ke_msg.h"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="thirdparty/wireless/ble_sdk/inc/lpmcu_cortex_misc_regs_c.h"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="thirdparty/wireless/ble_sdk/inc/platform.h"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="thirdparty/wireless/ble_sdk/inc/profiles.h"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="thirdparty/wireless/ble_sdk/inc/reg_common.h"/>
+        <file category="library" condition="GCC" name="thirdparty/wireless/ble_sdk/lib/cm0/gcc/libblesdk.a"/>
+        <file category="library" condition="IAR" name="thirdparty/wireless/ble_sdk/lib/cm0/iar/libblesdk.a"/>
+        <file category="source" condition="ARMCC, GCC, IAR" name="thirdparty/wireless/ble_sdk/services/app_bsp/samb11_xpro/app_bsp.c"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="thirdparty/wireless/ble_sdk/services/app_bsp/samb11_xpro/app_bsp.h"/>
+        <file category="source" condition="ARMCC, GCC, IAR" name="thirdparty/wireless/ble_sdk/src/event_handler.c"/>
+        <file category="source" condition="ARMCC, GCC, IAR" name="thirdparty/wireless/ble_sdk/src/platform_drv.c"/>
+        <file category="source" condition="ARMCC, GCC, IAR" name="thirdparty/wireless/ble_sdk/src/port_from_sdk.c"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="thirdparty/wireless/ble_sdk/utils/ble_utils.h"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="main.c"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="driver_init.c"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="driver_init.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="atmel_start_pins.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="examples/driver_examples.h"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="examples/driver_examples.c"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hal_timer.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hal_usart_async.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hal_usart_sync.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hpl_missing_features.h"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hpl_timer.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hpl_usart_async.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hpl_usart_sync.h"/>
+        <file category="source" condition="ARMCC, GCC, IAR" name="hal/src/hal_ext_irq.c"/>
+        <file category="source" condition="ARMCC, GCC, IAR" name="hal/src/hal_timer.c"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hal/src/hal_usart_async.c"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hal/src/hal_usart_sync.c"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/utils/include/parts.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hpl/core/hpl_core_port.h"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hpl/core/hpl_init.c"/>
+        <file category="source" condition="ARMCC, GCC, IAR" name="hpl/dualtimer/hpl_dualtimer.c"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="hpl/dualtimer/hpl_dualtimer.h"/>
+        <file category="source" condition="ARMCC, GCC, IAR" name="hpl/gpio/hpl_gpio_ext.c"/>
+        <file category="source" condition="ARMCC, GCC, IAR" name="hpl/uart/hpl_uart.c"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="stdio_start.c"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="stdio_start.h"/>
+        <file category="source" condition="ARMCC, GCC, IAR" name="ble_config.c"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="ble_config.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="atmel_start.h"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="atmel_start.c"/>
+        <file attr="config" category="header" condition="ARMCC, GCC, IAR" name="config/hpl_dualtimer_config.h"/>
+        <file attr="config" category="header" condition="ARMCC, GCC, IAR" name="config/hpl_gpio_config.h"/>
         <file attr="config" category="header" condition="ARMCC, GCC, IAR" name="config/hpl_lpmcu_misc_regs_config.h"/>
         <file attr="config" category="header" condition="ARMCC, GCC, IAR" name="config/hpl_uart_config.h"/>
         <file attr="config" category="header" condition="ARMCC, GCC, IAR" name="config/peripheral_clk_config.h"/>
         <file attr="config" category="header" condition="ARMCC, GCC, IAR" name="config/stdio_redirect_config.h"/>
+        <file attr="config" category="header" condition="ARMCC, GCC, IAR" name="thirdparty/wireless/ble_sdk/ble_services/ble_mgr/ble_manager.h"/>
         <file category="include" condition="ARMCC, GCC, IAR" name=""/>
         <file category="include" condition="ARMCC, GCC, IAR" name="config"/>
         <file category="include" condition="ARMCC, GCC, IAR" name="examples"/>
         <file category="include" condition="ARMCC, GCC, IAR" name="hal/include"/>
         <file category="include" condition="ARMCC, GCC, IAR" name="hal/utils/include"/>
         <file category="include" condition="ARMCC, GCC, IAR" name="hpl/core"/>
+        <file category="include" condition="ARMCC, GCC, IAR" name="hpl/dualtimer"/>
         <file category="include" condition="ARMCC, GCC, IAR" name="hpl/gpio"/>
         <file category="include" condition="ARMCC, GCC, IAR" name="hpl/lpmcu_misc_regs"/>
         <file category="include" condition="ARMCC, GCC, IAR" name="hpl/uart"/>
@@ -147,6 +184,13 @@
         <file category="include" condition="ARMCC, GCC, IAR" name=""/>
         <file category="include" condition="ARMCC, GCC, IAR" name="config"/>
         <file category="include" condition="ARMCC, GCC, IAR" name="stdio_redirect"/>
+        <file category="include" condition="ARMCC, GCC, IAR" name=""/>
+        <file category="include" condition="ARMCC, GCC, IAR" name="."/>
+        <file category="include" condition="ARMCC, GCC, IAR" name="thirdparty/wireless/ble_sdk/ble_services/ble_mgr"/>
+        <file category="include" condition="ARMCC, GCC, IAR" name="thirdparty/wireless/ble_sdk/inc"/>
+        <file category="include" condition="ARMCC, GCC, IAR" name="thirdparty/wireless/ble_sdk/services/app_bsp/samb11_xpro"/>
+        <file category="include" condition="ARMCC, GCC, IAR" name="thirdparty/wireless/ble_sdk/src"/>
+        <file category="include" condition="ARMCC, GCC, IAR" name="thirdparty/wireless/ble_sdk/utils"/>
         <file category="include" condition="ARMCC, GCC, IAR" name=""/>
       </files>
     </component>

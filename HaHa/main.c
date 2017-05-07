@@ -13,13 +13,12 @@
 #include "utils/hahaUtils.h"
 #include "messagequeue/messagequeue.h"
 #include "neighbor/friendlist.h"
-
+#include "ble_base_station.h"
 void printpacket1(char* d, uint8_t len){
     printf("in Callback print\n");
     printBuff(d, len, "%c");
     printf("end cb print\n");
 }
-
 void init_sys(){
     printf("Starting System...\n");
     atmel_start_init();
@@ -30,6 +29,9 @@ void init_sys(){
     //xbee_setAPI(1);    
 }
 
+int test(){
+    printf("hey!");
+}    
 int main(void)
 {
     /* Initializes MCU, drivers and middleware */
@@ -38,6 +40,7 @@ int main(void)
     uart_register_netdev_callback(xbee_recv);
     SET_SEND_NETDEV(true);
     xbee_register_callback(app_packet_handler, FRAME_RX);
+    main1();
     //delay(5000);
     //cmd_AT_get("SH");
     //delay(500);
@@ -57,4 +60,3 @@ int main(void)
         
     }
 }
-

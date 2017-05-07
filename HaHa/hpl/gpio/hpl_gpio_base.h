@@ -46,7 +46,8 @@
 /**
  * \brief Set direction on port with mask
  */
-void _gpio_set_direction(const enum gpio_port port, const uint32_t mask, const enum gpio_direction direction)
+static inline void _gpio_set_direction(const enum gpio_port port, const uint32_t mask,
+                                       const enum gpio_direction direction)
 {
 	uint32_t mask_gpio1 = mask >> 16;
 
@@ -85,7 +86,7 @@ void _gpio_set_direction(const enum gpio_port port, const uint32_t mask, const e
 /**
  * \brief Set output level on port with mask
  */
-void _gpio_set_level(const enum gpio_port port, const uint32_t mask, const bool level)
+static inline void _gpio_set_level(const enum gpio_port port, const uint32_t mask, const bool level)
 {
 	uint32_t mask_gpio1 = mask >> 16;
 
@@ -113,7 +114,7 @@ void _gpio_set_level(const enum gpio_port port, const uint32_t mask, const bool 
 /**
  * \brief Change output level to the opposite with mask
  */
-void _gpio_toggle_level(const enum gpio_port port, const uint32_t mask)
+static inline void _gpio_toggle_level(const enum gpio_port port, const uint32_t mask)
 {
 	uint32_t mask_gpio1 = mask >> 16;
 
@@ -129,7 +130,7 @@ void _gpio_toggle_level(const enum gpio_port port, const uint32_t mask)
 /**
  * \brief Get input levels on all port pins
  */
-uint32_t _gpio_get_level(const enum gpio_port port)
+static inline uint32_t _gpio_get_level(const enum gpio_port port)
 {
 	uint32_t tmp = 0;
 
@@ -148,7 +149,8 @@ uint32_t _gpio_get_level(const enum gpio_port port)
 /**
  * \brief Set pin pull mode
  */
-void _gpio_set_pin_pull_mode(const enum gpio_port port, const uint8_t pin, const enum gpio_pull_mode pull_mode)
+static inline void _gpio_set_pin_pull_mode(const enum gpio_port port, const uint8_t pin,
+                                           const enum gpio_pull_mode pull_mode)
 {
 	uint8_t pin_num = pin;
 
@@ -180,7 +182,7 @@ void _gpio_set_pin_pull_mode(const enum gpio_port port, const uint8_t pin, const
 /**
  * \brief Set pin mux position
  */
-void _gpio_set_pin_function(const uint32_t gpio, const uint32_t function)
+static inline void _gpio_set_pin_function(const uint32_t gpio, const uint32_t function)
 {
 	uint8_t port        = GPIO_PORT(gpio);
 	uint8_t pin         = GPIO_PIN(gpio);

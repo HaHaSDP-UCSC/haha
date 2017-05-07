@@ -1,7 +1,7 @@
 /**
  * \file
  *
- * \brief IO USART related functionality implementation.
+ * \brief I/O USART related functionality implementation.
  *
  * Copyright (C) 2014 - 2016 Atmel Corporation. All rights reserved.
  *
@@ -87,7 +87,7 @@ int32_t usart_async_init(struct usart_async_descriptor *const descr, void *const
 }
 
 /**
- * \brief De-initialize usart interface
+ * \brief Deinitialize usart interface
  */
 int32_t usart_async_deinit(struct usart_async_descriptor *const descr)
 {
@@ -122,7 +122,7 @@ int32_t usart_async_disable(struct usart_async_descriptor *const descr)
 }
 
 /**
- * \brief Retrieve IO descriptor
+ * \brief Retrieve I/O descriptor
  */
 int32_t usart_async_get_io_descriptor(struct usart_async_descriptor *const descr, struct io_descriptor **io)
 {

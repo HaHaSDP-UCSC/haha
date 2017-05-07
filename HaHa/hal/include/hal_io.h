@@ -1,7 +1,7 @@
 /**
  * \file
  *
- * \brief IO related functionality declaration.
+ * \brief I/O related functionality declaration.
  *
  * Copyright (C) 2014 - 2016 Atmel Corporation. All rights reserved.
  *
@@ -45,7 +45,7 @@
 #define _HAL_IO_INCLUDED
 
 /**
- * \addtogroup doc_driver_hal_helper_io IO Driver
+ * \addtogroup doc_driver_hal_helper_io I/O Driver
  *
  *@{
  */
@@ -57,24 +57,24 @@ extern "C" {
 #endif
 
 /**
- * \brief IO descriptor
+ * \brief I/O descriptor
  *
- * The IO descriptor forward declaration.
+ * The I/O descriptor forward declaration.
  */
 struct io_descriptor;
 
 /**
- * \brief IO write function pointer type
+ * \brief I/O write function pointer type
  */
 typedef int32_t (*io_write_t)(struct io_descriptor *const io_descr, const uint8_t *const buf, const uint16_t length);
 
 /**
- * \brief IO read function pointer type
+ * \brief I/O read function pointer type
  */
 typedef int32_t (*io_read_t)(struct io_descriptor *const io_descr, uint8_t *const buf, const uint16_t length);
 
 /**
- * \brief IO descriptor
+ * \brief I/O descriptor
  */
 struct io_descriptor {
 	io_write_t write; /*! The write function pointer. */
@@ -82,32 +82,32 @@ struct io_descriptor {
 };
 
 /**
- * \brief IO write interface
+ * \brief I/O write interface
  *
- * This function write up to \p length of bytes to a given IO descriptor,
+ * This function writes up to \p length of bytes to a given I/O descriptor.
  * It returns the number of bytes actually write.
  *
- * \param[in] descr An IO descriptor to write
- * \param[in] buf The buffer pointer to story the write data
- * \param[in] length number of bytes to write
+ * \param[in] descr  An I/O descriptor to write
+ * \param[in] buf    The buffer pointer to story the write data
+ * \param[in] length The number of bytes to write
  *
- * \return number of bytes written
+ * \return The number of bytes written
  */
 int32_t io_write(struct io_descriptor *const io_descr, const uint8_t *const buf, const uint16_t length);
 
 /**
- * \brief IO read interface
+ * \brief I/O read interface
  *
- * This function reads up to \p length bytes from a given IO descriptor, and
- * story it in the buffer pointed to by \p buf. It returns the number of bytes
+ * This function reads up to \p length bytes from a given I/O descriptor, and
+ * store it in the buffer pointed to by \p buf. It returns the number of bytes
  * actually read.
  *
- * \param[in] descr An IO descriptor to read
- * \param[in] buf The buffer pointer to story the read data
- * \param[in] length number of bytes to read
+ * \param[in] descr  An I/O descriptor to read
+ * \param[in] buf    The buffer pointer to story the read data
+ * \param[in] length The number of bytes to read
  *
- * \return number of bytes actually read. This number can be less than the
- *         requested length. E.g., in driver that uses ring buffer for
+ * \return The number of bytes actually read. This number can be less than the
+ *         requested length. E.g., in a driver that uses ring buffer for
  *         reception, it may depend on the availability of data in the
  *         ring buffer.
  */

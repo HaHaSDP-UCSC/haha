@@ -11,7 +11,7 @@
 
 void STDIO_REDIRECT_0_example(void)
 {
-	/* Print welcom message */
+	/* Print welcome message */
 	printf("\r\nHello ATMEL World!\r\n");
 }
 

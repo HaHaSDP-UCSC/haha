@@ -14,7 +14,106 @@ middlewares:
     api: STDIO:Redirect:IO
     dependencies:
       Target IO: TARGET_IO
+  BLE_EVENT_MANAGER_0:
+    user_label: BLE_EVENT_MANAGER_0
+    configuration:
+      gap_ble_authentication_level: Mode 1 Level 2 Authenticated Pairing (MITM Enable)
+        with Encryption
+      gap_ble_bond_req: true
+      gap_ble_io_capabalities: Can Only Display
+      gap_ble_mitm_req: true
+      gap_ble_oob_req: false
+      gap_ble_pair_enable: true
+      gap_broadcaster_mode_enable: false
+      gap_central_mode_enable: true
+      gap_central_peripheral_mode_enable: false
+      gap_conn_interval_max: 40
+      gap_conn_interval_min: 20
+      gap_conn_slave_latency: 0
+      gap_max_device_connected: 5
+      gap_observer_mode_enable: true
+      gap_peripheral_mode_enable: false
+      gap_scan_interval: 96
+      gap_scan_window: 96
+      gap_supervision_timout: 500
+      gatt_htpt_service_enable: false
+      gatt_profile_enable: false
+      max_scan_device: 20
+    definition: Atmel:BLEB11:0.0.1::BLE_Event_Manager
+    functionality: BLE_Event_Manager
+    api: BLE:Sdk:Manager
+    dependencies:
+      STDIO Redirect: STDIO_REDIRECT_0
+      TIMER_0: TIMER_0
 drivers:
+  TIMER_0:
+    user_label: TIMER_0
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::DUALTIMER0::driver_config_definition::Timer::HAL:Driver:Timer
+    functionality: Timer
+    api: HAL:Driver:Timer
+    configuration:
+      dualtimer_advanced_configuration: false
+      dualtimer_counter_size: Counter in 32-bit mode
+      timer_prescaler: No Clock Divided
+      timer_tick: 1000
+    optional_signals: []
+    variant: null
+    clocks:
+      domain_group:
+        nodes:
+        - name: DUALTIMER
+          input: DUALTIMER Divider
+        configuration:
+          dualtimer_clock_source: DUALTIMER Divider
+  EXTERNAL_IRQ_0:
+    user_label: EXTERNAL_IRQ_0
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::GPIO1::driver_config_definition::External.IRQ::HAL:Driver:Ext.IRQ
+    functionality: External_IRQ
+    api: HAL:Driver:Ext_IRQ
+    configuration:
+      gpio_ext_irq_enable_setting0: false
+      gpio_ext_irq_enable_setting1: false
+      gpio_ext_irq_enable_setting10: false
+      gpio_ext_irq_enable_setting11: false
+      gpio_ext_irq_enable_setting12: false
+      gpio_ext_irq_enable_setting13: false
+      gpio_ext_irq_enable_setting14: false
+      gpio_ext_irq_enable_setting15: false
+      gpio_ext_irq_enable_setting2: false
+      gpio_ext_irq_enable_setting3: false
+      gpio_ext_irq_enable_setting4: false
+      gpio_ext_irq_enable_setting5: false
+      gpio_ext_irq_enable_setting6: false
+      gpio_ext_irq_enable_setting7: true
+      gpio_ext_irq_enable_setting8: false
+      gpio_ext_irq_enable_setting9: false
+      gpio_ext_irq_sense0: No detection
+      gpio_ext_irq_sense1: No detection
+      gpio_ext_irq_sense10: No detection
+      gpio_ext_irq_sense11: No detection
+      gpio_ext_irq_sense12: No detection
+      gpio_ext_irq_sense13: No detection
+      gpio_ext_irq_sense14: No detection
+      gpio_ext_irq_sense15: No detection
+      gpio_ext_irq_sense2: No detection
+      gpio_ext_irq_sense3: No detection
+      gpio_ext_irq_sense4: No detection
+      gpio_ext_irq_sense5: No detection
+      gpio_ext_irq_sense6: No detection
+      gpio_ext_irq_sense7: Rising-edge detection
+      gpio_ext_irq_sense8: No detection
+      gpio_ext_irq_sense9: No detection
+    optional_signals:
+    - identifier: EXTERNAL_IRQ_0:P/23
+      pad: LP_GPIO_23
+      mode: Ext IRQ Enabled
+      configuration: null
+      definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::optional_signal_definition::GPIO1.P.23
+      name: GPIO1/P/23
+      label: P/23
+    variant: null
+    clocks:
+      domain_group: null
   CLOCK:
     user_label: CLOCK
     definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::CLOCK::driver_config_definition::CLOCK::HAL:HPL:LPMCUMISCREGS
@@ -171,6 +270,12 @@ pads:
     definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_3
     mode: Peripheral IO
     user_label: LP_GPIO_3
+    configuration: null
+  LP_GPIO_23:
+    name: LP_GPIO_23
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_23
+    mode: Digital input
+    user_label: LP_GPIO_23
     configuration: null
   LP_GPIO_6:
     name: LP_GPIO_6

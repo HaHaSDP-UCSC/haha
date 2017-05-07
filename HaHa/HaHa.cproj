@@ -26,7 +26,7 @@
     <preserveEEPROM>true</preserveEEPROM>
     <OverrideVtorValue>exception_table</OverrideVtorValue>
     <BootSegment>2</BootSegment>
-    <eraseonlaunchrule>7</eraseonlaunchrule>
+    <eraseonlaunchrule>6</eraseonlaunchrule>
     <AsfFrameworkConfig>
       <framework-data xmlns="">
         <options />
@@ -133,7 +133,7 @@
         </AcmeActionInfos>
       </AcmeProjectConfig>
     </AcmeProjectConfig>
-    <AtzipPath>.atmel-start-backup\Atmel_Start_8.atzip</AtzipPath>
+    <AtzipPath>.atmel-start-backup\Atmel_Start_10.atzip</AtzipPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
@@ -158,11 +158,17 @@
       <Value>../hal/include</Value>
       <Value>../hal/utils/include</Value>
       <Value>../hpl/core</Value>
+      <Value>../hpl/dualtimer</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
       <Value>../hpl/uart</Value>
       <Value>../hri</Value>
       <Value>../stdio_redirect</Value>
+      <Value>../thirdparty/wireless/ble_sdk/ble_services/ble_mgr</Value>
+      <Value>../thirdparty/wireless/ble_sdk/inc</Value>
+      <Value>../thirdparty/wireless/ble_sdk/services/app_bsp/samb11_xpro</Value>
+      <Value>../thirdparty/wireless/ble_sdk/src</Value>
+      <Value>../thirdparty/wireless/ble_sdk/utils</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
   <armgcc.compiler.optimization.level>Optimize for size (-Os)</armgcc.compiler.optimization.level>
@@ -171,12 +177,14 @@
   <armgcc.linker.general.UseNewlibNano>True</armgcc.linker.general.UseNewlibNano>
   <armgcc.linker.libraries.Libraries>
     <ListValues>
+      <Value>libblesdk.a</Value>
       <Value>libm</Value>
     </ListValues>
   </armgcc.linker.libraries.Libraries>
   <armgcc.linker.libraries.LibrarySearchPaths>
     <ListValues>
       <Value>%24(ProjectDir)\Device_Startup</Value>
+      <Value>../thirdparty/wireless/ble_sdk/lib/cm0/gcc</Value>
     </ListValues>
   </armgcc.linker.libraries.LibrarySearchPaths>
   <armgcc.linker.optimization.GarbageCollectUnusedSections>True</armgcc.linker.optimization.GarbageCollectUnusedSections>
@@ -191,11 +199,17 @@
       <Value>../hal/include</Value>
       <Value>../hal/utils/include</Value>
       <Value>../hpl/core</Value>
+      <Value>../hpl/dualtimer</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
       <Value>../hpl/uart</Value>
       <Value>../hri</Value>
       <Value>../stdio_redirect</Value>
+      <Value>../thirdparty/wireless/ble_sdk/ble_services/ble_mgr</Value>
+      <Value>../thirdparty/wireless/ble_sdk/inc</Value>
+      <Value>../thirdparty/wireless/ble_sdk/services/app_bsp/samb11_xpro</Value>
+      <Value>../thirdparty/wireless/ble_sdk/src</Value>
+      <Value>../thirdparty/wireless/ble_sdk/utils</Value>
     </ListValues>
   </armgcc.assembler.general.IncludePaths>
   <armgcc.preprocessingassembler.general.IncludePaths>
@@ -208,11 +222,17 @@
       <Value>../hal/include</Value>
       <Value>../hal/utils/include</Value>
       <Value>../hpl/core</Value>
+      <Value>../hpl/dualtimer</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
       <Value>../hpl/uart</Value>
       <Value>../hri</Value>
       <Value>../stdio_redirect</Value>
+      <Value>../thirdparty/wireless/ble_sdk/ble_services/ble_mgr</Value>
+      <Value>../thirdparty/wireless/ble_sdk/inc</Value>
+      <Value>../thirdparty/wireless/ble_sdk/services/app_bsp/samb11_xpro</Value>
+      <Value>../thirdparty/wireless/ble_sdk/src</Value>
+      <Value>../thirdparty/wireless/ble_sdk/utils</Value>
     </ListValues>
   </armgcc.preprocessingassembler.general.IncludePaths>
 </ArmGcc>
@@ -242,11 +262,18 @@
       <Value>../hal/include</Value>
       <Value>../hal/utils/include</Value>
       <Value>../hpl/core</Value>
+      <Value>../hpl/dualtimer</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
       <Value>../hpl/uart</Value>
       <Value>../hri</Value>
       <Value>../stdio_redirect</Value>
+      <Value>../thirdparty/wireless/ble_sdk/ble_services/ble_mgr</Value>
+      <Value>../thirdparty/wireless/ble_sdk/inc</Value>
+      <Value>../thirdparty/wireless/ble_sdk/services/app_bsp/samb11_xpro</Value>
+      <Value>../thirdparty/wireless/ble_sdk/src</Value>
+      <Value>../thirdparty/wireless/ble_sdk/utils</Value>
+      <Value>../thirdparty/wireless/ble_sdk/ble_services/base_profile</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
   <armgcc.compiler.optimization.level>Optimize (-O1)</armgcc.compiler.optimization.level>
@@ -256,15 +283,18 @@
   <armgcc.linker.general.UseNewlibNano>True</armgcc.linker.general.UseNewlibNano>
   <armgcc.linker.libraries.Libraries>
     <ListValues>
+      <Value>libblesdk.a</Value>
       <Value>libm</Value>
     </ListValues>
   </armgcc.linker.libraries.Libraries>
   <armgcc.linker.libraries.LibrarySearchPaths>
     <ListValues>
       <Value>%24(ProjectDir)\Device_Startup</Value>
+      <Value>../thirdparty/wireless/ble_sdk/lib/cm0/gcc</Value>
     </ListValues>
   </armgcc.linker.libraries.LibrarySearchPaths>
   <armgcc.linker.optimization.GarbageCollectUnusedSections>True</armgcc.linker.optimization.GarbageCollectUnusedSections>
+  <armgcc.linker.memorysettings.ExternalRAM />
   <armgcc.linker.miscellaneous.LinkerFlags>-Tsamb11_sram.ld</armgcc.linker.miscellaneous.LinkerFlags>
   <armgcc.assembler.general.IncludePaths>
     <ListValues>
@@ -276,11 +306,17 @@
       <Value>../hal/include</Value>
       <Value>../hal/utils/include</Value>
       <Value>../hpl/core</Value>
+      <Value>../hpl/dualtimer</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
       <Value>../hpl/uart</Value>
       <Value>../hri</Value>
       <Value>../stdio_redirect</Value>
+      <Value>../thirdparty/wireless/ble_sdk/ble_services/ble_mgr</Value>
+      <Value>../thirdparty/wireless/ble_sdk/inc</Value>
+      <Value>../thirdparty/wireless/ble_sdk/services/app_bsp/samb11_xpro</Value>
+      <Value>../thirdparty/wireless/ble_sdk/src</Value>
+      <Value>../thirdparty/wireless/ble_sdk/utils</Value>
     </ListValues>
   </armgcc.assembler.general.IncludePaths>
   <armgcc.assembler.debugging.DebugLevel>Default (-g)</armgcc.assembler.debugging.DebugLevel>
@@ -294,11 +330,17 @@
       <Value>../hal/include</Value>
       <Value>../hal/utils/include</Value>
       <Value>../hpl/core</Value>
+      <Value>../hpl/dualtimer</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
       <Value>../hpl/uart</Value>
       <Value>../hri</Value>
       <Value>../stdio_redirect</Value>
+      <Value>../thirdparty/wireless/ble_sdk/ble_services/ble_mgr</Value>
+      <Value>../thirdparty/wireless/ble_sdk/inc</Value>
+      <Value>../thirdparty/wireless/ble_sdk/services/app_bsp/samb11_xpro</Value>
+      <Value>../thirdparty/wireless/ble_sdk/src</Value>
+      <Value>../thirdparty/wireless/ble_sdk/utils</Value>
     </ListValues>
   </armgcc.preprocessingassembler.general.IncludePaths>
   <armgcc.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcc.preprocessingassembler.debugging.DebugLevel>
@@ -333,11 +375,17 @@
       <Value>../hal/include</Value>
       <Value>../hal/utils/include</Value>
       <Value>../hpl/core</Value>
+      <Value>../hpl/dualtimer</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
       <Value>../hpl/uart</Value>
       <Value>../hri</Value>
       <Value>../stdio_redirect</Value>
+      <Value>../thirdparty/wireless/ble_sdk/ble_services/ble_mgr</Value>
+      <Value>../thirdparty/wireless/ble_sdk/inc</Value>
+      <Value>../thirdparty/wireless/ble_sdk/services/app_bsp/samb11_xpro</Value>
+      <Value>../thirdparty/wireless/ble_sdk/src</Value>
+      <Value>../thirdparty/wireless/ble_sdk/utils</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
   <armgcc.compiler.optimization.level>Optimize (-O1)</armgcc.compiler.optimization.level>
@@ -347,12 +395,14 @@
   <armgcc.linker.general.UseNewlibNano>True</armgcc.linker.general.UseNewlibNano>
   <armgcc.linker.libraries.Libraries>
     <ListValues>
+      <Value>libblesdk.a</Value>
       <Value>libm</Value>
     </ListValues>
   </armgcc.linker.libraries.Libraries>
   <armgcc.linker.libraries.LibrarySearchPaths>
     <ListValues>
       <Value>%24(ProjectDir)\Device_Startup</Value>
+      <Value>../thirdparty/wireless/ble_sdk/lib/cm0/gcc</Value>
     </ListValues>
   </armgcc.linker.libraries.LibrarySearchPaths>
   <armgcc.linker.optimization.GarbageCollectUnusedSections>True</armgcc.linker.optimization.GarbageCollectUnusedSections>
@@ -368,11 +418,17 @@
       <Value>../hal/include</Value>
       <Value>../hal/utils/include</Value>
       <Value>../hpl/core</Value>
+      <Value>../hpl/dualtimer</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
       <Value>../hpl/uart</Value>
       <Value>../hri</Value>
       <Value>../stdio_redirect</Value>
+      <Value>../thirdparty/wireless/ble_sdk/ble_services/ble_mgr</Value>
+      <Value>../thirdparty/wireless/ble_sdk/inc</Value>
+      <Value>../thirdparty/wireless/ble_sdk/services/app_bsp/samb11_xpro</Value>
+      <Value>../thirdparty/wireless/ble_sdk/src</Value>
+      <Value>../thirdparty/wireless/ble_sdk/utils</Value>
     </ListValues>
   </armgcc.assembler.general.IncludePaths>
   <armgcc.assembler.debugging.DebugLevel>Default (-g)</armgcc.assembler.debugging.DebugLevel>
@@ -386,11 +442,17 @@
       <Value>../hal/include</Value>
       <Value>../hal/utils/include</Value>
       <Value>../hpl/core</Value>
+      <Value>../hpl/dualtimer</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
       <Value>../hpl/uart</Value>
       <Value>../hri</Value>
       <Value>../stdio_redirect</Value>
+      <Value>../thirdparty/wireless/ble_sdk/ble_services/ble_mgr</Value>
+      <Value>../thirdparty/wireless/ble_sdk/inc</Value>
+      <Value>../thirdparty/wireless/ble_sdk/services/app_bsp/samb11_xpro</Value>
+      <Value>../thirdparty/wireless/ble_sdk/src</Value>
+      <Value>../thirdparty/wireless/ble_sdk/utils</Value>
     </ListValues>
   </armgcc.preprocessingassembler.general.IncludePaths>
   <armgcc.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcc.preprocessingassembler.debugging.DebugLevel>
@@ -411,6 +473,30 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="atmel_start_pins.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ble_base_station.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ble_base_station.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ble_config.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ble_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Config\ble_base_manager.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Config\ble_manager.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Config\hpl_dualtimer_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Config\hpl_gpio_config.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Config\hpl_lpmcu_misc_regs_config.h">
@@ -434,66 +520,6 @@
     <Compile Include="Device_Startup\system_samb11.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="lightsound\alarm\alarm.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="lightsound\alarm\alarm.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="lightsound\lighting\lighting.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="lightsound\lighting\lighting.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="lightsound\sound\sound.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="lightsound\sound\sound.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="messagequeue\messagequeue.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="messagequeue\messagequeue.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="neighbor\friendlist.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="neighbor\friendlist.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="neighbor\neighborlist.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="neighbor\neighborlist.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="network\basecomm.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="network\basecomm.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="network\flags.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="network\network.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="network\packet.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="network\packet.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="utils\hahaUtils.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="utils\hahaUtils.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="driver_init.c">
       <SubType>compile</SubType>
     </Compile>
@@ -506,10 +532,10 @@
     <Compile Include="examples\driver_examples.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="network\network.h">
+    <Compile Include="hal\include\hal_atomic.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="hal\include\hal_atomic.h">
+    <Compile Include="hal\include\hal_ext_irq.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hal\include\hal_gpio.h">
@@ -519,6 +545,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hal\include\hal_io.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="hal\include\hal_timer.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hal\include\hal_usart_async.h">
@@ -545,6 +574,9 @@
     <Compile Include="hal\include\hpl_missing_features.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="hal\include\hpl_timer.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="hal\include\hpl_usart.h">
       <SubType>compile</SubType>
     </Compile>
@@ -557,6 +589,9 @@
     <Compile Include="hal\src\hal_atomic.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="hal\src\hal_ext_irq.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="hal\src\hal_gpio.c">
       <SubType>compile</SubType>
     </Compile>
@@ -564,6 +599,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hal\src\hal_io.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="hal\src\hal_timer.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hal\src\hal_usart_async.c">
@@ -620,7 +658,16 @@
     <Compile Include="hpl\core\hpl_init.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="hpl\gpio\hpl_gpio.c">
+    <Compile Include="hpl\dualtimer\hpl_dualtimer.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="hpl\dualtimer\hpl_dualtimer.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="hpl\gpio\hpl_gpio_base.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="hpl\gpio\hpl_gpio_ext.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hpl\lpmcu_misc_regs\hpl_lpmcu_misc_regs.c">
@@ -689,7 +736,61 @@
     <Compile Include="hri\hri_wdt_b11.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="lightsound\alarm\alarm.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lightsound\alarm\alarm.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lightsound\lighting\lighting.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lightsound\lighting\lighting.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lightsound\sound\sound.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lightsound\sound\sound.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="main.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="messagequeue\messagequeue.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="messagequeue\messagequeue.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="neighbor\friendlist.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="neighbor\friendlist.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="neighbor\neighborlist.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="neighbor\neighborlist.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="network\basecomm.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="network\basecomm.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="network\flags.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="network\network.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="network\packet.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="network\packet.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="stdio_redirect\gcc\read.c">
@@ -710,6 +811,84 @@
     <Compile Include="stdio_start.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="thirdparty\wireless\ble_sdk\ble_services\ble_mgr\ble_manager.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\wireless\ble_sdk\ble_services\base_profile\base_station_monitor.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\wireless\ble_sdk\ble_services\base_profile\bsscp.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\wireless\ble_sdk\ble_services\base_profile\bsscp.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\wireless\ble_sdk\inc\at_ble_api.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\wireless\ble_sdk\inc\at_ble_errno.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\wireless\ble_sdk\inc\at_ble_trace.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\wireless\ble_sdk\inc\common.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\wireless\ble_sdk\inc\event_handler.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\wireless\ble_sdk\inc\gpio_from_sdk.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\wireless\ble_sdk\inc\ke_msg.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\wireless\ble_sdk\inc\lpmcu_cortex_misc_regs_c.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\wireless\ble_sdk\inc\platform.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\wireless\ble_sdk\inc\profiles.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\wireless\ble_sdk\inc\reg_common.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\wireless\ble_sdk\services\app_bsp\samb11_xpro\app_bsp.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\wireless\ble_sdk\services\app_bsp\samb11_xpro\app_bsp.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\wireless\ble_sdk\services\app_bsp\samb11_xpro\bsscs.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\wireless\ble_sdk\services\app_bsp\samb11_xpro\bsscs.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\wireless\ble_sdk\src\event_handler.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\wireless\ble_sdk\src\platform_drv.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\wireless\ble_sdk\src\port_from_sdk.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\wireless\ble_sdk\utils\ble_utils.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="utils\hahaUtils.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="utils\hahaUtils.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="network\network.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="networkdevice\networkdevice.c">
       <SubType>compile</SubType>
     </Compile>
@@ -728,15 +907,7 @@
     <Folder Include="Device_Startup\" />
     <Folder Include="button" />
     <Folder Include="doc" />
-    <Folder Include="lightsound\alarm\" />
-    <Folder Include="lightsound\lighting\" />
-    <Folder Include="lightsound\sound\" />
-    <Folder Include="messagequeue\" />
-    <Folder Include="neighbor\" />
-    <Folder Include="lightsound" />
-    <Folder Include="utils" />
     <Folder Include="examples\" />
-    <Folder Include="network" />
     <Folder Include="hal\" />
     <Folder Include="hal\include\" />
     <Folder Include="hal\src\" />
@@ -745,13 +916,37 @@
     <Folder Include="hal\utils\src\" />
     <Folder Include="hpl\" />
     <Folder Include="hpl\core\" />
+    <Folder Include="hpl\dualtimer\" />
     <Folder Include="hpl\gpio\" />
     <Folder Include="hpl\lpmcu_misc_regs\" />
     <Folder Include="hpl\uart\" />
     <Folder Include="hri\" />
-    <Folder Include="uart" />
+    <Folder Include="lightsound\alarm\" />
+    <Folder Include="lightsound\lighting\" />
+    <Folder Include="lightsound\sound\" />
+    <Folder Include="messagequeue\" />
+    <Folder Include="neighbor\" />
+    <Folder Include="lightsound" />
     <Folder Include="stdio_redirect\" />
     <Folder Include="stdio_redirect\gcc\" />
+    <Folder Include="thirdparty\" />
+    <Folder Include="thirdparty\wireless\" />
+    <Folder Include="thirdparty\wireless\ble_sdk\" />
+    <Folder Include="thirdparty\wireless\ble_sdk\ble_services\" />
+    <Folder Include="thirdparty\wireless\ble_sdk\ble_services\ble_mgr\" />
+    <Folder Include="thirdparty\wireless\ble_sdk\ble_services\base_profile" />
+    <Folder Include="thirdparty\wireless\ble_sdk\inc\" />
+    <Folder Include="thirdparty\wireless\ble_sdk\lib\" />
+    <Folder Include="thirdparty\wireless\ble_sdk\lib\cm0\" />
+    <Folder Include="thirdparty\wireless\ble_sdk\lib\cm0\gcc\" />
+    <Folder Include="thirdparty\wireless\ble_sdk\services\" />
+    <Folder Include="thirdparty\wireless\ble_sdk\services\app_bsp\" />
+    <Folder Include="thirdparty\wireless\ble_sdk\services\app_bsp\samb11_xpro\" />
+    <Folder Include="thirdparty\wireless\ble_sdk\src\" />
+    <Folder Include="thirdparty\wireless\ble_sdk\utils\" />
+    <Folder Include="utils" />
+    <Folder Include="network" />
+    <Folder Include="uart" />
     <Folder Include="networkdevice" />
   </ItemGroup>
   <ItemGroup>
@@ -762,6 +957,9 @@
       <SubType>compile</SubType>
     </None>
     <None Include="doc\Atmel_Studio_Tips.txt">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="thirdparty\wireless\ble_sdk\lib\cm0\gcc\libblesdk.a">
       <SubType>compile</SubType>
     </None>
   </ItemGroup>

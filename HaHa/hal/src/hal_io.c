@@ -1,7 +1,7 @@
 /**
  * \file
  *
- * \brief IO functionality implementation.
+ * \brief I/O functionality implementation.
  *
  * Copyright (C) 2015 Atmel Corporation. All rights reserved.
  *
@@ -55,7 +55,7 @@ uint32_t io_get_version(void)
 }
 
 /**
- * \brief IO write interface
+ * \brief I/O write interface
  */
 int32_t io_write(struct io_descriptor *const io_descr, const uint8_t *const buf, const uint16_t length)
 {
@@ -64,7 +64,7 @@ int32_t io_write(struct io_descriptor *const io_descr, const uint8_t *const buf,
 }
 
 /**
- * \brief IO read interface
+ * \brief I/O read interface
  */
 int32_t io_read(struct io_descriptor *const io_descr, uint8_t *const buf, const uint16_t length)
 {
