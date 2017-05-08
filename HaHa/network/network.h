@@ -17,8 +17,8 @@
 
 netaddr myNetAddr;
 typedef struct {
-	netaddr src;
-	netaddr dest;
+	netaddr src; //The source of the packet.
+	netaddr dest; //The destination of the packet.
 	bool broadcast;
 	uint8_t ttl;
     char *data;
