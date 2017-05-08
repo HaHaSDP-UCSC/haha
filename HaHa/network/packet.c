@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <string.h>
  
-void opcodes_init(){
+void opcodes_init() {
     haha_packet_handlers[PING_REQUEST] = ping_request_handler;
 	haha_packet_handlers[HELP_REQUEST] = help_request_handler;
 	haha_packet_handlers[HELP_RESPONSE] = help_response_handler;
@@ -30,14 +30,14 @@ void opcodes_init(){
 
 }    
 
-void printNetAddr(netaddr *t){
+void printNetAddr(netaddr *t) {
     printf("NetAddr:[");
     printBuff(t, 8, "%c");
     printf("]\n");
 }
 
 //void app_packet_handler(char* data, uint16_t len, uint8_t* src, uint8_t id){
-void app_packet_handler(Network *info){
+void app_packet_handler(Network *info) {
     HAHADEBUG("In app packet handler\n");
     uint8_t opcode = info->data[0];
     HAHADEBUG("Found opcode: 0x%x\n", opcode);
@@ -62,19 +62,20 @@ void app_packet_handler(Network *info){
     p->id = info->id;
     netArrayAdd(info);
     (haha_packet_handlers[p->opcode])(p);
+	//TODO free(p); //Is this the end of the packet?
 } 
 
-void register_opcode_handler_function(opcode_handler_fn_t t, Op opcode){
+void register_opcode_handler_function(opcode_handler_fn_t t, Op opcode) {
     haha_packet_handlers[opcode] = t;
 }   
 
-void copy_friend_to_packet(Friend *f, Packet* p){
+void copy_friend_to_packet(Friend *f, Packet* p) {
     p->DESTUID = f->port;
     strcpy(p->SRCFIRSTNAME, f->firstname);
     strcpy(p->SRCLASTNAME, f->lastname);
 }
 
-void send_ping_request(Friend *f){
+void send_ping_request(Friend *f) {
     Network* n = malloc(sizeof(Network));
     Packet* p = malloc(sizeof(Packet));
     //printf("PACKET:");
@@ -95,14 +96,24 @@ void send_ping_request(Friend *f){
     addToQueue(m);
 }
 
+/* Helper Function */
+/* Returns network info from id attached to packet.*/
+bool getNetInfo(Packet *p, Network *net) {
+	int i = netArrayReturn(p->id);
+	if(i == NOT_FOUND){
+		return false;
+	}
+	net = &NET_ARRAY[i];
+	return true;
+}
+
 void ping_request_handler(Packet *p){
     printf("in ping handler\n");
-    int i = netArrayReturn(p->id);
-    if(i == NOT_FOUND){
-        printd("net item not found");
-        return;
-    }
-    Network* net = &NET_ARRAY[i];
+	Network *net;
+	if (!getNetInfo(p, net)) {
+		printe("Unable to get network info.\n");
+		return;
+	}
     if(IS_ACK(p->flags)){
         printf("IS Ping ACK!\n");
         //Lookup message/event
@@ -174,16 +185,46 @@ void send_help_request(Friend* f){
     memcpy(m->srcAddr, n->dest, 8);
     addToQueue(m);
 }
-void help_request_handler(Packet *p){
-    //Check if friend
-    
-    //Add Message/Event
-    
-    //Turn on lights/siren
+void help_request_handler(Packet *p) {
+	Network *net;
+	if (!getNetInfo(p, net)) {
+		printe("Unable to get network info.\n");
+		return;
+	}
+	if (IS_ACK(p->flags)) {
+		printv("FRIEND_REQ_HANDLER ACK\n");
+		//Display to user that device was able to connect, pending response.
+		//Add message/event for a HELP_RESPONSE ACK (Only after user accepts) //TODO NOT HERE.
+		} else {
+		printv("FRIEND_REQ_HANDLER\n");
+		//Check if friend
+		for (int i = 0; i < FRIENDLISTSIZE; i++) {
+			//TODO needs Network information.
+			//checkForFriend();
+		}
+		//Send HELP_REQUEST_ACK
+		
+		//Display to user that friend is in need.
+		//Turn on lights/siren
+	}
     
 }
-void help_response_handler(Packet *p){
-    
+void help_response_handler(Packet *p) {
+	Network *net;
+	if (!getNetInfo(p, net)) {
+		printe("Unable to get network info.\n");
+		return;
+	}	if (IS_ACK(p->flags)) {
+		printv("HELP_RESP_HANDLER ACK\n");
+		//Display to user whether they accepted or not.
+		//If accepted, all good, otherwise, do a send to the next friend,
+		//or HELP_REQUEST_ANYONE
+		
+		//Different light/alarm pattern
+	} else {
+		printv("HELP_RESP_HANDLER\n");
+		
+	}
 }
 void help_request_anyone_handler(Packet *p);
 void help_response_anyone_handler(Packet *p);
@@ -191,6 +232,52 @@ void find_hops_request_handler(Packet *p);
 void find_hops_response_handler(Packet *p);
 void find_neighbors_request_handler(Packet *p);
 void find_neighbors_response_handler(Packet *p);
-void friend_request_handler(Packet *p);
-void friend_response_handler(Packet *p);
-void unfriend_request_handler(Packet *p);
+
+void friend_request_handler(Packet *p) {
+	Network *net;
+	if (!getNetInfo(p, net)) {
+		printe("Unable to get network info.\n");
+		return;
+	}
+	if (IS_ACK(p->flags)) {
+		printv("FRIEND_REQ_HANDLER ACK\n");
+		//Check if already friend, and confirmed.
+		
+		//Add message/event for a FRIEND_RESPONSE.
+	} else {
+		printv("FRIEND_REQ_HANDLER\n");
+		//Check if already friend. If already friend, drop packet.
+	
+		//Message user that someone wants to be a friend.
+		
+		//Add message/event for a FRIEND_RESPONSE ACK (Only after user accepts) //TODO NOT HERE.
+	}
+}
+
+void friend_response_handler(Packet *p) {
+	if (IS_ACK(p->flags)) {
+		printv("FRIEND_RESP_HANDLER ACK\n");
+		//Do not need to do anything. Just confirms that it worked.
+	} else {
+		printv("FRIEND_RESP_HANDLER\n");
+		//Check if in friend list
+	
+		//Confirm the friend.
+	}
+}
+
+void unfriend_request_handler(Packet *p) {
+	if (IS_ACK(p->flags)) {
+		printv("UNFRIEND_REQ_HANDLER ACK\n");
+		//Do not need to do anything.
+	} else {
+		printv("UNFRIEND_REQ_HANDLER\n");
+		//Check if already a friend
+	
+		//Mark friend for deletion
+		
+		//Message user that someone has unfriended them
+			
+		//Send ACK packet back.
+	}
+}

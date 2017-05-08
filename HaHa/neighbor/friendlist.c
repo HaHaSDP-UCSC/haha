@@ -64,6 +64,15 @@ bool addFriend(Friend *f) {
     return true;
 }
 
+/* Move friend to different priority, and modify friend parameters */
+bool modifyFriend(Friend *f, int moveFriend) {
+	if (moveFriend >= 0 && moveFriend < FRIENDLISTSIZE) {
+		
+	}
+	return false; //TODO Implement
+}
+
+
 /**
  * @brief      Removes a friend from the list, and updates the list.
  *
@@ -72,7 +81,21 @@ bool addFriend(Friend *f) {
  * @return     true if successful, false otherwise.
  */
 bool removeFriend(Network* net) {
-	return false; //TODO Implement	
+	//TODO mark friend as null.
+	
+	//Friend list reshuffle.
+	//O(n^2) time but only a few items so its okay.
+	//TODO code untested
+	for (int i = 0; i < FRIENDLISTSIZE; i++) {
+		if (!strcmp(friendList[i].networkaddr, net->src) 
+		&& !strcmp(friendList[i].port, net->id)) {
+			friendList[i].id == NULL;
+			for (int j = i; i < FRIENDLISTSIZE-i-1; j++) {
+				friendList[j] = friendList[j+1];
+			}
+		}
+	}
+	return true;
 }
 
 /**
@@ -94,6 +117,7 @@ bool checkForFriend(Network* net) {
     return false;
 }
 
+/* Test Friend */
 void addTestFriend(char *fname, char*lname, char* addr){
     Friend *f = malloc(sizeof(Friend));
     strcpy(f->firstname, fname);
@@ -110,6 +134,7 @@ void addTestFriend(char *fname, char*lname, char* addr){
     addFriend(f);
 }
 
+/* Test User */
 void addTestLocalUser(char *fname, char*lname, uint16_t port){
     Friend *f = malloc(sizeof(Friend));
     strcpy(f->firstname, fname);

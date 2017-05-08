@@ -16,6 +16,7 @@
 #define DEFAULT_TTL 1000; //TODO: figure out approrpiate number
 
 #define DEFMESSAGETIMEOUT 300 //300 ticks, 5 minutes
+#define FRIENDREQTIMEOUT DEFMESSAGETIMEOUT*12*24*14 //2 weeks
 #define BROADCASTHOP 64 //Maximum neighbor devices to explore.
 
 typedef struct Message {

@@ -19,102 +19,89 @@ Message messageQueue[MAXQUEUESIZE];
 
 /* Helper */
 /* Get Default Message Settings for each Opcode */
-//WARNING INCOMPLETE
+//TODO WARNING MAY BE INCOMPLETE
 bool setSettingsByOpcode(Message *mes, opcode opcode) {
 	uint32_t timeout = DEFMESSAGETIMEOUT;
 	mes->opcode = opcode;
 	switch(opcode) {
-		//TODO THE VARIABLES ARE NOT SET CORRECTLY.
-		//PING REQ
-		case 1:
+		case PING_REQUEST:
 		timeout = timeout;
 		mes->permanent = false;
 		mes->broadcast = false;
 		mes->numUses = 1;
 		break;
 		
-		//HELP REQ
-		case 2:
+		case HELP_REQUEST:
 		timeout = timeout;
 		mes->permanent = false;
 		mes->broadcast = false;
 		mes->numUses = 1;
 		break;
 		
-		//HELP RESP
-		case 3:
+		case HELP_RESPONSE:
 		timeout = timeout;
 		mes->permanent = false;
 		mes->broadcast = false;
 		mes->numUses = 1;
 		break;
 		
-		//HELP FROM ANYONE REQ
-		case 4:
+		case HELP_FROM_ANYONE_REQUEST:
 		timeout = timeout;
 		mes->permanent = true;
 		mes->broadcast = true;
 		mes->numUses = 1;
 		break;
 		
-		//HELP FROM ANYONE RESP
-		case 5:
+		case HELP_FROM_ANYONE_RESPONSE:
 		timeout = timeout;
 		mes->permanent = false;
 		mes->broadcast = false;
 		mes->numUses = 1;
 		break;
 		
-		//FIND HOPS REQ
-		case 6:
+		case FIND_HOPS_REQUEST:
 		timeout = timeout;
 		mes->permanent = false;
 		mes->broadcast = true;
 		mes->numUses = 1;
 		break;
 		
-		//FIND HOPS RESP
-		case 7:
+		case FIND_HOPS_RESPONSE:
 		timeout = timeout;
 		mes->permanent = true;
 		mes->broadcast = false;
 		mes->numUses = BROADCASTHOP;
 		break;
 		
-		//FIND NEIGHBOR REQ
-		case 8:
-		timeout = timeout;
-		mes->permanent = false;
-		mes->broadcast = false;
-		mes->numUses = 1;
-		break;
-		
-		//FIND NEIGHBOR RESP
-		case 9:
-		timeout = timeout;
-		mes->permanent = false;
-		mes->broadcast = false;
-		mes->numUses = BROADCASTHOP;
-		break;
-		
-		//FRIEND REQ
-		case 10:
-		timeout = timeout;
-		mes->permanent = false;
-		mes->broadcast = false;
-		mes->numUses = 1;
-		break;
-		
-		//FRIEND RESP
-		case 11:
+		case FIND_NEIGHBORS_REQUEST:
 		timeout = timeout;
 		mes->permanent = true;
 		mes->broadcast = false;
 		mes->numUses = 1;
 		break;
 		
-		//UNFRIEND REQ
-		case 12:
+		case FIND_NEIGHBORS_RESPONSE:
+		timeout = timeout;
+		mes->permanent = false;
+		mes->broadcast = false;
+		mes->numUses = BROADCASTHOP;
+		break;
+		
+		case FRIEND_REQUEST:
+		timeout = FRIENDREQTIMEOUT;
+		mes->permanent = false;
+		mes->broadcast = false;
+		mes->numUses = 1;
+		break;
+		
+		case FRIEND_RESPONSE:
+		timeout = FRIENDREQTIMEOUT;
+		mes->permanent = false;
+		mes->broadcast = false;
+		mes->numUses = 1;
+		break;
+		
+		case UNFRIEND_REQUEST:
 		timeout = timeout;
 		mes->permanent = true;
 		mes->broadcast = false;
@@ -215,7 +202,7 @@ bool _compactQueue(Message * q){
 bool initMessageQueue() {
 	m_lastID = 0;
 	//initPermanentMessages();
-	initPendingMessages(); //rememeber set m_lastID if there are pending
+	initPendingMessages(); //remember set m_lastID if there are pending
 	return false; //TODO implement
 }
 
