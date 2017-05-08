@@ -70,6 +70,7 @@
 #include "stdio_io.h"
 #include "bsscp.h"
 #include "hpl_usart_async.h"
+
 //#include "sleep_manager_main.h"
 at_ble_addr_t BlueNRG1 = {AT_BLE_ADDRESS_PUBLIC,{0xaa, 0x00, 0x00, 0xE1, 0x80, 0x02}};
 
@@ -232,9 +233,9 @@ int main1(void)
 	//sleep_manager_init();
 	
 	/* Initialize serial console */
-	//serial_console_init();
-	//_usart_async_init(&CONSOLE_IO, UART0);
-	//_usart_async_enable(&CONSOLE_IO);
+	serial_console_init();
+	_usart_async_init(&CONSOLE_IO, UART0);
+	_usart_async_enable(&CONSOLE_IO);
 
 	system_init();
 
@@ -253,7 +254,7 @@ int main1(void)
 	/* Register the user event handler */
 	register_ble_user_event_cb(csc_app_send_buf);
 
-	//register_uart_callback(uart_rx_callback);
+	register_uart_callback(uart_rx_callback);
 
 	/* Receiving events */
 	while (1) {

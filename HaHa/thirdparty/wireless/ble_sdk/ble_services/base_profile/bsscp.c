@@ -62,12 +62,12 @@
 #include "platform.h"
 #include "base_station_monitor.h"
 #include "ble_base_station.h"
-//#include "console_serial.h"
+
 #include "driver_examples.h"
 #include "ble_config.h"
 #include "app_bsp.h"
 #include "driver_init.h"
-//#include "sleep_manager_main.h"
+
 ///* Scan response data */
 //uint8_t scan_rsp_data[SCAN_RESP_LEN] = {0x09,0xff, 0x00, 0x06, 0xd6, 0xb2, 0xf0, 0x05, 0xf0, 0xf8};
 

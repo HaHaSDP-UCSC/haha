@@ -12,7 +12,7 @@
 #include "lightsound/lighting/lighting.h"
 #include "lightsound/sound/sound.h"
 
-bool setAlarm(bool active, bool allowSound, bool allowLight);
+void setAlarm(bool active, bool allowSound, bool allowLight);
 bool getAlarmStatus();
 
 #endif /* ALARM_H_ */

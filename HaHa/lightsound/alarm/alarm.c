@@ -21,7 +21,7 @@ bool alarmstatus = false;
  *
  * @return     Success or failure.
  */
-bool setAlarm(bool active, bool allowSound, bool allowLight) {
+void setAlarm(bool active, bool allowSound, bool allowLight) {
     if(active)
         printd("ALARM ON!!!!!!!!!\n");
     else

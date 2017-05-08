@@ -35,28 +35,28 @@ int test(){
 int main(void)
 {
     /* Initializes MCU, drivers and middleware */
-    init_sys();
+    //init_sys();
     //xbee_send(0x0013a200414F50EA, "Test Data", 9);
-    uart_register_netdev_callback(xbee_recv);
-    SET_SEND_NETDEV(true);
-    xbee_register_callback(app_packet_handler, FRAME_RX);
+   // uart_register_netdev_callback(xbee_recv);
+    //SET_SEND_NETDEV(true);
+    //xbee_register_callback(app_packet_handler, FRAME_RX);
     main1();
     //delay(5000);
     //cmd_AT_get("SH");
     //delay(500);
     //cmd_AT_get("NH");
     /* Main Application Loop */
-    char buff[80]; // large enough
-    int count = 0;
-    char c;
+    //char buff[80]; // large enough
+    //int count = 0;
+    //char c;
     
-    addTestFriend("Brian", "Nichols","0013A200414F50EA");
-    addTestLocalUser("Kevin", "Lee", 0x1);
-    send_ping_request(&friendList[1]);
+    //addTestFriend("Brian", "Nichols","0013A200414F50EA");
+    //addTestLocalUser("Kevin", "Lee", 0x1);
+    //send_ping_request(&friendList[1]);
     
-    send_help_request(friendList[1]);
-    while (1) {
-        uart_read();              
+    //send_help_request(friendList[1]);
+    //while (1) {
+    //    uart_read();              
         
-    }
+   // }
 }
