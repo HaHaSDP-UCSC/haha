@@ -14,11 +14,13 @@
 #include "messagequeue/messagequeue.h"
 #include "neighbor/friendlist.h"
 #include "ble_base_station.h"
+
 void printpacket1(char* d, uint8_t len){
     printf("in Callback print\n");
     printBuff(d, len, "%c");
     printf("end cb print\n");
 }
+
 void init_sys(){
     printf("Starting System...\n");
     atmel_start_init();

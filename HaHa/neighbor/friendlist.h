@@ -28,8 +28,14 @@ typedef struct {
 	uint16_t responseflag; //16 Available flags for expected responses. //TODO includes if registered friend.
 } Friend;
 
+typedef struct {
+	Friend friend;
+	char homeaddr[MAXHOMEADDR];
+	char phoneaddr[MAXPHONE];
+} LocalUser;
+
 Friend friendList[FRIENDLISTSIZE];
-Friend localUsers[5];
+LocalUser localUsers[MAXLOCAL];
 
 //TODO @kevin @brian storage for FriendList.
 bool initFriendList();
