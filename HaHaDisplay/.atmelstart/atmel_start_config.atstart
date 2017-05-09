@@ -95,11 +95,32 @@ drivers:
         configuration:
           uart_clock_source: UART0 Divider
 pads:
-  SW0:
+  BTN_LEFT:
+    name: LP_GPIO_3
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_3
+    mode: Digital input
+    user_label: BTN_LEFT
+    configuration:
+      pad_pull_config: Pull-up
+  BTN_UP:
+    name: LP_GPIO_4
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_4
+    mode: Digital input
+    user_label: BTN_UP
+    configuration:
+      pad_pull_config: Pull-up
+  BTN_RIGHT:
+    name: LP_GPIO_22
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_22
+    mode: Digital input
+    user_label: BTN_RIGHT
+    configuration:
+      pad_pull_config: Pull-up
+  BTN_DOWN:
     name: LP_GPIO_23
     definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_23
     mode: Digital input
-    user_label: SW0
+    user_label: BTN_DOWN
     configuration:
       pad_pull_config: Pull-up
   DISP_BRIGHT:

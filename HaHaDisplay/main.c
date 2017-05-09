@@ -29,7 +29,7 @@ int main(void)
 	menu_move(menu, MENU_UP);
 	menu_set_lcd(menu);
 	while(1) {
-		if(! gpio_get_pin_level(SW0)) {
+		if(! gpio_get_pin_level(BTN_DOWN)) {
 			menu_move(menu, MENU_DOWN);
 			menu_set_lcd(menu);
 		} 

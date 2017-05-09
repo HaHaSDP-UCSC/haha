@@ -36,6 +36,36 @@ void system_init(void)
 {
 	init_mcu();
 
+	// GPIO on LP_GPIO_3
+
+	// Set pin direction to input
+	gpio_set_pin_direction(BTN_LEFT, GPIO_DIRECTION_IN);
+
+	gpio_set_pin_pull_mode(BTN_LEFT,
+	                       // <y> Pull configuration
+	                       // <id> pad_pull_config
+	                       // <GPIO_PULL_OFF"> Off
+	                       // <GPIO_PULL_UP"> Pull-up
+	                       // <GPIO_PULL_DOWN"> Pull-down
+	                       GPIO_PULL_UP);
+
+	gpio_set_pin_function(BTN_LEFT, GPIO_PIN_FUNCTION_OFF);
+
+	// GPIO on LP_GPIO_4
+
+	// Set pin direction to input
+	gpio_set_pin_direction(BTN_UP, GPIO_DIRECTION_IN);
+
+	gpio_set_pin_pull_mode(BTN_UP,
+	                       // <y> Pull configuration
+	                       // <id> pad_pull_config
+	                       // <GPIO_PULL_OFF"> Off
+	                       // <GPIO_PULL_UP"> Pull-up
+	                       // <GPIO_PULL_DOWN"> Pull-down
+	                       GPIO_PULL_UP);
+
+	gpio_set_pin_function(BTN_UP, GPIO_PIN_FUNCTION_OFF);
+
 	// GPIO on LP_GPIO_13
 
 	// Set pin direction to output
@@ -148,12 +178,12 @@ void system_init(void)
 
 	gpio_set_pin_function(DISP_CTRST, GPIO_PIN_FUNCTION_OFF);
 
-	// GPIO on LP_GPIO_23
+	// GPIO on LP_GPIO_22
 
 	// Set pin direction to input
-	gpio_set_pin_direction(SW0, GPIO_DIRECTION_IN);
+	gpio_set_pin_direction(BTN_RIGHT, GPIO_DIRECTION_IN);
 
-	gpio_set_pin_pull_mode(SW0,
+	gpio_set_pin_pull_mode(BTN_RIGHT,
 	                       // <y> Pull configuration
 	                       // <id> pad_pull_config
 	                       // <GPIO_PULL_OFF"> Off
@@ -161,7 +191,22 @@ void system_init(void)
 	                       // <GPIO_PULL_DOWN"> Pull-down
 	                       GPIO_PULL_UP);
 
-	gpio_set_pin_function(SW0, GPIO_PIN_FUNCTION_OFF);
+	gpio_set_pin_function(BTN_RIGHT, GPIO_PIN_FUNCTION_OFF);
+
+	// GPIO on LP_GPIO_23
+
+	// Set pin direction to input
+	gpio_set_pin_direction(BTN_DOWN, GPIO_DIRECTION_IN);
+
+	gpio_set_pin_pull_mode(BTN_DOWN,
+	                       // <y> Pull configuration
+	                       // <id> pad_pull_config
+	                       // <GPIO_PULL_OFF"> Off
+	                       // <GPIO_PULL_UP"> Pull-up
+	                       // <GPIO_PULL_DOWN"> Pull-down
+	                       GPIO_PULL_UP);
+
+	gpio_set_pin_function(BTN_DOWN, GPIO_PIN_FUNCTION_OFF);
 
 	UART0_register_isr();
 
