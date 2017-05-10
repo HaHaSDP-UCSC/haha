@@ -61,11 +61,11 @@ int menu_set_lcd(Menu* menu) {
         for(lines = 0; lines < LCD_ROWS; lines++) {
             lcd_set_line(lines, this->value);
             if(this->child) {
-                if(lines == 0) lcd_set_char(lines, LCD_COLS - 1, '>');
-                //else lcd_set_char(lines, LCD_COLS - 1, '-');
+                if(lines == 0) lcd_set_char(lines, LCD_COLS - 1, MENU_CHAR_SEL_CHLD);
+                else lcd_set_char(lines, LCD_COLS - 1, MENU_CHAR_CHLD);
             } else if(this->onClick != menu_item_on_click_default) {
-                if(lines == 0) lcd_set_char(lines, LCD_COLS - 1, '>');
-                else lcd_set_char(lines, LCD_COLS - 1, '~');
+                if(lines == 0) lcd_set_char(lines, LCD_COLS - 1, MENU_CHAR_SEL_FUNC);
+                else lcd_set_char(lines, LCD_COLS - 1, MENU_CHAR_FUNC);
             }
             this = menu_item_get_next(this);
             if(this == menu->current) break;

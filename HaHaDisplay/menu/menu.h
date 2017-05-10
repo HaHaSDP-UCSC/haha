@@ -17,6 +17,11 @@
 #define MENU_MAXLEN 32
 #define MENU_WRAP true
 
+#define MENU_CHAR_SEL_CHLD '>'
+#define MENU_CHAR_CHLD 126
+#define MENU_CHAR_SEL_FUNC '>'
+#define MENU_CHAR_FUNC 126
+
 typedef struct MenuItem MenuItem;
 
 typedef struct MenuItem {
