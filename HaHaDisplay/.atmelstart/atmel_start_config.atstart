@@ -123,6 +123,20 @@ pads:
     user_label: BTN_DOWN
     configuration:
       pad_pull_config: Pull-up
+  BTN_LEFT_TEMP:
+    name: LP_GPIO_11
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_11
+    mode: Digital input
+    user_label: BTN_LEFT_TEMP
+    configuration:
+      pad_pull_config: Pull-up
+  BTN_RIGHT_TEMP:
+    name: LP_GPIO_12
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_12
+    mode: Digital input
+    user_label: BTN_RIGHT_TEMP
+    configuration:
+      pad_pull_config: Pull-up
   DISP_BRIGHT:
     name: LP_GPIO_13
     definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_13

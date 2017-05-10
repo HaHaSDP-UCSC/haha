@@ -62,7 +62,7 @@ int menu_set_lcd(Menu* menu) {
             lcd_set_line(lines, this->value);
             if(this->child) {
                 if(lines == 0) lcd_set_char(lines, LCD_COLS - 1, '>');
-                else lcd_set_char(lines, LCD_COLS - 1, '-');
+                //else lcd_set_char(lines, LCD_COLS - 1, '-');
             } else if(this->onClick != menu_item_on_click_default) {
                 if(lines == 0) lcd_set_char(lines, LCD_COLS - 1, '>');
                 else lcd_set_char(lines, LCD_COLS - 1, '~');

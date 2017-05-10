@@ -32,13 +32,13 @@ int main(void)
 		if(! gpio_get_pin_level(BTN_DOWN)) {
 			menu_move(menu, MENU_DOWN);
 			menu_set_lcd(menu);
-		} else if(! gpio_get_pin_level(BTN_RIGHT)) {
+		} else if(! gpio_get_pin_level(BTN_RIGHT_TEMP)) {
 			menu_move(menu, MENU_RIGHT);
 			menu_set_lcd(menu);
 		} else if(! gpio_get_pin_level(BTN_UP)) {
 			menu_move(menu, MENU_UP);
 			menu_set_lcd(menu);
-		} else if(! gpio_get_pin_level(BTN_LEFT)) {
+		} else if(! gpio_get_pin_level(BTN_LEFT_TEMP)) {
 			menu_move(menu, MENU_LEFT);
 			menu_set_lcd(menu);
 		}
