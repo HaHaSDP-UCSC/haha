@@ -60,13 +60,6 @@ bool sendPacket(Packet *p, Network *netdest) {
     
     return true;        
 	//TODO @brian hook xbee_sendPacket into this.
-	/**
-	if (_send_packet((char *) data, datalen, "127.0.0.1", dest) <= 0) {
-		
-	}
-	return true;
-	*/
-	//return false; //TODO FIX
 }
 
 /**

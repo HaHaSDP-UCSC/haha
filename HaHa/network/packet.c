@@ -39,8 +39,10 @@ void printNetAddr(netaddr *t) {
 //void app_packet_handler(char* data, uint16_t len, uint8_t* src, uint8_t id){
 void app_packet_handler(Network *info) {
     HAHADEBUG("In app packet handler\n");
-    uint8_t opcode = info->data[0];
+    opcode opcode = info->data[0];
     HAHADEBUG("Found opcode: 0x%x\n", opcode);
+    flags flag = info->data[1];
+    HAHADEBUG("Found flags: 0x%x\n", flag);
     printf("Netsrc:");
     printBuff(info->src, 8, "%x");
     printf("\n");
@@ -68,49 +70,45 @@ void app_packet_handler(Network *info) {
 void register_opcode_handler_function(opcode_handler_fn_t t, Op opcode) {
     haha_packet_handlers[opcode] = t;
 }   
-
-void copy_friend_to_packet(Friend *f, LocalUser *u, Packet* p, flags flag) {
-    p->DESTUID = f->port;
-    strcpy(p->SRCFIRSTNAME, f->firstname);
-    strcpy(p->SRCLASTNAME, f->lastname);
+/* Given a Friend, Local User, and Packet, with packet having opcode and flags
+	already pre-registered. Friend is another user base station user. */
+void copy_friend_to_packet(Friend *f, LocalUser *u, Packet* p) {
 	
-	//TODO set up to work for each case.
+	//TODO set up to work for each case. (switch case)
+	//TODO or we can be lazy and copy everything to the packet,
+	//and have the packet sender handle it.
 	
-	switch (p->opcode) {
-	case PING_REQUEST:
-	if (IS_ACK(flag)) {
-		p->flags = flag;
-		p->SRCUID = u->friend.networkaddr;
-		p->SRCFIRSTNAME = u->friend.firstname;
-		p->SRCLASTNAME = u->friend.lastname;
-	} else {
-		p->flags = flag;
-		p->DESTUID = f->port;
-	}
-	break;
-	case HELP_REQUEST:
-	
-	break;
-	default:
-		return; //TODO fix this copying function to be complete.
-	}
-	
+	//Lazy Method
+	//p->opcode = opcode; //Should already be passed in.
+	//p->flags = flag; //Should already be passed in.
+	p->SRCUID = u->friend.port;
+	p->DESTUID = f->port;
+	//p->ORIGINUID == u->friend.port; //These are not used in friends packets.
+	strcpy(p->SRCFIRSTNAME, u->friend.firstname);
+	strcpy(p->SRCLASTNAME, u->friend.lastname);
+	strcpy(p->SRCHOMEADDR, u->homeaddr);
+	strcpy(p->SRCPHONE, u->phoneaddr);
+	p->ttl = 0; //TODO make this a proper number.
+	p->id = 0; //TODO set this to the id number in the packet storage table.
 }
 
 void send_ping_request(Friend *f) {
     Network* n = malloc(sizeof(Network));
     Packet* p = malloc(sizeof(Packet));
 	LocalUser *u = &localUsers[0]; //TODO make this scalable.
+	
     //printf("PACKET:");
     //printBuff(f->networkaddr, 8, "%c");
     //memcpy(n->dest, f->networkaddr, 8);
     n->dest = f->networkaddr;
     printNetAddr(n->dest);
+	
     p->opcode = PING_REQUEST;
-    copy_friend_to_packet(f, u, p, NULL);
-    //p->DESTUID = 0x1; //TODO fix
+	p->flags = NULL;
+    copy_friend_to_packet(f, u, p);
     CLR_FLAGS(p->flags);
     sendPacket(p, n);
+	
     //Add a corresponding message
     Message *m = malloc(sizeof(Message));
     //setSettingsByOpcode(m, PING_REQUEST);
@@ -145,9 +143,9 @@ void ping_request_handler(Packet *p){
         if(numEntries){
             printd("Found %d message for opcode %d\n", numEntries, p->opcode);
             printNetAddr(net->src);
-            //TODO update friendlist last response
+            //update friendlist last response
             uint8_t index = checkForFriend(net);
-            friendList[i].lastresponse = queueTime; //TODO: track time
+            friendList[index].lastresponse = queueTime;
         }
         removeFromQueueEvents(e, numEntries);
         free(e);
@@ -162,13 +160,20 @@ void ping_request_handler(Packet *p){
         }             
         Network* net = &NET_ARRAY[i];
         //Packet* p2 = malloc(sizeof(Packet));
+		
+        net->dest = net->src;
+        
+		//TODO look up friend.
+		Friend *f = &friendList[0]; //TODO set this properly.
+		LocalUser *u = &localUsers[0]; //TODO set this properly.
         Packet p2;
         p2.opcode = PING_REQUEST;
         CLR_FLAGS(p2.flags);
         SET_ACK(p2.flags);
-        net->dest = net->src;
-        //net->src = myNetID;
-        p2.SRCUID = 0x1; //TODO fix
+		copy_friend_to_packet(f, u, &p2);
+		
+        /**
+		p2.SRCUID = 0x1; //TODO fix
         char *fname = malloc(sizeof("Brian"));
         char *lname = malloc(sizeof("Nichols"));
         strcpy(fname, "Brian");
@@ -178,6 +183,8 @@ void ping_request_handler(Packet *p){
         //strcpy(p2.SRCFIRSTNAME, fname);
         //strcpy(p2.SRCLASTNAME, "Nichols");
         printNetAddr(net->dest);
+		*/
+		
         sendPacket(&p2, net);
         free(p);
     }        
@@ -214,14 +221,10 @@ void send_help_request(Friend *f, LocalUser *u){
 	
     n->dest = f->networkaddr;
     printNetAddr(n->dest);
+	
     p->opcode = HELP_REQUEST;
     CLR_FLAGS(p->flags);
-    copy_friend_to_packet(f, u, p, NULL);
-	strcpy(p->SRCFIRSTNAME, f->firstname);
-	strcpy(p->SRCLASTNAME, f->lastname);
-	strcpy(p->SRCHOMEADDR, u->homeaddr);
-	strcpy(p->SRCPHONE, u->phoneaddr);
-	
+    copy_friend_to_packet(f, u, p);
     sendPacket(p, n);
 	
     //Add a corresponding message
@@ -241,11 +244,11 @@ void send_help_request_ack(Friend *f, LocalUser *u) {
 	n->src = u->friend.networkaddr;
 	n->dest = f->networkaddr;
 	printNetAddr(n->dest);
+	
 	p->opcode = HELP_REQUEST;
 	CLR_FLAGS(p->flags);
 	SET_ACK(p->flags);
-	copy_friend_to_packet(f, u, p, p->flags);
-	
+	copy_friend_to_packet(f, u, p);
 	sendPacket(p, n);
 	
 	//Add a corresponding message
@@ -286,15 +289,15 @@ void send_help_response(Friend *f, LocalUser *u){
 	//printf("PACKET:");
 	//printBuff(f->networkaddr, 8, "%c");
 	//memcpy(n->dest, f->networkaddr, 8);
+	
 	n->dest = f->networkaddr;
 	printNetAddr(n->dest);
+	
 	p->opcode = HELP_RESPONSE;
-	copy_friend_to_packet(f, u, p, NULL);
-	p->DESTUID = f->port; //get from friend
-	p->SRCFIRSTNAME = f->firstname;
-	p->SRCLASTNAME = f->lastname;
 	CLR_FLAGS(p->flags);
+	copy_friend_to_packet(f, u, p);
 	sendPacket(p, n);
+	
 	//Add a corresponding message
 	Message *m = malloc(sizeof(Message));
 	setSettingsByOpcode(m, PING_REQUEST);

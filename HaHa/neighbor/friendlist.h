@@ -43,7 +43,7 @@ bool writeToFriendListStorage(); //TODO INTERNAL REMOVE
 bool readFromFriendListStorage(); //TODO INTERNAL REMOVE
 bool addFriend(Friend *f);
 bool removeFriend(Network* net); //Remove based on srcuid and netaddr.
-bool checkForFriend(Network* net);
+int checkForFriend(Network* net);
 bool addLocalUser(Friend *f);
 
 void addTestFriend(char *fname, char*lname, char* addr);
