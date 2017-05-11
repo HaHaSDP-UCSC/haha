@@ -105,7 +105,7 @@ bool removeFriend(Network* net) {
  *
  * @return     true if successful, false otherwise.
  */
-bool checkForFriend(Network* net) {
+int checkForFriend(Network* net) {
     printd("Searching for friend with addr:");
     printBuff(net->src, 8, "%x");
     printd("\n");
@@ -114,7 +114,7 @@ bool checkForFriend(Network* net) {
         if(netCompare(friendList[i].networkaddr, net->src))
 	        return i;
     }            
-    return false;
+    return -1;
 }
 
 /* Test Friend */
