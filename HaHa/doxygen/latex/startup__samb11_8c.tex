@@ -1,0 +1,101 @@
+\hypertarget{startup__samb11_8c}{}\section{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/\+Device\+\_\+\+Startup/startup\+\_\+samb11.c File Reference}
+\label{startup__samb11_8c}\index{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/\+Device\+\_\+\+Startup/startup\+\_\+samb11.\+c@{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/\+Device\+\_\+\+Startup/startup\+\_\+samb11.\+c}}
+
+
+G\+CC entry point for S\+A\+M\+B11 projects. To be scheduled to run as a task in the B\+LE OS.  
+
+
+{\ttfamily \#include \char`\"{}sam.\+h\char`\"{}}\newline
+Include dependency graph for startup\+\_\+samb11.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=233pt]{startup__samb11_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{startup__samb11_8c_a840291bc02cba5474a4cb46a9b9566fe}{main} (void)
+\begin{DoxyCompactList}\small\item\em This is the code that gets called on processor reset. To initialize the device, and call the \hyperlink{startup__samb11_8c_a840291bc02cba5474a4cb46a9b9566fe}{main()} routine. \end{DoxyCompactList}\item 
+void \hyperlink{startup__samb11_8c_a5f388c8556f7cb6a84b5692db6b6ad80}{\+\_\+\+\_\+libc\+\_\+init\+\_\+array} (void)
+\item 
+void \hyperlink{startup__samb11_8c_acce9c970b367ddeb57c853b26cff3d84}{app\+\_\+entry} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \hyperlink{startup__samb11_8c_abba93927cdaa2d32967cfc724f47cf8f}{\+\_\+etext}
+\item 
+uint32\+\_\+t \hyperlink{startup__samb11_8c_ac50d147d186c5fcf7efa97a4197e530e}{\+\_\+srelocate}
+\item 
+uint32\+\_\+t \hyperlink{startup__samb11_8c_a59f8a39545ac1b9b88d4228c40c910b9}{\+\_\+erelocate}
+\item 
+uint32\+\_\+t \hyperlink{startup__samb11_8c_a5c6ed4fbf19b32595d4afb2c25aa8363}{\+\_\+szero}
+\item 
+uint32\+\_\+t \hyperlink{startup__samb11_8c_ad4c54e57daaa1859c4fd4208ed7d31fa}{\+\_\+ezero}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+G\+CC entry point for S\+A\+M\+B11 projects. To be scheduled to run as a task in the B\+LE OS. 
+
+Copyright (c) 2014 Atmel Corporation. All rights reserved.
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{startup__samb11_8c_a5f388c8556f7cb6a84b5692db6b6ad80}\label{startup__samb11_8c_a5f388c8556f7cb6a84b5692db6b6ad80}} 
+\index{startup\+\_\+samb11.\+c@{startup\+\_\+samb11.\+c}!\+\_\+\+\_\+libc\+\_\+init\+\_\+array@{\+\_\+\+\_\+libc\+\_\+init\+\_\+array}}
+\index{\+\_\+\+\_\+libc\+\_\+init\+\_\+array@{\+\_\+\+\_\+libc\+\_\+init\+\_\+array}!startup\+\_\+samb11.\+c@{startup\+\_\+samb11.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+libc\+\_\+init\+\_\+array()}{\_\_libc\_init\_array()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+libc\+\_\+init\+\_\+array (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{startup__samb11_8c_acce9c970b367ddeb57c853b26cff3d84}\label{startup__samb11_8c_acce9c970b367ddeb57c853b26cff3d84}} 
+\index{startup\+\_\+samb11.\+c@{startup\+\_\+samb11.\+c}!app\+\_\+entry@{app\+\_\+entry}}
+\index{app\+\_\+entry@{app\+\_\+entry}!startup\+\_\+samb11.\+c@{startup\+\_\+samb11.\+c}}
+\subsubsection{\texorpdfstring{app\+\_\+entry()}{app\_entry()}}
+{\footnotesize\ttfamily void app\+\_\+entry (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{startup__samb11_8c_a840291bc02cba5474a4cb46a9b9566fe}\label{startup__samb11_8c_a840291bc02cba5474a4cb46a9b9566fe}} 
+\index{startup\+\_\+samb11.\+c@{startup\+\_\+samb11.\+c}!main@{main}}
+\index{main@{main}!startup\+\_\+samb11.\+c@{startup\+\_\+samb11.\+c}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This is the code that gets called on processor reset. To initialize the device, and call the \hyperlink{startup__samb11_8c_a840291bc02cba5474a4cb46a9b9566fe}{main()} routine. 
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{startup__samb11_8c_a59f8a39545ac1b9b88d4228c40c910b9}\label{startup__samb11_8c_a59f8a39545ac1b9b88d4228c40c910b9}} 
+\index{startup\+\_\+samb11.\+c@{startup\+\_\+samb11.\+c}!\+\_\+erelocate@{\+\_\+erelocate}}
+\index{\+\_\+erelocate@{\+\_\+erelocate}!startup\+\_\+samb11.\+c@{startup\+\_\+samb11.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+erelocate}{\_erelocate}}
+{\footnotesize\ttfamily uint32\+\_\+t \+\_\+erelocate}
+
+\mbox{\Hypertarget{startup__samb11_8c_abba93927cdaa2d32967cfc724f47cf8f}\label{startup__samb11_8c_abba93927cdaa2d32967cfc724f47cf8f}} 
+\index{startup\+\_\+samb11.\+c@{startup\+\_\+samb11.\+c}!\+\_\+etext@{\+\_\+etext}}
+\index{\+\_\+etext@{\+\_\+etext}!startup\+\_\+samb11.\+c@{startup\+\_\+samb11.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+etext}{\_etext}}
+{\footnotesize\ttfamily uint32\+\_\+t \+\_\+etext}
+
+\mbox{\Hypertarget{startup__samb11_8c_ad4c54e57daaa1859c4fd4208ed7d31fa}\label{startup__samb11_8c_ad4c54e57daaa1859c4fd4208ed7d31fa}} 
+\index{startup\+\_\+samb11.\+c@{startup\+\_\+samb11.\+c}!\+\_\+ezero@{\+\_\+ezero}}
+\index{\+\_\+ezero@{\+\_\+ezero}!startup\+\_\+samb11.\+c@{startup\+\_\+samb11.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+ezero}{\_ezero}}
+{\footnotesize\ttfamily uint32\+\_\+t \+\_\+ezero}
+
+\mbox{\Hypertarget{startup__samb11_8c_ac50d147d186c5fcf7efa97a4197e530e}\label{startup__samb11_8c_ac50d147d186c5fcf7efa97a4197e530e}} 
+\index{startup\+\_\+samb11.\+c@{startup\+\_\+samb11.\+c}!\+\_\+srelocate@{\+\_\+srelocate}}
+\index{\+\_\+srelocate@{\+\_\+srelocate}!startup\+\_\+samb11.\+c@{startup\+\_\+samb11.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+srelocate}{\_srelocate}}
+{\footnotesize\ttfamily uint32\+\_\+t \+\_\+srelocate}
+
+\mbox{\Hypertarget{startup__samb11_8c_a5c6ed4fbf19b32595d4afb2c25aa8363}\label{startup__samb11_8c_a5c6ed4fbf19b32595d4afb2c25aa8363}} 
+\index{startup\+\_\+samb11.\+c@{startup\+\_\+samb11.\+c}!\+\_\+szero@{\+\_\+szero}}
+\index{\+\_\+szero@{\+\_\+szero}!startup\+\_\+samb11.\+c@{startup\+\_\+samb11.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+szero}{\_szero}}
+{\footnotesize\ttfamily uint32\+\_\+t \+\_\+szero}
+

@@ -1,0 +1,99 @@
+\hypertarget{structusart__async__descriptor}{}\section{usart\+\_\+async\+\_\+descriptor Struct Reference}
+\label{structusart__async__descriptor}\index{usart\+\_\+async\+\_\+descriptor@{usart\+\_\+async\+\_\+descriptor}}
+
+
+Asynchronous U\+S\+A\+RT descriptor structure.  
+
+
+
+
+{\ttfamily \#include $<$hal\+\_\+usart\+\_\+async.\+h$>$}
+
+
+
+Collaboration diagram for usart\+\_\+async\+\_\+descriptor\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structusart__async__descriptor__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structio__descriptor}{io\+\_\+descriptor} \hyperlink{structusart__async__descriptor_a0b567a552bb9024872536444202911f3}{io}
+\item 
+struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} \hyperlink{structusart__async__descriptor_a48ab054cada0897a439c0889ff769bbf}{device}
+\item 
+struct \hyperlink{structusart__async__callbacks}{usart\+\_\+async\+\_\+callbacks} \hyperlink{structusart__async__descriptor_a84b19b1c19b845d0c2870ab306955b91}{usart\+\_\+cb}
+\item 
+uint32\+\_\+t \hyperlink{structusart__async__descriptor_aa3b7aeba241416b7061e967d7832b203}{stat}
+\item 
+struct \hyperlink{structringbuffer}{ringbuffer} \hyperlink{structusart__async__descriptor_a36cb240b43ed5ac70fb4b3cca1bcd071}{rx}
+\item 
+uint16\+\_\+t \hyperlink{structusart__async__descriptor_aecbbb71691ffede25d2ec628947a4305}{tx\+\_\+por}
+\item 
+uint8\+\_\+t $\ast$ \hyperlink{structusart__async__descriptor_a9ed199abede0cb07c2b91aeb443d3ada}{tx\+\_\+buffer}
+\item 
+uint16\+\_\+t \hyperlink{structusart__async__descriptor_a0a4c5301c869bb18cb57deb866707e66}{tx\+\_\+buffer\+\_\+length}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Asynchronous U\+S\+A\+RT descriptor structure. 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structusart__async__descriptor_a48ab054cada0897a439c0889ff769bbf}\label{structusart__async__descriptor_a48ab054cada0897a439c0889ff769bbf}} 
+\index{usart\+\_\+async\+\_\+descriptor@{usart\+\_\+async\+\_\+descriptor}!device@{device}}
+\index{device@{device}!usart\+\_\+async\+\_\+descriptor@{usart\+\_\+async\+\_\+descriptor}}
+\subsubsection{\texorpdfstring{device}{device}}
+{\footnotesize\ttfamily struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} usart\+\_\+async\+\_\+descriptor\+::device}
+
+\mbox{\Hypertarget{structusart__async__descriptor_a0b567a552bb9024872536444202911f3}\label{structusart__async__descriptor_a0b567a552bb9024872536444202911f3}} 
+\index{usart\+\_\+async\+\_\+descriptor@{usart\+\_\+async\+\_\+descriptor}!io@{io}}
+\index{io@{io}!usart\+\_\+async\+\_\+descriptor@{usart\+\_\+async\+\_\+descriptor}}
+\subsubsection{\texorpdfstring{io}{io}}
+{\footnotesize\ttfamily struct \hyperlink{structio__descriptor}{io\+\_\+descriptor} usart\+\_\+async\+\_\+descriptor\+::io}
+
+\mbox{\Hypertarget{structusart__async__descriptor_a36cb240b43ed5ac70fb4b3cca1bcd071}\label{structusart__async__descriptor_a36cb240b43ed5ac70fb4b3cca1bcd071}} 
+\index{usart\+\_\+async\+\_\+descriptor@{usart\+\_\+async\+\_\+descriptor}!rx@{rx}}
+\index{rx@{rx}!usart\+\_\+async\+\_\+descriptor@{usart\+\_\+async\+\_\+descriptor}}
+\subsubsection{\texorpdfstring{rx}{rx}}
+{\footnotesize\ttfamily struct \hyperlink{structringbuffer}{ringbuffer} usart\+\_\+async\+\_\+descriptor\+::rx}
+
+\mbox{\Hypertarget{structusart__async__descriptor_aa3b7aeba241416b7061e967d7832b203}\label{structusart__async__descriptor_aa3b7aeba241416b7061e967d7832b203}} 
+\index{usart\+\_\+async\+\_\+descriptor@{usart\+\_\+async\+\_\+descriptor}!stat@{stat}}
+\index{stat@{stat}!usart\+\_\+async\+\_\+descriptor@{usart\+\_\+async\+\_\+descriptor}}
+\subsubsection{\texorpdfstring{stat}{stat}}
+{\footnotesize\ttfamily uint32\+\_\+t usart\+\_\+async\+\_\+descriptor\+::stat}
+
+\mbox{\Hypertarget{structusart__async__descriptor_a9ed199abede0cb07c2b91aeb443d3ada}\label{structusart__async__descriptor_a9ed199abede0cb07c2b91aeb443d3ada}} 
+\index{usart\+\_\+async\+\_\+descriptor@{usart\+\_\+async\+\_\+descriptor}!tx\+\_\+buffer@{tx\+\_\+buffer}}
+\index{tx\+\_\+buffer@{tx\+\_\+buffer}!usart\+\_\+async\+\_\+descriptor@{usart\+\_\+async\+\_\+descriptor}}
+\subsubsection{\texorpdfstring{tx\+\_\+buffer}{tx\_buffer}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ usart\+\_\+async\+\_\+descriptor\+::tx\+\_\+buffer}
+
+\mbox{\Hypertarget{structusart__async__descriptor_a0a4c5301c869bb18cb57deb866707e66}\label{structusart__async__descriptor_a0a4c5301c869bb18cb57deb866707e66}} 
+\index{usart\+\_\+async\+\_\+descriptor@{usart\+\_\+async\+\_\+descriptor}!tx\+\_\+buffer\+\_\+length@{tx\+\_\+buffer\+\_\+length}}
+\index{tx\+\_\+buffer\+\_\+length@{tx\+\_\+buffer\+\_\+length}!usart\+\_\+async\+\_\+descriptor@{usart\+\_\+async\+\_\+descriptor}}
+\subsubsection{\texorpdfstring{tx\+\_\+buffer\+\_\+length}{tx\_buffer\_length}}
+{\footnotesize\ttfamily uint16\+\_\+t usart\+\_\+async\+\_\+descriptor\+::tx\+\_\+buffer\+\_\+length}
+
+\mbox{\Hypertarget{structusart__async__descriptor_aecbbb71691ffede25d2ec628947a4305}\label{structusart__async__descriptor_aecbbb71691ffede25d2ec628947a4305}} 
+\index{usart\+\_\+async\+\_\+descriptor@{usart\+\_\+async\+\_\+descriptor}!tx\+\_\+por@{tx\+\_\+por}}
+\index{tx\+\_\+por@{tx\+\_\+por}!usart\+\_\+async\+\_\+descriptor@{usart\+\_\+async\+\_\+descriptor}}
+\subsubsection{\texorpdfstring{tx\+\_\+por}{tx\_por}}
+{\footnotesize\ttfamily uint16\+\_\+t usart\+\_\+async\+\_\+descriptor\+::tx\+\_\+por}
+
+\mbox{\Hypertarget{structusart__async__descriptor_a84b19b1c19b845d0c2870ab306955b91}\label{structusart__async__descriptor_a84b19b1c19b845d0c2870ab306955b91}} 
+\index{usart\+\_\+async\+\_\+descriptor@{usart\+\_\+async\+\_\+descriptor}!usart\+\_\+cb@{usart\+\_\+cb}}
+\index{usart\+\_\+cb@{usart\+\_\+cb}!usart\+\_\+async\+\_\+descriptor@{usart\+\_\+async\+\_\+descriptor}}
+\subsubsection{\texorpdfstring{usart\+\_\+cb}{usart\_cb}}
+{\footnotesize\ttfamily struct \hyperlink{structusart__async__callbacks}{usart\+\_\+async\+\_\+callbacks} usart\+\_\+async\+\_\+descriptor\+::usart\+\_\+cb}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/hal/include/\hyperlink{hal__usart__async_8h}{hal\+\_\+usart\+\_\+async.\+h}\end{DoxyCompactItemize}

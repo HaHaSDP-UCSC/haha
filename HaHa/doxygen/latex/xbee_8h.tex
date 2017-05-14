@@ -1,0 +1,229 @@
+\hypertarget{xbee_8h}{}\section{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/xbee/xbee.h File Reference}
+\label{xbee_8h}\index{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/xbee/xbee.\+h@{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/xbee/xbee.\+h}}
+
+
+X\+Bee Network device implementation.  
+
+
+{\ttfamily \#include \char`\"{}haha/network.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structframe_r_x}{frame\+RX}
+\item 
+struct \hyperlink{structframe_t_x}{frame\+TX}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{xbee_8h_a5b237b75e2f90c55a45ad1f4ad83f165}{O\+P\+T\+\_\+\+D\+I\+G\+I\+M\+E\+SH}~0x11000000
+\item 
+\#define \hyperlink{xbee_8h_af7cb64fe769d0d673825fb7c59c0148f}{O\+P\+T\+\_\+\+P\+A\+C\+K\+E\+T\+A\+CK}~0x00000001
+\item 
+\#define \hyperlink{xbee_8h_ae200d98fdf1af7f61727f5d4d410399b}{O\+P\+T\+\_\+\+P\+A\+C\+K\+E\+T\+B\+C\+A\+ST}~0x00000010
+\item 
+\#define \hyperlink{xbee_8h_a5ca6ca7829bd7a6187685ce404fca226}{F\+R\+A\+M\+E\+\_\+\+R\+X\+\_\+\+H\+E\+A\+D\+\_\+\+L\+EN}~12
+\item 
+\#define \hyperlink{xbee_8h_aab1f9602995f8ee5cc96b8437ea9853f}{F\+R\+A\+M\+E\+\_\+\+T\+X\+\_\+\+H\+E\+A\+D\+\_\+\+L\+EN}~14 /$\ast$ Length of tx frame header info $\ast$/
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \hyperlink{xbee_8h_a6234cefbfc9f98d18078b749c2615a1f}{xbee\+\_\+cb\+\_\+t}) (char $\ast$, uint8\+\_\+t)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{xbee_8h_a2e8b58aad8193c6b34fd53d078fe4124}\label{xbee_8h_a2e8b58aad8193c6b34fd53d078fe4124}} 
+void \hyperlink{xbee_8h_a2e8b58aad8193c6b34fd53d078fe4124}{xbee\+\_\+init} ()
+\begin{DoxyCompactList}\small\item\em \{ Intialize the X\+Bee module \} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{xbee_8h_a650aef3c3b2711d48e9160fb240cdb8a}\label{xbee_8h_a650aef3c3b2711d48e9160fb240cdb8a}} 
+void \hyperlink{xbee_8h_a650aef3c3b2711d48e9160fb240cdb8a}{xbee\+\_\+enter\+Cmd\+Mode} ()
+\begin{DoxyCompactList}\small\item\em \{ Enter X\+Bee command mode \} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{xbee_8h_a696d4f4056c6e55d34579a2a25b4b2f6}\label{xbee_8h_a696d4f4056c6e55d34579a2a25b4b2f6}} 
+void \hyperlink{xbee_8h_a696d4f4056c6e55d34579a2a25b4b2f6}{xbee\+\_\+leave\+Cmd\+Mode} ()
+\begin{DoxyCompactList}\small\item\em \{ Leave X\+Bee command mode \} \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{xbee_8h_ab3edf7678352a2730e7db4b261e472f7}{xbee\+\_\+set\+A\+PI} (uint8\+\_\+t type)
+\begin{DoxyCompactList}\small\item\em \{ Set X\+Bee to A\+PI Mode \} \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{xbee_8h_a85e97d30e9e1a52bc54bd70c1fad3bab}{xbee\+\_\+get\+Own\+Net\+High} ()
+\begin{DoxyCompactList}\small\item\em \{ Network address high bytes\} \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{xbee_8h_af332cc99e4cd2c171a1cb53359c7eb43}{xbee\+\_\+get\+Own\+Net\+Low} ()
+\begin{DoxyCompactList}\small\item\em \{ Network address low bytes\} \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{xbee_8h_ad825b0f062d443ac0d8df7eeafd83f05}{xbee\+\_\+send} (char $\ast$dst, char $\ast$data, uint8\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em \{ Send a packet to another X\+Bee node \} \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{xbee_8h_a93c06be36f503ab82dd1d129f525aadd}{xbee\+\_\+recv} (char $\ast$data, uint8\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em \{ Receives U\+A\+RT data and parses into frame packets\} \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{xbee_8h_aba4a7346cafadb637b38e2ecb1895a82}{gen\+\_\+checksum} (char $\ast$data)
+\begin{DoxyCompactList}\small\item\em \{ Calculate the X\+Bee checksum \} \end{DoxyCompactList}\item 
+void \hyperlink{xbee_8h_a23cc19b31f5cd635c0b4076677a1c945}{xbee\+\_\+register\+\_\+callback} (\hyperlink{xbee_8h_a6234cefbfc9f98d18078b749c2615a1f}{xbee\+\_\+cb\+\_\+t} t)
+\begin{DoxyCompactList}\small\item\em \{ Register the function to send received payload \} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+X\+Bee Network device implementation. 
+
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{xbee_8h_a5ca6ca7829bd7a6187685ce404fca226}\label{xbee_8h_a5ca6ca7829bd7a6187685ce404fca226}} 
+\index{xbee.\+h@{xbee.\+h}!F\+R\+A\+M\+E\+\_\+\+R\+X\+\_\+\+H\+E\+A\+D\+\_\+\+L\+EN@{F\+R\+A\+M\+E\+\_\+\+R\+X\+\_\+\+H\+E\+A\+D\+\_\+\+L\+EN}}
+\index{F\+R\+A\+M\+E\+\_\+\+R\+X\+\_\+\+H\+E\+A\+D\+\_\+\+L\+EN@{F\+R\+A\+M\+E\+\_\+\+R\+X\+\_\+\+H\+E\+A\+D\+\_\+\+L\+EN}!xbee.\+h@{xbee.\+h}}
+\subsubsection{\texorpdfstring{F\+R\+A\+M\+E\+\_\+\+R\+X\+\_\+\+H\+E\+A\+D\+\_\+\+L\+EN}{FRAME\_RX\_HEAD\_LEN}}
+{\footnotesize\ttfamily \#define F\+R\+A\+M\+E\+\_\+\+R\+X\+\_\+\+H\+E\+A\+D\+\_\+\+L\+EN~12}
+
+\{ Length of RX frame header fields \} \mbox{\Hypertarget{xbee_8h_aab1f9602995f8ee5cc96b8437ea9853f}\label{xbee_8h_aab1f9602995f8ee5cc96b8437ea9853f}} 
+\index{xbee.\+h@{xbee.\+h}!F\+R\+A\+M\+E\+\_\+\+T\+X\+\_\+\+H\+E\+A\+D\+\_\+\+L\+EN@{F\+R\+A\+M\+E\+\_\+\+T\+X\+\_\+\+H\+E\+A\+D\+\_\+\+L\+EN}}
+\index{F\+R\+A\+M\+E\+\_\+\+T\+X\+\_\+\+H\+E\+A\+D\+\_\+\+L\+EN@{F\+R\+A\+M\+E\+\_\+\+T\+X\+\_\+\+H\+E\+A\+D\+\_\+\+L\+EN}!xbee.\+h@{xbee.\+h}}
+\subsubsection{\texorpdfstring{F\+R\+A\+M\+E\+\_\+\+T\+X\+\_\+\+H\+E\+A\+D\+\_\+\+L\+EN}{FRAME\_TX\_HEAD\_LEN}}
+{\footnotesize\ttfamily \#define F\+R\+A\+M\+E\+\_\+\+T\+X\+\_\+\+H\+E\+A\+D\+\_\+\+L\+EN~14 /$\ast$ Length of tx frame header info $\ast$/}
+
+\{ Length of TX frame header fields \} \mbox{\Hypertarget{xbee_8h_a5b237b75e2f90c55a45ad1f4ad83f165}\label{xbee_8h_a5b237b75e2f90c55a45ad1f4ad83f165}} 
+\index{xbee.\+h@{xbee.\+h}!O\+P\+T\+\_\+\+D\+I\+G\+I\+M\+E\+SH@{O\+P\+T\+\_\+\+D\+I\+G\+I\+M\+E\+SH}}
+\index{O\+P\+T\+\_\+\+D\+I\+G\+I\+M\+E\+SH@{O\+P\+T\+\_\+\+D\+I\+G\+I\+M\+E\+SH}!xbee.\+h@{xbee.\+h}}
+\subsubsection{\texorpdfstring{O\+P\+T\+\_\+\+D\+I\+G\+I\+M\+E\+SH}{OPT\_DIGIMESH}}
+{\footnotesize\ttfamily \#define O\+P\+T\+\_\+\+D\+I\+G\+I\+M\+E\+SH~0x11000000}
+
+\{ X\+Bee TX frame send type\+: Digi\+Mesh \} \mbox{\Hypertarget{xbee_8h_af7cb64fe769d0d673825fb7c59c0148f}\label{xbee_8h_af7cb64fe769d0d673825fb7c59c0148f}} 
+\index{xbee.\+h@{xbee.\+h}!O\+P\+T\+\_\+\+P\+A\+C\+K\+E\+T\+A\+CK@{O\+P\+T\+\_\+\+P\+A\+C\+K\+E\+T\+A\+CK}}
+\index{O\+P\+T\+\_\+\+P\+A\+C\+K\+E\+T\+A\+CK@{O\+P\+T\+\_\+\+P\+A\+C\+K\+E\+T\+A\+CK}!xbee.\+h@{xbee.\+h}}
+\subsubsection{\texorpdfstring{O\+P\+T\+\_\+\+P\+A\+C\+K\+E\+T\+A\+CK}{OPT\_PACKETACK}}
+{\footnotesize\ttfamily \#define O\+P\+T\+\_\+\+P\+A\+C\+K\+E\+T\+A\+CK~0x00000001}
+
+\{ X\+Bee TX frame send type\+: \hyperlink{struct_packet}{Packet} Acknowledgement \} \mbox{\Hypertarget{xbee_8h_ae200d98fdf1af7f61727f5d4d410399b}\label{xbee_8h_ae200d98fdf1af7f61727f5d4d410399b}} 
+\index{xbee.\+h@{xbee.\+h}!O\+P\+T\+\_\+\+P\+A\+C\+K\+E\+T\+B\+C\+A\+ST@{O\+P\+T\+\_\+\+P\+A\+C\+K\+E\+T\+B\+C\+A\+ST}}
+\index{O\+P\+T\+\_\+\+P\+A\+C\+K\+E\+T\+B\+C\+A\+ST@{O\+P\+T\+\_\+\+P\+A\+C\+K\+E\+T\+B\+C\+A\+ST}!xbee.\+h@{xbee.\+h}}
+\subsubsection{\texorpdfstring{O\+P\+T\+\_\+\+P\+A\+C\+K\+E\+T\+B\+C\+A\+ST}{OPT\_PACKETBCAST}}
+{\footnotesize\ttfamily \#define O\+P\+T\+\_\+\+P\+A\+C\+K\+E\+T\+B\+C\+A\+ST~0x00000010}
+
+\{ X\+Bee TX frame send type\+: \hyperlink{struct_packet}{Packet} Broadcast \} 
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{xbee_8h_a6234cefbfc9f98d18078b749c2615a1f}\label{xbee_8h_a6234cefbfc9f98d18078b749c2615a1f}} 
+\index{xbee.\+h@{xbee.\+h}!xbee\+\_\+cb\+\_\+t@{xbee\+\_\+cb\+\_\+t}}
+\index{xbee\+\_\+cb\+\_\+t@{xbee\+\_\+cb\+\_\+t}!xbee.\+h@{xbee.\+h}}
+\subsubsection{\texorpdfstring{xbee\+\_\+cb\+\_\+t}{xbee\_cb\_t}}
+{\footnotesize\ttfamily typedef void($\ast$ xbee\+\_\+cb\+\_\+t) (char $\ast$, uint8\+\_\+t)}
+
+\{ Xbee callback function type \} 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{xbee_8h_aba4a7346cafadb637b38e2ecb1895a82}\label{xbee_8h_aba4a7346cafadb637b38e2ecb1895a82}} 
+\index{xbee.\+h@{xbee.\+h}!gen\+\_\+checksum@{gen\+\_\+checksum}}
+\index{gen\+\_\+checksum@{gen\+\_\+checksum}!xbee.\+h@{xbee.\+h}}
+\subsubsection{\texorpdfstring{gen\+\_\+checksum()}{gen\_checksum()}}
+{\footnotesize\ttfamily uint8\+\_\+t gen\+\_\+checksum (\begin{DoxyParamCaption}\item[{char $\ast$}]{data }\end{DoxyParamCaption})}
+
+
+
+\{ Calculate the X\+Bee checksum \} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The data\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{ returns 0 on success \} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{xbee_8h_a85e97d30e9e1a52bc54bd70c1fad3bab}\label{xbee_8h_a85e97d30e9e1a52bc54bd70c1fad3bab}} 
+\index{xbee.\+h@{xbee.\+h}!xbee\+\_\+get\+Own\+Net\+High@{xbee\+\_\+get\+Own\+Net\+High}}
+\index{xbee\+\_\+get\+Own\+Net\+High@{xbee\+\_\+get\+Own\+Net\+High}!xbee.\+h@{xbee.\+h}}
+\subsubsection{\texorpdfstring{xbee\+\_\+get\+Own\+Net\+High()}{xbee\_getOwnNetHigh()}}
+{\footnotesize\ttfamily uint8\+\_\+t xbee\+\_\+get\+Own\+Net\+High (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\{ Network address high bytes\} 
+
+\begin{DoxyReturn}{Returns}
+\{ Network address high bytes \} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{xbee_8h_af332cc99e4cd2c171a1cb53359c7eb43}\label{xbee_8h_af332cc99e4cd2c171a1cb53359c7eb43}} 
+\index{xbee.\+h@{xbee.\+h}!xbee\+\_\+get\+Own\+Net\+Low@{xbee\+\_\+get\+Own\+Net\+Low}}
+\index{xbee\+\_\+get\+Own\+Net\+Low@{xbee\+\_\+get\+Own\+Net\+Low}!xbee.\+h@{xbee.\+h}}
+\subsubsection{\texorpdfstring{xbee\+\_\+get\+Own\+Net\+Low()}{xbee\_getOwnNetLow()}}
+{\footnotesize\ttfamily uint8\+\_\+t xbee\+\_\+get\+Own\+Net\+Low (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\{ Network address low bytes\} 
+
+\begin{DoxyReturn}{Returns}
+\{ Network address low bytes \} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{xbee_8h_a93c06be36f503ab82dd1d129f525aadd}\label{xbee_8h_a93c06be36f503ab82dd1d129f525aadd}} 
+\index{xbee.\+h@{xbee.\+h}!xbee\+\_\+recv@{xbee\+\_\+recv}}
+\index{xbee\+\_\+recv@{xbee\+\_\+recv}!xbee.\+h@{xbee.\+h}}
+\subsubsection{\texorpdfstring{xbee\+\_\+recv()}{xbee\_recv()}}
+{\footnotesize\ttfamily uint8\+\_\+t xbee\+\_\+recv (\begin{DoxyParamCaption}\item[{char $\ast$}]{data,  }\item[{uint8\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+
+
+\{ Receives U\+A\+RT data and parses into frame packets\} 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em data} & The data \\
+\hline
+\mbox{\tt in}  & {\em len} & The length\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{ returns 0 if packet is processed \} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{xbee_8h_a23cc19b31f5cd635c0b4076677a1c945}\label{xbee_8h_a23cc19b31f5cd635c0b4076677a1c945}} 
+\index{xbee.\+h@{xbee.\+h}!xbee\+\_\+register\+\_\+callback@{xbee\+\_\+register\+\_\+callback}}
+\index{xbee\+\_\+register\+\_\+callback@{xbee\+\_\+register\+\_\+callback}!xbee.\+h@{xbee.\+h}}
+\subsubsection{\texorpdfstring{xbee\+\_\+register\+\_\+callback()}{xbee\_register\_callback()}}
+{\footnotesize\ttfamily void xbee\+\_\+register\+\_\+callback (\begin{DoxyParamCaption}\item[{\hyperlink{xbee_8h_a6234cefbfc9f98d18078b749c2615a1f}{xbee\+\_\+cb\+\_\+t}}]{t }\end{DoxyParamCaption})}
+
+
+
+\{ Register the function to send received payload \} 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em t} & \{ Function to call when app data is received \} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{xbee_8h_ad825b0f062d443ac0d8df7eeafd83f05}\label{xbee_8h_ad825b0f062d443ac0d8df7eeafd83f05}} 
+\index{xbee.\+h@{xbee.\+h}!xbee\+\_\+send@{xbee\+\_\+send}}
+\index{xbee\+\_\+send@{xbee\+\_\+send}!xbee.\+h@{xbee.\+h}}
+\subsubsection{\texorpdfstring{xbee\+\_\+send()}{xbee\_send()}}
+{\footnotesize\ttfamily uint8\+\_\+t xbee\+\_\+send (\begin{DoxyParamCaption}\item[{char $\ast$}]{dst,  }\item[{char $\ast$}]{data,  }\item[{uint8\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+
+
+\{ Send a packet to another X\+Bee node \} 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em dst} & The destination \\
+\hline
+ & {\em data} & The data \\
+\hline
+\mbox{\tt in}  & {\em len} & The length\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{ returns 0 if sucessful \} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{xbee_8h_ab3edf7678352a2730e7db4b261e472f7}\label{xbee_8h_ab3edf7678352a2730e7db4b261e472f7}} 
+\index{xbee.\+h@{xbee.\+h}!xbee\+\_\+set\+A\+PI@{xbee\+\_\+set\+A\+PI}}
+\index{xbee\+\_\+set\+A\+PI@{xbee\+\_\+set\+A\+PI}!xbee.\+h@{xbee.\+h}}
+\subsubsection{\texorpdfstring{xbee\+\_\+set\+A\+P\+I()}{xbee\_setAPI()}}
+{\footnotesize\ttfamily uint8\+\_\+t xbee\+\_\+set\+A\+PI (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{type }\end{DoxyParamCaption})}
+
+
+
+\{ Set X\+Bee to A\+PI Mode \} 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em type} & A\+PI Mode \mbox{[}1 or 2\mbox{]}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{ returns 0 if successful \} 
+\end{DoxyReturn}

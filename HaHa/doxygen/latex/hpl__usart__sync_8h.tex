@@ -1,0 +1,78 @@
+\hypertarget{hpl__usart__sync_8h}{}\section{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/hal/include/hpl\+\_\+usart\+\_\+sync.h File Reference}
+\label{hpl__usart__sync_8h}\index{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/hal/include/hpl\+\_\+usart\+\_\+sync.\+h@{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/hal/include/hpl\+\_\+usart\+\_\+sync.\+h}}
+
+
+U\+S\+A\+RT related functionality declaration.  
+
+
+{\ttfamily \#include $<$hpl\+\_\+usart.\+h$>$}\newline
+Include dependency graph for hpl\+\_\+usart\+\_\+sync.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hpl__usart__sync_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hpl__usart__sync_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device}
+\begin{DoxyCompactList}\small\item\em U\+S\+A\+RT descriptor device structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{Indent}\textbf{ H\+PL functions}\par
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \hyperlink{group___h_p_l_gad1cc7b8e72fd67fdeec8062c802eb25a}{\+\_\+usart\+\_\+sync\+\_\+init} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device, void $\ast$const hw)
+\begin{DoxyCompactList}\small\item\em Initialize synchronous U\+S\+A\+RT. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gac046761a56aaedeba5acad135cab707c}{\+\_\+usart\+\_\+sync\+\_\+deinit} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em De-\/initialize U\+S\+A\+RT. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga5ca07057bde212b46f6547e5bdb876de}{\+\_\+usart\+\_\+sync\+\_\+enable} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Enable usart module. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gac021f29c77d8a9bfabfdd7433dbbb024}{\+\_\+usart\+\_\+sync\+\_\+disable} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Disable usart module. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{group___h_p_l_ga0f2e4f3338270295eea1d4e1b00bfa1e}{\+\_\+usart\+\_\+sync\+\_\+calculate\+\_\+baud\+\_\+rate} (const uint32\+\_\+t baud, const uint32\+\_\+t clock\+\_\+rate, const uint8\+\_\+t samples, const enum \hyperlink{group___h_p_l_ga59141b5eb86f4d53f17bbeab1d7c83e7}{usart\+\_\+baud\+\_\+rate\+\_\+mode} mode, const uint8\+\_\+t fraction)
+\begin{DoxyCompactList}\small\item\em Calculate baud rate register value. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga882c8cecf50eb1276401d6874956b903}{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+baud\+\_\+rate} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device, const uint32\+\_\+t baud\+\_\+rate)
+\begin{DoxyCompactList}\small\item\em Set baud rate. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga1b30e54d42d94ab59067e121d286d47a}{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+data\+\_\+order} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_ga426849bbd9655cec091101ebc9123eb4}{usart\+\_\+data\+\_\+order} order)
+\begin{DoxyCompactList}\small\item\em Set data order. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga2dd82ebe0069e4c61fda94ac0dda1a63}{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+mode} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_ga1c465965478e0f6908a4c99d4f3ad20f}{usart\+\_\+mode} mode)
+\begin{DoxyCompactList}\small\item\em Set mode. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gaee0a2babdf7b777fa4754028c92fc2e8}{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+parity} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_ga867cc5f0ea7d3bf651d68f0046cf6f41}{usart\+\_\+parity} parity)
+\begin{DoxyCompactList}\small\item\em Set parity. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga93c7de4ab355c189e306288d21642ff3}{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+stop\+\_\+bits} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_ga88311517c5168c29a681604a8a33b06e}{usart\+\_\+stop\+\_\+bits} stop\+\_\+bits)
+\begin{DoxyCompactList}\small\item\em Set stop bits mode. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga45ebffe94571d266e42b3dd882ad559d}{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+character\+\_\+size} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_ga631ce7b4f60dccd392e6d6ef7d3cd4e2}{usart\+\_\+character\+\_\+size} size)
+\begin{DoxyCompactList}\small\item\em Set character size. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___h_p_l_ga512c769b924d59433542bf347980334b}{\+\_\+usart\+\_\+sync\+\_\+get\+\_\+status} (const struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Retrieve usart status. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga6f9cc0e2020d49845bef97301bc692e0}{\+\_\+usart\+\_\+sync\+\_\+write\+\_\+byte} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device, uint8\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em Write a byte to the given U\+S\+A\+RT instance. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group___h_p_l_gad6e42aaa92499103016d605362e35d97}{\+\_\+usart\+\_\+sync\+\_\+read\+\_\+byte} (const struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Read a byte from the given U\+S\+A\+RT instance. \end{DoxyCompactList}\item 
+bool \hyperlink{group___h_p_l_ga8bad9999c03b728f47848b2337393ec4}{\+\_\+usart\+\_\+sync\+\_\+is\+\_\+byte\+\_\+sent} (const struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Check if U\+S\+A\+RT is ready to send next byte. \end{DoxyCompactList}\item 
+bool \hyperlink{group___h_p_l_ga5bf04a89be94430de57acf53f9b35dd2}{\+\_\+usart\+\_\+sync\+\_\+is\+\_\+byte\+\_\+received} (const struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Check if there is data received by U\+S\+A\+RT. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gae43bb6755eb8c462a9884e6cdca602aa}{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+flow\+\_\+control\+\_\+state} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device, const union \hyperlink{unionusart__flow__control__state}{usart\+\_\+flow\+\_\+control\+\_\+state} state)
+\begin{DoxyCompactList}\small\item\em Set the state of flow control pins. \end{DoxyCompactList}\item 
+union \hyperlink{unionusart__flow__control__state}{usart\+\_\+flow\+\_\+control\+\_\+state} \hyperlink{group___h_p_l_ga5b6662f283d7a2791c7eed77635e9238}{\+\_\+usart\+\_\+sync\+\_\+get\+\_\+flow\+\_\+control\+\_\+state} (const struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Retrieve the state of flow control pins. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group___h_p_l_ga8fd6539ded0699161df00f23ba6580aa}{\+\_\+usart\+\_\+sync\+\_\+get\+\_\+hardware\+\_\+index} (const struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Retrieve ordinal number of the given U\+S\+A\+RT hardware instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\subsection{Detailed Description}
+U\+S\+A\+RT related functionality declaration. 
+
+Copyright (C) 2014 Atmel Corporation. All rights reserved.

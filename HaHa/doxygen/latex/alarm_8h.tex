@@ -1,0 +1,66 @@
+\hypertarget{alarm_8h}{}\section{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/alarm/alarm.h File Reference}
+\label{alarm_8h}\index{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/alarm/alarm.\+h@{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/alarm/alarm.\+h}}
+{\ttfamily \#include \char`\"{}utils/haha\+Utils.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lighting/lighting.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sound/sound.\+h\char`\"{}}\newline
+Include dependency graph for alarm.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=298pt]{alarm_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=229pt]{alarm_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{alarm_8h_a1f3b9f59712b48ab186b60997617e4d6}{set\+Alarm} (bool active, bool allow\+Sound, bool allow\+Light)
+\begin{DoxyCompactList}\small\item\em Sets the alarm. \end{DoxyCompactList}\item 
+bool \hyperlink{alarm_8h_a9ddfb89a4cacc765e5ecc817f2063bf3}{get\+Alarm\+Status} ()
+\begin{DoxyCompactList}\small\item\em Gets the alarm status. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{alarm_8h_a9ddfb89a4cacc765e5ecc817f2063bf3}\label{alarm_8h_a9ddfb89a4cacc765e5ecc817f2063bf3}} 
+\index{alarm.\+h@{alarm.\+h}!get\+Alarm\+Status@{get\+Alarm\+Status}}
+\index{get\+Alarm\+Status@{get\+Alarm\+Status}!alarm.\+h@{alarm.\+h}}
+\subsubsection{\texorpdfstring{get\+Alarm\+Status()}{getAlarmStatus()}}
+{\footnotesize\ttfamily bool get\+Alarm\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the alarm status. 
+
+\begin{DoxyReturn}{Returns}
+The alarm status. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{alarm_8h_a1f3b9f59712b48ab186b60997617e4d6}\label{alarm_8h_a1f3b9f59712b48ab186b60997617e4d6}} 
+\index{alarm.\+h@{alarm.\+h}!set\+Alarm@{set\+Alarm}}
+\index{set\+Alarm@{set\+Alarm}!alarm.\+h@{alarm.\+h}}
+\subsubsection{\texorpdfstring{set\+Alarm()}{setAlarm()}}
+{\footnotesize\ttfamily bool set\+Alarm (\begin{DoxyParamCaption}\item[{bool}]{active,  }\item[{bool}]{allow\+Sound,  }\item[{bool}]{allow\+Light }\end{DoxyParamCaption})}
+
+
+
+Sets the alarm. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em active} & The active \\
+\hline
+\mbox{\tt in}  & {\em allow\+Sound} & The allow sound \\
+\hline
+\mbox{\tt in}  & {\em allow\+Light} & The allow light\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success or failure. 
+\end{DoxyReturn}

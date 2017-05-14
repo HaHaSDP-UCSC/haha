@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['packet',['Packet',['../struct_packet.html',1,'']]],
+  ['packet_2ec',['packet.c',['../packet_8c.html',1,'']]],
+  ['packet_2eh',['packet.h',['../packet_8h.html',1,'']]],
+  ['parameter',['parameter',['../struct__irq__descriptor.html#a9c58c3f373aebb6b725b9b47def981fd',1,'_irq_descriptor']]],
+  ['parity',['parity',['../structuart__config.html#a9371728729252797880de052aae01089',1,'uart_config']]],
+  ['parts_2eh',['parts.h',['../parts_8h.html',1,'']]],
+  ['patchbreakpointid',['patchBreakPointId',['../namespacedebughooks.html#ace200a02851163ba9904ccdde2991a30',1,'debughooks']]],
+  ['payload_5flength',['payload_length',['../structframe_r_x.html#a8ffb1ad18c41d6943c8172042f965123',1,'frameRX']]],
+  ['peripheral_5fclk_5fconfig_2eh',['peripheral_clk_config.h',['../peripheral__clk__config_8h.html',1,'']]],
+  ['ping_5frequest',['PING_REQUEST',['../packet_8h.html#a588e6b56097e045c733b60d25c4d45abaa601cb89d53ca73b00553088042434c1',1,'packet.h']]],
+  ['ping_5frequest_5fhandler',['ping_request_handler',['../packet_8c.html#afd4458683fd5410ba43aa1df5890869f',1,'ping_request_handler(Packet *p):&#160;packet.c'],['../packet_8h.html#afd4458683fd5410ba43aa1df5890869f',1,'ping_request_handler(Packet *p):&#160;packet.c']]],
+  ['ping_5frequest_5fparse',['ping_request_parse',['../packet_8c.html#a0bbfbd567f04dc890e1e50b7d78464e6',1,'packet.c']]],
+  ['port',['port',['../struct_friend.html#a783801da9846ad8d6b8f12ff16ac68fb',1,'Friend::port()'],['../struct_message.html#a02bae243e9df49d0baaf486c03b908dd',1,'Message::port()'],['../struct_neighbor.html#a18b5cd42623d929f155daa37b6b1bff1',1,'Neighbor::port()']]],
+  ['pos_5fof_5fmask',['pos_of_mask',['../group__doc__driver__hal__utils__macro.html#ga6e6ec9c159cae4680d073d707063fa0e',1,'utils.h']]],
+  ['postflashdownloadaddr',['postFlashDownloadAddr',['../namespacedebughooks.html#a7085fd6725027f087010919eb35a91a9',1,'debughooks']]],
+  ['prescaler',['prescaler',['../structuart__config.html#a9fb83c1cf1226b2dc4371bb79699dd71',1,'uart_config']]],
+  ['printbuff',['printBuff',['../haha_utils_8c.html#ada9e8340bd19f1dd65b4862295e6b0a3',1,'printBuff(char *data, uint8_t len, char *specifier):&#160;hahaUtils.c'],['../haha_utils_8h.html#ada9e8340bd19f1dd65b4862295e6b0a3',1,'printBuff(char *data, uint8_t len, char *specifier):&#160;hahaUtils.c']]],
+  ['printd',['printd',['../haha_utils_8h.html#a4f2705df522fd01ea20cea002f2d4304',1,'hahaUtils.h']]],
+  ['printe',['printe',['../haha_utils_8h.html#ab20bc9edcf1eba7f7e4631d26e822cd1',1,'hahaUtils.h']]],
+  ['printpacket1',['printpacket1',['../main_8c.html#ac7d8480b36f63f4c31b39d1e6eb491dd',1,'main.c']]],
+  ['printv',['printv',['../haha_utils_8h.html#aa68d15b6b79a3dfcdb44c9da43a5b999',1,'hahaUtils.h']]],
+  ['priority',['priority',['../struct_friend.html#a43c33ac49be70c487897c484beb45d65',1,'Friend']]]
+];

@@ -1,0 +1,38 @@
+\hypertarget{utils__list_8c}{}\section{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/hal/utils/src/utils\+\_\+list.c File Reference}
+\label{utils__list_8c}\index{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/hal/utils/src/utils\+\_\+list.\+c@{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/hal/utils/src/utils\+\_\+list.\+c}}
+
+
+List functionality implementation.  
+
+
+{\ttfamily \#include $<$utils\+\_\+list.\+h$>$}\newline
+{\ttfamily \#include $<$utils\+\_\+assert.\+h$>$}\newline
+Include dependency graph for utils\+\_\+list.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utils__list_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{group__doc__driver__hal__utils__list_ga26022c1362f0fa7e17b734262229c1a7}{is\+\_\+list\+\_\+element} (const struct \hyperlink{structlist__descriptor}{list\+\_\+descriptor} $\ast$const list, const void $\ast$const element)
+\begin{DoxyCompactList}\small\item\em Check whether element belongs to list. \end{DoxyCompactList}\item 
+void \hyperlink{group__doc__driver__hal__utils__list_gafb3237f00dbf55a40075f3a42c49d32a}{list\+\_\+insert\+\_\+as\+\_\+head} (struct \hyperlink{structlist__descriptor}{list\+\_\+descriptor} $\ast$const list, void $\ast$const element)
+\begin{DoxyCompactList}\small\item\em Insert an element as list head. \end{DoxyCompactList}\item 
+void \hyperlink{group__doc__driver__hal__utils__list_ga55b8c083fa131f829b1c998e14352f34}{list\+\_\+insert\+\_\+after} (void $\ast$const after, void $\ast$const element)
+\begin{DoxyCompactList}\small\item\em Insert an element after the given list element. \end{DoxyCompactList}\item 
+void \hyperlink{group__doc__driver__hal__utils__list_ga48c5a1a13223944dd190a6a028075deb}{list\+\_\+insert\+\_\+at\+\_\+end} (struct \hyperlink{structlist__descriptor}{list\+\_\+descriptor} $\ast$const list, void $\ast$const element)
+\begin{DoxyCompactList}\small\item\em Insert an element at list end. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{group__doc__driver__hal__utils__list_ga2269db44f7013963f60c568dd8d08022}{list\+\_\+remove\+\_\+head} (struct \hyperlink{structlist__descriptor}{list\+\_\+descriptor} $\ast$const list)
+\begin{DoxyCompactList}\small\item\em Removes list head. \end{DoxyCompactList}\item 
+bool \hyperlink{group__doc__driver__hal__utils__list_gad5a2a1ff5dcdfadb47d4ba436e154c98}{list\+\_\+delete\+\_\+element} (struct \hyperlink{structlist__descriptor}{list\+\_\+descriptor} $\ast$const list, const void $\ast$const element)
+\begin{DoxyCompactList}\small\item\em Removes list element. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+List functionality implementation. 
+
+Copyright (C) 2014 Atmel Corporation. All rights reserved.

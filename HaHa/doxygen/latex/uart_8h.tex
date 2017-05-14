@@ -1,0 +1,264 @@
+\hypertarget{uart_8h}{}\section{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/uart/uart.h File Reference}
+\label{uart_8h}\index{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/uart/uart.\+h@{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/uart/uart.\+h}}
+
+
+U\+A\+RT control functionality declaration.  
+
+
+{\ttfamily \#include \char`\"{}stdio\+\_\+start.\+h\char`\"{}}\newline
+Include dependency graph for uart.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{uart_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{uart_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{uart_8h_a0ac45423be27d476f1707ea5a536d2a2}{U\+S\+A\+R\+T\+\_\+\+B\+U\+F\+\_\+\+S\+I\+ZE}~16
+\item 
+\#define \hyperlink{uart_8h_a6bea1cd4f27e3590ea5abbf5ec62756c}{C\+B\+\_\+\+O\+FF}~0
+\item 
+\#define \hyperlink{uart_8h_aa755a7e30eaea7313de8dfe55f0097e4}{C\+B\+\_\+\+ON}~1
+\item 
+\#define \hyperlink{uart_8h_ab342b1be36c2ede5c02e29ffe12918bf}{S\+E\+T\+\_\+\+R\+X\+\_\+\+CB}(val)~(\hyperlink{uart_8h_a3653a449219b0409131ca727e52f9c83}{\+\_\+\+R\+X\+\_\+\+C\+A\+L\+L\+B\+A\+CK} = val)
+\item 
+\#define \hyperlink{uart_8h_ac7f0c80bfa20373105517638aa5094cf}{S\+E\+T\+\_\+\+R\+X\+\_\+\+C\+B\+\_\+\+O\+FF}~\hyperlink{uart_8h_ab342b1be36c2ede5c02e29ffe12918bf}{S\+E\+T\+\_\+\+R\+X\+\_\+\+CB}(\hyperlink{uart_8h_a6bea1cd4f27e3590ea5abbf5ec62756c}{C\+B\+\_\+\+O\+FF})
+\item 
+\#define \hyperlink{uart_8h_aec77e6381748ef440495868f18b1c119}{S\+E\+T\+\_\+\+R\+X\+\_\+\+C\+B\+\_\+\+ON}~\hyperlink{uart_8h_ab342b1be36c2ede5c02e29ffe12918bf}{S\+E\+T\+\_\+\+R\+X\+\_\+\+CB}(\hyperlink{uart_8h_aa755a7e30eaea7313de8dfe55f0097e4}{C\+B\+\_\+\+ON})
+\item 
+\#define \hyperlink{uart_8h_ae9456ed9de11ecb64ba885570ee19fad}{I\+S\+\_\+\+R\+X\+\_\+\+C\+B\+\_\+\+ON}~(\hyperlink{uart_8h_a3653a449219b0409131ca727e52f9c83}{\+\_\+\+R\+X\+\_\+\+C\+A\+L\+L\+B\+A\+CK} == \hyperlink{uart_8h_aa755a7e30eaea7313de8dfe55f0097e4}{C\+B\+\_\+\+ON})
+\item 
+\#define \hyperlink{uart_8h_a6949b873723081380b6f0e1d1d03fbda}{S\+E\+T\+\_\+\+S\+E\+N\+D\+\_\+\+N\+E\+T\+D\+EV}(val)~(\hyperlink{uart_8h_a2d7a2646a189c60e5aa1cfb2cae01768}{S\+E\+N\+D\+\_\+\+N\+E\+T\+D\+EV} = val);
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \hyperlink{uart_8h_addb00511a9eb43a2e55c598451b052e8}{uart\+\_\+netdev\+\_\+cb\+\_\+t}) (char $\ast$, uint8\+\_\+t)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{uart_8h_a64ede5fd1a39830dc7b19aaa021849ce}{uart\+\_\+getbuffer} (char $\ast$buff, size\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em \{ Returns the contents of the U\+A\+RT buffer \} \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{uart_8h_a36dc9f821cef4846d8c18298b88cf8f4}{uart\+\_\+read} ()
+\begin{DoxyCompactList}\small\item\em \{ Reads data received by U\+A\+RT into rotating buffer \} \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{uart_8h_aa7f5b88c96f5c6f3b5417e23d75013b5}{uart\+\_\+write} (uint8\+\_\+t $\ast$data, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em \{ Writes data out the U\+A\+RT \} \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{uart_8h_aa520859fda043c3bedd6f727c673c7cc}{uart\+\_\+clearbuffer} ()
+\begin{DoxyCompactList}\small\item\em \{ Clear the U\+A\+RT receive buffer \} \end{DoxyCompactList}\item 
+void \hyperlink{uart_8h_a95ccdf02806d883570d362c73b97edd9}{uart\+\_\+init\+\_\+irqs} (void)
+\begin{DoxyCompactList}\small\item\em \{ Initializes and registers interrupts for U\+A\+RT \} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{uart_8h_addb00511a9eb43a2e55c598451b052e8}{uart\+\_\+netdev\+\_\+cb\+\_\+t} \hyperlink{uart_8h_a6e1549d5e0af44aad37f41aac61b79dd}{netdev\+\_\+recv\+\_\+callback}
+\item 
+uint8\+\_\+t \hyperlink{uart_8h_a3653a449219b0409131ca727e52f9c83}{\+\_\+\+R\+X\+\_\+\+C\+A\+L\+L\+B\+A\+CK}
+\item 
+uint8\+\_\+t \hyperlink{uart_8h_a2d7a2646a189c60e5aa1cfb2cae01768}{S\+E\+N\+D\+\_\+\+N\+E\+T\+D\+EV}
+\item 
+struct \hyperlink{structio__descriptor}{io\+\_\+descriptor} $\ast$ \hyperlink{uart_8h_a744e20ccfb70d9568b1835905990dbbf}{usart\+\_\+io}
+\item 
+char \hyperlink{uart_8h_a0df79877408ded70eef71940f4d57b95}{uart\+\_\+buffer} \mbox{[}2\mbox{]}\mbox{[}\hyperlink{uart_8h_a0ac45423be27d476f1707ea5a536d2a2}{U\+S\+A\+R\+T\+\_\+\+B\+U\+F\+\_\+\+S\+I\+ZE}\mbox{]}
+\item 
+uint8\+\_\+t \hyperlink{uart_8h_a7c23e38d0c83c18506afc1e37e0d1010}{C\+U\+R\+R\+E\+N\+T\+\_\+\+B\+U\+F\+F\+ER}
+\item 
+uint8\+\_\+t \hyperlink{uart_8h_a262f4443fbd6d73b8beb96c5a6ac3504}{data\+\_\+received}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+U\+A\+RT control functionality declaration. 
+
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{uart_8h_a6bea1cd4f27e3590ea5abbf5ec62756c}\label{uart_8h_a6bea1cd4f27e3590ea5abbf5ec62756c}} 
+\index{uart.\+h@{uart.\+h}!C\+B\+\_\+\+O\+FF@{C\+B\+\_\+\+O\+FF}}
+\index{C\+B\+\_\+\+O\+FF@{C\+B\+\_\+\+O\+FF}!uart.\+h@{uart.\+h}}
+\subsubsection{\texorpdfstring{C\+B\+\_\+\+O\+FF}{CB\_OFF}}
+{\footnotesize\ttfamily \#define C\+B\+\_\+\+O\+FF~0}
+
+\mbox{\Hypertarget{uart_8h_aa755a7e30eaea7313de8dfe55f0097e4}\label{uart_8h_aa755a7e30eaea7313de8dfe55f0097e4}} 
+\index{uart.\+h@{uart.\+h}!C\+B\+\_\+\+ON@{C\+B\+\_\+\+ON}}
+\index{C\+B\+\_\+\+ON@{C\+B\+\_\+\+ON}!uart.\+h@{uart.\+h}}
+\subsubsection{\texorpdfstring{C\+B\+\_\+\+ON}{CB\_ON}}
+{\footnotesize\ttfamily \#define C\+B\+\_\+\+ON~1}
+
+\mbox{\Hypertarget{uart_8h_ae9456ed9de11ecb64ba885570ee19fad}\label{uart_8h_ae9456ed9de11ecb64ba885570ee19fad}} 
+\index{uart.\+h@{uart.\+h}!I\+S\+\_\+\+R\+X\+\_\+\+C\+B\+\_\+\+ON@{I\+S\+\_\+\+R\+X\+\_\+\+C\+B\+\_\+\+ON}}
+\index{I\+S\+\_\+\+R\+X\+\_\+\+C\+B\+\_\+\+ON@{I\+S\+\_\+\+R\+X\+\_\+\+C\+B\+\_\+\+ON}!uart.\+h@{uart.\+h}}
+\subsubsection{\texorpdfstring{I\+S\+\_\+\+R\+X\+\_\+\+C\+B\+\_\+\+ON}{IS\_RX\_CB\_ON}}
+{\footnotesize\ttfamily \#define I\+S\+\_\+\+R\+X\+\_\+\+C\+B\+\_\+\+ON~(\hyperlink{uart_8h_a3653a449219b0409131ca727e52f9c83}{\+\_\+\+R\+X\+\_\+\+C\+A\+L\+L\+B\+A\+CK} == \hyperlink{uart_8h_aa755a7e30eaea7313de8dfe55f0097e4}{C\+B\+\_\+\+ON})}
+
+\mbox{\Hypertarget{uart_8h_ab342b1be36c2ede5c02e29ffe12918bf}\label{uart_8h_ab342b1be36c2ede5c02e29ffe12918bf}} 
+\index{uart.\+h@{uart.\+h}!S\+E\+T\+\_\+\+R\+X\+\_\+\+CB@{S\+E\+T\+\_\+\+R\+X\+\_\+\+CB}}
+\index{S\+E\+T\+\_\+\+R\+X\+\_\+\+CB@{S\+E\+T\+\_\+\+R\+X\+\_\+\+CB}!uart.\+h@{uart.\+h}}
+\subsubsection{\texorpdfstring{S\+E\+T\+\_\+\+R\+X\+\_\+\+CB}{SET\_RX\_CB}}
+{\footnotesize\ttfamily \#define S\+E\+T\+\_\+\+R\+X\+\_\+\+CB(\begin{DoxyParamCaption}\item[{}]{val }\end{DoxyParamCaption})~(\hyperlink{uart_8h_a3653a449219b0409131ca727e52f9c83}{\+\_\+\+R\+X\+\_\+\+C\+A\+L\+L\+B\+A\+CK} = val)}
+
+\mbox{\Hypertarget{uart_8h_ac7f0c80bfa20373105517638aa5094cf}\label{uart_8h_ac7f0c80bfa20373105517638aa5094cf}} 
+\index{uart.\+h@{uart.\+h}!S\+E\+T\+\_\+\+R\+X\+\_\+\+C\+B\+\_\+\+O\+FF@{S\+E\+T\+\_\+\+R\+X\+\_\+\+C\+B\+\_\+\+O\+FF}}
+\index{S\+E\+T\+\_\+\+R\+X\+\_\+\+C\+B\+\_\+\+O\+FF@{S\+E\+T\+\_\+\+R\+X\+\_\+\+C\+B\+\_\+\+O\+FF}!uart.\+h@{uart.\+h}}
+\subsubsection{\texorpdfstring{S\+E\+T\+\_\+\+R\+X\+\_\+\+C\+B\+\_\+\+O\+FF}{SET\_RX\_CB\_OFF}}
+{\footnotesize\ttfamily \#define S\+E\+T\+\_\+\+R\+X\+\_\+\+C\+B\+\_\+\+O\+FF~\hyperlink{uart_8h_ab342b1be36c2ede5c02e29ffe12918bf}{S\+E\+T\+\_\+\+R\+X\+\_\+\+CB}(\hyperlink{uart_8h_a6bea1cd4f27e3590ea5abbf5ec62756c}{C\+B\+\_\+\+O\+FF})}
+
+\mbox{\Hypertarget{uart_8h_aec77e6381748ef440495868f18b1c119}\label{uart_8h_aec77e6381748ef440495868f18b1c119}} 
+\index{uart.\+h@{uart.\+h}!S\+E\+T\+\_\+\+R\+X\+\_\+\+C\+B\+\_\+\+ON@{S\+E\+T\+\_\+\+R\+X\+\_\+\+C\+B\+\_\+\+ON}}
+\index{S\+E\+T\+\_\+\+R\+X\+\_\+\+C\+B\+\_\+\+ON@{S\+E\+T\+\_\+\+R\+X\+\_\+\+C\+B\+\_\+\+ON}!uart.\+h@{uart.\+h}}
+\subsubsection{\texorpdfstring{S\+E\+T\+\_\+\+R\+X\+\_\+\+C\+B\+\_\+\+ON}{SET\_RX\_CB\_ON}}
+{\footnotesize\ttfamily \#define S\+E\+T\+\_\+\+R\+X\+\_\+\+C\+B\+\_\+\+ON~\hyperlink{uart_8h_ab342b1be36c2ede5c02e29ffe12918bf}{S\+E\+T\+\_\+\+R\+X\+\_\+\+CB}(\hyperlink{uart_8h_aa755a7e30eaea7313de8dfe55f0097e4}{C\+B\+\_\+\+ON})}
+
+\mbox{\Hypertarget{uart_8h_a6949b873723081380b6f0e1d1d03fbda}\label{uart_8h_a6949b873723081380b6f0e1d1d03fbda}} 
+\index{uart.\+h@{uart.\+h}!S\+E\+T\+\_\+\+S\+E\+N\+D\+\_\+\+N\+E\+T\+D\+EV@{S\+E\+T\+\_\+\+S\+E\+N\+D\+\_\+\+N\+E\+T\+D\+EV}}
+\index{S\+E\+T\+\_\+\+S\+E\+N\+D\+\_\+\+N\+E\+T\+D\+EV@{S\+E\+T\+\_\+\+S\+E\+N\+D\+\_\+\+N\+E\+T\+D\+EV}!uart.\+h@{uart.\+h}}
+\subsubsection{\texorpdfstring{S\+E\+T\+\_\+\+S\+E\+N\+D\+\_\+\+N\+E\+T\+D\+EV}{SET\_SEND\_NETDEV}}
+{\footnotesize\ttfamily \#define S\+E\+T\+\_\+\+S\+E\+N\+D\+\_\+\+N\+E\+T\+D\+EV(\begin{DoxyParamCaption}\item[{}]{val }\end{DoxyParamCaption})~(\hyperlink{uart_8h_a2d7a2646a189c60e5aa1cfb2cae01768}{S\+E\+N\+D\+\_\+\+N\+E\+T\+D\+EV} = val);}
+
+\mbox{\Hypertarget{uart_8h_a0ac45423be27d476f1707ea5a536d2a2}\label{uart_8h_a0ac45423be27d476f1707ea5a536d2a2}} 
+\index{uart.\+h@{uart.\+h}!U\+S\+A\+R\+T\+\_\+\+B\+U\+F\+\_\+\+S\+I\+ZE@{U\+S\+A\+R\+T\+\_\+\+B\+U\+F\+\_\+\+S\+I\+ZE}}
+\index{U\+S\+A\+R\+T\+\_\+\+B\+U\+F\+\_\+\+S\+I\+ZE@{U\+S\+A\+R\+T\+\_\+\+B\+U\+F\+\_\+\+S\+I\+ZE}!uart.\+h@{uart.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+A\+R\+T\+\_\+\+B\+U\+F\+\_\+\+S\+I\+ZE}{USART\_BUF\_SIZE}}
+{\footnotesize\ttfamily \#define U\+S\+A\+R\+T\+\_\+\+B\+U\+F\+\_\+\+S\+I\+ZE~16}
+
+
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{uart_8h_addb00511a9eb43a2e55c598451b052e8}\label{uart_8h_addb00511a9eb43a2e55c598451b052e8}} 
+\index{uart.\+h@{uart.\+h}!uart\+\_\+netdev\+\_\+cb\+\_\+t@{uart\+\_\+netdev\+\_\+cb\+\_\+t}}
+\index{uart\+\_\+netdev\+\_\+cb\+\_\+t@{uart\+\_\+netdev\+\_\+cb\+\_\+t}!uart.\+h@{uart.\+h}}
+\subsubsection{\texorpdfstring{uart\+\_\+netdev\+\_\+cb\+\_\+t}{uart\_netdev\_cb\_t}}
+{\footnotesize\ttfamily typedef void($\ast$ uart\+\_\+netdev\+\_\+cb\+\_\+t) (char $\ast$, uint8\+\_\+t)}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{uart_8h_aa520859fda043c3bedd6f727c673c7cc}\label{uart_8h_aa520859fda043c3bedd6f727c673c7cc}} 
+\index{uart.\+h@{uart.\+h}!uart\+\_\+clearbuffer@{uart\+\_\+clearbuffer}}
+\index{uart\+\_\+clearbuffer@{uart\+\_\+clearbuffer}!uart.\+h@{uart.\+h}}
+\subsubsection{\texorpdfstring{uart\+\_\+clearbuffer()}{uart\_clearbuffer()}}
+{\footnotesize\ttfamily uint8\+\_\+t uart\+\_\+clearbuffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\{ Clear the U\+A\+RT receive buffer \} 
+
+\begin{DoxyReturn}{Returns}
+\{ Returns 0 if successful \} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{uart_8h_a64ede5fd1a39830dc7b19aaa021849ce}\label{uart_8h_a64ede5fd1a39830dc7b19aaa021849ce}} 
+\index{uart.\+h@{uart.\+h}!uart\+\_\+getbuffer@{uart\+\_\+getbuffer}}
+\index{uart\+\_\+getbuffer@{uart\+\_\+getbuffer}!uart.\+h@{uart.\+h}}
+\subsubsection{\texorpdfstring{uart\+\_\+getbuffer()}{uart\_getbuffer()}}
+{\footnotesize\ttfamily void uart\+\_\+getbuffer (\begin{DoxyParamCaption}\item[{char $\ast$}]{buff,  }\item[{size\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+
+
+\{ Returns the contents of the U\+A\+RT buffer \} 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em buff} & The buffer to put data into \\
+\hline
+\mbox{\tt in}  & {\em len} & The length the buffer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{uart_8h_a95ccdf02806d883570d362c73b97edd9}\label{uart_8h_a95ccdf02806d883570d362c73b97edd9}} 
+\index{uart.\+h@{uart.\+h}!uart\+\_\+init\+\_\+irqs@{uart\+\_\+init\+\_\+irqs}}
+\index{uart\+\_\+init\+\_\+irqs@{uart\+\_\+init\+\_\+irqs}!uart.\+h@{uart.\+h}}
+\subsubsection{\texorpdfstring{uart\+\_\+init\+\_\+irqs()}{uart\_init\_irqs()}}
+{\footnotesize\ttfamily void uart\+\_\+init\+\_\+irqs (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+\{ Initializes and registers interrupts for U\+A\+RT \} 
+
+\mbox{\Hypertarget{uart_8h_a36dc9f821cef4846d8c18298b88cf8f4}\label{uart_8h_a36dc9f821cef4846d8c18298b88cf8f4}} 
+\index{uart.\+h@{uart.\+h}!uart\+\_\+read@{uart\+\_\+read}}
+\index{uart\+\_\+read@{uart\+\_\+read}!uart.\+h@{uart.\+h}}
+\subsubsection{\texorpdfstring{uart\+\_\+read()}{uart\_read()}}
+{\footnotesize\ttfamily uint8\+\_\+t uart\+\_\+read (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\{ Reads data received by U\+A\+RT into rotating buffer \} 
+
+\begin{DoxyReturn}{Returns}
+\{ Number of bytes read \} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{uart_8h_aa7f5b88c96f5c6f3b5417e23d75013b5}\label{uart_8h_aa7f5b88c96f5c6f3b5417e23d75013b5}} 
+\index{uart.\+h@{uart.\+h}!uart\+\_\+write@{uart\+\_\+write}}
+\index{uart\+\_\+write@{uart\+\_\+write}!uart.\+h@{uart.\+h}}
+\subsubsection{\texorpdfstring{uart\+\_\+write()}{uart\_write()}}
+{\footnotesize\ttfamily uint8\+\_\+t uart\+\_\+write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{data,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+\{ Writes data out the U\+A\+RT \} 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em data} & The data \\
+\hline
+\mbox{\tt in}  & {\em size} & The size of data\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{ Number of bytes sent out U\+A\+RT \} 
+\end{DoxyReturn}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{uart_8h_a3653a449219b0409131ca727e52f9c83}\label{uart_8h_a3653a449219b0409131ca727e52f9c83}} 
+\index{uart.\+h@{uart.\+h}!\+\_\+\+R\+X\+\_\+\+C\+A\+L\+L\+B\+A\+CK@{\+\_\+\+R\+X\+\_\+\+C\+A\+L\+L\+B\+A\+CK}}
+\index{\+\_\+\+R\+X\+\_\+\+C\+A\+L\+L\+B\+A\+CK@{\+\_\+\+R\+X\+\_\+\+C\+A\+L\+L\+B\+A\+CK}!uart.\+h@{uart.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+\+R\+X\+\_\+\+C\+A\+L\+L\+B\+A\+CK}{\_RX\_CALLBACK}}
+{\footnotesize\ttfamily uint8\+\_\+t \+\_\+\+R\+X\+\_\+\+C\+A\+L\+L\+B\+A\+CK}
+
+\{ Flag controller whether U\+A\+RT RX callback is used \} \mbox{\Hypertarget{uart_8h_a7c23e38d0c83c18506afc1e37e0d1010}\label{uart_8h_a7c23e38d0c83c18506afc1e37e0d1010}} 
+\index{uart.\+h@{uart.\+h}!C\+U\+R\+R\+E\+N\+T\+\_\+\+B\+U\+F\+F\+ER@{C\+U\+R\+R\+E\+N\+T\+\_\+\+B\+U\+F\+F\+ER}}
+\index{C\+U\+R\+R\+E\+N\+T\+\_\+\+B\+U\+F\+F\+ER@{C\+U\+R\+R\+E\+N\+T\+\_\+\+B\+U\+F\+F\+ER}!uart.\+h@{uart.\+h}}
+\subsubsection{\texorpdfstring{C\+U\+R\+R\+E\+N\+T\+\_\+\+B\+U\+F\+F\+ER}{CURRENT\_BUFFER}}
+{\footnotesize\ttfamily uint8\+\_\+t C\+U\+R\+R\+E\+N\+T\+\_\+\+B\+U\+F\+F\+ER}
+
+\mbox{\Hypertarget{uart_8h_a262f4443fbd6d73b8beb96c5a6ac3504}\label{uart_8h_a262f4443fbd6d73b8beb96c5a6ac3504}} 
+\index{uart.\+h@{uart.\+h}!data\+\_\+received@{data\+\_\+received}}
+\index{data\+\_\+received@{data\+\_\+received}!uart.\+h@{uart.\+h}}
+\subsubsection{\texorpdfstring{data\+\_\+received}{data\_received}}
+{\footnotesize\ttfamily uint8\+\_\+t data\+\_\+received}
+
+\mbox{\Hypertarget{uart_8h_a6e1549d5e0af44aad37f41aac61b79dd}\label{uart_8h_a6e1549d5e0af44aad37f41aac61b79dd}} 
+\index{uart.\+h@{uart.\+h}!netdev\+\_\+recv\+\_\+callback@{netdev\+\_\+recv\+\_\+callback}}
+\index{netdev\+\_\+recv\+\_\+callback@{netdev\+\_\+recv\+\_\+callback}!uart.\+h@{uart.\+h}}
+\subsubsection{\texorpdfstring{netdev\+\_\+recv\+\_\+callback}{netdev\_recv\_callback}}
+{\footnotesize\ttfamily \hyperlink{uart_8h_addb00511a9eb43a2e55c598451b052e8}{uart\+\_\+netdev\+\_\+cb\+\_\+t} netdev\+\_\+recv\+\_\+callback}
+
+\mbox{\Hypertarget{uart_8h_a2d7a2646a189c60e5aa1cfb2cae01768}\label{uart_8h_a2d7a2646a189c60e5aa1cfb2cae01768}} 
+\index{uart.\+h@{uart.\+h}!S\+E\+N\+D\+\_\+\+N\+E\+T\+D\+EV@{S\+E\+N\+D\+\_\+\+N\+E\+T\+D\+EV}}
+\index{S\+E\+N\+D\+\_\+\+N\+E\+T\+D\+EV@{S\+E\+N\+D\+\_\+\+N\+E\+T\+D\+EV}!uart.\+h@{uart.\+h}}
+\subsubsection{\texorpdfstring{S\+E\+N\+D\+\_\+\+N\+E\+T\+D\+EV}{SEND\_NETDEV}}
+{\footnotesize\ttfamily uint8\+\_\+t S\+E\+N\+D\+\_\+\+N\+E\+T\+D\+EV}
+
+\{ Flag on whether to send data to Net\+Dev registered callback function \} \mbox{\Hypertarget{uart_8h_a0df79877408ded70eef71940f4d57b95}\label{uart_8h_a0df79877408ded70eef71940f4d57b95}} 
+\index{uart.\+h@{uart.\+h}!uart\+\_\+buffer@{uart\+\_\+buffer}}
+\index{uart\+\_\+buffer@{uart\+\_\+buffer}!uart.\+h@{uart.\+h}}
+\subsubsection{\texorpdfstring{uart\+\_\+buffer}{uart\_buffer}}
+{\footnotesize\ttfamily char uart\+\_\+buffer\mbox{[}2\mbox{]}\mbox{[}\hyperlink{uart_8h_a0ac45423be27d476f1707ea5a536d2a2}{U\+S\+A\+R\+T\+\_\+\+B\+U\+F\+\_\+\+S\+I\+ZE}\mbox{]}}
+
+\mbox{\Hypertarget{uart_8h_a744e20ccfb70d9568b1835905990dbbf}\label{uart_8h_a744e20ccfb70d9568b1835905990dbbf}} 
+\index{uart.\+h@{uart.\+h}!usart\+\_\+io@{usart\+\_\+io}}
+\index{usart\+\_\+io@{usart\+\_\+io}!uart.\+h@{uart.\+h}}
+\subsubsection{\texorpdfstring{usart\+\_\+io}{usart\_io}}
+{\footnotesize\ttfamily struct \hyperlink{structio__descriptor}{io\+\_\+descriptor}$\ast$ usart\+\_\+io}
+

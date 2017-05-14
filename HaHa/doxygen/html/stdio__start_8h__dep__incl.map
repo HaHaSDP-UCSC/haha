@@ -1,0 +1,12 @@
+<map id="E:/HaHaProject/AtmelXbee/ATProjects/HaHa/HaHa/stdio_start.h" name="E:/HaHaProject/AtmelXbee/ATProjects/HaHa/HaHa/stdio_start.h">
+<area shape="rect" id="node2" href="$uart_8h.html" title="UART control functionality declaration. " alt="" coords="320,117,545,158"/>
+<area shape="rect" id="node5" href="$main_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/main.c" alt="" coords="526,221,731,262"/>
+<area shape="rect" id="node6" href="$haha_utils_8c.html" title="stdlib for HAHA project, contains imports and defines implementation " alt="" coords="667,109,857,165"/>
+<area shape="rect" id="node7" href="$atmel__start_8h.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/atmel\l_start.h" alt="" coords="881,109,1080,165"/>
+<area shape="rect" id="node11" href="$stdio__start_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/stdio\l_start.c" alt="" coords="1226,213,1421,269"/>
+<area shape="rect" id="node3" href="$networkdevice_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/networkdevice\l/networkdevice.c" alt="" coords="5,213,252,269"/>
+<area shape="rect" id="node4" href="$uart_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/uart/uart.c" alt="" coords="276,221,501,262"/>
+<area shape="rect" id="node8" href="$driver__examples_8h.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/examples\l/driver_examples.h" alt="" coords="756,213,979,269"/>
+<area shape="rect" id="node10" href="$atmel__start_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/atmel\l_start.c" alt="" coords="1003,213,1201,269"/>
+<area shape="rect" id="node9" href="$driver__examples_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/examples\l/driver_examples.c" alt="" coords="756,317,979,373"/>
+</map>

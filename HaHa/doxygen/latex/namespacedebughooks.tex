@@ -1,0 +1,108 @@
+\hypertarget{namespacedebughooks}{}\section{debughooks Namespace Reference}
+\label{namespacedebughooks}\index{debughooks@{debughooks}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacedebughooks_acdaada684f14959e258414534d569f71}{should\+\_\+process\+\_\+breakpoint} (api, adr, bp\+Id, obj)
+\item 
+def \hyperlink{namespacedebughooks_a0ee6ce3e0aacdd1e5758492f69f995f8}{on\+\_\+reset} (api, reset\+Adr)
+\item 
+def \hyperlink{namespacedebughooks_ac7b06df66dc219922f1ad5a6734f71c6}{on\+\_\+launch} (api, debug\+Props)
+\item 
+def \hyperlink{namespacedebughooks_a71d3491d80d320fc8f85383489af96ec}{Handle\+App\+Entry\+Breakpoint} (api)
+\item 
+def \hyperlink{namespacedebughooks_a673ca6fc076f03549c0078ee764a5786}{Handle\+Patch\+Breakpoint} (api)
+\item 
+def \hyperlink{namespacedebughooks_a80cb4755d936e703c396376b7d9b05b5}{Get\+Stack\+Addr\+And\+Size} (api, map\+File)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{namespacedebughooks_a4453080c049b935096a9399726aaff65}{debug\+Out\+Of\+Ram} = False
+\item 
+int \hyperlink{namespacedebughooks_ace200a02851163ba9904ccdde2991a30}{patch\+Break\+Point\+Id} = -\/1
+\item 
+int \hyperlink{namespacedebughooks_af0787e398633654faa72900223e5dd40}{app\+Entry\+Break\+Point\+Id} = -\/1
+\item 
+int \hyperlink{namespacedebughooks_a7085fd6725027f087010919eb35a91a9}{post\+Flash\+Download\+Addr} = 0x1236
+\item 
+int \hyperlink{namespacedebughooks_a10baaf1b59cde3b326d8dcc5ed34bfbf}{entry\+Point\+Adr} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}DebugScript for SAMB devices.
+If programming mode is set to managed by script it will debug out of ram.
+\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespacedebughooks_a80cb4755d936e703c396376b7d9b05b5}\label{namespacedebughooks_a80cb4755d936e703c396376b7d9b05b5}} 
+\index{debughooks@{debughooks}!Get\+Stack\+Addr\+And\+Size@{Get\+Stack\+Addr\+And\+Size}}
+\index{Get\+Stack\+Addr\+And\+Size@{Get\+Stack\+Addr\+And\+Size}!debughooks@{debughooks}}
+\subsubsection{\texorpdfstring{Get\+Stack\+Addr\+And\+Size()}{GetStackAddrAndSize()}}
+{\footnotesize\ttfamily def debughooks.\+Get\+Stack\+Addr\+And\+Size (\begin{DoxyParamCaption}\item[{}]{api,  }\item[{}]{map\+File }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacedebughooks_a71d3491d80d320fc8f85383489af96ec}\label{namespacedebughooks_a71d3491d80d320fc8f85383489af96ec}} 
+\index{debughooks@{debughooks}!Handle\+App\+Entry\+Breakpoint@{Handle\+App\+Entry\+Breakpoint}}
+\index{Handle\+App\+Entry\+Breakpoint@{Handle\+App\+Entry\+Breakpoint}!debughooks@{debughooks}}
+\subsubsection{\texorpdfstring{Handle\+App\+Entry\+Breakpoint()}{HandleAppEntryBreakpoint()}}
+{\footnotesize\ttfamily def debughooks.\+Handle\+App\+Entry\+Breakpoint (\begin{DoxyParamCaption}\item[{}]{api }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacedebughooks_a673ca6fc076f03549c0078ee764a5786}\label{namespacedebughooks_a673ca6fc076f03549c0078ee764a5786}} 
+\index{debughooks@{debughooks}!Handle\+Patch\+Breakpoint@{Handle\+Patch\+Breakpoint}}
+\index{Handle\+Patch\+Breakpoint@{Handle\+Patch\+Breakpoint}!debughooks@{debughooks}}
+\subsubsection{\texorpdfstring{Handle\+Patch\+Breakpoint()}{HandlePatchBreakpoint()}}
+{\footnotesize\ttfamily def debughooks.\+Handle\+Patch\+Breakpoint (\begin{DoxyParamCaption}\item[{}]{api }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacedebughooks_ac7b06df66dc219922f1ad5a6734f71c6}\label{namespacedebughooks_ac7b06df66dc219922f1ad5a6734f71c6}} 
+\index{debughooks@{debughooks}!on\+\_\+launch@{on\+\_\+launch}}
+\index{on\+\_\+launch@{on\+\_\+launch}!debughooks@{debughooks}}
+\subsubsection{\texorpdfstring{on\+\_\+launch()}{on\_launch()}}
+{\footnotesize\ttfamily def debughooks.\+on\+\_\+launch (\begin{DoxyParamCaption}\item[{}]{api,  }\item[{}]{debug\+Props }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacedebughooks_a0ee6ce3e0aacdd1e5758492f69f995f8}\label{namespacedebughooks_a0ee6ce3e0aacdd1e5758492f69f995f8}} 
+\index{debughooks@{debughooks}!on\+\_\+reset@{on\+\_\+reset}}
+\index{on\+\_\+reset@{on\+\_\+reset}!debughooks@{debughooks}}
+\subsubsection{\texorpdfstring{on\+\_\+reset()}{on\_reset()}}
+{\footnotesize\ttfamily def debughooks.\+on\+\_\+reset (\begin{DoxyParamCaption}\item[{}]{api,  }\item[{}]{reset\+Adr }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacedebughooks_acdaada684f14959e258414534d569f71}\label{namespacedebughooks_acdaada684f14959e258414534d569f71}} 
+\index{debughooks@{debughooks}!should\+\_\+process\+\_\+breakpoint@{should\+\_\+process\+\_\+breakpoint}}
+\index{should\+\_\+process\+\_\+breakpoint@{should\+\_\+process\+\_\+breakpoint}!debughooks@{debughooks}}
+\subsubsection{\texorpdfstring{should\+\_\+process\+\_\+breakpoint()}{should\_process\_breakpoint()}}
+{\footnotesize\ttfamily def debughooks.\+should\+\_\+process\+\_\+breakpoint (\begin{DoxyParamCaption}\item[{}]{api,  }\item[{}]{adr,  }\item[{}]{bp\+Id,  }\item[{}]{obj }\end{DoxyParamCaption})}
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{namespacedebughooks_af0787e398633654faa72900223e5dd40}\label{namespacedebughooks_af0787e398633654faa72900223e5dd40}} 
+\index{debughooks@{debughooks}!app\+Entry\+Break\+Point\+Id@{app\+Entry\+Break\+Point\+Id}}
+\index{app\+Entry\+Break\+Point\+Id@{app\+Entry\+Break\+Point\+Id}!debughooks@{debughooks}}
+\subsubsection{\texorpdfstring{app\+Entry\+Break\+Point\+Id}{appEntryBreakPointId}}
+{\footnotesize\ttfamily int debughooks.\+app\+Entry\+Break\+Point\+Id = -\/1}
+
+\mbox{\Hypertarget{namespacedebughooks_a4453080c049b935096a9399726aaff65}\label{namespacedebughooks_a4453080c049b935096a9399726aaff65}} 
+\index{debughooks@{debughooks}!debug\+Out\+Of\+Ram@{debug\+Out\+Of\+Ram}}
+\index{debug\+Out\+Of\+Ram@{debug\+Out\+Of\+Ram}!debughooks@{debughooks}}
+\subsubsection{\texorpdfstring{debug\+Out\+Of\+Ram}{debugOutOfRam}}
+{\footnotesize\ttfamily bool debughooks.\+debug\+Out\+Of\+Ram = False}
+
+\mbox{\Hypertarget{namespacedebughooks_a10baaf1b59cde3b326d8dcc5ed34bfbf}\label{namespacedebughooks_a10baaf1b59cde3b326d8dcc5ed34bfbf}} 
+\index{debughooks@{debughooks}!entry\+Point\+Adr@{entry\+Point\+Adr}}
+\index{entry\+Point\+Adr@{entry\+Point\+Adr}!debughooks@{debughooks}}
+\subsubsection{\texorpdfstring{entry\+Point\+Adr}{entryPointAdr}}
+{\footnotesize\ttfamily int debughooks.\+entry\+Point\+Adr = 0}
+
+\mbox{\Hypertarget{namespacedebughooks_ace200a02851163ba9904ccdde2991a30}\label{namespacedebughooks_ace200a02851163ba9904ccdde2991a30}} 
+\index{debughooks@{debughooks}!patch\+Break\+Point\+Id@{patch\+Break\+Point\+Id}}
+\index{patch\+Break\+Point\+Id@{patch\+Break\+Point\+Id}!debughooks@{debughooks}}
+\subsubsection{\texorpdfstring{patch\+Break\+Point\+Id}{patchBreakPointId}}
+{\footnotesize\ttfamily int debughooks.\+patch\+Break\+Point\+Id = -\/1}
+
+\mbox{\Hypertarget{namespacedebughooks_a7085fd6725027f087010919eb35a91a9}\label{namespacedebughooks_a7085fd6725027f087010919eb35a91a9}} 
+\index{debughooks@{debughooks}!post\+Flash\+Download\+Addr@{post\+Flash\+Download\+Addr}}
+\index{post\+Flash\+Download\+Addr@{post\+Flash\+Download\+Addr}!debughooks@{debughooks}}
+\subsubsection{\texorpdfstring{post\+Flash\+Download\+Addr}{postFlashDownloadAddr}}
+{\footnotesize\ttfamily int debughooks.\+post\+Flash\+Download\+Addr = 0x1236}
+

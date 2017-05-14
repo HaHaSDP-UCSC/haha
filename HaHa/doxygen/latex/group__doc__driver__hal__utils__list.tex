@@ -1,0 +1,155 @@
+\hypertarget{group__doc__driver__hal__utils__list}{}\section{Doc\+\_\+driver\+\_\+hal\+\_\+utils\+\_\+list}
+\label{group__doc__driver__hal__utils__list}\index{Doc\+\_\+driver\+\_\+hal\+\_\+utils\+\_\+list@{Doc\+\_\+driver\+\_\+hal\+\_\+utils\+\_\+list}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structlist__element}{list\+\_\+element}
+\begin{DoxyCompactList}\small\item\em List element type. \end{DoxyCompactList}\item 
+struct \hyperlink{structlist__descriptor}{list\+\_\+descriptor}
+\begin{DoxyCompactList}\small\item\em List head type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__doc__driver__hal__utils__list_gafb3237f00dbf55a40075f3a42c49d32a}{list\+\_\+insert\+\_\+as\+\_\+head} (struct \hyperlink{structlist__descriptor}{list\+\_\+descriptor} $\ast$const list, void $\ast$const element)
+\begin{DoxyCompactList}\small\item\em Insert an element as list head. \end{DoxyCompactList}\item 
+void \hyperlink{group__doc__driver__hal__utils__list_ga55b8c083fa131f829b1c998e14352f34}{list\+\_\+insert\+\_\+after} (void $\ast$const after, void $\ast$const element)
+\begin{DoxyCompactList}\small\item\em Insert an element after the given list element. \end{DoxyCompactList}\item 
+void \hyperlink{group__doc__driver__hal__utils__list_ga48c5a1a13223944dd190a6a028075deb}{list\+\_\+insert\+\_\+at\+\_\+end} (struct \hyperlink{structlist__descriptor}{list\+\_\+descriptor} $\ast$const list, void $\ast$const element)
+\begin{DoxyCompactList}\small\item\em Insert an element at list end. \end{DoxyCompactList}\item 
+bool \hyperlink{group__doc__driver__hal__utils__list_ga26022c1362f0fa7e17b734262229c1a7}{is\+\_\+list\+\_\+element} (const struct \hyperlink{structlist__descriptor}{list\+\_\+descriptor} $\ast$const list, const void $\ast$const element)
+\begin{DoxyCompactList}\small\item\em Check whether an element belongs to a list. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{group__doc__driver__hal__utils__list_ga2269db44f7013963f60c568dd8d08022}{list\+\_\+remove\+\_\+head} (struct \hyperlink{structlist__descriptor}{list\+\_\+descriptor} $\ast$const list)
+\begin{DoxyCompactList}\small\item\em Removes list head. \end{DoxyCompactList}\item 
+bool \hyperlink{group__doc__driver__hal__utils__list_gad5a2a1ff5dcdfadb47d4ba436e154c98}{list\+\_\+delete\+\_\+element} (struct \hyperlink{structlist__descriptor}{list\+\_\+descriptor} $\ast$const list, const void $\ast$const element)
+\begin{DoxyCompactList}\small\item\em Removes list element. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group__doc__driver__hal__utils__list_ga26022c1362f0fa7e17b734262229c1a7}\label{group__doc__driver__hal__utils__list_ga26022c1362f0fa7e17b734262229c1a7}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+utils\+\_\+list@{Doc\+\_\+driver\+\_\+hal\+\_\+utils\+\_\+list}!is\+\_\+list\+\_\+element@{is\+\_\+list\+\_\+element}}
+\index{is\+\_\+list\+\_\+element@{is\+\_\+list\+\_\+element}!Doc\+\_\+driver\+\_\+hal\+\_\+utils\+\_\+list@{Doc\+\_\+driver\+\_\+hal\+\_\+utils\+\_\+list}}
+\subsubsection{\texorpdfstring{is\+\_\+list\+\_\+element()}{is\_list\_element()}}
+{\footnotesize\ttfamily bool is\+\_\+list\+\_\+element (\begin{DoxyParamCaption}\item[{const struct \hyperlink{structlist__descriptor}{list\+\_\+descriptor} $\ast$const}]{list,  }\item[{const void $\ast$const}]{element }\end{DoxyParamCaption})}
+
+
+
+Check whether an element belongs to a list. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em list} & The pointer to a list \\
+\hline
+\mbox{\tt in}  & {\em element} & An element to check\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result of checking 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em true} & If the given element is an element of the given list \\
+\hline
+{\em false} & Otherwise\\
+\hline
+\end{DoxyRetVals}
+Check whether an element belongs to a list. \mbox{\Hypertarget{group__doc__driver__hal__utils__list_gad5a2a1ff5dcdfadb47d4ba436e154c98}\label{group__doc__driver__hal__utils__list_gad5a2a1ff5dcdfadb47d4ba436e154c98}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+utils\+\_\+list@{Doc\+\_\+driver\+\_\+hal\+\_\+utils\+\_\+list}!list\+\_\+delete\+\_\+element@{list\+\_\+delete\+\_\+element}}
+\index{list\+\_\+delete\+\_\+element@{list\+\_\+delete\+\_\+element}!Doc\+\_\+driver\+\_\+hal\+\_\+utils\+\_\+list@{Doc\+\_\+driver\+\_\+hal\+\_\+utils\+\_\+list}}
+\subsubsection{\texorpdfstring{list\+\_\+delete\+\_\+element()}{list\_delete\_element()}}
+{\footnotesize\ttfamily bool list\+\_\+delete\+\_\+element (\begin{DoxyParamCaption}\item[{struct \hyperlink{structlist__descriptor}{list\+\_\+descriptor} $\ast$const}]{list,  }\item[{const void $\ast$const}]{element }\end{DoxyParamCaption})}
+
+
+
+Removes list element. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em list} & The pointer to a list \\
+\hline
+\mbox{\tt in}  & {\em element} & An element to remove\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result of element removing 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em true} & The given element is removed from the given list \\
+\hline
+{\em false} & The given element is not an element of the given list \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__doc__driver__hal__utils__list_ga55b8c083fa131f829b1c998e14352f34}\label{group__doc__driver__hal__utils__list_ga55b8c083fa131f829b1c998e14352f34}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+utils\+\_\+list@{Doc\+\_\+driver\+\_\+hal\+\_\+utils\+\_\+list}!list\+\_\+insert\+\_\+after@{list\+\_\+insert\+\_\+after}}
+\index{list\+\_\+insert\+\_\+after@{list\+\_\+insert\+\_\+after}!Doc\+\_\+driver\+\_\+hal\+\_\+utils\+\_\+list@{Doc\+\_\+driver\+\_\+hal\+\_\+utils\+\_\+list}}
+\subsubsection{\texorpdfstring{list\+\_\+insert\+\_\+after()}{list\_insert\_after()}}
+{\footnotesize\ttfamily void list\+\_\+insert\+\_\+after (\begin{DoxyParamCaption}\item[{void $\ast$const}]{after,  }\item[{void $\ast$const}]{element }\end{DoxyParamCaption})}
+
+
+
+Insert an element after the given list element. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em after} & An element to insert after \\
+\hline
+\mbox{\tt in}  & {\em element} & Element to insert to the given list \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__doc__driver__hal__utils__list_gafb3237f00dbf55a40075f3a42c49d32a}\label{group__doc__driver__hal__utils__list_gafb3237f00dbf55a40075f3a42c49d32a}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+utils\+\_\+list@{Doc\+\_\+driver\+\_\+hal\+\_\+utils\+\_\+list}!list\+\_\+insert\+\_\+as\+\_\+head@{list\+\_\+insert\+\_\+as\+\_\+head}}
+\index{list\+\_\+insert\+\_\+as\+\_\+head@{list\+\_\+insert\+\_\+as\+\_\+head}!Doc\+\_\+driver\+\_\+hal\+\_\+utils\+\_\+list@{Doc\+\_\+driver\+\_\+hal\+\_\+utils\+\_\+list}}
+\subsubsection{\texorpdfstring{list\+\_\+insert\+\_\+as\+\_\+head()}{list\_insert\_as\_head()}}
+{\footnotesize\ttfamily void list\+\_\+insert\+\_\+as\+\_\+head (\begin{DoxyParamCaption}\item[{struct \hyperlink{structlist__descriptor}{list\+\_\+descriptor} $\ast$const}]{list,  }\item[{void $\ast$const}]{element }\end{DoxyParamCaption})}
+
+
+
+Insert an element as list head. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em list} & The pointer to a list element \\
+\hline
+\mbox{\tt in}  & {\em element} & An element to insert to the given list \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__doc__driver__hal__utils__list_ga48c5a1a13223944dd190a6a028075deb}\label{group__doc__driver__hal__utils__list_ga48c5a1a13223944dd190a6a028075deb}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+utils\+\_\+list@{Doc\+\_\+driver\+\_\+hal\+\_\+utils\+\_\+list}!list\+\_\+insert\+\_\+at\+\_\+end@{list\+\_\+insert\+\_\+at\+\_\+end}}
+\index{list\+\_\+insert\+\_\+at\+\_\+end@{list\+\_\+insert\+\_\+at\+\_\+end}!Doc\+\_\+driver\+\_\+hal\+\_\+utils\+\_\+list@{Doc\+\_\+driver\+\_\+hal\+\_\+utils\+\_\+list}}
+\subsubsection{\texorpdfstring{list\+\_\+insert\+\_\+at\+\_\+end()}{list\_insert\_at\_end()}}
+{\footnotesize\ttfamily void list\+\_\+insert\+\_\+at\+\_\+end (\begin{DoxyParamCaption}\item[{struct \hyperlink{structlist__descriptor}{list\+\_\+descriptor} $\ast$const}]{list,  }\item[{void $\ast$const}]{element }\end{DoxyParamCaption})}
+
+
+
+Insert an element at list end. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em after} & An element to insert after \\
+\hline
+\mbox{\tt in}  & {\em element} & Element to insert to the given list \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__doc__driver__hal__utils__list_ga2269db44f7013963f60c568dd8d08022}\label{group__doc__driver__hal__utils__list_ga2269db44f7013963f60c568dd8d08022}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+utils\+\_\+list@{Doc\+\_\+driver\+\_\+hal\+\_\+utils\+\_\+list}!list\+\_\+remove\+\_\+head@{list\+\_\+remove\+\_\+head}}
+\index{list\+\_\+remove\+\_\+head@{list\+\_\+remove\+\_\+head}!Doc\+\_\+driver\+\_\+hal\+\_\+utils\+\_\+list@{Doc\+\_\+driver\+\_\+hal\+\_\+utils\+\_\+list}}
+\subsubsection{\texorpdfstring{list\+\_\+remove\+\_\+head()}{list\_remove\_head()}}
+{\footnotesize\ttfamily void$\ast$ list\+\_\+remove\+\_\+head (\begin{DoxyParamCaption}\item[{struct \hyperlink{structlist__descriptor}{list\+\_\+descriptor} $\ast$const}]{list }\end{DoxyParamCaption})}
+
+
+
+Removes list head. 
+
+This function removes list head and sets the next element after the list head as new list head.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em list} & The pointer to a list\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The pointer to new list head of N\+U\+LL if list head is N\+U\+LL 
+\end{DoxyReturn}

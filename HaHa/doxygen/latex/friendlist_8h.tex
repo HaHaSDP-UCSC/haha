@@ -1,0 +1,100 @@
+\hypertarget{friendlist_8h}{}\section{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/friend/friendlist.h File Reference}
+\label{friendlist_8h}\index{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/friend/friendlist.\+h@{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/friend/friendlist.\+h}}
+{\ttfamily \#include \char`\"{}utils/haha\+Utils.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}network/packet.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}network/network.\+h\char`\"{}}\newline
+Include dependency graph for friendlist.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{friendlist_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{friendlist_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_friend}{Friend}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{friendlist_8h_a7846a760fa82df010aca38987097c3f4}{F\+R\+I\+E\+N\+D\+L\+I\+S\+T\+S\+I\+ZE}~10
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{friendlist_8h_a3dce4d692e7aae2669793a515a8fda55}{init\+Friend\+List} ()
+\item 
+bool \hyperlink{friendlist_8h_ad12a433e777083ea2393fa2bdd076768}{write\+To\+Friend\+List\+Storage} ()
+\item 
+bool \hyperlink{friendlist_8h_abb5f917f1e9a4bfdbfdb931d969d7995}{read\+From\+Friend\+List\+Storage} ()
+\item 
+bool \hyperlink{friendlist_8h_a90d556c3fa8003ecd11b20591fe8196f}{add\+Friend} ()
+\item 
+bool \hyperlink{friendlist_8h_a9bb0bab44716d6f41279f17d0631c041}{remove\+Friend} (\hyperlink{struct_network}{Network} net, \hyperlink{struct_packet}{Packet} packet)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_friend}{Friend} \hyperlink{friendlist_8h_a9c8536e92326fb575068619eb02bcfa2}{friend\+List} \mbox{[}\hyperlink{friendlist_8h_a7846a760fa82df010aca38987097c3f4}{F\+R\+I\+E\+N\+D\+L\+I\+S\+T\+S\+I\+ZE}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{friendlist_8h_a7846a760fa82df010aca38987097c3f4}\label{friendlist_8h_a7846a760fa82df010aca38987097c3f4}} 
+\index{friendlist.\+h@{friendlist.\+h}!F\+R\+I\+E\+N\+D\+L\+I\+S\+T\+S\+I\+ZE@{F\+R\+I\+E\+N\+D\+L\+I\+S\+T\+S\+I\+ZE}}
+\index{F\+R\+I\+E\+N\+D\+L\+I\+S\+T\+S\+I\+ZE@{F\+R\+I\+E\+N\+D\+L\+I\+S\+T\+S\+I\+ZE}!friendlist.\+h@{friendlist.\+h}}
+\subsubsection{\texorpdfstring{F\+R\+I\+E\+N\+D\+L\+I\+S\+T\+S\+I\+ZE}{FRIENDLISTSIZE}}
+{\footnotesize\ttfamily \#define F\+R\+I\+E\+N\+D\+L\+I\+S\+T\+S\+I\+ZE~10}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{friendlist_8h_a90d556c3fa8003ecd11b20591fe8196f}\label{friendlist_8h_a90d556c3fa8003ecd11b20591fe8196f}} 
+\index{friendlist.\+h@{friendlist.\+h}!add\+Friend@{add\+Friend}}
+\index{add\+Friend@{add\+Friend}!friendlist.\+h@{friendlist.\+h}}
+\subsubsection{\texorpdfstring{add\+Friend()}{addFriend()}}
+{\footnotesize\ttfamily bool add\+Friend (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{friendlist_8h_a3dce4d692e7aae2669793a515a8fda55}\label{friendlist_8h_a3dce4d692e7aae2669793a515a8fda55}} 
+\index{friendlist.\+h@{friendlist.\+h}!init\+Friend\+List@{init\+Friend\+List}}
+\index{init\+Friend\+List@{init\+Friend\+List}!friendlist.\+h@{friendlist.\+h}}
+\subsubsection{\texorpdfstring{init\+Friend\+List()}{initFriendList()}}
+{\footnotesize\ttfamily bool init\+Friend\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{friendlist_8h_abb5f917f1e9a4bfdbfdb931d969d7995}\label{friendlist_8h_abb5f917f1e9a4bfdbfdb931d969d7995}} 
+\index{friendlist.\+h@{friendlist.\+h}!read\+From\+Friend\+List\+Storage@{read\+From\+Friend\+List\+Storage}}
+\index{read\+From\+Friend\+List\+Storage@{read\+From\+Friend\+List\+Storage}!friendlist.\+h@{friendlist.\+h}}
+\subsubsection{\texorpdfstring{read\+From\+Friend\+List\+Storage()}{readFromFriendListStorage()}}
+{\footnotesize\ttfamily bool read\+From\+Friend\+List\+Storage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{friendlist_8h_a9bb0bab44716d6f41279f17d0631c041}\label{friendlist_8h_a9bb0bab44716d6f41279f17d0631c041}} 
+\index{friendlist.\+h@{friendlist.\+h}!remove\+Friend@{remove\+Friend}}
+\index{remove\+Friend@{remove\+Friend}!friendlist.\+h@{friendlist.\+h}}
+\subsubsection{\texorpdfstring{remove\+Friend()}{removeFriend()}}
+{\footnotesize\ttfamily bool remove\+Friend (\begin{DoxyParamCaption}\item[{\hyperlink{struct_network}{Network}}]{net,  }\item[{\hyperlink{struct_packet}{Packet}}]{packet }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{friendlist_8h_ad12a433e777083ea2393fa2bdd076768}\label{friendlist_8h_ad12a433e777083ea2393fa2bdd076768}} 
+\index{friendlist.\+h@{friendlist.\+h}!write\+To\+Friend\+List\+Storage@{write\+To\+Friend\+List\+Storage}}
+\index{write\+To\+Friend\+List\+Storage@{write\+To\+Friend\+List\+Storage}!friendlist.\+h@{friendlist.\+h}}
+\subsubsection{\texorpdfstring{write\+To\+Friend\+List\+Storage()}{writeToFriendListStorage()}}
+{\footnotesize\ttfamily bool write\+To\+Friend\+List\+Storage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{friendlist_8h_a9c8536e92326fb575068619eb02bcfa2}\label{friendlist_8h_a9c8536e92326fb575068619eb02bcfa2}} 
+\index{friendlist.\+h@{friendlist.\+h}!friend\+List@{friend\+List}}
+\index{friend\+List@{friend\+List}!friendlist.\+h@{friendlist.\+h}}
+\subsubsection{\texorpdfstring{friend\+List}{friendList}}
+{\footnotesize\ttfamily \hyperlink{struct_friend}{Friend} friend\+List\mbox{[}\hyperlink{friendlist_8h_a7846a760fa82df010aca38987097c3f4}{F\+R\+I\+E\+N\+D\+L\+I\+S\+T\+S\+I\+ZE}\mbox{]}}
+

@@ -1,0 +1,74 @@
+\hypertarget{hpl__usart_8h}{}\section{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/hal/include/hpl\+\_\+usart.h File Reference}
+\label{hpl__usart_8h}\index{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/hal/include/hpl\+\_\+usart.\+h@{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/hal/include/hpl\+\_\+usart.\+h}}
+
+
+U\+S\+A\+RT related functionality declaration.  
+
+
+{\ttfamily \#include $<$compiler.\+h$>$}\newline
+Include dependency graph for hpl\+\_\+usart.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hpl__usart_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hpl__usart_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+union \hyperlink{unionusart__flow__control__state}{usart\+\_\+flow\+\_\+control\+\_\+state}
+\begin{DoxyCompactList}\small\item\em U\+S\+A\+RT flow control state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{group___h_p_l_ga59141b5eb86f4d53f17bbeab1d7c83e7}{usart\+\_\+baud\+\_\+rate\+\_\+mode} \{ \hyperlink{group___h_p_l_gga59141b5eb86f4d53f17bbeab1d7c83e7a9dfbfc309d416d0a7133146b967aff12}{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+R\+A\+T\+E\+\_\+\+A\+S\+Y\+N\+C\+H\+\_\+\+A\+R\+I\+T\+H\+M\+E\+T\+IC}, 
+\hyperlink{group___h_p_l_gga59141b5eb86f4d53f17bbeab1d7c83e7a88eeba612b4bb837118d0b58fb362154}{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+R\+A\+T\+E\+\_\+\+A\+S\+Y\+N\+C\+H\+\_\+\+F\+R\+A\+C\+T\+I\+O\+N\+AL}, 
+\hyperlink{group___h_p_l_gga59141b5eb86f4d53f17bbeab1d7c83e7a6ea0c41087b56d5b6111bc75c7fa4fce}{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+R\+A\+T\+E\+\_\+\+S\+Y\+N\+CH}
+ \}\begin{DoxyCompactList}\small\item\em U\+S\+A\+RT baud rate mode. \end{DoxyCompactList}
+\item 
+enum \hyperlink{group___h_p_l_ga426849bbd9655cec091101ebc9123eb4}{usart\+\_\+data\+\_\+order} \{ \hyperlink{group___h_p_l_gga426849bbd9655cec091101ebc9123eb4afd8bb97c0b2a548d9e3cb9b55e78c4bd}{U\+S\+A\+R\+T\+\_\+\+D\+A\+T\+A\+\_\+\+O\+R\+D\+E\+R\+\_\+\+M\+SB} = 0, 
+\hyperlink{group___h_p_l_gga426849bbd9655cec091101ebc9123eb4a88ca2528623acb9433729123f12f5518}{U\+S\+A\+R\+T\+\_\+\+D\+A\+T\+A\+\_\+\+O\+R\+D\+E\+R\+\_\+\+L\+SB} = 1
+ \}\begin{DoxyCompactList}\small\item\em U\+S\+A\+RT data order. \end{DoxyCompactList}
+\item 
+enum \hyperlink{group___h_p_l_ga1c465965478e0f6908a4c99d4f3ad20f}{usart\+\_\+mode} \{ \hyperlink{group___h_p_l_gga1c465965478e0f6908a4c99d4f3ad20fa15ae875c7e7097405cb441a311d6a4d8}{U\+S\+A\+R\+T\+\_\+\+M\+O\+D\+E\+\_\+\+A\+S\+Y\+N\+C\+H\+R\+O\+N\+O\+US} = 0, 
+\hyperlink{group___h_p_l_gga1c465965478e0f6908a4c99d4f3ad20fa004992ac327040dfff2102581111a7e9}{U\+S\+A\+R\+T\+\_\+\+M\+O\+D\+E\+\_\+\+S\+Y\+N\+C\+H\+R\+O\+N\+O\+US} = 1
+ \}\begin{DoxyCompactList}\small\item\em U\+S\+A\+RT mode. \end{DoxyCompactList}
+\item 
+enum \hyperlink{group___h_p_l_ga867cc5f0ea7d3bf651d68f0046cf6f41}{usart\+\_\+parity} \{ \newline
+\hyperlink{group___h_p_l_gga867cc5f0ea7d3bf651d68f0046cf6f41ae5d22c99a30184aff19d77c1a970fb23}{U\+S\+A\+R\+T\+\_\+\+P\+A\+R\+I\+T\+Y\+\_\+\+E\+V\+EN} = 0, 
+\hyperlink{group___h_p_l_gga867cc5f0ea7d3bf651d68f0046cf6f41a69c6cdd4d354d3b26c8d2f09f49d2ede}{U\+S\+A\+R\+T\+\_\+\+P\+A\+R\+I\+T\+Y\+\_\+\+O\+DD} = 1, 
+\hyperlink{group___h_p_l_gga867cc5f0ea7d3bf651d68f0046cf6f41aecf52ec650226bdc63e12a21d3b5585d}{U\+S\+A\+R\+T\+\_\+\+P\+A\+R\+I\+T\+Y\+\_\+\+N\+O\+NE} = 2, 
+\hyperlink{group___h_p_l_gga867cc5f0ea7d3bf651d68f0046cf6f41a67f8ec9a06b6c88969caae8b186a680a}{U\+S\+A\+R\+T\+\_\+\+P\+A\+R\+I\+T\+Y\+\_\+\+S\+P\+A\+CE} = 3, 
+\newline
+\hyperlink{group___h_p_l_gga867cc5f0ea7d3bf651d68f0046cf6f41adaac8e86191a3f82a0da0610bacff70d}{U\+S\+A\+R\+T\+\_\+\+P\+A\+R\+I\+T\+Y\+\_\+\+M\+A\+RK} = 4
+ \}\begin{DoxyCompactList}\small\item\em U\+S\+A\+RT parity. \end{DoxyCompactList}
+\item 
+enum \hyperlink{group___h_p_l_ga88311517c5168c29a681604a8a33b06e}{usart\+\_\+stop\+\_\+bits} \{ \hyperlink{group___h_p_l_gga88311517c5168c29a681604a8a33b06ea6353d11d2e690bbaed6572dd1e2d6515}{U\+S\+A\+R\+T\+\_\+\+S\+T\+O\+P\+\_\+\+B\+I\+T\+S\+\_\+\+O\+NE} = 0, 
+\hyperlink{group___h_p_l_gga88311517c5168c29a681604a8a33b06ea1b705e4ff84a8839ffffdf2929772366}{U\+S\+A\+R\+T\+\_\+\+S\+T\+O\+P\+\_\+\+B\+I\+T\+S\+\_\+\+T\+WO} = 1, 
+\hyperlink{group___h_p_l_gga88311517c5168c29a681604a8a33b06ea09d207bc4b627981d32fff8b0ed235f8}{U\+S\+A\+R\+T\+\_\+\+S\+T\+O\+P\+\_\+\+B\+I\+T\+S\+\_\+\+O\+N\+E\+\_\+\+P\+\_\+\+F\+I\+VE} = 2
+ \}\begin{DoxyCompactList}\small\item\em U\+S\+A\+RT stop bits mode. \end{DoxyCompactList}
+\item 
+enum \hyperlink{group___h_p_l_ga631ce7b4f60dccd392e6d6ef7d3cd4e2}{usart\+\_\+character\+\_\+size} \{ \newline
+\hyperlink{group___h_p_l_gga631ce7b4f60dccd392e6d6ef7d3cd4e2ad7d75e6dd09ada4e328e9d77ea5a882a}{U\+S\+A\+R\+T\+\_\+\+C\+H\+A\+R\+A\+C\+T\+E\+R\+\_\+\+S\+I\+Z\+E\+\_\+8\+B\+I\+TS} = 0, 
+\hyperlink{group___h_p_l_gga631ce7b4f60dccd392e6d6ef7d3cd4e2a8a0da561e5c3c43da6e334e5a7d9d363}{U\+S\+A\+R\+T\+\_\+\+C\+H\+A\+R\+A\+C\+T\+E\+R\+\_\+\+S\+I\+Z\+E\+\_\+9\+B\+I\+TS} = 1, 
+\hyperlink{group___h_p_l_gga631ce7b4f60dccd392e6d6ef7d3cd4e2a9d494ae2bc870cd5a4a3e832e3b0334d}{U\+S\+A\+R\+T\+\_\+\+C\+H\+A\+R\+A\+C\+T\+E\+R\+\_\+\+S\+I\+Z\+E\+\_\+5\+B\+I\+TS} = 5, 
+\hyperlink{group___h_p_l_gga631ce7b4f60dccd392e6d6ef7d3cd4e2ad8f2a75feeac704acc0b9af6947e4734}{U\+S\+A\+R\+T\+\_\+\+C\+H\+A\+R\+A\+C\+T\+E\+R\+\_\+\+S\+I\+Z\+E\+\_\+6\+B\+I\+TS} = 6, 
+\newline
+\hyperlink{group___h_p_l_gga631ce7b4f60dccd392e6d6ef7d3cd4e2a9fe87d41d9dd672038c67eaea63d6d96}{U\+S\+A\+R\+T\+\_\+\+C\+H\+A\+R\+A\+C\+T\+E\+R\+\_\+\+S\+I\+Z\+E\+\_\+7\+B\+I\+TS} = 7
+ \}\begin{DoxyCompactList}\small\item\em U\+S\+A\+RT character size. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+U\+S\+A\+RT related functionality declaration. 
+
+Copyright (C) 2014 Atmel Corporation. All rights reserved.

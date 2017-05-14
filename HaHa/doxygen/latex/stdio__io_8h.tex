@@ -1,0 +1,127 @@
+\hypertarget{stdio__io_8h}{}\section{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/stdio\+\_\+redirect/stdio\+\_\+io.h File Reference}
+\label{stdio__io_8h}\index{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/stdio\+\_\+redirect/stdio\+\_\+io.\+h@{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/stdio\+\_\+redirect/stdio\+\_\+io.\+h}}
+
+
+S\+T\+D\+IO redirection terminal.  
+
+
+{\ttfamily \#include $<$hal\+\_\+io.\+h$>$}\newline
+Include dependency graph for stdio\+\_\+io.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stdio__io_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stdio__io_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{stdio__io_8h_a832670dfdc8f3deb3b9b0a725c636409}{stdio\+\_\+io\+\_\+init} (struct \hyperlink{structio__descriptor}{io\+\_\+descriptor} $\ast$io)
+\begin{DoxyCompactList}\small\item\em Initialize S\+T\+D\+IO access. \end{DoxyCompactList}\item 
+void \hyperlink{stdio__io_8h_a31d48bd5f32a5ae99cc00a6ea7991a25}{stdio\+\_\+io\+\_\+set\+\_\+io} (struct \hyperlink{structio__descriptor}{io\+\_\+descriptor} $\ast$io)
+\begin{DoxyCompactList}\small\item\em Change IO descriptor for terminal to R/W data. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{stdio__io_8h_ac791b192543d77c693e6ad6d63ce8a45}{stdio\+\_\+io\+\_\+read} (uint8\+\_\+t $\ast$buf, const int32\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em Read through specified terminal. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{stdio__io_8h_a01a0bad87561dd4fb0fef82f0419b1e1}{stdio\+\_\+io\+\_\+write} (const uint8\+\_\+t $\ast$buf, const int32\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em Write through specified terminal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+S\+T\+D\+IO redirection terminal. 
+
+Copyright (C) 2015 Atmel Corporation. All rights reserved.
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{stdio__io_8h_a832670dfdc8f3deb3b9b0a725c636409}\label{stdio__io_8h_a832670dfdc8f3deb3b9b0a725c636409}} 
+\index{stdio\+\_\+io.\+h@{stdio\+\_\+io.\+h}!stdio\+\_\+io\+\_\+init@{stdio\+\_\+io\+\_\+init}}
+\index{stdio\+\_\+io\+\_\+init@{stdio\+\_\+io\+\_\+init}!stdio\+\_\+io.\+h@{stdio\+\_\+io.\+h}}
+\subsubsection{\texorpdfstring{stdio\+\_\+io\+\_\+init()}{stdio\_io\_init()}}
+{\footnotesize\ttfamily void stdio\+\_\+io\+\_\+init (\begin{DoxyParamCaption}\item[{struct \hyperlink{structio__descriptor}{io\+\_\+descriptor} $\ast$}]{io }\end{DoxyParamCaption})}
+
+
+
+Initialize S\+T\+D\+IO access. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em io} & Pointer to IO descriptor, N\+U\+LL to discard R/W without any error. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{stdio__io_8h_ac791b192543d77c693e6ad6d63ce8a45}\label{stdio__io_8h_ac791b192543d77c693e6ad6d63ce8a45}} 
+\index{stdio\+\_\+io.\+h@{stdio\+\_\+io.\+h}!stdio\+\_\+io\+\_\+read@{stdio\+\_\+io\+\_\+read}}
+\index{stdio\+\_\+io\+\_\+read@{stdio\+\_\+io\+\_\+read}!stdio\+\_\+io.\+h@{stdio\+\_\+io.\+h}}
+\subsubsection{\texorpdfstring{stdio\+\_\+io\+\_\+read()}{stdio\_io\_read()}}
+{\footnotesize\ttfamily int32\+\_\+t stdio\+\_\+io\+\_\+read (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{buf,  }\item[{const int32\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+
+
+Read through specified terminal. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em buf} & Pointer to buffer to place read data \\
+\hline
+\mbox{\tt in}  & {\em len} & Data length in number of bytes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em $>$=0} & number of bytes read \\
+\hline
+{\em $<$0} & error \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{stdio__io_8h_a31d48bd5f32a5ae99cc00a6ea7991a25}\label{stdio__io_8h_a31d48bd5f32a5ae99cc00a6ea7991a25}} 
+\index{stdio\+\_\+io.\+h@{stdio\+\_\+io.\+h}!stdio\+\_\+io\+\_\+set\+\_\+io@{stdio\+\_\+io\+\_\+set\+\_\+io}}
+\index{stdio\+\_\+io\+\_\+set\+\_\+io@{stdio\+\_\+io\+\_\+set\+\_\+io}!stdio\+\_\+io.\+h@{stdio\+\_\+io.\+h}}
+\subsubsection{\texorpdfstring{stdio\+\_\+io\+\_\+set\+\_\+io()}{stdio\_io\_set\_io()}}
+{\footnotesize\ttfamily void stdio\+\_\+io\+\_\+set\+\_\+io (\begin{DoxyParamCaption}\item[{struct \hyperlink{structio__descriptor}{io\+\_\+descriptor} $\ast$}]{io }\end{DoxyParamCaption})}
+
+
+
+Change IO descriptor for terminal to R/W data. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em io} & Pointer to IO descriptor, N\+U\+LL to discard R/W without any error. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{stdio__io_8h_a01a0bad87561dd4fb0fef82f0419b1e1}\label{stdio__io_8h_a01a0bad87561dd4fb0fef82f0419b1e1}} 
+\index{stdio\+\_\+io.\+h@{stdio\+\_\+io.\+h}!stdio\+\_\+io\+\_\+write@{stdio\+\_\+io\+\_\+write}}
+\index{stdio\+\_\+io\+\_\+write@{stdio\+\_\+io\+\_\+write}!stdio\+\_\+io.\+h@{stdio\+\_\+io.\+h}}
+\subsubsection{\texorpdfstring{stdio\+\_\+io\+\_\+write()}{stdio\_io\_write()}}
+{\footnotesize\ttfamily int32\+\_\+t stdio\+\_\+io\+\_\+write (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{buf,  }\item[{const int32\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+
+
+Write through specified terminal. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em buf} & Pointer to buffer to place data to write \\
+\hline
+\mbox{\tt in}  & {\em len} & Data length in number of bytes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em $>$=0} & number of bytes read \\
+\hline
+{\em $<$0} & error \\
+\hline
+\end{DoxyRetVals}

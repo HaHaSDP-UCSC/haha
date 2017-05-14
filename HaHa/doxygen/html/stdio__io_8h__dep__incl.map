@@ -1,0 +1,16 @@
+<map id="E:/HaHaProject/AtmelXbee/ATProjects/HaHa/HaHa/stdio_redirect/stdio_io.h" name="E:/HaHaProject/AtmelXbee/ATProjects/HaHa/HaHa/stdio_redirect/stdio_io.h">
+<area shape="rect" id="node2" href="$read_8c.html" title="STDIO redirection. " alt="" coords="9,109,203,165"/>
+<area shape="rect" id="node3" href="$write_8c.html" title="STDIO redirection. " alt="" coords="227,109,422,165"/>
+<area shape="rect" id="node4" href="$stdio__io_8c.html" title="STDIO redirection terminal. " alt="" coords="446,109,641,165"/>
+<area shape="rect" id="node5" href="$stdio__start_8h.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/stdio\l_start.h" alt="" coords="665,109,859,165"/>
+<area shape="rect" id="node6" href="$uart_8h.html" title="UART control functionality declaration. " alt="" coords="320,221,545,262"/>
+<area shape="rect" id="node9" href="$main_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/main.c" alt="" coords="526,325,731,366"/>
+<area shape="rect" id="node10" href="$haha_utils_8c.html" title="stdlib for HAHA project, contains imports and defines implementation " alt="" coords="667,213,857,269"/>
+<area shape="rect" id="node11" href="$atmel__start_8h.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/atmel\l_start.h" alt="" coords="881,213,1080,269"/>
+<area shape="rect" id="node15" href="$stdio__start_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/stdio\l_start.c" alt="" coords="1226,317,1421,373"/>
+<area shape="rect" id="node7" href="$networkdevice_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/networkdevice\l/networkdevice.c" alt="" coords="5,317,252,373"/>
+<area shape="rect" id="node8" href="$uart_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/uart/uart.c" alt="" coords="276,325,501,366"/>
+<area shape="rect" id="node12" href="$driver__examples_8h.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/examples\l/driver_examples.h" alt="" coords="756,317,979,373"/>
+<area shape="rect" id="node14" href="$atmel__start_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/atmel\l_start.c" alt="" coords="1003,317,1201,373"/>
+<area shape="rect" id="node13" href="$driver__examples_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/examples\l/driver_examples.c" alt="" coords="756,421,979,477"/>
+</map>

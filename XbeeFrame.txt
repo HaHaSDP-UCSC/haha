@@ -1,0 +1,26 @@
+StartDelimiter(1B) + Length(2B) +  Frame Data(variable) + Checksum(1B)
+  ______________     ___________     __________________     __________
+ |              |   |     |     |   |                  |   |          |
+ |     0x7E     | + | MSB | LSB | + |    Frame Data    | + |  1 Byte  |
+ |______________|   |_____|_____|   |__________________|   |__________|
+checksum: add all bytes of packet except start and length
+length: total number bytes in frame data field. excludes start, length, and checksum
+
+*| TX Request Frame |*
+			START: 	7E 
+			  LEN:	00 17 
+	[FRAME DATA BEGIN]
+	   (Frame Type) APIID:	10 
+		      FRAMEID:	55
+		LEN:8	  DST:	00 13 a2 00 41 4f 50 e5   
+			  RSV:	FF FE
+		BROADCAST RAD:	00 
+		       TX OPT:	00 
+		LEN:9 RF DATA:	54 65 73 74 20 44 61 74 61  ["Test Data"]   
+	[FRAME DATA END]  LEN:  (dec) 23 to fit the frame data
+     		       CHKSUM:	E9
+
+		TOTAL LEN: 23= 0x00 0x17
+	      ALL PACKETS: 10+55+00+13+a2+00+41+4f+50+e5+ff+fe+00+00+54+65+73+74+20+44+61+74+61
+			 = 816  (keep only lowest 2)
+		0xFF - 0x16

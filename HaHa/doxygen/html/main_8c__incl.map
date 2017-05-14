@@ -1,0 +1,47 @@
+<map id="E:/HaHaProject/AtmelXbee/ATProjects/HaHa/HaHa/main.c" name="E:/HaHaProject/AtmelXbee/ATProjects/HaHa/HaHa/main.c">
+<area shape="rect" id="node2" href="$atmel__start_8h.html" title="atmel_start.h" alt="" coords="1572,95,1671,121"/>
+<area shape="rect" id="node44" href="$stdio__start_8h.html" title="stdio_start.h" alt="" coords="1767,169,1862,196"/>
+<area shape="rect" id="node47" href="$uart_8h.html" title="UART control functionality declaration. " alt="" coords="1695,95,1777,121"/>
+<area shape="rect" id="node48" href="$networkdevice_8h.html" title="XBee Network device implementation. " alt="" coords="1853,95,2051,121"/>
+<area shape="rect" id="node51" href="$haha_utils_8h.html" title="stdlib for HAHA project, contains imports and defines " alt="" coords="2015,319,2129,345"/>
+<area shape="rect" id="node52" href="$network_8h.html" title="network/network.h" alt="" coords="2075,95,2202,121"/>
+<area shape="rect" id="node3" href="$driver__init_8h.html" title="driver_init.h" alt="" coords="1541,169,1627,196"/>
+<area shape="rect" id="node4" href="$atmel__start__pins_8h.html" title="atmel_start_pins.h" alt="" coords="1274,244,1403,271"/>
+<area shape="rect" id="node36" href="$hal__usart__sync_8h.html" title="USART related functionality declaration. " alt="" coords="1635,244,1757,271"/>
+<area shape="rect" id="node40" href="$hal__usart__async_8h.html" title="USART related functionality declaration. " alt="" coords="1483,244,1611,271"/>
+<area shape="rect" id="node5" href="$hal__gpio_8h.html" title="Port. " alt="" coords="1239,319,1321,345"/>
+<area shape="rect" id="node6" href="$hpl__gpio_8h.html" title="Port related functionality declaration. " alt="" coords="1239,393,1321,420"/>
+<area shape="rect" id="node35" href="$utils__assert_8h.html" title="Asserts related functionality. " alt="" coords="1345,393,1445,420"/>
+<area shape="rect" id="node7" href="$compiler_8h.html" title="compiler.h" alt="" coords="1515,468,1597,495"/>
+<area shape="rect" id="node11" href="$parts_8h.html" title="Atmel part identification macros. " alt="" coords="1474,543,1537,569"/>
+<area shape="rect" id="node34" href="$err__codes_8h.html" title="Error code definitions. " alt="" coords="1561,543,1652,569"/>
+<area shape="rect" id="node13" href="$hri__b11_8h.html" title="SAM B11 HRI top&#45;level header file. " alt="" coords="1525,617,1600,644"/>
+<area shape="rect" id="node15" href="$hri__aon__gp__regs__b11_8h.html" title="SAM AON_GP_REGS. " alt="" coords="89,699,245,726"/>
+<area shape="rect" id="node16" href="$hri__aon__pwr__seq__b11_8h.html" title="SAM AON_PWR_SEQ. " alt="" coords="269,699,427,726"/>
+<area shape="rect" id="node17" href="$hri__aon__sleep__timer__b11_8h.html" title="SAM AON_SLEEP_TIMER. " alt="" coords="452,692,591,733"/>
+<area shape="rect" id="node18" href="$hri__arm__bpu__b11_8h.html" title="SAM ARM_BPU. " alt="" coords="615,699,747,726"/>
+<area shape="rect" id="node19" href="$hri__arm__dwt__b11_8h.html" title="SAM ARM_DWT. " alt="" coords="772,699,903,726"/>
+<area shape="rect" id="node20" href="$hri__arm__rom__b11_8h.html" title="SAM ARM_ROM. " alt="" coords="927,699,1060,726"/>
+<area shape="rect" id="node21" href="$hri__arm__sysctrl__b11_8h.html" title="SAM ARM_SYSCTRL. " alt="" coords="1085,699,1235,726"/>
+<area shape="rect" id="node22" href="$hri__dualtimer__b11_8h.html" title="SAM DUALTIMER. " alt="" coords="1259,699,1394,726"/>
+<area shape="rect" id="node23" href="$hri__efuse__misc__regs__b11_8h.html" title="SAM EFUSE_MISC_REGS. " alt="" coords="1419,692,1560,733"/>
+<area shape="rect" id="node24" href="$hri__gpio__b11_8h.html" title="SAM GPIO. " alt="" coords="1584,699,1691,726"/>
+<area shape="rect" id="node25" href="$hri__i2c__b11_8h.html" title="SAM I2C. " alt="" coords="1715,699,1813,726"/>
+<area shape="rect" id="node26" href="$hri__lp__clk__cal__regs__b11_8h.html" title="SAM LP_CLK_CAL_REGS. " alt="" coords="1837,692,1971,733"/>
+<area shape="rect" id="node27" href="$hri__lpmcu__misc__regs__b11_8h.html" title="SAM LPMCU_MISC_REGS. " alt="" coords="1995,692,2141,733"/>
+<area shape="rect" id="node28" href="$hri__prov__dma__ctrl__b11_8h.html" title="SAM PROV_DMA_CTRL. " alt="" coords="2165,699,2328,726"/>
+<area shape="rect" id="node29" href="$hri__spi__b11_8h.html" title="SAM SPI. " alt="" coords="2352,699,2451,726"/>
+<area shape="rect" id="node30" href="$hri__spi__flash__b11_8h.html" title="SAM SPI_FLASH. " alt="" coords="2475,699,2608,726"/>
+<area shape="rect" id="node31" href="$hri__timer__b11_8h.html" title="SAM TIMER. " alt="" coords="2633,699,2743,726"/>
+<area shape="rect" id="node32" href="$hri__uart__b11_8h.html" title="SAM UART. " alt="" coords="2768,699,2872,726"/>
+<area shape="rect" id="node33" href="$hri__wdt__b11_8h.html" title="SAM WDT. " alt="" coords="2897,699,2999,726"/>
+<area shape="rect" id="node37" href="$hal__io_8h.html" title="IO related functionality declaration. " alt="" coords="1784,319,1851,345"/>
+<area shape="rect" id="node38" href="$hpl__usart__sync_8h.html" title="USART related functionality declaration. " alt="" coords="1638,319,1759,345"/>
+<area shape="rect" id="node39" href="$hpl__usart_8h.html" title="USART related functionality declaration. " alt="" coords="1615,393,1702,420"/>
+<area shape="rect" id="node41" href="$hpl__usart__async_8h.html" title="USART related functionality declaration. " alt="" coords="1485,319,1613,345"/>
+<area shape="rect" id="node43" href="$utils__ringbuffer_8h.html" title="Ringbuffer declaration. " alt="" coords="1345,319,1461,345"/>
+<area shape="rect" id="node42" href="$hpl__irq_8h.html" title="IRQ related functionality declaration. " alt="" coords="1521,393,1591,420"/>
+<area shape="rect" id="node46" href="$stdio__io_8h.html" title="STDIO redirection terminal. " alt="" coords="1781,244,1859,271"/>
+<area shape="rect" id="node49" href="$packet_8h.html" title="network/packet.h" alt="" coords="1986,169,2107,196"/>
+<area shape="rect" id="node50" href="$flags_8h.html" title="flags.h" alt="" coords="1991,244,2051,271"/>
+</map>
