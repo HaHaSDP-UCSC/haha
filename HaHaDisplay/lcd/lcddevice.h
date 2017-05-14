@@ -71,10 +71,16 @@ void _lcd_write_char(char c);
 /**
  * @brief writes string to the display
  *
- * @param str string
+ * @param str[] string
  */
 void _lcd_write_string(char str[]);
 
+
+/**
+ * @brief same as write string, but pads end of string with spaces
+ *
+ * @param str[] string
+ */
 void _lcd_write_string_pad(char str[]);
 
 /**
