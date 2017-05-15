@@ -108,7 +108,7 @@ bool removeFriend(Network* net) {
  *
  * @return     true if successful, false otherwise.
  */
-int checkForFriend(Network* net) {
+bool checkForFriend(Network* net) {
     printd("Searching for friend with addr:");
     printBuff(net->src, 8, "%x");
     printd("\n");
@@ -148,7 +148,7 @@ void addTestLocalUser(char *fname, char*lname, uint16_t port){
 	//Required Friend Parameters
 	strcpy(localUsers[numLocal].friend.firstname, fname);
 	strcpy(localUsers[numLocal].friend.lastname, lname);
-	strcpy(localUsers[numLocal].friend.networkaddr, "GET NADDR"); //TODO set this.
+	strcpy(localUsers[numLocal].friend.networkaddr, "NETADDR"); //TODO set this.
     //strcpy(f->firstname, fname);
     //strcpy(f->lastname, lname);
     //f->port = port;
