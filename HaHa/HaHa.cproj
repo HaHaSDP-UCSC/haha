@@ -737,6 +737,18 @@
     <Compile Include="hri\hri_wdt_b11.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="lcd\lcd.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lcd\lcd.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lcd\lcddevice.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lcd\lcddevice.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="lightsound\alarm\alarm.c">
       <SubType>compile</SubType>
     </Compile>
@@ -756,6 +768,18 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="main.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="menu\menu.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="menu\menu.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="menu\ui.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="menu\ui.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="messagequeue\messagequeue.c">
@@ -907,7 +931,7 @@
     <Folder Include="Config\" />
     <Folder Include="Device_Startup\" />
     <Folder Include="button" />
-    <Folder Include="doc" />
+    <Folder Include="docs" />
     <Folder Include="examples\" />
     <Folder Include="hal\" />
     <Folder Include="hal\include\" />
@@ -928,6 +952,8 @@
     <Folder Include="messagequeue\" />
     <Folder Include="neighbor\" />
     <Folder Include="lightsound" />
+    <Folder Include="lcd" />
+    <Folder Include="menu" />
     <Folder Include="stdio_redirect\" />
     <Folder Include="stdio_redirect\gcc\" />
     <Folder Include="thirdparty\" />
@@ -957,7 +983,13 @@
     <None Include="Device_Startup\samb11_sram.ld">
       <SubType>compile</SubType>
     </None>
-    <None Include="doc\Atmel_Studio_Tips.txt">
+    <None Include="docs\Atmel_Studio_Tips.txt">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="docs\Edrive.bat">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="docs\PINOUT.md">
       <SubType>compile</SubType>
     </None>
     <None Include="thirdparty\wireless\ble_sdk\lib\cm0\gcc\libblesdk.a">

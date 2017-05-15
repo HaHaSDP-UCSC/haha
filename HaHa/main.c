@@ -62,3 +62,62 @@ int main(void)
         
    // }
 }
+
+/* Main and Atmel pins of HaHaDisplay
+#include <atmel_start.h>
+#include "lcd/lcd.h"
+#include "menu/ui.h"
+
+int main(void)
+{
+	// Initializes MCU, drivers and middleware
+	atmel_start_init();
+
+	// Replace with your application code 
+	lcd_init();
+	lcd_clear();
+	
+	// Start screen
+	lcd_set_line(0, "JACK BASKIN ENGR");
+	lcd_set_line(1, "Home  Assistance");
+	lcd_set_line(2, "   Help Alert");
+	lcd_set_line(3, " Button Project");
+	lcd_update();
+	
+	Menu* menu = ui_init();
+	while(1) {
+		if(! gpio_get_pin_level(BTN_DOWN)) {
+			menu_move(menu, MENU_DOWN);
+		} else if(! gpio_get_pin_level(BTN_RIGHT_TEMP)) {
+			menu_move(menu, MENU_RIGHT);
+		} else if(! gpio_get_pin_level(BTN_UP)) {
+			menu_move(menu, MENU_UP);
+		} else if(! gpio_get_pin_level(BTN_LEFT_TEMP)) {
+			menu_move(menu, MENU_LEFT);
+		}
+		delay(100);
+	}
+}
+
+#ifndef ATMEL_START_PINS_H_INCLUDED
+#define ATMEL_START_PINS_H_INCLUDED
+
+#include <hal_gpio.h>
+
+#define BTN_LEFT GPIO(GPIO_PORTA, 3)
+#define BTN_UP GPIO(GPIO_PORTA, 4)
+#define BTN_LEFT_TEMP GPIO(GPIO_PORTA, 11)
+#define BTN_RIGHT_TEMP GPIO(GPIO_PORTA, 12)
+#define DISP_BRIGHT GPIO(GPIO_PORTA, 13)
+#define DISP_B3 GPIO(GPIO_PORTA, 14)
+#define DISP_B2 GPIO(GPIO_PORTA, 15)
+#define DISP_B1 GPIO(GPIO_PORTA, 16)
+#define DISP_B0 GPIO(GPIO_PORTA, 17)
+#define DISP_E GPIO(GPIO_PORTA, 18)
+#define DISP_REG GPIO(GPIO_PORTA, 19)
+#define DISP_CTRST GPIO(GPIO_PORTA, 20)
+#define BTN_RIGHT GPIO(GPIO_PORTA, 22)
+#define BTN_DOWN GPIO(GPIO_PORTA, 23)
+
+#endif // ATMEL_START_PINS_H_INCLUDED
+*/
