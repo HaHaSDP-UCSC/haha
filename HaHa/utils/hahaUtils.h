@@ -82,13 +82,11 @@ fprintf(stdout, CDEF);
 #define printd(...) (void)0;
 #endif // DEBUG
 
-
-
 //APP SETTINGS
 #define MAXFIRSTNAME 17
 #define MAXLASTNAME 17
 #define MAXPHONE 2
-#define MAXHOMEADDR 2
+#define MAXHOMEADDR 45
 #define MAXNETADDR 8 //8 Bytes (64-bits)
 #define MAXPORT 2
 #define START_OPCODE 0x01
@@ -98,8 +96,6 @@ fprintf(stdout, CDEF);
 typedef uint8_t opcode;
 typedef uint8_t ttl;
 typedef uint16_t uid;
-
-
 
 //typedef enum printType {CHAR, HEX, INT};
 

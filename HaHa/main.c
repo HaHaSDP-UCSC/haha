@@ -31,9 +31,10 @@ void init_sys(){
     //xbee_setAPI(1);    
 }
 
-int test(){
+void test(){
     printf("hey!");
 }    
+
 int main(void)
 {
     /* Initializes MCU, drivers and middleware */
@@ -61,4 +62,6 @@ int main(void)
     //    uart_read();              
         
    // }
+   while (1);
+   return 1;
 }
