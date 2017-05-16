@@ -96,6 +96,7 @@ void copy_friend_to_packet(Friend *f, LocalUser *self, Packet* p) {
 }
 
 void send_ping_request(Friend *f) {
+	printv("Send Ping Request\n");
 	Network* n = malloc(sizeof(Network));
 	Packet* p = malloc(sizeof(Packet));
 	LocalUser *self = &localUsers[0]; //TODO make this scalable.
@@ -337,14 +338,14 @@ void help_response_handler(Packet *p) {
 		return;
 	}
 	if (IS_ACK(p->flags)) {
-		printv("HELP_RESP_HANDLER ACK\n");
+		printd("HELP_RESP_HANDLER ACK\n");
 		//Display to user whether they accepted or not.
 		//If accepted, all good, otherwise, do a send to the next friend,
 		//or HELP_REQUEST_ANYONE
 		
 		//Different light/alarm pattern
 	} else {
-		printv("HELP_RESP_HANDLER\n");
+		printd("HELP_RESP_HANDLER\n");
 	}
 }
 
@@ -408,12 +409,12 @@ void friend_request_handler(Packet *p) {
 		return;
 	}
 	if (IS_ACK(p->flags)) {
-		printv("FRIEND_REQ_HANDLER ACK\n");
+		printd("FRIEND_REQ_HANDLER ACK\n");
 		//Check if already friend, and confirmed.
 		
 		//Add message/event for a FRIEND_RESPONSE.
 	} else {
-		printv("FRIEND_REQ_HANDLER\n");
+		printd("FRIEND_REQ_HANDLER\n");
 		//Check if already friend. If already friend, drop packet.
 		
 		//Send ACK back.
@@ -426,6 +427,7 @@ void friend_request_handler(Packet *p) {
 }
 
 void friend_response_handler(Packet *p) {
+	printv("Unfriend Response Handler\n");
 	if (IS_ACK(p->flags)) {
 		printv("FRIEND_RESP_HANDLER ACK\n");
 		//Do not need to do anything. Just confirms that it worked.
@@ -438,16 +440,17 @@ void friend_response_handler(Packet *p) {
 }
 
 void unfriend_request_handler(Packet *p) {
+	printv("Unfriend Request Handler\n");
 	Network *net = NULL;
 	if (!getNetInfo(p, net)) {
 		printe("Unable to get network info.\n");
 		return;
 	}
 	if (IS_ACK(p->flags)) {
-		printv("UNFRIEND_REQ_HANDLER ACK\n");
+		printd("UNFRIEND_REQ_HANDLER ACK\n");
 		//Do not need to do anything.
 		} else {
-		printv("UNFRIEND_REQ_HANDLER\n");
+		printd("UNFRIEND_REQ_HANDLER\n");
 		//Check if already a friend
 		Friend *f = checkForFriend(net);
 		//Mark friend for deletion
