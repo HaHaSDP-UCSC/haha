@@ -26,7 +26,7 @@ typedef enum {
 	FRIEND_REQUEST,
 	FRIEND_RESPONSE,
 	UNFRIEND_REQUEST
-} Op;
+} op;
 
 typedef struct {
 	//Packet params here
@@ -62,7 +62,7 @@ opcode_handler_fn_t haha_packet_handlers[12];
  *
  * @param[in]  t     { Function to call for opcode }
  */
-void register_opcode_handler_function(opcode_handler_fn_t t, Op opcode);
+void register_opcode_handler_function(opcode_handler_fn_t t, op opcode);
 //Call from network_init()
 void opcodes_init();
 

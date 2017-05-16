@@ -99,6 +99,14 @@ typedef uint16_t uid;
 
 //typedef enum printType {CHAR, HEX, INT};
 
+/* Priority levels of alarm system */
+typedef enum {
+	PRI_OFF = 0,
+	PRI_INFO,
+	PRI_ALERT,
+	PRI_REDALERT
+} Priority;
+
 /* Delays in ~ms */
 /**
  * @brief      { Delays execution in ms }

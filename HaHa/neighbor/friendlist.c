@@ -11,6 +11,7 @@
 #include <malloc.h>
 
 uint8_t numLocal = 0;
+uint8_t numFriends = 0;
 
 /************************************************************************/
 /* INTERNAL METHODS                                                     */
@@ -64,6 +65,7 @@ bool addFriend(Friend *f) {
     printd("netaddr:[");
     printBuff(f->networkaddr, 8, "%c");
     printd("]\n");
+    numFriends++;
     return true;
 }
 
@@ -83,19 +85,32 @@ bool modifyFriend(Friend *f, int moveFriend) {
  *
  * @return     true if successful, false otherwise.
  */
-bool removeFriend(Network* net) {
+bool removeFriend(Friend *f) {
 	//TODO mark friend as null.
-	
+	if (numFriends <= 0) {
+		return false; //No friends.
+	}
 	//Friend list reshuffle.
 	//O(n^2) time but only a few items so its okay.
 	//TODO code untested
 	for (int i = 0; i < FRIENDLISTSIZE; i++) {
-		if (!strcmp(friendList[i].networkaddr, net->src) 
-		&& friendList[i].port == net->id) {
+		if (!strcmp(friendList[i].networkaddr, f->networkaddr) 
+		&& friendList[i].port == f->port) {
+			numFriends--;
 			friendList[i].id = 0; //Null id.
+			int priority = friendList[i].priority;
+			//Reshuffle friends up.
 			for (int j = i; i < FRIENDLISTSIZE-i-1; j++) {
 				friendList[j] = friendList[j+1];
 			}
+			//Fix priorities.
+			for (int j = 0; j < numFriends; j++) {
+				if (friendList[j].priority > priority) {
+					friendList[j].priority--; //TEST CODE
+				}
+			}
+
+			break;
 		}
 	}
 	return true;
@@ -108,16 +123,16 @@ bool removeFriend(Network* net) {
  *
  * @return     true if successful, false otherwise.
  */
-bool checkForFriend(Network* net) {
+Friend * checkForFriend(Network* net) {
     printd("Searching for friend with addr:");
     printBuff(net->src, 8, "%x");
     printd("\n");
     for(int i=0; i<FRIENDLISTSIZE; ++i){
         printd("searching entry %d", i);
         if(netCompare(friendList[i].networkaddr, &net->src))
-	        return i;
+	        return &friendList[i];
     }            
-    return -1;
+    return NULL;
 }
 
 /* Test Friend */
