@@ -234,8 +234,8 @@ int main1(void)
 	
 	/* Initialize serial console */
 	serial_console_init();
-	_usart_async_init(&CONSOLE_IO, UART0);
-	_usart_async_enable(&CONSOLE_IO);
+	_usart_async_init(&CONSOLE_UART, UART0);
+	_usart_async_enable(&CONSOLE_UART);
 
 	system_init();
 

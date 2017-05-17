@@ -223,28 +223,28 @@ drivers:
       uart_tx_enable: true
     optional_signals:
     - identifier: USART_1_0:CTS
-      pad: LP_GPIO_14
+      pad: LP_GPIO_8
       mode: Enable
       configuration: null
       definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::optional_signal_definition::UART1.CTS
       name: UART1/CTS
       label: CTS
     - identifier: USART_1_0:RTS
-      pad: LP_GPIO_15
+      pad: LP_GPIO_7
       mode: Enable
       configuration: null
       definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::optional_signal_definition::UART1.RTS
       name: UART1/RTS
       label: RTS
     - identifier: USART_1_0:RXD
-      pad: LP_GPIO_6
+      pad: LP_GPIO_11
       mode: Enable
       configuration: null
       definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::optional_signal_definition::UART1.RXD
       name: UART1/RXD
       label: RXD
     - identifier: USART_1_0:TXD
-      pad: LP_GPIO_7
+      pad: LP_GPIO_10
       mode: Enable
       configuration: null
       definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::optional_signal_definition::UART1.TXD
@@ -271,17 +271,11 @@ pads:
     mode: Peripheral IO
     user_label: LP_GPIO_3
     configuration: null
-  LP_GPIO_23:
+  BLE_APP_SW:
     name: LP_GPIO_23
     definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_23
     mode: Digital input
-    user_label: LP_GPIO_23
-    configuration: null
-  LP_GPIO_6:
-    name: LP_GPIO_6
-    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_6
-    mode: Peripheral IO
-    user_label: LP_GPIO_6
+    user_label: BLE_APP_SW
     configuration: null
   LP_GPIO_7:
     name: LP_GPIO_7
@@ -289,16 +283,64 @@ pads:
     mode: Peripheral IO
     user_label: LP_GPIO_7
     configuration: null
-  LP_GPIO_14:
+  LP_GPIO_8:
+    name: LP_GPIO_8
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_8
+    mode: Peripheral IO
+    user_label: LP_GPIO_8
+    configuration: null
+  LP_GPIO_10:
+    name: LP_GPIO_10
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_10
+    mode: Peripheral IO
+    user_label: LP_GPIO_10
+    configuration: null
+  LP_GPIO_11:
+    name: LP_GPIO_11
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_11
+    mode: Peripheral IO
+    user_label: LP_GPIO_11
+    configuration: null
+  DISP_BRIGHT:
+    name: LP_GPIO_12
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_12
+    mode: Digital output
+    user_label: DISP_BRIGHT
+    configuration: null
+  DISP_B7:
+    name: LP_GPIO_13
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_13
+    mode: Digital output
+    user_label: DISP_B7
+    configuration: null
+  DISP_B6:
     name: LP_GPIO_14
     definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_14
-    mode: Peripheral IO
-    user_label: LP_GPIO_14
+    mode: Digital output
+    user_label: DISP_B6
     configuration: null
-  LP_GPIO_15:
+  DISP_B5:
     name: LP_GPIO_15
     definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_15
-    mode: Peripheral IO
-    user_label: LP_GPIO_15
+    mode: Digital output
+    user_label: DISP_B5
+    configuration: null
+  DISP_B4:
+    name: LP_GPIO_16
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_16
+    mode: Digital output
+    user_label: DISP_B4
+    configuration: null
+  DISP_E:
+    name: LP_GPIO_17
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_17
+    mode: Digital output
+    user_label: DISP_E
+    configuration: null
+  DISP_RS:
+    name: LP_GPIO_18
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_18
+    mode: Digital output
+    user_label: DISP_RS
     configuration: null
 toolchain_options: []

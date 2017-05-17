@@ -46,11 +46,11 @@ void _lcd_pin_write(void)
 }
 
 void _lcd_pin_set(int RS, int B7, int B6, int B5, int B4) {
-  if(RS >= 0) gpio_set_pin_level(DISP_REG, RS ? true : false);
-  if(B7 >= 0) gpio_set_pin_level(DISP_B3, B7 ? true : false);
-  if(B6 >= 0) gpio_set_pin_level(DISP_B2, B6 ? true : false);
-  if(B5 >= 0) gpio_set_pin_level(DISP_B1, B5 ? true : false);
-  if(B4 >= 0) gpio_set_pin_level(DISP_B0, B4 ? true : false);
+  if(RS >= 0) gpio_set_pin_level(DISP_RS, RS ? true : false);
+  if(B7 >= 0) gpio_set_pin_level(DISP_B7, B7 ? true : false);
+  if(B6 >= 0) gpio_set_pin_level(DISP_B6, B6 ? true : false);
+  if(B5 >= 0) gpio_set_pin_level(DISP_B5, B5 ? true : false);
+  if(B4 >= 0) gpio_set_pin_level(DISP_B4, B4 ? true : false);
   _lcd_pin_write();
 }
 

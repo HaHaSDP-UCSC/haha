@@ -60,8 +60,6 @@
 extern "C" {
 #endif
 
-typedef void (*uart_rx_callback_t)(uint8_t input);
-void register_uart_callback(uart_rx_callback_t callback_func);
 /**
  * \brief USART callback types
  */

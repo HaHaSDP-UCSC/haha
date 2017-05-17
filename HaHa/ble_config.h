@@ -13,7 +13,7 @@ extern "C" {
 #endif // __cplusplus
 
 #define CONSOLE_UART TARGET_IO
-#define CONSOLE_IO SAMB11_IO
+
 #define ENABLE_POWER_SAVE
 #define NEW_EVT_HANDLER
 #define ATT_DB_MEMORY

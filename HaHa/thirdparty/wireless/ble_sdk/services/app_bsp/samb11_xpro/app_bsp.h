@@ -63,7 +63,7 @@ typedef enum { BLE_TIMER_ONESHOT, BLE_TIMER_REPEAT } ble_timer_mode_t;
 typedef void (*ble_button_cb_t)(void);
 
 typedef void (*ble_timer_cb_t)(void);
-void button_cb1(ble_button_cb_t button_cb);
+
 void bsp_init(void);
 void serial_console_init(void);
 void ble_timer_start(ble_app_timer_t timer_id, uint32_t time, ble_timer_mode_t timer_mode, ble_timer_cb_t timer_cb);
