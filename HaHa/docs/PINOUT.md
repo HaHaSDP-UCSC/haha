@@ -40,5 +40,20 @@ Pins for power were found on the [Xplained datasheet][Xplained].
 | DISP_REG       | 19         | EXT3:16      | LCD:4  | RS       |
 | DISP_CTRST     | 20         | EXT3:5       |        |          |
 
+### Input from Buttons
+
+- All physical buttons are active low, the other end connected to GND.
+- BTN_DOWN is connected to SW0, which is located on the device
+- BTN_LEFT and BTN_RIGHT are assigned to pins which are not available on the Xplained board, so we are substituting TEMP pins
+
+| Desc           | SAMB11 In | Xplained Out |
+|----------------|-----------|--------------|
+| BTN_UP         | 4         | EXT1:5       |
+| BTN_DOWN       | 23        | SW0          |
+| BTN_LEFT       | 3         | N/A          |
+| BTN_LEFT_TEMP  | 11        | EXT1:16      |
+| BTN_RIGHT      | 22        | N/A          |
+| BTN_RIGHT_TEMP | 12        | EXT1:15      |
+
 [Schematic]:
 [Xplained]: http://www.atmel.com/Images/Atmel-42664-ATSAMB11-Xplained-Pro_UserGuide.pdf
