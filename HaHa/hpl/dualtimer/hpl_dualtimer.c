@@ -3,7 +3,7 @@
  *
  * \brief SAM B11 Dual Timer
  *
- * Copyright (C) 2016 Atmel Corporation. All rights reserved.
+ * Copyright (C) 2016 - 2017 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -45,8 +45,7 @@
 #include <hpl_timer.h>
 #include <hpl_dualtimer_config.h>
 #include <utils_assert.h>
-#include <hpl_irq.h>
-#include <stdio.h>
+
 #ifndef CONF_DUALTIMER_0_ENABLE
 #define CONF_DUALTIMER_0_ENABLE 0
 #endif
@@ -81,7 +80,7 @@ static const struct dualtimer_configuration _dualtimer[] = {
 #endif
 };
 
-static struct _timer_device *_dualtimer_device[2];
+static struct _timer_device *_dualtimer0_dev = NULL;
 
 /**
  * \internal Retrieve ordinal number of the given DUALTIMER hardware instance
@@ -119,31 +118,42 @@ static uint8_t _get_timer_index(void *const hw)
 }
 
 /**
+ * \brief Init irq param with the given dualtimer hardware instance
+ */
+static void _dualtimer_init_irq_param(const void *const hw, struct _timer_device *dev)
+{
+	if (hw == DUALTIMER0) {
+		_dualtimer0_dev = dev;
+	}
+}
+
+/**
  * \internal DUALTIMER interrupt handler
  *
  * \param[in] p Interrupt handler parameter
  */
-static void dualtimer_interrupt_handler(void *p)
+static void dualtimer_interrupt_handler(struct _timer_device *device)
 {
-	struct _timer_device *device;
-	//static uint16_t count= 0;
-	(void)p;
-
 	if (hri_dualtimer_get_TIMER1MIS_TIMER1MIS_bit(DUALTIMER0)) {
 		hri_dualtimer_write_TIMER1INTCLR_reg(DUALTIMER0, DUALTIMER_TIMER1INTCLR_MASK);
-		device = _dualtimer_device[0];
 		if (device->timer_cb.period_expired) {
-			//printf("connect expired count: %d\r\n",count++);
 			device->timer_cb.period_expired(device);
 		}
 	}
 	if (hri_dualtimer_get_TIMER2MIS_TIMER2MIS_bit(DUALTIMER0)) {
 		hri_dualtimer_write_TIMER2INTCLR_reg(DUALTIMER0, DUALTIMER_TIMER2INTCLR_MASK);
-		device = _dualtimer_device[1];
 		if (device->timer_cb.period_expired) {
 			device->timer_cb.period_expired(device);
 		}
 	}
+}
+
+/**
+ * \internal DUALTIMER interrupt handler
+ */
+void DUALTIMER0_Handler(void)
+{
+	dualtimer_interrupt_handler(_dualtimer0_dev);
 }
 
 /**
@@ -175,13 +185,10 @@ int32_t _timer_init(struct _timer_device *const device, void *const hw)
 
 	i = _get_hardware_index(hw);
 	LPMCU_MISC_REGS0->DUALTIMER0_CTRL.reg |= (1 << i);
-	_dualtimer_device[i] = device;
 
-	device->hw            = hw;
-	device->irq.handler   = dualtimer_interrupt_handler;
-	device->irq.parameter = (void *)device;
-	_irq_register(DUALTIMER0_IRQn, &device->irq);
-	_irq_enable(DUALTIMER0_IRQn);
+	device->hw = hw;
+	_dualtimer_init_irq_param(hw, device);
+	NVIC_EnableIRQ(DUALTIMER0_IRQn);
 
 	return ERR_NONE;
 }
@@ -236,7 +243,7 @@ void _timer_set_irq(struct _timer_device *const device)
 
 	(void)device;
 
-	_irq_set((IRQn_Type)DUALTIMER0_IRQn);
+	NVIC_SetPendingIRQ(DUALTIMER0_IRQn);
 }
 
 /**

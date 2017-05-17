@@ -133,7 +133,7 @@
         </AcmeActionInfos>
       </AcmeProjectConfig>
     </AcmeProjectConfig>
-    <AtzipPath>.atmel-start-backup\Atmel_Start_10.atzip</AtzipPath>
+    <AtzipPath>.atmel-start-backup\Atmel_Start_14.atzip</AtzipPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
@@ -257,6 +257,7 @@
     <ListValues>
       <Value>%24(PackRepoDir)\atmel\SAMB11_DFP\2.2.181\include</Value>
       <Value>%24(PackRepoDir)\arm\cmsis\4.2.0\CMSIS\Include\</Value>
+      <Value>../thirdparty/wireless/ble_sdk/ble_services/base_profile</Value>
       <Value>../Config</Value>
       <Value>../</Value>
       <Value>../examples</Value>
@@ -274,7 +275,6 @@
       <Value>../thirdparty/wireless/ble_sdk/services/app_bsp/samb11_xpro</Value>
       <Value>../thirdparty/wireless/ble_sdk/src</Value>
       <Value>../thirdparty/wireless/ble_sdk/utils</Value>
-      <Value>../thirdparty/wireless/ble_sdk/ble_services/base_profile</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
   <armgcc.compiler.optimization.level>Optimize (-O1)</armgcc.compiler.optimization.level>
@@ -737,18 +737,6 @@
     <Compile Include="hri\hri_wdt_b11.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="lcd\lcd.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="lcd\lcd.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="lcd\lcddevice.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="lcd\lcddevice.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="lightsound\alarm\alarm.c">
       <SubType>compile</SubType>
     </Compile>
@@ -768,18 +756,6 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="main.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="menu\menu.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="menu\menu.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="menu\ui.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="menu\ui.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="messagequeue\messagequeue.c">
@@ -836,9 +812,6 @@
     <Compile Include="stdio_start.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="thirdparty\wireless\ble_sdk\ble_services\ble_mgr\ble_manager.c">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="thirdparty\wireless\ble_sdk\ble_services\base_profile\base_station_monitor.h">
       <SubType>compile</SubType>
     </Compile>
@@ -846,6 +819,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="thirdparty\wireless\ble_sdk\ble_services\base_profile\bsscp.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\wireless\ble_sdk\ble_services\ble_mgr\ble_manager.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="thirdparty\wireless\ble_sdk\inc\at_ble_api.h">
@@ -952,8 +928,6 @@
     <Folder Include="messagequeue\" />
     <Folder Include="neighbor\" />
     <Folder Include="lightsound" />
-    <Folder Include="lcd" />
-    <Folder Include="menu" />
     <Folder Include="stdio_redirect\" />
     <Folder Include="stdio_redirect\gcc\" />
     <Folder Include="thirdparty\" />
@@ -990,6 +964,12 @@
       <SubType>compile</SubType>
     </None>
     <None Include="docs\PINOUT.md">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="lcd">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="menu">
       <SubType>compile</SubType>
     </None>
     <None Include="thirdparty\wireless\ble_sdk\lib\cm0\gcc\libblesdk.a">

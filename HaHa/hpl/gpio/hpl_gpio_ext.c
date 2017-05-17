@@ -295,10 +295,10 @@ static void _ext_irq_handler(void)
 /**
 * \internal External IRQ interrupt handler
 */
-//void GPIO1_Handler(void)
-//{
-//	_ext_irq_handler();
-//}
+void GPIO1_Handler(void)
+{
+	_ext_irq_handler();
+}
 
 /**
  * \internal Initialize GPIO instance
