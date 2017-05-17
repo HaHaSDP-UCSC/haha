@@ -31,9 +31,10 @@ void init_sys(){
     //xbee_setAPI(1);    
 }
 
-int test(){
+void test(){
     printf("hey!");
 }    
+
 int main(void)
 {
     /* Initializes MCU, drivers and middleware */
@@ -61,7 +62,6 @@ int main(void)
     //    uart_read();              
         
    // }
-}
 
 /* Main and Atmel pins of HaHaDisplay
 #include <atmel_start.h>
@@ -121,3 +121,7 @@ int main(void)
 
 #endif // ATMEL_START_PINS_H_INCLUDED
 */
+
+   while (1);
+   return 1;
+}

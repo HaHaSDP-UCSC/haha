@@ -11,6 +11,8 @@
 
 
 bool alarmstatus = false;
+bool allowSound = false;
+bool allowLight = false;
 
 /**
  * @brief      Sets the alarm.
@@ -21,13 +23,16 @@ bool alarmstatus = false;
  *
  * @return     Success or failure.
  */
-void setAlarm(bool active, bool allowSound, bool allowLight) {
-    if(active)
-        printd("ALARM ON!!!!!!!!!\n");
-    else
-        printd("Alarm Off");
-    setLighting(true, 0x1);
-    setSound(true, 0x1);
+void setAlarm(bool active) {
+    if(active) {
+	    printd("ALARM ON!!!!!!!!!\n");
+	    setLighting(PRI_ALERT, allowLight, 0x1);
+	    setSound(PRI_ALERT, allowSound, 0x1);
+	} else {
+		printd("Alarm Off");
+		setLighting(PRI_ALERT, allowLight, 0x1);
+		setSound(PRI_ALERT, allowSound, 0x1);
+	}
 }
 
 /**

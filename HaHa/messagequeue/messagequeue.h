@@ -49,6 +49,8 @@ bool flushOldMessages(); /* Checks for old messages to be deleted. */
 bool initMessage(Message* m); /* Initialize a blank Message */
 bool generateFriendMessage(Friend *friend, Message *mes, opcode op);
 
+bool setSettingsByOpcode(Message *mes, opcode opcode);
+
 //Internal //TODO move this to the c file.
 /*
 bool generateMessage(Friend friend, bool permanent, Message *mes); //Generate message.

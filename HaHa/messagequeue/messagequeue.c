@@ -219,8 +219,7 @@ bool addToQueue(Message* mes) {
 	//mes->id = m_lastID; //TODO @brian@kevin, ID is used pointing to a friend.
 	messageQueue[m_lastID] = *mes; //TODO @brian@kevin does this copy the entire struct?
 	
-	
-	printf("ADDED MESSAGE TO Q:%d-%d\n", m_lastID, mes->opcode );
+	printf("ADDED MESSAGE TO Q:%d-%d\n", m_lastID, mes->opcode);
     m_lastID = (m_lastID + 1) % MAXQUEUESIZE; //failsafe
 	return true;
 }
@@ -288,7 +287,6 @@ int checkQueue(opcode op, flags f, Network *net, Event eventList[]) {
 			j++;
 		}
 	}
-
 	return numOpcodesPresent; //TODO verify correctness
 }
 

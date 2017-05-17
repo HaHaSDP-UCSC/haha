@@ -7,7 +7,11 @@
 #include "friendlist.h"
 #include "messagequeue/messagequeue.h"
 
+#include <string.h>
+#include <malloc.h>
+
 uint8_t numLocal = 0;
+uint8_t numFriends = 0;
 
 /************************************************************************/
 /* INTERNAL METHODS                                                     */
@@ -61,6 +65,7 @@ bool addFriend(Friend *f) {
     printd("netaddr:[");
     printBuff(f->networkaddr, 8, "%c");
     printd("]\n");
+    numFriends++;
     return true;
 }
 
@@ -80,19 +85,32 @@ bool modifyFriend(Friend *f, int moveFriend) {
  *
  * @return     true if successful, false otherwise.
  */
-bool removeFriend(Network* net) {
+bool removeFriend(Friend *f) {
 	//TODO mark friend as null.
-	
+	if (numFriends <= 0) {
+		return false; //No friends.
+	}
 	//Friend list reshuffle.
 	//O(n^2) time but only a few items so its okay.
 	//TODO code untested
 	for (int i = 0; i < FRIENDLISTSIZE; i++) {
-		if (!strcmp(friendList[i].networkaddr, net->src) 
-		&& !strcmp(friendList[i].port, net->id)) {
-			friendList[i].id == NULL;
+		if (!strcmp(friendList[i].networkaddr, f->networkaddr) 
+		&& friendList[i].port == f->port) {
+			numFriends--;
+			friendList[i].id = 0; //Null id.
+			int priority = friendList[i].priority;
+			//Reshuffle friends up.
 			for (int j = i; i < FRIENDLISTSIZE-i-1; j++) {
 				friendList[j] = friendList[j+1];
 			}
+			//Fix priorities.
+			for (int j = 0; j < numFriends; j++) {
+				if (friendList[j].priority > priority) {
+					friendList[j].priority--; //TEST CODE
+				}
+			}
+
+			break;
 		}
 	}
 	return true;
@@ -105,16 +123,16 @@ bool removeFriend(Network* net) {
  *
  * @return     true if successful, false otherwise.
  */
-int checkForFriend(Network* net) {
+Friend * checkForFriend(Network* net) {
     printd("Searching for friend with addr:");
     printBuff(net->src, 8, "%x");
     printd("\n");
     for(int i=0; i<FRIENDLISTSIZE; ++i){
         printd("searching entry %d", i);
-        if(netCompare(friendList[i].networkaddr, net->src))
-	        return i;
+        if(netCompare(friendList[i].networkaddr, &net->src))
+	        return &friendList[i];
     }            
-    return -1;
+    return NULL;
 }
 
 /* Test Friend */
@@ -123,7 +141,7 @@ void addTestFriend(char *fname, char*lname, char* addr){
     strcpy(f->firstname, fname);
     strcpy(f->lastname, lname);
     f->id = 1;
-    uint8_t* t = convert_asciihex_to_byte(addr);
+    uint8_t* t = (uint8_t *) convert_asciihex_to_byte(addr);
     memcpy(f->networkaddr,t, 8);
     printd("Adding test friend\n");
     printBuff(f->networkaddr, 8, "%c");
@@ -136,10 +154,19 @@ void addTestFriend(char *fname, char*lname, char* addr){
 
 /* Test User */
 void addTestLocalUser(char *fname, char*lname, uint16_t port){
-    Friend *f = malloc(sizeof(Friend));
-    strcpy(f->firstname, fname);
-    strcpy(f->lastname, lname);
-    f->port = port;
-    printd("Adding test Local User\n");
-    Friend* ftemp = &localUsers[numLocal++];
+	//Friend *f = malloc(sizeof(Friend));
+	//Local User Parameters
+	printd("Adding test Local User\n");
+	localUsers[numLocal].friend.port = port;
+	strcpy(localUsers[numLocal].homeaddr, "HOME ADDR GOES HERE"); //TODO Set this.
+	strcpy(localUsers[numLocal].phoneaddr, "808-909-9999"); //TODO Set this.
+	//Required Friend Parameters
+	strcpy(localUsers[numLocal].friend.firstname, fname);
+	strcpy(localUsers[numLocal].friend.lastname, lname);
+	strcpy(localUsers[numLocal].friend.networkaddr, "NETADDR"); //TODO set this.
+    //strcpy(f->firstname, fname);
+    //strcpy(f->lastname, lname);
+    //f->port = port;
+    //Friend* ftemp = &localUsers[numLocal++].friend;
+	numLocal++;
 }

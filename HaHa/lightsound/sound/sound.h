@@ -10,8 +10,8 @@
 
 #include "utils/hahaUtils.h"
 
-bool getSoundStatus();
-bool setSound(bool active, int lightingPattern);
+int getSoundStatus();
+bool setSound(int priority, bool active, int lightingPattern);
 
 
 #endif /* SOUND_H_ */
