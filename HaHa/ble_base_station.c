@@ -138,6 +138,7 @@ static void app_timer2_cb(void)
 }
 */
 
+/**
 static void uart_rx_callback(uint8_t input)
 {
 	if(input == '\r') {
@@ -159,6 +160,7 @@ static void uart_rx_callback(uint8_t input)
 		}
 	}
 }
+*/
 
 /* Function used for send data */
 static void csc_app_send_buf(void)
@@ -233,9 +235,9 @@ int main1(void)
 	//sleep_manager_init();
 	
 	/* Initialize serial console */
-	serial_console_init();
-	_usart_async_init(&CONSOLE_IO, UART0);
-	_usart_async_enable(&CONSOLE_IO);
+	//serial_console_init();
+	//_usart_async_init(&CONSOLE_IO, UART0);
+	//_usart_async_enable(&CONSOLE_IO);
 
 	system_init();
 
@@ -254,7 +256,7 @@ int main1(void)
 	/* Register the user event handler */
 	register_ble_user_event_cb(csc_app_send_buf);
 
-	register_uart_callback(uart_rx_callback);
+	//register_uart_callback(uart_rx_callback);
 
 	/* Receiving events */
 	while (1) {

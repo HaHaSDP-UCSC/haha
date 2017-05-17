@@ -139,10 +139,13 @@ void csc_prf_buf_init(uint8_t *databuf, uint16_t datalen)
 	app_csc_info.buff_ptr = databuf;	// So far all I've seen buff_ptr only be used for csc_serv_init, this function should affect much
 	app_csc_info.buff_len = datalen;
 }
+
+/**
 void button_register_callback(ble_button_cb_t button_cb)
 {
-	ext_irq_register(BLE_APP_SW, button_cb);
-}
+	//ext_irq_register(BLE_APP_SW, button_cb);
+}*/
+
 static void button_cb(void)
 {
 	at_ble_characteristic_read(app_csc_info.conn_params.handle, app_csc_info.batt_char.char_handle+1, 0, 0);

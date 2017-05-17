@@ -3,7 +3,7 @@
  *
  * \brief SAM Serial Communication Interface
  *
- * Copyright (C) 2016 Atmel Corporation. All rights reserved.
+ * Copyright (C) 2016 - 2017 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -46,8 +46,7 @@
 #include <hpl_usart_async.h>
 #include <hpl_usart_sync.h>
 #include <hpl_uart_config.h>
-#include <stdio.h>
-#include "ble_config.h"
+
 #ifndef CONF_UART_0_ENABLE
 #define CONF_UART_0_ENABLE 0
 #endif
@@ -55,9 +54,6 @@
 #define CONF_UART_1_ENABLE 0
 #endif
 
-uart_rx_callback_t user_callback_func = NULL;
-
-extern struct _usart_async_device SAMB11_IO;
 /** Amount of UART. */
 #define UART_AMOUNT (CONF_UART_0_ENABLE + CONF_UART_1_ENABLE)
 
@@ -94,7 +90,7 @@ struct uart_config {
 
 #if UART_AMOUNT < 1
 /** Dummy array to pass compiling. */
-static struct uart_config _uart_config[1] = {{0}};
+static struct uart_config _uart_config[1] = 0;
 #else
 /**
  * \brief Array of UART configurations
@@ -109,7 +105,8 @@ static struct uart_config _uart_config[] = {
 };
 #endif
 
-static void _uart_interrupt_handler(void *p);
+static struct _usart_async_device *_uart1_dev = NULL;
+
 static uint8_t _get_uart_index(const void *const hw);
 static uint8_t _uart_get_irq_num(const void *const hw);
 static void _uart_set_baud_rate(void *const hw, const uint32_t baud_rate);
@@ -139,36 +136,60 @@ static uint8_t _uart_get_irq_num(const void *const hw)
 }
 
 /**
+ * \brief Init irq param with the given twi hardware instance
+ */
+static void _uart_init_irq_param(const void *const hw, struct _usart_async_device *dev)
+{
+	if (hw == UART1) {
+		_uart1_dev = dev;
+	}
+}
+
+/**
  * \internal Sercom interrupt handler
  *
  * \param[in] p The pointer to interrupt parameter
  */
-static void _uart_interrupt_handler(void *p)
+static void _uart_interrupt_handler(struct _usart_async_device *device)
 {
-	ASSERT(p);
+	ASSERT(device);
+	void *hw = device->hw;
 
-	struct _usart_async_device *device = (struct _usart_async_device *)p;
-	void *                      hw     = device->hw;
-	
-	if (hri_uart_get_TX_INTERRUPT_MASK_TX_FIFO_NOT_FULL_MASK_bit(hw) && hri_uart_get_TRANSMIT_STATUS_TX_FIFO_NOT_FULL_bit(hw)) {
+	if (hri_uart_get_TX_INTERRUPT_MASK_TX_FIFO_NOT_FULL_MASK_bit(hw)
+	    && hri_uart_get_TRANSMIT_STATUS_TX_FIFO_NOT_FULL_bit(hw)) {
 		device->usart_cb.tx_byte_sent(device);
-	} else if (hri_uart_get_TX_INTERRUPT_MASK_TX_FIFO_EMPTY_MASK_bit(hw) && hri_uart_get_TRANSMIT_STATUS_TX_FIFO_EMPTY_bit(hw)) {
+	} else if (hri_uart_get_TX_INTERRUPT_MASK_TX_FIFO_EMPTY_MASK_bit(hw)
+	           && hri_uart_get_TRANSMIT_STATUS_TX_FIFO_EMPTY_bit(hw)) {
 		hri_uart_clear_TX_INTERRUPT_MASK_TX_FIFO_EMPTY_MASK_bit(device->hw);
-
-	} else if (hri_uart_get_RX_INTERRUPT_MASK_RX_FIFO_NOT_EMPTY_MASK_bit(hw) && hri_uart_get_RECEIVE_STATUS_RX_FIFO_NOT_EMPTY_bit(hw)) {
-		user_callback_func(hri_uart_read_RECEIVE_DATA_reg(hw));
-		//device->usart_cb.rx_done_cb(device, hri_uart_read_RECEIVE_DATA_reg(hw));
-		
-		//hri_uart_write_RX_INTERRUPT_MASK_reg(hw, 0);
+		device->usart_cb.tx_done_cb(device);
+	} else if (hri_uart_get_RX_INTERRUPT_MASK_RX_FIFO_NOT_EMPTY_MASK_bit(hw)
+	           && hri_uart_get_RECEIVE_STATUS_RX_FIFO_NOT_EMPTY_bit(hw)) {
+		device->usart_cb.rx_done_cb(device, hri_uart_read_RECEIVE_DATA_reg(hw));
 	} else if (hri_uart_get_RX_INTERRUPT_MASK_TIMEOUT_MASK_bit(hw) && hri_uart_get_RECEIVE_STATUS_TIMEOUT_bit(hw)) {
 		device->usart_cb.error_cb(device);
-	} else if (hri_uart_get_RX_INTERRUPT_MASK_PARITY_ERROR_MASK_bit(hw) && hri_uart_get_RECEIVE_STATUS_PARITY_ERROR_bit(hw)) {
+	} else if (hri_uart_get_RX_INTERRUPT_MASK_PARITY_ERROR_MASK_bit(hw)
+	           && hri_uart_get_RECEIVE_STATUS_PARITY_ERROR_bit(hw)) {
 		device->usart_cb.error_cb(device);
-	} else if (hri_uart_get_RX_INTERRUPT_MASK_FIFO_OVERRUN_MASK_bit(hw) && hri_uart_get_RECEIVE_STATUS_FIFO_OVERRUN_bit(hw)) {
+	} else if (hri_uart_get_RX_INTERRUPT_MASK_FIFO_OVERRUN_MASK_bit(hw)
+	           && hri_uart_get_RECEIVE_STATUS_FIFO_OVERRUN_bit(hw)) {
 		device->usart_cb.error_cb(device);
-	} else if (hri_uart_get_RX_INTERRUPT_MASK_FRAMING_ERROR_MASK_bit(hw) && hri_uart_get_RECEIVE_STATUS_FRAMING_ERROR_bit(hw)) {
+	} else if (hri_uart_get_RX_INTERRUPT_MASK_FRAMING_ERROR_MASK_bit(hw)
+	           && hri_uart_get_RECEIVE_STATUS_FRAMING_ERROR_bit(hw)) {
 		device->usart_cb.error_cb(device);
 	}
+}
+
+/**
+ * \internal UART interrupt handler
+ */
+void UART1_RX_Handler(void)
+{
+	_uart_interrupt_handler(_uart1_dev);
+}
+
+void UART1_TX_Handler(void)
+{
+	_uart_interrupt_handler(_uart1_dev);
 }
 
 /**
@@ -386,20 +407,17 @@ int32_t _usart_async_init(struct _usart_async_device *const device, void *const 
 	}
 	device->hw = hw;
 
-	device->irq.handler   = _uart_interrupt_handler;
-	device->irq.parameter = (void *)device;
+	_uart_init_irq_param(hw, device);
 
 	/* Disable RX and TX interrupt */
-	_irq_disable((IRQn_Type)_uart_get_irq_num(hw));
-	_irq_disable((IRQn_Type)_uart_get_irq_num(hw) + 1);
+	NVIC_DisableIRQ((IRQn_Type)_uart_get_irq_num(hw));
+	NVIC_DisableIRQ((IRQn_Type)_uart_get_irq_num(hw) + 1);
 	/* Clear RX and TX interrupt */
-	_irq_clear((IRQn_Type)_uart_get_irq_num(hw));
-	_irq_clear((IRQn_Type)_uart_get_irq_num(hw) + 1);
+	NVIC_ClearPendingIRQ((IRQn_Type)_uart_get_irq_num(hw));
+	NVIC_ClearPendingIRQ((IRQn_Type)_uart_get_irq_num(hw) + 1);
 
-	_irq_register(_uart_get_irq_num(hw), &device->irq);
-	_irq_register(_uart_get_irq_num(hw) + 1, &device->irq);
-	_irq_enable((IRQn_Type)_uart_get_irq_num(hw));
-	_irq_enable((IRQn_Type)_uart_get_irq_num(hw) + 1);
+	NVIC_EnableIRQ((IRQn_Type)_uart_get_irq_num(hw));
+	NVIC_EnableIRQ((IRQn_Type)_uart_get_irq_num(hw) + 1);
 
 	return ERR_NONE;
 }
@@ -421,7 +439,7 @@ void _usart_async_deinit(struct _usart_async_device *const device)
 {
 	ASSERT(device);
 
-	_irq_disable((IRQn_Type)_uart_get_irq_num(device->hw));
+	NVIC_DisableIRQ((IRQn_Type)_uart_get_irq_num(device->hw));
 	_uart_deinit(device->hw);
 }
 
@@ -587,7 +605,7 @@ uint32_t _usart_sync_get_status(const struct _usart_sync_device *const device)
 uint32_t _usart_async_get_status(const struct _usart_async_device *const device)
 {
 	ASSERT(device);
-	
+
 	return hri_uart_read_TRANSMIT_STATUS_reg(device->hw) | (hri_uart_read_RECEIVE_STATUS_reg(device->hw) << 8);
 }
 
@@ -622,16 +640,6 @@ uint8_t _usart_sync_read_byte(const struct _usart_sync_device *const device)
 }
 
 /**
- * \brief Read a byte from the given UART instance
- */
-uint8_t _usart_async_read_byte(const struct _usart_async_device *const device)
-{
-	ASSERT(device);
-
-	return hri_uart_read_RECEIVE_DATA_reg(device->hw);
-}
-
-/**
  * \brief Check if UART is ready to send next byte
  */
 bool _usart_sync_is_byte_sent(const struct _usart_sync_device *const device)
@@ -655,16 +663,6 @@ bool _usart_async_is_byte_sent(const struct _usart_async_device *const device)
  * \brief Check if there is data received by UART
  */
 bool _usart_sync_is_byte_received(const struct _usart_sync_device *const device)
-{
-	ASSERT(device);
-
-	return hri_uart_get_RECEIVE_STATUS_RX_FIFO_NOT_EMPTY_bit(device->hw);
-}
-
-/**
- * \brief Check if there is data received by UART
- */
-bool _usart_async_is_byte_received(const struct _usart_async_device *const device)
 {
 	ASSERT(device);
 
@@ -768,19 +766,4 @@ void _usart_async_set_irq_state(struct _usart_async_device *const device, const 
 		hri_uart_write_RX_INTERRUPT_MASK_FIFO_OVERRUN_MASK_bit(device->hw, state);
 		hri_uart_write_RX_INTERRUPT_MASK_FRAMING_ERROR_MASK_bit(device->hw, state);
 	}
-}
-
-void _usart_async_enable_byte_received_irq(struct _usart_async_device *const device)
-{
-	ASSERT(device);
-
-	hri_uart_set_RX_INTERRUPT_MASK_RX_FIFO_NOT_EMPTY_MASK_bit(device->hw);
-}
-
-void register_uart_callback(uart_rx_callback_t callback_func)
-{
-	user_callback_func = callback_func;
-	//uart_enable_callback(&uart_instance, UART_RX_COMPLETE);
-	_usart_async_read_byte(&CONSOLE_IO);
-	_usart_async_enable_byte_received_irq(&CONSOLE_IO);
 }

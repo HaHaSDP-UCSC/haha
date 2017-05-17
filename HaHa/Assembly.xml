@@ -19,11 +19,17 @@
       <Value>../hal/include</Value>
       <Value>../hal/utils/include</Value>
       <Value>../hpl/core</Value>
+      <Value>../hpl/dualtimer</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
       <Value>../hpl/uart</Value>
       <Value>../hri</Value>
       <Value>../stdio_redirect</Value>
+      <Value>../thirdparty/wireless/ble_sdk/ble_services/ble_mgr</Value>
+      <Value>../thirdparty/wireless/ble_sdk/inc</Value>
+      <Value>../thirdparty/wireless/ble_sdk/services/app_bsp/samb11_xpro</Value>
+      <Value>../thirdparty/wireless/ble_sdk/src</Value>
+      <Value>../thirdparty/wireless/ble_sdk/utils</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
   <armgcc.compiler.optimization.level>Optimize (-O1)</armgcc.compiler.optimization.level>
@@ -33,12 +39,14 @@
   <armgcc.linker.general.UseNewlibNano>True</armgcc.linker.general.UseNewlibNano>
   <armgcc.linker.libraries.Libraries>
     <ListValues>
+      <Value>libblesdk.a</Value>
       <Value>libm</Value>
     </ListValues>
   </armgcc.linker.libraries.Libraries>
   <armgcc.linker.libraries.LibrarySearchPaths>
     <ListValues>
       <Value>%24(ProjectDir)\Device_Startup</Value>
+      <Value>../thirdparty/wireless/ble_sdk/lib/cm0/gcc</Value>
     </ListValues>
   </armgcc.linker.libraries.LibrarySearchPaths>
   <armgcc.linker.optimization.GarbageCollectUnusedSections>True</armgcc.linker.optimization.GarbageCollectUnusedSections>
@@ -54,11 +62,17 @@
       <Value>../hal/include</Value>
       <Value>../hal/utils/include</Value>
       <Value>../hpl/core</Value>
+      <Value>../hpl/dualtimer</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
       <Value>../hpl/uart</Value>
       <Value>../hri</Value>
       <Value>../stdio_redirect</Value>
+      <Value>../thirdparty/wireless/ble_sdk/ble_services/ble_mgr</Value>
+      <Value>../thirdparty/wireless/ble_sdk/inc</Value>
+      <Value>../thirdparty/wireless/ble_sdk/services/app_bsp/samb11_xpro</Value>
+      <Value>../thirdparty/wireless/ble_sdk/src</Value>
+      <Value>../thirdparty/wireless/ble_sdk/utils</Value>
     </ListValues>
   </armgcc.assembler.general.IncludePaths>
   <armgcc.assembler.debugging.DebugLevel>Default (-g)</armgcc.assembler.debugging.DebugLevel>
@@ -72,11 +86,17 @@
       <Value>../hal/include</Value>
       <Value>../hal/utils/include</Value>
       <Value>../hpl/core</Value>
+      <Value>../hpl/dualtimer</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
       <Value>../hpl/uart</Value>
       <Value>../hri</Value>
       <Value>../stdio_redirect</Value>
+      <Value>../thirdparty/wireless/ble_sdk/ble_services/ble_mgr</Value>
+      <Value>../thirdparty/wireless/ble_sdk/inc</Value>
+      <Value>../thirdparty/wireless/ble_sdk/services/app_bsp/samb11_xpro</Value>
+      <Value>../thirdparty/wireless/ble_sdk/src</Value>
+      <Value>../thirdparty/wireless/ble_sdk/utils</Value>
     </ListValues>
   </armgcc.preprocessingassembler.general.IncludePaths>
   <armgcc.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcc.preprocessingassembler.debugging.DebugLevel>
