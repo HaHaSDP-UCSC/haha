@@ -54,13 +54,11 @@ int main(void)
     int count = 0;
     char c;
     
-<<<<<<< HEAD
     //addTestFriend("Brian", "Nichols","0013A200414F50EA");
     //addTestLocalUser("Kevin", "Lee", 0x1);
     //send_ping_request(&friendList[1]);
     
     //send_help_request(friendList[1]);
-=======
     addTestFriend("Brian", "Nichols","0013A200414F50EA");
     addTestLocalUser("Kevin", "Lee", 0x1);
     send_ping_request(&friendList[1]);
@@ -89,7 +87,6 @@ int main(void)
 	*/
 	
     send_help_request(friendList[1]);
->>>>>>> f7665b8f86b2c22c32db375101e2e2546e4bae8c
     while (1) {
         uart_read();              
         
