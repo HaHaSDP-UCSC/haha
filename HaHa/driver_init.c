@@ -27,7 +27,7 @@ struct usart_sync_descriptor TARGET_IO;
  *
  * Enables Timer peripheral, clocks and initializes Timer driver
  */
-static void TIMER_0_init(void)
+void TIMER_0_init(void)
 {
 	timer_init(&TIMER_0, (uint8_t *)DUALTIMER0 + 0 * 0x20, _dt_get_timer());
 }

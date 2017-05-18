@@ -28,7 +28,7 @@ void init_sys(){
     uart_init_irqs();
     network_init();
     initMessageQueue();
-    //xbee_setAPI(1);    
+    xbee_setAPI(1);    
 }
 
 void test(){
@@ -40,15 +40,14 @@ int main(void)
     /* Initializes MCU, drivers and middleware */
     init_sys();
     //xbee_send(0x0013a200414F50EA, "Test Data", 9);
-    xbee_send(0x0013a200414F50EA, "Test Data", 9);
+    //xbee_send(0x0013a200414F50EA, "Test Data", 9);
     uart_register_netdev_callback(xbee_recv);
     SET_SEND_NETDEV(true);
     xbee_register_callback(app_packet_handler, FRAME_RX);
-    //main1();
-    delay(5000);
-    cmd_AT_get("SH");
-    delay(500);
-    cmd_AT_get("NH");
+    main1();
+    //delay(5000);
+    //delay(500);
+    
     /* Main Application Loop */
     char buff[80]; // large enough
     int count = 0;
@@ -58,7 +57,7 @@ int main(void)
     addTestLocalUser("Kevin", "Lee", 0x1);
     send_ping_request(&friendList[1]);
     
-    send_help_request(friendList[1]);
+    //send_help_request(friendList[1]);
     while (1) {
         uart_read();              
         
