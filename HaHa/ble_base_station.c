@@ -72,8 +72,10 @@
 #include "hpl_usart_async.h"
 
 //#include "sleep_manager_main.h"
+
 at_ble_addr_t BlueNRG1 = {AT_BLE_ADDRESS_PUBLIC,{0xaa, 0x00, 0x00, 0xE1, 0x80, 0x02}};
 
+#define CONSOLE_IO SAMB11_IO
 extern uint8_t scan_response_count;
 
 volatile bool button_pressed = false;
@@ -138,7 +140,7 @@ static void app_timer2_cb(void)
 }
 */
 
-/**
+/*
 static void uart_rx_callback(uint8_t input)
 {
 	if(input == '\r') {
@@ -233,7 +235,7 @@ int main1(void)
 	//LED_init();
 	
 	//sleep_manager_init();
-	
+	printf("Inside main1\r\rn");
 	/* Initialize serial console */
 	//serial_console_init();
 	//_usart_async_init(&CONSOLE_IO, UART0);
