@@ -29,8 +29,6 @@ void TARGET_IO_PORT_init(void);
 void TARGET_IO_CLOCK_init(void);
 void TARGET_IO_init(void);
 
-void TIMER_0_init(void);
-
 void USART_1_0_PORT_init(void);
 void USART_1_0_CLOCK_init(void);
 void USART_1_0_init(void);

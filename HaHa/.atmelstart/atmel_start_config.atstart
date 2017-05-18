@@ -223,28 +223,28 @@ drivers:
       uart_tx_enable: true
     optional_signals:
     - identifier: USART_1_0:CTS
-      pad: LP_GPIO_14
+      pad: LP_GPIO_8
       mode: Enable
       configuration: null
       definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::optional_signal_definition::UART1.CTS
       name: UART1/CTS
       label: CTS
     - identifier: USART_1_0:RTS
-      pad: LP_GPIO_15
+      pad: LP_GPIO_7
       mode: Enable
       configuration: null
       definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::optional_signal_definition::UART1.RTS
       name: UART1/RTS
       label: RTS
     - identifier: USART_1_0:RXD
-      pad: LP_GPIO_6
+      pad: LP_GPIO_11
       mode: Enable
       configuration: null
       definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::optional_signal_definition::UART1.RXD
       name: UART1/RXD
       label: RXD
     - identifier: USART_1_0:TXD
-      pad: LP_GPIO_7
+      pad: LP_GPIO_10
       mode: Enable
       configuration: null
       definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::optional_signal_definition::UART1.TXD
@@ -277,11 +277,11 @@ pads:
     mode: Digital input
     user_label: LP_GPIO_23
     configuration: null
-  LP_GPIO_6:
+  BTN_UP_TEMP:
     name: LP_GPIO_6
     definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_6
-    mode: Peripheral IO
-    user_label: LP_GPIO_6
+    mode: Digital input
+    user_label: BTN_UP_TEMP
     configuration: null
   LP_GPIO_7:
     name: LP_GPIO_7
@@ -289,16 +289,40 @@ pads:
     mode: Peripheral IO
     user_label: LP_GPIO_7
     configuration: null
-  LP_GPIO_14:
-    name: LP_GPIO_14
-    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_14
+  LP_GPIO_8:
+    name: LP_GPIO_8
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_8
     mode: Peripheral IO
-    user_label: LP_GPIO_14
+    user_label: LP_GPIO_8
     configuration: null
-  LP_GPIO_15:
-    name: LP_GPIO_15
-    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_15
+  BTN_DOWN_TEMP:
+    name: LP_GPIO_9
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_9
+    mode: Digital input
+    user_label: BTN_DOWN_TEMP
+    configuration: null
+  LP_GPIO_10:
+    name: LP_GPIO_10
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_10
     mode: Peripheral IO
-    user_label: LP_GPIO_15
+    user_label: LP_GPIO_10
+    configuration: null
+  LP_GPIO_11:
+    name: LP_GPIO_11
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_11
+    mode: Peripheral IO
+    user_label: LP_GPIO_11
+    configuration: null
+  BTN_LEFT_TEMP:
+    name: LP_GPIO_19
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_19
+    mode: Digital input
+    user_label: BTN_LEFT_TEMP
+    configuration: null
+  BTN_RIGHT_TEMP:
+    name: LP_GPIO_20
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_20
+    mode: Digital input
+    user_label: BTN_RIGHT_TEMP
     configuration: null
 toolchain_options: []

@@ -27,7 +27,7 @@ struct usart_sync_descriptor TARGET_IO;
  *
  * Enables Timer peripheral, clocks and initializes Timer driver
  */
-void TIMER_0_init(void)
+static void TIMER_0_init(void)
 {
 	timer_init(&TIMER_0, (uint8_t *)DUALTIMER0 + 0 * 0x20, _dt_get_timer());
 }
@@ -85,13 +85,13 @@ void USART_1_0_CLOCK_init()
 void USART_1_0_PORT_init()
 {
 
-	gpio_set_pin_function(LP_GPIO_14, PINMUX_LP_GPIO_14_M_UART1_CTS);
+	gpio_set_pin_function(LP_GPIO_8, PINMUX_LP_GPIO_8_M_UART1_CTS);
 
-	gpio_set_pin_function(LP_GPIO_15, PINMUX_LP_GPIO_15_M_UART1_RTS);
+	gpio_set_pin_function(LP_GPIO_7, PINMUX_LP_GPIO_7_M_UART1_RTS);
 
-	gpio_set_pin_function(LP_GPIO_6, PINMUX_LP_GPIO_6_M_UART1_RXD);
+	gpio_set_pin_function(LP_GPIO_11, PINMUX_LP_GPIO_11_M_UART1_RXD);
 
-	gpio_set_pin_function(LP_GPIO_7, PINMUX_LP_GPIO_7_M_UART1_TXD);
+	gpio_set_pin_function(LP_GPIO_10, PINMUX_LP_GPIO_10_M_UART1_TXD);
 }
 
 /**
@@ -141,6 +141,66 @@ void UART1_register_isr(void)
 void system_init(void)
 {
 	init_mcu();
+
+	// GPIO on LP_GPIO_6
+
+	// Set pin direction to input
+	gpio_set_pin_direction(BTN_UP_TEMP, GPIO_DIRECTION_IN);
+
+	gpio_set_pin_pull_mode(BTN_UP_TEMP,
+	                       // <y> Pull configuration
+	                       // <id> pad_pull_config
+	                       // <GPIO_PULL_OFF"> Off
+	                       // <GPIO_PULL_UP"> Pull-up
+	                       // <GPIO_PULL_DOWN"> Pull-down
+	                       GPIO_PULL_OFF);
+
+	gpio_set_pin_function(BTN_UP_TEMP, GPIO_PIN_FUNCTION_OFF);
+
+	// GPIO on LP_GPIO_9
+
+	// Set pin direction to input
+	gpio_set_pin_direction(BTN_DOWN_TEMP, GPIO_DIRECTION_IN);
+
+	gpio_set_pin_pull_mode(BTN_DOWN_TEMP,
+	                       // <y> Pull configuration
+	                       // <id> pad_pull_config
+	                       // <GPIO_PULL_OFF"> Off
+	                       // <GPIO_PULL_UP"> Pull-up
+	                       // <GPIO_PULL_DOWN"> Pull-down
+	                       GPIO_PULL_OFF);
+
+	gpio_set_pin_function(BTN_DOWN_TEMP, GPIO_PIN_FUNCTION_OFF);
+
+	// GPIO on LP_GPIO_19
+
+	// Set pin direction to input
+	gpio_set_pin_direction(BTN_LEFT_TEMP, GPIO_DIRECTION_IN);
+
+	gpio_set_pin_pull_mode(BTN_LEFT_TEMP,
+	                       // <y> Pull configuration
+	                       // <id> pad_pull_config
+	                       // <GPIO_PULL_OFF"> Off
+	                       // <GPIO_PULL_UP"> Pull-up
+	                       // <GPIO_PULL_DOWN"> Pull-down
+	                       GPIO_PULL_OFF);
+
+	gpio_set_pin_function(BTN_LEFT_TEMP, GPIO_PIN_FUNCTION_OFF);
+
+	// GPIO on LP_GPIO_20
+
+	// Set pin direction to input
+	gpio_set_pin_direction(BTN_RIGHT_TEMP, GPIO_DIRECTION_IN);
+
+	gpio_set_pin_pull_mode(BTN_RIGHT_TEMP,
+	                       // <y> Pull configuration
+	                       // <id> pad_pull_config
+	                       // <GPIO_PULL_OFF"> Off
+	                       // <GPIO_PULL_UP"> Pull-up
+	                       // <GPIO_PULL_DOWN"> Pull-down
+	                       GPIO_PULL_OFF);
+
+	gpio_set_pin_function(BTN_RIGHT_TEMP, GPIO_PIN_FUNCTION_OFF);
 
 	DUALTIMER0_register_isr();
 

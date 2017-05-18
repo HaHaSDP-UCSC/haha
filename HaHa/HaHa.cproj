@@ -133,7 +133,7 @@
         </AcmeActionInfos>
       </AcmeProjectConfig>
     </AcmeProjectConfig>
-    <AtzipPath>.atmel-start-backup\Atmel_Start_14.atzip</AtzipPath>
+    <AtzipPath>.atmel-start-backup\Atmel_Start_18.atzip</AtzipPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
@@ -846,6 +846,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="thirdparty\wireless\ble_sdk\ble_services\ble_mgr\ble_base_manager.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\wireless\ble_sdk\ble_services\ble_mgr\ble_manager.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="thirdparty\wireless\ble_sdk\inc\at_ble_api.h">
