@@ -54,11 +54,42 @@ int main(void)
     int count = 0;
     char c;
     
+<<<<<<< HEAD
     //addTestFriend("Brian", "Nichols","0013A200414F50EA");
     //addTestLocalUser("Kevin", "Lee", 0x1);
     //send_ping_request(&friendList[1]);
     
     //send_help_request(friendList[1]);
+=======
+    addTestFriend("Brian", "Nichols","0013A200414F50EA");
+    addTestLocalUser("Kevin", "Lee", 0x1);
+    send_ping_request(&friendList[1]);
+	
+	/* Testing Application code */
+	/**
+	LocalUser self;
+	strcpy(self.friend.firstname, "Kevin");
+	strcpy(self.friend.lastname, "Lee");
+	strcpy(self.friend.networkaddr, "DEST001");
+	self.friend.port = 0x0001;
+	
+	Friend f;
+	strcpy(f.firstname, "Brian");
+	strcpy(f.lastname, "Nichols");
+	strcpy(f.networkaddr, "DEST002");
+	f.port = 0x0002;
+	
+	send_help_request(&f, &self);
+	send_help_request_ack(Friend *f, LocalUser *self);
+	
+	bool accept = true;
+    send_help_response(&f, &self, accept);
+	//next accept should come from the help response.
+    send_help_response_ack(&f, &self, accept);
+	*/
+	
+    send_help_request(friendList[1]);
+>>>>>>> f7665b8f86b2c22c32db375101e2e2546e4bae8c
     while (1) {
         uart_read();              
         
