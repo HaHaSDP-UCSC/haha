@@ -330,6 +330,38 @@ void send_help_response(Friend *f, LocalUser *self, bool accept) {
 	free(p);
 }
 
+void send_help_response_ack(Friend *f, LocalUser *self, bool accept) {
+	printv("Send Help Response\n");
+	Network* n = malloc(sizeof(Network));
+	Packet* p = malloc(sizeof(Packet));
+	//printf("PACKET:");
+	//printBuff(f->networkaddr, 8, "%c");
+	//memcpy(n->dest, f->networkaddr, 8);
+	
+	n->dest = f->networkaddr;
+	printNetAddr(n->dest);
+	
+	p->opcode = HELP_RESPONSE;
+	CLR_FLAGS(p->flags);
+	if (accept) {
+		SET_ACCEPT(p->flags);
+		} else {
+		CLR_ACCEPT(p->flags);
+	}
+	copy_friend_to_packet(f, self, p);
+	sendPacket(p, n);
+	
+	//Add a corresponding message
+	/*
+	Message *m = malloc(sizeof(Message));
+	setSettingsByOpcode(m, p->opcode);
+	memcpy(m->srcAddr, n->dest, 8);
+	addToQueue(m);
+	*/
+	free(n);
+	free(p);
+}
+
 void help_response_handler(Packet *p) {
 	printv("Help Response Handler\n");
 	Network *net = NULL;
