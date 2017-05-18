@@ -343,6 +343,7 @@ void send_help_response_ack(Friend *f, LocalUser *self, bool accept) {
 	
 	p->opcode = HELP_RESPONSE;
 	CLR_FLAGS(p->flags);
+	SET_ACK(p->flags);
 	if (accept) {
 		SET_ACCEPT(p->flags);
 		} else {
@@ -371,13 +372,27 @@ void help_response_handler(Packet *p) {
 	}
 	if (IS_ACK(p->flags)) {
 		printd("HELP_RESP_HANDLER ACK\n");
-		//Display to user whether they accepted or not.
-		//If accepted, all good, otherwise, do a send to the next friend,
-		//or HELP_REQUEST_ANYONE
-		
-		//Different light/alarm pattern
+		//Do not need to do anything.
 	} else {
 		printd("HELP_RESP_HANDLER\n");
+		
+		Friend *isFriend = checkForFriend(net);
+		if (isFriend != NULL) {
+			printe("Is a friend.\n");
+			bool accept = IS_ACCEPT(p->flags);
+			LocalUser *self = &localUsers[0]; //TODO Set this to something scalable.
+			
+			//Display to user whether they accepted or not.
+			//If accepted, all good, otherwise, do a send to the next friend,
+			//or HELP_REQUEST_ANYONE
+			
+			//Different light/alarm pattern
+			
+			//Send confirmation back.
+			send_help_response_ack(isFriend, self, accept); //Just a confirmation.
+		} else {
+			//Drop.
+		}
 	}
 }
 
