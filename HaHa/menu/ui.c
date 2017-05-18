@@ -53,11 +53,11 @@ int ui_set_lcd(void) {
 }
 
 void ui_update(void) {
-	if(! gpio_get_pin_level(BTN_DOWN)) {
+	if(! gpio_get_pin_level(BTN_DOWN_TEMP)) {
 		menu_move(menu, MENU_DOWN);
 		} else if(! gpio_get_pin_level(BTN_RIGHT_TEMP)) {
 		menu_move(menu, MENU_RIGHT);
-		} else if(! gpio_get_pin_level(BTN_UP)) {
+		} else if(! gpio_get_pin_level(BTN_UP_TEMP)) {
 		menu_move(menu, MENU_UP);
 		} else if(! gpio_get_pin_level(BTN_LEFT_TEMP)) {
 		menu_move(menu, MENU_LEFT);
