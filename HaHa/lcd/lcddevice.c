@@ -11,6 +11,7 @@
 
 void _lcd_init(void)
 {
+  _lcd_set_power(true);
   // Lines with "CrystalFontz" were added by that datasheet and not part of the Hitachi spec
   gpio_set_pin_level(DISP_E, false);
   // Function set
@@ -22,10 +23,22 @@ void _lcd_init(void)
   _lcd_pin_set(0, 0, 0, 1, 0);
   _lcd_pin_set(0, DISP_CONF_N, DISP_CONF_F, -1, -1);
   // Display ON/OFF control
-  _lcd_pin_set(0, 0, 0, 0, 0);
-  _lcd_pin_set(0, 1, DISP_CONF_D, DISP_CONF_C, DISP_CONF_B);
+  _lcd_update_power();
   // Clear
   _lcd_clear();
+}
+
+void _lcd_set_power(bool value) {
+	_lcd_on = value;
+}
+
+void _lcd_toggle_power() {
+	_lcd_on = !_lcd_on;
+}
+
+void _lcd_update_power() {
+  _lcd_pin_set(0, 0, 0, 0, 0);
+  _lcd_pin_set(0, 1, (_lcd_on ? 1 : 0), DISP_CONF_C, DISP_CONF_B);
 }
 
 void _lcd_clear() {
@@ -76,6 +89,7 @@ void _lcd_write_string_pad(char str[]) {
 }
 
 void _lcd_update(char buf[][LCD_COLS + 1]) {
+  _lcd_update_power();
   _lcd_clear();
   _lcd_write_string_pad(buf[0]);
   _lcd_write_string_pad(buf[2]);

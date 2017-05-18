@@ -13,6 +13,10 @@ Menu* menu_init(void) {
   this->root = menu_item_init(NULL, "__ROOT__");
   this->root->active = false;
   this->current = NULL;
+  this->onViewRet = NULL;
+  this->onClickRet = NULL;
+  this->inputBuffer = NULL;
+  this->outputBuffer = NULL;
   return(this);
 }
 
@@ -26,7 +30,7 @@ int menu_move(Menu* menu, MenuDirection direct) {
         } else return(1);
         break;
       case MENU_RIGHT:
-        menu->current->onClick(menu);
+        menu->onClickRet = menu->current->onClick(menu);
         break;
       case MENU_UP:
         menu->current = menu_item_get_prev(menu->current);
@@ -39,7 +43,7 @@ int menu_move(Menu* menu, MenuDirection direct) {
         break;
     }
   } else return(-1);
-  menu->current->onView(menu);
+  menu->onViewRet = menu->current->onView(menu);
   return(0);
 }
 
@@ -51,11 +55,8 @@ int menu_set_lcd(Menu* menu) {
     for(lines = 0; lines < LCD_ROWS; lines++) {
       lcd_set_line(lines, this->value);
       if(this->child) {
-        if(lines == 0) lcd_set_char(lines, LCD_COLS - 1, MENU_CHAR_SEL_CHLD);
-        else lcd_set_char(lines, LCD_COLS - 1, MENU_CHAR_CHLD);
-      } else if(this->onClick != menu_item_on_click_default) {
-        if(lines == 0) lcd_set_char(lines, LCD_COLS - 1, MENU_CHAR_SEL_FUNC);
-        else lcd_set_char(lines, LCD_COLS - 1, MENU_CHAR_FUNC);
+        if(lines == 0) lcd_set_char(lines, LCD_COLS - 1, MENU_CHAR_SELECTED);
+        else lcd_set_char(lines, LCD_COLS - 1, MENU_CHAR_SELECTABLE);
       }
       this = menu_item_get_next(this);
       if(this == menu->current) break;
@@ -74,8 +75,8 @@ int menu_destroy(Menu* this) {
 
 MenuItem* menu_item_init(MenuItem* parent, char* value) {
   MenuItem* this = calloc(1, sizeof(MenuItem));
-  this->onView = menu_item_on_view_default;
-  this->onClick = menu_item_on_click_default;
+  this->onView = NULL;
+  this->onClick = NULL;
   menu_item_set_value(this, value);
   this->active = true;
   this->parent = parent;
@@ -100,7 +101,7 @@ int menu_item_set_value(MenuItem* this, char* value) {
   } else return(-1);
   return(0);
 }
-
+/*
 void menu_item_print_tree(MenuItem* this) {
   if(this)
     menu_item_print_tree_helper(this, 0);
@@ -120,7 +121,7 @@ void menu_item_print_tree_helper(MenuItem* this, int level) {
       menu_item_print_tree_helper(child, level + 1);
   }
 }
-
+*/
 MenuItem* menu_item_get_next(MenuItem* this) {
   if(this && this->parent) {
     MenuItem* current = this->next;
@@ -171,21 +172,6 @@ int menu_item_destroy(MenuItem* this) {
       if(this->parent) this->parent->child = this->next;
     }
     free(this);
-  } else return(-1);
-  return(0);
-}
-
-void* menu_item_on_view_default(Menu* menu) {
-  menu_set_lcd(menu);
-  lcd_update();
-  return NULL;
-}
-
-void* menu_item_on_click_default(Menu* menu) {
-  if(menu && menu->current) {
-    if(menu->current->child) {
-      menu->current = menu->current->child;
-    } else return(1);
   } else return(-1);
   return(0);
 }

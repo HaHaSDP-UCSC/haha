@@ -21,19 +21,29 @@
 #define DISP_CONF_N 1 // Line number (0: 1 line display, 1: 2 line display)
 #define DISP_CONF_F 0 // Font type (0: 5x8 dots, 1: 5x11 dots)
 
-#define DISP_CONF_D 1 // Display ON/OFF (when off, data still stored in DDRAM)
+// #define DISP_CONF_D 1 // Display ON/OFF (when off, data still stored in DDRAM)
 #define DISP_CONF_C 1 // Cursor ON/OFF
 #define DISP_CONF_B 1 // Cursor blink ON/OFF
 
 #define DISP_CONF_I_D 1 // Cursor increment/decrement (1: increment)
 #define DISP_CONF_S 0 // Shift (0: no shift)
 
+bool _lcd_on;
 
 /**
  * @brief initializes the LCD display
  */
 void _lcd_init(void);
 
+/**
+ * @brief updates power
+ */
+void _lcd_set_power(bool value);
+
+/**
+ * @brief updates power
+ */
+void _lcd_update_power();
 
 /**
  * @brief clears the LCD display

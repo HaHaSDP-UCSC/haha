@@ -15,15 +15,13 @@
 #define MENU_MAXLEN 32
 #define MENU_WRAP true
 
-#define MENU_CHAR_SEL_CHLD '>'
-#define MENU_CHAR_CHLD 126
-#define MENU_CHAR_SEL_FUNC '>'
-#define MENU_CHAR_FUNC 126
+#define MENU_CHAR_SELECTED '>'
+#define MENU_CHAR_SELECTABLE 126
 
 typedef struct MenuItem MenuItem;
 typedef struct MenuItem {
-  void (*onView)();
-  void (*onClick)();
+  void* (*onView)();
+  void* (*onClick)();
   char value[MENU_MAXLEN];
   bool active;
   MenuItem* parent;
@@ -35,6 +33,10 @@ typedef struct MenuItem {
 typedef struct Menu {
   MenuItem* root;
   MenuItem* current;
+  void* onViewRet;
+  void* onClickRet;
+  char** inputBuffer;
+  char** outputBuffer;
 } Menu;
 
 typedef enum MenuDirection {
@@ -88,19 +90,6 @@ MenuItem* menu_item_init(MenuItem* parent, char* value);
  */
 int menu_item_set_value(MenuItem* this, char* value);
 
-/**
- * @brief Prints out tree representation of MenuItem and children
- * @param this Root of tree
- */
-void menu_item_print_tree(MenuItem* this);
-
-/**
- * @brief Recursive helper of menuItemPrintTree()
- * @param this Root of tree
- * @param level Level of recursion we are in
- */
-void menu_item_print_tree_helper(MenuItem* this, int level);
-
 MenuItem* menu_item_get_next(MenuItem* this);
 MenuItem* menu_item_get_prev(MenuItem* this);
 MenuItem* menu_item_get_last(MenuItem* this);
@@ -111,7 +100,5 @@ MenuItem* menu_item_get_last(MenuItem* this);
  * @return 0 on success, else error
  */
 int menu_item_destroy(MenuItem* this);
-void* menu_item_on_view_default(Menu* menu);
-void* menu_item_on_click_default(Menu* menu);
 
 #endif // _HA_MENU_
