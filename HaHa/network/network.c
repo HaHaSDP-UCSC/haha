@@ -31,7 +31,7 @@ uint8_t netArrayReturn(uint8_t netID){
     return NOT_FOUND;
 }
 
-bool netCompare(netaddr* n1, netaddr* n2){
+bool netCompare(netaddr n1, netaddr n2){
     printd("Comparing ");
     //printBuff(n1, 8, "%x");
     printd(" to ");

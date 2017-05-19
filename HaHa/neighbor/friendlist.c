@@ -59,8 +59,8 @@ bool addFriend(Friend *f) {
         ////reogranize list
         //printf("Reorganize list");
     //else
-        friendList[f->priority] = *f;
-    Friend* ftemp = &friendList[f->priority];
+        friendList[numFriends] = *f; //
+    Friend* ftemp = &friendList[numFriends];
     printd("Added friend: %s %s", ftemp->firstname, ftemp->lastname);
     printd("netaddr:[");
     printBuff(f->networkaddr, 8, "%c");
@@ -148,8 +148,9 @@ void addTestFriend(char *fname, char*lname, char* addr){
     printBuff(t, 8, "%c");
     //strcpy(f->networkaddr,addr);
     f->port = 0x1;
-    f->priority = 0x1;
+    f->priority = numFriends;
     addFriend(f);
+	numFriends++;
 }
 
 /* Test User */

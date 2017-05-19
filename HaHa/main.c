@@ -13,7 +13,8 @@
 #include "utils/hahaUtils.h"
 #include "messagequeue/messagequeue.h"
 #include "neighbor/friendlist.h"
-#include "lcd.h"
+#include "lcd/lcd.h"
+#include "menu/ui.h"
 
 void printpacket1(char* d, uint8_t len){
 	printf("in Callback print\n");
@@ -77,12 +78,12 @@ int main(void)
 	
     //addTestFriend("Brian", "Nichols","0013A200414F50EA");
     //addTestLocalUser("Kevin", "Lee", 0x1);
-    //send_ping_request(&friendList[1]);
+    //send_ping_request(&friendList[0]);
     
-    //send_help_request(friendList[1]);
+    //send_help_request(friendList[0]);
 	addTestFriend("Brian", "Nichols","0013A200414F50EA");
 	addTestLocalUser("Kevin", "Lee", 0x1);
-	send_ping_request(&friendList[1]);
+	send_ping_request(&friendList[0]);
 	
 	/* Testing Application code */
 	/**
@@ -104,7 +105,7 @@ int main(void)
 	bool accept = true;
 	*/
 	
-	send_help_request(friendList[1]);
+	send_help_request(friendList[0]);
 	
 	/*
     send_help_response(&f, &self, accept);

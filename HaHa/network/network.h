@@ -36,6 +36,6 @@ void network_init();
 void netArrayAdd(Network* add);
 /* Return index of net array with id netID */
 uint8_t netArrayReturn(uint8_t netID);
-bool netCompare(netaddr *n1, netaddr *n2);
+bool netCompare(netaddr n1, netaddr n2);
 
 #endif /* NETWORK_H_ */
