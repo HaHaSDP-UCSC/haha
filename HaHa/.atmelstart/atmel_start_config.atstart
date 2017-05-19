@@ -83,34 +83,6 @@ drivers:
         - name: CPU
           input: CPU
         configuration: {}
-  PWM_0:
-    user_label: PWM_0
-    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::PWM0::driver_config_definition::PWM::HAL:Driver:PWM.Sync
-    functionality: PWM
-    api: HAL:Driver:PWM_Sync
-    configuration:
-      pwm_agcdata_fmt: false
-      pwm_duty_cycle: 50
-      pwm_master_advanced: false
-      pwm_output_polarity: false
-      pwm_period: Base frequency is divided by 1024
-      pwm_sample_method: Samples agcdata at >= 1024 cycles and does not lose precision
-    optional_signals:
-    - identifier: PWM_0:PWM_OUT
-      pad: LP_GPIO_5
-      mode: Enable
-      configuration: null
-      definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::optional_signal_definition::PWM0.PWM_OUT
-      name: PWM0/PWM_OUT
-      label: PWM_OUT
-    variant: null
-    clocks:
-      domain_group:
-        nodes:
-        - name: PWM
-          input: PWM0 Divider
-        configuration:
-          pwm_clock_source: PWM0 Divider
   TARGET_IO:
     user_label: TARGET_IO
     definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::UART0::driver_config_definition::UART::HAL:Driver:USART.Sync
@@ -184,13 +156,6 @@ drivers:
       definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::optional_signal_definition::UART1.RXD
       name: UART1/RXD
       label: RXD
-    - identifier: USART_1_0:TXD
-      pad: LP_GPIO_7
-      mode: Enable
-      configuration: null
-      definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::optional_signal_definition::UART1.TXD
-      name: UART1/TXD
-      label: TXD
     variant: null
     clocks:
       domain_group:
@@ -212,23 +177,11 @@ pads:
     mode: Peripheral IO
     user_label: LP_GPIO_3
     configuration: null
-  LP_GPIO_5:
-    name: LP_GPIO_5
-    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_5
-    mode: Peripheral IO
-    user_label: LP_GPIO_5
-    configuration: null
   LP_GPIO_6:
     name: LP_GPIO_6
     definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_6
     mode: Peripheral IO
     user_label: LP_GPIO_6
-    configuration: null
-  LP_GPIO_7:
-    name: LP_GPIO_7
-    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_7
-    mode: Peripheral IO
-    user_label: LP_GPIO_7
     configuration: null
   DISP_B7:
     name: LP_GPIO_8
@@ -266,13 +219,6 @@ pads:
     mode: Digital output
     user_label: DISP_RS
     configuration: null
-  TOGGLE_LIGHT:
-    name: AO_GPIO_0
-    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::AO_GPIO_0
-    mode: Digital output
-    user_label: TOGGLE_LIGHT
-    configuration:
-      pad_initial_level: High
   LP_GPIO_14:
     name: LP_GPIO_14
     definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_14
@@ -313,4 +259,11 @@ pads:
     user_label: BTN_RIGHT
     configuration:
       pad_pull_config: Pull-down
+  TOGGLE_LIGHT:
+    name: LP_GPIO_20
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_20
+    mode: Digital output
+    user_label: TOGGLE_LIGHT
+    configuration:
+      pad_initial_level: High
 toolchain_options: []

@@ -12,25 +12,6 @@
 #define CONF_CPU_FREQUENCY 26000000
 #endif
 
-// <h> PWM0 Clock Settings
-// <y> PWM0 Clock source
-// <PWM0_CLOCK_SOURCE"> PWM0 Divider
-// <i> This defines the clock source for the PWM0
-// <id> pwm_clock_source
-#ifndef CONF_PWM0_SRC
-#define CONF_PWM0_SRC PWM0_CLOCK_SOURCE
-#endif
-
-// </h>
-
-/**
- * \def PWM0 FREQUENCY
- * \brief PWM0's Clock frequency
- */
-#ifndef CONF_PWM0_FREQUENCY
-#define CONF_PWM0_FREQUENCY 26000000
-#endif
-
 // <h> UART0 Clock Settings
 // <y> UART0 Clock source
 // <UART0_CLOCK_SOURCE">UART0 Divider

@@ -30,15 +30,6 @@ void TIMER_0_example(void)
 }
 
 /**
- * Example of using PWM_0.
- */
-void PWM_0_example(void)
-{
-	pwm_sync_set_parameters(&PWM_0, 4, 50);
-	pwm_sync_enable(&PWM_0);
-}
-
-/**
  * Example of using TARGET_IO to write "Hello World" using the IO abstraction.
  */
 void TARGET_IO_example(void)

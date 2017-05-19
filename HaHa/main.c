@@ -40,17 +40,12 @@ int main(void)
 	
 	//Set PWM
 	//pwm_sync_disable(&PWM_0);
-	pwm_sync_set_parameters(&PWM_0, 4, 50);
-	pwm_sync_enable(&PWM_0);
+	//pwm_sync_set_parameters(&PWM_0, 4, 50);
+	//pwm_sync_enable(&PWM_0);
 	
 	//Set Light Toggle
 	gpio_set_pin_level(TOGGLE_LIGHT, true);
 	
-	while(1) {
-		delay(1000);
-		gpio_toggle_pin_level(TOGGLE_LIGHT);
-		printf("Hello\n");
-	}
 	
 	lcd_init();
 	lcd_clear();

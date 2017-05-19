@@ -20,8 +20,6 @@ struct usart_async_descriptor USART_1_0;
 
 static uint8_t USART_1_0_buffer[USART_1_0_BUFFER_SIZE];
 
-struct pwm_sync_descriptor PWM_0;
-
 struct usart_sync_descriptor TARGET_IO;
 
 /**
@@ -32,18 +30,6 @@ struct usart_sync_descriptor TARGET_IO;
 static void TIMER_0_init(void)
 {
 	timer_init(&TIMER_0, AON_SLEEP_TIMER0, _aon_get_timer());
-}
-
-void PWM_0_PORT_init(void)
-{
-
-	gpio_set_pin_function(LP_GPIO_5, PINMUX_LP_GPIO_5_M_PWM0_OUT);
-}
-
-void PWM_0_init(void)
-{
-	PWM_0_PORT_init();
-	pwm_sync_init(&PWM_0, (void *)PWM0);
 }
 
 void TARGET_IO_PORT_init(void)
@@ -87,8 +73,6 @@ void USART_1_0_PORT_init()
 	gpio_set_pin_function(LP_GPIO_15, PINMUX_LP_GPIO_15_M_UART1_RTS);
 
 	gpio_set_pin_function(LP_GPIO_6, PINMUX_LP_GPIO_6_M_UART1_RXD);
-
-	gpio_set_pin_function(LP_GPIO_7, PINMUX_LP_GPIO_7_M_UART1_TXD);
 }
 
 /**
@@ -130,20 +114,6 @@ void UART1_register_isr(void)
 void system_init(void)
 {
 	init_mcu();
-
-	// GPIO on AO_GPIO_0
-
-	// Set pin direction to output
-	gpio_set_pin_direction(TOGGLE_LIGHT, GPIO_DIRECTION_OUT);
-
-	gpio_set_pin_level(TOGGLE_LIGHT,
-	                   // <y> Initial level
-	                   // <id> pad_initial_level
-	                   // <false"> Low
-	                   // <true"> High
-	                   true);
-
-	gpio_set_pin_function(TOGGLE_LIGHT, GPIO_PIN_FUNCTION_OFF);
 
 	// GPIO on LP_GPIO_8
 
@@ -289,11 +259,23 @@ void system_init(void)
 
 	gpio_set_pin_function(BTN_RIGHT, GPIO_PIN_FUNCTION_OFF);
 
+	// GPIO on LP_GPIO_20
+
+	// Set pin direction to output
+	gpio_set_pin_direction(TOGGLE_LIGHT, GPIO_DIRECTION_OUT);
+
+	gpio_set_pin_level(TOGGLE_LIGHT,
+	                   // <y> Initial level
+	                   // <id> pad_initial_level
+	                   // <false"> Low
+	                   // <true"> High
+	                   true);
+
+	gpio_set_pin_function(TOGGLE_LIGHT, GPIO_PIN_FUNCTION_OFF);
+
 	AON_SLEEP_TIMER0_register_isr();
 
 	TIMER_0_init();
-
-	PWM_0_init();
 
 	UART0_register_isr();
 
