@@ -97,7 +97,7 @@ drivers:
       pwm_sample_method: Samples agcdata at >= 1024 cycles and does not lose precision
     optional_signals:
     - identifier: PWM_0:PWM_OUT
-      pad: LP_GPIO_4
+      pad: LP_GPIO_5
       mode: Enable
       configuration: null
       definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::optional_signal_definition::PWM0.PWM_OUT
@@ -212,21 +212,12 @@ pads:
     mode: Peripheral IO
     user_label: LP_GPIO_3
     configuration: null
-  LP_GPIO_4:
-    name: LP_GPIO_4
-    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_4
-    mode: Peripheral IO
-    user_label: LP_GPIO_4
-    configuration: null
-  TOGGLE_LIGHT:
+  LP_GPIO_5:
     name: LP_GPIO_5
     definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_5
-    mode: Advanced
-    user_label: TOGGLE_LIGHT
-    configuration:
-      pad_direction: Out
-      pad_initial_level: Low
-      pad_pull_config: Pull-down
+    mode: Peripheral IO
+    user_label: LP_GPIO_5
+    configuration: null
   LP_GPIO_6:
     name: LP_GPIO_6
     definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_6
@@ -275,6 +266,13 @@ pads:
     mode: Digital output
     user_label: DISP_RS
     configuration: null
+  TOGGLE_LIGHT:
+    name: AO_GPIO_0
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::AO_GPIO_0
+    mode: Digital output
+    user_label: TOGGLE_LIGHT
+    configuration:
+      pad_initial_level: High
   LP_GPIO_14:
     name: LP_GPIO_14
     definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_14

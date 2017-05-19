@@ -37,7 +37,7 @@ static void TIMER_0_init(void)
 void PWM_0_PORT_init(void)
 {
 
-	gpio_set_pin_function(LP_GPIO_4, PINMUX_LP_GPIO_4_M_PWM0_OUT);
+	gpio_set_pin_function(LP_GPIO_5, PINMUX_LP_GPIO_5_M_PWM0_OUT);
 }
 
 void PWM_0_init(void)
@@ -131,30 +131,17 @@ void system_init(void)
 {
 	init_mcu();
 
-	// GPIO on LP_GPIO_5
+	// GPIO on AO_GPIO_0
 
-	gpio_set_pin_direction(TOGGLE_LIGHT,
-	                       // <y> Pin direction
-	                       // <id> pad_direction
-	                       // <GPIO_DIRECTION_OFF"> Off
-	                       // <GPIO_DIRECTION_IN"> In
-	                       // <GPIO_DIRECTION_OUT"> Out
-	                       GPIO_DIRECTION_OUT);
+	// Set pin direction to output
+	gpio_set_pin_direction(TOGGLE_LIGHT, GPIO_DIRECTION_OUT);
 
 	gpio_set_pin_level(TOGGLE_LIGHT,
 	                   // <y> Initial level
 	                   // <id> pad_initial_level
 	                   // <false"> Low
 	                   // <true"> High
-	                   false);
-
-	gpio_set_pin_pull_mode(TOGGLE_LIGHT,
-	                       // <y> Pull configuration
-	                       // <id> pad_pull_config
-	                       // <GPIO_PULL_OFF"> Off
-	                       // <GPIO_PULL_UP"> Pull-up
-	                       // <GPIO_PULL_DOWN"> Pull-down
-	                       GPIO_PULL_DOWN);
+	                   true);
 
 	gpio_set_pin_function(TOGGLE_LIGHT, GPIO_PIN_FUNCTION_OFF);
 

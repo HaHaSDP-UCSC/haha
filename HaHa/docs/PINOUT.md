@@ -53,14 +53,10 @@ Pins for power were found on the [Xplained datasheet][Xplained].
 
 ### Light and Sound
 
-- All physical buttons are active low, the other end connected to GND.
-- BTN_DOWN is connected to SW0, which is located on the device
-- BTN_LEFT and BTN_RIGHT are assigned to pins which are not available on the Xplained board, so we are substituting TEMP pins
-
 | Desc           | SAMB11 Out | Xplained Out |
 |----------------|------------|--------------|
-| PWM_0       	 | 09         | EXT1: 04     | //TODO layout fix later
-| TOGGLE_LIGHT   | 12         | EXT1: 05     | //TODO layout fix later
+| PWM_0       	 | 12         | EXT1: 10?     | //TODO layout fix later
+| TOGGLE_LIGHT   | 33         | EXT1: 09     | //TODO layout fix later
 
 [Schematic]:
 [Xplained]: http://www.atmel.com/Images/Atmel-42664-ATSAMB11-Xplained-Pro_UserGuide.pdf
