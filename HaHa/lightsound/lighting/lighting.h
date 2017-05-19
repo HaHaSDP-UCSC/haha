@@ -9,6 +9,7 @@
 #define LIGHTING_H_
 
 #include "utils/hahaUtils.h"
+#include "atmel_start_pins.h"
 
 int getLightingStatus();
 bool setLighting(int priority, bool active, int lightingPattern);

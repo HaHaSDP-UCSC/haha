@@ -17,9 +17,13 @@ bool setLighting(int priority, bool active, int lightingPattern) {
 	if (priority >= lightingPriority) {
 		if (active) {
 			//Activate lighting TODO
+			lightingPriority = priority;
+			gpio_set_pin_level(TOGGLE_LIGHT, true);
 			return true;
 		} else {
 			//Deactivate lighting TODO
+			lightingPriority = PRI_OFF;
+			gpio_set_pin_level(TOGGLE_LIGHT, false);
 			return true; //TODO implement
 		}
 	}

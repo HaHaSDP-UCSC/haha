@@ -9,6 +9,8 @@
 #define SOUND_H_
 
 #include "utils/hahaUtils.h"
+#include "driver_init.h"
+
 
 int getSoundStatus();
 bool setSound(int priority, bool active, int lightingPattern);

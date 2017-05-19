@@ -30,8 +30,8 @@ void setAlarm(bool active) {
 	    setSound(PRI_ALERT, allowSound, 0x1);
 	} else {
 		printd("Alarm Off");
-		setLighting(PRI_ALERT, allowLight, 0x1);
-		setSound(PRI_ALERT, allowSound, 0x1);
+		setLighting(PRI_ALERT, false, 0x1);
+		setSound(PRI_ALERT, false, 0x1);
 	}
 }
 

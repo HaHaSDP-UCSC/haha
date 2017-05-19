@@ -17,10 +17,15 @@ bool setSound(int priority, bool active, int soundPattern) {
 	if (priority >= soundPriority) {
 		if (active) {
 			//Activate sound TODO
+			soundPriority = priority;
+			pwm_sync_set_parameters(&PWM_0, 4, 50);
+			pwm_sync_enable(&PWM_0);
 			return true;
 			} else {
 			//Deactivate sound TODO
-			return true; //TODO implement
+			soundPriority = PRI_OFF;
+			pwm_sync_disable(&PWM_0);
+			return true;
 		}
 	}
 	return false;
