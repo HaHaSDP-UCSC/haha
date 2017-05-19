@@ -13,6 +13,7 @@
 #include "utils/hahaUtils.h"
 #include "messagequeue/messagequeue.h"
 #include "neighbor/friendlist.h"
+#include "lcd.h"
 
 void printpacket1(char* d, uint8_t len){
 	printf("in Callback print\n");
