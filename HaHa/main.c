@@ -52,9 +52,21 @@ int main(void)
     send_ping_request(&friendList[1]);
     
     send_help_request(friendList[1]);
+	
+	lcd_init();
+	lcd_clear();
+	ui_init();
+	
+	// Start screen
+	lcd_set_line(0, "JACK BASKIN ENGR");
+	lcd_set_line(1, "Home  Assistance");
+	lcd_set_line(2, "   Help Alert");
+	lcd_set_line(3, " Button Project");
+	lcd_update();
+	
     while (1) {
         uart_read();              
-        
+        ui_update();
     }
 }
 

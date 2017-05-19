@@ -19,7 +19,6 @@
       <Value>../hal/include</Value>
       <Value>../hal/utils/include</Value>
       <Value>../hpl/core</Value>
-      <Value>../hpl/dualtimer</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
       <Value>../hpl/uart</Value>
@@ -54,7 +53,6 @@
       <Value>../hal/include</Value>
       <Value>../hal/utils/include</Value>
       <Value>../hpl/core</Value>
-      <Value>../hpl/dualtimer</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
       <Value>../hpl/uart</Value>
@@ -73,7 +71,6 @@
       <Value>../hal/include</Value>
       <Value>../hal/utils/include</Value>
       <Value>../hpl/core</Value>
-      <Value>../hpl/dualtimer</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
       <Value>../hpl/uart</Value>

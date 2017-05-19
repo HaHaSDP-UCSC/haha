@@ -107,7 +107,7 @@ struct _usart_async_device {
 int32_t _usart_async_init(struct _usart_async_device *const device, void *const hw);
 
 /**
- * \brief De-initialize USART
+ * \brief Deinitialize USART
  *
  * This function closes the given USART by disabling its clock.
  *

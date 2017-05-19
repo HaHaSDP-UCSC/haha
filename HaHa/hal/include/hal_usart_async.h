@@ -117,7 +117,7 @@ struct usart_async_descriptor {
 /**
  * \brief Initialize usart interface
  *
- * This function initializes the given IO descriptor to be used as USART
+ * This function initializes the given I/O descriptor to be used as USART
  * interface descriptor.
  * It checks if the given hardware is not initialized and if the given hardware
  * is permitted to be initialized.
@@ -137,11 +137,11 @@ int32_t usart_async_init(struct usart_async_descriptor *const descr, void *const
                          const uint16_t rx_buffer_length, void *const func);
 
 /**
- * \brief De-initialize usart interface
+ * \brief Deinitialize usart interface
  *
- * This function de-initializes the given IO descriptor.
+ * This function deinitializes the given I/O descriptor.
  * It checks if the given hardware is initialized and if the given hardware
- * is permitted to be de-initialized.
+ * is permitted to be deinitialized.
  *
  * \param[in] descr An usart descriptor which is used to communicate via USART
  *
@@ -172,14 +172,14 @@ int32_t usart_async_enable(struct usart_async_descriptor *const descr);
 int32_t usart_async_disable(struct usart_async_descriptor *const descr);
 
 /**
- * \brief Retrieve IO descriptor
+ * \brief Retrieve I/O descriptor
  *
- * This function retrieves the IO descriptor of the given USART descriptor.
+ * This function retrieves the I/O descriptor of the given USART descriptor.
  *
  * \param[in] descr An usart descriptor which is used to communicate via USART
- * \param[out] io An io descriptor to retrieve
+ * \param[out] io An I/O descriptor to retrieve
  *
- * \return The status of IO descriptor retrieving.
+ * \return The status of I/O descriptor retrieving.
  */
 int32_t usart_async_get_io_descriptor(struct usart_async_descriptor *const descr, struct io_descriptor **io);
 

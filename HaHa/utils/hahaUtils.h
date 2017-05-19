@@ -11,6 +11,11 @@
 
 #include <stdbool.h>
 #include <stdio.h>
+#include <string.h>
+
+// String functions
+#define streq(str1, str2) \
+	(strlen(str1) == strlen(str2)) && (strncmp(str1, str2, strlen(str1)) == 0)
 
 /* Print preferences */
 /* Set to false if you want to turn it off. */

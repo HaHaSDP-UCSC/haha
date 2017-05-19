@@ -79,9 +79,8 @@
         <file category="source" condition="ARMCC, GCC, IAR" name="hal/utils/src/utils_ringbuffer.c"/>
         <file category="source" condition="GCC" name="hal/utils/src/utils_syscalls.c"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hpl/core/hpl_core_m0_base.c"/>
-        <file category="source" condition="ARMCC, GCC, IAR" name="hpl/gpio/hpl_gpio.c"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="hpl/gpio/hpl_gpio_base.h"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hpl/lpmcu_misc_regs/hpl_lpmcu_misc_regs.c"/>
-        <file category="source" condition="ARMCC, GCC, IAR" name="hpl/uart/hpl_uart.c"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hri/hri_aon_gp_regs_b11.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hri/hri_aon_pwr_seq_b11.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hri/hri_aon_sleep_timer_b11.h"/>
@@ -126,6 +125,7 @@
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/utils/include/parts.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hpl/core/hpl_core_port.h"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hpl/core/hpl_init.c"/>
+        <file category="source" condition="ARMCC, GCC, IAR" name="hpl/uart/hpl_uart.c"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="stdio_start.c"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="stdio_start.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="atmel_start.h"/>

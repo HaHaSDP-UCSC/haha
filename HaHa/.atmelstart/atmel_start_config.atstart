@@ -184,6 +184,42 @@ pads:
     mode: Peripheral IO
     user_label: LP_GPIO_7
     configuration: null
+  DISP_B7:
+    name: LP_GPIO_8
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_8
+    mode: Digital output
+    user_label: DISP_B7
+    configuration: null
+  DISP_B6:
+    name: LP_GPIO_9
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_9
+    mode: Digital output
+    user_label: DISP_B6
+    configuration: null
+  DISP_B5:
+    name: LP_GPIO_10
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_10
+    mode: Digital output
+    user_label: DISP_B5
+    configuration: null
+  DISP_B4:
+    name: LP_GPIO_11
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_11
+    mode: Digital output
+    user_label: DISP_B4
+    configuration: null
+  DISP_E:
+    name: LP_GPIO_12
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_12
+    mode: Digital output
+    user_label: DISP_E
+    configuration: null
+  DISP_RS:
+    name: LP_GPIO_13
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_13
+    mode: Digital output
+    user_label: DISP_RS
+    configuration: null
   LP_GPIO_14:
     name: LP_GPIO_14
     definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_14
@@ -196,4 +232,32 @@ pads:
     mode: Peripheral IO
     user_label: LP_GPIO_15
     configuration: null
+  BTN_UP:
+    name: LP_GPIO_16
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_16
+    mode: Digital input
+    user_label: BTN_UP
+    configuration:
+      pad_pull_config: Pull-down
+  BTN_DOWN:
+    name: LP_GPIO_17
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_17
+    mode: Digital input
+    user_label: BTN_DOWN
+    configuration:
+      pad_pull_config: Pull-down
+  BTN_LEFT:
+    name: LP_GPIO_18
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_18
+    mode: Digital input
+    user_label: BTN_LEFT
+    configuration:
+      pad_pull_config: Pull-down
+  BTN_RIGHT:
+    name: LP_GPIO_19
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_19
+    mode: Digital input
+    user_label: BTN_RIGHT
+    configuration:
+      pad_pull_config: Pull-down
 toolchain_options: []

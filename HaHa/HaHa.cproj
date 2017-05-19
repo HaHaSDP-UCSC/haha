@@ -133,7 +133,7 @@
         </AcmeActionInfos>
       </AcmeProjectConfig>
     </AcmeProjectConfig>
-    <AtzipPath>.atmel-start-backup\Atmel_Start_8.atzip</AtzipPath>
+    <AtzipPath>.atmel-start-backup\Atmel_Start_10.atzip</AtzipPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
@@ -434,66 +434,6 @@
     <Compile Include="Device_Startup\system_samb11.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="lightsound\alarm\alarm.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="lightsound\alarm\alarm.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="lightsound\lighting\lighting.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="lightsound\lighting\lighting.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="lightsound\sound\sound.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="lightsound\sound\sound.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="messagequeue\messagequeue.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="messagequeue\messagequeue.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="neighbor\friendlist.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="neighbor\friendlist.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="neighbor\neighborlist.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="neighbor\neighborlist.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="network\basecomm.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="network\basecomm.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="network\flags.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="network\network.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="network\packet.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="network\packet.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="utils\hahaUtils.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="utils\hahaUtils.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="driver_init.c">
       <SubType>compile</SubType>
     </Compile>
@@ -504,9 +444,6 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="examples\driver_examples.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="network\network.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hal\include\hal_atomic.h">
@@ -620,7 +557,7 @@
     <Compile Include="hpl\core\hpl_init.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="hpl\gpio\hpl_gpio.c">
+    <Compile Include="hpl\gpio\hpl_gpio_base.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hpl\lpmcu_misc_regs\hpl_lpmcu_misc_regs.c">
@@ -689,7 +626,82 @@
     <Compile Include="hri\hri_wdt_b11.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="main.c">
+    <Compile Include="lcd\lcd.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lcd\lcd.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lcd\lcddevice.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lcd\lcddevice.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lightsound\alarm\alarm.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lightsound\alarm\alarm.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lightsound\lighting\lighting.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lightsound\lighting\lighting.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lightsound\sound\sound.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lightsound\sound\sound.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="menu\menu.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="menu\menu.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="menu\ui.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="menu\ui.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="messagequeue\messagequeue.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="messagequeue\messagequeue.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="neighbor\friendlist.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="neighbor\friendlist.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="neighbor\neighborlist.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="neighbor\neighborlist.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="network\basecomm.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="network\basecomm.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="network\flags.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="network\network.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="network\packet.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="network\packet.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="stdio_redirect\gcc\read.c">
@@ -710,6 +722,18 @@
     <Compile Include="stdio_start.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="utils\hahaUtils.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="utils\hahaUtils.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="network\network.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="main.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="networkdevice\networkdevice.c">
       <SubType>compile</SubType>
     </Compile>
@@ -727,16 +751,8 @@
     <Folder Include="Config\" />
     <Folder Include="Device_Startup\" />
     <Folder Include="button" />
-    <Folder Include="doc" />
-    <Folder Include="lightsound\alarm\" />
-    <Folder Include="lightsound\lighting\" />
-    <Folder Include="lightsound\sound\" />
-    <Folder Include="messagequeue\" />
-    <Folder Include="neighbor\" />
-    <Folder Include="lightsound" />
-    <Folder Include="utils" />
+    <Folder Include="docs" />
     <Folder Include="examples\" />
-    <Folder Include="network" />
     <Folder Include="hal\" />
     <Folder Include="hal\include\" />
     <Folder Include="hal\src\" />
@@ -749,9 +765,19 @@
     <Folder Include="hpl\lpmcu_misc_regs\" />
     <Folder Include="hpl\uart\" />
     <Folder Include="hri\" />
-    <Folder Include="uart" />
+    <Folder Include="lightsound\alarm\" />
+    <Folder Include="lightsound\lighting\" />
+    <Folder Include="lightsound\sound\" />
+    <Folder Include="messagequeue\" />
+    <Folder Include="neighbor\" />
+    <Folder Include="lightsound" />
+    <Folder Include="menu" />
+    <Folder Include="lcd" />
     <Folder Include="stdio_redirect\" />
     <Folder Include="stdio_redirect\gcc\" />
+    <Folder Include="utils" />
+    <Folder Include="network" />
+    <Folder Include="uart" />
     <Folder Include="networkdevice" />
   </ItemGroup>
   <ItemGroup>
@@ -761,7 +787,13 @@
     <None Include="Device_Startup\samb11_sram.ld">
       <SubType>compile</SubType>
     </None>
-    <None Include="doc\Atmel_Studio_Tips.txt">
+    <None Include="docs\Atmel_Studio_Tips.txt">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="docs\Edrive.bat">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="docs\PINOUT.md">
       <SubType>compile</SubType>
     </None>
   </ItemGroup>

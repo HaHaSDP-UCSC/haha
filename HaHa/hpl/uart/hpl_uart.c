@@ -3,7 +3,7 @@
  *
  * \brief SAM Serial Communication Interface
  *
- * Copyright (C) 2016 Atmel Corporation. All rights reserved.
+ * Copyright (C) 2016 - 2017 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -90,7 +90,7 @@ struct uart_config {
 
 #if UART_AMOUNT < 1
 /** Dummy array to pass compiling. */
-static struct uart_config _uart_config[1] = {{0}};
+static struct uart_config _uart_config[1] = 0;
 #else
 /**
  * \brief Array of UART configurations
@@ -105,7 +105,8 @@ static struct uart_config _uart_config[] = {
 };
 #endif
 
-static void _uart_interrupt_handler(void *p);
+static struct _usart_async_device *_uart1_dev = NULL;
+
 static uint8_t _get_uart_index(const void *const hw);
 static uint8_t _uart_get_irq_num(const void *const hw);
 static void _uart_set_baud_rate(void *const hw, const uint32_t baud_rate);
@@ -135,16 +136,24 @@ static uint8_t _uart_get_irq_num(const void *const hw)
 }
 
 /**
+ * \brief Init irq param with the given twi hardware instance
+ */
+static void _uart_init_irq_param(const void *const hw, struct _usart_async_device *dev)
+{
+	if (hw == UART1) {
+		_uart1_dev = dev;
+	}
+}
+
+/**
  * \internal Sercom interrupt handler
  *
  * \param[in] p The pointer to interrupt parameter
  */
-static void _uart_interrupt_handler(void *p)
+static void _uart_interrupt_handler(struct _usart_async_device *device)
 {
-	ASSERT(p);
-
-	struct _usart_async_device *device = (struct _usart_async_device *)p;
-	void *                      hw     = device->hw;
+	ASSERT(device);
+	void *hw = device->hw;
 
 	if (hri_uart_get_TX_INTERRUPT_MASK_TX_FIFO_NOT_FULL_MASK_bit(hw)
 	    && hri_uart_get_TRANSMIT_STATUS_TX_FIFO_NOT_FULL_bit(hw)) {
@@ -168,6 +177,19 @@ static void _uart_interrupt_handler(void *p)
 	           && hri_uart_get_RECEIVE_STATUS_FRAMING_ERROR_bit(hw)) {
 		device->usart_cb.error_cb(device);
 	}
+}
+
+/**
+ * \internal UART interrupt handler
+ */
+void UART1_RX_Handler(void)
+{
+	_uart_interrupt_handler(_uart1_dev);
+}
+
+void UART1_TX_Handler(void)
+{
+	_uart_interrupt_handler(_uart1_dev);
 }
 
 /**
@@ -385,20 +407,17 @@ int32_t _usart_async_init(struct _usart_async_device *const device, void *const 
 	}
 	device->hw = hw;
 
-	device->irq.handler   = _uart_interrupt_handler;
-	device->irq.parameter = (void *)device;
+	_uart_init_irq_param(hw, device);
 
 	/* Disable RX and TX interrupt */
-	_irq_disable((IRQn_Type)_uart_get_irq_num(hw));
-	_irq_disable((IRQn_Type)_uart_get_irq_num(hw) + 1);
+	NVIC_DisableIRQ((IRQn_Type)_uart_get_irq_num(hw));
+	NVIC_DisableIRQ((IRQn_Type)_uart_get_irq_num(hw) + 1);
 	/* Clear RX and TX interrupt */
-	_irq_clear((IRQn_Type)_uart_get_irq_num(hw));
-	_irq_clear((IRQn_Type)_uart_get_irq_num(hw) + 1);
+	NVIC_ClearPendingIRQ((IRQn_Type)_uart_get_irq_num(hw));
+	NVIC_ClearPendingIRQ((IRQn_Type)_uart_get_irq_num(hw) + 1);
 
-	_irq_register(_uart_get_irq_num(hw), &device->irq);
-	_irq_register(_uart_get_irq_num(hw) + 1, &device->irq);
-	_irq_enable((IRQn_Type)_uart_get_irq_num(hw));
-	_irq_enable((IRQn_Type)_uart_get_irq_num(hw) + 1);
+	NVIC_EnableIRQ((IRQn_Type)_uart_get_irq_num(hw));
+	NVIC_EnableIRQ((IRQn_Type)_uart_get_irq_num(hw) + 1);
 
 	return ERR_NONE;
 }
@@ -420,7 +439,7 @@ void _usart_async_deinit(struct _usart_async_device *const device)
 {
 	ASSERT(device);
 
-	_irq_disable((IRQn_Type)_uart_get_irq_num(device->hw));
+	NVIC_DisableIRQ((IRQn_Type)_uart_get_irq_num(device->hw));
 	_uart_deinit(device->hw);
 }
 

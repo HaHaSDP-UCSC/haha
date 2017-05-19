@@ -78,10 +78,6 @@ enum ram_isr_table_index {
 	RAM_ISR_TABLE_BLE_CORE           = 47,
 };
 
-#define CONF_DMAC_MAX_USED_DESC (/*CLOCK*/ 0 + /*UART0*/ 0 + /*UART1*/ 0)
-
-#define CONF_DMAC_MAX_USED_CH (/*CLOCK*/ 0 + /*UART0*/ 0 + /*UART1*/ 0)
-
 /**
  * \brief Perform system initialization, initialize pins and clocks for
  * peripherals

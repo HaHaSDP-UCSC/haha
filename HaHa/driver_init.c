@@ -9,25 +9,9 @@
 #include "driver_init.h"
 #include <utils.h>
 #include <hal_init.h>
-#include <hpl_irq.h>
-
-#if CONF_DMAC_MAX_USED_DESC > 0
-#include <hpl_dma.h>
-#include <hpl_prov_dma_ctrl_v100.h>
-
-COMPILER_ALIGNED(16)
-DmacDescriptor _descriptor_section[CONF_DMAC_MAX_USED_DESC] SECTION_DMAC_DESCRIPTOR;
-
-struct _dma_resource _resource[CONF_DMAC_MAX_USED_CH];
-
-uint32_t dmac_ch_used = CONF_DMAC_MAX_USED_CH;
-#endif
 
 /*! The buffer size for USART */
 #define USART_1_0_BUFFER_SIZE 16
-
-extern struct _irq_descriptor *_irq_table[PERIPH_COUNT_IRQn];
-extern void                    Default_Handler(void);
 
 struct usart_async_descriptor USART_1_0;
 
@@ -92,51 +76,11 @@ void USART_1_0_init(void)
 	USART_1_0_PORT_init();
 }
 
-void UART0_RX_Handler(void)
-{
-	if (_irq_table[UART0_RX_IRQn + (0 << 1)]) {
-		_irq_table[UART0_RX_IRQn + (0 << 1)]->handler(_irq_table[UART0_RX_IRQn + (0 << 1)]->parameter);
-	} else {
-		Default_Handler();
-	}
-}
-
-void UART0_TX_Handler(void)
-{
-	if (_irq_table[UART0_TX_IRQn + (0 << 1)]) {
-		_irq_table[UART0_TX_IRQn + (0 << 1)]->handler(_irq_table[UART0_TX_IRQn + (0 << 1)]->parameter);
-	} else {
-		Default_Handler();
-	}
-}
 void UART0_register_isr(void)
 {
 	uint32_t *temp;
-
-	temp  = (uint32_t *)((RAM_ISR_TABLE_UARTRX0 + (0 << 1)) * 4 + ISR_RAM_MAP_START_ADDRESS);
-	*temp = (uint32_t)UART0_RX_Handler;
-
-	temp  = (uint32_t *)((RAM_ISR_TABLE_UARTTX0 + (0 << 1)) * 4 + ISR_RAM_MAP_START_ADDRESS);
-	*temp = (uint32_t)UART0_TX_Handler;
 }
 
-void UART1_RX_Handler(void)
-{
-	if (_irq_table[UART0_RX_IRQn + (1 << 1)]) {
-		_irq_table[UART0_RX_IRQn + (1 << 1)]->handler(_irq_table[UART0_RX_IRQn + (1 << 1)]->parameter);
-	} else {
-		Default_Handler();
-	}
-}
-
-void UART1_TX_Handler(void)
-{
-	if (_irq_table[UART0_TX_IRQn + (1 << 1)]) {
-		_irq_table[UART0_TX_IRQn + (1 << 1)]->handler(_irq_table[UART0_TX_IRQn + (1 << 1)]->parameter);
-	} else {
-		Default_Handler();
-	}
-}
 void UART1_register_isr(void)
 {
 	uint32_t *temp;
@@ -151,6 +95,150 @@ void UART1_register_isr(void)
 void system_init(void)
 {
 	init_mcu();
+
+	// GPIO on LP_GPIO_8
+
+	// Set pin direction to output
+	gpio_set_pin_direction(DISP_B7, GPIO_DIRECTION_OUT);
+
+	gpio_set_pin_level(DISP_B7,
+	                   // <y> Initial level
+	                   // <id> pad_initial_level
+	                   // <false"> Low
+	                   // <true"> High
+	                   false);
+
+	gpio_set_pin_function(DISP_B7, GPIO_PIN_FUNCTION_OFF);
+
+	// GPIO on LP_GPIO_9
+
+	// Set pin direction to output
+	gpio_set_pin_direction(DISP_B6, GPIO_DIRECTION_OUT);
+
+	gpio_set_pin_level(DISP_B6,
+	                   // <y> Initial level
+	                   // <id> pad_initial_level
+	                   // <false"> Low
+	                   // <true"> High
+	                   false);
+
+	gpio_set_pin_function(DISP_B6, GPIO_PIN_FUNCTION_OFF);
+
+	// GPIO on LP_GPIO_10
+
+	// Set pin direction to output
+	gpio_set_pin_direction(DISP_B5, GPIO_DIRECTION_OUT);
+
+	gpio_set_pin_level(DISP_B5,
+	                   // <y> Initial level
+	                   // <id> pad_initial_level
+	                   // <false"> Low
+	                   // <true"> High
+	                   false);
+
+	gpio_set_pin_function(DISP_B5, GPIO_PIN_FUNCTION_OFF);
+
+	// GPIO on LP_GPIO_11
+
+	// Set pin direction to output
+	gpio_set_pin_direction(DISP_B4, GPIO_DIRECTION_OUT);
+
+	gpio_set_pin_level(DISP_B4,
+	                   // <y> Initial level
+	                   // <id> pad_initial_level
+	                   // <false"> Low
+	                   // <true"> High
+	                   false);
+
+	gpio_set_pin_function(DISP_B4, GPIO_PIN_FUNCTION_OFF);
+
+	// GPIO on LP_GPIO_12
+
+	// Set pin direction to output
+	gpio_set_pin_direction(DISP_E, GPIO_DIRECTION_OUT);
+
+	gpio_set_pin_level(DISP_E,
+	                   // <y> Initial level
+	                   // <id> pad_initial_level
+	                   // <false"> Low
+	                   // <true"> High
+	                   false);
+
+	gpio_set_pin_function(DISP_E, GPIO_PIN_FUNCTION_OFF);
+
+	// GPIO on LP_GPIO_13
+
+	// Set pin direction to output
+	gpio_set_pin_direction(DISP_RS, GPIO_DIRECTION_OUT);
+
+	gpio_set_pin_level(DISP_RS,
+	                   // <y> Initial level
+	                   // <id> pad_initial_level
+	                   // <false"> Low
+	                   // <true"> High
+	                   false);
+
+	gpio_set_pin_function(DISP_RS, GPIO_PIN_FUNCTION_OFF);
+
+	// GPIO on LP_GPIO_16
+
+	// Set pin direction to input
+	gpio_set_pin_direction(BTN_UP, GPIO_DIRECTION_IN);
+
+	gpio_set_pin_pull_mode(BTN_UP,
+	                       // <y> Pull configuration
+	                       // <id> pad_pull_config
+	                       // <GPIO_PULL_OFF"> Off
+	                       // <GPIO_PULL_UP"> Pull-up
+	                       // <GPIO_PULL_DOWN"> Pull-down
+	                       GPIO_PULL_DOWN);
+
+	gpio_set_pin_function(BTN_UP, GPIO_PIN_FUNCTION_OFF);
+
+	// GPIO on LP_GPIO_17
+
+	// Set pin direction to input
+	gpio_set_pin_direction(BTN_DOWN, GPIO_DIRECTION_IN);
+
+	gpio_set_pin_pull_mode(BTN_DOWN,
+	                       // <y> Pull configuration
+	                       // <id> pad_pull_config
+	                       // <GPIO_PULL_OFF"> Off
+	                       // <GPIO_PULL_UP"> Pull-up
+	                       // <GPIO_PULL_DOWN"> Pull-down
+	                       GPIO_PULL_DOWN);
+
+	gpio_set_pin_function(BTN_DOWN, GPIO_PIN_FUNCTION_OFF);
+
+	// GPIO on LP_GPIO_18
+
+	// Set pin direction to input
+	gpio_set_pin_direction(BTN_LEFT, GPIO_DIRECTION_IN);
+
+	gpio_set_pin_pull_mode(BTN_LEFT,
+	                       // <y> Pull configuration
+	                       // <id> pad_pull_config
+	                       // <GPIO_PULL_OFF"> Off
+	                       // <GPIO_PULL_UP"> Pull-up
+	                       // <GPIO_PULL_DOWN"> Pull-down
+	                       GPIO_PULL_DOWN);
+
+	gpio_set_pin_function(BTN_LEFT, GPIO_PIN_FUNCTION_OFF);
+
+	// GPIO on LP_GPIO_19
+
+	// Set pin direction to input
+	gpio_set_pin_direction(BTN_RIGHT, GPIO_DIRECTION_IN);
+
+	gpio_set_pin_pull_mode(BTN_RIGHT,
+	                       // <y> Pull configuration
+	                       // <id> pad_pull_config
+	                       // <GPIO_PULL_OFF"> Off
+	                       // <GPIO_PULL_UP"> Pull-up
+	                       // <GPIO_PULL_DOWN"> Pull-down
+	                       GPIO_PULL_DOWN);
+
+	gpio_set_pin_function(BTN_RIGHT, GPIO_PIN_FUNCTION_OFF);
 
 	UART0_register_isr();
 
