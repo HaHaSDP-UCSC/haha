@@ -10,7 +10,7 @@
 
 #include "utils/hahaUtils.h"
 
-bool getLightingStatus();
-bool setLighting(bool active, int lightingPattern);
+int getLightingStatus();
+bool setLighting(int priority, bool active, int lightingPattern);
 
 #endif /* LIGHTING_H_ */

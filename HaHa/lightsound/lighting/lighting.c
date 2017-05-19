@@ -7,12 +7,21 @@
 
 #include "lighting.h"
 
-bool lightingStatus = false;
+int lightingPriority = PRI_OFF; /* Higher number indicates higher priority. */
 
-bool getLightingStatus() {
-	return lightingStatus;
+int getLightingStatus() {
+	return lightingPriority;
 }
 
-bool setLighting(bool active, int lightingPattern) {
-	return false; //TODO program this.
+bool setLighting(int priority, bool active, int lightingPattern) {
+	if (priority >= lightingPriority) {
+		if (active) {
+			//Activate lighting TODO
+			return true;
+		} else {
+			//Deactivate lighting TODO
+			return true; //TODO implement
+		}
+	}
+	return false;
 }

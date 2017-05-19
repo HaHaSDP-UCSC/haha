@@ -14,13 +14,16 @@
 
 #include "utils/hahaUtils.h"
 #include "network/packet.h"
-//#include "networkdevice/networkdevice.h"
+#include "networkdevice/networkdevice.h"
 #include "network/network.h"
 #include <string.h>
 
 #define MAXBUFFER 100 //Maximum size of application layer packet. //TODO define
 
 bool init_network(); //TODO @brian@kevin Unknown needed params
+
+//int convertFromPacketToData(Packet *p, unsigned char *data);
+int convertFromDataToPacket(Packet *p, unsigned char *data, int datalen);
 
 bool sendPacket(Packet *p, Network *net);
 bool recvPacket(Packet *p, Network *net);

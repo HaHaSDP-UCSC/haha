@@ -28,16 +28,22 @@ typedef struct {
 	uint16_t responseflag; //16 Available flags for expected responses. //TODO includes if registered friend.
 } Friend;
 
+typedef struct {
+	Friend friend;
+	char homeaddr[MAXHOMEADDR];
+	char phoneaddr[MAXPHONE];
+} LocalUser;
+
 Friend friendList[FRIENDLISTSIZE];
-Friend localUsers[5];
+LocalUser localUsers[MAXLOCAL];
 
 //TODO @kevin @brian storage for FriendList.
 bool initFriendList();
 bool writeToFriendListStorage(); //TODO INTERNAL REMOVE
 bool readFromFriendListStorage(); //TODO INTERNAL REMOVE
 bool addFriend(Friend *f);
-bool removeFriend(Network* net); //Remove based on srcuid and netaddr.
-bool checkForFriend(Network* net);
+bool removeFriend(Friend *f); //Remove based on friend netaddr and srcuid
+Friend * checkForFriend(Network* net);
 bool addLocalUser(Friend *f);
 
 void addTestFriend(char *fname, char*lname, char* addr);

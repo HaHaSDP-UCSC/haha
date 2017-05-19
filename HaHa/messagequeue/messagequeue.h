@@ -16,6 +16,7 @@
 #define DEFAULT_TTL 1000; //TODO: figure out approrpiate number
 
 #define DEFMESSAGETIMEOUT 300 //300 ticks, 5 minutes
+#define FRIENDREQTIMEOUT DEFMESSAGETIMEOUT*12*24*14 //2 weeks
 #define BROADCASTHOP 64 //Maximum neighbor devices to explore.
 
 typedef struct Message {
@@ -47,6 +48,8 @@ int checkQueue(opcode op, flags f, Network *net, Event eventList[]); /* Checks q
 bool flushOldMessages(); /* Checks for old messages to be deleted. */
 bool initMessage(Message* m); /* Initialize a blank Message */
 bool generateFriendMessage(Friend *friend, Message *mes, opcode op);
+
+bool setSettingsByOpcode(Message *mes, opcode opcode);
 
 //Internal //TODO move this to the c file.
 /*

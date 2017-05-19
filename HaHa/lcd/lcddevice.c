@@ -84,7 +84,8 @@ void _lcd_write_string(char str[]) {
 
 void _lcd_write_string_pad(char str[]) {
 	_lcd_write_string(str);
-	for(int cols = strlen(str); cols < LCD_COLS; cols++) 
+	int cols = strlen(str);
+	for(; cols < LCD_COLS; cols++) 
 		_lcd_write_char(' ');
 }
 

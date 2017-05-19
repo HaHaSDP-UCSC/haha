@@ -12,6 +12,7 @@
 #include "utils/hahaUtils.h"
 #include "menu.h"
 #include "atmel_start.h"
+#include <string.h>
 // #include "base.h"
 
 #define UI_INPUT_ENTER 126

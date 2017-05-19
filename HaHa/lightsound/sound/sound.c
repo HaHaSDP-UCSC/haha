@@ -7,12 +7,21 @@
 
 #include "sound.h"
 
-bool soundStatus = false;
+int soundPriority = PRI_OFF; /* Higher number indicates higher priority. */
 
-bool getSoundStatus() {
-	return soundStatus;
+int getSoundStatus() {
+	return soundPriority;
 }
 
-bool setSound(bool active, int soundPattern) {
-	return false; //TODO program this.
+bool setSound(int priority, bool active, int soundPattern) {
+	if (priority >= soundPriority) {
+		if (active) {
+			//Activate sound TODO
+			return true;
+			} else {
+			//Deactivate sound TODO
+			return true; //TODO implement
+		}
+	}
+	return false;
 }
