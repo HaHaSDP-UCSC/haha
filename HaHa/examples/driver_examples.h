@@ -14,6 +14,10 @@
 extern "C" {
 #endif
 
+void TIMER_0_example(void);
+
+void PWM_0_example(void);
+
 void TARGET_IO_example(void);
 
 void USART_1_0_example(void);

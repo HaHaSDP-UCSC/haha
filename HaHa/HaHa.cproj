@@ -133,7 +133,7 @@
         </AcmeActionInfos>
       </AcmeProjectConfig>
     </AcmeProjectConfig>
-    <AtzipPath>.atmel-start-backup\Atmel_Start_10.atzip</AtzipPath>
+    <AtzipPath>.atmel-start-backup\Atmel_Start_16.atzip</AtzipPath>
     <avrtool>com.atmel.avrdbg.tool.edbg</avrtool>
     <avrtoolserialnumber>ATML2534030200004453</avrtoolserialnumber>
     <avrdeviceexpectedsignature>0x2000B0</avrdeviceexpectedsignature>
@@ -173,9 +173,11 @@
       <Value>../examples</Value>
       <Value>../hal/include</Value>
       <Value>../hal/utils/include</Value>
+      <Value>../hpl/aon_sleep_timer</Value>
       <Value>../hpl/core</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
+      <Value>../hpl/pwm</Value>
       <Value>../hpl/uart</Value>
       <Value>../hri</Value>
       <Value>../stdio_redirect</Value>
@@ -206,9 +208,11 @@
       <Value>../examples</Value>
       <Value>../hal/include</Value>
       <Value>../hal/utils/include</Value>
+      <Value>../hpl/aon_sleep_timer</Value>
       <Value>../hpl/core</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
+      <Value>../hpl/pwm</Value>
       <Value>../hpl/uart</Value>
       <Value>../hri</Value>
       <Value>../stdio_redirect</Value>
@@ -223,9 +227,11 @@
       <Value>../examples</Value>
       <Value>../hal/include</Value>
       <Value>../hal/utils/include</Value>
+      <Value>../hpl/aon_sleep_timer</Value>
       <Value>../hpl/core</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
+      <Value>../hpl/pwm</Value>
       <Value>../hpl/uart</Value>
       <Value>../hri</Value>
       <Value>../stdio_redirect</Value>
@@ -257,9 +263,11 @@
       <Value>../examples</Value>
       <Value>../hal/include</Value>
       <Value>../hal/utils/include</Value>
+      <Value>../hpl/aon_sleep_timer</Value>
       <Value>../hpl/core</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
+      <Value>../hpl/pwm</Value>
       <Value>../hpl/uart</Value>
       <Value>../hri</Value>
       <Value>../stdio_redirect</Value>
@@ -291,9 +299,11 @@
       <Value>../examples</Value>
       <Value>../hal/include</Value>
       <Value>../hal/utils/include</Value>
+      <Value>../hpl/aon_sleep_timer</Value>
       <Value>../hpl/core</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
+      <Value>../hpl/pwm</Value>
       <Value>../hpl/uart</Value>
       <Value>../hri</Value>
       <Value>../stdio_redirect</Value>
@@ -309,9 +319,11 @@
       <Value>../examples</Value>
       <Value>../hal/include</Value>
       <Value>../hal/utils/include</Value>
+      <Value>../hpl/aon_sleep_timer</Value>
       <Value>../hpl/core</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
+      <Value>../hpl/pwm</Value>
       <Value>../hpl/uart</Value>
       <Value>../hri</Value>
       <Value>../stdio_redirect</Value>
@@ -351,9 +363,11 @@
       <Value>../examples</Value>
       <Value>../hal/include</Value>
       <Value>../hal/utils/include</Value>
+      <Value>../hpl/aon_sleep_timer</Value>
       <Value>../hpl/core</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
+      <Value>../hpl/pwm</Value>
       <Value>../hpl/uart</Value>
       <Value>../hri</Value>
       <Value>../stdio_redirect</Value>
@@ -386,9 +400,11 @@
       <Value>../examples</Value>
       <Value>../hal/include</Value>
       <Value>../hal/utils/include</Value>
+      <Value>../hpl/aon_sleep_timer</Value>
       <Value>../hpl/core</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
+      <Value>../hpl/pwm</Value>
       <Value>../hpl/uart</Value>
       <Value>../hri</Value>
       <Value>../stdio_redirect</Value>
@@ -404,9 +420,11 @@
       <Value>../examples</Value>
       <Value>../hal/include</Value>
       <Value>../hal/utils/include</Value>
+      <Value>../hpl/aon_sleep_timer</Value>
       <Value>../hpl/core</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
+      <Value>../hpl/pwm</Value>
       <Value>../hpl/uart</Value>
       <Value>../hri</Value>
       <Value>../stdio_redirect</Value>
@@ -432,7 +450,13 @@
     <Compile Include="atmel_start_pins.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Config\hpl_aon_sleep_timer_config.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Config\hpl_lpmcu_misc_regs_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Config\hpl_pwm_config.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Config\hpl_uart_config.h">
@@ -477,6 +501,12 @@
     <Compile Include="hal\include\hal_io.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="hal\include\hal_pwm_sync.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="hal\include\hal_timer.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="hal\include\hal_usart_async.h">
       <SubType>compile</SubType>
     </Compile>
@@ -501,6 +531,12 @@
     <Compile Include="hal\include\hpl_missing_features.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="hal\include\hpl_pwm_sync.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="hal\include\hpl_timer.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="hal\include\hpl_usart.h">
       <SubType>compile</SubType>
     </Compile>
@@ -520,6 +556,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hal\src\hal_io.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="hal\src\hal_pwm_sync.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="hal\src\hal_timer.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hal\src\hal_usart_async.c">
@@ -567,6 +609,12 @@
     <Compile Include="hal\utils\src\utils_syscalls.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="hpl\aon_sleep_timer\hpl_aon_sleep_timer.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="hpl\aon_sleep_timer\hpl_aon_sleep_timer.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="hpl\core\hpl_core_m0_base.c">
       <SubType>compile</SubType>
     </Compile>
@@ -580,6 +628,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hpl\lpmcu_misc_regs\hpl_lpmcu_misc_regs.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="hpl\pwm\hpl_pwm.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hpl\uart\hpl_uart.c">
@@ -779,9 +830,11 @@
     <Folder Include="hal\utils\include\" />
     <Folder Include="hal\utils\src\" />
     <Folder Include="hpl\" />
+    <Folder Include="hpl\aon_sleep_timer\" />
     <Folder Include="hpl\core\" />
     <Folder Include="hpl\gpio\" />
     <Folder Include="hpl\lpmcu_misc_regs\" />
+    <Folder Include="hpl\pwm\" />
     <Folder Include="hpl\uart\" />
     <Folder Include="hri\" />
     <Folder Include="lightsound\alarm\" />

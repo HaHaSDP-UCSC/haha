@@ -15,6 +15,18 @@ middlewares:
     dependencies:
       Target IO: TARGET_IO
 drivers:
+  TIMER_0:
+    user_label: TIMER_0
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::AON_SLEEP_TIMER0::driver_config_definition::Timer::HAL:Driver:Timer
+    functionality: Timer
+    api: HAL:Driver:Timer
+    configuration:
+      aon_sleep_timer_tick: 1000000
+      aon_sleep_timer_wakeup: Wakeup Arm And BLE
+    optional_signals: []
+    variant: null
+    clocks:
+      domain_group: null
   CLOCK:
     user_label: CLOCK
     definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::CLOCK::driver_config_definition::CLOCK::HAL:HPL:LPMCUMISCREGS
@@ -71,6 +83,34 @@ drivers:
         - name: CPU
           input: CPU
         configuration: {}
+  PWM_0:
+    user_label: PWM_0
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::PWM0::driver_config_definition::PWM::HAL:Driver:PWM.Sync
+    functionality: PWM
+    api: HAL:Driver:PWM_Sync
+    configuration:
+      pwm_agcdata_fmt: false
+      pwm_duty_cycle: 50
+      pwm_master_advanced: false
+      pwm_output_polarity: false
+      pwm_period: Base frequency is divided by 1024
+      pwm_sample_method: Samples agcdata at >= 1024 cycles and does not lose precision
+    optional_signals:
+    - identifier: PWM_0:PWM_OUT
+      pad: LP_GPIO_4
+      mode: Enable
+      configuration: null
+      definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::optional_signal_definition::PWM0.PWM_OUT
+      name: PWM0/PWM_OUT
+      label: PWM_OUT
+    variant: null
+    clocks:
+      domain_group:
+        nodes:
+        - name: PWM
+          input: PWM0 Divider
+        configuration:
+          pwm_clock_source: PWM0 Divider
   TARGET_IO:
     user_label: TARGET_IO
     definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::UART0::driver_config_definition::UART::HAL:Driver:USART.Sync
@@ -172,6 +212,21 @@ pads:
     mode: Peripheral IO
     user_label: LP_GPIO_3
     configuration: null
+  LP_GPIO_4:
+    name: LP_GPIO_4
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_4
+    mode: Peripheral IO
+    user_label: LP_GPIO_4
+    configuration: null
+  TOGGLE_LIGHT:
+    name: LP_GPIO_5
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_5
+    mode: Advanced
+    user_label: TOGGLE_LIGHT
+    configuration:
+      pad_direction: Out
+      pad_initial_level: Low
+      pad_pull_config: Pull-down
   LP_GPIO_6:
     name: LP_GPIO_6
     definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_6

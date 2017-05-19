@@ -14,11 +14,27 @@
 extern "C" {
 #endif
 
+#include <hal_pwm_sync.h>
+
+#define PWM0 0
+#define PWM1 1
+#define PWM2 2
+#define PWM3 3
+
+#include <hal_timer.h>
+
 #include <hal_usart_sync.h>
 #include <hal_usart_async.h>
 
+extern struct timer_descriptor TIMER_0;
+
+extern struct pwm_sync_descriptor PWM_0;
+
 extern struct usart_sync_descriptor  TARGET_IO;
 extern struct usart_async_descriptor USART_1_0;
+
+void PWM_0_PORT_init(void);
+void PWM_0_init(void);
 
 void TARGET_IO_PORT_init(void);
 void TARGET_IO_CLOCK_init(void);

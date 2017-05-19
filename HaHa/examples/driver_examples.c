@@ -11,6 +11,34 @@
 #include "utils.h"
 
 /**
+ * Example of using TIMER_0.
+ */
+static struct timer_task TIMER_0_task;
+
+static void TIMER_0_wakeup_task_cb(const struct timer_task *const timer_task)
+{
+}
+
+void TIMER_0_example(void)
+{
+	TIMER_0_task.interval = 1;
+	TIMER_0_task.cb       = TIMER_0_wakeup_task_cb;
+	TIMER_0_task.mode     = TIMER_TASK_REPEAT;
+
+	timer_add_task(&TIMER_0, &TIMER_0_task);
+	timer_start(&TIMER_0);
+}
+
+/**
+ * Example of using PWM_0.
+ */
+void PWM_0_example(void)
+{
+	pwm_sync_set_parameters(&PWM_0, 4, 50);
+	pwm_sync_enable(&PWM_0);
+}
+
+/**
  * Example of using TARGET_IO to write "Hello World" using the IO abstraction.
  */
 void TARGET_IO_example(void)

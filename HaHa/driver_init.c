@@ -10,14 +10,41 @@
 #include <utils.h>
 #include <hal_init.h>
 
+#include <hpl_aon_sleep_timer.h>
+
 /*! The buffer size for USART */
 #define USART_1_0_BUFFER_SIZE 16
 
+struct timer_descriptor       TIMER_0;
 struct usart_async_descriptor USART_1_0;
 
 static uint8_t USART_1_0_buffer[USART_1_0_BUFFER_SIZE];
 
+struct pwm_sync_descriptor PWM_0;
+
 struct usart_sync_descriptor TARGET_IO;
+
+/**
+ * \brief Timer initialization function
+ *
+ * Enables Timer peripheral, clocks and initializes Timer driver
+ */
+static void TIMER_0_init(void)
+{
+	timer_init(&TIMER_0, AON_SLEEP_TIMER0, _aon_get_timer());
+}
+
+void PWM_0_PORT_init(void)
+{
+
+	gpio_set_pin_function(LP_GPIO_4, PINMUX_LP_GPIO_4_M_PWM0_OUT);
+}
+
+void PWM_0_init(void)
+{
+	PWM_0_PORT_init();
+	pwm_sync_init(&PWM_0, (void *)PWM0);
+}
 
 void TARGET_IO_PORT_init(void)
 {
@@ -76,6 +103,14 @@ void USART_1_0_init(void)
 	USART_1_0_PORT_init();
 }
 
+void AON_SLEEP_TIMER0_register_isr(void)
+{
+	uint32_t *temp;
+
+	temp  = (uint32_t *)((RAM_ISR_TABLE_AON_SLEEP_TIMER + 0) * 4 + ISR_RAM_MAP_START_ADDRESS);
+	*temp = (uint32_t)AON_SLEEP_TIMER0_Handler;
+}
+
 void UART0_register_isr(void)
 {
 	uint32_t *temp;
@@ -95,6 +130,33 @@ void UART1_register_isr(void)
 void system_init(void)
 {
 	init_mcu();
+
+	// GPIO on LP_GPIO_5
+
+	gpio_set_pin_direction(TOGGLE_LIGHT,
+	                       // <y> Pin direction
+	                       // <id> pad_direction
+	                       // <GPIO_DIRECTION_OFF"> Off
+	                       // <GPIO_DIRECTION_IN"> In
+	                       // <GPIO_DIRECTION_OUT"> Out
+	                       GPIO_DIRECTION_OUT);
+
+	gpio_set_pin_level(TOGGLE_LIGHT,
+	                   // <y> Initial level
+	                   // <id> pad_initial_level
+	                   // <false"> Low
+	                   // <true"> High
+	                   false);
+
+	gpio_set_pin_pull_mode(TOGGLE_LIGHT,
+	                       // <y> Pull configuration
+	                       // <id> pad_pull_config
+	                       // <GPIO_PULL_OFF"> Off
+	                       // <GPIO_PULL_UP"> Pull-up
+	                       // <GPIO_PULL_DOWN"> Pull-down
+	                       GPIO_PULL_DOWN);
+
+	gpio_set_pin_function(TOGGLE_LIGHT, GPIO_PIN_FUNCTION_OFF);
 
 	// GPIO on LP_GPIO_8
 
@@ -239,6 +301,12 @@ void system_init(void)
 	                       GPIO_PULL_DOWN);
 
 	gpio_set_pin_function(BTN_RIGHT, GPIO_PIN_FUNCTION_OFF);
+
+	AON_SLEEP_TIMER0_register_isr();
+
+	TIMER_0_init();
+
+	PWM_0_init();
 
 	UART0_register_isr();
 

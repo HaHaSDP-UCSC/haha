@@ -50,22 +50,27 @@
       <description>Atmel Start Framework</description>
       <RTE_Components_h>#define ATMEL_START</RTE_Components_h>
       <files>
+        <file category="doc" condition="ARMCC, GCC, IAR" name="hal/documentation/pwm_sync.rst"/>
+        <file category="doc" condition="ARMCC, GCC, IAR" name="hal/documentation/timer.rst"/>
         <file category="doc" condition="ARMCC, GCC, IAR" name="hal/documentation/usart_async.rst"/>
         <file category="doc" condition="ARMCC, GCC, IAR" name="hal/documentation/usart_sync.rst"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hal_atomic.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hal_gpio.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hal_init.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hal_io.h"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hal_pwm_sync.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hpl_core.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hpl_ext_irq.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hpl_gpio.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hpl_init.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hpl_irq.h"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hpl_pwm_sync.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hpl_usart.h"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hal/src/hal_atomic.c"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hal/src/hal_gpio.c"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hal/src/hal_init.c"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hal/src/hal_io.c"/>
+        <file category="source" condition="ARMCC, GCC, IAR" name="hal/src/hal_pwm_sync.c"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/utils/include/compiler.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/utils/include/err_codes.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/utils/include/utils.h"/>
@@ -81,6 +86,7 @@
         <file category="source" condition="ARMCC, GCC, IAR" name="hpl/core/hpl_core_m0_base.c"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hpl/gpio/hpl_gpio_base.h"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hpl/lpmcu_misc_regs/hpl_lpmcu_misc_regs.c"/>
+        <file category="source" condition="ARMCC, GCC, IAR" name="hpl/pwm/hpl_pwm.c"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hri/hri_aon_gp_regs_b11.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hri/hri_aon_pwr_seq_b11.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hri/hri_aon_sleep_timer_b11.h"/>
@@ -115,14 +121,19 @@
         <file category="header" condition="ARMCC, GCC, IAR" name="atmel_start_pins.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="examples/driver_examples.h"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="examples/driver_examples.c"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hal_timer.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hal_usart_async.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hal_usart_sync.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hpl_missing_features.h"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hpl_timer.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hpl_usart_async.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hpl_usart_sync.h"/>
+        <file category="source" condition="ARMCC, GCC, IAR" name="hal/src/hal_timer.c"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hal/src/hal_usart_async.c"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hal/src/hal_usart_sync.c"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/utils/include/parts.h"/>
+        <file category="source" condition="ARMCC, GCC, IAR" name="hpl/aon_sleep_timer/hpl_aon_sleep_timer.c"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="hpl/aon_sleep_timer/hpl_aon_sleep_timer.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hpl/core/hpl_core_port.h"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hpl/core/hpl_init.c"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hpl/uart/hpl_uart.c"/>
@@ -130,7 +141,9 @@
         <file category="header" condition="ARMCC, GCC, IAR" name="stdio_start.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="atmel_start.h"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="atmel_start.c"/>
+        <file attr="config" category="header" condition="ARMCC, GCC, IAR" name="config/hpl_aon_sleep_timer_config.h"/>
         <file attr="config" category="header" condition="ARMCC, GCC, IAR" name="config/hpl_lpmcu_misc_regs_config.h"/>
+        <file attr="config" category="header" condition="ARMCC, GCC, IAR" name="config/hpl_pwm_config.h"/>
         <file attr="config" category="header" condition="ARMCC, GCC, IAR" name="config/hpl_uart_config.h"/>
         <file attr="config" category="header" condition="ARMCC, GCC, IAR" name="config/peripheral_clk_config.h"/>
         <file attr="config" category="header" condition="ARMCC, GCC, IAR" name="config/stdio_redirect_config.h"/>
@@ -139,9 +152,11 @@
         <file category="include" condition="ARMCC, GCC, IAR" name="examples"/>
         <file category="include" condition="ARMCC, GCC, IAR" name="hal/include"/>
         <file category="include" condition="ARMCC, GCC, IAR" name="hal/utils/include"/>
+        <file category="include" condition="ARMCC, GCC, IAR" name="hpl/aon_sleep_timer"/>
         <file category="include" condition="ARMCC, GCC, IAR" name="hpl/core"/>
         <file category="include" condition="ARMCC, GCC, IAR" name="hpl/gpio"/>
         <file category="include" condition="ARMCC, GCC, IAR" name="hpl/lpmcu_misc_regs"/>
+        <file category="include" condition="ARMCC, GCC, IAR" name="hpl/pwm"/>
         <file category="include" condition="ARMCC, GCC, IAR" name="hpl/uart"/>
         <file category="include" condition="ARMCC, GCC, IAR" name="hri"/>
         <file category="include" condition="ARMCC, GCC, IAR" name=""/>
