@@ -134,6 +134,22 @@
       </AcmeProjectConfig>
     </AcmeProjectConfig>
     <AtzipPath>.atmel-start-backup\Atmel_Start_10.atzip</AtzipPath>
+    <avrtool>com.atmel.avrdbg.tool.edbg</avrtool>
+    <avrtoolserialnumber>ATML2534030200004453</avrtoolserialnumber>
+    <avrdeviceexpectedsignature>0x2000B0</avrdeviceexpectedsignature>
+    <avrtoolinterface>SWD</avrtoolinterface>
+    <com_atmel_avrdbg_tool_edbg>
+      <ToolOptions>
+        <InterfaceProperties>
+          <SwdClock>2000000</SwdClock>
+        </InterfaceProperties>
+        <InterfaceName>SWD</InterfaceName>
+      </ToolOptions>
+      <ToolType>com.atmel.avrdbg.tool.edbg</ToolType>
+      <ToolNumber>ATML2534030200004453</ToolNumber>
+      <ToolName>EDBG</ToolName>
+    </com_atmel_avrdbg_tool_edbg>
+    <avrtoolinterfaceclock>2000000</avrtoolinterfaceclock>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
@@ -309,6 +325,9 @@
     <OutputDirectory />
     <BuildTarget>all</BuildTarget>
     <CleanTarget>clean</CleanTarget>
+    <OutputFileName>HaHa</OutputFileName>
+    <OutputFileExtension>.elf</OutputFileExtension>
+    <OutputType>Executable</OutputType>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Assembly' ">
     <ToolchainSettings>

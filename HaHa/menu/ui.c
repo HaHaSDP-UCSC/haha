@@ -38,7 +38,7 @@ void ui_init(void) {
   ui_item_init(set, "Pair button");
   ui_item_init(set, "Disable system");
   ui_item_init(root, "Activity (%dh)");
-  ui_item_init(root, "Network (%dh)");
+  ui_item_init(root, "Net (%dh)");
   ui_item_init(root, "Button (%dh)");
   menu->current = menu->root->child;
 }

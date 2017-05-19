@@ -31,14 +31,12 @@ Pins for power were found on the [Xplained datasheet][Xplained].
 
 | Schematic Desc | SAMB11 Out | Xplained Out | LCD In | LCD Desc |
 |----------------|------------|--------------|--------|----------|
-| DISP_BRIGHT    | 13         | EXT1:17      |        |          |
-| DISP_B3        | 14         | EXT3:11      | LCD:14 | DB7      |
-| DISP_B2        | 15         | EXT3:12      | LCD:13 | DB6      |
-| DISP_B1        | 16         | EXT3:15      | LCD:12 | DB5      |
-| DISP_B0        | 17         | EXT3:18      | LCD:11 | DB4      |
-| DISP_E         | 18         | EXT3:17      | LCD:6  | E        |
-| DISP_REG       | 19         | EXT3:16      | LCD:4  | RS       |
-| DISP_CTRST     | 20         | EXT3:5       |        |          |
+| DISP_B7        | 8          | EXT1:11      | LCD:14 | DB7      |
+| DISP_B6        | 9          | EXT1:12      | LCD:13 | DB6      |
+| DISP_B5        | 10         | EXT1:18      | LCD:12 | DB5      |
+| DISP_B4        | 11         | EXT1:16      | LCD:11 | DB4      |
+| DISP_E         | 12         | EXT1:15      | LCD:6  | E        |
+| DISP_RS        | 13         | EXT1:17      | LCD:4  | RS       |
 
 ### Input from Buttons
 
@@ -48,12 +46,10 @@ Pins for power were found on the [Xplained datasheet][Xplained].
 
 | Desc           | SAMB11 In | Xplained Out |
 |----------------|-----------|--------------|
-| BTN_UP         | 4         | EXT1:5       |
-| BTN_DOWN       | 23        | SW0          |
-| BTN_LEFT       | 3         | N/A          |
-| BTN_LEFT_TEMP  | 11        | EXT1:16      |
-| BTN_RIGHT      | 22        | N/A          |
-| BTN_RIGHT_TEMP | 12        | EXT1:15      |
+| BTN_UP         | 16        | EXT3:15      |
+| BTN_DOWN       | 17        | EXT3:18      |
+| BTN_LEFT       | 18        | EXT3:17      |
+| BTN_RIGHT      | 19        | EXT3:16      |
 
 [Schematic]:
 [Xplained]: http://www.atmel.com/Images/Atmel-42664-ATSAMB11-Xplained-Pro_UserGuide.pdf

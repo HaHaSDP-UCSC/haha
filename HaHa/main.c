@@ -33,7 +33,25 @@ void init_sys(){
 int main(void)
 {
     /* Initializes MCU, drivers and middleware */
-    init_sys();
+    atmel_start_init();
+	init_sys();
+	
+	lcd_init();
+	lcd_clear();
+	ui_init();
+	
+	// Start screen
+	lcd_set_line(0, "JACK BASKIN ENGR");
+	lcd_set_line(1, "Home  Assistance");
+	lcd_set_line(2, "   Help Alert");
+	lcd_set_line(3, " Button Project");
+	lcd_update();
+	
+	while(1) {
+		 delay(100);
+		 ui_update();
+	}
+	
     //xbee_send(0x0013a200414F50EA, "Test Data", 9);
     uart_register_netdev_callback(xbee_recv);
     SET_SEND_NETDEV(true);
@@ -53,20 +71,9 @@ int main(void)
     
     send_help_request(friendList[1]);
 	
-	lcd_init();
-	lcd_clear();
-	ui_init();
-	
-	// Start screen
-	lcd_set_line(0, "JACK BASKIN ENGR");
-	lcd_set_line(1, "Home  Assistance");
-	lcd_set_line(2, "   Help Alert");
-	lcd_set_line(3, " Button Project");
-	lcd_update();
-	
     while (1) {
         uart_read();              
-        ui_update();
+        //ui_update();
     }
 }
 
