@@ -76,35 +76,37 @@ int main(void)
 	char buff[80]; // large enough
 	int count = 0;
 	char c;
+    
+    sendTestReq();
 	
     //addTestFriend("Brian", "Nichols","0013A200414F50EA");
     //addTestLocalUser("Kevin", "Lee", 0x1);
     //send_ping_request(&friendList[0]);
     
     //send_help_request(friendList[0]);
-	addTestFriend("Brian", "Nichols","0013A200414F50EA");
-	addTestLocalUser("Kevin", "Lee", 0x1);
-	//send_ping_request(&friendList[0]);
-	
-	/* Testing Application code */
-	LocalUser self;
-	strcpy(self.friend.firstname, "Kevin");
-	strcpy(self.friend.lastname, "Lee");
-    uint8_t* t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E9");
-    memcpy(self.friend.networkaddr,t, 8);
-	self.friend.port = 0x0001;
-	
-	Friend f;
-	strcpy(f.firstname, "Brian");
-	strcpy(f.lastname, "Nichols");
-    t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50EA");
-	memcpy(f.networkaddr, t, 8);
-	f.port = 0x0002;
-	
-	send_help_request(&f, &self);
-	//send_help_request_ack(Friend *f, LocalUser *self);
-	
-	bool accept = true;
+	//addTestFriend("Brian", "Nichols","0013A200414F50EA");
+	//addTestLocalUser("Kevin", "Lee", 0x1);
+	////send_ping_request(&friendList[0]);
+	//
+	///* Testing Application code */
+	//LocalUser self;
+	//strcpy(self.friend.firstname, "Kevin");
+	//strcpy(self.friend.lastname, "Lee");
+    //uint8_t* t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E9");
+    //memcpy(self.friend.networkaddr,t, 8);
+	//self.friend.port = 0x0001;
+	//
+	//Friend f;
+	//strcpy(f.firstname, "Brian");
+	//strcpy(f.lastname, "Nichols");
+    //t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50EA");
+	//memcpy(f.networkaddr, t, 8);
+	//f.port = 0x0002;
+	//
+	//send_help_request(&f, &self);
+	////send_help_request_ack(Friend *f, LocalUser *self);
+	//
+	//bool accept = true;
 	
 	//send_help_request(&friendList[0]);
 	
@@ -121,3 +123,28 @@ int main(void)
 	return 1;
 }
 
+void sendTestReq(){
+    addTestFriend("Brian", "Nichols","0013A200414F50EA");
+    addTestLocalUser("Kevin", "Lee", 0x1);
+    //send_ping_request(&friendList[0]);
+    
+    /* Testing Application code */
+    LocalUser self;
+    strcpy(self.friend.firstname, "Kevin");
+    strcpy(self.friend.lastname, "Lee");
+    uint8_t* t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E9");
+    memcpy(self.friend.networkaddr,t, 8);
+    self.friend.port = 0x0001;
+    
+    Friend f;
+    strcpy(f.firstname, "Brian");
+    strcpy(f.lastname, "Nichols");
+    t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50EA");
+    memcpy(f.networkaddr, t, 8);
+    f.port = 0x0002;
+    
+    send_help_request(&f, &self);
+    //send_help_request_ack(Friend *f, LocalUser *self);
+    
+    bool accept = true;
+}
