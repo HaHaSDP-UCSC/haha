@@ -51,6 +51,7 @@ char* convert_asciihex_to_byte(char* addr){
     len /= 2; /* each byte = 2chars */
     while(len2 < len){
         ret[len2] = asciihex_to_byte(addr[2*len2], addr[2*len2 + 1]);
+        printf("converted: %x->%d--%c%c\n", ret[len2],ret[len2], addr[2*len2], addr[2*len2 + 1]);
         len2++;
     }
     ret[16] = 0;

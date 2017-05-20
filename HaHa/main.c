@@ -29,7 +29,7 @@ void init_sys(){
 	uart_init_irqs();
 	network_init();
 	initMessageQueue();
-	//xbee_setAPI(1);
+	xbee_setAPI(1);
 }
 
 int main(void)
@@ -44,25 +44,25 @@ int main(void)
 	//pwm_sync_enable(&PWM_0);
 	
 	//Set Light Toggle
-	gpio_set_pin_level(TOGGLE_LIGHT, true);
-	
-	
-	lcd_init();
-	lcd_clear();
-	ui_init();
-	
-	// Start screen
-	lcd_set_line(0, "JACK BASKIN ENGR");
-	lcd_set_line(1, "Home  Assistance");
-	lcd_set_line(2, "   Help Alert");
-	lcd_set_line(3, " Button Project");
-	lcd_update();
-	
-	while(1) {
-		delay(100);
-		gpio_toggle_pin_level(TOGGLE_LIGHT);
-		ui_update();
-	}
+	//gpio_set_pin_level(TOGGLE_LIGHT, true);
+	//
+	//
+	//lcd_init();
+	//lcd_clear();
+	//ui_init();
+	//
+	//// Start screen
+	//lcd_set_line(0, "JACK BASKIN ENGR");
+	//lcd_set_line(1, "Home  Assistance");
+	//lcd_set_line(2, "   Help Alert");
+	//lcd_set_line(3, " Button Project");
+	//lcd_update();
+	//
+	//while(1) {
+		//delay(100);
+		//gpio_toggle_pin_level(TOGGLE_LIGHT);
+		//ui_update();
+	//}
 	
 	//xbee_send(0x0013a200414F50EA, "Test Data", 9);
 	uart_register_netdev_callback(xbee_recv);
@@ -84,29 +84,29 @@ int main(void)
     //send_help_request(friendList[0]);
 	addTestFriend("Brian", "Nichols","0013A200414F50EA");
 	addTestLocalUser("Kevin", "Lee", 0x1);
-	send_ping_request(&friendList[0]);
+	//send_ping_request(&friendList[0]);
 	
 	/* Testing Application code */
-	/**
 	LocalUser self;
 	strcpy(self.friend.firstname, "Kevin");
 	strcpy(self.friend.lastname, "Lee");
-	strcpy(self.friend.networkaddr, "DEST001");
+    uint8_t* t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E9");
+    memcpy(self.friend.networkaddr,t, 8);
 	self.friend.port = 0x0001;
 	
 	Friend f;
 	strcpy(f.firstname, "Brian");
 	strcpy(f.lastname, "Nichols");
-	strcpy(f.networkaddr, "DEST002");
+    t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50EA");
+	memcpy(f.networkaddr, t, 8);
 	f.port = 0x0002;
 	
 	send_help_request(&f, &self);
-	send_help_request_ack(Friend *f, LocalUser *self);
+	//send_help_request_ack(Friend *f, LocalUser *self);
 	
 	bool accept = true;
-	*/
 	
-	send_help_request(friendList[0]);
+	//send_help_request(&friendList[0]);
 	
 	/*
     send_help_response(&f, &self, accept);

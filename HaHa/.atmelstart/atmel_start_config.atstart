@@ -156,6 +156,13 @@ drivers:
       definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::optional_signal_definition::UART1.RXD
       name: UART1/RXD
       label: RXD
+    - identifier: USART_1_0:TXD
+      pad: LP_GPIO_7
+      mode: Enable
+      configuration: null
+      definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::optional_signal_definition::UART1.TXD
+      name: UART1/TXD
+      label: TXD
     variant: null
     clocks:
       domain_group:
@@ -182,6 +189,12 @@ pads:
     definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_6
     mode: Peripheral IO
     user_label: LP_GPIO_6
+    configuration: null
+  LP_GPIO_7:
+    name: LP_GPIO_7
+    definition: Atmel:SAMB11_Drivers:0.0.1::ATSAMB11G18A-MU::pad::LP_GPIO_7
+    mode: Peripheral IO
+    user_label: LP_GPIO_7
     configuration: null
   DISP_B7:
     name: LP_GPIO_8

@@ -282,9 +282,9 @@ int convertFromPacketToData(Packet *p, unsigned char *data) {
 		printd("HELP REQ OPCODE.\n");
 		if (!IS_ACK(flags)) {
 			fields.srcuid = true; //Add SRCUID to packet.
-			fields.srchomeaddr = true; //Add SRCHOMEADDR to packet.
+			//fields.srchomeaddr = true; //Add SRCHOMEADDR to packet.
 			fields.srcname = true; //TODO @kevin@brian RECENTLY ADDED
-			fields.srcphone = true; //Add SRCPHONE
+			//fields.srcphone = true; //Add SRCPHONE
 			success = formPacketToData(p, data, &offset, fields);
 		} else {
 			fields.srcuid = true; //Add SRCUID to packet.

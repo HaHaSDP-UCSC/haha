@@ -22,7 +22,6 @@
       <Value>../hpl/core</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
-      <Value>../hpl/pwm</Value>
       <Value>../hpl/uart</Value>
       <Value>../hri</Value>
       <Value>../stdio_redirect</Value>
@@ -58,7 +57,6 @@
       <Value>../hpl/core</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
-      <Value>../hpl/pwm</Value>
       <Value>../hpl/uart</Value>
       <Value>../hri</Value>
       <Value>../stdio_redirect</Value>
@@ -78,7 +76,6 @@
       <Value>../hpl/core</Value>
       <Value>../hpl/gpio</Value>
       <Value>../hpl/lpmcu_misc_regs</Value>
-      <Value>../hpl/pwm</Value>
       <Value>../hpl/uart</Value>
       <Value>../hri</Value>
       <Value>../stdio_redirect</Value>

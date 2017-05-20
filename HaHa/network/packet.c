@@ -114,9 +114,9 @@ void send_ping_request(Friend *f) {
 	
 	//Add a corresponding message
 	Message *m = malloc(sizeof(Message));
-	//setSettingsByOpcode(m, PING_REQUEST);
-	generateFriendMessage(f, m, PING_REQUEST);
-	//memcpy(m->srcAddr, n->dest, 8);
+	setSettingsByOpcode(m, PING_REQUEST);
+	//generateFriendMessage(f, m, PING_REQUEST);
+	memcpy(m->srcAddr, n->dest, 8);
 	addToQueue(m);
 }
 
@@ -219,9 +219,7 @@ void send_help_request(Friend *f, LocalUser *self){
 	Network* n = malloc(sizeof(Network));
 	Packet* p = malloc(sizeof(Packet));
 	//printf("PACKET:");
-	//printBuff(f->networkaddr, 8, "%c");
 	//memcpy(n->dest, f->networkaddr, 8);
-	
 	n->dest = f->networkaddr;
 	printNetAddr(n->dest);
 	
@@ -231,10 +229,10 @@ void send_help_request(Friend *f, LocalUser *self){
 	sendPacket(p, n);
 	
 	//Add a corresponding message
-	Message *m = malloc(sizeof(Message));
-	setSettingsByOpcode(m, HELP_REQUEST);
-	memcpy(m->srcAddr, n->dest, 8);
-	addToQueue(m);
+	//Message *m = malloc(sizeof(Message));
+	//setSettingsByOpcode(m, HELP_REQUEST);
+	//memcpy(m->srcAddr, n->dest, 8);
+	//addToQueue(m);
 	free(n);
 	free(p);
 }
@@ -278,8 +276,12 @@ void help_request_handler(Packet *p) {
 	
 	if (IS_ACK(p->flags)) {
 		printd("FRIEND_REQ_HANDLER ACK\n");
+        
 		//Display to user that device was able to connect, pending response.
 		//Add message/event for a HELP_RESPONSE ACK (Only after user accepts) //TODO NOT HERE.
+        //
+        //DISPLAY USERNAME
+        //lcd(p->SRCFIRSTNAME);
 	} else {
 		printd("FRIEND_REQ_HANDLER\n");
 		//Check if friend
