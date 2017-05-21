@@ -7,6 +7,37 @@
  */
 
 #include "ui.h"
+#include "messagequeue/messagequeue.h"
+#include "neighbor/friendlist.h"
+
+void sendTestReq(Menu *menu){
+	addTestFriend("Brian", "Nichols","0013A200414F50EA");
+	addTestLocalUser("Kevin", "Lee", 0x1);
+	//send_ping_request(&friendList[0]);
+	
+	/* Testing Application code */
+	LocalUser self;
+	strcpy(self.friend.firstname, "Kevin");
+	strcpy(self.friend.lastname, "Lee");
+	//uint8_t* t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E9");
+	uint8_t* t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50EA");
+	memcpy(self.friend.networkaddr,t, 8);
+	self.friend.port = 0x0001;
+	
+	Friend f;
+	strcpy(f.firstname, "Brian");
+	strcpy(f.lastname, "Nichols");
+	//t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50EA");
+	t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E9");
+	memcpy(f.networkaddr, t, 8);
+	f.port = 0x0002;
+	
+	send_help_request(&f, &self);
+	//send_help_request_ack(Friend *f, LocalUser *self);
+	
+	bool accept = true;
+	//menu->current = menu->current->parent;
+}
 
 void ui_init(void) {
   MenuItem* temp;
@@ -40,7 +71,10 @@ void ui_init(void) {
   ui_item_init(root, "Activity (%dh)");
   ui_item_init(root, "Net (%dh)");
   ui_item_init(root, "Button (%dh)");
+  MenuItem* HelpReq = ui_item_init(root, "HELP REQ (%dh)");
+  HelpReq->onClick = sendTestReq;
   menu->current = menu->root->child;
+
 }
 
 void ui_move(MenuDirection direct) {

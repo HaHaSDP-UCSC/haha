@@ -11,7 +11,7 @@
 
 #include <stdbool.h>
 #include <stdio.h>
-
+int toglight; 
 /* Print preferences */
 /* Set to false if you want to turn it off. */
 #define COLORED    false /* Set this to false to disable terminal colors.  */

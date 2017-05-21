@@ -11,8 +11,10 @@
 #include "messagequeue/messagequeue.h"
 #include "basecomm.h"
 #include "neighbor/friendlist.h"
+#include "utils/hahaUtils.h"
 #include <stdlib.h>
 #include <string.h>
+#include "lcd/lcd.h"
 
 void opcodes_init() {
 	haha_packet_handlers[PING_REQUEST] = ping_request_handler;
@@ -282,12 +284,19 @@ void help_request_handler(Packet *p) {
         //
         //DISPLAY USERNAME
         //lcd(p->SRCFIRSTNAME);
+		lcd_set_line(0, "Help Req Recv");
 	} else {
 		printd("FRIEND_REQ_HANDLER\n");
 		//Check if friend
 		Friend *isFriend = checkForFriend(net);
 		if (isFriend != NULL) {
 			printe("Is a friend.\n");
+			lcd_set_line(0, "Help Req!");
+			char buff[16];
+			sprintf(buff, "%s", p->SRCFIRSTNAME);
+			lcd_set_line(1, buff);
+			lcd_update();
+			toglight =1;
 			//Send HELP_REQUEST_ACK
 			send_help_request_ack(isFriend, &localUsers[0]); //TODO not zero
 			//Display to user that friend is in need.
