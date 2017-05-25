@@ -140,7 +140,7 @@ void addTestFriend(char *fname, char*lname, char* addr){
     Friend *f = malloc(sizeof(Friend));
     strcpy(f->firstname, fname);
     strcpy(f->lastname, lname);
-    f->id = 1;
+    f->id = numFriends;
     uint8_t* t = (uint8_t *) convert_asciihex_to_byte(addr);
     memcpy(f->networkaddr,t, 8);
     printd("Adding test friend\n");

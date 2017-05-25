@@ -37,6 +37,8 @@ typedef struct {
 Friend friendList[FRIENDLISTSIZE];
 LocalUser localUsers[MAXLOCAL];
 
+uint8_t numFriends;
+
 //TODO @kevin @brian storage for FriendList.
 bool initFriendList();
 bool writeToFriendListStorage(); //TODO INTERNAL REMOVE

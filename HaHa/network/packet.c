@@ -8,6 +8,7 @@
 #include "packet.h"
 #include "network.h"
 #include "flags.h"
+#include "neighbor/responseflags.h"
 #include "messagequeue/messagequeue.h"
 #include "basecomm.h"
 #include "neighbor/friendlist.h"
@@ -26,9 +27,9 @@ void opcodes_init() {
 	//haha_packet_handlers[FIND_HOPS_RESPONSE] = find_hops_response_handler;
 	//haha_packet_handlers[FIND_NEIGHBORS_REQUEST] = find_neighbors_request_handler;
 	//haha_packet_handlers[FIND_NEIGHBORS_RESPONSE] = find_neighbors_response_handler;
-	//haha_packet_handlers[FRIEND_REQUEST] = friend_request_handler;
-	//haha_packet_handlers[FRIEND_RESPONSE] = friend_response_handler;
-	//haha_packet_handlers[UNFRIEND_REQUEST] = unfriend_request_handler;
+	haha_packet_handlers[FRIEND_REQUEST] = friend_request_handler;
+	haha_packet_handlers[FRIEND_RESPONSE] = friend_response_handler;
+	haha_packet_handlers[UNFRIEND_REQUEST] = unfriend_request_handler;
 }
 
 void printNetAddr(netaddr *t) {
@@ -278,19 +279,19 @@ void help_request_handler(Packet *p) {
 	
 	if (IS_ACK(p->flags)) {
 		printd("FRIEND_REQ_HANDLER ACK\n");
-        
+		
 		//Display to user that device was able to connect, pending response.
 		//Add message/event for a HELP_RESPONSE ACK (Only after user accepts) //TODO NOT HERE.
-        //
-        //DISPLAY USERNAME
-        //lcd(p->SRCFIRSTNAME);
+		//
+		//DISPLAY USERNAME
+		//lcd(p->SRCFIRSTNAME);
 		lcd_set_line(0, "Help Req Recv");
-	} else {
+		} else {
 		printd("FRIEND_REQ_HANDLER\n");
 		//Check if friend
 		Friend *isFriend = checkForFriend(net);
 		if (isFriend != NULL) {
-			printe("Is a friend.\n");
+			printd("Is a friend.\n");
 			lcd_set_line(0, "Help Req!");
 			char buff[16];
 			sprintf(buff, "%s", p->SRCFIRSTNAME);
@@ -304,7 +305,7 @@ void help_request_handler(Packet *p) {
 			//Turn on lights/siren
 			setAlarm(true);
 			
-		} else {
+			} else {
 			//Not a friend.
 			printe("Not a friend.\n");
 		}
@@ -384,7 +385,7 @@ void help_response_handler(Packet *p) {
 	if (IS_ACK(p->flags)) {
 		printd("HELP_RESP_HANDLER ACK\n");
 		//Do not need to do anything.
-	} else {
+		} else {
 		printd("HELP_RESP_HANDLER\n");
 		
 		Friend *isFriend = checkForFriend(net);
@@ -401,7 +402,7 @@ void help_response_handler(Packet *p) {
 			
 			//Send confirmation back.
 			send_help_response_ack(isFriend, self, accept); //Just a confirmation.
-		} else {
+			} else {
 			//Drop.
 		}
 	}
@@ -429,7 +430,7 @@ void send_friend_request(Friend *f, LocalUser *self) {
 	
 	//Add a corresponding message
 	Message *m = malloc(sizeof(Message));
-	setSettingsByOpcode(m, PING_REQUEST);
+	setSettingsByOpcode(m, FRIEND_REQUEST);
 	memcpy(m->srcAddr, n->dest, 8);
 	addToQueue(m);
 	free(n);
@@ -452,7 +453,7 @@ void send_friend_request_ack(Friend *f, LocalUser *self) {
 	
 	//Add a corresponding message
 	//Message *m = malloc(sizeof(Message));
-	//setSettingsByOpcode(m, PING_REQUEST);
+	//setSettingsByOpcode(m, FRIEND_REQUEST);
 	//memcpy(m->srcAddr, n->dest, 8);
 	//addToQueue(m);
 	free(n);
@@ -469,19 +470,97 @@ void friend_request_handler(Packet *p) {
 	if (IS_ACK(p->flags)) {
 		printd("FRIEND_REQ_HANDLER ACK\n");
 		//Check if already friend, and confirmed.
-		
-		//Add message/event for a FRIEND_RESPONSE.
-	} else {
+		Friend *isFriend = checkForFriend(net);
+		if (isFriend != NULL) {
+			printd("Is a friend.\n");
+			//Add message/event for a FRIEND_RESPONSE.
+			//Add a corresponding message
+			Message *m = malloc(sizeof(Message));
+			setSettingsByOpcode(m, FRIEND_REQUEST);
+			memcpy(m->srcAddr, net->dest, 8);
+			addToQueue(m);
+			} else {
+			printe("Not a friend but received this somehow.\n");
+		}
+		} else {
 		printd("FRIEND_REQ_HANDLER\n");
 		//Check if already friend. If already friend, drop packet.
+		Friend *isFriend = checkForFriend(net);
+		if (isFriend != NULL) {
+			//Already a friend.
+			return;
+		}
+		
+		Friend f;
+		f.id = numFriends; //TODO fix
+		f.port = p->SRCUID;
+		f.priority = numFriends; //TODO fix
+		CLR_RESACCEPT(f.responseflag);
+		strcpy(f.firstname, p->SRCFIRSTNAME);
+		strcpy(f.lastname, p->SRCLASTNAME);
+		strcpy(f.networkaddr, net->src); //TODO @brian is it src or dest?
+		f.lastresponse = 0; //TODO set to current time
+		
+		LocalUser *self = &localUsers[0]; //TODO Set this to something scalable.
+		
+		addFriend(&f); //Add a friend that is not registered yet.
 		
 		//Send ACK back.
-		
-		//Message user that someone wants to be a friend.
-		
-		//Add message/event for a FRIEND_RESPONSE ACK (Only after user accepts) //TODO NOT HERE.
-		//If they accept, send a packet to them.
+		send_friend_request_ack(&f, self);
+		/**
+		Message user that someone wants to be a friend.
+		TODO @brian@august LCD Prompt	//Add message/event for a FRIEND_RESPONSE ACK (Only after user accepts) //TODO NOT HERE.
+		If they accept, send a packet to them.
+		*/
 	}
+}
+
+void send_friend_response(Friend *f, LocalUser *self, bool accept) {
+	printv("Send Friend Response\n");
+	Network* n = malloc(sizeof(Network));
+	Packet* p = malloc(sizeof(Packet));
+	
+	n->dest = f->networkaddr;
+	printNetAddr(n->dest);
+	
+	p->opcode = FRIEND_RESPONSE;
+	CLR_FLAGS(p->flags);
+	if (accept)
+		SET_ACCEPT(p->flags);
+	copy_friend_to_packet(f, self, p);
+	sendPacket(p, n);
+	
+	//Add a corresponding message
+	Message *m = malloc(sizeof(Message));
+	setSettingsByOpcode(m, FRIEND_REQUEST);
+	memcpy(m->srcAddr, n->dest, 8);
+	addToQueue(m);
+	free(n);
+	free(p);
+}
+
+void send_friend_response_ack(Friend *f, LocalUser *self, bool accept) {
+	printv("Send Friend Response ACK\n");
+	Network* n = malloc(sizeof(Network));
+	Packet* p = malloc(sizeof(Packet));
+	
+	n->dest = f->networkaddr;
+	printNetAddr(n->dest);
+	
+	p->opcode = FRIEND_RESPONSE;
+	CLR_FLAGS(p->flags);
+	if (accept)
+		SET_ACCEPT(p->flags);
+	copy_friend_to_packet(f, self, p);
+	sendPacket(p, n);
+	
+	//Add a corresponding message
+	//Message *m = malloc(sizeof(Message));
+	//setSettingsByOpcode(m, FRIEND_REQUEST);
+	//memcpy(m->srcAddr, n->dest, 8);
+	//addToQueue(m);
+	free(n);
+	free(p);
 }
 
 void friend_response_handler(Packet *p) {
@@ -495,6 +574,12 @@ void friend_response_handler(Packet *p) {
 		
 		//Confirm the friend.
 	}
+}
+
+void send_unfriend_request(Friend *f, LocalUser *self) {
+}
+
+void send_unfriend_request_ack(Friend *f, LocalUser *self) {
 }
 
 void unfriend_request_handler(Packet *p) {

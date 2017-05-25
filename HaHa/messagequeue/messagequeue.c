@@ -127,8 +127,8 @@ bool setSettingsByOpcode(Message *mes, opcode opcode) {
 bool generateFriendMessage(Friend *friend, Message *mes, opcode op) {
 	//mes = malloc(sizeof(Message));
 	mes->id = friend->id;
-	//strcpy(mes->srcAddr, friend->networkaddr);
-    mes->srcAddr = friend->networkaddr;
+	strcpy(mes->srcAddr, friend->networkaddr);
+    //mes->srcAddr = friend->networkaddr;
 	mes->srcid = friend->port;
 	if (setSettingsByOpcode(mes, op)) {
 		printe("Message has invalid opcode.\n");
