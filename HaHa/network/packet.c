@@ -430,7 +430,7 @@ void send_friend_request(Friend *f, LocalUser *self) {
 	
 	//Add a corresponding message
 	Message *m = malloc(sizeof(Message));
-	setSettingsByOpcode(m, FRIEND_REQUEST);
+	setSettingsByOpcode(m, p->opcode);
 	memcpy(m->srcAddr, n->dest, 8);
 	addToQueue(m);
 	free(n);
@@ -453,7 +453,7 @@ void send_friend_request_ack(Friend *f, LocalUser *self) {
 	
 	//Add a corresponding message
 	//Message *m = malloc(sizeof(Message));
-	//setSettingsByOpcode(m, FRIEND_REQUEST);
+	//setSettingsByOpcode(m, p->opcode);
 	//memcpy(m->srcAddr, n->dest, 8);
 	//addToQueue(m);
 	free(n);
@@ -473,10 +473,10 @@ void friend_request_handler(Packet *p) {
 		Friend *isFriend = checkForFriend(net);
 		if (isFriend != NULL) {
 			printd("Is a friend.\n");
+			
 			//Add message/event for a FRIEND_RESPONSE.
-			//Add a corresponding message
 			Message *m = malloc(sizeof(Message));
-			setSettingsByOpcode(m, FRIEND_REQUEST);
+			setSettingsByOpcode(m, FRIEND_RESPONSE);
 			memcpy(m->srcAddr, net->dest, 8);
 			addToQueue(m);
 			} else {
@@ -532,7 +532,7 @@ void send_friend_response(Friend *f, LocalUser *self, bool accept) {
 	
 	//Add a corresponding message
 	Message *m = malloc(sizeof(Message));
-	setSettingsByOpcode(m, FRIEND_REQUEST);
+	setSettingsByOpcode(m, p->opcode);
 	memcpy(m->srcAddr, n->dest, 8);
 	addToQueue(m);
 	free(n);
@@ -556,7 +556,7 @@ void send_friend_response_ack(Friend *f, LocalUser *self, bool accept) {
 	
 	//Add a corresponding message
 	//Message *m = malloc(sizeof(Message));
-	//setSettingsByOpcode(m, FRIEND_REQUEST);
+	//setSettingsByOpcode(m, p->opcode);
 	//memcpy(m->srcAddr, n->dest, 8);
 	//addToQueue(m);
 	free(n);
@@ -565,21 +565,77 @@ void send_friend_response_ack(Friend *f, LocalUser *self, bool accept) {
 
 void friend_response_handler(Packet *p) {
 	printv("Unfriend Response Handler\n");
+	Network *net = NULL;
+	if (!getNetInfo(p, net)) {
+		printe("Unable to get network info.\n");
+		return;
+	}
+	
 	if (IS_ACK(p->flags)) {
 		printv("FRIEND_RESP_HANDLER ACK\n");
 		//Do not need to do anything. Just confirms that it worked.
 		} else {
 		printv("FRIEND_RESP_HANDLER\n");
-		//Check if in friend list
-		
+		//Check if already a friend
+		Friend *f = checkForFriend(net);
+		if (f != NULL) {
+			//Is sorta friend.
+			SET_RESACCEPT(f->responseflag); //Now a full friend.
+		}
 		//Confirm the friend.
+		LocalUser *self = &localUsers[0]; //TODO Set this to something scalable.
+		send_friend_response_ack(f, self, IS_ACCEPT(p->flags));
 	}
 }
 
 void send_unfriend_request(Friend *f, LocalUser *self) {
+	//Send the request
+	printv("Send Unfriend Request\n");
+	Network* n = malloc(sizeof(Network));
+	Packet* p = malloc(sizeof(Packet));
+	
+	n->dest = f->networkaddr;
+	printNetAddr(n->dest);
+	
+	p->opcode = UNFRIEND_REQUEST;
+	CLR_FLAGS(p->flags);
+	copy_friend_to_packet(f, self, p);
+	sendPacket(p, n);
+	
+	//Unfriend friend. //TODO @brian @august put this in the callback menu function.
+	removeFriend(f);
+	
+	//Add a corresponding message
+	Message *m = malloc(sizeof(Message));
+	setSettingsByOpcode(m, p->opcode);
+	memcpy(m->srcAddr, n->dest, 8);
+	addToQueue(m);
+	free(n);
+	free(p);
 }
 
 void send_unfriend_request_ack(Friend *f, LocalUser *self) {
+	//Send the request
+	printv("Send Unfriend Request ACK\n");
+	Network* n = malloc(sizeof(Network));
+	Packet* p = malloc(sizeof(Packet));
+	
+	n->dest = f->networkaddr;
+	printNetAddr(n->dest);
+	
+	p->opcode = UNFRIEND_REQUEST;
+	CLR_FLAGS(p->flags);
+	SET_ACK(p->flags);
+	copy_friend_to_packet(f, self, p);
+	sendPacket(p, n);
+	
+	//Add a corresponding message
+	//Message *m = malloc(sizeof(Message));
+	//setSettingsByOpcode(m, p->opcode);
+	//memcpy(m->srcAddr, n->dest, 8);
+	//addToQueue(m);
+	free(n);
+	free(p);
 }
 
 void unfriend_request_handler(Packet *p) {
@@ -596,10 +652,13 @@ void unfriend_request_handler(Packet *p) {
 		printd("UNFRIEND_REQ_HANDLER\n");
 		//Check if already a friend
 		Friend *f = checkForFriend(net);
-		//Mark friend for deletion
-		removeFriend(f);
-		//Message user that someone has unfriended them
+		//Message user that someone has unfriended them LCD @brian @august
 		
 		//Send ACK packet back.
+		LocalUser *self = &localUsers[0]; //TODO Set this to something scalable.
+		send_unfriend_request_ack(f, self);
+		
+		//Mark friend for deletion
+		removeFriend(f);
 	}
 }
