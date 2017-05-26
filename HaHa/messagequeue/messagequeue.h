@@ -25,8 +25,8 @@ typedef struct Message {
 	bool permanent; //If permanent, does not check expiration date.
 	bool broadcast; //If broadcast, does not check network address.
 	uint32_t expiration; //Expiration time.
-	//char srcAddr[MAXNETADDR]; //Source Network Address.
-    char* srcAddr;
+	char srcAddr[MAXNETADDR]; //Source Network Address.
+    //char* srcAddr;
 	uint16_t srcid;
 	uint8_t numUses; //How many times can be used before it expires (BRDCST)
 } Message;

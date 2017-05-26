@@ -37,37 +37,48 @@ int main(void)
 	/* Initializes MCU, drivers and middleware */
 	atmel_start_init();
 	init_sys();
-	
+	toglight = 0;
+	int lighton = 0;
 	//Set PWM
 	//pwm_sync_disable(&PWM_0);
 	//pwm_sync_set_parameters(&PWM_0, 4, 50);
 	//pwm_sync_enable(&PWM_0);
 	
 	//Set Light Toggle
-	//gpio_set_pin_level(TOGGLE_LIGHT, true);
+	gpio_set_pin_level(TOGGLE_LIGHT, false);
 	//
 	//
-	//lcd_init();
-	//lcd_clear();
-	//ui_init();
-	//
-	//// Start screen
-	//lcd_set_line(0, "JACK BASKIN ENGR");
-	//lcd_set_line(1, "Home  Assistance");
-	//lcd_set_line(2, "   Help Alert");
-	//lcd_set_line(3, " Button Project");
-	//lcd_update();
-	//
-	//while(1) {
-		//delay(100);
-		//gpio_toggle_pin_level(TOGGLE_LIGHT);
-		//ui_update();
-	//}
-	
-	//xbee_send(0x0013a200414F50EA, "Test Data", 9);
+	lcd_init();
+	lcd_clear();
+	ui_init();
 	uart_register_netdev_callback(xbee_recv);
 	SET_SEND_NETDEV(true);
 	xbee_register_callback(app_packet_handler, FRAME_RX);
+	//
+	// Start screen
+	lcd_set_line(0, "JACK BASKIN ENGR");
+	lcd_set_line(1, "Home  Assistance");
+	lcd_set_line(2, "   Help Alert");
+	lcd_set_line(3, " Button Project");
+	lcd_update();
+	//max 500 hz for hearing aids
+	int count1 = 0;
+	while(1) {
+		//delay(100);
+		count1++;
+		uart_read();
+		if(count1 % 5000*100 == 0 ){
+			ui_update();
+			if(toglight){
+				if(lighton++ % 30 == 0)
+					toglight = false;
+				gpio_toggle_pin_level(TOGGLE_LIGHT);
+			}
+		}
+	}
+	
+	//xbee_send(0x0013a200414F50EA, "Test Data", 9);
+	
 	//delay(5000);
 	//cmd_AT_get("SH");
 	//delay(500);
@@ -123,28 +134,3 @@ int main(void)
 	return 1;
 }
 
-void sendTestReq(){
-    addTestFriend("Brian", "Nichols","0013A200414F50EA");
-    addTestLocalUser("Kevin", "Lee", 0x1);
-    //send_ping_request(&friendList[0]);
-    
-    /* Testing Application code */
-    LocalUser self;
-    strcpy(self.friend.firstname, "Kevin");
-    strcpy(self.friend.lastname, "Lee");
-    uint8_t* t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E9");
-    memcpy(self.friend.networkaddr,t, 8);
-    self.friend.port = 0x0001;
-    
-    Friend f;
-    strcpy(f.firstname, "Brian");
-    strcpy(f.lastname, "Nichols");
-    t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50EA");
-    memcpy(f.networkaddr, t, 8);
-    f.port = 0x0002;
-    
-    send_help_request(&f, &self);
-    //send_help_request_ack(Friend *f, LocalUser *self);
-    
-    bool accept = true;
-}

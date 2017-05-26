@@ -743,6 +743,9 @@
     <Compile Include="neighbor\neighborlist.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="neighbor\responseflags.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="network\basecomm.c">
       <SubType>compile</SubType>
     </Compile>
