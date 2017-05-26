@@ -108,11 +108,82 @@ void* ui_onclick_userinfo(Menu* menu) {
 	if(streq(menu->current->value, "__USERPORT__")) {
 		
 	} else if(streq(menu->current->value, "__USERNAME__")) {
-	
+		char name[1024];
+		bzero(&name, sizeof(name));
+		ui_input_init(menu, "Edit Name:", "abcdefg", &name);
+		lcd_set_line(0, "");
+		lcd_set_line_overflow(1, name);
 	} else if(streq(menu->current->value, "__USERADDR__")) {
 	
 	} else if(streq(menu->current->value, "__USERCALL__")) {
 
+	}
+}
+
+void ui_input_init(Menu* menu, char* value, char* letters, char** output) {
+	MenuItem* inputRoot = ui_item_init(menu->current, value);
+	inputRoot->onView = ui_input_onview;
+	char letterValue[2];
+	bzero(&letterValue, sizeof(letterValue));
+	letterValue[0] = UI_INPUT_ENTER;
+	MenuItem* inputEnter = ui_item_init(inputRoot, letterValue);
+	inputEnter->onView = ui_input_onview;
+	inputEnter->onClick = ui_input_onclick;
+	for(int i = 0; i < strlen(letters); i++) {
+		letterValue[0] = letters[i];
+		MenuItem* letter = ui_item_init(inputRoot, letterValue);
+		letter->onView = ui_input_onview;
+		letter->onClick = ui_input_onclick;
+	}
+	menu->inputBuffer = malloc(1024 * sizeof(char));
+	menu->current = inputEnter;
+}
+
+void ui_input_save(Menu* menu) {
+	strcpy(menu->outputBuffer, menu->inputBuffer);
+	ui_input_destroy(menu);
+}
+
+void ui_input_delete(Menu* menu) {
+	char* inputBuffer = menu->inputBuffer;
+	if(strlen(inputBuffer) > 0) {
+		inputBuffer[strlen(inputBuffer)] = NULL;
+		menu_move(menu, MENU_RIGHT);
+	} else ui_input_destroy(menu);
+}
+
+void ui_input_destroy(Menu* menu) {
+	 MenuItem* inputRoot = menu->current;
+	 free(menu->inputBuffer);
+	 menu->inputBuffer = NULL;
+	 menu->outputBuffer = NULL;
+	 menu_move(menu, MENU_LEFT);
+	 menu_item_destroy(inputRoot);
+}
+
+void* ui_input_onview(Menu* menu) {
+	char* currentValue = menu->current->value;
+	if(strlen(currentValue) == 1) {
+		char* inputBuffer = menu->inputBuffer;
+		int inputLen = strlen(inputBuffer);
+		inputBuffer[inputLen] = currentValue[0];
+		lcd_set_line(0, menu->current->parent->value);
+		lcd_set_line_overflow(1, inputBuffer);
+		inputBuffer[inputLen] = NULL;
+	} else {
+		// Current is input root
+		ui_input_delete(menu);
+	}
+}
+
+void* ui_input_onclick(Menu* menu) {
+	if(menu->current->value[0] != UI_INPUT_ENTER) {
+		menu->inputBuffer[strlen(menu->inputBuffer)] = menu->current->value[0];
+		menu->current = menu->current->parent->child;
+	} else {
+		// Current is enter key
+		menu->current = menu->current->parent;
+		ui_input_save(menu);
 	}
 }
 

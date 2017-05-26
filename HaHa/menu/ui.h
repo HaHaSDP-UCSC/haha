@@ -31,4 +31,11 @@ void* ui_item_onclick_default(Menu* menu);
 void* ui_onview_userinfo(Menu* menu);
 void* ui_onclick_userinfo(Menu* menu);
 
+void ui_input_init(Menu* menu, char* value, char* letters, char** output);
+void ui_input_save(Menu* menu);
+void ui_input_delete(Menu* menu);
+void ui_input_destroy(Menu* menu);
+void* ui_input_onview(Menu* menu);
+void* ui_input_onclick(Menu* menu);
+
 #endif // _HA_INIT_
