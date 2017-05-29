@@ -22,9 +22,9 @@ typedef uint8_t flags;
 #define CLR_CANCEL(val) val &=~ FLAG_CANCEL
 #define CLR_IMMEDIATE(val) val &=~ FLAG_IMMEDIATE
 
-#define IS_ACK(val) val & FLAG_ACK
-#define IS_ACCEPT(val) val & FLAG_ACCEPT
-#define IS_CANCEL(val) val & FLAG_CANCEL
-#define IS_IMMEDIATE(val) val & FLAG_IMMEDIATE
+#define IS_ACK(val) (val & FLAG_ACK)
+#define IS_ACCEPT(val) (val & FLAG_ACCEPT)
+#define IS_CANCEL(val) (val & FLAG_CANCEL)
+#define IS_IMMEDIATE(val) (val & FLAG_IMMEDIATE)
 
 #endif /* FLAGS_H_ */

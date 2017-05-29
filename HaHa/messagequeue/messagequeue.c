@@ -8,14 +8,15 @@
 #include "messagequeue.h"
 #include <string.h>
 
-bool _compactQueue(Message * q);
+bool _compactQueue();
 uint8_t m_lastID;
 
 /************************************************************************/
 /* INTERNAL METHODS                                                     */
 /************************************************************************/
 
-Message messageQueue[MAXQUEUESIZE];
+//Message messageQueue[MAXQUEUESIZE];
+Message *messageQueue[MAXQUEUESIZE];
 
 /* Helper */
 /* Get Default Message Settings for each Opcode */
@@ -182,7 +183,7 @@ bool checkPermanentMessages() {
 	return false; //TODO implement
 }
 
-bool _compactQueue(Message * q){
+bool _compactQueue(){
 	//Compact down all entries of message queue
 	//make change ids of entries to be increasing
 	//update m_lastID to be next available id (also size of mqueue)
@@ -215,9 +216,9 @@ bool initMessageQueue() {
 */
 bool addToQueue(Message* mes) {
 	if(m_lastID == MAXQUEUESIZE - 1)
-	_compactQueue(messageQueue);
+	_compactQueue();
 	//mes->id = m_lastID; //TODO @brian@kevin, ID is used pointing to a friend.
-	messageQueue[m_lastID] = *mes; //TODO @brian@kevin does this copy the entire struct?
+	messageQueue[m_lastID] = mes; //TODO @brian@kevin does this copy the entire struct?
 	
 	printf("ADDED MESSAGE TO Q:%d-%d\n", m_lastID, mes->opcode);
     m_lastID = (m_lastID + 1) % MAXQUEUESIZE; //failsafe
@@ -232,8 +233,9 @@ bool addToQueue(Message* mes) {
 * @return     true if successful, false otherwise.
 */
 bool removeFromQueue(int queuenumber) {
-    printd("changing queue#%d opcode: %d->%d", queuenumber, messageQueue[queuenumber].opcode, 0 );
-	messageQueue[queuenumber].opcode = 0; //Set to invalid opcode.
+    printd("changing queue#%d opcode: %d->%d", queuenumber, messageQueue[queuenumber]->opcode, 0 );
+	messageQueue[queuenumber]->opcode = 0; //Set to invalid opcode.
+	free(messageQueue[queuenumber]); //TODO if we are using queue pointers
 	return false; //TODO implement
 }
 
@@ -279,10 +281,10 @@ int checkQueue(opcode op, flags f, Network *net, Event eventList[]) {
 	
 	int j = 0;
 	for (int i = 0; i < MAXQUEUESIZE; i++) {
-		if (messageQueue[i].opcode == op) {
+		if (messageQueue[i]->opcode == op) {
 			numOpcodesPresent++;
-			eventList[j].srcid = messageQueue[i].srcid;
-			strcpy(eventList[j].srcAddr, messageQueue[i].srcAddr); //TODO check bounds
+			eventList[j].srcid = messageQueue[i]->srcid;
+			strcpy(eventList[j].srcAddr, messageQueue[i]->srcAddr); //TODO check bounds
             eventList[j].qnum = i;
 			j++;
 		}
@@ -297,7 +299,7 @@ int checkQueue(opcode op, flags f, Network *net, Event eventList[]) {
 */
 bool flushOldMessages() {
 	for (int i = 0; i < MAXQUEUESIZE; i++) {
-		if (messageQueue[i].expiration >= queueTime) {
+		if (messageQueue[i]->expiration >= queueTime) {
 			removeFromQueue(i);
 		}
 	}

@@ -24,6 +24,7 @@ typedef struct Neighbor {
 } Neighbor;
 
 Neighbor neighborList[NEIGHBORLISTSIZE]; //TODO perhaps make this hidden in c file.
+int numNeighbors;
 
 //TODO @kevin @brian storage for NeighborList.
 bool initNeighborList();
@@ -31,8 +32,8 @@ bool writeToNeighborListStorage(); //TODO internal, may not be necessary.
 bool readFromNeighborListStorage();  //TODO internal, may not be necessary.
 
 bool updateNeighborList(); /* Updates the list. */
-bool addNeighbor(); //Add neighbor if they respond to neighbor request.
-bool removeNeighbor(); //Remove based on last response.
-bool checkForNeighbor(); //Checks for specified neighbor.
+bool addNeighbor(Packet *p, Network *net, int currentTime); //Add neighbor if they respond to neighbor request.
+bool removeNeighbor(int neighborNumber); //Remove Neighbor
+bool checkForNeighbor(Network *net); //Checks for specified neighbor.
 
 #endif /* NEIGHBORLIST_H_ */
