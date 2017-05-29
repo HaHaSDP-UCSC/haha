@@ -16,11 +16,14 @@
 #include <string.h>
 #include "lcd/lcd.h"
 
+#define DEFAULT_BCAST_RAD 3
+#define BROADCAST_ADDRESS() (uint8_t *) convert_asciihex_to_byte("000000000000FFFF");
+
 void opcodes_init() {
 	haha_packet_handlers[PING_REQUEST] = ping_request_handler;
 	haha_packet_handlers[HELP_REQUEST] = help_request_handler;
 	haha_packet_handlers[HELP_RESPONSE] = help_response_handler;
-	//haha_packet_handlers[HELP_FROM_ANYONE_REQUEST] = help_request_anyone_handler;
+	haha_packet_handlers[HELP_FROM_ANYONE_REQUEST] = help_request_anyone_handler;
 	//haha_packet_handlers[HELP_FROM_ANYONE_RESPONSE] = help_response_anyone_handler;
 	//haha_packet_handlers[FIND_HOPS_REQUEST] = find_hops_request_handler;
 	//haha_packet_handlers[FIND_HOPS_RESPONSE] = find_hops_response_handler;
@@ -408,7 +411,75 @@ void help_response_handler(Packet *p) {
 	}
 }
 
-void help_request_anyone_handler(Packet *p);
+void send_help_request_anyone(LocalUser *self){
+	printv("Send Help Request\n");
+	Network* n = malloc(sizeof(Network));
+	Packet* p = malloc(sizeof(Packet));
+	//printf("PACKET:");
+	//memcpy(n->dest, f->networkaddr, 8);
+	n->dest = BROADCAST_ADDRESS();
+	printNetAddr(n->dest);
+	
+	p->opcode = HELP_FROM_ANYONE_REQUEST;
+	CLR_FLAGS(p->flags);
+	//copy_friend_to_packet(f, self, p);
+	sendPacket(p, n);
+	
+	//Add a corresponding message
+	Message *m = malloc(sizeof(Message));
+	setSettingsByOpcode(m, p->opcode);
+	memcpy(m->srcAddr, n->dest, 8);
+	addToQueue(m);
+	free(n);
+	free(p);
+}
+
+//void send_help_request_anyone_ack(LocalUser *self, uint8_t radius) {
+	//printv("Send Help Request ACK\n");
+	//Network* n = malloc(sizeof(Network));
+	//Packet* p = malloc(sizeof(Packet));
+	////printf("PACKET:");
+	////printBuff(f->networkaddr, 8, "%c");
+	////memcpy(n->dest, f->networkaddr, 8);
+	//
+	//n->src = self->friend.networkaddr;
+	//n->dest = f->networkaddr;
+	//printNetAddr(n->dest);
+	//
+	//p->opcode = HELP_FROM_ANYONE_REQUEST;
+	//CLR_FLAGS(p->flags);
+	//SET_ACK(p->flags);
+	//copy_friend_to_packet(f, self, p);
+	//sendPacket(p, n);
+	//
+	////Add a corresponding message
+	///**
+	//Message *m = malloc(sizeof(Message));
+	//setSettingsByOpcode(m, HELP_REQUEST_ACK);
+	//memcpy(m->srcAddr, n->dest, 8);
+	//addToQueue(m);
+	//*/
+	//free(n);
+	//free(p);
+//}
+
+void help_request_anyone_handler(Packet *p){
+	printv("Help Request ANYONE Handler\n");
+	Network *net = NULL;
+	if (!getNetInfo(p, net)) {
+    	printe("Unable to get network info.\n");
+    	return;
+	}
+	
+	if (IS_ACK(p->flags)) {
+    	printd("FRIEND_REQ_ANYONE_HANLDER ACK\n");
+        	//send_help_request_anyone_ack(&localUsers[0], DEFAULT_BCAST_RAD); //TODO not zero
+        	//Display to user that friend is in need.
+        	
+        	//Turn on lights/siren
+        	setAlarm(true);
+    	}
+}
 void help_response_anyone_handler(Packet *p);
 void find_hops_request_handler(Packet *p);
 void find_hops_response_handler(Packet *p);
@@ -475,14 +546,36 @@ void friend_request_handler(Packet *p) {
 	} else {
 		printd("FRIEND_REQ_HANDLER\n");
 		//Check if already friend. If already friend, drop packet.
+        Friend *isFriend = checkForFriend(net);
+        if(isFriend){
+            free(p);
+            free(net);
+            return;
+        }                    
 		
 		//Send ACK back.
+        send_friend_request_ack(isFriend, &localUsers[0]);
 		
 		//Message user that someone wants to be a friend.
+        lcd_clear();
+        lcd_set_line(0, "Friend Req");
+        char buff[16];
+        sprintf(buff, "%s", p->SRCFIRSTNAME);
+        lcd_set_line(1, buff);
+        lcd_update();
 		
 		//Add message/event for a FRIEND_RESPONSE ACK (Only after user accepts) //TODO NOT HERE.
 		//If they accept, send a packet to them.
+        Message *m = malloc(sizeof(Message));
+        setSettingsByOpcode(m, FRIEND_REQUEST);
+        strcpy(m->srcid, p->SRCUID);
+        strcpy(m->srcAddr, p->SRCHOMEADDR);
+        memcpy(m->srcAddr, net->dest, 8);
+        addToQueue(m);
 	}
+    
+    free(p);
+    free(net);
 }
 
 void friend_response_handler(Packet *p) {

@@ -26,6 +26,7 @@ bool init_network(); //TODO @brian@kevin Unknown needed params
 int convertFromDataToPacket(Packet *p, unsigned char *data, int datalen);
 
 bool sendPacket(Packet *p, Network *net);
+bool sendPacketRadius(Packet *p, Network *net, uint8_t radius);
 bool recvPacket(Packet *p, Network *net);
 
 #endif
