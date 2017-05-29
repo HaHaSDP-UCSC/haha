@@ -55,7 +55,9 @@ uint8_t xbee_getOwnNet();
  *
  * @return     { returns 0 if sucessful }
  */
-uint8_t xbee_send_(uint64_t dst, char* data, uint8_t len);
+uint8_t xbee_send(uint64_t dst, char* data, uint8_t len);
+
+uint8_t xbee_send_radius(uint64_t dst, char* data, uint8_t len, uint8_t radius);
 
 /**
  * @brief      { Send a packet to another XBee node }
@@ -68,7 +70,11 @@ uint8_t xbee_send_(uint64_t dst, char* data, uint8_t len);
  */
 uint8_t xbee_send_hex(char* dst, char* data, uint8_t len);
 
+uint8_t xbee_send_hex_radius(char* dst, char* data, uint8_t len, uint8_t radius);
+
 uint8_t xbee_send_byte(char* dst, char* data, uint8_t len);
+
+uint8_t xbee_send_byte_radius(char* dst, char* data, uint8_t len, uint8_t radius);
 
 /**
  * @brief      { Receives UART data and parses into frame packets}
