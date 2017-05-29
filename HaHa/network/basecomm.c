@@ -65,23 +65,24 @@ bool sendPacket(Packet *p, Network *netdest) {
 /**
  * Checks for a packet on the network layer. This then processes the packet.
  */
-bool recvPacket(Packet *p, Network *netsrc) {
-	
-	//TODO @brian hook xbee_recvPacket into function.
-	
-	/**
-	//char buffer[BUFFERSIZE];
-	//int receivelen;
-	if ((receivelen = _recv_packet(buffer, BUFFERSIZE)) <= 0) {
-		//printe("No packet to receive.\n");
-		return false;
-	}
-	convertFromDataToPacket(p, (unsigned char *) buffer, receivelen);
-	return true;
-	*/
-	//TODO @brian send to message queue.
-	return false;
-}
+//This is done with app_packet_handler
+//bool recvPacket(Packet *p, Network *netsrc) {
+	//
+	////TODO @brian hook xbee_recvPacket into function.
+	//
+	///**
+	////char buffer[BUFFERSIZE];
+	////int receivelen;
+	//if ((receivelen = _recv_packet(buffer, BUFFERSIZE)) <= 0) {
+		////printe("No packet to receive.\n");
+		//return false;
+	//}
+	//convertFromDataToPacket(p, (unsigned char *) buffer, receivelen);
+	//return true;
+	//*/
+	////TODO @brian send to message queue.
+	//return false;
+//}
 
 /**
  * Creates a packet from a standardized structure to be sent.
