@@ -305,3 +305,31 @@ bool flushOldMessages() {
 	}
 	return false; //TODO verify this works.
 }
+
+/**
+* @brief      Test program to print out entire message queue.
+*/
+void printMessageQueue() {
+	int numInQ = 0;
+	printv("Printing Message Queue\n");
+	for (int i = 0; i < MAXQUEUESIZE; i++) {
+		if (messageQueue[i] == NULL) {
+			continue;
+		}
+		printd("QNum: %d\nOPCODE: %d\nNUMUSES: %d\nBDCST: %d\n", 
+		i,
+		messageQueue[i]->opcode, 
+		messageQueue[i]->numUses, 
+		messageQueue[i]->broadcast);
+		printd("ID: %d\nPERM: %d\nSRCIDPORT: %d\n",
+		messageQueue[i]->id,
+		messageQueue[i]->permanent,
+		messageQueue[i]->srcid
+		);
+		printd("SRCADDR:");
+		printBuff(messageQueue[i]->srcAddr, 8, "%x");
+		printd("\n\n");
+		numInQ++;
+	}
+	printv("Number of messages in MQ: %d\n", numInQ);
+}

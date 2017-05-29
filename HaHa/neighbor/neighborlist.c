@@ -68,15 +68,14 @@ bool updateNeighborList() {
  * @return     true if successful, false otherwise.
  */
 bool addNeighbor(Packet *p, Network *net, int currentTime) {
-	//TODO needs more parameters
-	neighborList[numNeighbors]->hops = net->ttl;
-	neighborList[numNeighbors]->lastresponse = currentTime;
-	neighborList[numNeighbors]->neighborFlags = 0; //TODO fix
-	strcpy(neighborList[numNeighbors]->networkaddr, net->src); //TODO @brian is this correct src? want to send to other station.
+	neighborList[numNeighbors].hops = net->ttl;
+	neighborList[numNeighbors].lastresponse = currentTime;
+	neighborList[numNeighbors].neighborFlags = 0; //TODO fix
+	memcpy(neighborList[numNeighbors].networkaddr, net->src, MAXNETADDR); //TODO @brian is this correct src? want to send to other station.
 	//neighborList->port = p->SRCUID;
-	neighborList[numNeighbors]->port = p->ORIGINUID;
-	strcpy(neighborList[numNeighbors]->firstname, p->SRCFIRSTNAME);
-	strcpy(neighborList[numNeighbors]->lastname, p->SRCLASTNAME);
+	neighborList[numNeighbors].port = p->ORIGINUID;
+	strcpy(neighborList[numNeighbors].firstname, p->SRCFIRSTNAME);
+	strcpy(neighborList[numNeighbors].lastname, p->SRCLASTNAME);
 	numNeighbors++;
 	numNeighbors = numNeighbors % NEIGHBORLISTSIZE; //Overwrite pre-existing neighbors. Failsafe //TODO do better
 	return true;
@@ -90,7 +89,7 @@ bool addNeighbor(Packet *p, Network *net, int currentTime) {
  * @return     true if successful, false otherwise.
  */
 bool removeNeighbor(int neighborNumber) {
-	neighborList[neighborNumber].networkaddr = NULL;
+	bzero(neighborList[neighborNumber].networkaddr, MAXNETADDR);
 	//Reshuffle neighbors up.
 	for (int j = neighborNumber; j < FRIENDLISTSIZE-neighborNumber-1; j++) {
 		neighborList[j] = neighborList[j+1];

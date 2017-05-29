@@ -17,6 +17,8 @@
 
 typedef struct Neighbor {
 	unsigned char networkaddr[MAXNETADDR]; //Network Address.
+	char firstname[MAXFIRSTNAME];
+	char lastname[MAXFIRSTNAME];
 	uint16_t port; //Network port.
 	int lastresponse; //32-bit offset from boot timer.
 	ttl hops; //The time to live before a packet is dropped.

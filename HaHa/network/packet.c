@@ -25,8 +25,8 @@ void opcodes_init() {
 	//haha_packet_handlers[HELP_FROM_ANYONE_RESPONSE] = help_response_anyone_handler;
 	//haha_packet_handlers[FIND_HOPS_REQUEST] = find_hops_request_handler;
 	//haha_packet_handlers[FIND_HOPS_RESPONSE] = find_hops_response_handler;
-	//haha_packet_handlers[FIND_NEIGHBORS_REQUEST] = find_neighbors_request_handler;
-	//haha_packet_handlers[FIND_NEIGHBORS_RESPONSE] = find_neighbors_response_handler;
+	haha_packet_handlers[FIND_NEIGHBORS_REQUEST] = find_neighbors_request_handler;
+	haha_packet_handlers[FIND_NEIGHBORS_RESPONSE] = find_neighbors_response_handler;
 	haha_packet_handlers[FRIEND_REQUEST] = friend_request_handler;
 	haha_packet_handlers[FRIEND_RESPONSE] = friend_response_handler;
 	haha_packet_handlers[UNFRIEND_REQUEST] = unfriend_request_handler;
@@ -147,6 +147,8 @@ void ping_request_handler(Packet *p){
 		printd("IS Ping ACK!\n");
 		//Lookup message/event
 		Event *e = malloc(sizeof(Event) * MAXQUEUESIZE);
+		printd("MESQ BEFORE LOOKING AT EVENTS\n");
+		printMessageQueue();
 		int numEntries = checkQueue(PING_REQUEST, p->flags, net, e);
 		if(numEntries){
 			printd("Found %d message for opcode %d\n", numEntries, p->opcode);
@@ -157,6 +159,8 @@ void ping_request_handler(Packet *p){
 		}
 		removeFromQueueEvents(e, numEntries);
 		free(e);
+		printd("MESQ AFTER REMOVE QUEUE EVENTS\n");
+		printMessageQueue();
 	}
 	else{
 		printd("Is Ping Request\n");
@@ -454,7 +458,7 @@ void find_neighbors_request_handler(Packet *p) {
 		LocalUser *self = &localUsers[0]; //TODO Set this to something scalable.
 		Friend f; //Incomplete f. TODO this is probably okay.
 		f.port = p->ORIGINUID; //Return UID;
-		strcpy(f.networkaddr, net->src); //TODO @brian is this correct src? send to other station.
+		memcpy(f.networkaddr, net->src, MAXNETADDR); //TODO @brian is this correct src? want to send to other station.
 		send_find_neighbors_response(&f, self, net->ttl); //Sends this devices ttl so other can calculate.
 	}
 }
@@ -518,11 +522,12 @@ void find_neighbors_response_handler(Packet *p) {
 	} else {
 		printd("FIND_NEIGHBORS_HANDLER\n");
 		//TODO Add Neighbor to NeighborList
+		addNeighbor(p, net, queueTime);
 		
 		LocalUser *self = &localUsers[0]; //TODO Set this to something scalable.
 		Friend f; //Incomplete f. TODO this is probably okay.
 		f.port = p->ORIGINUID; //Return UID;
-		strcpy(f.networkaddr, net->src); //TODO @brian is this correct src? send to other station.
+		memcpy(f.networkaddr, net->src, MAXNETADDR); //TODO @brian is this correct src? want to send to other station.
 		send_find_neighbors_response_ack(&f, self);
 	}
 }
@@ -585,16 +590,15 @@ void friend_request_handler(Packet *p) {
 		Friend *isFriend = checkForFriend(net);
 		if (isFriend != NULL) {
 			printd("Is a friend.\n");
-			
 			//Add message/event for a FRIEND_RESPONSE.
 			Message *m = malloc(sizeof(Message));
 			setSettingsByOpcode(m, FRIEND_RESPONSE);
 			memcpy(m->srcAddr, net->dest, 8);
 			addToQueue(m);
-			} else {
+		} else {
 			printe("Not a friend but received this somehow.\n");
 		}
-		} else {
+	} else {
 		printd("FRIEND_REQ_HANDLER\n");
 		//Check if already friend. If already friend, drop packet.
 		Friend *isFriend = checkForFriend(net);
@@ -610,7 +614,7 @@ void friend_request_handler(Packet *p) {
 		CLR_RESACCEPT(f.responseflag);
 		strcpy(f.firstname, p->SRCFIRSTNAME);
 		strcpy(f.lastname, p->SRCLASTNAME);
-		strcpy(f.networkaddr, net->src); //TODO @brian is this correct src? send to other station.
+		memcpy(f.networkaddr, net->src, MAXNETADDR); //TODO @brian is this correct src? want to send to other station.
 		f.lastresponse = 0; //TODO set to current time
 		
 		LocalUser *self = &localUsers[0]; //TODO Set this to something scalable.
