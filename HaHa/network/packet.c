@@ -230,6 +230,7 @@ void send_help_request(Friend *f, LocalUser *self){
 	CLR_FLAGS(p->flags);
 	copy_friend_to_packet(f, self, p);
 	sendPacket(p, n);
+	toglight =1;
 	
 	//Add a corresponding message
 	//Message *m = malloc(sizeof(Message));
