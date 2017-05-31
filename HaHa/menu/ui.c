@@ -39,6 +39,9 @@ void sendTestReq(Menu *menu){
 	//menu->current = menu->current->parent;
 }
 
+
+char ui_global_name[256];
+
 void ui_init(void) {
   MenuItem* temp;
   menu = menu_init();
@@ -74,7 +77,8 @@ void ui_init(void) {
   MenuItem* HelpReq = ui_item_init(root, "HELP REQ (%dh)");
   HelpReq->onClick = sendTestReq;
   menu->current = menu->root->child;
-
+  bzero(&ui_global_name, sizeof(ui_global_name));
+  strcpy(ui_global_name, "PLACEHOLDER");
 }
 
 void ui_move(MenuDirection direct) {
@@ -126,7 +130,7 @@ void* ui_onview_userinfo(Menu* menu) {
 		lcd_set_line(1, "PLACEHOLDER");
 	} else if(streq(menu->current->value, "__USERNAME__")) {
 		lcd_set_line(0, "Your Name");
-		lcd_set_line(1, "PLACEHOLDER");
+		lcd_set_line_overflow(1, ui_global_name);
 	} else if(streq(menu->current->value, "__USERADDR__")) {
 		lcd_set_line(0, "Your Address");
 		lcd_set_line(1, "PLACEHOLDER");
@@ -139,14 +143,11 @@ void* ui_onview_userinfo(Menu* menu) {
 }
 
 void* ui_onclick_userinfo(Menu* menu) {
+	printd("ui_onclick_userinfo\n");
 	if(streq(menu->current->value, "__USERPORT__")) {
 		
 	} else if(streq(menu->current->value, "__USERNAME__")) {
-		char name[1024];
-		bzero(&name, sizeof(name));
-		ui_input_init(menu, "Edit Name:", "abcdefg", &name);
-		lcd_set_line(0, "");
-		lcd_set_line_overflow(1, name);
+		ui_input_init(menu, "Edit Name:", "abcdefghijklmnopqrstuvwxyz", &ui_global_name);
 	} else if(streq(menu->current->value, "__USERADDR__")) {
 	
 	} else if(streq(menu->current->value, "__USERCALL__")) {
@@ -155,6 +156,7 @@ void* ui_onclick_userinfo(Menu* menu) {
 }
 
 void ui_input_init(Menu* menu, char* value, char* letters, char** output) {
+	printd("ui_input_init\n");
 	MenuItem* inputRoot = ui_item_init(menu->current, value);
 	inputRoot->onView = ui_input_onview;
 	char letterValue[2];
@@ -169,24 +171,30 @@ void ui_input_init(Menu* menu, char* value, char* letters, char** output) {
 		letter->onView = ui_input_onview;
 		letter->onClick = ui_input_onclick;
 	}
-	menu->inputBuffer = malloc(1024 * sizeof(char));
+	menu->inputBuffer = malloc(256 * sizeof(char));
+	bzero(menu->inputBuffer, 256);
 	menu->current = inputEnter;
+	menu->current->onView();
 }
 
 void ui_input_save(Menu* menu) {
-	strcpy(menu->outputBuffer, menu->inputBuffer);
+	printd("ui_input_save\n");
+	strcpy(*menu->outputBuffer, menu->inputBuffer);
 	ui_input_destroy(menu);
 }
 
 void ui_input_delete(Menu* menu) {
+	printd("ui_input_delete\n");
 	char* inputBuffer = menu->inputBuffer;
+	int inputLen = strlen(inputBuffer);
 	if(strlen(inputBuffer) > 0) {
-		inputBuffer[strlen(inputBuffer)] = NULL;
+		inputBuffer[inputLen - 1] = NULL;
 		menu_move(menu, MENU_RIGHT);
 	} else ui_input_destroy(menu);
 }
 
 void ui_input_destroy(Menu* menu) {
+	 printd("ui_input_destroy\n");
 	 MenuItem* inputRoot = menu->current;
 	 free(menu->inputBuffer);
 	 menu->inputBuffer = NULL;
@@ -196,13 +204,17 @@ void ui_input_destroy(Menu* menu) {
 }
 
 void* ui_input_onview(Menu* menu) {
+	printd("ui_input_onview\n");
 	char* currentValue = menu->current->value;
 	if(strlen(currentValue) == 1) {
 		char* inputBuffer = menu->inputBuffer;
 		int inputLen = strlen(inputBuffer);
+		printd("buf(%d): '%s'\n", inputLen, inputBuffer);
 		inputBuffer[inputLen] = currentValue[0];
+		lcd_clear();
 		lcd_set_line(0, menu->current->parent->value);
 		lcd_set_line_overflow(1, inputBuffer);
+		lcd_update();
 		inputBuffer[inputLen] = NULL;
 	} else {
 		// Current is input root
@@ -211,8 +223,12 @@ void* ui_input_onview(Menu* menu) {
 }
 
 void* ui_input_onclick(Menu* menu) {
-	if(menu->current->value[0] != UI_INPUT_ENTER) {
-		menu->inputBuffer[strlen(menu->inputBuffer)] = menu->current->value[0];
+	printd("ui_input_onclick\n");
+	char currentLetter = menu->current->value[0];
+	char* inputBuffer = menu->inputBuffer;
+	int inputLen = strlen(inputBuffer);
+	if(currentLetter != UI_INPUT_ENTER) {
+		inputBuffer[inputLen] = currentLetter;
 		menu->current = menu->current->parent->child;
 	} else {
 		// Current is enter key
@@ -220,36 +236,3 @@ void* ui_input_onclick(Menu* menu) {
 		ui_input_save(menu);
 	}
 }
-
-/*
-void ui_user_input(MenuItem* item, char* value, char** output) {
-	MenuItem* input = ui_item_init(user, value);
-	char value[2];
-	bzero(&value, sizeof(value));
-	char[] letters = {
-		'A', 'B', 'C', 'D', 'E', 'F', 'G', 
-		'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 
-		'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 
-		'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
-		'.', '-', ' ', UI_INPUT_ENTER};
-	for (char letter : letters) {
-		value[0] = letter;
-		MenuItem* temp = ui_item_init(input, value);
-		temp->onView = ui_user_input_onview;
-		temp->onClick = ui_user_input_onclick;
-	}
-}
-
-void* ui_user_input_onview(Menu menu) {
-	lcd_set_line(0, menu->current->parent->value);
-	lcd_set_line_overflow(1, menu->inputBuffer);
-}
-
-void* ui_user_input_onclick(Menu menu) {
-	if(menu->current->value[0] == UI_INPUT_ENTER) {
-		
-	} else {
-		
-	}
-}
-*/
