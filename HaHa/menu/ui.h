@@ -6,8 +6,8 @@
  * @date 2017-03-07
  */
 
-#ifndef _HA_INIT_
-#define _HA_INIT_
+#ifndef _HA_UI_
+#define _HA_UI_
 
 #include "utils/hahaUtils.h"
 #include "menu.h"

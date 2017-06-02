@@ -6,12 +6,16 @@
  * @date 2017-03-07
  */
 
-#define BRIAN 1
+//#define BRIAN 1
 
 #include "ui.h"
 #include "messagequeue/messagequeue.h"
 #include "neighbor/friendlist.h"
 #include "network/packet.h"
+
+// Character sets
+char* ui_charset_alpha = "_abcdefghijklmnopqrstuvwxyz";
+char* ui_charset_alphacase = "_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 // Accept/Deny screen
 void* ui_helpdeny_onview(Menu* menu);
@@ -106,7 +110,7 @@ void ui_init(void) {
   ui_item_helpresp->onClick = ui_helpresp_onclick;
   menu->current = menu->root->child;
   bzero(&ui_global_name, sizeof(ui_global_name));
-  strcpy(ui_global_name, "PLACEHOLDER");
+  strcpy(ui_global_name, "HOLDPLACER");
 }
 
 void* ui_helpdeny_onview(Menu* menu) {
@@ -126,7 +130,7 @@ void* ui_helpresp_onview(Menu* menu) {
 	printf("'%s'\n", menu->txtSrc1);
 	printBuff(menu->txtSrc1, 3, "%c");
 	lcd_set_line(1, menu->txtSrc1);
-	lcd_set_line(LCD_ROWS - 1, "< BACK  RESPOND>");
+	lcd_set_line(LCD_ROWS - 1, "<BACK   RESPOND>");
 	lcd_update();
 	if(count++ > 0)
 		menu->current->onView();
@@ -197,7 +201,7 @@ void* ui_onview_userinfo(Menu* menu) {
 		lcd_set_line(0, "Your Phone #");
 		lcd_set_line(1, "PLACEHOLDER");
 	}
-	lcd_set_line(3, "v MORE    EDIT >");
+	lcd_set_line(3, "vMORE      EDIT>");
 	lcd_update();
 }
 
@@ -206,7 +210,7 @@ void* ui_onclick_userinfo(Menu* menu) {
 	if(streq(menu->current->value, "__USERPORT__")) {
 		
 	} else if(streq(menu->current->value, "__USERNAME__")) {
-		ui_input_init(menu, "Edit Name:", "abcdefghijklmnopqrstuvwxyz", &ui_global_name);
+		ui_input_init(menu, "Edit Name:", ui_charset_alphacase, &ui_global_name);
 	} else if(streq(menu->current->value, "__USERADDR__")) {
 	
 	} else if(streq(menu->current->value, "__USERCALL__")) {
@@ -220,25 +224,27 @@ void ui_input_init(Menu* menu, char* value, char* letters, char** output) {
 	inputRoot->onView = ui_input_onview;
 	char letterValue[2];
 	bzero(&letterValue, sizeof(letterValue));
-	letterValue[0] = UI_INPUT_ENTER;
-	MenuItem* inputEnter = ui_item_init(inputRoot, letterValue);
-	inputEnter->onView = ui_input_onview;
-	inputEnter->onClick = ui_input_onclick;
 	for(int i = 0; i < strlen(letters); i++) {
 		letterValue[0] = letters[i];
 		MenuItem* letter = ui_item_init(inputRoot, letterValue);
 		letter->onView = ui_input_onview;
 		letter->onClick = ui_input_onclick;
 	}
+	letterValue[0] = UI_INPUT_ENTER;
+	MenuItem* inputEnter = ui_item_init(inputRoot, letterValue);
+	inputEnter->onView = ui_input_onview;
+	inputEnter->onClick = ui_input_onclick;
 	menu->inputBuffer = malloc(256 * sizeof(char));
 	bzero(menu->inputBuffer, 256);
-	menu->current = inputEnter;
+	menu->current = inputRoot->child;
 	menu->current->onView();
+	lcd_set_line(LCD_ROWS - 1, "Edit with v/^");
 }
 
 void ui_input_save(Menu* menu) {
 	printd("ui_input_save\n");
-	strcpy(*menu->outputBuffer, menu->inputBuffer);
+	printd("src: '%s', dest: '%s'\n", menu->inputBuffer, menu->outputBuffer);
+	strcpy(menu->outputBuffer, menu->inputBuffer);
 	ui_input_destroy(menu);
 }
 
@@ -286,12 +292,13 @@ void* ui_input_onclick(Menu* menu) {
 	char currentLetter = menu->current->value[0];
 	char* inputBuffer = menu->inputBuffer;
 	int inputLen = strlen(inputBuffer);
-	if(currentLetter != UI_INPUT_ENTER) {
-		inputBuffer[inputLen] = currentLetter;
-		menu->current = menu->current->parent->child;
-	} else {
+	if(currentLetter == '_') currentLetter = ' ';
+	if(currentLetter == UI_INPUT_ENTER) {
 		// Current is enter key
 		menu->current = menu->current->parent;
 		ui_input_save(menu);
+	} else {
+		inputBuffer[inputLen] = currentLetter;
+		menu->current = menu->current->parent->child;
 	}
 }
