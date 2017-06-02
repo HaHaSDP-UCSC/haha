@@ -56,7 +56,7 @@ bool initNeighborList() {
 bool updateNeighborList() {
 	initNeighborList(); //Clear list first.
 	//TODO send packet command to get info from everyone.
-	Friend f = NULL;
+	Friend f;
 	//f.networkaddr = BROADCASTADDR;
 	LocalUser *self = &localUsers[0]; //TODO Set this to something scalable.
 	send_find_neighbors_request(&f, &self);

@@ -120,9 +120,6 @@ void send_ping_request(Friend *f) {
 	Packet* p = malloc(sizeof(Packet));
 	LocalUser *self = &localUsers[0]; //TODO make this scalable.
 	
-	//printf("PACKET:");
-	//printBuff(f->networkaddr, 8, "%c");
-	//memcpy(n->dest, f->networkaddr, 8);
 	n->dest = f->networkaddr;
 	printNetAddr(n->dest);
 	
@@ -178,7 +175,6 @@ void ping_request_handler(Packet *p){
 		
 		net->dest = net->src;
 		
-		//TODO look up friend.
 		printd("Friend Lookup.\n");
 		Friend *f = &friendList[0]; //TODO set this properly.
 		LocalUser *self = &localUsers[0]; //TODO set this properly.
@@ -205,33 +201,11 @@ void ping_request_handler(Packet *p){
 	}
 }
 
-/**
-void _send_help_request(netaddr *t){
-	Network* n = malloc(sizeof(Network));
-	Packet* p = malloc(sizeof(Packet));
-
-	n->dest = f->networkaddr;
-	printNetAddr(n->dest);
-	copy_friend_to_packet(f, p);
-	p->opcode = HELP_REQUEST;
-	p->DESTUID = 0x1; //TODO fix
-	CLR_FLAGS(p->flags);
-	sendPacket(p, n);
-	//Add a corresponding message
-	Message *m = malloc(sizeof(Message));
-	//setSettingsByOpcode(m, PING_REQUEST);
-	generateFriendMessage(f, m, HELP_REQUEST);
-	//memcpy(m->srcAddr, n->dest, 8);
-	addToQueue(m);
-}
-*/
-
 void send_help_request(Friend *f, LocalUser *self){
 	printv("Send Help Request\n");
 	Network* n = malloc(sizeof(Network));
 	Packet* p = malloc(sizeof(Packet));
-	//printf("PACKET:");
-	//memcpy(n->dest, f->networkaddr, 8);
+	
 	n->dest = f->networkaddr;
 	printNetAddr(n->dest);
 	toglight = 1;
@@ -253,9 +227,6 @@ void send_help_request_ack(Friend *f, LocalUser *self) {
 	printv("Send Help Request ACK\n");
 	Network* n = malloc(sizeof(Network));
 	Packet* p = malloc(sizeof(Packet));
-	//printf("PACKET:");
-	//printBuff(f->networkaddr, 8, "%c");
-	//memcpy(n->dest, f->networkaddr, 8);
 	
 	n->src = self->friend.networkaddr;
 	n->dest = f->networkaddr;
@@ -267,13 +238,6 @@ void send_help_request_ack(Friend *f, LocalUser *self) {
 	copy_friend_to_packet(f, self, p);
 	sendPacket(p, n);
 	
-	//Add a corresponding message
-	/**
-	Message *m = malloc(sizeof(Message));
-	setSettingsByOpcode(m, HELP_REQUEST);
-	memcpy(m->srcAddr, n->dest, 8);
-	addToQueue(m);
-	*/
 	free(n);
 	free(p);
 }
@@ -327,9 +291,6 @@ void send_help_response(Friend *f, LocalUser *self, bool accept) {
 	printv("Send Help Response\n");
 	Network* n = malloc(sizeof(Network));
 	Packet* p = malloc(sizeof(Packet));
-	//printf("PACKET:");
-	//printBuff(f->networkaddr, 8, "%c");
-	//memcpy(n->dest, f->networkaddr, 8);
 	
 	n->dest = f->networkaddr;
 	printNetAddr(n->dest);
@@ -357,9 +318,6 @@ void send_help_response_ack(Friend *f, LocalUser *self, bool accept) {
 	printv("Send Help Response\n");
 	Network* n = malloc(sizeof(Network));
 	Packet* p = malloc(sizeof(Packet));
-	//printf("PACKET:");
-	//printBuff(f->networkaddr, 8, "%c");
-	//memcpy(n->dest, f->networkaddr, 8);
 	
 	n->dest = f->networkaddr;
 	printNetAddr(n->dest);
@@ -375,13 +333,6 @@ void send_help_response_ack(Friend *f, LocalUser *self, bool accept) {
 	copy_friend_to_packet(f, self, p);
 	sendPacket(p, n);
 	
-	//Add a corresponding message
-	/*
-	Message *m = malloc(sizeof(Message));
-	setSettingsByOpcode(m, p->opcode);
-	memcpy(m->srcAddr, n->dest, 8);
-	addToQueue(m);
-	*/
 	free(n);
 	free(p);
 }
@@ -464,13 +415,6 @@ void send_help_request_anyone(LocalUser *self){
 	//
 	////Add a corresponding message
 	///**
-	//Message *m = malloc(sizeof(Message));
-	//setSettingsByOpcode(m, HELP_REQUEST_ACK);
-	//memcpy(m->srcAddr, n->dest, 8);
-	//addToQueue(m);
-	//*/
-	//free(n);
-	//free(p);
 //}
 
 void help_request_anyone_handler(Packet *p){
@@ -579,11 +523,6 @@ void send_find_neighbors_response_ack(Friend *f, LocalUser *self) {
 	copy_friend_to_packet(f, self, p);
 	sendPacket(p, n);
 	
-	//Add a corresponding message
-	//Message *m = malloc(sizeof(Message));
-	//setSettingsByOpcode(m, p->opcode);
-	//memcpy(m->srcAddr, n->dest, 8);
-	//addToQueue(m);
 	free(n);
 	free(p);
 }
@@ -600,7 +539,6 @@ void find_neighbors_response_handler(Packet *p) {
 		//Do nothing. Just confirmation message.
 	} else {
 		printd("FIND_NEIGHBORS_HANDLER\n");
-		//TODO Add Neighbor to NeighborList
 		addNeighbor(p, net, queueTime);
 		
 		LocalUser *self = &localUsers[0]; //TODO Set this to something scalable.
@@ -647,11 +585,6 @@ void send_friend_request_ack(Friend *f, LocalUser *self) {
 	copy_friend_to_packet(f, self, p);
 	sendPacket(p, n);
 	
-	//Add a corresponding message
-	//Message *m = malloc(sizeof(Message));
-	//setSettingsByOpcode(m, p->opcode);
-	//memcpy(m->srcAddr, n->dest, 8);
-	//addToQueue(m);
 	free(n);
 	free(p);
 }
@@ -762,11 +695,6 @@ void send_friend_response_ack(Friend *f, LocalUser *self, bool accept) {
 	copy_friend_to_packet(f, self, p);
 	sendPacket(p, n);
 	
-	//Add a corresponding message
-	//Message *m = malloc(sizeof(Message));
-	//setSettingsByOpcode(m, p->opcode);
-	//memcpy(m->srcAddr, n->dest, 8);
-	//addToQueue(m);
 	free(n);
 	free(p);
 }
@@ -837,11 +765,6 @@ void send_unfriend_request_ack(Friend *f, LocalUser *self) {
 	copy_friend_to_packet(f, self, p);
 	sendPacket(p, n);
 	
-	//Add a corresponding message
-	//Message *m = malloc(sizeof(Message));
-	//setSettingsByOpcode(m, p->opcode);
-	//memcpy(m->srcAddr, n->dest, 8);
-	//addToQueue(m);
 	free(n);
 	free(p);
 }
