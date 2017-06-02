@@ -251,7 +251,7 @@ void help_request_handler(Packet *p) {
 	}
 	
 	if (IS_ACK(p->flags)) {
-		printd("FRIEND_REQ_HANDLER ACK\n");
+		printd("HELP_REQ_HANDLER ACK\n");
 		
 		//Display to user that device was able to connect, pending response.
 		//Add message/event for a HELP_RESPONSE ACK (Only after user accepts) //TODO NOT HERE.
@@ -292,8 +292,9 @@ void send_help_response(Friend *f, LocalUser *self, bool accept) {
 	Packet* p = malloc(sizeof(Packet));
 	
 	n->dest = f->networkaddr;
+	printv("********Sending to %s:", f->firstname);
 	printNetAddr(n->dest);
-	
+	printv("\n");
 	p->opcode = HELP_RESPONSE;
 	CLR_FLAGS(p->flags);
 	if (accept) {

@@ -66,6 +66,17 @@ bool addFriend(Friend *f) {
     return true;
 }
 
+bool addLocalUser(LocalUser *f) {
+	localUsers[numLocal] = *f;
+	LocalUser* ftemp = &localUsers[numLocal];
+	printd("Added local user: %s %s", ftemp->friend.firstname, ftemp->friend.lastname);
+	printd("netaddr:[");
+	printBuff(f->friend.networkaddr, 8, "%c");
+	printd("]\n");
+	numLocal++;
+	return true;
+}
+
 /* Move friend to different priority, and modify friend parameters */
 bool modifyFriend(Friend *f, int moveFriend) {
 	if (moveFriend >= 0 && moveFriend < FRIENDLISTSIZE) {
