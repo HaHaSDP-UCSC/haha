@@ -53,10 +53,10 @@ Pins for power were found on the [Xplained datasheet][Xplained].
 
 ### Light and Sound
 
-| Desc           | SAMB11 Out | Xplained Out |
-|----------------|------------|--------------|
-| PWM_0       	 | //BROKEN        |     | //TODO layout fix later
-| TOGGLE_LIGHT   | Pin 43 LP_GPIO_20          | EXT1: 05     | //TODO layout fix later
+| Desc         | SAMB11 Out | Xplained Out |
+|--------------|------------|--------------|
+| PWM_0        | //BROKEN   |              |
+| TOGGLE_LIGHT | 20         | EXT3:05      |
 
 [Schematic]:
 [Xplained]: http://www.atmel.com/Images/Atmel-42664-ATSAMB11-Xplained-Pro_UserGuide.pdf
