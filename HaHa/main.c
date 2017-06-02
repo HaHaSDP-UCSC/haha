@@ -129,7 +129,7 @@ int main(void)
 	
 	while (1) {
 		uart_read();
-		//ui_update();
+		ui_update();
 	}
 	return 1;
 }
