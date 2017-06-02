@@ -79,6 +79,7 @@ void find_neighbors_response_handler(Packet *p);
 void friend_request_handler(Packet *p);
 void friend_response_handler(Packet *p);
 void unfriend_request_handler(Packet *p);
+void send_help_response(Friend *f, LocalUser *self, bool accept);
 
 /* Handles sending packets */
 

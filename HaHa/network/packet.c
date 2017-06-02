@@ -272,6 +272,7 @@ void help_request_handler(Packet *p) {
 			printf("\n%s->%s\n", menu->txtSrc1, p->SRCFIRSTNAME);
 			menu->current = ui_item_helpresp;
 			menu->current->onView();
+			printf("\n%s->%s\n", menu->txtSrc1, p->SRCFIRSTNAME);
 			send_help_request_ack(isFriend, &localUsers[0]); //TODO not zero
 			//Display to user that friend is in need.
 			
@@ -357,7 +358,7 @@ void help_response_handler(Packet *p) {
 			//Display to user whether they accepted or not.
 			//If accepted, all good, otherwise, do a send to the next friend,
 			//or HELP_REQUEST_ANYONE
-			printd("USER RESPONSE PACKET RECV!\n");
+			printd("USER RESPONSE PACKET RECV! accept:%d\n", accept);
 			//Different light/alarm pattern
 			
 			//Send confirmation back.

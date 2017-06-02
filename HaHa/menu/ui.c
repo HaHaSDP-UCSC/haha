@@ -6,11 +6,12 @@
  * @date 2017-03-07
  */
 
-//#define BRIAN 1
+#define BRIAN 1
 
 #include "ui.h"
 #include "messagequeue/messagequeue.h"
 #include "neighbor/friendlist.h"
+#include "network/packet.h"
 
 // Accept/Deny screen
 void* ui_helpdeny_onview(Menu* menu);
@@ -105,6 +106,7 @@ void ui_init(void) {
 }
 
 void* ui_helpdeny_onview(Menu* menu) {
+	send_help_response(&friendList[0], &localUsers[0], true); //TODO not zero
 	menu->current = menu->current->parent; 
 	menu->current->onView();
 	// Custom code on help request deny
@@ -112,23 +114,26 @@ void* ui_helpdeny_onview(Menu* menu) {
 }
 
 void* ui_helpresp_onview(Menu* menu) {
+	static int count = 0;
 	printd("In helpresp onview\n");
 	lcd_clear();
 	lcd_set_line(0, "! HELP REQUEST !");
-	char buff[35];
 	printf("before");
-	//sprintf(buff, "%s", menu->txtSrc1);
-	printf("after");
-	printf("%s", menu->txtSrc1);
-	lcd_set_line_overflow(1, menu->txtSrc1);
+	printf("'%s'\n", menu->txtSrc1);
+	printBuff(menu->txtSrc1, 3, "%c");
+	lcd_set_line(1, menu->txtSrc1);
 	lcd_set_line(LCD_ROWS - 1, "< BACK  RESPOND>");
 	lcd_update();
+	if(count++ > 0)
+		menu->current->onView();
+	else
+		count = 0;
 }
 
 void* ui_helpresp_onclick(Menu* menu) {
 	menu->current = menu->current->parent->parent;
 	menu->current->onView();
-	//send_help_request_ack(&localUsers[0], &localUsers[0]); //TODO not zero
+	send_help_response(&friendList[0], &localUsers[0], true); //TODO not zero
 }
 
 void ui_move(MenuDirection direct) {
