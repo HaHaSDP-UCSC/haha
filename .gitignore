@@ -20,6 +20,6 @@
 
 #User Specific Files
 *.atsuo
-
+image_description.txt
 #Backup
 .atmel-start-backup
