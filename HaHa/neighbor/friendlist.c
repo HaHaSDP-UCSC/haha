@@ -12,6 +12,7 @@
 
 uint8_t numLocal = 0;
 uint8_t numFriends = 0;
+LocalUser localUsers[MAXLOCAL];
 
 /************************************************************************/
 /* INTERNAL METHODS                                                     */
@@ -55,11 +56,7 @@ bool initFriendList() {
  * @return     true if successful, false otherwise.
  */
 bool addFriend(Friend *f) {
-	//if(friendList[priority] == 0)
-        ////reogranize list
-        //printf("Reorganize list");
-    //else
-        friendList[numFriends] = *f; //
+    friendList[numFriends] = *f;
     Friend* ftemp = &friendList[numFriends];
     printd("Added friend: %s %s", ftemp->firstname, ftemp->lastname);
     printd("netaddr:[");

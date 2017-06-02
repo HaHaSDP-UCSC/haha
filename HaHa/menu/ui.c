@@ -6,7 +6,7 @@
  * @date 2017-03-07
  */
 
-#define BRIAN 1
+//#define BRIAN 1
 
 #include "ui.h"
 #include "messagequeue/messagequeue.h"
