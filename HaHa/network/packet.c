@@ -16,6 +16,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include "lcd/lcd.h"
+#include "menu/menu.h"
+#include "menu/ui.h"
+
 
 void opcodes_init() {
 	haha_packet_handlers[PING_REQUEST] = ping_request_handler;
@@ -305,7 +308,9 @@ void help_request_handler(Packet *p) {
 			lcd_update();
 			toglight =1;
 			//Send HELP_REQUEST_ACK
-			send_help_request_ack(isFriend, &localUsers[0]); //TODO not zero
+			menu->txtSrc1 = localUsers[0].friend.firstname;
+			menu->current = ui_item_helpresp;
+			//send_help_request_ack(isFriend, &localUsers[0]); //TODO not zero
 			//Display to user that friend is in need.
 			
 			//Turn on lights/siren

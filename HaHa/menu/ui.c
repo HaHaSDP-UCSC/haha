@@ -10,7 +10,13 @@
 #include "messagequeue/messagequeue.h"
 #include "neighbor/friendlist.h"
 
-void sendTestReq(Menu *menu){
+// Accept/Deny screen
+void* ui_helpdeny_onview(Menu* menu);
+void* ui_helpresp_onview(Menu* menu);
+void* ui_helpresp_onclick(Menu* menu);
+
+
+void ui_helpreq_onclick(Menu *menu){
 	addTestFriend("Brian", "Nichols","0013A200414F50EA");
 	addTestLocalUser("Kevin", "Lee", 0x1);
 	//send_ping_request(&friendList[0]);
@@ -71,10 +77,35 @@ void ui_init(void) {
   ui_item_init(root, "Activity (%dh)");
   ui_item_init(root, "Net (%dh)");
   ui_item_init(root, "Button (%dh)");
-  MenuItem* HelpReq = ui_item_init(root, "HELP REQ (%dh)");
-  HelpReq->onClick = sendTestReq;
+  ui_item_helpreq = ui_item_init(root, "SEND HELP");
+  ui_item_helpreq->onClick = ui_helpreq_onclick;
+  ui_item_helpdeny = ui_item_init(ui_item_helpreq, "_HELP_DENY_");
+  ui_item_helpdeny->onView = ui_helpdeny_onview;
+  ui_item_helpresp = ui_item_init(ui_item_helpdeny, "_HELP_RESP_");
+  ui_item_helpresp->onView = ui_helpresp_onview;
+  ui_item_helpresp->onClick = ui_helpresp_onclick;
   menu->current = menu->root->child;
 
+}
+
+void* ui_helpdeny_onview(Menu* menu) {
+	menu->current = menu->current->parent; 
+	// Custom code on help request deny
+}
+
+void* ui_helpresp_onview(Menu* menu) {
+	lcd_clear();
+	lcd_set_line(0, "! HELP REQUEST !");
+	char buff[35];
+	sprintf(buff, "%s needs help!", menu->txtSrc1);
+	lcd_set_line_overflow(1, "Info on user needing help");
+	lcd_set_line(LCD_ROWS - 1, "< BACK  RESPOND>");
+	lcd_update();
+}
+
+void* ui_helpresp_onclick(Menu* menu) {
+	menu->current = menu->current->parent->parent;
+	send_help_request_ack(&localUsers[0], &localUsers[0]); //TODO not zero
 }
 
 void ui_move(MenuDirection direct) {
