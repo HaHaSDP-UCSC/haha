@@ -432,7 +432,8 @@ static void _packet_Handler(frameIncoming *f){
                     //printf("TX Status Packet\n");
                     //_parseTXStatus(f, p);
                     //uint8_t id = 
-                    printf("TX Status for pid:%d");
+                    printf("TX Status for pid:%d\n");
+					printf("TX Status:%x\n", f->data[4]);
                     break;
         case FRAME_ROUTE_INFO: break;
         case FRAME_AGG_ADDR: break;

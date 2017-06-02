@@ -314,7 +314,7 @@ void send_help_response(Friend *f, LocalUser *self, bool accept) {
 }
 
 void send_help_response_ack(Friend *f, LocalUser *self, bool accept) {
-	printv("Send Help Response\n");
+	printv("Send Help Response ACK\n");
 	Network* n = malloc(sizeof(Network));
 	Packet* p = malloc(sizeof(Packet));
 	

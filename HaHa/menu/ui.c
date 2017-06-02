@@ -114,7 +114,7 @@ void* ui_helpdeny_onview(Menu* menu) {
 }
 
 void* ui_helpresp_onview(Menu* menu) {
-	static int count = 0;
+	static uint8_t count = 0;
 	printd("In helpresp onview\n");
 	lcd_clear();
 	lcd_set_line(0, "! HELP REQUEST !");
