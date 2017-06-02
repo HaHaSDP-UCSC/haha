@@ -12,7 +12,7 @@
 #include "neighbor/friendlist.h"
 #include "neighbor/neighborlist.h"
 
-#define MAXQUEUESIZE 256
+#define MAXQUEUESIZE 16 //TODO increase this later to 256
 #define DEFAULT_TTL 1000; //TODO: figure out approrpiate number
 
 #define DEFMESSAGETIMEOUT 300 //300 ticks, 5 minutes
@@ -50,6 +50,8 @@ bool initMessage(Message* m); /* Initialize a blank Message */
 bool generateFriendMessage(Friend *friend, Message *mes, opcode op);
 
 bool setSettingsByOpcode(Message *mes, opcode opcode);
+
+void printMessageQueue();
 
 //Internal //TODO move this to the c file.
 /*

@@ -37,6 +37,7 @@ typedef struct Menu {
   void* onClickRet;
   char** inputBuffer;
   char** outputBuffer;
+  char* txtSrc1; //some text to show somewhere (like help req src name)
 } Menu;
 
 typedef enum MenuDirection {

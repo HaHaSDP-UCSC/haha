@@ -16,17 +16,20 @@
 #include <stdlib.h>
 #include <string.h>
 #include "lcd/lcd.h"
+#include "menu/menu.h"
+#include "menu/ui.h"
+
 
 void opcodes_init() {
 	haha_packet_handlers[PING_REQUEST] = ping_request_handler;
 	haha_packet_handlers[HELP_REQUEST] = help_request_handler;
 	haha_packet_handlers[HELP_RESPONSE] = help_response_handler;
-	//haha_packet_handlers[HELP_FROM_ANYONE_REQUEST] = help_request_anyone_handler;
+	haha_packet_handlers[HELP_FROM_ANYONE_REQUEST] = help_request_anyone_handler;
 	//haha_packet_handlers[HELP_FROM_ANYONE_RESPONSE] = help_response_anyone_handler;
 	//haha_packet_handlers[FIND_HOPS_REQUEST] = find_hops_request_handler;
 	//haha_packet_handlers[FIND_HOPS_RESPONSE] = find_hops_response_handler;
-	//haha_packet_handlers[FIND_NEIGHBORS_REQUEST] = find_neighbors_request_handler;
-	//haha_packet_handlers[FIND_NEIGHBORS_RESPONSE] = find_neighbors_response_handler;
+	haha_packet_handlers[FIND_NEIGHBORS_REQUEST] = find_neighbors_request_handler;
+	haha_packet_handlers[FIND_NEIGHBORS_RESPONSE] = find_neighbors_response_handler;
 	haha_packet_handlers[FRIEND_REQUEST] = friend_request_handler;
 	haha_packet_handlers[FRIEND_RESPONSE] = friend_response_handler;
 	haha_packet_handlers[UNFRIEND_REQUEST] = unfriend_request_handler;
@@ -70,12 +73,14 @@ void app_packet_handler(Network *info) {
 	p->id = info->id;
 	netArrayAdd(info);
 	(haha_packet_handlers[p->opcode])(p);
-	//TODO free(p); //Is this the end of the packet?
+	free(p); //TODO @brian free(p); //Is this the end of the packet?
 }
 
 void register_opcode_handler_function(opcode_handler_fn_t t, op opcode) {
 	haha_packet_handlers[opcode] = t;
 }
+
+/* Helper Function */
 /* Given a Friend, Local User, and Packet, with packet having opcode and flags
 already pre-registered. Friend is another user base station user. */
 void copy_friend_to_packet(Friend *f, LocalUser *self, Packet* p) {
@@ -89,7 +94,7 @@ void copy_friend_to_packet(Friend *f, LocalUser *self, Packet* p) {
 	//p->flags = flag; //Should already be passed in.
 	p->SRCUID = self->friend.port;
 	p->DESTUID = f->port;
-	//p->ORIGINUID == u->friend.port; //These are not used in friends packets.
+	p->ORIGINUID == f->port; //These are not used in friends packets.
 	strcpy(p->SRCFIRSTNAME, self->friend.firstname);
 	strcpy(p->SRCLASTNAME, self->friend.lastname);
 	strcpy(p->SRCHOMEADDR, self->homeaddr);
@@ -98,15 +103,23 @@ void copy_friend_to_packet(Friend *f, LocalUser *self, Packet* p) {
 	p->id = 0; //TODO set this to the id number in the packet storage table.
 }
 
+/* Helper Function */
+/* Returns network info from id attached to packet.*/
+bool getNetInfo(Packet *p, Network *net) {
+	int i = netArrayReturn(p->id);
+	if(i == NOT_FOUND){
+		return false;
+	}
+	net = &NET_ARRAY[i];
+	return true;
+}
+
 void send_ping_request(Friend *f) {
 	printv("Send Ping Request\n");
 	Network* n = malloc(sizeof(Network));
 	Packet* p = malloc(sizeof(Packet));
 	LocalUser *self = &localUsers[0]; //TODO make this scalable.
 	
-	//printf("PACKET:");
-	//printBuff(f->networkaddr, 8, "%c");
-	//memcpy(n->dest, f->networkaddr, 8);
 	n->dest = f->networkaddr;
 	printNetAddr(n->dest);
 	
@@ -123,17 +136,6 @@ void send_ping_request(Friend *f) {
 	addToQueue(m);
 }
 
-/* Helper Function */
-/* Returns network info from id attached to packet.*/
-bool getNetInfo(Packet *p, Network *net) {
-	int i = netArrayReturn(p->id);
-	if(i == NOT_FOUND){
-		return false;
-	}
-	net = &NET_ARRAY[i];
-	return true;
-}
-
 void ping_request_handler(Packet *p){
 	printv("in ping handler\n");
 	Network *net = NULL;
@@ -145,6 +147,8 @@ void ping_request_handler(Packet *p){
 		printd("IS Ping ACK!\n");
 		//Lookup message/event
 		Event *e = malloc(sizeof(Event) * MAXQUEUESIZE);
+		printd("MESQ BEFORE LOOKING AT EVENTS\n");
+		printMessageQueue();
 		int numEntries = checkQueue(PING_REQUEST, p->flags, net, e);
 		if(numEntries){
 			printd("Found %d message for opcode %d\n", numEntries, p->opcode);
@@ -155,6 +159,8 @@ void ping_request_handler(Packet *p){
 		}
 		removeFromQueueEvents(e, numEntries);
 		free(e);
+		printd("MESQ AFTER REMOVE QUEUE EVENTS\n");
+		printMessageQueue();
 	}
 	else{
 		printd("Is Ping Request\n");
@@ -169,7 +175,6 @@ void ping_request_handler(Packet *p){
 		
 		net->dest = net->src;
 		
-		//TODO look up friend.
 		printd("Friend Lookup.\n");
 		Friend *f = &friendList[0]; //TODO set this properly.
 		LocalUser *self = &localUsers[0]; //TODO set this properly.
@@ -196,41 +201,18 @@ void ping_request_handler(Packet *p){
 	}
 }
 
-/**
-void _send_help_request(netaddr *t){
-Network* n = malloc(sizeof(Network));
-Packet* p = malloc(sizeof(Packet));
-
-n->dest = f->networkaddr;
-printNetAddr(n->dest);
-copy_friend_to_packet(f, p);
-p->opcode = HELP_REQUEST;
-p->DESTUID = 0x1; //TODO fix
-CLR_FLAGS(p->flags);
-sendPacket(p, n);
-//Add a corresponding message
-Message *m = malloc(sizeof(Message));
-//setSettingsByOpcode(m, PING_REQUEST);
-generateFriendMessage(f, m, HELP_REQUEST);
-//memcpy(m->srcAddr, n->dest, 8);
-addToQueue(m);
-}
-*/
-
 void send_help_request(Friend *f, LocalUser *self){
 	printv("Send Help Request\n");
 	Network* n = malloc(sizeof(Network));
 	Packet* p = malloc(sizeof(Packet));
-	//printf("PACKET:");
-	//memcpy(n->dest, f->networkaddr, 8);
+	
 	n->dest = f->networkaddr;
 	printNetAddr(n->dest);
-	
+	toglight = 1;
 	p->opcode = HELP_REQUEST;
 	CLR_FLAGS(p->flags);
 	copy_friend_to_packet(f, self, p);
 	sendPacket(p, n);
-	toglight =1;
 	
 	//Add a corresponding message
 	//Message *m = malloc(sizeof(Message));
@@ -245,9 +227,6 @@ void send_help_request_ack(Friend *f, LocalUser *self) {
 	printv("Send Help Request ACK\n");
 	Network* n = malloc(sizeof(Network));
 	Packet* p = malloc(sizeof(Packet));
-	//printf("PACKET:");
-	//printBuff(f->networkaddr, 8, "%c");
-	//memcpy(n->dest, f->networkaddr, 8);
 	
 	n->src = self->friend.networkaddr;
 	n->dest = f->networkaddr;
@@ -259,13 +238,6 @@ void send_help_request_ack(Friend *f, LocalUser *self) {
 	copy_friend_to_packet(f, self, p);
 	sendPacket(p, n);
 	
-	//Add a corresponding message
-	/**
-	Message *m = malloc(sizeof(Message));
-	setSettingsByOpcode(m, HELP_REQUEST);
-	memcpy(m->srcAddr, n->dest, 8);
-	addToQueue(m);
-	*/
 	free(n);
 	free(p);
 }
@@ -293,13 +265,11 @@ void help_request_handler(Packet *p) {
 		Friend *isFriend = checkForFriend(net);
 		if (isFriend != NULL) {
 			printd("Is a friend.\n");
-			lcd_set_line(0, "Help Req!");
-			char buff[16];
-			sprintf(buff, "%s", p->SRCFIRSTNAME);
-			lcd_set_line(1, buff);
-			lcd_update();
 			toglight =1;
 			//Send HELP_REQUEST_ACK
+			menu->txtSrc1 = localUsers[0].friend.firstname;
+			menu->current = ui_item_helpresp;
+			menu->current->onView();
 			send_help_request_ack(isFriend, &localUsers[0]); //TODO not zero
 			//Display to user that friend is in need.
 			
@@ -317,9 +287,6 @@ void send_help_response(Friend *f, LocalUser *self, bool accept) {
 	printv("Send Help Response\n");
 	Network* n = malloc(sizeof(Network));
 	Packet* p = malloc(sizeof(Packet));
-	//printf("PACKET:");
-	//printBuff(f->networkaddr, 8, "%c");
-	//memcpy(n->dest, f->networkaddr, 8);
 	
 	n->dest = f->networkaddr;
 	printNetAddr(n->dest);
@@ -347,9 +314,6 @@ void send_help_response_ack(Friend *f, LocalUser *self, bool accept) {
 	printv("Send Help Response\n");
 	Network* n = malloc(sizeof(Network));
 	Packet* p = malloc(sizeof(Packet));
-	//printf("PACKET:");
-	//printBuff(f->networkaddr, 8, "%c");
-	//memcpy(n->dest, f->networkaddr, 8);
 	
 	n->dest = f->networkaddr;
 	printNetAddr(n->dest);
@@ -365,13 +329,6 @@ void send_help_response_ack(Friend *f, LocalUser *self, bool accept) {
 	copy_friend_to_packet(f, self, p);
 	sendPacket(p, n);
 	
-	//Add a corresponding message
-	/*
-	Message *m = malloc(sizeof(Message));
-	setSettingsByOpcode(m, p->opcode);
-	memcpy(m->srcAddr, n->dest, 8);
-	addToQueue(m);
-	*/
 	free(n);
 	free(p);
 }
@@ -398,7 +355,7 @@ void help_response_handler(Packet *p) {
 			//Display to user whether they accepted or not.
 			//If accepted, all good, otherwise, do a send to the next friend,
 			//or HELP_REQUEST_ANYONE
-			
+			printd("USER RESPONSE PACKET RECV!\n");
 			//Different light/alarm pattern
 			
 			//Send confirmation back.
@@ -409,12 +366,184 @@ void help_response_handler(Packet *p) {
 	}
 }
 
-void help_request_anyone_handler(Packet *p);
+//void help_request_anyone_handler(Packet *p);
+void send_help_request_anyone(LocalUser *self){
+	printv("Send Help Request\n");
+	Network* n = malloc(sizeof(Network));
+	Packet* p = malloc(sizeof(Packet));
+	//printf("PACKET:");
+	//memcpy(n->dest, f->networkaddr, 8);
+	n->dest = BROADCAST_ADDRESS();
+	printNetAddr(n->dest);
+	
+	p->opcode = HELP_FROM_ANYONE_REQUEST;
+	CLR_FLAGS(p->flags);
+	//copy_friend_to_packet(f, self, p);
+	sendPacket(p, n);
+	
+	//Add a corresponding message
+	Message *m = malloc(sizeof(Message));
+	setSettingsByOpcode(m, p->opcode);
+	memcpy(m->srcAddr, n->dest, 8);
+	addToQueue(m);
+	free(n);
+	free(p);
+}
+
+//No acks needed for help_request_anyone
+//void send_help_request_anyone_ack(LocalUser *self, uint8_t radius) {
+	//printv("Send Help Request ACK\n");
+	//Network* n = malloc(sizeof(Network));
+	//Packet* p = malloc(sizeof(Packet));
+	////printf("PACKET:");
+	////printBuff(f->networkaddr, 8, "%c");
+	////memcpy(n->dest, f->networkaddr, 8);
+	//
+	//n->src = self->friend.networkaddr;
+	//n->dest = f->networkaddr;
+	//printNetAddr(n->dest);
+	//
+	//p->opcode = HELP_FROM_ANYONE_REQUEST;
+	//CLR_FLAGS(p->flags);
+	//SET_ACK(p->flags);
+	//copy_friend_to_packet(f, self, p);
+	//sendPacket(p, n);
+	//
+	////Add a corresponding message
+	///**
+//}
+
+void help_request_anyone_handler(Packet *p){
+	printv("Help Request ANYONE Handler\n");
+	Network *net = NULL;
+	if (!getNetInfo(p, net)) {
+    	printe("Unable to get network info.\n");
+    	return;
+	}
+	
+	if (IS_ACK(p->flags)) {
+    	printd("FRIEND_REQ_ANYONE_HANLDER ACK\n");
+        	//send_help_request_anyone_ack(&localUsers[0], DEFAULT_BCAST_RAD); //TODO not zero
+        	//Display to user that friend is in need.
+        	
+        	//Turn on lights/siren
+        	setAlarm(true);
+    	}
+}
+
+
+
 void help_response_anyone_handler(Packet *p);
 void find_hops_request_handler(Packet *p);
 void find_hops_response_handler(Packet *p);
-void find_neighbors_request_handler(Packet *p);
-void find_neighbors_response_handler(Packet *p);
+
+void send_find_neighbors_request(Friend *f, LocalUser *self) {
+	printv("Send Find Neighbors Request\n");
+	Network* n = malloc(sizeof(Network));
+	Packet* p = malloc(sizeof(Packet));
+	
+	n->dest = f->networkaddr;
+	printNetAddr(n->dest);
+	
+	p->opcode = FIND_NEIGHBORS_REQUEST;
+	CLR_FLAGS(p->flags);
+	//copy_friend_to_packet(f, self, p);
+	
+	sendPacket(p, n);
+	
+	//Add a corresponding message
+	Message *m = malloc(sizeof(Message));
+	setSettingsByOpcode(m, FIND_NEIGHBORS_RESPONSE); //Different than other responses because broadcast.
+	memcpy(m->srcAddr, n->dest, 8);
+	addToQueue(m);
+	free(n);
+	free(p);
+	
+}
+
+void find_neighbors_request_handler(Packet *p) {
+	printv("Find Neighbors Request Handler\n");
+	Network *net = NULL;
+	if (!getNetInfo(p, net)) {
+		printe("Unable to get network info.\n");
+		return;
+	}
+	if (IS_ACK(p->flags)) {
+		printd("FIND_NEIGHBORS_HANDLER ACK\n");
+		printe("Received unexpected ACK\n");
+		//That is an error. Do nothing.
+	} else {
+		printd("FIND_NEIGHBORS_HANDLER\n");
+		LocalUser *self = &localUsers[0]; //TODO Set this to something scalable.
+		Friend f; //Incomplete f. TODO this is probably okay.
+		f.port = p->ORIGINUID; //Return UID;
+		memcpy(f.networkaddr, net->src, MAXNETADDR); //TODO @brian is this correct src? want to send to other station.
+		send_find_neighbors_response(&f, self, net->ttl); //Sends this devices ttl so other can calculate.
+	}
+}
+
+void send_find_neighbors_response(Friend *f, LocalUser *self, ttl ttl) {
+	printv("Send Find Neighbors Request\n");
+	Network* n = malloc(sizeof(Network));
+	Packet* p = malloc(sizeof(Packet));
+	
+	n->dest = f->networkaddr;
+	printNetAddr(n->dest);
+	
+	p->opcode = FIND_NEIGHBORS_RESPONSE;
+	CLR_FLAGS(p->flags);
+	copy_friend_to_packet(f, self, p);
+	p->ttl = ttl; // Set the TTL TODO eventually put in better place.
+	sendPacket(p, n);
+	
+	//Add a corresponding message
+	Message *m = malloc(sizeof(Message));
+	setSettingsByOpcode(m, p->opcode);
+	memcpy(m->srcAddr, n->dest, 8);
+	addToQueue(m);
+	free(n);
+	free(p);
+}
+
+void send_find_neighbors_response_ack(Friend *f, LocalUser *self) {
+	printv("Send Friend Request ACK\n");
+	Network* n = malloc(sizeof(Network));
+	Packet* p = malloc(sizeof(Packet));
+	
+	n->dest = f->networkaddr;
+	printNetAddr(n->dest);
+	
+	p->opcode = FIND_NEIGHBORS_RESPONSE;
+	CLR_FLAGS(p->flags);
+	SET_ACK(p->flags);
+	copy_friend_to_packet(f, self, p);
+	sendPacket(p, n);
+	
+	free(n);
+	free(p);
+}
+
+void find_neighbors_response_handler(Packet *p) {
+	printv("Find Neighbors Response Handler\n");
+	Network *net = NULL;
+	if (!getNetInfo(p, net)) {
+		printe("Unable to get network info.\n");
+		return;
+	}
+	if (IS_ACK(p->flags)) {
+		printd("FIND_NEIGHBORS_HANDLER ACK\n");
+		//Do nothing. Just confirmation message.
+	} else {
+		printd("FIND_NEIGHBORS_HANDLER\n");
+		addNeighbor(p, net, queueTime);
+		
+		LocalUser *self = &localUsers[0]; //TODO Set this to something scalable.
+		Friend f; //Incomplete f. TODO this is probably okay.
+		f.port = p->ORIGINUID; //Return UID;
+		memcpy(f.networkaddr, net->src, MAXNETADDR); //TODO @brian is this correct src? want to send to other station.
+		send_find_neighbors_response_ack(&f, self);
+	}
+}
 
 void send_friend_request(Friend *f, LocalUser *self) {
 	printv("Send Friend Request\n");
@@ -452,11 +581,6 @@ void send_friend_request_ack(Friend *f, LocalUser *self) {
 	copy_friend_to_packet(f, self, p);
 	sendPacket(p, n);
 	
-	//Add a corresponding message
-	//Message *m = malloc(sizeof(Message));
-	//setSettingsByOpcode(m, p->opcode);
-	//memcpy(m->srcAddr, n->dest, 8);
-	//addToQueue(m);
 	free(n);
 	free(p);
 }
@@ -474,16 +598,15 @@ void friend_request_handler(Packet *p) {
 		Friend *isFriend = checkForFriend(net);
 		if (isFriend != NULL) {
 			printd("Is a friend.\n");
-			
 			//Add message/event for a FRIEND_RESPONSE.
 			Message *m = malloc(sizeof(Message));
 			setSettingsByOpcode(m, FRIEND_RESPONSE);
 			memcpy(m->srcAddr, net->dest, 8);
 			addToQueue(m);
-			} else {
+		} else {
 			printe("Not a friend but received this somehow.\n");
 		}
-		} else {
+	} else {
 		printd("FRIEND_REQ_HANDLER\n");
 		//Check if already friend. If already friend, drop packet.
 		Friend *isFriend = checkForFriend(net);
@@ -499,7 +622,7 @@ void friend_request_handler(Packet *p) {
 		CLR_RESACCEPT(f.responseflag);
 		strcpy(f.firstname, p->SRCFIRSTNAME);
 		strcpy(f.lastname, p->SRCLASTNAME);
-		strcpy(f.networkaddr, net->src); //TODO @brian is it src or dest?
+		memcpy(f.networkaddr, net->src, MAXNETADDR); //TODO @brian is this correct src? want to send to other station.
 		f.lastresponse = 0; //TODO set to current time
 		
 		LocalUser *self = &localUsers[0]; //TODO Set this to something scalable.
@@ -510,9 +633,22 @@ void friend_request_handler(Packet *p) {
 		send_friend_request_ack(&f, self);
 		/**
 		Message user that someone wants to be a friend.
+		*/
+		lcd_clear();
+		lcd_set_line(0, "Friend Req");
+		char buff[16];
+		sprintf(buff, "%s", p->SRCFIRSTNAME);
+		lcd_set_line(1, buff);
+		lcd_update();
+		/*
 		TODO @brian@august LCD Prompt	//Add message/event for a FRIEND_RESPONSE ACK (Only after user accepts) //TODO NOT HERE.
 		If they accept, send a packet to them.
 		*/
+		Message *m = malloc(sizeof(Message));
+		setSettingsByOpcode(m, FRIEND_RESPONSE);
+		//m->srcid = p->SRCUID;
+		memcpy(m->srcAddr, net->dest, 8);
+		addToQueue(m);
 	}
 }
 
@@ -555,11 +691,6 @@ void send_friend_response_ack(Friend *f, LocalUser *self, bool accept) {
 	copy_friend_to_packet(f, self, p);
 	sendPacket(p, n);
 	
-	//Add a corresponding message
-	//Message *m = malloc(sizeof(Message));
-	//setSettingsByOpcode(m, p->opcode);
-	//memcpy(m->srcAddr, n->dest, 8);
-	//addToQueue(m);
 	free(n);
 	free(p);
 }
@@ -630,11 +761,6 @@ void send_unfriend_request_ack(Friend *f, LocalUser *self) {
 	copy_friend_to_packet(f, self, p);
 	sendPacket(p, n);
 	
-	//Add a corresponding message
-	//Message *m = malloc(sizeof(Message));
-	//setSettingsByOpcode(m, p->opcode);
-	//memcpy(m->srcAddr, n->dest, 8);
-	//addToQueue(m);
 	free(n);
 	free(p);
 }

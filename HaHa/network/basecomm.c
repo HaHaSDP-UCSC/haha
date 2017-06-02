@@ -40,6 +40,14 @@ bool init_network() {
  * Returns if successful or not.
  */
 bool sendPacket(Packet *p, Network *netdest) {
+    sendPacketRadius(p, netdest, 0);
+}
+
+/**
+ * Take the packet data and send to network device with radius
+ * Returns if successful or not.
+ */
+bool sendPacketRadius(Packet *p, Network *netdest, uint8_t radius) {
 	unsigned char data[MAXBUFFER];
 	int datalen = 0;
 	if ((datalen = convertFromPacketToData(p, data)) <= 0) {
@@ -50,7 +58,7 @@ bool sendPacket(Packet *p, Network *netdest) {
     printd("Sending to:");
     printBuff(netdest->dest, 8, "%c");
     printf("computed data len:%d", datalen);
-    uint8_t sentBytes = xbee_send_byte(netdest->dest, data, datalen);
+    uint8_t sentBytes = xbee_send_byte_radius(netdest->dest, data, datalen, radius);
     if( sentBytes <=0){
         printe("Error sending packet.\n");
         return false;
@@ -65,23 +73,24 @@ bool sendPacket(Packet *p, Network *netdest) {
 /**
  * Checks for a packet on the network layer. This then processes the packet.
  */
-bool recvPacket(Packet *p, Network *netsrc) {
-	
-	//TODO @brian hook xbee_recvPacket into function.
-	
-	/**
-	//char buffer[BUFFERSIZE];
-	//int receivelen;
-	if ((receivelen = _recv_packet(buffer, BUFFERSIZE)) <= 0) {
-		//printe("No packet to receive.\n");
-		return false;
-	}
-	convertFromDataToPacket(p, (unsigned char *) buffer, receivelen);
-	return true;
-	*/
-	//TODO @brian send to message queue.
-	return false;
-}
+//This is done with app_packet_handler
+//bool recvPacket(Packet *p, Network *netsrc) {
+	//
+	////TODO @brian hook xbee_recvPacket into function.
+	//
+	///**
+	////char buffer[BUFFERSIZE];
+	////int receivelen;
+	//if ((receivelen = _recv_packet(buffer, BUFFERSIZE)) <= 0) {
+		////printe("No packet to receive.\n");
+		//return false;
+	//}
+	//convertFromDataToPacket(p, (unsigned char *) buffer, receivelen);
+	//return true;
+	//*/
+	////TODO @brian send to message queue.
+	//return false;
+//}
 
 /**
  * Creates a packet from a standardized structure to be sent.

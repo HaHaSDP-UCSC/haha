@@ -100,7 +100,7 @@ bool removeFriend(Friend *f) {
 			friendList[i].id = 0; //Null id.
 			int priority = friendList[i].priority;
 			//Reshuffle friends up.
-			for (int j = i; i < FRIENDLISTSIZE-i-1; j++) {
+			for (int j = i; j < FRIENDLISTSIZE-i-1; j++) {
 				friendList[j] = friendList[j+1];
 			}
 			//Fix priorities.

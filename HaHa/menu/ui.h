@@ -19,6 +19,9 @@
 
 // Global variables
 Menu *menu;
+MenuItem* ui_item_helpreq;
+MenuItem* ui_item_helpdeny;
+MenuItem* ui_item_helpresp;
 
 void ui_init(void);
 void ui_move(MenuDirection direct);

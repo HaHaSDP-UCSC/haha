@@ -11,9 +11,10 @@
 #include <string.h>
 
 
+#define HOPS_NO_MAX 0
 /* Internal Functions */
 static void _rxFrame_clear(frameRX *p);
-static uint8_t _xbee_send(char* data, uint8_t len);
+static uint8_t _xbee_send(char* data, uint8_t len, uint8_t radius);
 static uint8_t _xbee_sendFrame(frameTX *tx);
 static uint8_t _frame_TX_tochar(char* buff, frameTX *txData, int size);
 static void _packet_Handler(frameIncoming * p);
@@ -131,6 +132,10 @@ uint8_t calc_checksum(char *data, uint16_t len){
 
 /* Exposed send function */
 uint8_t xbee_send(uint64_t dst, char* data, uint8_t datalen){
+    xbee_send_radius(dst, data, datalen, HOPS_NO_MAX);
+}
+
+uint8_t xbee_send_radius(uint64_t dst, char* data, uint8_t datalen, uint8_t radius){
     HAHADEBUG("In xbee_send\n");
     txData.dst[0] = (dst >> 56) & 0xFF;
     txData.dst[1] = (dst >> 48) & 0xFF;
@@ -142,10 +147,15 @@ uint8_t xbee_send(uint64_t dst, char* data, uint8_t datalen){
     txData.dst[7] = dst & 0xFF;
     printf("Sending to:");
     printBuff(txData.dst, 8, "0x%x ");
-    _xbee_send(data, datalen);
+    _xbee_send(data, datalen, radius);
 }
 
 uint8_t xbee_send_hex(char* dst, char* data, uint8_t datalen)
+{
+    xbee_send_hex_radius(dst, data, datalen, HOPS_NO_MAX);
+}
+
+uint8_t xbee_send_hex_radius(char* dst, char* data, uint8_t datalen, uint8_t radius)
 {
     HAHADEBUG("In xbee_send_hex\n");
     uint8_t len2 = 0, len = 16;// strlen(dst);
@@ -160,11 +170,16 @@ uint8_t xbee_send_hex(char* dst, char* data, uint8_t datalen)
     HAHADEBUG("sending to:");
     for(int i=0; i<8; ++i)
         HAHADEBUG("%c", txData.dst[i]);
-    _xbee_send(data, datalen);
+    _xbee_send(data, datalen, radius);
     return 0;
 }
 
 uint8_t xbee_send_byte(char* dst, char* data, uint8_t len)
+{
+    xbee_send_byte_radius(dst, data, len, HOPS_NO_MAX);
+}
+
+uint8_t xbee_send_byte_radius(char* dst, char* data, uint8_t len, uint8_t radius)
 {
     HAHADEBUG("In xbee_send_hex\n");
     //uint8_t len2 = 0, len = 16;// strlen(dst);
@@ -183,11 +198,11 @@ uint8_t xbee_send_byte(char* dst, char* data, uint8_t len)
     for(int i=0; i<8; ++i)
     HAHADEBUG("%c", txData.dst[i]);
     
-    return _xbee_send(data, len);
+    return _xbee_send(data, len, radius);
 }
 
 /* Internal send function */
-uint8_t _xbee_send(char* data, uint8_t len)
+uint8_t _xbee_send(char* data, uint8_t len, uint8_t radius)
 {
     HAHADEBUG("in _xbee_send\n");
     //Generate the frame packet
@@ -197,7 +212,7 @@ uint8_t _xbee_send(char* data, uint8_t len)
     //Reserved: FF FE
     txData.res[0] = 0xFF;
     txData.res[1] = 0xFE;
-    txData.b_rad = 0;
+    txData.b_rad = radius;
     txData.opt = OPT_DIGIMESH;
     txData.data = data;
     txData.data_len = len;

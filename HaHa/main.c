@@ -70,7 +70,7 @@ int main(void)
 		if(count1 % 5000*100 == 0 ){
 			ui_update();
 			if(toglight){
-				if(lighton++ % 30 == 0)
+				if(lighton++ % 100 == 0)
 					toglight = false;
 				gpio_toggle_pin_level(TOGGLE_LIGHT);
 			}
@@ -88,7 +88,7 @@ int main(void)
 	int count = 0;
 	char c;
     
-    sendTestReq();
+    //sendTestReq();
 	
     //addTestFriend("Brian", "Nichols","0013A200414F50EA");
     //addTestLocalUser("Kevin", "Lee", 0x1);
