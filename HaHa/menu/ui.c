@@ -90,7 +90,9 @@ void ui_init(void) {
 
 void* ui_helpdeny_onview(Menu* menu) {
 	menu->current = menu->current->parent; 
+	menu->current->onView();
 	// Custom code on help request deny
+
 }
 
 void* ui_helpresp_onview(Menu* menu) {
@@ -98,14 +100,15 @@ void* ui_helpresp_onview(Menu* menu) {
 	lcd_set_line(0, "! HELP REQUEST !");
 	char buff[35];
 	sprintf(buff, "%s needs help!", menu->txtSrc1);
-	lcd_set_line_overflow(1, "Info on user needing help");
+	lcd_set_line_overflow(1, buff);
 	lcd_set_line(LCD_ROWS - 1, "< BACK  RESPOND>");
 	lcd_update();
 }
 
 void* ui_helpresp_onclick(Menu* menu) {
 	menu->current = menu->current->parent->parent;
-	send_help_request_ack(&localUsers[0], &localUsers[0]); //TODO not zero
+	menu->current->onView();
+	//send_help_request_ack(&localUsers[0], &localUsers[0]); //TODO not zero
 }
 
 void ui_move(MenuDirection direct) {
