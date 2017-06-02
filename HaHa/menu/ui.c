@@ -104,11 +104,15 @@ void* ui_helpdeny_onview(Menu* menu) {
 }
 
 void* ui_helpresp_onview(Menu* menu) {
+	printd("In helpresp onview\n");
 	lcd_clear();
 	lcd_set_line(0, "! HELP REQUEST !");
 	char buff[35];
-	sprintf(buff, "%s needs help!", menu->txtSrc1);
-	lcd_set_line_overflow(1, buff);
+	printf("before");
+	//sprintf(buff, "%s", menu->txtSrc1);
+	printf("after");
+	printf("%s", menu->txtSrc1);
+	lcd_set_line_overflow(1, menu->txtSrc1);
 	lcd_set_line(LCD_ROWS - 1, "< BACK  RESPOND>");
 	lcd_update();
 }
