@@ -502,7 +502,8 @@ void send_find_neighbors_request(Friend *f, LocalUser *self) {
 	
 	p->opcode = FIND_NEIGHBORS_REQUEST;
 	CLR_FLAGS(p->flags);
-	copy_friend_to_packet(f, self, p);
+	//copy_friend_to_packet(f, self, p);
+	
 	sendPacket(p, n);
 	
 	//Add a corresponding message
@@ -711,8 +712,7 @@ void friend_request_handler(Packet *p) {
 		*/
 		Message *m = malloc(sizeof(Message));
 		setSettingsByOpcode(m, FRIEND_RESPONSE);
-		strcpy(m->srcid, p->SRCUID);
-		//strcpy(m->srcAddr, p->SRCHOMEADDR);
+		//m->srcid = p->SRCUID;
 		memcpy(m->srcAddr, net->dest, 8);
 		addToQueue(m);
 	}
