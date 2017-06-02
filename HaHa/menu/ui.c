@@ -24,8 +24,8 @@ void* ui_helpresp_onclick(Menu* menu);
 
 
 void ui_helpreq_onclick(Menu *menu){
-	addTestFriend("Brian", "Nichols","0013A200414F50EA");
-	addTestLocalUser("Kevin", "Lee", 0x1);
+	//addTestFriend("Brian", "Nichols","0013A200414F50EA");
+	//addTestLocalUser("Kevin", "Lee", 0x1);
 	//send_ping_request(&friendList[0]);
 	
 	/* Testing Application code */
@@ -59,7 +59,10 @@ void ui_helpreq_onclick(Menu *menu){
 	memcpy(f.networkaddr, t, 8);
 	f.port = 0x0002;
 	
-	send_help_request(&f, &self);
+	addFriend(&f);
+	addLocalUser(&self);
+	//send_help_request(&f, &self);
+	send_help_request(&friendList[0], &localUsers[0]);
 	//send_help_request_ack(Friend *f, LocalUser *self);
 	
 	bool accept = true;
@@ -114,6 +117,7 @@ void ui_init(void) {
 }
 
 void* ui_helpdeny_onview(Menu* menu) {
+	printd("IN HELPRESP DENY ON VIEW!\n");
 	send_help_response(&friendList[0], &localUsers[0], true); //TODO not zero
 	menu->current = menu->current->parent; 
 	menu->current->onView();
@@ -139,6 +143,7 @@ void* ui_helpresp_onview(Menu* menu) {
 }
 
 void* ui_helpresp_onclick(Menu* menu) {
+	printd("IN HELPRESP ON CLICK!\n");
 	menu->current = menu->current->parent->parent;
 	menu->current->onView();
 	send_help_response(&friendList[0], &localUsers[0], true); //TODO not zero
