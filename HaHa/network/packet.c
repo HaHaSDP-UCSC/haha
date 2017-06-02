@@ -260,14 +260,16 @@ void help_request_handler(Packet *p) {
 		//lcd(p->SRCFIRSTNAME);
 		lcd_set_line(0, "Help Req Recv");
 		} else {
-		printd("FRIEND_REQ_HANDLER\n");
+		printd("HELP_REQ_HANDLER\n");
 		//Check if friend
 		Friend *isFriend = checkForFriend(net);
 		if (isFriend != NULL) {
 			printd("Is a friend.\n");
 			toglight =1;
 			//Send HELP_REQUEST_ACK
-			menu->txtSrc1 = localUsers[0].friend.firstname;
+			//menu->txtSrc1 = &localUsers[0].friend.firstname;
+			strcpy(menu->txtSrc1, p->SRCFIRSTNAME);
+			printf("\n%s->%s\n", menu->txtSrc1, p->SRCFIRSTNAME);
 			menu->current = ui_item_helpresp;
 			menu->current->onView();
 			send_help_request_ack(isFriend, &localUsers[0]); //TODO not zero
