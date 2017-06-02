@@ -265,16 +265,12 @@ void help_request_handler(Packet *p) {
 		Friend *isFriend = checkForFriend(net);
 		if (isFriend != NULL) {
 			printd("Is a friend.\n");
-			lcd_set_line(0, "Help Req!");
-			char buff[16];
-			sprintf(buff, "%s", p->SRCFIRSTNAME);
-			lcd_set_line(1, buff);
-			lcd_update();
 			toglight =1;
 			//Send HELP_REQUEST_ACK
 			menu->txtSrc1 = localUsers[0].friend.firstname;
 			menu->current = ui_item_helpresp;
-			//send_help_request_ack(isFriend, &localUsers[0]); //TODO not zero
+			menu->current->onView();
+			send_help_request_ack(isFriend, &localUsers[0]); //TODO not zero
 			//Display to user that friend is in need.
 			
 			//Turn on lights/siren
@@ -359,7 +355,7 @@ void help_response_handler(Packet *p) {
 			//Display to user whether they accepted or not.
 			//If accepted, all good, otherwise, do a send to the next friend,
 			//or HELP_REQUEST_ANYONE
-			
+			printd("USER RESPONSE PACKET RECV!\n");
 			//Different light/alarm pattern
 			
 			//Send confirmation back.

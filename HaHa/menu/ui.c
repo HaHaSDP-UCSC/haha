@@ -6,6 +6,8 @@
  * @date 2017-03-07
  */
 
+#define BRIAN 1
+
 #include "ui.h"
 #include "messagequeue/messagequeue.h"
 #include "neighbor/friendlist.h"
@@ -25,16 +27,30 @@ void ui_helpreq_onclick(Menu *menu){
 	LocalUser self;
 	strcpy(self.friend.firstname, "Kevin");
 	strcpy(self.friend.lastname, "Lee");
+	
 	uint8_t* t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E9");
 	//uint8_t* t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50EA");
+#ifndef BRIAN
+	uint8_t* t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E9");
+#else
+	uint8_t* t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50EA");
+#endif
 	memcpy(self.friend.networkaddr,t, 8);
 	self.friend.port = 0x0001;
 	
 	Friend f;
 	strcpy(f.firstname, "Brian");
 	strcpy(f.lastname, "Nichols");
+	
 	t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50EA");
 	//t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E9");
+	
+#ifndef BRIAN
+	t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50EA");
+#else	
+	t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E9");
+#endif	
+
 	memcpy(f.networkaddr, t, 8);
 	f.port = 0x0002;
 	
@@ -90,7 +106,9 @@ void ui_init(void) {
 
 void* ui_helpdeny_onview(Menu* menu) {
 	menu->current = menu->current->parent; 
+	menu->current->onView();
 	// Custom code on help request deny
+
 }
 
 void* ui_helpresp_onview(Menu* menu) {
@@ -98,14 +116,15 @@ void* ui_helpresp_onview(Menu* menu) {
 	lcd_set_line(0, "! HELP REQUEST !");
 	char buff[35];
 	sprintf(buff, "%s needs help!", menu->txtSrc1);
-	lcd_set_line_overflow(1, "Info on user needing help");
+	lcd_set_line_overflow(1, buff);
 	lcd_set_line(LCD_ROWS - 1, "< BACK  RESPOND>");
 	lcd_update();
 }
 
 void* ui_helpresp_onclick(Menu* menu) {
 	menu->current = menu->current->parent->parent;
-	send_help_request_ack(&localUsers[0], &localUsers[0]); //TODO not zero
+	menu->current->onView();
+	//send_help_request_ack(&localUsers[0], &localUsers[0]); //TODO not zero
 }
 
 void ui_move(MenuDirection direct) {

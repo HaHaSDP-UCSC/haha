@@ -59,7 +59,7 @@ bool updateNeighborList() {
 	Friend f;
 	//f.networkaddr = BROADCASTADDR;
 	LocalUser *self = &localUsers[0]; //TODO Set this to something scalable.
-	send_find_neighbors_request(&f, &self);
+	//send_find_neighbors_request(&f, &self);
 	return false; //TODO Implement
 }
 
