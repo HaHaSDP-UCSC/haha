@@ -27,6 +27,9 @@ void ui_helpreq_onclick(Menu *menu){
 	LocalUser self;
 	strcpy(self.friend.firstname, "Kevin");
 	strcpy(self.friend.lastname, "Lee");
+	
+	//uint8_t* t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E9");
+	//uint8_t* t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50EA");
 #ifndef BRIAN
 	uint8_t* t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E9");
 #else
@@ -38,11 +41,16 @@ void ui_helpreq_onclick(Menu *menu){
 	Friend f;
 	strcpy(f.firstname, "Brian");
 	strcpy(f.lastname, "Nichols");
+	
+	//t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50EA");
+	//t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E9");
+	
 #ifndef BRIAN
 	t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50EA");
 #else	
 	t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E9");
 #endif	
+
 	memcpy(f.networkaddr, t, 8);
 	f.port = 0x0002;
 	

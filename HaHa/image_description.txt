@@ -10,5 +10,9 @@ image
 image
 	version = 0x000001
 	number of sections = 1
+<<<<<<< HEAD
 	section 0 at 0x10008000 size 33244 bytes
+=======
+	section 0 at 0x10008000 size 34188 bytes
+>>>>>>> 9e12495ae1f3db0466336116288adb423b22af74
 
