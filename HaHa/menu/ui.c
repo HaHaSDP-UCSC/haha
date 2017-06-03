@@ -241,6 +241,7 @@ void ui_input_init(Menu* menu, char* value, char* letters, char** output) {
 	inputEnter->onClick = ui_input_onclick;
 	menu->inputBuffer = malloc(256 * sizeof(char));
 	bzero(menu->inputBuffer, 256);
+	menu->outputBuffer = output;
 	menu->current = inputRoot->child;
 	menu->current->onView();
 	lcd_set_line(LCD_ROWS - 1, "Edit with v/^");
