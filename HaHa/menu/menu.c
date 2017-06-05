@@ -162,9 +162,7 @@ MenuItem* menu_item_get_last(MenuItem* this) {
 int menu_item_destroy(MenuItem* this) {
   if(this) {
     printd("DELETE %s\n", this->value);
-    while(this->child) {
-      menu_item_destroy(this->child);
-    }
+    menu_item_sterilize(this);
     if(this->prev) { // Not first child
       this->prev->next = this->next;
     } else {
@@ -174,4 +172,15 @@ int menu_item_destroy(MenuItem* this) {
     free(this);
   } else return(-1);
   return(0);
+}
+
+int menu_item_sterilize(MenuItem* this) {
+	if(this) {
+		int count = 0;
+		while(this->child) {
+			menu_item_destroy(this->child);
+			count++;
+		}
+		return(count);
+	} else return(-1);
 }

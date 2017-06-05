@@ -102,4 +102,11 @@ MenuItem* menu_item_get_last(MenuItem* this);
  */
 int menu_item_destroy(MenuItem* this);
 
+/**
+ * @brief Destroys all descendants of a given MenuItem
+ * @param this parent MenuItem
+ * @return number of children killed, or -1 on error
+ */
+int menu_item_sterilize(MenuItem* this);
+
 #endif // _HA_MENU_

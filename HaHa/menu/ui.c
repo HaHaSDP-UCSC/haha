@@ -21,7 +21,7 @@ char* ui_charset_alphacase = "_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVW
 void* ui_helpdeny_onview(Menu* menu);
 void* ui_helpresp_onview(Menu* menu);
 void* ui_helpresp_onclick(Menu* menu);
-
+void* ui_contacts_onclick(Menu* menu);
 
 void ui_helpreq_onclick(Menu *menu){
 	//addTestFriend("Brian", "Nichols","0013A200414F50EA");
@@ -78,6 +78,8 @@ void ui_init(void) {
   MenuItem* root = menu->root;
   MenuItem* mm = ui_item_init(root, "Main Menu");
   MenuItem* contacts = ui_item_init(mm, "Contact list");
+  contacts->onClick = ui_contacts_onclick;
+  ui_item_init(contacts, "__CONTACT_INIT__");
   MenuItem* user = ui_item_init(mm, "User info");
   temp = ui_item_init(user, "__USERPORT__");
   temp->onView = ui_onview_userinfo;
@@ -96,12 +98,12 @@ void ui_init(void) {
   temp->onClick = ui_onclick_userinfo;
   MenuItem* set = ui_item_init(mm, "Device settings");
   ui_item_init(set, "Office mode");
-  MenuItem* setAlert = ui_item_init(set, "Alert settings");
-  ui_item_init(setAlert, "Sound");
-  ui_item_init(setAlert, "Lights");
-  MenuItem* setNotice = ui_item_init(set, "Notice settings");
-  ui_item_init(setNotice, "Test button");
-  ui_item_init(setNotice, "Update info");
+  temp = ui_item_init(set, "Alert settings");
+  ui_item_init(temp, "Sound");
+  ui_item_init(temp, "Lights");
+  temp = ui_item_init(set, "Notice settings");
+  ui_item_init(temp, "Test button");
+  ui_item_init(temp, "Update info");
   ui_item_init(set, "Pair button");
   ui_item_init(set, "Disable system");
   ui_item_init(root, "Activity (%dh)");
@@ -314,5 +316,17 @@ void* ui_input_onclick(Menu* menu) {
 	} else {
 		inputBuffer[inputLen] = currentLetter;
 		menu->current = menu->current->parent->child;
+	}
+}
+
+void* ui_contacts_onclick(Menu* menu) {
+	MenuItem* contactRoot = menu->current;
+	menu_item_sterilize(contactRoot);
+	char name[256];
+	for(int i = 0; i < numFriends; i++) {
+		strcpy(name, localUsers[i].friend.firstname);
+		strcat(name, " ");
+		strcat(name, localUsers[i].friend.lastname);
+		menu_item_init(contactRoot, name);
 	}
 }

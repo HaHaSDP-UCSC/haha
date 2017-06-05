@@ -56,9 +56,9 @@ int main(void)
 	xbee_register_callback(app_packet_handler, FRAME_RX);
 	//
 	// Start screen
-	lcd_set_line(0, "JACK BASKIN ENGR");
-	lcd_set_line(1, "Home  Assistance");
-	lcd_set_line(2, "   Help Alert");
+	lcd_set_line(0, "UCSC/BASKIN ENGR");
+	lcd_set_line(1, "   Help Alert");
+	lcd_set_line(2, "Home  Assistance");
 	lcd_set_line(3, " Button Project");
 	lcd_update();
 	//max 500 hz for hearing aids
