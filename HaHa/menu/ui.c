@@ -82,7 +82,10 @@ void ui_init(void) {
   temp = ui_item_init(user, "__USERPORT__");
   temp->onView = ui_onview_userinfo;
   temp->onClick = ui_onclick_userinfo;
-  temp = ui_item_init(user, "__USERNAME__");
+  temp = ui_item_init(user, "__USERFIRST__");
+  temp->onView = ui_onview_userinfo;
+  temp->onClick = ui_onclick_userinfo;
+  temp = ui_item_init(user, "__USERLAST__");
   temp->onView = ui_onview_userinfo;
   temp->onClick = ui_onclick_userinfo;
   temp = ui_item_init(user, "__USERADDR__");
@@ -196,9 +199,12 @@ void* ui_onview_userinfo(Menu* menu) {
 	if(streq(menu->current->value, "__USERPORT__")) {
 		lcd_set_line(0, "Your Base ID");
 		lcd_set_line(1, "PLACEHOLDER");
-	} else if(streq(menu->current->value, "__USERNAME__")) {
-		lcd_set_line(0, "Your Name");
-		lcd_set_line_overflow(1, ui_global_name);
+	} else if(streq(menu->current->value, "__USERFIRST__")) {
+		lcd_set_line(0, "Your First Name");
+		lcd_set_line_overflow(1, localUsers[0].friend.firstname);
+	} else if(streq(menu->current->value, "__USERLAST__")) {
+		lcd_set_line(0, "Your Last Name");
+		lcd_set_line_overflow(1, localUsers[0].friend.lastname);
 	} else if(streq(menu->current->value, "__USERADDR__")) {
 		lcd_set_line(0, "Your Address");
 		lcd_set_line(1, "PLACEHOLDER");
@@ -214,8 +220,10 @@ void* ui_onclick_userinfo(Menu* menu) {
 	printd("ui_onclick_userinfo\n");
 	if(streq(menu->current->value, "__USERPORT__")) {
 		
-	} else if(streq(menu->current->value, "__USERNAME__")) {
-		ui_input_init(menu, "Edit Name:", ui_charset_alphacase, &ui_global_name);
+	} else if(streq(menu->current->value, "__USERFIRST__")) {
+		ui_input_init(menu, "Edit First Name:", ui_charset_alphacase, &localUsers[0].friend.firstname);
+	} else if(streq(menu->current->value, "__USERLAST__")) {
+		ui_input_init(menu, "Edit Last Name:", ui_charset_alphacase, &localUsers[0].friend.lastname);
 	} else if(streq(menu->current->value, "__USERADDR__")) {
 	
 	} else if(streq(menu->current->value, "__USERCALL__")) {
