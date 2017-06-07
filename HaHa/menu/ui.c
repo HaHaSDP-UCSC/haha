@@ -23,9 +23,9 @@ void ui_init(void) {
   ui_item_root = menu->root;
   ui_item_root->onView = ui_root_onview;
   ui_item_main = ui_item_init(ui_item_root, "Main Menu");
-  MenuItem* contacts = ui_item_init(ui_item_main, "Contact list");
-  contacts->onClick = ui_contactlist_onclick;
-  ui_item_init(contacts, "__CONTACT_INIT__");
+  ui_item_listfriend = ui_item_init(ui_item_main, "Friend list");
+  ui_item_listfriend->onClick = ui_listfriend_onclick;
+  ui_item_init(ui_item_listfriend, "__FRIEND_INIT__");
   MenuItem* user = ui_item_init(ui_item_main, "User info");
   temp = ui_item_init(user, "__USERPORT__");
   temp->onView = ui_userinfo_onview;
@@ -254,26 +254,40 @@ void* ui_input_onclick(Menu* menu) {
 	}
 }
 
-void* ui_contactlist_onclick(Menu* menu) {
-	printd("ui_contacts_onclick\n");
-	MenuItem* contactRoot = menu->current;
-	menu_item_sterilize(contactRoot);
+void* ui_listfriend_onclick(Menu* menu) {
+	printd("ui_listfriend_onclick\n");
+	MenuItem* friendRoot = menu->current;
+	menu_item_sterilize(friendRoot);
 	char name[256];
-	printd("adding friends\n");
+	MenuItem* temp;
 	for(int i = 0; i < numFriends; i++) {
 		sprintf(name, "%d:%s %s", i, friendList[i].firstname, friendList[i].lastname);
-		printd("adding friend[%d]: %s\n", i, name);
-		ui_item_init(contactRoot, name);
+		temp = ui_item_init(friendRoot, name);
 	}
-	if(contactRoot->child) {
-		printd("You have friends\n");
-		menu->current = contactRoot->child;
-		menu->current->onView();
-	} else {
-		printd("You have no friends\n");
-		ui_item_init(contactRoot, "__CONTACT_INIT__");
-	}
+	temp = ui_item_init(friendRoot, "Add friend");
+	temp->onClick = ui_listneighbor_onclick;
+	ui_item_init(temp, "__NEIGHBOR_TMP__");
+	menu->current = friendRoot->child;
+	menu->current->onView();
 	printd("ui_contacts_onclick done\n");
+}
+
+void* ui_listneighbor_onclick(Menu* menu) {
+	printd("ui_listneighbor_onclick\n");
+	MenuItem* neighborRoot = menu->current;
+	menu_item_sterilize(neighborRoot);
+	char name[256];
+	MenuItem* temp;
+	for(int i = 0; i < numNeighbors; i++) {
+		sprintf(name, "%d:%s %s", i, neighborList[i].firstname, neighborList[i].lastname);
+		temp = ui_item_init(neighborRoot, name);
+	}
+	if(neighborRoot->child) {
+		menu->current = neighborRoot->child;
+		menu->current->onView();	
+	} else {
+		ui_item_init(neighborRoot, "__NEIGHBOR_TMP__");
+	}
 }
 
 void ui_helpreq_onclick(Menu *menu){

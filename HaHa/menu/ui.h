@@ -21,6 +21,7 @@
 Menu *menu;
 MenuItem* ui_item_root;
 MenuItem* ui_item_main;
+MenuItem* ui_item_listfriend;
 MenuItem* ui_item_settings;
 MenuItem* ui_item_helpreq;
 MenuItem* ui_item_helpdeny;
@@ -129,7 +130,9 @@ void* ui_input_onclick(Menu* menu);
  * @brief onclick method on contact list, regenerates contact list
  * @param menu menu tree
  */
-void* ui_contactlist_onclick(Menu* menu);
+void* ui_listfriend_onclick(Menu* menu);
+
+void* ui_listneighbor_onclick(Menu* menu);
 
 /**
  * @brief onclick method on help request, sends help request
