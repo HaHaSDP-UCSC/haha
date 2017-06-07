@@ -56,10 +56,13 @@ void ui_init(void) {
   //MenuItem* demo = ui_item_init(ui_item_root, "Configure demo");
   temp = ui_item_init(demo, "August");
   temp->onClick = ui_demo_onclick;
+  ui_item_init(temp, "__DEMO_TEMP__");
   temp = ui_item_init(demo, "Brian");
   temp->onClick = ui_demo_onclick;
+  ui_item_init(temp, "__DEMO_TEMP__");
   temp = ui_item_init(demo, "Kevin");
   temp->onClick = ui_demo_onclick;
+  ui_item_init(temp, "__DEMO_TEMP__");
   ui_item_init(ui_item_root, "Activity (%dh)");
   ui_item_init(ui_item_root, "Net (%dh)");
   ui_item_init(ui_item_root, "Button (%dh)");
@@ -126,8 +129,10 @@ void* ui_root_onview(Menu* menu) {
 void* ui_userinfo_onview(Menu* menu) {
 	lcd_clear();
 	if(streq(menu->current->value, "__USERPORT__")) {
+		char addr[20];
+		sprintf(addr, "%x", localUsers[0].friend.networkaddr);
 		lcd_set_line(0, "Your Base ID");
-		lcd_set_line(1, localUsers[0].friend.networkaddr);
+		lcd_set_line_overflow(1, addr);
 		lcd_set_line(3, "vMORE");
 	} else {
 		if(streq(menu->current->value, "__USERFIRST__")) {
@@ -138,10 +143,10 @@ void* ui_userinfo_onview(Menu* menu) {
 			lcd_set_line_overflow(1, localUsers[0].friend.lastname);
 			} else if(streq(menu->current->value, "__USERADDR__")) {
 			lcd_set_line(0, "Your Address");
-			lcd_set_line(1, &localUsers[0].homeaddr);
+			lcd_set_line_overflow(1, &localUsers[0].homeaddr);
 			} else if(streq(menu->current->value, "__USERCALL__")) {
 			lcd_set_line(0, "Your Phone #");
-			lcd_set_line(1, &localUsers[0].phoneaddr);
+			lcd_set_line_overflow(1, &localUsers[0].phoneaddr);
 		}
 		lcd_set_line(3, "vMORE      EDIT>");
 	}
@@ -335,6 +340,7 @@ void* ui_demo_onclick(Menu* menu) {
 	
 	strcpy(aug.firstname, "August");
 	strcpy(aug.lastname, "Valera");
+	
 	strcpy(brian.firstname, "Brian");
 	strcpy(brian.lastname, "Nichols");
 	
@@ -342,14 +348,19 @@ void* ui_demo_onclick(Menu* menu) {
 	strcpy(kev.lastname, "Lee");
 	
 	t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E5");
-	memcpy(aug.networkaddr, t, 8);
+	memcpy(aug.networkaddr, t, MAXNETADDR);
+	free(t);
 	t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50EA");
-	memcpy(brian.networkaddr, t, 8);
+	memcpy(brian.networkaddr, t, MAXNETADDR);
+	free(t);
 	t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E9");
-	memcpy(kev.networkaddr, t, 8);
+	memcpy(kev.networkaddr, t, MAXNETADDR);
+	free(t);
+	
 	Network net;
 	Packet p;
-	printd("Test1");
+	p.ORIGINUID = 0;
+	net.ttl = 1;
 	if(streq(value, "August")) {
 		self.friend = aug;
 		strcpy(p.SRCFIRSTNAME, kev.firstname);
@@ -358,7 +369,7 @@ void* ui_demo_onclick(Menu* menu) {
 		addNeighbor(&p, &net, 900000);
 		strcpy(p.SRCFIRSTNAME, brian.firstname);
 		strcpy(p.SRCLASTNAME, brian.lastname);
-		memcpy(net.src, brian.networkaddr, 8);
+		memcpy(net.src, brian.networkaddr, MAXNETADDR);
 		addNeighbor(&p, &net, 900000);
 	} else if(streq(value, "Brian")) {
 		self.friend = brian;
@@ -368,7 +379,7 @@ void* ui_demo_onclick(Menu* menu) {
 		addNeighbor(&p, &net, 900000);
 		strcpy(p.SRCFIRSTNAME, aug.firstname);
 		strcpy(p.SRCLASTNAME, aug.lastname);
-		memcpy(net.src, aug.networkaddr, 8);
+		memcpy(net.src, aug.networkaddr, MAXNETADDR);
 		addNeighbor(&p, &net, 900000);
 	} else if(streq(value, "Kevin")) {
 		self.friend = kev;
