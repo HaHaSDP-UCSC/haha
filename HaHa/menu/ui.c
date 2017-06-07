@@ -334,6 +334,7 @@ void* ui_demo_onclick(Menu* menu) {
 	
 	strcpy(aug.firstname, "August");
 	strcpy(aug.lastname, "Valera");
+	
 	strcpy(brian.firstname, "Brian");
 	strcpy(brian.lastname, "Nichols");
 	
@@ -341,32 +342,39 @@ void* ui_demo_onclick(Menu* menu) {
 	strcpy(kev.lastname, "Lee");
 	
 	t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E5");
-	memcpy(aug.networkaddr, t, 8);
+	memcpy(aug.networkaddr, t, MAXNETADDR);
+	free(t);
 	t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50EA");
-	memcpy(brian.networkaddr, t, 8);
+	memcpy(brian.networkaddr, t, MAXNETADDR);
+	free(t);
 	t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E9");
-	memcpy(kev.networkaddr, t, 8);
+	memcpy(kev.networkaddr, t, MAXNETADDR);
+	free(t);
+	
 	Network net;
 	Packet p;
+	p.ORIGINUID = 0;
+	net.ttl = 1;
+	
 	if(streq(value, "August")) {
 		self.friend = aug;
 		strcpy(p.SRCFIRSTNAME, kev.firstname);
 		strcpy(p.SRCLASTNAME, kev.lastname);
-		memcpy(net.src, kev.networkaddr, 8);
+		memcpy(net.src, kev.networkaddr, MAXNETADDR);
 		addNeighbor(&p, &net, 900000);
 		strcpy(p.SRCFIRSTNAME, brian.firstname);
 		strcpy(p.SRCLASTNAME, brian.lastname);
-		memcpy(net.src, brian.networkaddr, 8);
+		memcpy(net.src, brian.networkaddr, MAXNETADDR);
 		addNeighbor(&p, &net, 900000);
 	} else if(streq(value, "Brian")) {
 		self.friend = brian;
 		strcpy(p.SRCFIRSTNAME, kev.firstname);
 		strcpy(p.SRCLASTNAME, kev.lastname);
-		memcpy(net.src, kev.networkaddr, 8);
+		memcpy(net.src, kev.networkaddr, MAXNETADDR);
 		addNeighbor(&p, &net, 900000);
 		strcpy(p.SRCFIRSTNAME, aug.firstname);
 		strcpy(p.SRCLASTNAME, aug.lastname);
-		memcpy(net.src, aug.networkaddr, 8);
+		memcpy(net.src, aug.networkaddr, MAXNETADDR);
 		addNeighbor(&p, &net, 900000);
 	} else if(streq(value, "Kevin")) {
 		self.friend = kev;
