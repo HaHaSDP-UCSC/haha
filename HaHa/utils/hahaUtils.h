@@ -11,6 +11,7 @@
 
 #include <stdbool.h>
 #include <stdio.h>
+#include "network/network.h"
 int toglight; 
 /* Print preferences */
 /* Set to false if you want to turn it off. */
@@ -137,6 +138,8 @@ char* convert_asciihex_to_byte(char* addr);
 uint64_t byte_array_to_64(uint8_t* s);
 
 void addTestUsers();
+
+//void printNetAddr(netaddr *t);
 
 #define streq(a, b) !strcmp(a, b)
 

@@ -20,7 +20,11 @@
 #include "menu/ui.h"
 
 static int friendReq = 0;
-
+void printNetAddr1(netaddr *t) {
+	printf("NetAddr:[");
+	printBuff(t, 8, "%c");
+	printf("]\n");
+}
 void opcodes_init() {
 	haha_packet_handlers[PING_REQUEST] = ping_request_handler;
 	haha_packet_handlers[HELP_REQUEST] = help_request_handler;
@@ -36,16 +40,13 @@ void opcodes_init() {
 	haha_packet_handlers[UNFRIEND_REQUEST] = unfriend_request_handler;
 }
 
-void printNetAddr(netaddr *t) {
-	printf("NetAddr:[");
-	printBuff(t, 8, "%c");
-	printf("]\n");
-}
-
 //void app_packet_handler(char* data, uint16_t len, uint8_t* src, uint8_t id){
 void app_packet_handler(Network *info) {
 	HAHADEBUG("In app packet handler\n");
 	opcode opcode = info->data[0];
+	printd("Have Packet id %d with src:", info->id);
+	printNetAddr1(info->src);
+	printd("\n");
 	HAHADEBUG("Found opcode: 0x%x\n", opcode);
 	flags flag = info->data[1];
 	HAHADEBUG("Found flags: 0x%x\n", flag);
@@ -107,10 +108,13 @@ void copy_friend_to_packet(Friend *f, LocalUser *self, Packet* p) {
 /* Helper Function */
 /* Returns network info from id attached to packet.*/
 bool getNetInfo(Packet *p, Network *net) {
+	printd("Finding netinfo packet id:%d\n", p->id);
 	int i = netArrayReturn(p->id);
 	if(i == NOT_FOUND){
+		printd("ID %d not found.\n", p->id);
 		return false;
 	}
+	printd("Returning id %d\n", p->id);
 	net = &NET_ARRAY[i];
 	return true;
 }
@@ -498,6 +502,9 @@ void find_neighbors_request_handler(Packet *p) {
 		LocalUser *self = &localUsers[0]; //TODO Set this to something scalable.
 		Friend f; //Incomplete f. TODO this is probably okay.
 		f.port = p->ORIGINUID; //Return UID;
+		printd("FIND NEIGHBORS req SEND ADDR:");
+		printNetAddr(net->src);
+		printd("End of address\n");
 		memcpy(f.networkaddr, net->src, MAXNETADDR); //TODO @brian is this correct src? want to send to other station.
 		send_find_neighbors_response(&f, self, net->ttl); //Sends this devices ttl so other can calculate.
 	}

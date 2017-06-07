@@ -12,7 +12,7 @@
 #include <inttypes.h>
 #include <stdlib.h>
 #include "neighbor/friendlist.h"
-
+#include "network/network.h"
 //#define BRIAN 1
 
 /* Delay in ms */
@@ -188,3 +188,9 @@ char* convert_asciihex_to_byte(char* addr){
  addFriend(&f);
  addLocalUser(&self);
  }
+
+ //void printNetAddr(netaddr *t) {
+	 //printf("NetAddr:[");
+	 //printBuff(t, 8, "%c");
+	 //printf("]\n");
+ //}
