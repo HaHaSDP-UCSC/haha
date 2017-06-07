@@ -20,7 +20,7 @@ typedef struct Neighbor {
 	char firstname[MAXFIRSTNAME];
 	char lastname[MAXFIRSTNAME];
 	uint16_t port; //Network port.
-	int lastresponse; //32-bit offset from boot timer.
+	uint32_t lastresponse; //32-bit offset from boot timer.
 	ttl hops; //The time to live before a packet is dropped.
 	uint8_t neighborFlags; //8 Available flags for expected responses.
 } Neighbor;
