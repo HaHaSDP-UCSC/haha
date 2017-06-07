@@ -55,10 +55,13 @@ void ui_init(void) {
   MenuItem* demo = ui_item_init(ui_item_settings, "Configure demo");
   temp = ui_item_init(demo, "August");
   temp->onClick = ui_demo_onclick;
+  ui_item_init(temp, "__DEMO_TEMP__");
   temp = ui_item_init(demo, "Brian");
   temp->onClick = ui_demo_onclick;
+  ui_item_init(temp, "__DEMO_TEMP__");
   temp = ui_item_init(demo, "Kevin");
   temp->onClick = ui_demo_onclick;
+  ui_item_init(temp, "__DEMO_TEMP__");
   ui_item_init(ui_item_root, "Activity (%dh)");
   ui_item_init(ui_item_root, "Net (%dh)");
   ui_item_init(ui_item_root, "Button (%dh)");
