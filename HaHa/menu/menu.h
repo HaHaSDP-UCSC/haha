@@ -1,6 +1,6 @@
 /**
  * @file menu.c
- * @brief Menu and MenuItems library defines
+ * @brief Menu and MenuItem data structure
  * @author August Valera (avalera)
  * @version
  * @date 2017-02-28
@@ -91,8 +91,26 @@ MenuItem* menu_item_init(MenuItem* parent, char* value);
  */
 int menu_item_set_value(MenuItem* this, char* value);
 
+
+/**
+ * @brief 
+ * @param this
+ * @return 
+ */
 MenuItem* menu_item_get_next(MenuItem* this);
+
+/**
+ * @brief 
+ * @param this
+ * @return 
+ */
 MenuItem* menu_item_get_prev(MenuItem* this);
+
+/**
+ * @brief 
+ * @param this
+ * @return 
+ */
 MenuItem* menu_item_get_last(MenuItem* this);
 
 /**

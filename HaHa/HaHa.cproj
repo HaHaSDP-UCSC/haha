@@ -854,6 +854,9 @@
     <None Include="docs\Edrive.bat">
       <SubType>compile</SubType>
     </None>
+    <None Include="docs\BUILD.md">
+      <SubType>compile</SubType>
+    </None>
     <None Include="docs\PINOUT.md">
       <SubType>compile</SubType>
     </None>

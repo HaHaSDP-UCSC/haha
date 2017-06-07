@@ -1,6 +1,6 @@
 /**
  * @file menu.c
- * @brief Menu and MenuItem library functions
+ * @brief Menu and MenuItem data structures
  * @author August Valera (avalera)
  * @version
  * @date 2017-02-28

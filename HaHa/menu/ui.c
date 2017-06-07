@@ -1,5 +1,5 @@
 /**
- * @file init.c
+ * @file ui.c
  * @brief User interface
  * @author August Valera (avalera)
  * @version
@@ -14,64 +14,10 @@
 #include "network/packet.h"
 
 // Character sets
-char* ui_charset_alpha = "_abcdefghijklmnopqrstuvwxyz";
+char* ui_charset_alpha = "_ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 char* ui_charset_alphacase = "_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+char* ui_charset_alphanum = "_ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 char* ui_charset_num = "0123456789";
-
-// Accept/Deny screen
-void* ui_helpdeny_onview(Menu* menu);
-void* ui_helpresp_onview(Menu* menu);
-void* ui_helpresp_onclick(Menu* menu);
-void* ui_contacts_onclick(Menu* menu);
-
-void ui_helpreq_onclick(Menu *menu){
-	//addTestFriend("Brian", "Nichols","0013A200414F50EA");
-	//addTestLocalUser("Kevin", "Lee", 0x1);
-	//send_ping_request(&friendList[0]);
-	
-	/* Testing Application code */
-	LocalUser self;
-	strcpy(self.friend.firstname, "Kevin");
-	strcpy(self.friend.lastname, "Lee");
-	
-	//uint8_t* t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E9");
-	//uint8_t* t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50EA");
-#ifndef BRIAN
-	uint8_t* t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E9");
-#else
-	uint8_t* t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50EA");
-#endif
-	memcpy(self.friend.networkaddr,t, 8);
-	self.friend.port = 0x0001;
-	
-	Friend f;
-	strcpy(f.firstname, "Brian");
-	strcpy(f.lastname, "Nichols");
-	
-	//t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50EA");
-	//t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E9");
-	
-#ifndef BRIAN
-	t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50EA");
-#else	
-	t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E9");
-#endif	
-
-	memcpy(f.networkaddr, t, 8);
-	f.port = 0x0002;
-	
-	addFriend(&f);
-	addLocalUser(&self);
-	//send_help_request(&f, &self);
-	send_help_request(&friendList[0], &localUsers[0]);
-	//send_help_request_ack(Friend *f, LocalUser *self);
-	
-	bool accept = true;
-	//menu->current = menu->current->parent;
-}
-
-
-char ui_global_name[256];
 
 void ui_init(void) {
   MenuItem* temp;
@@ -83,20 +29,20 @@ void ui_init(void) {
   ui_item_init(contacts, "__CONTACT_INIT__");
   MenuItem* user = ui_item_init(mm, "User info");
   temp = ui_item_init(user, "__USERPORT__");
-  temp->onView = ui_onview_userinfo;
-  temp->onClick = ui_onclick_userinfo;
+  temp->onView = ui_userinfo_onview;
+  temp->onClick = ui_userinfo_onclick;
   temp = ui_item_init(user, "__USERFIRST__");
-  temp->onView = ui_onview_userinfo;
-  temp->onClick = ui_onclick_userinfo;
+  temp->onView = ui_userinfo_onview;
+  temp->onClick = ui_userinfo_onclick;
   temp = ui_item_init(user, "__USERLAST__");
-  temp->onView = ui_onview_userinfo;
-  temp->onClick = ui_onclick_userinfo;
+  temp->onView = ui_userinfo_onview;
+  temp->onClick = ui_userinfo_onclick;
   temp = ui_item_init(user, "__USERADDR__");
-  temp->onView = ui_onview_userinfo;
-  temp->onClick = ui_onclick_userinfo;
+  temp->onView = ui_userinfo_onview;
+  temp->onClick = ui_userinfo_onclick;
   temp = ui_item_init(user, "__USERCALL__");
-  temp->onView = ui_onview_userinfo;
-  temp->onClick = ui_onclick_userinfo;
+  temp->onView = ui_userinfo_onview;
+  temp->onClick = ui_userinfo_onclick;
   MenuItem* set = ui_item_init(mm, "Device settings");
   ui_item_init(set, "Office mode");
   temp = ui_item_init(set, "Alert settings");
@@ -118,41 +64,6 @@ void ui_init(void) {
   ui_item_helpresp->onView = ui_helpresp_onview;
   ui_item_helpresp->onClick = ui_helpresp_onclick;
   menu->current = menu->root->child;
-  bzero(&ui_global_name, sizeof(ui_global_name));
-  strcpy(ui_global_name, "HOLDPLACER");
-}
-
-void* ui_helpdeny_onview(Menu* menu) {
-	printd("IN HELPRESP DENY ON VIEW!\n");
-	send_help_response(&friendList[0], &localUsers[0], true); //TODO not zero
-	menu->current = menu->current->parent; 
-	menu->current->onView();
-	// Custom code on help request deny
-
-}
-
-void* ui_helpresp_onview(Menu* menu) {
-	static uint8_t count = 0;
-	printd("In helpresp onview\n");
-	lcd_clear();
-	lcd_set_line(0, "! HELP REQUEST !");
-	printf("before");
-	printf("'%s'\n", menu->txtSrc1);
-	printBuff(menu->txtSrc1, 3, "%c");
-	lcd_set_line(1, menu->txtSrc1);
-	lcd_set_line(LCD_ROWS - 1, "<BACK   RESPOND>");
-	lcd_update();
-	if(count++ > 0)
-		menu->current->onView();
-	else
-		count = 0;
-}
-
-void* ui_helpresp_onclick(Menu* menu) {
-	printd("IN HELPRESP ON CLICK!\n");
-	menu->current = menu->current->parent->parent;
-	menu->current->onView();
-	send_help_response(&friendList[0], &localUsers[0], true); //TODO not zero
 }
 
 void ui_move(MenuDirection direct) {
@@ -160,8 +71,9 @@ void ui_move(MenuDirection direct) {
 }
 
 int ui_set_lcd(void) {
-	menu_set_lcd(menu);
+	int ret = menu_set_lcd(menu);
 	lcd_update();
+	return ret;
 }
 
 void ui_update(void) {
@@ -178,17 +90,17 @@ void ui_update(void) {
 
 MenuItem* ui_item_init(MenuItem* parent, char* value) {
 	MenuItem* this = menu_item_init(parent, value);
-	this->onView = ui_item_onview_default;
-	this->onClick = ui_item_onclick_default;
+	this->onView = ui_item_default_onview;
+	this->onClick = ui_item_default_onclick;
 	return(this);
 }
 
-void* ui_item_onview_default(Menu* menu) {
+void* ui_item_default_onview(Menu* menu) {
   ui_set_lcd();
   return;
 }
 
-void* ui_item_onclick_default(Menu* menu) {
+void* ui_item_default_onclick(Menu* menu) {
   if(menu && menu->current) {
     if(menu->current->child) {
       menu->current = menu->current->child;
@@ -197,7 +109,7 @@ void* ui_item_onclick_default(Menu* menu) {
   return(0);
 }
 
-void* ui_onview_userinfo(Menu* menu) {
+void* ui_userinfo_onview(Menu* menu) {
 	lcd_clear();
 	if(streq(menu->current->value, "__USERPORT__")) {
 		lcd_set_line(0, "Your Base ID");
@@ -219,16 +131,16 @@ void* ui_onview_userinfo(Menu* menu) {
 	lcd_update();
 }
 
-void* ui_onclick_userinfo(Menu* menu) {
+void* ui_userinfo_onclick(Menu* menu) {
 	printd("ui_onclick_userinfo\n");
 	if(streq(menu->current->value, "__USERPORT__")) {
-		
+    // Not implemented
 	} else if(streq(menu->current->value, "__USERFIRST__")) {
 		ui_input_init(menu, "Edit First Name:", ui_charset_alphacase, &localUsers[0].friend.firstname);
 	} else if(streq(menu->current->value, "__USERLAST__")) {
 		ui_input_init(menu, "Edit Last Name:", ui_charset_alphacase, &localUsers[0].friend.lastname);
 	} else if(streq(menu->current->value, "__USERADDR__")) {
-		ui_input_init(menu, "Edit Address:", ui_charset_alphacase, &localUsers[0].homeaddr);
+		ui_input_init(menu, "Edit Address:", ui_charset_alphanum, &localUsers[0].homeaddr);
 	} else if(streq(menu->current->value, "__USERCALL__")) {
 		ui_input_init(menu, "Edit Phone #:", ui_charset_num, &localUsers[0].phoneaddr);
 	}
@@ -325,9 +237,92 @@ void* ui_contacts_onclick(Menu* menu) {
 	menu_item_sterilize(contactRoot);
 	char name[256];
 	for(int i = 0; i < numFriends; i++) {
-		strcpy(name, localUsers[i].friend.firstname);
+		strcpy(name, friendList[i].firstname);
 		strcat(name, " ");
-		strcat(name, localUsers[i].friend.lastname);
+		strcat(name, friendList[i].lastname);
 		menu_item_init(contactRoot, name);
 	}
+	if(contactRoot->child) {
+		menu->current = contactRoot->child;
+		menu->current->onView();
+	}
+}
+
+void ui_helpreq_onclick(Menu *menu){
+	//addTestFriend("Brian", "Nichols","0013A200414F50EA");
+	//addTestLocalUser("Kevin", "Lee", 0x1);
+	//send_ping_request(&friendList[0]);
+
+	/* Testing Application code */
+	LocalUser self;
+	strcpy(self.friend.firstname, "Kevin");
+	strcpy(self.friend.lastname, "Lee");
+
+	//uint8_t* t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E9");
+	//uint8_t* t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50EA");
+#ifndef BRIAN
+	uint8_t* t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E9");
+#else
+	uint8_t* t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50EA");
+#endif
+	memcpy(self.friend.networkaddr,t, 8);
+	self.friend.port = 0x0001;
+
+	Friend f;
+	strcpy(f.firstname, "Brian");
+	strcpy(f.lastname, "Nichols");
+
+	//t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50EA");
+	//t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E9");
+
+#ifndef BRIAN
+	t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50EA");
+#else
+	t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E9");
+#endif
+
+	memcpy(f.networkaddr, t, 8);
+	f.port = 0x0002;
+
+	addFriend(&f);
+	addLocalUser(&self);
+	//send_help_request(&f, &self);
+	send_help_request(&friendList[0], &localUsers[0]);
+	//send_help_request_ack(Friend *f, LocalUser *self);
+
+	bool accept = true;
+	//menu->current = menu->current->parent;
+}
+
+void* ui_helpdeny_onview(Menu* menu) {
+	printd("IN HELPRESP DENY ON VIEW!\n");
+	send_help_response(&friendList[0], &localUsers[0], true); //TODO not zero
+	menu->current = menu->current->parent;
+	menu->current->onView();
+	// Custom code on help request deny
+
+}
+
+void* ui_helpresp_onview(Menu* menu) {
+	static uint8_t count = 0;
+	printd("In helpresp onview\n");
+	lcd_clear();
+	lcd_set_line(0, "! HELP REQUEST !");
+	printf("before");
+	printf("'%s'\n", menu->txtSrc1);
+	printBuff(menu->txtSrc1, 3, "%c");
+	lcd_set_line(1, menu->txtSrc1);
+	lcd_set_line(LCD_ROWS - 1, "<BACK   RESPOND>");
+	lcd_update();
+	if(count++ > 0)
+	menu->current->onView();
+	else
+	count = 0;
+}
+
+void* ui_helpresp_onclick(Menu* menu) {
+	printd("IN HELPRESP ON CLICK!\n");
+	menu->current = menu->current->parent->parent;
+	menu->current->onView();
+	send_help_response(&friendList[0], &localUsers[0], true); //TODO not zero
 }
