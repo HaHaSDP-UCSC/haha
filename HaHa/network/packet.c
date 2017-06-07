@@ -19,7 +19,6 @@
 #include "menu/menu.h"
 #include "menu/ui.h"
 
-
 void opcodes_init() {
 	haha_packet_handlers[PING_REQUEST] = ping_request_handler;
 	haha_packet_handlers[HELP_REQUEST] = help_request_handler;

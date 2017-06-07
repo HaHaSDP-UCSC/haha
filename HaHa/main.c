@@ -15,7 +15,6 @@
 #include "neighbor/friendlist.h"
 #include "lcd/lcd.h"
 #include "menu/ui.h"
-
 void printpacket1(char* d, uint8_t len){
 	printf("in Callback print\n");
 	printBuff(d, len, "%c");

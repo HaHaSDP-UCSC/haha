@@ -17,6 +17,8 @@ char* ui_charset_alphacase = "_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVW
 char* ui_charset_alphanum = "_ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 char* ui_charset_num = "0123456789";
 
+int globalTimer = 0; //TODO create a TIMER to increment this every second in a better place.
+
 void ui_init(void) {
   MenuItem* temp;
   menu = menu_init();
@@ -399,31 +401,31 @@ void* ui_demo_onclick(Menu* menu) {
 		strcpy(p.SRCFIRSTNAME, kev.firstname);
 		strcpy(p.SRCLASTNAME, kev.lastname);
 		net.src = kev.networkaddr;
-		addNeighbor(&p, &net, 900000);
+		addNeighbor(&p, &net, globalTimer);
 		strcpy(p.SRCFIRSTNAME, brian.firstname);
 		strcpy(p.SRCLASTNAME, brian.lastname);
 		memcpy(net.src, brian.networkaddr, MAXNETADDR);
-		addNeighbor(&p, &net, 900000);
+		addNeighbor(&p, &net, globalTimer);
 	} else if(streq(value, "Brian")) {
 		self.friend = brian;
 		strcpy(p.SRCFIRSTNAME, kev.firstname);
 		strcpy(p.SRCLASTNAME, kev.lastname);
 		net.src = kev.networkaddr;
-		addNeighbor(&p, &net, 900000);
+		addNeighbor(&p, &net, globalTimer);
 		strcpy(p.SRCFIRSTNAME, aug.firstname);
 		strcpy(p.SRCLASTNAME, aug.lastname);
 		memcpy(net.src, aug.networkaddr, MAXNETADDR);
-		addNeighbor(&p, &net, 900000);
+		addNeighbor(&p, &net, globalTimer);
 	} else if(streq(value, "Kevin")) {
 		self.friend = kev;
 		strcpy(p.SRCFIRSTNAME, aug.firstname);
 		strcpy(p.SRCLASTNAME, aug.lastname);
 		net.src = aug.networkaddr;
-		addNeighbor(&p, &net, 900000);
+		addNeighbor(&p, &net, globalTimer);
 		strcpy(p.SRCFIRSTNAME, brian.firstname);
 		strcpy(p.SRCLASTNAME, brian.lastname);
 		memcpy(net.src, brian.networkaddr, 8);
-		addNeighbor(&p, &net, 900000);
+		addNeighbor(&p, &net, globalTimer);
 	}
 	printd("Test2");
 	memcpy(self.friend.networkaddr,t, 8);
