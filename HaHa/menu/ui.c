@@ -295,7 +295,7 @@ void ui_helpreq_onclick(Menu *menu){
 	//addTestFriend("Brian", "Nichols","0013A200414F50EA");
 	//addTestLocalUser("Kevin", "Lee", 0x1);
 	//send_ping_request(&friendList[0]);
-	addTestUsers();
+	//addTestUsers();
 	
 	//send_help_request(&f, &self);
 	send_help_request(&friendList[0], &localUsers[0]);

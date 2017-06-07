@@ -441,12 +441,13 @@ void help_response_anyone_handler(Packet *p);
 void find_hops_request_handler(Packet *p);
 void find_hops_response_handler(Packet *p);
 
-void send_find_neighbors_request(Friend *f, LocalUser *self) {
+void send_find_neighbors_request() {
 	printv("Send Find Neighbors Request\n");
 	Network* n = malloc(sizeof(Network));
 	Packet* p = malloc(sizeof(Packet));
 	
-	n->dest = f->networkaddr;
+	uint8_t *t = (uint8_t *) convert_asciihex_to_byte("000000000000FFFF");
+	n->dest = t;
 	printNetAddr(n->dest);
 	
 	p->opcode = FIND_NEIGHBORS_REQUEST;
