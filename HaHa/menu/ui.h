@@ -19,6 +19,9 @@
 
 // Global variables
 Menu *menu;
+MenuItem* ui_item_root;
+MenuItem* ui_item_main;
+MenuItem* ui_item_settings;
 MenuItem* ui_item_helpreq;
 MenuItem* ui_item_helpdeny;
 MenuItem* ui_item_helpresp;
@@ -124,7 +127,7 @@ void* ui_input_onclick(Menu* menu);
  * @brief onclick method on contact list, regenerates contact list
  * @param menu menu tree
  */
-void* ui_contacts_onclick(Menu* menu);
+void* ui_contactlist_onclick(Menu* menu);
 
 /**
  * @brief onclick method on help request, sends help request
@@ -149,5 +152,7 @@ void* ui_helpresp_onview(Menu* menu);
  * @param menu menu tree
  */
 void* ui_helpresp_onclick(Menu* menu);
+
+void* ui_demo_onclick(Menu* menu);
 
 #endif // _HA_INIT_

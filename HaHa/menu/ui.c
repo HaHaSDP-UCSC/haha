@@ -22,12 +22,12 @@ char* ui_charset_num = "0123456789";
 void ui_init(void) {
   MenuItem* temp;
   menu = menu_init();
-  MenuItem* root = menu->root;
-  MenuItem* mm = ui_item_init(root, "Main Menu");
-  MenuItem* contacts = ui_item_init(mm, "Contact list");
-  contacts->onClick = ui_contacts_onclick;
+  ui_item_root = menu->root;
+  ui_item_main = ui_item_init(ui_item_root, "Main Menu");
+  MenuItem* contacts = ui_item_init(ui_item_main, "Contact list");
+  contacts->onClick = ui_contactlist_onclick;
   ui_item_init(contacts, "__CONTACT_INIT__");
-  MenuItem* user = ui_item_init(mm, "User info");
+  MenuItem* user = ui_item_init(ui_item_main, "User info");
   temp = ui_item_init(user, "__USERPORT__");
   temp->onView = ui_userinfo_onview;
   temp->onClick = ui_userinfo_onclick;
@@ -43,20 +43,27 @@ void ui_init(void) {
   temp = ui_item_init(user, "__USERCALL__");
   temp->onView = ui_userinfo_onview;
   temp->onClick = ui_userinfo_onclick;
-  MenuItem* set = ui_item_init(mm, "Device settings");
-  ui_item_init(set, "Office mode");
-  temp = ui_item_init(set, "Alert settings");
+  ui_item_settings = ui_item_init(ui_item_main, "Device settings");
+  ui_item_init(ui_item_settings, "Office mode");
+  temp = ui_item_init(ui_item_settings, "Alert settings");
   ui_item_init(temp, "Sound");
   ui_item_init(temp, "Lights");
-  temp = ui_item_init(set, "Notice settings");
+  temp = ui_item_init(ui_item_settings, "Notice settings");
   ui_item_init(temp, "Test button");
   ui_item_init(temp, "Update info");
-  ui_item_init(set, "Pair button");
-  ui_item_init(set, "Disable system");
-  ui_item_init(root, "Activity (%dh)");
-  ui_item_init(root, "Net (%dh)");
-  ui_item_init(root, "Button (%dh)");
-  ui_item_helpreq = ui_item_init(root, "I Need Help!");
+  ui_item_init(ui_item_settings, "Pair button");
+  ui_item_init(ui_item_settings, "Disable system");
+  MenuItem* demo = ui_item_init(ui_item_settings, "Configure demo");
+  temp = ui_item_init(demo, "August");
+  temp->onClick = ui_demo_onclick;
+  temp = ui_item_init(demo, "Brian");
+  temp->onClick = ui_demo_onclick;
+  temp = ui_item_init(demo, "Kevin");
+  temp->onClick = ui_demo_onclick;
+  ui_item_init(ui_item_root, "Activity (%dh)");
+  ui_item_init(ui_item_root, "Net (%dh)");
+  ui_item_init(ui_item_root, "Button (%dh)");
+  ui_item_helpreq = ui_item_init(ui_item_root, "I Need Help!");
   ui_item_helpreq->onClick = ui_helpreq_onclick;
   ui_item_helpdeny = ui_item_init(ui_item_helpreq, "_HELP_DENY_");
   ui_item_helpdeny->onView = ui_helpdeny_onview;
@@ -113,21 +120,24 @@ void* ui_userinfo_onview(Menu* menu) {
 	lcd_clear();
 	if(streq(menu->current->value, "__USERPORT__")) {
 		lcd_set_line(0, "Your Base ID");
-		lcd_set_line(1, "PLACEHOLDER");
-	} else if(streq(menu->current->value, "__USERFIRST__")) {
-		lcd_set_line(0, "Your First Name");
-		lcd_set_line_overflow(1, localUsers[0].friend.firstname);
-	} else if(streq(menu->current->value, "__USERLAST__")) {
-		lcd_set_line(0, "Your Last Name");
-		lcd_set_line_overflow(1, localUsers[0].friend.lastname);
-	} else if(streq(menu->current->value, "__USERADDR__")) {
-		lcd_set_line(0, "Your Address");
-		lcd_set_line(1, &localUsers[0].homeaddr);
-	} else if(streq(menu->current->value, "__USERCALL__")) {
-		lcd_set_line(0, "Your Phone #");
-		lcd_set_line(1, &localUsers[0].phoneaddr);
+		lcd_set_line(1, localUsers[0].friend.networkaddr);
+		lcd_set_line(3, "vMORE");
+	} else {
+		if(streq(menu->current->value, "__USERFIRST__")) {
+			lcd_set_line(0, "Your First Name");
+			lcd_set_line_overflow(1, localUsers[0].friend.firstname);
+			} else if(streq(menu->current->value, "__USERLAST__")) {
+			lcd_set_line(0, "Your Last Name");
+			lcd_set_line_overflow(1, localUsers[0].friend.lastname);
+			} else if(streq(menu->current->value, "__USERADDR__")) {
+			lcd_set_line(0, "Your Address");
+			lcd_set_line(1, &localUsers[0].homeaddr);
+			} else if(streq(menu->current->value, "__USERCALL__")) {
+			lcd_set_line(0, "Your Phone #");
+			lcd_set_line(1, &localUsers[0].phoneaddr);
+		}
+		lcd_set_line(3, "vMORE      EDIT>");
 	}
-	lcd_set_line(3, "vMORE      EDIT>");
 	lcd_update();
 }
 
@@ -232,7 +242,7 @@ void* ui_input_onclick(Menu* menu) {
 	}
 }
 
-void* ui_contacts_onclick(Menu* menu) {
+void* ui_contactlist_onclick(Menu* menu) {
 	printd("ui_contacts_onclick\n");
 	MenuItem* contactRoot = menu->current;
 	menu_item_sterilize(contactRoot);
@@ -304,7 +314,7 @@ void ui_helpreq_onclick(Menu *menu){
 void* ui_helpdeny_onview(Menu* menu) {
 	printd("ui_helpdeny_onview\n");
 	send_help_response(&friendList[0], &localUsers[0], true); //TODO not zero
-	menu->current = menu->current->parent;
+	menu->current = ui_item_root;
 	menu->current->onView();
 	// Custom code on help request deny
 
@@ -329,7 +339,33 @@ void* ui_helpresp_onview(Menu* menu) {
 
 void* ui_helpresp_onclick(Menu* menu) {
 	printd("IN HELPRESP ON CLICK!\n");
-	menu->current = menu->current->parent->parent;
+	menu->current = ui_item_root;
 	menu->current->onView();
 	send_help_response(&friendList[0], &localUsers[0], true); //TODO not zero
+}
+
+void* ui_demo_onclick(Menu* menu) {
+	char* value = menu->current->value;
+	LocalUser self;
+	uint8_t* t;
+	if(streq(value, "August")) {
+		strcpy(self.friend.firstname, "August");
+		strcpy(self.friend.lastname, "Valera");
+		strcpy(self.homeaddr, "1010 PACIFIC AVE. APT #218");
+		strcpy(self.phoneaddr, "6162841018");
+		t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E5");
+	} else if(streq(value, "Brian")) {
+		strcpy(self.friend.firstname, "Brian");
+		strcpy(self.friend.lastname, "Nichols");
+		t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50EA");
+	} else if(streq(value, "Kevin")) {
+		strcpy(self.friend.firstname, "Kevin");
+		strcpy(self.friend.lastname, "Lee");
+		t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E9");
+	}
+	memcpy(self.friend.networkaddr,t, 8);
+	self.friend.port = 0x0001;
+	addLocalUser(&self);
+	menu_item_destroy(menu->current->parent);
+	menu->current = ui_item_root;
 }
