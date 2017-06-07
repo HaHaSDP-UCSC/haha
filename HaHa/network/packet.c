@@ -366,7 +366,7 @@ void help_response_handler(Packet *p) {
 				if (friendReq < numFriends) {
 					//TODO timeout timer to auto increment this on unresponsive people.
 					printd("Calling next friend.\n");
-					send_help_request(friendList[friendReq], self);
+					send_help_request(&friendList[friendReq], self);
 				} else {
 					printd("NO FRIENDS WERE AVAILABLE.\n");
 					lcd_clear();
