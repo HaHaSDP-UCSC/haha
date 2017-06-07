@@ -19,6 +19,8 @@
 #include "menu/menu.h"
 #include "menu/ui.h"
 
+static int friendReq = 0;
+
 void opcodes_init() {
 	haha_packet_handlers[PING_REQUEST] = ping_request_handler;
 	haha_packet_handlers[HELP_REQUEST] = help_request_handler;
@@ -182,20 +184,7 @@ void ping_request_handler(Packet *p){
 		CLR_FLAGS(p2.flags);
 		SET_ACK(p2.flags);
 		copy_friend_to_packet(f, self, &p2);
-		
-		/**
-		p2.SRCUID = 0x1; //TODO fix
-		char *fname = malloc(sizeof("Brian"));
-		char *lname = malloc(sizeof("Nichols"));
-		strcpy(fname, "Brian");
-		strcpy(lname, "Nichols");
-		p2.SRCFIRSTNAME = fname;
-		p2.SRCLASTNAME = lname;
-		//strcpy(p2.SRCFIRSTNAME, fname);
-		//strcpy(p2.SRCLASTNAME, "Nichols");
-		printNetAddr(net->dest);
-		*/
-		
+
 		sendPacket(&p2, net);
 	}
 }
@@ -351,14 +340,42 @@ void help_response_handler(Packet *p) {
 		
 		Friend *isFriend = checkForFriend(net);
 		if (isFriend != NULL) {
-			printe("Is a friend.\n");
+			printd("Is a friend.\n");
 			bool accept = IS_ACCEPT(p->flags);
 			LocalUser *self = &localUsers[0]; //TODO Set this to something scalable.
 			
 			//Display to user whether they accepted or not.
 			//If accepted, all good, otherwise, do a send to the next friend,
+			printd("HELP RESPONSE PACKET RECV! accept: %d\n", accept);
+			if (accept) {
+				lcd_clear();
+				lcd_set_line(0, "REQUEST ACCEPTED");
+				char buf[64];
+				sprintf(buf, "%s %s is on their way.", isFriend->firstname, 
+				isFriend->lastname);
+				lcd_set_line_overflow(1, buf);
+			} else {
+				lcd_clear();
+				lcd_set_line(0, "REQUEST DENIED");
+				char buf[64];
+				sprintf(buf, "%s %s is on their way.", isFriend->firstname, 
+				isFriend->lastname);
+				lcd_set_line_overflow(1, buf);
+				//Send to next friend.
+				friendReq++;
+				if (friendReq < numFriends) {
+					//TODO timeout timer to auto increment this on unresponsive people.
+					printd("Calling next friend.\n");
+					send_help_request(friendList[friendReq], self);
+				} else {
+					printd("NO FRIENDS WERE AVAILABLE.\n");
+					lcd_clear();
+					lcd_set_line_overflow(0, "NO FRIENDS AVAILABLE");
+					friendReq = 0;
+				}
+			}
+			
 			//or HELP_REQUEST_ANYONE
-			printd("USER RESPONSE PACKET RECV! accept:%d\n", accept);
 			//Different light/alarm pattern
 			
 			//Send confirmation back.
