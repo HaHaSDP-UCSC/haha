@@ -322,6 +322,8 @@ void* ui_helpresp_onclick(Menu* menu) {
 }
 
 void* ui_demo_onclick(Menu* menu) {
+	printv("UI_DEMO_ONCLICK START\n");
+	
 	char* value = menu->current->value;
 	LocalUser self;
 	uint8_t* t;
@@ -330,11 +332,11 @@ void* ui_demo_onclick(Menu* menu) {
 	Friend kev;
 	Friend brian;
 	
-	strcpy(aug.firstname, "August");
-	strcpy(aug.lastname, "Valera");
 	strcpy(self.homeaddr, "1010 PACIFIC AVE. APT #218");
 	strcpy(self.phoneaddr, "6162841018");
 	
+	strcpy(aug.firstname, "August");
+	strcpy(aug.lastname, "Valera");
 	strcpy(brian.firstname, "Brian");
 	strcpy(brian.lastname, "Nichols");
 	
@@ -371,6 +373,7 @@ void* ui_demo_onclick(Menu* menu) {
 		addNeighbor(&p, &net, 900000);
 	} else if(streq(value, "Kevin")) {
 		self.friend = kev;
+		/*
 		strcpy(p.SRCFIRSTNAME, aug.firstname);
 		strcpy(p.SRCLASTNAME, aug.lastname);
 		memcpy(net.src, aug.networkaddr, 8);
@@ -378,11 +381,15 @@ void* ui_demo_onclick(Menu* menu) {
 		strcpy(p.SRCFIRSTNAME, brian.firstname);
 		strcpy(p.SRCLASTNAME, brian.lastname);
 		memcpy(net.src, brian.networkaddr, 8);
-		addNeighbor(&p, &net, 900000);
+		addNeighbor(&p, &net, 900000);*/
 	}
 	memcpy(self.friend.networkaddr,t, 8);
 	self.friend.port = 0x0001;
 	addLocalUser(&self);
+	printv("UI_DEMO_ONCLICK MID\n");
 	menu_item_destroy(menu->current->parent);
+	printv("UI_DEMO_ONCLICK DEST\n");
 	menu->current = ui_item_root->child;
+	printv("UI_DEMO_ONCLICK END\n");
+	menu->current->onView();
 }

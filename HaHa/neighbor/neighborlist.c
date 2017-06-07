@@ -82,6 +82,8 @@ bool addNeighbor(Packet *p, Network *net, int currentTime) {
 	strcpy(neighborList[numNeighbors].lastname, p->SRCLASTNAME);
 	numNeighbors++;
 	numNeighbors = numNeighbors % NEIGHBORLISTSIZE; //Overwrite pre-existing neighbors. Failsafe //TODO do better
+	printd("Adding Neighbor\n %s %s", neighborList[numNeighbors-1].firstname, 
+	neighborList[numNeighbors-1].lastname);
 	return true;
 }
 
