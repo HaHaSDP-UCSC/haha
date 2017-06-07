@@ -37,7 +37,7 @@ void lcd_set_line(int row, char* str) {
 void lcd_set_line_overflow(int row, char* str) {
 	if(row < LCD_ROWS) {
 		lcd_set_line(row, str);
-		lcd_set_line_overflow(row + 1, str + LCD_COLS);
+		if(strlen(str) > LCD_COLS) lcd_set_line_overflow(row + 1, str + LCD_COLS);
 	}
 }
 
