@@ -277,6 +277,8 @@ void* ui_listneighbor_onclick(Menu* menu) {
 	MenuItem* neighborRoot = menu->current;
 	menu_item_sterilize(neighborRoot);
 	char name[256];
+	printd("Sending Find Neighbor Request\n");
+	send_find_neighbors_request();
 	MenuItem* temp;
 	for(int i = 0; i < numNeighbors; i++) {
 		sprintf(name, "%d:%s %s", i, neighborList[i].firstname, neighborList[i].lastname);
@@ -293,6 +295,8 @@ void* ui_listneighbor_onclick(Menu* menu) {
 		lcd_set_line(2, "find neighbors");
 		lcd_set_line(3, "within range.");
 		ui_item_init(neighborRoot, "__NEIGHBOR_TMP__");
+		lcd_update();
+		delay(800);
 	}
 }
 
