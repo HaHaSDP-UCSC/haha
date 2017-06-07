@@ -478,7 +478,7 @@ void find_neighbors_request_handler(Packet *p) {
 		printe("Received unexpected ACK\n");
 		//That is an error. Do nothing.
 	} else {
-		printd("FIND_NEIGHBORS_HANDLER\n");
+		printd("FIND_NEIGHBORS_REQ_HANDLER\n");
 		LocalUser *self = &localUsers[0]; //TODO Set this to something scalable.
 		Friend f; //Incomplete f. TODO this is probably okay.
 		f.port = p->ORIGINUID; //Return UID;
