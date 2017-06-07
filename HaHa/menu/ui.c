@@ -16,6 +16,7 @@
 // Character sets
 char* ui_charset_alpha = "_abcdefghijklmnopqrstuvwxyz";
 char* ui_charset_alphacase = "_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+char* ui_charset_num = "0123456789";
 
 // Accept/Deny screen
 void* ui_helpdeny_onview(Menu* menu);
@@ -209,10 +210,10 @@ void* ui_onview_userinfo(Menu* menu) {
 		lcd_set_line_overflow(1, localUsers[0].friend.lastname);
 	} else if(streq(menu->current->value, "__USERADDR__")) {
 		lcd_set_line(0, "Your Address");
-		lcd_set_line(1, "PLACEHOLDER");
+		lcd_set_line(1, &localUsers[0].homeaddr);
 	} else if(streq(menu->current->value, "__USERCALL__")) {
 		lcd_set_line(0, "Your Phone #");
-		lcd_set_line(1, "PLACEHOLDER");
+		lcd_set_line(1, &localUsers[0].phoneaddr);
 	}
 	lcd_set_line(3, "vMORE      EDIT>");
 	lcd_update();
@@ -227,9 +228,9 @@ void* ui_onclick_userinfo(Menu* menu) {
 	} else if(streq(menu->current->value, "__USERLAST__")) {
 		ui_input_init(menu, "Edit Last Name:", ui_charset_alphacase, &localUsers[0].friend.lastname);
 	} else if(streq(menu->current->value, "__USERADDR__")) {
-	
+		ui_input_init(menu, "Edit Address:", ui_charset_alphacase, &localUsers[0].homeaddr);
 	} else if(streq(menu->current->value, "__USERCALL__")) {
-
+		ui_input_init(menu, "Edit Phone #:", ui_charset_num, &localUsers[0].phoneaddr);
 	}
 }
 
