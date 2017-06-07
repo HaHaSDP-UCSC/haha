@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include "neighbor/friendlist.h"
 
-#define BRIAN 1
+//#define BRIAN 1
 
 /* Delay in ms */
 void delay(uint32_t ms)

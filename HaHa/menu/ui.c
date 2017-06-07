@@ -314,20 +314,60 @@ void* ui_demo_onclick(Menu* menu) {
 	char* value = menu->current->value;
 	LocalUser self;
 	uint8_t* t;
+	
+	Friend aug;
+	Friend kev;
+	Friend brian;
+	
+	strcpy(aug.firstname, "August");
+	strcpy(aug.lastname, "Valera");
+	strcpy(self.homeaddr, "1010 PACIFIC AVE. APT #218");
+	strcpy(self.phoneaddr, "6162841018");
+	
+	strcpy(brian.firstname, "Brian");
+	strcpy(brian.lastname, "Nichols");
+	
+	strcpy(kev.firstname, "Kevin");
+	strcpy(kev.lastname, "Lee");
+	
+	t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E5");
+	memcpy(aug.networkaddr, t, 8);
+	t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50EA");
+	memcpy(brian.networkaddr, t, 8);
+	t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E9");
+	memcpy(kev.networkaddr, t, 8);
+	Network net;
+	Packet p;
 	if(streq(value, "August")) {
-		strcpy(self.friend.firstname, "August");
-		strcpy(self.friend.lastname, "Valera");
-		strcpy(self.homeaddr, "1010 PACIFIC AVE. APT #218");
-		strcpy(self.phoneaddr, "6162841018");
-		t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E5");
+		self.friend = aug;
+		strcpy(p.SRCFIRSTNAME, kev.firstname);
+		strcpy(p.SRCLASTNAME, kev.lastname);
+		memcpy(net.src, kev.networkaddr, 8);
+		addNeighbor(&p, &net, 900000);
+		strcpy(p.SRCFIRSTNAME, brian.firstname);
+		strcpy(p.SRCLASTNAME, brian.lastname);
+		memcpy(net.src, brian.networkaddr, 8);
+		addNeighbor(&p, &net, 900000);
 	} else if(streq(value, "Brian")) {
-		strcpy(self.friend.firstname, "Brian");
-		strcpy(self.friend.lastname, "Nichols");
-		t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50EA");
+		self.friend = brian;
+		strcpy(p.SRCFIRSTNAME, kev.firstname);
+		strcpy(p.SRCLASTNAME, kev.lastname);
+		memcpy(net.src, kev.networkaddr, 8);
+		addNeighbor(&p, &net, 900000);
+		strcpy(p.SRCFIRSTNAME, aug.firstname);
+		strcpy(p.SRCLASTNAME, aug.lastname);
+		memcpy(net.src, aug.networkaddr, 8);
+		addNeighbor(&p, &net, 900000);
 	} else if(streq(value, "Kevin")) {
-		strcpy(self.friend.firstname, "Kevin");
-		strcpy(self.friend.lastname, "Lee");
-		t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E9");
+		self.friend = kev;
+		strcpy(p.SRCFIRSTNAME, aug.firstname);
+		strcpy(p.SRCLASTNAME, aug.lastname);
+		memcpy(net.src, aug.networkaddr, 8);
+		addNeighbor(&p, &net, 900000);
+		strcpy(p.SRCFIRSTNAME, brian.firstname);
+		strcpy(p.SRCLASTNAME, brian.lastname);
+		memcpy(net.src, brian.networkaddr, 8);
+		addNeighbor(&p, &net, 900000);
 	}
 	memcpy(self.friend.networkaddr,t, 8);
 	self.friend.port = 0x0001;
