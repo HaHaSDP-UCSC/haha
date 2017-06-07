@@ -6,10 +6,16 @@
  */ 
 #include "network.h"
 #include "networkdevice/networkdevice.h"
+#include "utils/hahaUtils.h"
 //#include "packet.h"
 //#include "stdlib.h"
 //#include "string.h"
 
+void printNetAddr(netaddr *t) {
+	printf("NetAddr:[");
+	printBuff(t, 8, "%c");
+	printf("]\n");
+	}
 
 void network_init(){
     xbee_init();
@@ -18,6 +24,9 @@ void network_init(){
 }
 
 void netArrayAdd(Network* add){
+	printd("Adding NetInfo id %d with src:", add->id);
+	printNetAddr(add);
+	printd("\n");
     NET_ARRAY[netIDLast] = *add;
     netIDLast = (netIDLast + 1) % MAX_NET_ARRAY;
 }
@@ -25,7 +34,7 @@ void netArrayAdd(Network* add){
 /* Return index of net array with id netID */
 uint8_t netArrayReturn(uint8_t netID){
     for(int i=0; i<MAX_NET_ARRAY; ++i){
-        //if(NET_ARRAY[i].id == netID)
+        if(NET_ARRAY[i].id == netID)
             return i;
     }
     return NOT_FOUND;
