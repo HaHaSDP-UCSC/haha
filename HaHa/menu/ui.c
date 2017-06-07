@@ -56,7 +56,7 @@ void ui_init(void) {
   ui_item_init(root, "Activity (%dh)");
   ui_item_init(root, "Net (%dh)");
   ui_item_init(root, "Button (%dh)");
-  ui_item_helpreq = ui_item_init(root, "SEND HELP");
+  ui_item_helpreq = ui_item_init(root, "I Need Help!");
   ui_item_helpreq->onClick = ui_helpreq_onclick;
   ui_item_helpdeny = ui_item_init(ui_item_helpreq, "_HELP_DENY_");
   ui_item_helpdeny->onView = ui_helpdeny_onview;
@@ -233,22 +233,29 @@ void* ui_input_onclick(Menu* menu) {
 }
 
 void* ui_contacts_onclick(Menu* menu) {
+	printd("ui_contacts_onclick\n");
 	MenuItem* contactRoot = menu->current;
 	menu_item_sterilize(contactRoot);
 	char name[256];
+	printd("adding friends\n");
 	for(int i = 0; i < numFriends; i++) {
-		strcpy(name, friendList[i].firstname);
-		strcat(name, " ");
-		strcat(name, friendList[i].lastname);
-		menu_item_init(contactRoot, name);
+		sprintf(name, "%d:%s %s", i, friendList[i].firstname, friendList[i].lastname);
+		printd("adding friend[%d]: %s\n", i, name);
+		ui_item_init(contactRoot, name);
 	}
 	if(contactRoot->child) {
+		printd("You have friends\n");
 		menu->current = contactRoot->child;
 		menu->current->onView();
+	} else {
+		printd("You have no friends\n");
+		ui_item_init(contactRoot, "__CONTACT_INIT__");
 	}
+	printd("ui_contacts_onclick done\n");
 }
 
 void ui_helpreq_onclick(Menu *menu){
+	printd("ui_helpreq_onclick\n");
 	//addTestFriend("Brian", "Nichols","0013A200414F50EA");
 	//addTestLocalUser("Kevin", "Lee", 0x1);
 	//send_ping_request(&friendList[0]);
@@ -295,7 +302,7 @@ void ui_helpreq_onclick(Menu *menu){
 }
 
 void* ui_helpdeny_onview(Menu* menu) {
-	printd("IN HELPRESP DENY ON VIEW!\n");
+	printd("ui_helpdeny_onview\n");
 	send_help_response(&friendList[0], &localUsers[0], true); //TODO not zero
 	menu->current = menu->current->parent;
 	menu->current->onView();
