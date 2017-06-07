@@ -21,6 +21,7 @@ void ui_init(void) {
   MenuItem* temp;
   menu = menu_init();
   ui_item_root = menu->root;
+  ui_item_root->onView = ui_root_onview;
   ui_item_main = ui_item_init(ui_item_root, "Main Menu");
   MenuItem* contacts = ui_item_init(ui_item_main, "Contact list");
   contacts->onClick = ui_contactlist_onclick;
@@ -112,6 +113,13 @@ void* ui_item_default_onclick(Menu* menu) {
     } else return(1);
   } else return(-1);
   return(0);
+}
+
+void* ui_root_onview(Menu* menu) {
+	if(ui_item_root && ui_item_root->child) {
+		menu->current = ui_item_root->child;
+		menu->current->onView();
+	}
 }
 
 void* ui_userinfo_onview(Menu* menu) {

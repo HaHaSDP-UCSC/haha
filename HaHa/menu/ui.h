@@ -70,6 +70,8 @@ void* ui_item_default_onview(Menu* menu);
  */
 void* ui_item_default_onclick(Menu* menu);
 
+void* ui_root_onview(Menu* menu);
+
 /**
  * @brief custom onview for user info, displays user info in full screen with prompts to edit
  * @param menu menu tree
