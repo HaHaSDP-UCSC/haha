@@ -6,7 +6,7 @@
  * @date 2017-03-07
  */
 
-//#define BRIAN 1
+#define BRIAN 1
 
 #include "ui.h"
 #include "messagequeue/messagequeue.h"
@@ -303,7 +303,8 @@ void ui_helpreq_onclick(Menu *menu){
 
 void* ui_helpdeny_onview(Menu* menu) {
 	printd("ui_helpdeny_onview\n");
-	send_help_response(&friendList[0], &localUsers[0], true); //TODO not zero
+	printd("HELP REQUEST DENY!");
+	send_help_response(&friendList[0], &localUsers[0], false); //TODO not zero
 	menu->current = menu->current->parent;
 	menu->current->onView();
 	// Custom code on help request deny
