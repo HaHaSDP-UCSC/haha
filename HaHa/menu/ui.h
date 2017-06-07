@@ -134,6 +134,8 @@ void* ui_listfriend_onclick(Menu* menu);
 
 void* ui_listneighbor_onclick(Menu* menu);
 
+void* ui_neighbor_onclick(Menu* menu);
+
 /**
  * @brief onclick method on help request, sends help request
  * @param menu menu tree

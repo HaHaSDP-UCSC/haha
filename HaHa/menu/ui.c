@@ -281,12 +281,27 @@ void* ui_listneighbor_onclick(Menu* menu) {
 	for(int i = 0; i < numNeighbors; i++) {
 		sprintf(name, "%d:%s %s", i, neighborList[i].firstname, neighborList[i].lastname);
 		temp = ui_item_init(neighborRoot, name);
+		temp->onClick = ui_neighbor_onclick;
 	}
 	if(neighborRoot->child) {
 		menu->current = neighborRoot->child;
 		menu->current->onView();	
 	} else {
+		lcd_clear();
+		lcd_set_line(0, "     ERROR     ");
+		lcd_set_line(1, "Device could not");
+		lcd_set_line(2, "find neighbors");
+		lcd_set_line(3, "within range.");
 		ui_item_init(neighborRoot, "__NEIGHBOR_TMP__");
+	}
+}
+
+void* ui_neighbor_onclick(Menu* menu) {
+	int i;
+	if(sscanf(menu->current->value, "&d:", &i) != -1) {
+		Neighbor n = neighborList[i];
+		printd("I want to be friends with %s\n", n.firstname);
+		menu->current = menu->current->parent;
 	}
 }
 
