@@ -128,8 +128,10 @@ void* ui_root_onview(Menu* menu) {
 void* ui_userinfo_onview(Menu* menu) {
 	lcd_clear();
 	if(streq(menu->current->value, "__USERPORT__")) {
+		char addr[20];
+		sprintf(addr, "%x", localUsers[0].friend.networkaddr);
 		lcd_set_line(0, "Your Base ID");
-		lcd_set_line(1, localUsers[0].friend.networkaddr);
+		lcd_set_line_overflow(1, addr);
 		lcd_set_line(3, "vMORE");
 	} else {
 		if(streq(menu->current->value, "__USERFIRST__")) {
@@ -140,10 +142,10 @@ void* ui_userinfo_onview(Menu* menu) {
 			lcd_set_line_overflow(1, localUsers[0].friend.lastname);
 			} else if(streq(menu->current->value, "__USERADDR__")) {
 			lcd_set_line(0, "Your Address");
-			lcd_set_line(1, &localUsers[0].homeaddr);
+			lcd_set_line_overflow(1, &localUsers[0].homeaddr);
 			} else if(streq(menu->current->value, "__USERCALL__")) {
 			lcd_set_line(0, "Your Phone #");
-			lcd_set_line(1, &localUsers[0].phoneaddr);
+			lcd_set_line_overflow(1, &localUsers[0].phoneaddr);
 		}
 		lcd_set_line(3, "vMORE      EDIT>");
 	}
