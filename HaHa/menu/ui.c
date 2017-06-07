@@ -21,6 +21,7 @@ void ui_init(void) {
   MenuItem* temp;
   menu = menu_init();
   ui_item_root = menu->root;
+  ui_item_root->onView = ui_root_onview;
   ui_item_main = ui_item_init(ui_item_root, "Main Menu");
   MenuItem* contacts = ui_item_init(ui_item_main, "Contact list");
   contacts->onClick = ui_contactlist_onclick;
@@ -112,6 +113,13 @@ void* ui_item_default_onclick(Menu* menu) {
     } else return(1);
   } else return(-1);
   return(0);
+}
+
+void* ui_root_onview(Menu* menu) {
+	if(ui_item_root && ui_item_root->child) {
+		menu->current = ui_item_root->child;
+		menu->current->onView();
+	}
 }
 
 void* ui_userinfo_onview(Menu* menu) {
@@ -280,7 +288,7 @@ void* ui_helpdeny_onview(Menu* menu) {
 	printd("ui_helpdeny_onview\n");
 	printd("HELP REQUEST DENY!");
 	send_help_response(&friendList[0], &localUsers[0], false); //TODO not zero
-	menu->current = ui_item_root;
+	menu->current = ui_item_root->child;
 	menu->current->onView();
 	// Custom code on help request deny
 
@@ -305,7 +313,7 @@ void* ui_helpresp_onview(Menu* menu) {
 
 void* ui_helpresp_onclick(Menu* menu) {
 	printd("IN HELPRESP ON CLICK!\n");
-	menu->current = ui_item_root;
+	menu->current = ui_item_root->child;
 	menu->current->onView();
 	send_help_response(&friendList[0], &localUsers[0], true); //TODO not zero
 }
@@ -373,5 +381,5 @@ void* ui_demo_onclick(Menu* menu) {
 	self.friend.port = 0x0001;
 	addLocalUser(&self);
 	menu_item_destroy(menu->current->parent);
-	menu->current = ui_item_root;
+	menu->current = ui_item_root->child;
 }

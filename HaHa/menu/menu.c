@@ -24,8 +24,7 @@ int menu_move(Menu* menu, MenuDirection direct) {
   if(menu && menu->current) {
     switch(direct) {
       case MENU_LEFT:
-        // Root node should not be accessible
-        if(menu->current->parent && menu->current->parent->parent) {
+        if(menu->current->parent) {
           menu->current = menu->current->parent;
         } else return(1);
         break;
