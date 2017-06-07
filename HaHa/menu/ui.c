@@ -65,9 +65,9 @@ void ui_init(void) {
   temp = ui_item_init(demo, "Kevin");
   temp->onClick = ui_demo_onclick;
   ui_item_init(temp, "__DEMO_TEMP__");
-  ui_item_init(ui_item_root, "Activity (%dh)");
-  ui_item_init(ui_item_root, "Net (%dh)");
-  ui_item_init(ui_item_root, "Button (%dh)");
+  //ui_item_init(ui_item_root, "Activity (%dh)");
+  //ui_item_init(ui_item_root, "Net (%dh)");
+  //ui_item_init(ui_item_root, "Button (%dh)");
   ui_item_helpreq = ui_item_init(ui_item_root, "I Need Help!");
   ui_item_helpreq->onClick = ui_helpreq_onclick;
   ui_item_helpdeny = ui_item_init(ui_item_helpreq, "_HELP_DENY_");
