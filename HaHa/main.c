@@ -63,6 +63,8 @@ int main(void)
 	lcd_update();
 	//max 500 hz for hearing aids
 	int count1 = 0;
+	addTestUsers();
+	send_friend_request(&friendList[0], &localUsers[0]);
 	while(1) {
 		//delay(100);
 		count1++;
