@@ -85,7 +85,7 @@ fprintf(stdout, CDEF);
 //APP SETTINGS
 #define MAXFIRSTNAME 17
 #define MAXLASTNAME 17
-#define MAXPHONE 2
+#define MAXPHONE 16
 #define MAXHOMEADDR 45
 #define MAXNETADDR 8 //8 Bytes (64-bits)
 #define MAXPORT 2

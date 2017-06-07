@@ -53,6 +53,7 @@ void ui_init(void) {
   ui_item_init(ui_item_settings, "Pair button");
   ui_item_init(ui_item_settings, "Disable system");
   MenuItem* demo = ui_item_init(ui_item_settings, "Configure demo");
+  //MenuItem* demo = ui_item_init(ui_item_root, "Configure demo");
   temp = ui_item_init(demo, "August");
   temp->onClick = ui_demo_onclick;
   ui_item_init(temp, "__DEMO_TEMP__");
@@ -360,12 +361,11 @@ void* ui_demo_onclick(Menu* menu) {
 	Packet p;
 	p.ORIGINUID = 0;
 	net.ttl = 1;
-	
 	if(streq(value, "August")) {
 		self.friend = aug;
 		strcpy(p.SRCFIRSTNAME, kev.firstname);
 		strcpy(p.SRCLASTNAME, kev.lastname);
-		memcpy(net.src, kev.networkaddr, MAXNETADDR);
+		net.src = kev.networkaddr;
 		addNeighbor(&p, &net, 900000);
 		strcpy(p.SRCFIRSTNAME, brian.firstname);
 		strcpy(p.SRCLASTNAME, brian.lastname);
@@ -375,7 +375,7 @@ void* ui_demo_onclick(Menu* menu) {
 		self.friend = brian;
 		strcpy(p.SRCFIRSTNAME, kev.firstname);
 		strcpy(p.SRCLASTNAME, kev.lastname);
-		memcpy(net.src, kev.networkaddr, MAXNETADDR);
+		net.src = kev.networkaddr;
 		addNeighbor(&p, &net, 900000);
 		strcpy(p.SRCFIRSTNAME, aug.firstname);
 		strcpy(p.SRCLASTNAME, aug.lastname);
@@ -385,13 +385,14 @@ void* ui_demo_onclick(Menu* menu) {
 		self.friend = kev;
 		strcpy(p.SRCFIRSTNAME, aug.firstname);
 		strcpy(p.SRCLASTNAME, aug.lastname);
-		memcpy(net.src, aug.networkaddr, 8);
+		net.src = aug.networkaddr;
 		addNeighbor(&p, &net, 900000);
 		strcpy(p.SRCFIRSTNAME, brian.firstname);
 		strcpy(p.SRCLASTNAME, brian.lastname);
 		memcpy(net.src, brian.networkaddr, 8);
 		addNeighbor(&p, &net, 900000);
 	}
+	printd("Test2");
 	memcpy(self.friend.networkaddr,t, 8);
 	self.friend.port = 0x0001;
 	addLocalUser(&self);
@@ -401,4 +402,5 @@ void* ui_demo_onclick(Menu* menu) {
 	menu->current = ui_item_root->child;
 	printv("UI_DEMO_ONCLICK END\n");
 	menu->current->onView();
+	printd("Test3");
 }
