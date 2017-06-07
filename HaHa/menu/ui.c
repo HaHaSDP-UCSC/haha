@@ -302,9 +302,9 @@ void* ui_listneighbor_onclick(Menu* menu) {
 
 void* ui_neighbor_onclick(Menu* menu) {
 	int i;
-	if(sscanf(menu->current->value, "&d:", &i) != -1) {
+	if(sscanf(menu->current->value, "%d:", &i) == 1) {
 		Neighbor n = neighborList[i];
-		printd("I want to be friends with %s\n", n.firstname);
+		printd("I want to be friends with friend %d: %s\n", i, n.firstname);
 		menu->current = menu->current->parent;
 	}
 }
