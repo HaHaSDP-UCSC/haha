@@ -11,6 +11,9 @@
 #include <stdint.h>
 #include <inttypes.h>
 #include <stdlib.h>
+#include "neighbor/friendlist.h"
+
+#define BRIAN 1
 
 /* Delay in ms */
 void delay(uint32_t ms)
@@ -147,4 +150,41 @@ char* convert_asciihex_to_byte(char* addr){
          resul=(aux*16)+aux2;
      }
      return resul;
+ }
+
+ void addTestUsers(){
+
+ /* Testing Application code */
+ LocalUser self;
+ strcpy(self.friend.firstname, "Kevin");
+ strcpy(self.friend.lastname, "Lee");
+
+ //uint8_t* t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E9");
+ //uint8_t* t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50EA");
+ #ifndef BRIAN
+ uint8_t* t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E9");
+ #else
+ uint8_t* t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50EA");
+ #endif
+ memcpy(self.friend.networkaddr,t, 8);
+ self.friend.port = 0x0001;
+
+ Friend f;
+ strcpy(f.firstname, "Brian");
+ strcpy(f.lastname, "Nichols");
+
+ //t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50EA");
+ //t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E9");
+
+ #ifndef BRIAN
+ t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50EA");
+ #else
+ t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E9");
+ #endif
+
+ memcpy(f.networkaddr, t, 8);
+ f.port = 0x0002;
+
+ addFriend(&f);
+ addLocalUser(&self);
  }

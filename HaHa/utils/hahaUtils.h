@@ -136,6 +136,8 @@ char* convert_asciihex_to_byte(char* addr);
 
 uint64_t byte_array_to_64(uint8_t* s);
 
+void addTestUsers();
+
 #define streq(a, b) !strcmp(a, b)
 
 #endif

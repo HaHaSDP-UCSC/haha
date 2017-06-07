@@ -6,8 +6,6 @@
  * @date 2017-03-07
  */
 
-#define BRIAN 1
-
 #include "ui.h"
 #include "messagequeue/messagequeue.h"
 #include "neighbor/friendlist.h"
@@ -259,44 +257,11 @@ void ui_helpreq_onclick(Menu *menu){
 	//addTestFriend("Brian", "Nichols","0013A200414F50EA");
 	//addTestLocalUser("Kevin", "Lee", 0x1);
 	//send_ping_request(&friendList[0]);
-
-	/* Testing Application code */
-	LocalUser self;
-	strcpy(self.friend.firstname, "Kevin");
-	strcpy(self.friend.lastname, "Lee");
-
-	//uint8_t* t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E9");
-	//uint8_t* t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50EA");
-#ifndef BRIAN
-	uint8_t* t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E9");
-#else
-	uint8_t* t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50EA");
-#endif
-	memcpy(self.friend.networkaddr,t, 8);
-	self.friend.port = 0x0001;
-
-	Friend f;
-	strcpy(f.firstname, "Brian");
-	strcpy(f.lastname, "Nichols");
-
-	//t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50EA");
-	//t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E9");
-
-#ifndef BRIAN
-	t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50EA");
-#else
-	t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E9");
-#endif
-
-	memcpy(f.networkaddr, t, 8);
-	f.port = 0x0002;
-
-	addFriend(&f);
-	addLocalUser(&self);
+	addTestUsers();
+	
 	//send_help_request(&f, &self);
 	send_help_request(&friendList[0], &localUsers[0]);
 	//send_help_request_ack(Friend *f, LocalUser *self);
-
 	bool accept = true;
 	//menu->current = menu->current->parent;
 }
