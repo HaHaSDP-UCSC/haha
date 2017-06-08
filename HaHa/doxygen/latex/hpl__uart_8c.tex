@@ -10,8 +10,7 @@ S\+AM Serial Communication Interface.
 {\ttfamily \#include $<$hpl\+\_\+usart\+\_\+async.\+h$>$}\newline
 {\ttfamily \#include $<$hpl\+\_\+usart\+\_\+sync.\+h$>$}\newline
 {\ttfamily \#include $<$hpl\+\_\+uart\+\_\+config.\+h$>$}\newline
-Include dependency graph for hpl\+\_\+uart.\+c\+:
-\nopagebreak
+Include dependency graph for hpl\+\_\+uart.\+c\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -36,6 +35,10 @@ struct \hyperlink{structuart__config}{uart\+\_\+config}
 \begin{DoxyCompactList}\small\item\em Macro is used to fill U\+A\+RT configuration structure based on its number. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
+\item 
+void \hyperlink{hpl__uart_8c_a8192d7f8c9770ce1683f341ba467a66e}{U\+A\+R\+T1\+\_\+\+R\+X\+\_\+\+Handler} (void)
+\item 
+void \hyperlink{hpl__uart_8c_a627ce7fd62cdd9e05ee5f3512dfed181}{U\+A\+R\+T1\+\_\+\+T\+X\+\_\+\+Handler} (void)
 \item 
 int32\+\_\+t \hyperlink{group___h_p_l_gad1cc7b8e72fd67fdeec8062c802eb25a}{\+\_\+usart\+\_\+sync\+\_\+init} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device, void $\ast$const hw)
 \begin{DoxyCompactList}\small\item\em Initialize synchronous U\+A\+RT. \end{DoxyCompactList}\item 
@@ -110,7 +113,7 @@ void \hyperlink{group___h_p_l_gadd7a2a78a76c6286f474bdce333c4904}{\+\_\+usart\+\
 \subsection{Detailed Description}
 S\+AM Serial Communication Interface. 
 
-Copyright (C) 2016 Atmel Corporation. All rights reserved.
+Copyright (C) 2016 -\/ 2017 Atmel Corporation. All rights reserved.
 
 \subsection{Macro Definition Documentation}
 \mbox{\Hypertarget{hpl__uart_8c_ad97f1728892384250c4f93b4b4706e40}\label{hpl__uart_8c_ad97f1728892384250c4f93b4b4706e40}} 
@@ -156,3 +159,18 @@ Macro is used to fill U\+A\+RT configuration structure based on its number.
 \mbox{\tt in}  & {\em n} & The number of structures \\
 \hline
 \end{DoxyParams}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{hpl__uart_8c_a8192d7f8c9770ce1683f341ba467a66e}\label{hpl__uart_8c_a8192d7f8c9770ce1683f341ba467a66e}} 
+\index{hpl\+\_\+uart.\+c@{hpl\+\_\+uart.\+c}!U\+A\+R\+T1\+\_\+\+R\+X\+\_\+\+Handler@{U\+A\+R\+T1\+\_\+\+R\+X\+\_\+\+Handler}}
+\index{U\+A\+R\+T1\+\_\+\+R\+X\+\_\+\+Handler@{U\+A\+R\+T1\+\_\+\+R\+X\+\_\+\+Handler}!hpl\+\_\+uart.\+c@{hpl\+\_\+uart.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T1\+\_\+\+R\+X\+\_\+\+Handler()}{UART1\_RX\_Handler()}}
+{\footnotesize\ttfamily void U\+A\+R\+T1\+\_\+\+R\+X\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{hpl__uart_8c_a627ce7fd62cdd9e05ee5f3512dfed181}\label{hpl__uart_8c_a627ce7fd62cdd9e05ee5f3512dfed181}} 
+\index{hpl\+\_\+uart.\+c@{hpl\+\_\+uart.\+c}!U\+A\+R\+T1\+\_\+\+T\+X\+\_\+\+Handler@{U\+A\+R\+T1\+\_\+\+T\+X\+\_\+\+Handler}}
+\index{U\+A\+R\+T1\+\_\+\+T\+X\+\_\+\+Handler@{U\+A\+R\+T1\+\_\+\+T\+X\+\_\+\+Handler}!hpl\+\_\+uart.\+c@{hpl\+\_\+uart.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T1\+\_\+\+T\+X\+\_\+\+Handler()}{UART1\_TX\_Handler()}}
+{\footnotesize\ttfamily void U\+A\+R\+T1\+\_\+\+T\+X\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+

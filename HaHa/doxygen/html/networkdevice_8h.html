@@ -75,16 +75,15 @@ $(function() {
 
 <p>XBee <a class="el" href="struct_network.html">Network</a> device implementation.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="packet_8h_source.html">network/packet.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="network_8h_source.html">network/network.h</a>&quot;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for networkdevice.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="networkdevice_8h__incl.png" border="0" usemap="#_e_1_2_ha_ha_project_2_atmel_xbee_2_a_t_projects_2_ha_ha_2_ha_ha_2networkdevice_2networkdevice_8h" alt=""/></div>
 <map name="_e_1_2_ha_ha_project_2_atmel_xbee_2_a_t_projects_2_ha_ha_2_ha_ha_2networkdevice_2networkdevice_8h" id="_e_1_2_ha_ha_project_2_atmel_xbee_2_a_t_projects_2_ha_ha_2_ha_ha_2networkdevice_2networkdevice_8h">
-<area shape="rect" id="node2" href="packet_8h.html" title="network/packet.h" alt="" coords="19,109,140,136"/>
-<area shape="rect" id="node3" href="flags_8h.html" title="flags.h" alt="" coords="8,184,68,211"/>
-<area shape="rect" id="node4" href="haha_utils_8h.html" title="stdlib for HAHA project, contains imports and defines " alt="" coords="26,259,141,285"/>
+<area shape="rect" id="node2" href="network_8h.html" title="network/network.h" alt="" coords="15,109,141,136"/>
+<area shape="rect" id="node3" href="haha_utils_8h.html" title="stdlib for HAHA project, contains imports and defines " alt="" coords="21,184,135,211"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -92,12 +91,10 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="networkdevice_8h__dep__incl.png" border="0" usemap="#_e_1_2_ha_ha_project_2_atmel_xbee_2_a_t_projects_2_ha_ha_2_ha_ha_2networkdevice_2networkdevice_8hdep" alt=""/></div>
 <map name="_e_1_2_ha_ha_project_2_atmel_xbee_2_a_t_projects_2_ha_ha_2_ha_ha_2networkdevice_2networkdevice_8hdep" id="_e_1_2_ha_ha_project_2_atmel_xbee_2_a_t_projects_2_ha_ha_2_ha_ha_2networkdevice_2networkdevice_8hdep">
-<area shape="rect" id="node2" href="basecomm_8h.html" title="Base communication. " alt="" coords="5,109,260,165"/>
-<area shape="rect" id="node4" href="network_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/network\l/network.c" alt="" coords="285,109,495,165"/>
-<area shape="rect" id="node5" href="networkdevice_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/networkdevice\l/networkdevice.c" alt="" coords="520,109,767,165"/>
-<area shape="rect" id="node6" href="uart_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/uart/uart.c" alt="" coords="791,117,1016,158"/>
-<area shape="rect" id="node7" href="main_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/main.c" alt="" coords="1041,117,1246,158"/>
-<area shape="rect" id="node3" href="basecomm_8c.html" title="Application layer packet creation and parsing. " alt="" coords="5,213,260,269"/>
+<area shape="rect" id="node2" href="network_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/network\l/network.c" alt="" coords="5,109,216,165"/>
+<area shape="rect" id="node3" href="networkdevice_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/networkdevice\l/networkdevice.c" alt="" coords="241,109,487,165"/>
+<area shape="rect" id="node4" href="uart_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/uart/uart.c" alt="" coords="511,117,737,158"/>
+<area shape="rect" id="node5" href="main_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/main.c" alt="" coords="761,117,967,158"/>
 </map>
 </div>
 </div>
@@ -111,10 +108,12 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structframe_t_x.html">frameTX</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structframe_t_x_status.html">frameTXStatus</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a5b237b75e2f90c55a45ad1f4ad83f165"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="networkdevice_8h.html#a5b237b75e2f90c55a45ad1f4ad83f165">OPT_DIGIMESH</a>&#160;&#160;&#160;0x11000000</td></tr>
+<tr class="memitem:a5b237b75e2f90c55a45ad1f4ad83f165"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="networkdevice_8h.html#a5b237b75e2f90c55a45ad1f4ad83f165">OPT_DIGIMESH</a>&#160;&#160;&#160;0xC0</td></tr>
 <tr class="separator:a5b237b75e2f90c55a45ad1f4ad83f165"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7cb64fe769d0d673825fb7c59c0148f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="networkdevice_8h.html#af7cb64fe769d0d673825fb7c59c0148f">OPT_PACKETACK</a>&#160;&#160;&#160;0x00000001</td></tr>
 <tr class="separator:af7cb64fe769d0d673825fb7c59c0148f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -127,8 +126,8 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:ad9c31236eed062640b6135a37fba175a"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="networkdevice_8h.html#ad9c31236eed062640b6135a37fba175a">xbee_cb_t</a>) (char *data, uint16_t len, char *src, uint8_t id)</td></tr>
-<tr class="separator:ad9c31236eed062640b6135a37fba175a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a277c582bc58d68b7ff8ac21b18eac041"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="networkdevice_8h.html#a277c582bc58d68b7ff8ac21b18eac041">netdevice_cb_t</a>) (<a class="el" href="struct_network.html">Network</a> *info)</td></tr>
+<tr class="separator:a277c582bc58d68b7ff8ac21b18eac041"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -176,21 +175,32 @@ Functions</h2></td></tr>
 <tr class="memitem:ad6952b379ed10e46c55fe16e28bfe4b2"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="networkdevice_8h.html#ad6952b379ed10e46c55fe16e28bfe4b2">xbee_getOwnNet</a> ()</td></tr>
 <tr class="memdesc:ad6952b379ed10e46c55fe16e28bfe4b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">{ <a class="el" href="struct_network.html">Network</a> address high bytes}  <a href="#ad6952b379ed10e46c55fe16e28bfe4b2">More...</a><br /></td></tr>
 <tr class="separator:ad6952b379ed10e46c55fe16e28bfe4b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6741192ba83fe40d588db7d303465148"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="networkdevice_8h.html#a6741192ba83fe40d588db7d303465148">xbee_send_</a> (uint64_t dst, char *data, uint8_t len)</td></tr>
-<tr class="memdesc:a6741192ba83fe40d588db7d303465148"><td class="mdescLeft">&#160;</td><td class="mdescRight">{ Send a packet to another XBee node }  <a href="#a6741192ba83fe40d588db7d303465148">More...</a><br /></td></tr>
-<tr class="separator:a6741192ba83fe40d588db7d303465148"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4de389c192783ef198ead80117dd95a"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="networkdevice_8h.html#ac4de389c192783ef198ead80117dd95a">xbee_send_hex</a> (char *dst, char *data, uint8_t len)</td></tr>
-<tr class="memdesc:ac4de389c192783ef198ead80117dd95a"><td class="mdescLeft">&#160;</td><td class="mdescRight">{ Send a packet to another XBee node }  <a href="#ac4de389c192783ef198ead80117dd95a">More...</a><br /></td></tr>
-<tr class="separator:ac4de389c192783ef198ead80117dd95a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93c06be36f503ab82dd1d129f525aadd"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="networkdevice_8h.html#a93c06be36f503ab82dd1d129f525aadd">xbee_recv</a> (char *data, uint8_t len)</td></tr>
-<tr class="memdesc:a93c06be36f503ab82dd1d129f525aadd"><td class="mdescLeft">&#160;</td><td class="mdescRight">{ Receives UART data and parses into frame packets}  <a href="#a93c06be36f503ab82dd1d129f525aadd">More...</a><br /></td></tr>
-<tr class="separator:a93c06be36f503ab82dd1d129f525aadd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba4a7346cafadb637b38e2ecb1895a82"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="networkdevice_8h.html#aba4a7346cafadb637b38e2ecb1895a82">gen_checksum</a> (char *data)</td></tr>
-<tr class="memdesc:aba4a7346cafadb637b38e2ecb1895a82"><td class="mdescLeft">&#160;</td><td class="mdescRight">{ Calculate the XBee checksum }  <a href="#aba4a7346cafadb637b38e2ecb1895a82">More...</a><br /></td></tr>
-<tr class="separator:aba4a7346cafadb637b38e2ecb1895a82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9f3bc7f7054591e2f08ff60779a8b8b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="networkdevice_8h.html#ab9f3bc7f7054591e2f08ff60779a8b8b">xbee_register_callback</a> (<a class="el" href="networkdevice_8h.html#ad9c31236eed062640b6135a37fba175a">xbee_cb_t</a> t, <a class="el" href="networkdevice_8h.html#ac11adbe796bddac0eb8ca4f69a33e537">frameResponseType</a> type)</td></tr>
-<tr class="memdesc:ab9f3bc7f7054591e2f08ff60779a8b8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">{ Register the function to send received payload }  <a href="#ab9f3bc7f7054591e2f08ff60779a8b8b">More...</a><br /></td></tr>
-<tr class="separator:ab9f3bc7f7054591e2f08ff60779a8b8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4908969c389d5c0b5b82fdbd806f5c7"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="networkdevice_8h.html#af4908969c389d5c0b5b82fdbd806f5c7">netdevice_send</a> (uint64_t dst, char *data, uint8_t len)</td></tr>
+<tr class="memdesc:af4908969c389d5c0b5b82fdbd806f5c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">{ Send a packet to another XBee node }  <a href="#af4908969c389d5c0b5b82fdbd806f5c7">More...</a><br /></td></tr>
+<tr class="separator:af4908969c389d5c0b5b82fdbd806f5c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af988614195ea4ef5c07a7ec9d4f30957"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="networkdevice_8h.html#af988614195ea4ef5c07a7ec9d4f30957">netdevice_send_radius</a> (uint64_t dst, char *data, uint8_t len, uint8_t radius)</td></tr>
+<tr class="separator:af988614195ea4ef5c07a7ec9d4f30957"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4ccd03ba59175d21c054f14efde00a4"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="networkdevice_8h.html#aa4ccd03ba59175d21c054f14efde00a4">netdevice_send_hex</a> (char *dst, char *data, uint8_t len)</td></tr>
+<tr class="memdesc:aa4ccd03ba59175d21c054f14efde00a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">{ Send a packet to another XBee node }  <a href="#aa4ccd03ba59175d21c054f14efde00a4">More...</a><br /></td></tr>
+<tr class="separator:aa4ccd03ba59175d21c054f14efde00a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affbb26556b295beae36da0fdea6189aa"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="networkdevice_8h.html#affbb26556b295beae36da0fdea6189aa">netdevice_send_hex_radius</a> (char *dst, char *data, uint8_t len, uint8_t radius)</td></tr>
+<tr class="separator:affbb26556b295beae36da0fdea6189aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8c5cb2e4927f28cf96469b15e9e0c3c"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="networkdevice_8h.html#ac8c5cb2e4927f28cf96469b15e9e0c3c">netdevice_send_byte</a> (char *dst, char *data, uint8_t len)</td></tr>
+<tr class="separator:ac8c5cb2e4927f28cf96469b15e9e0c3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad87ef0e04b1957a4486ecb5f357f85e6"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="networkdevice_8h.html#ad87ef0e04b1957a4486ecb5f357f85e6">netdevice_send_byte_radius</a> (char *dst, char *data, uint8_t len, uint8_t radius)</td></tr>
+<tr class="separator:ad87ef0e04b1957a4486ecb5f357f85e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd83b7cb11dcc38ed0c7c2b763fb2671"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="networkdevice_8h.html#afd83b7cb11dcc38ed0c7c2b763fb2671">netdevice_recv</a> (char *data, uint8_t len)</td></tr>
+<tr class="memdesc:afd83b7cb11dcc38ed0c7c2b763fb2671"><td class="mdescLeft">&#160;</td><td class="mdescRight">{ Receives UART data and parses into frame packets}  <a href="#afd83b7cb11dcc38ed0c7c2b763fb2671">More...</a><br /></td></tr>
+<tr class="separator:afd83b7cb11dcc38ed0c7c2b763fb2671"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c9d23ce71917144b4226949ce693839"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="networkdevice_8h.html#a6c9d23ce71917144b4226949ce693839">cmd_AT_set</a> (char *cmd, uint8_t *value, uint8_t len)</td></tr>
+<tr class="separator:a6c9d23ce71917144b4226949ce693839"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63cc60d33b59e170e4cba1871937cd8d"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="networkdevice_8h.html#a63cc60d33b59e170e4cba1871937cd8d">cmd_AT_get</a> (char *cmd)</td></tr>
+<tr class="separator:a63cc60d33b59e170e4cba1871937cd8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a442d79fdaf86ffc0f4f872321ceb305b"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="networkdevice_8h.html#a442d79fdaf86ffc0f4f872321ceb305b">calc_checksum</a> (char *data, uint16_t len)</td></tr>
+<tr class="separator:a442d79fdaf86ffc0f4f872321ceb305b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88575cef259498fb9894225b1928bb3c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="networkdevice_8h.html#a88575cef259498fb9894225b1928bb3c">netdevice_register_callback</a> (<a class="el" href="networkdevice_8h.html#a277c582bc58d68b7ff8ac21b18eac041">netdevice_cb_t</a> t, <a class="el" href="networkdevice_8h.html#ac11adbe796bddac0eb8ca4f69a33e537">frameResponseType</a> type)</td></tr>
+<tr class="memdesc:a88575cef259498fb9894225b1928bb3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">{ Register the function to send received payload }  <a href="#a88575cef259498fb9894225b1928bb3c">More...</a><br /></td></tr>
+<tr class="separator:a88575cef259498fb9894225b1928bb3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>XBee <a class="el" href="struct_network.html">Network</a> device implementation. </p>
@@ -232,7 +242,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define OPT_DIGIMESH&#160;&#160;&#160;0x11000000</td>
+          <td class="memname">#define OPT_DIGIMESH&#160;&#160;&#160;0xC0</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -271,14 +281,14 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Typedef Documentation</h2>
-<a id="ad9c31236eed062640b6135a37fba175a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad9c31236eed062640b6135a37fba175a">&#9670;&nbsp;</a></span>xbee_cb_t</h2>
+<a id="a277c582bc58d68b7ff8ac21b18eac041"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a277c582bc58d68b7ff8ac21b18eac041">&#9670;&nbsp;</a></span>netdevice_cb_t</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef void(* xbee_cb_t) (char *data, uint16_t len, char *src, uint8_t id)</td>
+          <td class="memname">typedef void(* netdevice_cb_t) (<a class="el" href="struct_network.html">Network</a> *info)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -335,30 +345,401 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="aba4a7346cafadb637b38e2ecb1895a82"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aba4a7346cafadb637b38e2ecb1895a82">&#9670;&nbsp;</a></span>gen_checksum()</h2>
+<a id="a442d79fdaf86ffc0f4f872321ceb305b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a442d79fdaf86ffc0f4f872321ceb305b">&#9670;&nbsp;</a></span>calc_checksum()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t gen_checksum </td>
+          <td class="memname">uint8_t calc_checksum </td>
           <td>(</td>
           <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>data</em></td><td>)</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a63cc60d33b59e170e4cba1871937cd8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63cc60d33b59e170e4cba1871937cd8d">&#9670;&nbsp;</a></span>cmd_AT_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t cmd_AT_get </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>cmd</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>{ Calculate the XBee checksum } </p>
+</div>
+</div>
+<a id="a6c9d23ce71917144b4226949ce693839"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c9d23ce71917144b4226949ce693839">&#9670;&nbsp;</a></span>cmd_AT_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t cmd_AT_set </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afd83b7cb11dcc38ed0c7c2b763fb2671"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd83b7cb11dcc38ed0c7c2b763fb2671">&#9670;&nbsp;</a></span>netdevice_recv()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t netdevice_recv </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>{ Receives UART data and parses into frame packets} </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">data</td><td>The data</td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">data</td><td>The data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>The length</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>{ returns 0 on success } </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>{ returns 0 if packet is processed } </dd></dl>
+
+</div>
+</div>
+<a id="a88575cef259498fb9894225b1928bb3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88575cef259498fb9894225b1928bb3c">&#9670;&nbsp;</a></span>netdevice_register_callback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void netdevice_register_callback </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="networkdevice_8h.html#a277c582bc58d68b7ff8ac21b18eac041">netdevice_cb_t</a>&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="networkdevice_8h.html#ac11adbe796bddac0eb8ca4f69a33e537">frameResponseType</a>&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>{ Register the function to send received payload } </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td>{ Function to call when app data is received } </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af4908969c389d5c0b5b82fdbd806f5c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4908969c389d5c0b5b82fdbd806f5c7">&#9670;&nbsp;</a></span>netdevice_send()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t netdevice_send </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>dst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>{ Send a packet to another XBee node } </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">dst</td><td>The destination </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">data</td><td>The data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>The length</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>{ returns 0 if sucessful } </dd></dl>
+
+</div>
+</div>
+<a id="ac8c5cb2e4927f28cf96469b15e9e0c3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8c5cb2e4927f28cf96469b15e9e0c3c">&#9670;&nbsp;</a></span>netdevice_send_byte()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t netdevice_send_byte </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>dst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad87ef0e04b1957a4486ecb5f357f85e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad87ef0e04b1957a4486ecb5f357f85e6">&#9670;&nbsp;</a></span>netdevice_send_byte_radius()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t netdevice_send_byte_radius </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>dst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>len</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>radius</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa4ccd03ba59175d21c054f14efde00a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4ccd03ba59175d21c054f14efde00a4">&#9670;&nbsp;</a></span>netdevice_send_hex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t netdevice_send_hex </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>dst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>{ Send a packet to another XBee node } </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">dst</td><td>The destination </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">data</td><td>The data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>The length</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>{ returns 0 if sucessful } </dd></dl>
+
+</div>
+</div>
+<a id="affbb26556b295beae36da0fdea6189aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affbb26556b295beae36da0fdea6189aa">&#9670;&nbsp;</a></span>netdevice_send_hex_radius()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t netdevice_send_hex_radius </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>dst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>len</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>radius</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af988614195ea4ef5c07a7ec9d4f30957"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af988614195ea4ef5c07a7ec9d4f30957">&#9670;&nbsp;</a></span>netdevice_send_radius()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t netdevice_send_radius </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>dst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>len</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>radius</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -436,170 +817,6 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>{ Leave XBee command mode } </p>
-
-</div>
-</div>
-<a id="a93c06be36f503ab82dd1d129f525aadd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a93c06be36f503ab82dd1d129f525aadd">&#9670;&nbsp;</a></span>xbee_recv()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t xbee_recv </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>len</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>{ Receives UART data and parses into frame packets} </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">data</td><td>The data </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>The length</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>{ returns 0 if packet is processed } </dd></dl>
-
-</div>
-</div>
-<a id="ab9f3bc7f7054591e2f08ff60779a8b8b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab9f3bc7f7054591e2f08ff60779a8b8b">&#9670;&nbsp;</a></span>xbee_register_callback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void xbee_register_callback </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="networkdevice_8h.html#ad9c31236eed062640b6135a37fba175a">xbee_cb_t</a>&#160;</td>
-          <td class="paramname"><em>t</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="networkdevice_8h.html#ac11adbe796bddac0eb8ca4f69a33e537">frameResponseType</a>&#160;</td>
-          <td class="paramname"><em>type</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>{ Register the function to send received payload } </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td>{ Function to call when app data is received } </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a6741192ba83fe40d588db7d303465148"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6741192ba83fe40d588db7d303465148">&#9670;&nbsp;</a></span>xbee_send_()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t xbee_send_ </td>
-          <td>(</td>
-          <td class="paramtype">uint64_t&#160;</td>
-          <td class="paramname"><em>dst</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>len</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>{ Send a packet to another XBee node } </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">dst</td><td>The destination </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">data</td><td>The data </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>The length</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>{ returns 0 if sucessful } </dd></dl>
-
-</div>
-</div>
-<a id="ac4de389c192783ef198ead80117dd95a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4de389c192783ef198ead80117dd95a">&#9670;&nbsp;</a></span>xbee_send_hex()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t xbee_send_hex </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>dst</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>len</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>{ Send a packet to another XBee node } </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">dst</td><td>The destination </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">data</td><td>The data </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>The length</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>{ returns 0 if sucessful } </dd></dl>
 
 </div>
 </div>

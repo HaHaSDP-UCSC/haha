@@ -71,14 +71,10 @@ $(function() {
 Collaboration diagram for Network:</div>
 <div class="dyncontent">
 <div class="center"><img src="struct_network__coll__graph.png" border="0" usemap="#_network_coll__map" alt="Collaboration graph"/></div>
-<map name="_network_coll__map" id="_network_coll__map">
-</map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a7dbabb0a4769aa2988ea4c164ce337a3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="packet_8h.html#a5ce68aceddf17a30aa045fc04914e798">opcode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_network.html#a7dbabb0a4769aa2988ea4c164ce337a3">opcode</a></td></tr>
-<tr class="separator:a7dbabb0a4769aa2988ea4c164ce337a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea4b9cff07746e6716d666b8f30206c3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="network_8h.html#a1924fa1e3480e5fb3c72b8ef3e243f57">netaddr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_network.html#aea4b9cff07746e6716d666b8f30206c3">src</a></td></tr>
 <tr class="separator:aea4b9cff07746e6716d666b8f30206c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afdd665550f4249de0fe44a6873c106d5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="network_8h.html#a1924fa1e3480e5fb3c72b8ef3e243f57">netaddr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_network.html#afdd665550f4249de0fe44a6873c106d5">dest</a></td></tr>
@@ -87,6 +83,12 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a32536a76f2f24b4698231a165fdd26a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8a4e88963892ccee2ef2c239bb3db96"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_network.html#ae8a4e88963892ccee2ef2c239bb3db96">ttl</a></td></tr>
 <tr class="separator:ae8a4e88963892ccee2ef2c239bb3db96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7fa8b4f2478521145ff17044e9915ad"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_network.html#af7fa8b4f2478521145ff17044e9915ad">data</a></td></tr>
+<tr class="separator:af7fa8b4f2478521145ff17044e9915ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0daba9b245e77e45d2bffa050271285"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_network.html#ab0daba9b245e77e45d2bffa050271285">len</a></td></tr>
+<tr class="separator:ab0daba9b245e77e45d2bffa050271285"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad71808f984c9440168801c285d9e0904"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_network.html#ad71808f984c9440168801c285d9e0904">id</a></td></tr>
+<tr class="separator:ad71808f984c9440168801c285d9e0904"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="a32536a76f2f24b4698231a165fdd26a8"></a>
@@ -97,6 +99,20 @@ Public Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">bool Network::broadcast</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af7fa8b4f2478521145ff17044e9915ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7fa8b4f2478521145ff17044e9915ad">&#9670;&nbsp;</a></span>data</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* Network::data</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -117,14 +133,28 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a7dbabb0a4769aa2988ea4c164ce337a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7dbabb0a4769aa2988ea4c164ce337a3">&#9670;&nbsp;</a></span>opcode</h2>
+<a id="ad71808f984c9440168801c285d9e0904"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad71808f984c9440168801c285d9e0904">&#9670;&nbsp;</a></span>id</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="packet_8h.html#a5ce68aceddf17a30aa045fc04914e798">opcode</a> Network::opcode</td>
+          <td class="memname">uint8_t Network::id</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab0daba9b245e77e45d2bffa050271285"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0daba9b245e77e45d2bffa050271285">&#9670;&nbsp;</a></span>len</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Network::len</td>
         </tr>
       </table>
 </div><div class="memdoc">

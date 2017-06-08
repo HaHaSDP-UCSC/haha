@@ -78,7 +78,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:gaa3cca792d7af7f180c5084af8ffd11c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize usart interface.  <a href="#gaa3cca792d7af7f180c5084af8ffd11c3">More...</a><br /></td></tr>
 <tr class="separator:gaa3cca792d7af7f180c5084af8ffd11c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae8076ed0a30199bd526f1da22e2095d3"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doc__driver__hal__usart__sync.html#gae8076ed0a30199bd526f1da22e2095d3">usart_sync_deinit</a> (struct <a class="el" href="structusart__sync__descriptor.html">usart_sync_descriptor</a> *const descr)</td></tr>
-<tr class="memdesc:gae8076ed0a30199bd526f1da22e2095d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">De-initialize usart interface.  <a href="#gae8076ed0a30199bd526f1da22e2095d3">More...</a><br /></td></tr>
+<tr class="memdesc:gae8076ed0a30199bd526f1da22e2095d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitialize usart interface.  <a href="#gae8076ed0a30199bd526f1da22e2095d3">More...</a><br /></td></tr>
 <tr class="separator:gae8076ed0a30199bd526f1da22e2095d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga351aa9c8c94b4e8b0eb5efb1ecd74a82"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doc__driver__hal__usart__sync.html#ga351aa9c8c94b4e8b0eb5efb1ecd74a82">usart_sync_enable</a> (struct <a class="el" href="structusart__sync__descriptor.html">usart_sync_descriptor</a> *const descr)</td></tr>
 <tr class="memdesc:ga351aa9c8c94b4e8b0eb5efb1ecd74a82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable usart interface.  <a href="#ga351aa9c8c94b4e8b0eb5efb1ecd74a82">More...</a><br /></td></tr>
@@ -87,7 +87,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:ga76abe691b76e4b95b4e3a7d5bc79b026"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable usart interface.  <a href="#ga76abe691b76e4b95b4e3a7d5bc79b026">More...</a><br /></td></tr>
 <tr class="separator:ga76abe691b76e4b95b4e3a7d5bc79b026"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaf0b9c8819dc24f75e4f87f050edc81f5"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doc__driver__hal__usart__sync.html#gaf0b9c8819dc24f75e4f87f050edc81f5">usart_sync_get_io_descriptor</a> (struct <a class="el" href="structusart__sync__descriptor.html">usart_sync_descriptor</a> *const descr, struct <a class="el" href="structio__descriptor.html">io_descriptor</a> **io)</td></tr>
-<tr class="memdesc:gaf0b9c8819dc24f75e4f87f050edc81f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve IO descriptor.  <a href="#gaf0b9c8819dc24f75e4f87f050edc81f5">More...</a><br /></td></tr>
+<tr class="memdesc:gaf0b9c8819dc24f75e4f87f050edc81f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve I/O descriptor.  <a href="#gaf0b9c8819dc24f75e4f87f050edc81f5">More...</a><br /></td></tr>
 <tr class="separator:gaf0b9c8819dc24f75e4f87f050edc81f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga23977cbdcabc4a624dde31be5ebba482"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doc__driver__hal__usart__sync.html#ga23977cbdcabc4a624dde31be5ebba482">usart_sync_set_flow_control</a> (struct <a class="el" href="structusart__sync__descriptor.html">usart_sync_descriptor</a> *const descr, const union <a class="el" href="unionusart__flow__control__state.html">usart_flow_control_state</a> state)</td></tr>
 <tr class="memdesc:ga23977cbdcabc4a624dde31be5ebba482"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specify action for flow control pins.  <a href="#ga23977cbdcabc4a624dde31be5ebba482">More...</a><br /></td></tr>
@@ -141,8 +141,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>De-initialize usart interface. </p>
-<p>This function de-initializes the given IO descriptor. It checks if the given hardware is initialized and if the given hardware is permitted to be de-initialized.</p>
+<p>Deinitialize usart interface. </p>
+<p>This function deinitializes the given I/O descriptor. It checks if the given hardware is initialized and if the given hardware is permitted to be deinitialized.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">descr</td><td>An usart descriptor which is used to communicate via USART</td></tr>
@@ -150,7 +150,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>De-initialization status.</dd></dl>
-<p>De-initialize usart interface. </p>
+<p>Deinitialize usart interface. </p>
 
 </div>
 </div>
@@ -275,16 +275,16 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Retrieve IO descriptor. </p>
-<p>This function retrieves the IO descriptor of the given USART descriptor.</p>
+<p>Retrieve I/O descriptor. </p>
+<p>This function retrieves the I/O descriptor of the given USART descriptor.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">descr</td><td>An usart descriptor which is used to communicate via USART </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">io</td><td>An io descriptor to retrieve</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">io</td><td>An I/O descriptor to retrieve</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The status of IO descriptor retrieving. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The status of I/O descriptor retrieving. </dd></dl>
 
 </div>
 </div>
@@ -342,7 +342,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initialize usart interface. </p>
-<p>This function initializes the given IO descriptor to be used as USART interface descriptor. It checks if the given hardware is not initialized and if the given hardware is permitted to be initialized.</p>
+<p>This function initializes the given I/O descriptor to be used as USART interface descriptor. It checks if the given hardware is not initialized and if the given hardware is permitted to be initialized.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">descr</td><td>An usart descriptor which is used to communicate via USART </td></tr>

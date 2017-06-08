@@ -6,8 +6,7 @@
 
 
 
-Collaboration diagram for Message\+:
-\nopagebreak
+Collaboration diagram for Message\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -17,24 +16,36 @@ Collaboration diagram for Message\+:
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
+\hyperlink{haha_utils_8h_a5ce68aceddf17a30aa045fc04914e798}{opcode} \hyperlink{struct_message_a1b33863bc276c3766459cb2199492c89}{opcode}
+\item 
 uint8\+\_\+t \hyperlink{struct_message_ae61f86cd0691a3f02faa414da330a780}{id}
 \item 
-unsigned char \hyperlink{struct_message_a60e639c0a4a6bce92868038dcd729d83}{network\+Addr} \mbox{[}\hyperlink{packet_8h_a64e48eb75238bd3d7a053f19071044a8}{M\+A\+X\+N\+E\+T\+A\+D\+DR}\mbox{]}
+bool \hyperlink{struct_message_a68480c18c3f3c0795af5200914696b33}{permanent}
 \item 
-uint16\+\_\+t \hyperlink{struct_message_a02bae243e9df49d0baaf486c03b908dd}{port}
+bool \hyperlink{struct_message_a9760ef38e390bc0be29b4e0add01fd7c}{broadcast}
 \item 
-int \hyperlink{struct_message_a32a531677df2b9665eea1d997293688f}{expiration}
+uint32\+\_\+t \hyperlink{struct_message_af4f9c907b7851f2a4f7ed8156b8b4966}{expiration}
 \item 
-\hyperlink{packet_8h_a5ce68aceddf17a30aa045fc04914e798}{opcode} \hyperlink{struct_message_a1b33863bc276c3766459cb2199492c89}{opcode}
+char \hyperlink{struct_message_a012f65c4847cc68c06ca5630b6652e0b}{src\+Addr} \mbox{[}\hyperlink{haha_utils_8h_a64e48eb75238bd3d7a053f19071044a8}{M\+A\+X\+N\+E\+T\+A\+D\+DR}\mbox{]}
+\item 
+uint16\+\_\+t \hyperlink{struct_message_a58696ceb3c9b42f0647843f2c4934d8f}{srcid}
+\item 
+uint8\+\_\+t \hyperlink{struct_message_a37d723043c8f623a2294306e9dd42425}{num\+Uses}
 \end{DoxyCompactItemize}
 
 
 \subsection{Member Data Documentation}
-\mbox{\Hypertarget{struct_message_a32a531677df2b9665eea1d997293688f}\label{struct_message_a32a531677df2b9665eea1d997293688f}} 
+\mbox{\Hypertarget{struct_message_a9760ef38e390bc0be29b4e0add01fd7c}\label{struct_message_a9760ef38e390bc0be29b4e0add01fd7c}} 
+\index{Message@{Message}!broadcast@{broadcast}}
+\index{broadcast@{broadcast}!Message@{Message}}
+\subsubsection{\texorpdfstring{broadcast}{broadcast}}
+{\footnotesize\ttfamily bool Message\+::broadcast}
+
+\mbox{\Hypertarget{struct_message_af4f9c907b7851f2a4f7ed8156b8b4966}\label{struct_message_af4f9c907b7851f2a4f7ed8156b8b4966}} 
 \index{Message@{Message}!expiration@{expiration}}
 \index{expiration@{expiration}!Message@{Message}}
 \subsubsection{\texorpdfstring{expiration}{expiration}}
-{\footnotesize\ttfamily int Message\+::expiration}
+{\footnotesize\ttfamily uint32\+\_\+t Message\+::expiration}
 
 \mbox{\Hypertarget{struct_message_ae61f86cd0691a3f02faa414da330a780}\label{struct_message_ae61f86cd0691a3f02faa414da330a780}} 
 \index{Message@{Message}!id@{id}}
@@ -42,23 +53,35 @@ int \hyperlink{struct_message_a32a531677df2b9665eea1d997293688f}{expiration}
 \subsubsection{\texorpdfstring{id}{id}}
 {\footnotesize\ttfamily uint8\+\_\+t Message\+::id}
 
-\mbox{\Hypertarget{struct_message_a60e639c0a4a6bce92868038dcd729d83}\label{struct_message_a60e639c0a4a6bce92868038dcd729d83}} 
-\index{Message@{Message}!network\+Addr@{network\+Addr}}
-\index{network\+Addr@{network\+Addr}!Message@{Message}}
-\subsubsection{\texorpdfstring{network\+Addr}{networkAddr}}
-{\footnotesize\ttfamily unsigned char Message\+::network\+Addr\mbox{[}\hyperlink{packet_8h_a64e48eb75238bd3d7a053f19071044a8}{M\+A\+X\+N\+E\+T\+A\+D\+DR}\mbox{]}}
+\mbox{\Hypertarget{struct_message_a37d723043c8f623a2294306e9dd42425}\label{struct_message_a37d723043c8f623a2294306e9dd42425}} 
+\index{Message@{Message}!num\+Uses@{num\+Uses}}
+\index{num\+Uses@{num\+Uses}!Message@{Message}}
+\subsubsection{\texorpdfstring{num\+Uses}{numUses}}
+{\footnotesize\ttfamily uint8\+\_\+t Message\+::num\+Uses}
 
 \mbox{\Hypertarget{struct_message_a1b33863bc276c3766459cb2199492c89}\label{struct_message_a1b33863bc276c3766459cb2199492c89}} 
 \index{Message@{Message}!opcode@{opcode}}
 \index{opcode@{opcode}!Message@{Message}}
 \subsubsection{\texorpdfstring{opcode}{opcode}}
-{\footnotesize\ttfamily \hyperlink{packet_8h_a5ce68aceddf17a30aa045fc04914e798}{opcode} Message\+::opcode}
+{\footnotesize\ttfamily \hyperlink{haha_utils_8h_a5ce68aceddf17a30aa045fc04914e798}{opcode} Message\+::opcode}
 
-\mbox{\Hypertarget{struct_message_a02bae243e9df49d0baaf486c03b908dd}\label{struct_message_a02bae243e9df49d0baaf486c03b908dd}} 
-\index{Message@{Message}!port@{port}}
-\index{port@{port}!Message@{Message}}
-\subsubsection{\texorpdfstring{port}{port}}
-{\footnotesize\ttfamily uint16\+\_\+t Message\+::port}
+\mbox{\Hypertarget{struct_message_a68480c18c3f3c0795af5200914696b33}\label{struct_message_a68480c18c3f3c0795af5200914696b33}} 
+\index{Message@{Message}!permanent@{permanent}}
+\index{permanent@{permanent}!Message@{Message}}
+\subsubsection{\texorpdfstring{permanent}{permanent}}
+{\footnotesize\ttfamily bool Message\+::permanent}
+
+\mbox{\Hypertarget{struct_message_a012f65c4847cc68c06ca5630b6652e0b}\label{struct_message_a012f65c4847cc68c06ca5630b6652e0b}} 
+\index{Message@{Message}!src\+Addr@{src\+Addr}}
+\index{src\+Addr@{src\+Addr}!Message@{Message}}
+\subsubsection{\texorpdfstring{src\+Addr}{srcAddr}}
+{\footnotesize\ttfamily char Message\+::src\+Addr\mbox{[}\hyperlink{haha_utils_8h_a64e48eb75238bd3d7a053f19071044a8}{M\+A\+X\+N\+E\+T\+A\+D\+DR}\mbox{]}}
+
+\mbox{\Hypertarget{struct_message_a58696ceb3c9b42f0647843f2c4934d8f}\label{struct_message_a58696ceb3c9b42f0647843f2c4934d8f}} 
+\index{Message@{Message}!srcid@{srcid}}
+\index{srcid@{srcid}!Message@{Message}}
+\subsubsection{\texorpdfstring{srcid}{srcid}}
+{\footnotesize\ttfamily uint16\+\_\+t Message\+::srcid}
 
 
 

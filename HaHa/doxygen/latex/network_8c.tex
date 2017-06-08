@@ -2,28 +2,57 @@
 \label{network_8c}\index{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/network/network.\+c@{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/network/network.\+c}}
 {\ttfamily \#include \char`\"{}network.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}networkdevice/networkdevice.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}packet.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}stdlib.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}string.\+h\char`\"{}}\newline
-Include dependency graph for network.\+c\+:
-\nopagebreak
+{\ttfamily \#include \char`\"{}utils/haha\+Utils.\+h\char`\"{}}\newline
+Include dependency graph for network.\+c\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{network_8c__incl}
+\includegraphics[width=337pt]{network_8c__incl}
 \end{center}
 \end{figure}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+void \hyperlink{network_8c_a9e9da433b6b1d4a7412f10325b8617a3}{print\+Net\+Addr} (\hyperlink{network_8h_a1924fa1e3480e5fb3c72b8ef3e243f57}{netaddr} $\ast$t)
+\item 
 void \hyperlink{network_8c_a53866cf213c2b2ea49bce93552ac766f}{network\+\_\+init} ()
+\item 
+void \hyperlink{network_8c_a51dd211feefdf127beb8f3a39adfa876}{net\+Array\+Add} (\hyperlink{struct_network}{Network} $\ast$add)
+\item 
+uint8\+\_\+t \hyperlink{network_8c_a3e5e3fc129e5e1e37a31a9ea02e78b0b}{net\+Array\+Return} (uint8\+\_\+t net\+ID)
+\item 
+bool \hyperlink{network_8c_a78842a91032e2f099774ff9782dce9e9}{net\+Compare} (\hyperlink{network_8h_a1924fa1e3480e5fb3c72b8ef3e243f57}{netaddr} n1, \hyperlink{network_8h_a1924fa1e3480e5fb3c72b8ef3e243f57}{netaddr} n2)
 \end{DoxyCompactItemize}
 
 
 \subsection{Function Documentation}
+\mbox{\Hypertarget{network_8c_a51dd211feefdf127beb8f3a39adfa876}\label{network_8c_a51dd211feefdf127beb8f3a39adfa876}} 
+\index{network.\+c@{network.\+c}!net\+Array\+Add@{net\+Array\+Add}}
+\index{net\+Array\+Add@{net\+Array\+Add}!network.\+c@{network.\+c}}
+\subsubsection{\texorpdfstring{net\+Array\+Add()}{netArrayAdd()}}
+{\footnotesize\ttfamily void net\+Array\+Add (\begin{DoxyParamCaption}\item[{\hyperlink{struct_network}{Network} $\ast$}]{add }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{network_8c_a3e5e3fc129e5e1e37a31a9ea02e78b0b}\label{network_8c_a3e5e3fc129e5e1e37a31a9ea02e78b0b}} 
+\index{network.\+c@{network.\+c}!net\+Array\+Return@{net\+Array\+Return}}
+\index{net\+Array\+Return@{net\+Array\+Return}!network.\+c@{network.\+c}}
+\subsubsection{\texorpdfstring{net\+Array\+Return()}{netArrayReturn()}}
+{\footnotesize\ttfamily uint8\+\_\+t net\+Array\+Return (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{net\+ID }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{network_8c_a78842a91032e2f099774ff9782dce9e9}\label{network_8c_a78842a91032e2f099774ff9782dce9e9}} 
+\index{network.\+c@{network.\+c}!net\+Compare@{net\+Compare}}
+\index{net\+Compare@{net\+Compare}!network.\+c@{network.\+c}}
+\subsubsection{\texorpdfstring{net\+Compare()}{netCompare()}}
+{\footnotesize\ttfamily bool net\+Compare (\begin{DoxyParamCaption}\item[{\hyperlink{network_8h_a1924fa1e3480e5fb3c72b8ef3e243f57}{netaddr}}]{n1,  }\item[{\hyperlink{network_8h_a1924fa1e3480e5fb3c72b8ef3e243f57}{netaddr}}]{n2 }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{network_8c_a53866cf213c2b2ea49bce93552ac766f}\label{network_8c_a53866cf213c2b2ea49bce93552ac766f}} 
 \index{network.\+c@{network.\+c}!network\+\_\+init@{network\+\_\+init}}
 \index{network\+\_\+init@{network\+\_\+init}!network.\+c@{network.\+c}}
 \subsubsection{\texorpdfstring{network\+\_\+init()}{network\_init()}}
 {\footnotesize\ttfamily void network\+\_\+init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{network_8c_a9e9da433b6b1d4a7412f10325b8617a3}\label{network_8c_a9e9da433b6b1d4a7412f10325b8617a3}} 
+\index{network.\+c@{network.\+c}!print\+Net\+Addr@{print\+Net\+Addr}}
+\index{print\+Net\+Addr@{print\+Net\+Addr}!network.\+c@{network.\+c}}
+\subsubsection{\texorpdfstring{print\+Net\+Addr()}{printNetAddr()}}
+{\footnotesize\ttfamily void print\+Net\+Addr (\begin{DoxyParamCaption}\item[{\hyperlink{network_8h_a1924fa1e3480e5fb3c72b8ef3e243f57}{netaddr} $\ast$}]{t }\end{DoxyParamCaption})}
 

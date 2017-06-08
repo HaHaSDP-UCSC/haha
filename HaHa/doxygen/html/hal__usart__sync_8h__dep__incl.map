@@ -1,5 +1,5 @@
 <map id="E:/HaHaProject/AtmelXbee/ATProjects/HaHa/HaHa/hal/include/hal_usart_sync.h" name="E:/HaHaProject/AtmelXbee/ATProjects/HaHa/HaHa/hal/include/hal_usart_sync.h">
-<area shape="rect" id="node2" href="$hal__usart__sync_8c.html" title="IO USART related functionality implementation. " alt="" coords="5,109,188,165"/>
+<area shape="rect" id="node2" href="$hal__usart__sync_8c.html" title="I/O USART related functionality implementation. " alt="" coords="5,109,188,165"/>
 <area shape="rect" id="node3" href="$driver__init_8h.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/driver_init.h" alt="" coords="212,117,443,158"/>
 <area shape="rect" id="node4" href="$driver__examples_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/examples\l/driver_examples.c" alt="" coords="23,421,245,477"/>
 <area shape="rect" id="node5" href="$uart_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/uart/uart.c" alt="" coords="97,221,323,262"/>

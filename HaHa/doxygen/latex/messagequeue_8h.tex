@@ -1,83 +1,196 @@
 \hypertarget{messagequeue_8h}{}\section{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/messagequeue/messagequeue.h File Reference}
 \label{messagequeue_8h}\index{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/messagequeue/messagequeue.\+h@{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/messagequeue/messagequeue.\+h}}
 {\ttfamily \#include \char`\"{}utils/haha\+Utils.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}friend/friendlist.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}neighbor/friendlist.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}neighbor/neighborlist.\+h\char`\"{}}\newline
-Include dependency graph for messagequeue.\+h\+:
-\nopagebreak
+Include dependency graph for messagequeue.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{messagequeue_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:
-\nopagebreak
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=271pt]{messagequeue_8h__dep__incl}
+\includegraphics[width=350pt]{messagequeue_8h__dep__incl}
 \end{center}
 \end{figure}
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 struct \hyperlink{struct_message}{Message}
+\item 
+struct \hyperlink{struct_event}{Event}
 \end{DoxyCompactItemize}
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{messagequeue_8h_a8064615b9f07036146ddba2d78ab43ac}{M\+A\+X\+Q\+U\+E\+U\+E\+S\+I\+ZE}~256
+\#define \hyperlink{messagequeue_8h_a8064615b9f07036146ddba2d78ab43ac}{M\+A\+X\+Q\+U\+E\+U\+E\+S\+I\+ZE}~16
+\item 
+\#define \hyperlink{messagequeue_8h_aa9b73542f958f4edfe5ebea8efe0ff8b}{D\+E\+F\+A\+U\+L\+T\+\_\+\+T\+TL}~1000;
+\item 
+\#define \hyperlink{messagequeue_8h_a241ec29f758a3880bf497892389f745e}{D\+E\+F\+M\+E\+S\+S\+A\+G\+E\+T\+I\+M\+E\+O\+UT}~300
+\item 
+\#define \hyperlink{messagequeue_8h_a665b45a0af13f32e7cacdbe50172bbaf}{F\+R\+I\+E\+N\+D\+R\+E\+Q\+T\+I\+M\+E\+O\+UT}~\hyperlink{messagequeue_8h_a241ec29f758a3880bf497892389f745e}{D\+E\+F\+M\+E\+S\+S\+A\+G\+E\+T\+I\+M\+E\+O\+UT}$\ast$12$\ast$24$\ast$14
+\item 
+\#define \hyperlink{messagequeue_8h_a9881a60ec99fc69692e4ca48012a1909}{B\+R\+O\+A\+D\+C\+A\+S\+T\+H\+OP}~64
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{struct_message}{Message} \hyperlink{messagequeue_8h_ac5d2505352602da27debb8163160af23}{Message}
 \end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 bool \hyperlink{messagequeue_8h_a16c87307c6fa91ee8efbcfd2dd78f14e}{init\+Message\+Queue} ()
+\begin{DoxyCompactList}\small\item\em Initializes the message queue. \end{DoxyCompactList}\item 
+bool \hyperlink{messagequeue_8h_a30396ad69474e5aa824e35c2c00a575b}{add\+To\+Queue} (\hyperlink{struct_message}{Message} $\ast$mes)
+\begin{DoxyCompactList}\small\item\em Adds a message to the queue. \end{DoxyCompactList}\item 
+bool \hyperlink{messagequeue_8h_a058126838902162b322a5c5f38a28b9f}{remove\+From\+Queue} (int queuenumber)
+\begin{DoxyCompactList}\small\item\em Removes message from queue. \end{DoxyCompactList}\item 
+bool \hyperlink{messagequeue_8h_a023a2c739587d964900ad0c02d3e3357}{remove\+From\+Queue\+Events} (\hyperlink{struct_event}{Event} $\ast$queuenumber, uint8\+\_\+t len)
 \item 
-bool \hyperlink{messagequeue_8h_ad2dbd5929bc3bf587187fb724aec4906}{add\+To\+Queue} (\hyperlink{struct_message}{Message} mes)
-\item 
-bool \hyperlink{messagequeue_8h_aba80587693ceebf09034cb8a9eb754b4}{remove\+From\+Queue} (\hyperlink{struct_message}{Message} mes)
-\item 
-bool \hyperlink{messagequeue_8h_a5d173fe65707a70702eef10c2c2ecd34}{check\+Queue} ()
-\item 
+int \hyperlink{messagequeue_8h_a1fbad7f962645128155ff14ef8c850a6}{check\+Queue} (\hyperlink{haha_utils_8h_a5ce68aceddf17a30aa045fc04914e798}{opcode} \hyperlink{packet_8h_a99a30df0f2488360cdd46b4b88e5f5f0}{op}, \hyperlink{flags_8h_a261da8bdf9ce262f07bc17c9b2834bb5}{flags} f, \hyperlink{struct_network}{Network} $\ast$net, \hyperlink{struct_event}{Event} event\+List\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Check queue for a certain message. \end{DoxyCompactList}\item 
 bool \hyperlink{messagequeue_8h_a8479d6b0d962af3cd60c4a2506542b93}{flush\+Old\+Messages} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Checks for old messages to be deleted. \end{DoxyCompactList}\item 
+bool \hyperlink{messagequeue_8h_aa9c264d45987dcbf4d56e074a3061d77}{init\+Message} (\hyperlink{struct_message}{Message} $\ast$m)
+\item 
+bool \hyperlink{messagequeue_8h_adcaa88f4a08d1d2eeef30cc27c020c27}{generate\+Friend\+Message} (Friend $\ast$friend, \hyperlink{struct_message}{Message} $\ast$mes, \hyperlink{haha_utils_8h_a5ce68aceddf17a30aa045fc04914e798}{opcode} \hyperlink{packet_8h_a99a30df0f2488360cdd46b4b88e5f5f0}{op})
+\begin{DoxyCompactList}\small\item\em Generates a message based on friend parameters. \end{DoxyCompactList}\item 
+bool \hyperlink{messagequeue_8h_a3738bb4b771769a14728e7b56e710691}{set\+Settings\+By\+Opcode} (\hyperlink{struct_message}{Message} $\ast$mes, \hyperlink{haha_utils_8h_a5ce68aceddf17a30aa045fc04914e798}{opcode} \hyperlink{haha_utils_8h_a5ce68aceddf17a30aa045fc04914e798}{opcode})
+\item 
+void \hyperlink{messagequeue_8h_a88569583fc3110b787ec80151d3ef7ad}{print\+Message\+Queue} ()
+\begin{DoxyCompactList}\small\item\em Test program to print out entire message queue. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{struct_message}{Message} \hyperlink{messagequeue_8h_a33b7cdfeea975ef384bcb8c59548fcca}{message\+Queue} \mbox{[}\hyperlink{messagequeue_8h_a8064615b9f07036146ddba2d78ab43ac}{M\+A\+X\+Q\+U\+E\+U\+E\+S\+I\+ZE}\mbox{]}
-\item 
-int \hyperlink{messagequeue_8h_adaf943c172048072b9661b452c627cc7}{queue\+Time} = 0
+uint32\+\_\+t \hyperlink{messagequeue_8h_ad7fff03b796652f5d15d765243701e7f}{queue\+Time}
 \end{DoxyCompactItemize}
 
 
 \subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{messagequeue_8h_a9881a60ec99fc69692e4ca48012a1909}\label{messagequeue_8h_a9881a60ec99fc69692e4ca48012a1909}} 
+\index{messagequeue.\+h@{messagequeue.\+h}!B\+R\+O\+A\+D\+C\+A\+S\+T\+H\+OP@{B\+R\+O\+A\+D\+C\+A\+S\+T\+H\+OP}}
+\index{B\+R\+O\+A\+D\+C\+A\+S\+T\+H\+OP@{B\+R\+O\+A\+D\+C\+A\+S\+T\+H\+OP}!messagequeue.\+h@{messagequeue.\+h}}
+\subsubsection{\texorpdfstring{B\+R\+O\+A\+D\+C\+A\+S\+T\+H\+OP}{BROADCASTHOP}}
+{\footnotesize\ttfamily \#define B\+R\+O\+A\+D\+C\+A\+S\+T\+H\+OP~64}
+
+\mbox{\Hypertarget{messagequeue_8h_aa9b73542f958f4edfe5ebea8efe0ff8b}\label{messagequeue_8h_aa9b73542f958f4edfe5ebea8efe0ff8b}} 
+\index{messagequeue.\+h@{messagequeue.\+h}!D\+E\+F\+A\+U\+L\+T\+\_\+\+T\+TL@{D\+E\+F\+A\+U\+L\+T\+\_\+\+T\+TL}}
+\index{D\+E\+F\+A\+U\+L\+T\+\_\+\+T\+TL@{D\+E\+F\+A\+U\+L\+T\+\_\+\+T\+TL}!messagequeue.\+h@{messagequeue.\+h}}
+\subsubsection{\texorpdfstring{D\+E\+F\+A\+U\+L\+T\+\_\+\+T\+TL}{DEFAULT\_TTL}}
+{\footnotesize\ttfamily \#define D\+E\+F\+A\+U\+L\+T\+\_\+\+T\+TL~1000;}
+
+\mbox{\Hypertarget{messagequeue_8h_a241ec29f758a3880bf497892389f745e}\label{messagequeue_8h_a241ec29f758a3880bf497892389f745e}} 
+\index{messagequeue.\+h@{messagequeue.\+h}!D\+E\+F\+M\+E\+S\+S\+A\+G\+E\+T\+I\+M\+E\+O\+UT@{D\+E\+F\+M\+E\+S\+S\+A\+G\+E\+T\+I\+M\+E\+O\+UT}}
+\index{D\+E\+F\+M\+E\+S\+S\+A\+G\+E\+T\+I\+M\+E\+O\+UT@{D\+E\+F\+M\+E\+S\+S\+A\+G\+E\+T\+I\+M\+E\+O\+UT}!messagequeue.\+h@{messagequeue.\+h}}
+\subsubsection{\texorpdfstring{D\+E\+F\+M\+E\+S\+S\+A\+G\+E\+T\+I\+M\+E\+O\+UT}{DEFMESSAGETIMEOUT}}
+{\footnotesize\ttfamily \#define D\+E\+F\+M\+E\+S\+S\+A\+G\+E\+T\+I\+M\+E\+O\+UT~300}
+
+\mbox{\Hypertarget{messagequeue_8h_a665b45a0af13f32e7cacdbe50172bbaf}\label{messagequeue_8h_a665b45a0af13f32e7cacdbe50172bbaf}} 
+\index{messagequeue.\+h@{messagequeue.\+h}!F\+R\+I\+E\+N\+D\+R\+E\+Q\+T\+I\+M\+E\+O\+UT@{F\+R\+I\+E\+N\+D\+R\+E\+Q\+T\+I\+M\+E\+O\+UT}}
+\index{F\+R\+I\+E\+N\+D\+R\+E\+Q\+T\+I\+M\+E\+O\+UT@{F\+R\+I\+E\+N\+D\+R\+E\+Q\+T\+I\+M\+E\+O\+UT}!messagequeue.\+h@{messagequeue.\+h}}
+\subsubsection{\texorpdfstring{F\+R\+I\+E\+N\+D\+R\+E\+Q\+T\+I\+M\+E\+O\+UT}{FRIENDREQTIMEOUT}}
+{\footnotesize\ttfamily \#define F\+R\+I\+E\+N\+D\+R\+E\+Q\+T\+I\+M\+E\+O\+UT~\hyperlink{messagequeue_8h_a241ec29f758a3880bf497892389f745e}{D\+E\+F\+M\+E\+S\+S\+A\+G\+E\+T\+I\+M\+E\+O\+UT}$\ast$12$\ast$24$\ast$14}
+
 \mbox{\Hypertarget{messagequeue_8h_a8064615b9f07036146ddba2d78ab43ac}\label{messagequeue_8h_a8064615b9f07036146ddba2d78ab43ac}} 
 \index{messagequeue.\+h@{messagequeue.\+h}!M\+A\+X\+Q\+U\+E\+U\+E\+S\+I\+ZE@{M\+A\+X\+Q\+U\+E\+U\+E\+S\+I\+ZE}}
 \index{M\+A\+X\+Q\+U\+E\+U\+E\+S\+I\+ZE@{M\+A\+X\+Q\+U\+E\+U\+E\+S\+I\+ZE}!messagequeue.\+h@{messagequeue.\+h}}
 \subsubsection{\texorpdfstring{M\+A\+X\+Q\+U\+E\+U\+E\+S\+I\+ZE}{MAXQUEUESIZE}}
-{\footnotesize\ttfamily \#define M\+A\+X\+Q\+U\+E\+U\+E\+S\+I\+ZE~256}
+{\footnotesize\ttfamily \#define M\+A\+X\+Q\+U\+E\+U\+E\+S\+I\+ZE~16}
+
+
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{messagequeue_8h_ac5d2505352602da27debb8163160af23}\label{messagequeue_8h_ac5d2505352602da27debb8163160af23}} 
+\index{messagequeue.\+h@{messagequeue.\+h}!Message@{Message}}
+\index{Message@{Message}!messagequeue.\+h@{messagequeue.\+h}}
+\subsubsection{\texorpdfstring{Message}{Message}}
+{\footnotesize\ttfamily typedef struct \hyperlink{struct_message}{Message}  \hyperlink{struct_message}{Message}}
 
 
 
 \subsection{Function Documentation}
-\mbox{\Hypertarget{messagequeue_8h_ad2dbd5929bc3bf587187fb724aec4906}\label{messagequeue_8h_ad2dbd5929bc3bf587187fb724aec4906}} 
+\mbox{\Hypertarget{messagequeue_8h_a30396ad69474e5aa824e35c2c00a575b}\label{messagequeue_8h_a30396ad69474e5aa824e35c2c00a575b}} 
 \index{messagequeue.\+h@{messagequeue.\+h}!add\+To\+Queue@{add\+To\+Queue}}
 \index{add\+To\+Queue@{add\+To\+Queue}!messagequeue.\+h@{messagequeue.\+h}}
 \subsubsection{\texorpdfstring{add\+To\+Queue()}{addToQueue()}}
-{\footnotesize\ttfamily bool add\+To\+Queue (\begin{DoxyParamCaption}\item[{\hyperlink{struct_message}{Message}}]{mes }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool add\+To\+Queue (\begin{DoxyParamCaption}\item[{\hyperlink{struct_message}{Message} $\ast$}]{mes }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{messagequeue_8h_a5d173fe65707a70702eef10c2c2ecd34}\label{messagequeue_8h_a5d173fe65707a70702eef10c2c2ecd34}} 
+
+
+Adds a message to the queue. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em mes} & The message to be added.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{messagequeue_8h_a1fbad7f962645128155ff14ef8c850a6}\label{messagequeue_8h_a1fbad7f962645128155ff14ef8c850a6}} 
 \index{messagequeue.\+h@{messagequeue.\+h}!check\+Queue@{check\+Queue}}
 \index{check\+Queue@{check\+Queue}!messagequeue.\+h@{messagequeue.\+h}}
 \subsubsection{\texorpdfstring{check\+Queue()}{checkQueue()}}
-{\footnotesize\ttfamily bool check\+Queue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int check\+Queue (\begin{DoxyParamCaption}\item[{\hyperlink{haha_utils_8h_a5ce68aceddf17a30aa045fc04914e798}{opcode}}]{op,  }\item[{\hyperlink{flags_8h_a261da8bdf9ce262f07bc17c9b2834bb5}{flags}}]{f,  }\item[{\hyperlink{struct_network}{Network} $\ast$}]{net,  }\item[{\hyperlink{struct_event}{Event}}]{event\+List\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
 
+
+
+Check queue for a certain message. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em mes} & The message, based on some of the params in the struct.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of opcodes present, or negative if failure. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{messagequeue_8h_a8479d6b0d962af3cd60c4a2506542b93}\label{messagequeue_8h_a8479d6b0d962af3cd60c4a2506542b93}} 
 \index{messagequeue.\+h@{messagequeue.\+h}!flush\+Old\+Messages@{flush\+Old\+Messages}}
 \index{flush\+Old\+Messages@{flush\+Old\+Messages}!messagequeue.\+h@{messagequeue.\+h}}
 \subsubsection{\texorpdfstring{flush\+Old\+Messages()}{flushOldMessages()}}
 {\footnotesize\ttfamily bool flush\+Old\+Messages (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks for old messages to be deleted. 
+
+\begin{DoxyReturn}{Returns}
+Returns number of messages removed. Negative if problem occurs. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{messagequeue_8h_adcaa88f4a08d1d2eeef30cc27c020c27}\label{messagequeue_8h_adcaa88f4a08d1d2eeef30cc27c020c27}} 
+\index{messagequeue.\+h@{messagequeue.\+h}!generate\+Friend\+Message@{generate\+Friend\+Message}}
+\index{generate\+Friend\+Message@{generate\+Friend\+Message}!messagequeue.\+h@{messagequeue.\+h}}
+\subsubsection{\texorpdfstring{generate\+Friend\+Message()}{generateFriendMessage()}}
+{\footnotesize\ttfamily bool generate\+Friend\+Message (\begin{DoxyParamCaption}\item[{Friend $\ast$}]{friend,  }\item[{\hyperlink{struct_message}{Message} $\ast$}]{mes,  }\item[{\hyperlink{haha_utils_8h_a5ce68aceddf17a30aa045fc04914e798}{opcode}}]{op }\end{DoxyParamCaption})}
+
+
+
+Generates a message based on friend parameters. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Friend} & Input friend \\
+\hline
+\mbox{\tt in}  & {\em permanent} & The permanent tag to the message. \\
+\hline
+ & {\em mes} & A pointer to the message to be created. Needs to be allocated\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful, false otherwise, \hyperlink{struct_message}{Message} mes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{messagequeue_8h_aa9c264d45987dcbf4d56e074a3061d77}\label{messagequeue_8h_aa9c264d45987dcbf4d56e074a3061d77}} 
+\index{messagequeue.\+h@{messagequeue.\+h}!init\+Message@{init\+Message}}
+\index{init\+Message@{init\+Message}!messagequeue.\+h@{messagequeue.\+h}}
+\subsubsection{\texorpdfstring{init\+Message()}{initMessage()}}
+{\footnotesize\ttfamily bool init\+Message (\begin{DoxyParamCaption}\item[{\hyperlink{struct_message}{Message} $\ast$}]{m }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{messagequeue_8h_a16c87307c6fa91ee8efbcfd2dd78f14e}\label{messagequeue_8h_a16c87307c6fa91ee8efbcfd2dd78f14e}} 
 \index{messagequeue.\+h@{messagequeue.\+h}!init\+Message\+Queue@{init\+Message\+Queue}}
@@ -85,24 +198,59 @@ int \hyperlink{messagequeue_8h_adaf943c172048072b9661b452c627cc7}{queue\+Time} =
 \subsubsection{\texorpdfstring{init\+Message\+Queue()}{initMessageQueue()}}
 {\footnotesize\ttfamily bool init\+Message\+Queue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{messagequeue_8h_aba80587693ceebf09034cb8a9eb754b4}\label{messagequeue_8h_aba80587693ceebf09034cb8a9eb754b4}} 
+
+
+Initializes the message queue. 
+
+\begin{DoxyReturn}{Returns}
+true if successful, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{messagequeue_8h_a88569583fc3110b787ec80151d3ef7ad}\label{messagequeue_8h_a88569583fc3110b787ec80151d3ef7ad}} 
+\index{messagequeue.\+h@{messagequeue.\+h}!print\+Message\+Queue@{print\+Message\+Queue}}
+\index{print\+Message\+Queue@{print\+Message\+Queue}!messagequeue.\+h@{messagequeue.\+h}}
+\subsubsection{\texorpdfstring{print\+Message\+Queue()}{printMessageQueue()}}
+{\footnotesize\ttfamily void print\+Message\+Queue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Test program to print out entire message queue. 
+
+\mbox{\Hypertarget{messagequeue_8h_a058126838902162b322a5c5f38a28b9f}\label{messagequeue_8h_a058126838902162b322a5c5f38a28b9f}} 
 \index{messagequeue.\+h@{messagequeue.\+h}!remove\+From\+Queue@{remove\+From\+Queue}}
 \index{remove\+From\+Queue@{remove\+From\+Queue}!messagequeue.\+h@{messagequeue.\+h}}
 \subsubsection{\texorpdfstring{remove\+From\+Queue()}{removeFromQueue()}}
-{\footnotesize\ttfamily bool remove\+From\+Queue (\begin{DoxyParamCaption}\item[{\hyperlink{struct_message}{Message}}]{mes }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool remove\+From\+Queue (\begin{DoxyParamCaption}\item[{int}]{queuenumber }\end{DoxyParamCaption})}
+
+
+
+Removes message from queue. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em queuenumber} & The number of the message to be removed.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{messagequeue_8h_a023a2c739587d964900ad0c02d3e3357}\label{messagequeue_8h_a023a2c739587d964900ad0c02d3e3357}} 
+\index{messagequeue.\+h@{messagequeue.\+h}!remove\+From\+Queue\+Events@{remove\+From\+Queue\+Events}}
+\index{remove\+From\+Queue\+Events@{remove\+From\+Queue\+Events}!messagequeue.\+h@{messagequeue.\+h}}
+\subsubsection{\texorpdfstring{remove\+From\+Queue\+Events()}{removeFromQueueEvents()}}
+{\footnotesize\ttfamily bool remove\+From\+Queue\+Events (\begin{DoxyParamCaption}\item[{\hyperlink{struct_event}{Event} $\ast$}]{queuenumber,  }\item[{uint8\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{messagequeue_8h_a3738bb4b771769a14728e7b56e710691}\label{messagequeue_8h_a3738bb4b771769a14728e7b56e710691}} 
+\index{messagequeue.\+h@{messagequeue.\+h}!set\+Settings\+By\+Opcode@{set\+Settings\+By\+Opcode}}
+\index{set\+Settings\+By\+Opcode@{set\+Settings\+By\+Opcode}!messagequeue.\+h@{messagequeue.\+h}}
+\subsubsection{\texorpdfstring{set\+Settings\+By\+Opcode()}{setSettingsByOpcode()}}
+{\footnotesize\ttfamily bool set\+Settings\+By\+Opcode (\begin{DoxyParamCaption}\item[{\hyperlink{struct_message}{Message} $\ast$}]{mes,  }\item[{\hyperlink{haha_utils_8h_a5ce68aceddf17a30aa045fc04914e798}{opcode}}]{opcode }\end{DoxyParamCaption})}
 
 
 
 \subsection{Variable Documentation}
-\mbox{\Hypertarget{messagequeue_8h_a33b7cdfeea975ef384bcb8c59548fcca}\label{messagequeue_8h_a33b7cdfeea975ef384bcb8c59548fcca}} 
-\index{messagequeue.\+h@{messagequeue.\+h}!message\+Queue@{message\+Queue}}
-\index{message\+Queue@{message\+Queue}!messagequeue.\+h@{messagequeue.\+h}}
-\subsubsection{\texorpdfstring{message\+Queue}{messageQueue}}
-{\footnotesize\ttfamily \hyperlink{struct_message}{Message} message\+Queue\mbox{[}\hyperlink{messagequeue_8h_a8064615b9f07036146ddba2d78ab43ac}{M\+A\+X\+Q\+U\+E\+U\+E\+S\+I\+ZE}\mbox{]}}
-
-\mbox{\Hypertarget{messagequeue_8h_adaf943c172048072b9661b452c627cc7}\label{messagequeue_8h_adaf943c172048072b9661b452c627cc7}} 
+\mbox{\Hypertarget{messagequeue_8h_ad7fff03b796652f5d15d765243701e7f}\label{messagequeue_8h_ad7fff03b796652f5d15d765243701e7f}} 
 \index{messagequeue.\+h@{messagequeue.\+h}!queue\+Time@{queue\+Time}}
 \index{queue\+Time@{queue\+Time}!messagequeue.\+h@{messagequeue.\+h}}
 \subsubsection{\texorpdfstring{queue\+Time}{queueTime}}
-{\footnotesize\ttfamily int queue\+Time = 0}
+{\footnotesize\ttfamily uint32\+\_\+t queue\+Time}
 

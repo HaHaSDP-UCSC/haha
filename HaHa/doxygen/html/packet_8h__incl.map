@@ -1,4 +1,5 @@
 <map id="E:/HaHaProject/AtmelXbee/ATProjects/HaHa/HaHa/network/packet.h" name="E:/HaHaProject/AtmelXbee/ATProjects/HaHa/HaHa/network/packet.h">
-<area shape="rect" id="node2" href="$flags_8h.html" title="flags.h" alt="" coords="47,109,107,136"/>
-<area shape="rect" id="node3" href="$haha_utils_8h.html" title="stdlib for HAHA project, contains imports and defines " alt="" coords="53,184,168,211"/>
+<area shape="rect" id="node2" href="$flags_8h.html" title="flags.h" alt="" coords="105,109,165,136"/>
+<area shape="rect" id="node3" href="$haha_utils_8h.html" title="stdlib for HAHA project, contains imports and defines " alt="" coords="89,184,204,211"/>
+<area shape="rect" id="node6" href="$network_8h.html" title="network/network.h" alt="" coords="190,259,317,285"/>
 </map>

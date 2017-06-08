@@ -6,16 +6,15 @@ Port related functionality declaration.
 
 
 {\ttfamily \#include $<$compiler.\+h$>$}\newline
-Include dependency graph for hpl\+\_\+gpio.\+h\+:
-\nopagebreak
+{\ttfamily \#include $<$hpl\+\_\+gpio\+\_\+base.\+h$>$}\newline
+Include dependency graph for hpl\+\_\+gpio.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{hpl__gpio_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:
-\nopagebreak
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -60,19 +59,7 @@ enum \hyperlink{group___h_p_l_ga6d50d8c4b17ff573c07340d4d7965bc1}{gpio\+\_\+port
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{group___h_p_l_ga6e226919d4a3ee84599b55a32597e284}{\+\_\+gpio\+\_\+init} (void)
-\begin{DoxyCompactList}\small\item\em Port initialization function. \end{DoxyCompactList}\item 
-void \hyperlink{group___h_p_l_gad0c9a05c8d3510204e45f6c292e39996}{\+\_\+gpio\+\_\+set\+\_\+direction} (const enum \hyperlink{group___h_p_l_ga6d50d8c4b17ff573c07340d4d7965bc1}{gpio\+\_\+port} port, const uint32\+\_\+t mask, const enum \hyperlink{group___h_p_l_gaccc7d029df9e5a96151a68e64f4be7e2}{gpio\+\_\+direction} direction)
-\begin{DoxyCompactList}\small\item\em Set direction on port with mask. \end{DoxyCompactList}\item 
-void \hyperlink{group___h_p_l_ga6dfca37dc99595ea4b013a931a35ba7f}{\+\_\+gpio\+\_\+set\+\_\+level} (const enum \hyperlink{group___h_p_l_ga6d50d8c4b17ff573c07340d4d7965bc1}{gpio\+\_\+port} port, const uint32\+\_\+t mask, const bool level)
-\begin{DoxyCompactList}\small\item\em Set output level on port with mask. \end{DoxyCompactList}\item 
-void \hyperlink{group___h_p_l_ga00df21e108dc46a00f686923d5cd731e}{\+\_\+gpio\+\_\+toggle\+\_\+level} (const enum \hyperlink{group___h_p_l_ga6d50d8c4b17ff573c07340d4d7965bc1}{gpio\+\_\+port} port, const uint32\+\_\+t mask)
-\begin{DoxyCompactList}\small\item\em Change output level to the opposite with mask. \end{DoxyCompactList}\item 
-uint32\+\_\+t \hyperlink{group___h_p_l_gaaa9499706a1ad34050473faacabc89af}{\+\_\+gpio\+\_\+get\+\_\+level} (const enum \hyperlink{group___h_p_l_ga6d50d8c4b17ff573c07340d4d7965bc1}{gpio\+\_\+port} port)
-\begin{DoxyCompactList}\small\item\em Get input levels on all port pins. \end{DoxyCompactList}\item 
-void \hyperlink{group___h_p_l_gaa1ce064a63a47651bbb5a0de9faacc86}{\+\_\+gpio\+\_\+set\+\_\+pin\+\_\+pull\+\_\+mode} (const enum \hyperlink{group___h_p_l_ga6d50d8c4b17ff573c07340d4d7965bc1}{gpio\+\_\+port} port, const uint8\+\_\+t pin, const enum \hyperlink{group___h_p_l_gab9959d4bcdc5049e5898d5100ada3197}{gpio\+\_\+pull\+\_\+mode} pull\+\_\+mode)
-\begin{DoxyCompactList}\small\item\em Set pin pull mode. \end{DoxyCompactList}\item 
-void \hyperlink{group___h_p_l_gac04d9d84160742c076ff2c1063655cee}{\+\_\+gpio\+\_\+set\+\_\+pin\+\_\+function} (const uint32\+\_\+t gpio, const uint32\+\_\+t function)
-\begin{DoxyCompactList}\small\item\em Set gpio function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Port initialization function. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \end{Indent}
 
 

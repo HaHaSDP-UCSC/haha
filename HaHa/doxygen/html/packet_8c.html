@@ -70,59 +70,63 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="packet_8h_source.html">packet.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="network_8h_source.html">network.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="flags_8h_source.html">flags.h</a>&quot;</code><br />
+<code>#include &quot;neighbor/responseflags.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="messagequeue_8h_source.html">messagequeue/messagequeue.h</a>&quot;</code><br />
+<code>#include &quot;basecomm.h&quot;</code><br />
+<code>#include &quot;neighbor/friendlist.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="haha_utils_8h_source.html">utils/hahaUtils.h</a>&quot;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &quot;lcd/lcd.h&quot;</code><br />
+<code>#include &quot;menu/menu.h&quot;</code><br />
+<code>#include &quot;menu/ui.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for packet.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="packet_8c__incl.png" border="0" usemap="#_e_1_2_ha_ha_project_2_atmel_xbee_2_a_t_projects_2_ha_ha_2_ha_ha_2network_2packet_8c" alt=""/></div>
 <map name="_e_1_2_ha_ha_project_2_atmel_xbee_2_a_t_projects_2_ha_ha_2_ha_ha_2network_2packet_8c" id="_e_1_2_ha_ha_project_2_atmel_xbee_2_a_t_projects_2_ha_ha_2_ha_ha_2network_2packet_8c">
-<area shape="rect" id="node2" href="packet_8h.html" title="packet.h" alt="" coords="42,184,114,211"/>
-<area shape="rect" id="node7" href="network_8h.html" title="network.h" alt="" coords="115,109,193,136"/>
-<area shape="rect" id="node3" href="flags_8h.html" title="flags.h" alt="" coords="5,259,65,285"/>
-<area shape="rect" id="node4" href="haha_utils_8h.html" title="stdlib for HAHA project, contains imports and defines " alt="" coords="46,333,161,360"/>
+<area shape="rect" id="node2" href="packet_8h.html" title="packet.h" alt="" coords="280,259,352,285"/>
+<area shape="rect" id="node3" href="flags_8h.html" title="flags.h" alt="" coords="94,333,154,360"/>
+<area shape="rect" id="node4" href="haha_utils_8h.html" title="stdlib for HAHA project, contains imports and defines " alt="" coords="79,408,193,435"/>
+<area shape="rect" id="node7" href="network_8h.html" title="network/network.h" alt="" coords="198,483,325,509"/>
+<area shape="rect" id="node10" href="messagequeue_8h.html" title="messagequeue/messagequeue.h" alt="" coords="176,109,389,136"/>
+<area shape="rect" id="node11" href="neighborlist_8h.html" title="neighbor/neighborlist.h" alt="" coords="197,184,349,211"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a0e0fd03121d6f529f535daa0bf6de3aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a0e0fd03121d6f529f535daa0bf6de3aa">printNetAddr1</a> (<a class="el" href="network_8h.html#a1924fa1e3480e5fb3c72b8ef3e243f57">netaddr</a> *t)</td></tr>
+<tr class="separator:a0e0fd03121d6f529f535daa0bf6de3aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27804d644d71f9589d59c455d4dc8a01"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a27804d644d71f9589d59c455d4dc8a01">opcodes_init</a> ()</td></tr>
 <tr class="separator:a27804d644d71f9589d59c455d4dc8a01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a04475199321b7fb18100ecec4b9c74"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a0a04475199321b7fb18100ecec4b9c74">app_packet_handler</a> (char *data, uint16_t len, uint8_t *src, uint8_t id)</td></tr>
-<tr class="separator:a0a04475199321b7fb18100ecec4b9c74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ec5d2a7acb004e014bea80fedd1a117"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a5ec5d2a7acb004e014bea80fedd1a117">register_opcode_handler_function</a> (<a class="el" href="packet_8h.html#a6159984579dde9f4a9ce474f3d1229db">opcode_handler_fn_t</a> t, <a class="el" href="packet_8h.html#a588e6b56097e045c733b60d25c4d45ab">Op</a> <a class="el" href="packet_8h.html#a5ce68aceddf17a30aa045fc04914e798">opcode</a>)</td></tr>
-<tr class="memdesc:a5ec5d2a7acb004e014bea80fedd1a117"><td class="mdescLeft">&#160;</td><td class="mdescRight">{ Register opcode functions }  <a href="#a5ec5d2a7acb004e014bea80fedd1a117">More...</a><br /></td></tr>
-<tr class="separator:a5ec5d2a7acb004e014bea80fedd1a117"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa71fa2cbfec0d0c932e950de1bdd455"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#afa71fa2cbfec0d0c932e950de1bdd455">register_opcode_parser_function</a> (<a class="el" href="packet_8h.html#a78c1d5d4faa906b018c7d6d7a1a195b8">opcode_parser_fn_t</a> t, <a class="el" href="packet_8h.html#a588e6b56097e045c733b60d25c4d45ab">Op</a> <a class="el" href="packet_8h.html#a5ce68aceddf17a30aa045fc04914e798">opcode</a>)</td></tr>
-<tr class="separator:afa71fa2cbfec0d0c932e950de1bdd455"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0bbfbd567f04dc890e1e50b7d78464e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a0bbfbd567f04dc890e1e50b7d78464e6">ping_request_parse</a> (char *data, uint16_t len, uint64_t src, uint8_t id)</td></tr>
-<tr class="separator:a0bbfbd567f04dc890e1e50b7d78464e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55acb8c4af247f16fc4660c9d52eecb2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a55acb8c4af247f16fc4660c9d52eecb2">help_request_parse</a> (char *data, uint16_t len, uint8_t id)</td></tr>
-<tr class="separator:a55acb8c4af247f16fc4660c9d52eecb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d55b4d29abc1c037b5e0afcc1df65ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a1d55b4d29abc1c037b5e0afcc1df65ba">help_response_parse</a> (char *data, uint16_t len, uint8_t id)</td></tr>
-<tr class="separator:a1d55b4d29abc1c037b5e0afcc1df65ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd570e90251258969929dc07e0c07bec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#abd570e90251258969929dc07e0c07bec">help_request_anyone_parse</a> (char *data, uint16_t len, uint8_t id)</td></tr>
-<tr class="separator:abd570e90251258969929dc07e0c07bec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4bc015b25825055561314f0042150384"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a4bc015b25825055561314f0042150384">help_response_anyone_parse</a> (char *data, uint16_t len, uint8_t id)</td></tr>
-<tr class="separator:a4bc015b25825055561314f0042150384"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21d43ba6452d263918f6663839cd879b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a21d43ba6452d263918f6663839cd879b">find_hops_request_parse</a> (char *data, uint16_t len, uint8_t id)</td></tr>
-<tr class="separator:a21d43ba6452d263918f6663839cd879b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59096913c0dad0f8ade35659a96338d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a59096913c0dad0f8ade35659a96338d5">find_hops_response_parse</a> (char *data, uint16_t len, uint8_t id)</td></tr>
-<tr class="separator:a59096913c0dad0f8ade35659a96338d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24e0dce0fc2c0b4fdc3729d9275973b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a24e0dce0fc2c0b4fdc3729d9275973b2">find_neighbors_request_parse</a> (char *data, uint16_t len, uint8_t id)</td></tr>
-<tr class="separator:a24e0dce0fc2c0b4fdc3729d9275973b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f06bd8baf1ab400be90f493d48d0080"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a0f06bd8baf1ab400be90f493d48d0080">find_neighbors_response_parse</a> (char *data, uint16_t len, uint8_t id)</td></tr>
-<tr class="separator:a0f06bd8baf1ab400be90f493d48d0080"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10910306490b1a91c973cb687359a808"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a10910306490b1a91c973cb687359a808">friend_request_parse</a> (char *data, uint16_t len, uint8_t id)</td></tr>
-<tr class="separator:a10910306490b1a91c973cb687359a808"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a24473329f81e4d1439790fac5d4061"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a8a24473329f81e4d1439790fac5d4061">friend_response_parse</a> (char *data, uint16_t len, uint8_t id)</td></tr>
-<tr class="separator:a8a24473329f81e4d1439790fac5d4061"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a390fe2fac86b8be220c53cbf52fd5d1a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a390fe2fac86b8be220c53cbf52fd5d1a">unfriend_request_parse</a> (char *data, uint16_t len, uint8_t id)</td></tr>
-<tr class="separator:a390fe2fac86b8be220c53cbf52fd5d1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2629e003442366a1fb98e86161d84282"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a2629e003442366a1fb98e86161d84282">app_packet_handler</a> (<a class="el" href="struct_network.html">Network</a> *info)</td></tr>
+<tr class="separator:a2629e003442366a1fb98e86161d84282"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b262aa6e4e32e8be961240158e39b8e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a2b262aa6e4e32e8be961240158e39b8e">register_opcode_handler_function</a> (<a class="el" href="packet_8h.html#a9b356014c1c5616c899e95e068f4d918">opcode_handler_fn_t</a> t, <a class="el" href="packet_8h.html#a99a30df0f2488360cdd46b4b88e5f5f0">op</a> <a class="el" href="haha_utils_8h.html#a5ce68aceddf17a30aa045fc04914e798">opcode</a>)</td></tr>
+<tr class="memdesc:a2b262aa6e4e32e8be961240158e39b8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">{ Register opcode functions }  <a href="#a2b262aa6e4e32e8be961240158e39b8e">More...</a><br /></td></tr>
+<tr class="separator:a2b262aa6e4e32e8be961240158e39b8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab762e4a60c0b36106c264624223b8e25"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#ab762e4a60c0b36106c264624223b8e25">copy_friend_to_packet</a> (Friend *f, LocalUser *self, <a class="el" href="struct_packet.html">Packet</a> *p)</td></tr>
+<tr class="separator:ab762e4a60c0b36106c264624223b8e25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a881c223187728b9a8fc4adf60efb50c9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a881c223187728b9a8fc4adf60efb50c9">getNetInfo</a> (<a class="el" href="struct_packet.html">Packet</a> *p, <a class="el" href="struct_network.html">Network</a> *net)</td></tr>
+<tr class="separator:a881c223187728b9a8fc4adf60efb50c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5aa25d6545489fdd01be9fbec8a3cfb5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a5aa25d6545489fdd01be9fbec8a3cfb5">send_ping_request</a> (Friend *f)</td></tr>
+<tr class="separator:a5aa25d6545489fdd01be9fbec8a3cfb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd4458683fd5410ba43aa1df5890869f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#afd4458683fd5410ba43aa1df5890869f">ping_request_handler</a> (<a class="el" href="struct_packet.html">Packet</a> *p)</td></tr>
 <tr class="separator:afd4458683fd5410ba43aa1df5890869f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa92652028759c2dbea41841976d63016"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#aa92652028759c2dbea41841976d63016">send_help_request</a> (Friend *f, LocalUser *self)</td></tr>
+<tr class="separator:aa92652028759c2dbea41841976d63016"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89bd4e5d6f2ba1bbe2690041788e1b0b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a89bd4e5d6f2ba1bbe2690041788e1b0b">send_help_request_ack</a> (Friend *f, LocalUser *self)</td></tr>
+<tr class="separator:a89bd4e5d6f2ba1bbe2690041788e1b0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10cf0c848add90e0e8e0604754874f5c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a10cf0c848add90e0e8e0604754874f5c">help_request_handler</a> (<a class="el" href="struct_packet.html">Packet</a> *p)</td></tr>
 <tr class="separator:a10cf0c848add90e0e8e0604754874f5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1fb14286aee4b3dcc7f9e60359c7703"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#af1fb14286aee4b3dcc7f9e60359c7703">send_help_response</a> (Friend *f, LocalUser *self, bool accept)</td></tr>
+<tr class="separator:af1fb14286aee4b3dcc7f9e60359c7703"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a352cc385005e7851dfd43c0ded42111a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a352cc385005e7851dfd43c0ded42111a">send_help_response_ack</a> (Friend *f, LocalUser *self, bool accept)</td></tr>
+<tr class="separator:a352cc385005e7851dfd43c0ded42111a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5bab532cc3c60053b81dd4563907d725"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a5bab532cc3c60053b81dd4563907d725">help_response_handler</a> (<a class="el" href="struct_packet.html">Packet</a> *p)</td></tr>
 <tr class="separator:a5bab532cc3c60053b81dd4563907d725"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a082d006a621515a0b14c5ca3067b6a28"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a082d006a621515a0b14c5ca3067b6a28">send_help_request_anyone</a> (LocalUser *self)</td></tr>
+<tr class="separator:a082d006a621515a0b14c5ca3067b6a28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a990ed9b70092b7fe947bd51278ebd43a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a990ed9b70092b7fe947bd51278ebd43a">help_request_anyone_handler</a> (<a class="el" href="struct_packet.html">Packet</a> *p)</td></tr>
 <tr class="separator:a990ed9b70092b7fe947bd51278ebd43a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2378ed65b081f0894fc4f4a77227bdd4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a2378ed65b081f0894fc4f4a77227bdd4">help_response_anyone_handler</a> (<a class="el" href="struct_packet.html">Packet</a> *p)</td></tr>
@@ -131,20 +135,38 @@ Functions</h2></td></tr>
 <tr class="separator:a9f9556653600fce0819c44b3039eb1f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d708e3e4bffcbc38a5cdd4fa75d5d49"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a7d708e3e4bffcbc38a5cdd4fa75d5d49">find_hops_response_handler</a> (<a class="el" href="struct_packet.html">Packet</a> *p)</td></tr>
 <tr class="separator:a7d708e3e4bffcbc38a5cdd4fa75d5d49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bcf4b10b2565ca007361d8b1bf43afb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a7bcf4b10b2565ca007361d8b1bf43afb">send_find_neighbors_request</a> ()</td></tr>
+<tr class="separator:a7bcf4b10b2565ca007361d8b1bf43afb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f4c40dcf71a96d4467127f093bdbe1a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a0f4c40dcf71a96d4467127f093bdbe1a">find_neighbors_request_handler</a> (<a class="el" href="struct_packet.html">Packet</a> *p)</td></tr>
 <tr class="separator:a0f4c40dcf71a96d4467127f093bdbe1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bab95d04db5015eb7d1978394caf554"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a6bab95d04db5015eb7d1978394caf554">send_find_neighbors_response</a> (Friend *f, LocalUser *self, <a class="el" href="haha_utils_8h.html#a22ca626eb8f0deb847d1fae89476e26d">ttl</a> <a class="el" href="haha_utils_8h.html#a22ca626eb8f0deb847d1fae89476e26d">ttl</a>)</td></tr>
+<tr class="separator:a6bab95d04db5015eb7d1978394caf554"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a0f817c2daf1ba7f9223c44bb9bf86f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a0a0f817c2daf1ba7f9223c44bb9bf86f">send_find_neighbors_response_ack</a> (Friend *f, LocalUser *self)</td></tr>
+<tr class="separator:a0a0f817c2daf1ba7f9223c44bb9bf86f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30f560d459e1e8d2e5a92f7e8861b609"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a30f560d459e1e8d2e5a92f7e8861b609">find_neighbors_response_handler</a> (<a class="el" href="struct_packet.html">Packet</a> *p)</td></tr>
 <tr class="separator:a30f560d459e1e8d2e5a92f7e8861b609"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07a7cc760a99a8c5ff3a056289798842"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a07a7cc760a99a8c5ff3a056289798842">send_friend_request</a> (Friend *f, LocalUser *self)</td></tr>
+<tr class="separator:a07a7cc760a99a8c5ff3a056289798842"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2465726c84220d2489bf1f88bfbdbe4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#aa2465726c84220d2489bf1f88bfbdbe4">send_friend_request_ack</a> (Friend *f, LocalUser *self)</td></tr>
+<tr class="separator:aa2465726c84220d2489bf1f88bfbdbe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a754f0581b5ec79d684f2628cb2449848"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a754f0581b5ec79d684f2628cb2449848">friend_request_handler</a> (<a class="el" href="struct_packet.html">Packet</a> *p)</td></tr>
 <tr class="separator:a754f0581b5ec79d684f2628cb2449848"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80ffe9d47a41b85d6afdb4e7a6478f17"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a80ffe9d47a41b85d6afdb4e7a6478f17">send_friend_response</a> (Friend *f, LocalUser *self, bool accept)</td></tr>
+<tr class="separator:a80ffe9d47a41b85d6afdb4e7a6478f17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0b16360af42be2f9040837f8fcf0109"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#ae0b16360af42be2f9040837f8fcf0109">send_friend_response_ack</a> (Friend *f, LocalUser *self, bool accept)</td></tr>
+<tr class="separator:ae0b16360af42be2f9040837f8fcf0109"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5db9bf5b8892b1fc85a9f71ef46034ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a5db9bf5b8892b1fc85a9f71ef46034ef">friend_response_handler</a> (<a class="el" href="struct_packet.html">Packet</a> *p)</td></tr>
 <tr class="separator:a5db9bf5b8892b1fc85a9f71ef46034ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9419901491369843ce1cb4a30e707a42"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a9419901491369843ce1cb4a30e707a42">send_unfriend_request</a> (Friend *f, LocalUser *self)</td></tr>
+<tr class="separator:a9419901491369843ce1cb4a30e707a42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1d03e4498287fc9a5b23c2fdce46581"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#ac1d03e4498287fc9a5b23c2fdce46581">send_unfriend_request_ack</a> (Friend *f, LocalUser *self)</td></tr>
+<tr class="separator:ac1d03e4498287fc9a5b23c2fdce46581"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9556d59a4c5a7d83ee2fa507ec7441cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a9556d59a4c5a7d83ee2fa507ec7441cb">unfriend_request_handler</a> (<a class="el" href="struct_packet.html">Packet</a> *p)</td></tr>
 <tr class="separator:a9556d59a4c5a7d83ee2fa507ec7441cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a0a04475199321b7fb18100ecec4b9c74"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0a04475199321b7fb18100ecec4b9c74">&#9670;&nbsp;</a></span>app_packet_handler()</h2>
+<a id="a2629e003442366a1fb98e86161d84282"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2629e003442366a1fb98e86161d84282">&#9670;&nbsp;</a></span>app_packet_handler()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -152,26 +174,38 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void app_packet_handler </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
+          <td class="paramtype"><a class="el" href="struct_network.html">Network</a> *&#160;</td>
+          <td class="paramname"><em>info</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab762e4a60c0b36106c264624223b8e25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab762e4a60c0b36106c264624223b8e25">&#9670;&nbsp;</a></span>copy_friend_to_packet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void copy_friend_to_packet </td>
+          <td>(</td>
+          <td class="paramtype">Friend *&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>len</em>, </td>
+          <td class="paramtype">LocalUser *&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint8_t *&#160;</td>
-          <td class="paramname"><em>src</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>id</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_packet.html">Packet</a> *&#160;</td>
+          <td class="paramname"><em>p</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -201,40 +235,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a21d43ba6452d263918f6663839cd879b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21d43ba6452d263918f6663839cd879b">&#9670;&nbsp;</a></span>find_hops_request_parse()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void find_hops_request_parse </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>len</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>id</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a7d708e3e4bffcbc38a5cdd4fa75d5d49"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7d708e3e4bffcbc38a5cdd4fa75d5d49">&#9670;&nbsp;</a></span>find_hops_response_handler()</h2>
 
@@ -247,40 +247,6 @@ Functions</h2></td></tr>
           <td class="paramtype"><a class="el" href="struct_packet.html">Packet</a> *&#160;</td>
           <td class="paramname"><em>p</em></td><td>)</td>
           <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a59096913c0dad0f8ade35659a96338d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a59096913c0dad0f8ade35659a96338d5">&#9670;&nbsp;</a></span>find_hops_response_parse()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void find_hops_response_parse </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>len</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>id</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -305,40 +271,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a24e0dce0fc2c0b4fdc3729d9275973b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a24e0dce0fc2c0b4fdc3729d9275973b2">&#9670;&nbsp;</a></span>find_neighbors_request_parse()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void find_neighbors_request_parse </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>len</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>id</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a30f560d459e1e8d2e5a92f7e8861b609"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a30f560d459e1e8d2e5a92f7e8861b609">&#9670;&nbsp;</a></span>find_neighbors_response_handler()</h2>
 
@@ -351,40 +283,6 @@ Functions</h2></td></tr>
           <td class="paramtype"><a class="el" href="struct_packet.html">Packet</a> *&#160;</td>
           <td class="paramname"><em>p</em></td><td>)</td>
           <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a0f06bd8baf1ab400be90f493d48d0080"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f06bd8baf1ab400be90f493d48d0080">&#9670;&nbsp;</a></span>find_neighbors_response_parse()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void find_neighbors_response_parse </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>len</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>id</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -406,40 +304,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="a10910306490b1a91c973cb687359a808"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a10910306490b1a91c973cb687359a808">&#9670;&nbsp;</a></span>friend_request_parse()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void friend_request_parse </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>len</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>id</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p><a class="el" href="struct_message.html">Message</a> user that someone wants to be a friend.</p>
 
 </div>
 </div>
@@ -461,29 +326,23 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a8a24473329f81e4d1439790fac5d4061"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8a24473329f81e4d1439790fac5d4061">&#9670;&nbsp;</a></span>friend_response_parse()</h2>
+<a id="a881c223187728b9a8fc4adf60efb50c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a881c223187728b9a8fc4adf60efb50c9">&#9670;&nbsp;</a></span>getNetInfo()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void friend_response_parse </td>
+          <td class="memname">bool getNetInfo </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
+          <td class="paramtype"><a class="el" href="struct_packet.html">Packet</a> *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>len</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>id</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_network.html">Network</a> *&#160;</td>
+          <td class="paramname"><em>net</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -510,40 +369,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="abd570e90251258969929dc07e0c07bec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abd570e90251258969929dc07e0c07bec">&#9670;&nbsp;</a></span>help_request_anyone_parse()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void help_request_anyone_parse </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>len</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>id</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Add a corresponding message ** </p>
 
 </div>
 </div>
@@ -559,40 +385,6 @@ Functions</h2></td></tr>
           <td class="paramtype"><a class="el" href="struct_packet.html">Packet</a> *&#160;</td>
           <td class="paramname"><em>p</em></td><td>)</td>
           <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a55acb8c4af247f16fc4660c9d52eecb2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a55acb8c4af247f16fc4660c9d52eecb2">&#9670;&nbsp;</a></span>help_request_parse()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void help_request_parse </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>len</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>id</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -617,40 +409,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a4bc015b25825055561314f0042150384"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4bc015b25825055561314f0042150384">&#9670;&nbsp;</a></span>help_response_anyone_parse()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void help_response_anyone_parse </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>len</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>id</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a5bab532cc3c60053b81dd4563907d725"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5bab532cc3c60053b81dd4563907d725">&#9670;&nbsp;</a></span>help_response_handler()</h2>
 
@@ -663,40 +421,6 @@ Functions</h2></td></tr>
           <td class="paramtype"><a class="el" href="struct_packet.html">Packet</a> *&#160;</td>
           <td class="paramname"><em>p</em></td><td>)</td>
           <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a1d55b4d29abc1c037b5e0afcc1df65ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d55b4d29abc1c037b5e0afcc1df65ba">&#9670;&nbsp;</a></span>help_response_parse()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void help_response_parse </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>len</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>id</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -738,48 +462,26 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a0bbfbd567f04dc890e1e50b7d78464e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0bbfbd567f04dc890e1e50b7d78464e6">&#9670;&nbsp;</a></span>ping_request_parse()</h2>
+<a id="a0e0fd03121d6f529f535daa0bf6de3aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e0fd03121d6f529f535daa0bf6de3aa">&#9670;&nbsp;</a></span>printNetAddr1()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void ping_request_parse </td>
+          <td class="memname">void printNetAddr1 </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="network_8h.html#a1924fa1e3480e5fb3c72b8ef3e243f57">netaddr</a> *&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>len</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint64_t&#160;</td>
-          <td class="paramname"><em>src</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>id</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a5ec5d2a7acb004e014bea80fedd1a117"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5ec5d2a7acb004e014bea80fedd1a117">&#9670;&nbsp;</a></span>register_opcode_handler_function()</h2>
+<a id="a2b262aa6e4e32e8be961240158e39b8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b262aa6e4e32e8be961240158e39b8e">&#9670;&nbsp;</a></span>register_opcode_handler_function()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -787,13 +489,13 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void register_opcode_handler_function </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="packet_8h.html#a6159984579dde9f4a9ce474f3d1229db">opcode_handler_fn_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="packet_8h.html#a9b356014c1c5616c899e95e068f4d918">opcode_handler_fn_t</a>&#160;</td>
           <td class="paramname"><em>t</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="packet_8h.html#a588e6b56097e045c733b60d25c4d45ab">Op</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="packet_8h.html#a99a30df0f2488360cdd46b4b88e5f5f0">op</a>&#160;</td>
           <td class="paramname"><em>opcode</em>&#160;</td>
         </tr>
         <tr>
@@ -814,23 +516,414 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="afa71fa2cbfec0d0c932e950de1bdd455"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa71fa2cbfec0d0c932e950de1bdd455">&#9670;&nbsp;</a></span>register_opcode_parser_function()</h2>
+<a id="a7bcf4b10b2565ca007361d8b1bf43afb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bcf4b10b2565ca007361d8b1bf43afb">&#9670;&nbsp;</a></span>send_find_neighbors_request()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void register_opcode_parser_function </td>
+          <td class="memname">void send_find_neighbors_request </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="packet_8h.html#a78c1d5d4faa906b018c7d6d7a1a195b8">opcode_parser_fn_t</a>&#160;</td>
-          <td class="paramname"><em>t</em>, </td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6bab95d04db5015eb7d1978394caf554"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bab95d04db5015eb7d1978394caf554">&#9670;&nbsp;</a></span>send_find_neighbors_response()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_find_neighbors_response </td>
+          <td>(</td>
+          <td class="paramtype">Friend *&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="packet_8h.html#a588e6b56097e045c733b60d25c4d45ab">Op</a>&#160;</td>
-          <td class="paramname"><em>opcode</em>&#160;</td>
+          <td class="paramtype">LocalUser *&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="haha_utils_8h.html#a22ca626eb8f0deb847d1fae89476e26d">ttl</a>&#160;</td>
+          <td class="paramname"><em>ttl</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0a0f817c2daf1ba7f9223c44bb9bf86f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a0f817c2daf1ba7f9223c44bb9bf86f">&#9670;&nbsp;</a></span>send_find_neighbors_response_ack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_find_neighbors_response_ack </td>
+          <td>(</td>
+          <td class="paramtype">Friend *&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">LocalUser *&#160;</td>
+          <td class="paramname"><em>self</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a07a7cc760a99a8c5ff3a056289798842"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07a7cc760a99a8c5ff3a056289798842">&#9670;&nbsp;</a></span>send_friend_request()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_friend_request </td>
+          <td>(</td>
+          <td class="paramtype">Friend *&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">LocalUser *&#160;</td>
+          <td class="paramname"><em>self</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa2465726c84220d2489bf1f88bfbdbe4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2465726c84220d2489bf1f88bfbdbe4">&#9670;&nbsp;</a></span>send_friend_request_ack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_friend_request_ack </td>
+          <td>(</td>
+          <td class="paramtype">Friend *&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">LocalUser *&#160;</td>
+          <td class="paramname"><em>self</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a80ffe9d47a41b85d6afdb4e7a6478f17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80ffe9d47a41b85d6afdb4e7a6478f17">&#9670;&nbsp;</a></span>send_friend_response()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_friend_response </td>
+          <td>(</td>
+          <td class="paramtype">Friend *&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">LocalUser *&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>accept</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae0b16360af42be2f9040837f8fcf0109"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0b16360af42be2f9040837f8fcf0109">&#9670;&nbsp;</a></span>send_friend_response_ack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_friend_response_ack </td>
+          <td>(</td>
+          <td class="paramtype">Friend *&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">LocalUser *&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>accept</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa92652028759c2dbea41841976d63016"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa92652028759c2dbea41841976d63016">&#9670;&nbsp;</a></span>send_help_request()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_help_request </td>
+          <td>(</td>
+          <td class="paramtype">Friend *&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">LocalUser *&#160;</td>
+          <td class="paramname"><em>self</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a89bd4e5d6f2ba1bbe2690041788e1b0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89bd4e5d6f2ba1bbe2690041788e1b0b">&#9670;&nbsp;</a></span>send_help_request_ack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_help_request_ack </td>
+          <td>(</td>
+          <td class="paramtype">Friend *&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">LocalUser *&#160;</td>
+          <td class="paramname"><em>self</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a082d006a621515a0b14c5ca3067b6a28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a082d006a621515a0b14c5ca3067b6a28">&#9670;&nbsp;</a></span>send_help_request_anyone()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_help_request_anyone </td>
+          <td>(</td>
+          <td class="paramtype">LocalUser *&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af1fb14286aee4b3dcc7f9e60359c7703"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1fb14286aee4b3dcc7f9e60359c7703">&#9670;&nbsp;</a></span>send_help_response()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_help_response </td>
+          <td>(</td>
+          <td class="paramtype">Friend *&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">LocalUser *&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>accept</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a352cc385005e7851dfd43c0ded42111a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a352cc385005e7851dfd43c0ded42111a">&#9670;&nbsp;</a></span>send_help_response_ack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_help_response_ack </td>
+          <td>(</td>
+          <td class="paramtype">Friend *&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">LocalUser *&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>accept</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5aa25d6545489fdd01be9fbec8a3cfb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5aa25d6545489fdd01be9fbec8a3cfb5">&#9670;&nbsp;</a></span>send_ping_request()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_ping_request </td>
+          <td>(</td>
+          <td class="paramtype">Friend *&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9419901491369843ce1cb4a30e707a42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9419901491369843ce1cb4a30e707a42">&#9670;&nbsp;</a></span>send_unfriend_request()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_unfriend_request </td>
+          <td>(</td>
+          <td class="paramtype">Friend *&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">LocalUser *&#160;</td>
+          <td class="paramname"><em>self</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac1d03e4498287fc9a5b23c2fdce46581"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1d03e4498287fc9a5b23c2fdce46581">&#9670;&nbsp;</a></span>send_unfriend_request_ack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_unfriend_request_ack </td>
+          <td>(</td>
+          <td class="paramtype">Friend *&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">LocalUser *&#160;</td>
+          <td class="paramname"><em>self</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -854,40 +947,6 @@ Functions</h2></td></tr>
           <td class="paramtype"><a class="el" href="struct_packet.html">Packet</a> *&#160;</td>
           <td class="paramname"><em>p</em></td><td>)</td>
           <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a390fe2fac86b8be220c53cbf52fd5d1a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a390fe2fac86b8be220c53cbf52fd5d1a">&#9670;&nbsp;</a></span>unfriend_request_parse()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void unfriend_request_parse </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>len</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>id</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">

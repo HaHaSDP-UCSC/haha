@@ -6,18 +6,15 @@
 
 
 
-Collaboration diagram for Network\+:
-\nopagebreak
+Collaboration diagram for Network\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=263pt]{struct_network__coll__graph}
+\includegraphics[width=350pt]{struct_network__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
-\item 
-\hyperlink{packet_8h_a5ce68aceddf17a30aa045fc04914e798}{opcode} \hyperlink{struct_network_a7dbabb0a4769aa2988ea4c164ce337a3}{opcode}
 \item 
 \hyperlink{network_8h_a1924fa1e3480e5fb3c72b8ef3e243f57}{netaddr} \hyperlink{struct_network_aea4b9cff07746e6716d666b8f30206c3}{src}
 \item 
@@ -26,6 +23,12 @@ Collaboration diagram for Network\+:
 bool \hyperlink{struct_network_a32536a76f2f24b4698231a165fdd26a8}{broadcast}
 \item 
 uint8\+\_\+t \hyperlink{struct_network_ae8a4e88963892ccee2ef2c239bb3db96}{ttl}
+\item 
+char $\ast$ \hyperlink{struct_network_af7fa8b4f2478521145ff17044e9915ad}{data}
+\item 
+uint16\+\_\+t \hyperlink{struct_network_ab0daba9b245e77e45d2bffa050271285}{len}
+\item 
+uint8\+\_\+t \hyperlink{struct_network_ad71808f984c9440168801c285d9e0904}{id}
 \end{DoxyCompactItemize}
 
 
@@ -36,17 +39,29 @@ uint8\+\_\+t \hyperlink{struct_network_ae8a4e88963892ccee2ef2c239bb3db96}{ttl}
 \subsubsection{\texorpdfstring{broadcast}{broadcast}}
 {\footnotesize\ttfamily bool Network\+::broadcast}
 
+\mbox{\Hypertarget{struct_network_af7fa8b4f2478521145ff17044e9915ad}\label{struct_network_af7fa8b4f2478521145ff17044e9915ad}} 
+\index{Network@{Network}!data@{data}}
+\index{data@{data}!Network@{Network}}
+\subsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily char$\ast$ Network\+::data}
+
 \mbox{\Hypertarget{struct_network_afdd665550f4249de0fe44a6873c106d5}\label{struct_network_afdd665550f4249de0fe44a6873c106d5}} 
 \index{Network@{Network}!dest@{dest}}
 \index{dest@{dest}!Network@{Network}}
 \subsubsection{\texorpdfstring{dest}{dest}}
 {\footnotesize\ttfamily \hyperlink{network_8h_a1924fa1e3480e5fb3c72b8ef3e243f57}{netaddr} Network\+::dest}
 
-\mbox{\Hypertarget{struct_network_a7dbabb0a4769aa2988ea4c164ce337a3}\label{struct_network_a7dbabb0a4769aa2988ea4c164ce337a3}} 
-\index{Network@{Network}!opcode@{opcode}}
-\index{opcode@{opcode}!Network@{Network}}
-\subsubsection{\texorpdfstring{opcode}{opcode}}
-{\footnotesize\ttfamily \hyperlink{packet_8h_a5ce68aceddf17a30aa045fc04914e798}{opcode} Network\+::opcode}
+\mbox{\Hypertarget{struct_network_ad71808f984c9440168801c285d9e0904}\label{struct_network_ad71808f984c9440168801c285d9e0904}} 
+\index{Network@{Network}!id@{id}}
+\index{id@{id}!Network@{Network}}
+\subsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily uint8\+\_\+t Network\+::id}
+
+\mbox{\Hypertarget{struct_network_ab0daba9b245e77e45d2bffa050271285}\label{struct_network_ab0daba9b245e77e45d2bffa050271285}} 
+\index{Network@{Network}!len@{len}}
+\index{len@{len}!Network@{Network}}
+\subsubsection{\texorpdfstring{len}{len}}
+{\footnotesize\ttfamily uint16\+\_\+t Network\+::len}
 
 \mbox{\Hypertarget{struct_network_aea4b9cff07746e6716d666b8f30206c3}\label{struct_network_aea4b9cff07746e6716d666b8f30206c3}} 
 \index{Network@{Network}!src@{src}}

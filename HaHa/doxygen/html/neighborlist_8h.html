@@ -65,6 +65,7 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -72,15 +73,17 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="haha_utils_8h_source.html">utils/hahaUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="network_8h_source.html">network/network.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="packet_8h_source.html">network/packet.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for neighborlist.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="neighborlist_8h__incl.png" border="0" usemap="#_e_1_2_ha_ha_project_2_atmel_xbee_2_a_t_projects_2_ha_ha_2_ha_ha_2neighbor_2neighborlist_8h" alt=""/></div>
 <map name="_e_1_2_ha_ha_project_2_atmel_xbee_2_a_t_projects_2_ha_ha_2_ha_ha_2neighbor_2neighborlist_8h" id="_e_1_2_ha_ha_project_2_atmel_xbee_2_a_t_projects_2_ha_ha_2_ha_ha_2neighbor_2neighborlist_8h">
-<area shape="rect" id="node2" href="haha_utils_8h.html" title="stdlib for HAHA project, contains imports and defines " alt="" coords="57,259,171,285"/>
-<area shape="rect" id="node5" href="packet_8h.html" title="network/packet.h" alt="" coords="101,109,223,136"/>
-<area shape="rect" id="node6" href="flags_8h.html" title="flags.h" alt="" coords="152,184,212,211"/>
+<area shape="rect" id="node2" href="haha_utils_8h.html" title="stdlib for HAHA project, contains imports and defines " alt="" coords="155,259,270,285"/>
+<area shape="rect" id="node5" href="network_8h.html" title="network/network.h" alt="" coords="272,333,399,360"/>
+<area shape="rect" id="node6" href="packet_8h.html" title="network/packet.h" alt="" coords="185,109,307,136"/>
+<area shape="rect" id="node7" href="flags_8h.html" title="flags.h" alt="" coords="183,184,243,211"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -88,9 +91,11 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="neighborlist_8h__dep__incl.png" border="0" usemap="#_e_1_2_ha_ha_project_2_atmel_xbee_2_a_t_projects_2_ha_ha_2_ha_ha_2neighbor_2neighborlist_8hdep" alt=""/></div>
 <map name="_e_1_2_ha_ha_project_2_atmel_xbee_2_a_t_projects_2_ha_ha_2_ha_ha_2neighbor_2neighborlist_8hdep" id="_e_1_2_ha_ha_project_2_atmel_xbee_2_a_t_projects_2_ha_ha_2_ha_ha_2neighbor_2neighborlist_8hdep">
-<area shape="rect" id="node2" href="messagequeue_8h.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/messagequeue\l/messagequeue.h" alt="" coords="5,109,260,165"/>
-<area shape="rect" id="node4" href="neighborlist_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/neighbor\l/neighborlist.c" alt="" coords="284,109,499,165"/>
+<area shape="rect" id="node2" href="messagequeue_8h.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/messagequeue\l/messagequeue.h" alt="" coords="263,109,517,165"/>
+<area shape="rect" id="node6" href="neighborlist_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/neighbor\l/neighborlist.c" alt="" coords="541,109,756,165"/>
 <area shape="rect" id="node3" href="messagequeue_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/messagequeue\l/messagequeue.c" alt="" coords="5,213,260,269"/>
+<area shape="rect" id="node4" href="packet_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/network\l/packet.c" alt="" coords="285,213,495,269"/>
+<area shape="rect" id="node5" href="main_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/main.c" alt="" coords="519,221,725,262"/>
 </map>
 </div>
 </div>
@@ -106,25 +111,38 @@ Macros</h2></td></tr>
 <tr class="memitem:af48fc6edaecd487c5379140559eb3510"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neighborlist_8h.html#af48fc6edaecd487c5379140559eb3510">NEIGHBORLISTSIZE</a>&#160;&#160;&#160;256</td></tr>
 <tr class="separator:af48fc6edaecd487c5379140559eb3510"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ad1b576f77955942bccf994a7191d3f83"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_neighbor.html">Neighbor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neighborlist_8h.html#ad1b576f77955942bccf994a7191d3f83">Neighbor</a></td></tr>
+<tr class="separator:ad1b576f77955942bccf994a7191d3f83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:afb2712638cdfdd8c5cdc2981db463e26"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neighborlist_8h.html#afb2712638cdfdd8c5cdc2981db463e26">initNeighborList</a> ()</td></tr>
+<tr class="memdesc:afb2712638cdfdd8c5cdc2981db463e26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the neighbor list.  <a href="#afb2712638cdfdd8c5cdc2981db463e26">More...</a><br /></td></tr>
 <tr class="separator:afb2712638cdfdd8c5cdc2981db463e26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a700923fa73c822c6c3317bd1d1a16cd3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neighborlist_8h.html#a700923fa73c822c6c3317bd1d1a16cd3">writeToNeighborListStorage</a> ()</td></tr>
 <tr class="separator:a700923fa73c822c6c3317bd1d1a16cd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb048123c812b6a964e642eeb76d0454"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neighborlist_8h.html#adb048123c812b6a964e642eeb76d0454">readFromNeighborListStorage</a> ()</td></tr>
 <tr class="separator:adb048123c812b6a964e642eeb76d0454"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea9d47b13e8710f8b65ddb1d39de2871"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neighborlist_8h.html#aea9d47b13e8710f8b65ddb1d39de2871">updateNeighborList</a> ()</td></tr>
+<tr class="memdesc:aea9d47b13e8710f8b65ddb1d39de2871"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the entire neighbor list.  <a href="#aea9d47b13e8710f8b65ddb1d39de2871">More...</a><br /></td></tr>
 <tr class="separator:aea9d47b13e8710f8b65ddb1d39de2871"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65da8b53356bf22f4ef3fee42a84ae94"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neighborlist_8h.html#a65da8b53356bf22f4ef3fee42a84ae94">addNeighbor</a> ()</td></tr>
-<tr class="separator:a65da8b53356bf22f4ef3fee42a84ae94"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d05e49b29465a5e03bfa5959a635025"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neighborlist_8h.html#a5d05e49b29465a5e03bfa5959a635025">removeNeighbor</a> ()</td></tr>
-<tr class="separator:a5d05e49b29465a5e03bfa5959a635025"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa243e30267ef075f5d2a0aad2c4d3b29"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neighborlist_8h.html#aa243e30267ef075f5d2a0aad2c4d3b29">addNeighbor</a> (<a class="el" href="struct_packet.html">Packet</a> *p, <a class="el" href="struct_network.html">Network</a> *net, int currentTime)</td></tr>
+<tr class="memdesc:aa243e30267ef075f5d2a0aad2c4d3b29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a neighbor to the list if they responded to a neighbor request.  <a href="#aa243e30267ef075f5d2a0aad2c4d3b29">More...</a><br /></td></tr>
+<tr class="separator:aa243e30267ef075f5d2a0aad2c4d3b29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55c2d7809fe562e5605aa7c151954d29"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neighborlist_8h.html#a55c2d7809fe562e5605aa7c151954d29">removeNeighbor</a> (int neighborNumber)</td></tr>
+<tr class="memdesc:a55c2d7809fe562e5605aa7c151954d29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a neighbor from the list.  <a href="#a55c2d7809fe562e5605aa7c151954d29">More...</a><br /></td></tr>
+<tr class="separator:a55c2d7809fe562e5605aa7c151954d29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84699db9c8bc02276055d4ac22dba8c4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neighborlist_8h.html#a84699db9c8bc02276055d4ac22dba8c4">checkForNeighbor</a> (<a class="el" href="struct_network.html">Network</a> *net)</td></tr>
+<tr class="separator:a84699db9c8bc02276055d4ac22dba8c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a9b7cde1e771419e96a526b06eb060b04"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_neighbor.html">Neighbor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neighborlist_8h.html#a9b7cde1e771419e96a526b06eb060b04">neighborList</a> [<a class="el" href="neighborlist_8h.html#af48fc6edaecd487c5379140559eb3510">NEIGHBORLISTSIZE</a>]</td></tr>
 <tr class="separator:a9b7cde1e771419e96a526b06eb060b04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d56f373adcb6a2f48695deaee487e10"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neighborlist_8h.html#a0d56f373adcb6a2f48695deaee487e10">numNeighbors</a></td></tr>
+<tr class="separator:a0d56f373adcb6a2f48695deaee487e10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="af48fc6edaecd487c5379140559eb3510"></a>
@@ -141,9 +159,24 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="ad1b576f77955942bccf994a7191d3f83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1b576f77955942bccf994a7191d3f83">&#9670;&nbsp;</a></span>Neighbor</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_neighbor.html">Neighbor</a>  <a class="el" href="struct_neighbor.html">Neighbor</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a65da8b53356bf22f4ef3fee42a84ae94"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a65da8b53356bf22f4ef3fee42a84ae94">&#9670;&nbsp;</a></span>addNeighbor()</h2>
+<a id="aa243e30267ef075f5d2a0aad2c4d3b29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa243e30267ef075f5d2a0aad2c4d3b29">&#9670;&nbsp;</a></span>addNeighbor()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -151,7 +184,51 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">bool addNeighbor </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_packet.html">Packet</a> *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_network.html">Network</a> *&#160;</td>
+          <td class="paramname"><em>net</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>currentTime</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a neighbor to the list if they responded to a neighbor request. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">net</td><td><a class="el" href="struct_network.html">Network</a> information.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if successful, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a84699db9c8bc02276055d4ac22dba8c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84699db9c8bc02276055d4ac22dba8c4">&#9670;&nbsp;</a></span>checkForNeighbor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool checkForNeighbor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_network.html">Network</a> *&#160;</td>
+          <td class="paramname"><em>net</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -174,6 +251,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Initializes the neighbor list. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if successful, false otherwise. </dd></dl>
+
 </div>
 </div>
 <a id="adb048123c812b6a964e642eeb76d0454"></a>
@@ -193,8 +273,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a5d05e49b29465a5e03bfa5959a635025"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d05e49b29465a5e03bfa5959a635025">&#9670;&nbsp;</a></span>removeNeighbor()</h2>
+<a id="a55c2d7809fe562e5605aa7c151954d29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55c2d7809fe562e5605aa7c151954d29">&#9670;&nbsp;</a></span>removeNeighbor()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -202,11 +282,21 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">bool removeNeighbor </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>neighborNumber</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Removes a neighbor from the list. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">neighborNumber</td><td>Number in list.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if successful, false otherwise. </dd></dl>
 
 </div>
 </div>
@@ -224,6 +314,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Updates the entire neighbor list. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if successful, false otherwise. </dd></dl>
 
 </div>
 </div>
@@ -253,6 +346,20 @@ Variables</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="struct_neighbor.html">Neighbor</a> neighborList[<a class="el" href="neighborlist_8h.html#af48fc6edaecd487c5379140559eb3510">NEIGHBORLISTSIZE</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0d56f373adcb6a2f48695deaee487e10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d56f373adcb6a2f48695deaee487e10">&#9670;&nbsp;</a></span>numNeighbors</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int numNeighbors</td>
         </tr>
       </table>
 </div><div class="memdoc">

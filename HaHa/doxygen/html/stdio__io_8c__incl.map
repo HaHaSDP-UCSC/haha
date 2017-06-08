@@ -1,6 +1,6 @@
 <map id="E:/HaHaProject/AtmelXbee/ATProjects/HaHa/HaHa/stdio_redirect/stdio_io.c" name="E:/HaHaProject/AtmelXbee/ATProjects/HaHa/HaHa/stdio_redirect/stdio_io.c">
 <area shape="rect" id="node3" href="$stdio__io_8h.html" title="STDIO redirection terminal. " alt="" coords="1373,109,1451,136"/>
-<area shape="rect" id="node4" href="$hal__io_8h.html" title="IO related functionality declaration. " alt="" coords="1379,184,1445,211"/>
+<area shape="rect" id="node4" href="$hal__io_8h.html" title="I/O related functionality declaration. " alt="" coords="1379,184,1445,211"/>
 <area shape="rect" id="node5" href="$compiler_8h.html" title="compiler.h" alt="" coords="1371,259,1453,285"/>
 <area shape="rect" id="node9" href="$parts_8h.html" title="Atmel part identification macros. " alt="" coords="1474,333,1537,360"/>
 <area shape="rect" id="node32" href="$err__codes_8h.html" title="Error code definitions. " alt="" coords="1561,333,1652,360"/>

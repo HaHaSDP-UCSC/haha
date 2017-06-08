@@ -4,10 +4,12 @@
 {\ttfamily \#include \char`\"{}stdio\+\_\+start.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}uart/uart.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}networkdevice/networkdevice.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}network/network.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}utils/haha\+Utils.\+h\char`\"{}}\newline
-Include dependency graph for main.\+c\+:
-\nopagebreak
+{\ttfamily \#include \char`\"{}messagequeue/messagequeue.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}neighbor/friendlist.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lcd/lcd.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}menu/ui.\+h\char`\"{}}\newline
+Include dependency graph for main.\+c\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -42,7 +44,10 @@ int \hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main} (void)
 
 This is the code that gets called on processor reset. To initialize the device, and call the \hyperlink{startup__samb11_8c_a840291bc02cba5474a4cb46a9b9566fe}{main()} routine. 
 
-\mbox{\Hypertarget{main_8c_ac7d8480b36f63f4c31b39d1e6eb491dd}\label{main_8c_ac7d8480b36f63f4c31b39d1e6eb491dd}} 
+
+\begin{DoxyItemize}
+\item Testing Application code $\ast$/ 
+\end{DoxyItemize}\mbox{\Hypertarget{main_8c_ac7d8480b36f63f4c31b39d1e6eb491dd}\label{main_8c_ac7d8480b36f63f4c31b39d1e6eb491dd}} 
 \index{main.\+c@{main.\+c}!printpacket1@{printpacket1}}
 \index{printpacket1@{printpacket1}!main.\+c@{main.\+c}}
 \subsubsection{\texorpdfstring{printpacket1()}{printpacket1()}}

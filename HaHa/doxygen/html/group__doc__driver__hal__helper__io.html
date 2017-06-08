@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>HaHa: IO Driver</title>
+<title>HaHa: I/O Driver</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -63,32 +63,32 @@ $(function() {
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">IO Driver</div>  </div>
+<div class="title">I/O Driver</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structio__descriptor.html">io_descriptor</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">IO descriptor.  <a href="structio__descriptor.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">I/O descriptor.  <a href="structio__descriptor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:gacb03c48993a6786f00946c196c40add1"><td class="memItemLeft" align="right" valign="top">typedef int32_t(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doc__driver__hal__helper__io.html#gacb03c48993a6786f00946c196c40add1">io_write_t</a>) (struct <a class="el" href="structio__descriptor.html">io_descriptor</a> *const io_descr, const uint8_t *const buf, const uint16_t length)</td></tr>
-<tr class="memdesc:gacb03c48993a6786f00946c196c40add1"><td class="mdescLeft">&#160;</td><td class="mdescRight">IO write function pointer type.  <a href="#gacb03c48993a6786f00946c196c40add1">More...</a><br /></td></tr>
+<tr class="memdesc:gacb03c48993a6786f00946c196c40add1"><td class="mdescLeft">&#160;</td><td class="mdescRight">I/O write function pointer type.  <a href="#gacb03c48993a6786f00946c196c40add1">More...</a><br /></td></tr>
 <tr class="separator:gacb03c48993a6786f00946c196c40add1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4d9ae58de2887289fe09eac6f0aa8be7"><td class="memItemLeft" align="right" valign="top">typedef int32_t(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doc__driver__hal__helper__io.html#ga4d9ae58de2887289fe09eac6f0aa8be7">io_read_t</a>) (struct <a class="el" href="structio__descriptor.html">io_descriptor</a> *const io_descr, uint8_t *const buf, const uint16_t length)</td></tr>
-<tr class="memdesc:ga4d9ae58de2887289fe09eac6f0aa8be7"><td class="mdescLeft">&#160;</td><td class="mdescRight">IO read function pointer type.  <a href="#ga4d9ae58de2887289fe09eac6f0aa8be7">More...</a><br /></td></tr>
+<tr class="memdesc:ga4d9ae58de2887289fe09eac6f0aa8be7"><td class="mdescLeft">&#160;</td><td class="mdescRight">I/O read function pointer type.  <a href="#ga4d9ae58de2887289fe09eac6f0aa8be7">More...</a><br /></td></tr>
 <tr class="separator:ga4d9ae58de2887289fe09eac6f0aa8be7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ga81aac60d5ce6feb0c44f8937d7c02f14"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doc__driver__hal__helper__io.html#ga81aac60d5ce6feb0c44f8937d7c02f14">io_write</a> (struct <a class="el" href="structio__descriptor.html">io_descriptor</a> *const io_descr, const uint8_t *const buf, const uint16_t length)</td></tr>
-<tr class="memdesc:ga81aac60d5ce6feb0c44f8937d7c02f14"><td class="mdescLeft">&#160;</td><td class="mdescRight">IO write interface.  <a href="#ga81aac60d5ce6feb0c44f8937d7c02f14">More...</a><br /></td></tr>
+<tr class="memdesc:ga81aac60d5ce6feb0c44f8937d7c02f14"><td class="mdescLeft">&#160;</td><td class="mdescRight">I/O write interface.  <a href="#ga81aac60d5ce6feb0c44f8937d7c02f14">More...</a><br /></td></tr>
 <tr class="separator:ga81aac60d5ce6feb0c44f8937d7c02f14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaf5e8722129933fa8e014144fd7505be6"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doc__driver__hal__helper__io.html#gaf5e8722129933fa8e014144fd7505be6">io_read</a> (struct <a class="el" href="structio__descriptor.html">io_descriptor</a> *const io_descr, uint8_t *const buf, const uint16_t length)</td></tr>
-<tr class="memdesc:gaf5e8722129933fa8e014144fd7505be6"><td class="mdescLeft">&#160;</td><td class="mdescRight">IO read interface.  <a href="#gaf5e8722129933fa8e014144fd7505be6">More...</a><br /></td></tr>
+<tr class="memdesc:gaf5e8722129933fa8e014144fd7505be6"><td class="mdescLeft">&#160;</td><td class="mdescRight">I/O read interface.  <a href="#gaf5e8722129933fa8e014144fd7505be6">More...</a><br /></td></tr>
 <tr class="separator:gaf5e8722129933fa8e014144fd7505be6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -105,7 +105,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>IO read function pointer type. </p>
+<p>I/O read function pointer type. </p>
 
 </div>
 </div>
@@ -121,7 +121,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>IO write function pointer type. </p>
+<p>I/O write function pointer type. </p>
 
 </div>
 </div>
@@ -158,17 +158,17 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>IO read interface. </p>
-<p>This function reads up to <code>length</code> bytes from a given IO descriptor, and story it in the buffer pointed to by <code>buf</code>. It returns the number of bytes actually read.</p>
+<p>I/O read interface. </p>
+<p>This function reads up to <code>length</code> bytes from a given I/O descriptor, and store it in the buffer pointed to by <code>buf</code>. It returns the number of bytes actually read.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">descr</td><td>An IO descriptor to read </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">descr</td><td>An I/O descriptor to read </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">buf</td><td>The buffer pointer to story the read data </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">length</td><td>number of bytes to read</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">length</td><td>The number of bytes to read</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>number of bytes actually read. This number can be less than the requested length. E.g., in driver that uses ring buffer for reception, it may depend on the availability of data in the ring buffer. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The number of bytes actually read. This number can be less than the requested length. E.g., in a driver that uses ring buffer for reception, it may depend on the availability of data in the ring buffer. </dd></dl>
 
 </div>
 </div>
@@ -204,17 +204,17 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>IO write interface. </p>
-<p>This function write up to <code>length</code> of bytes to a given IO descriptor, It returns the number of bytes actually write.</p>
+<p>I/O write interface. </p>
+<p>This function writes up to <code>length</code> of bytes to a given I/O descriptor. It returns the number of bytes actually write.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">descr</td><td>An IO descriptor to write </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">descr</td><td>An I/O descriptor to write </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">buf</td><td>The buffer pointer to story the write data </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">length</td><td>number of bytes to write</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">length</td><td>The number of bytes to write</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>number of bytes written </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The number of bytes written </dd></dl>
 
 </div>
 </div>

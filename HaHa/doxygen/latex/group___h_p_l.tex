@@ -94,26 +94,14 @@ enum \hyperlink{group___h_p_l_gace00dc77ac02c91f8bf35551b484927c}{\+\_\+usart\+\
 int32\+\_\+t \hyperlink{group___h_p_l_gad7c12a758c9839e074d1d97d255e09ab}{\+\_\+ext\+\_\+irq\+\_\+init} (void($\ast$cb)(const uint32\+\_\+t pin))
 \begin{DoxyCompactList}\small\item\em Initialize external interrupt module. \end{DoxyCompactList}\item 
 int32\+\_\+t \hyperlink{group___h_p_l_gad29f685cb658b260303c55fb7a88cdb0}{\+\_\+ext\+\_\+irq\+\_\+deinit} (void)
-\begin{DoxyCompactList}\small\item\em De-\/initialize external interrupt module. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Deinitialize external interrupt module. \end{DoxyCompactList}\item 
 int32\+\_\+t \hyperlink{group___h_p_l_gac2fa4b43da6356425b0188b744b6f4cc}{\+\_\+ext\+\_\+irq\+\_\+enable} (const uint32\+\_\+t pin, const bool enable)
 \begin{DoxyCompactList}\small\item\em Enable / disable external irq. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{H\+PL functions}
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{group___h_p_l_ga6e226919d4a3ee84599b55a32597e284}{\+\_\+gpio\+\_\+init} (void)
-\begin{DoxyCompactList}\small\item\em Port initialization function. \end{DoxyCompactList}\item 
-void \hyperlink{group___h_p_l_gad0c9a05c8d3510204e45f6c292e39996}{\+\_\+gpio\+\_\+set\+\_\+direction} (const enum \hyperlink{group___h_p_l_ga6d50d8c4b17ff573c07340d4d7965bc1}{gpio\+\_\+port} port, const uint32\+\_\+t mask, const enum \hyperlink{group___h_p_l_gaccc7d029df9e5a96151a68e64f4be7e2}{gpio\+\_\+direction} direction)
-\begin{DoxyCompactList}\small\item\em Set direction on port with mask. \end{DoxyCompactList}\item 
-void \hyperlink{group___h_p_l_ga6dfca37dc99595ea4b013a931a35ba7f}{\+\_\+gpio\+\_\+set\+\_\+level} (const enum \hyperlink{group___h_p_l_ga6d50d8c4b17ff573c07340d4d7965bc1}{gpio\+\_\+port} port, const uint32\+\_\+t mask, const bool level)
-\begin{DoxyCompactList}\small\item\em Set output level on port with mask. \end{DoxyCompactList}\item 
-void \hyperlink{group___h_p_l_ga00df21e108dc46a00f686923d5cd731e}{\+\_\+gpio\+\_\+toggle\+\_\+level} (const enum \hyperlink{group___h_p_l_ga6d50d8c4b17ff573c07340d4d7965bc1}{gpio\+\_\+port} port, const uint32\+\_\+t mask)
-\begin{DoxyCompactList}\small\item\em Change output level to the opposite with mask. \end{DoxyCompactList}\item 
-uint32\+\_\+t \hyperlink{group___h_p_l_gaaa9499706a1ad34050473faacabc89af}{\+\_\+gpio\+\_\+get\+\_\+level} (const enum \hyperlink{group___h_p_l_ga6d50d8c4b17ff573c07340d4d7965bc1}{gpio\+\_\+port} port)
-\begin{DoxyCompactList}\small\item\em Get input levels on all port pins. \end{DoxyCompactList}\item 
-void \hyperlink{group___h_p_l_gaa1ce064a63a47651bbb5a0de9faacc86}{\+\_\+gpio\+\_\+set\+\_\+pin\+\_\+pull\+\_\+mode} (const enum \hyperlink{group___h_p_l_ga6d50d8c4b17ff573c07340d4d7965bc1}{gpio\+\_\+port} port, const uint8\+\_\+t pin, const enum \hyperlink{group___h_p_l_gab9959d4bcdc5049e5898d5100ada3197}{gpio\+\_\+pull\+\_\+mode} pull\+\_\+mode)
-\begin{DoxyCompactList}\small\item\em Set pin pull mode. \end{DoxyCompactList}\item 
-void \hyperlink{group___h_p_l_gac04d9d84160742c076ff2c1063655cee}{\+\_\+gpio\+\_\+set\+\_\+pin\+\_\+function} (const uint32\+\_\+t gpio, const uint32\+\_\+t function)
-\begin{DoxyCompactList}\small\item\em Set gpio function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Port initialization function. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{H\+PL functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -162,7 +150,7 @@ void \hyperlink{group___h_p_l_ga1ee85f2f8227e335c654b9085e9b7d5c}{\+\_\+irq\+\_\
 int32\+\_\+t \hyperlink{group___h_p_l_ga11745e0bd0c9d636afbefae8e209665e}{\+\_\+usart\+\_\+async\+\_\+init} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device, void $\ast$const hw)
 \begin{DoxyCompactList}\small\item\em Initialize asynchronous U\+S\+A\+RT. \end{DoxyCompactList}\item 
 void \hyperlink{group___h_p_l_ga57e2ef9f6ec11c53a9d88bdb7a82aac4}{\+\_\+usart\+\_\+async\+\_\+deinit} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device)
-\begin{DoxyCompactList}\small\item\em De-\/initialize U\+S\+A\+RT. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Deinitialize U\+S\+A\+RT. \end{DoxyCompactList}\item 
 void \hyperlink{group___h_p_l_ga86c4101798d9dbc584f1e56615140d6f}{\+\_\+usart\+\_\+async\+\_\+enable} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device)
 \begin{DoxyCompactList}\small\item\em Enable usart module. \end{DoxyCompactList}\item 
 void \hyperlink{group___h_p_l_gadb6751e5c270eb88eb754f45e7b8a91f}{\+\_\+usart\+\_\+async\+\_\+disable} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device)
@@ -205,7 +193,7 @@ void \hyperlink{group___h_p_l_gadd7a2a78a76c6286f474bdce333c4904}{\+\_\+usart\+\
 int32\+\_\+t \hyperlink{group___h_p_l_gad1cc7b8e72fd67fdeec8062c802eb25a}{\+\_\+usart\+\_\+sync\+\_\+init} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device, void $\ast$const hw)
 \begin{DoxyCompactList}\small\item\em Initialize synchronous U\+S\+A\+RT. \end{DoxyCompactList}\item 
 void \hyperlink{group___h_p_l_gac046761a56aaedeba5acad135cab707c}{\+\_\+usart\+\_\+sync\+\_\+deinit} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device)
-\begin{DoxyCompactList}\small\item\em De-\/initialize U\+S\+A\+RT. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Deinitialize U\+S\+A\+RT. \end{DoxyCompactList}\item 
 void \hyperlink{group___h_p_l_ga5ca07057bde212b46f6547e5bdb876de}{\+\_\+usart\+\_\+sync\+\_\+enable} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device)
 \begin{DoxyCompactList}\small\item\em Enable usart module. \end{DoxyCompactList}\item 
 void \hyperlink{group___h_p_l_gac021f29c77d8a9bfabfdd7433dbbb024}{\+\_\+usart\+\_\+sync\+\_\+disable} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device)
@@ -576,14 +564,14 @@ U\+S\+A\+R\+T\+\_\+\+S\+T\+O\+P\+\_\+\+B\+I\+T\+S\+\_\+\+O\+N\+E\+\_\+\+P\+\_\+\
 
 
 
-De-\/initialize external interrupt module. 
+Deinitialize external interrupt module. 
 
 \begin{DoxyReturn}{Returns}
 Initialization status. 
 \end{DoxyReturn}
 
 \begin{DoxyRetVals}{Return values}
-{\em -\/1} & External irq module is already de-\/initialized \\
+{\em -\/1} & External irq module is already deinitialized \\
 \hline
 {\em 0} & The de-\/initialization is completed successfully \\
 \hline
@@ -652,23 +640,6 @@ Initialization status.
 
 Initialize generators. 
 
-\mbox{\Hypertarget{group___h_p_l_gaaa9499706a1ad34050473faacabc89af}\label{group___h_p_l_gaaa9499706a1ad34050473faacabc89af}} 
-\index{Core@{Core}!\+\_\+gpio\+\_\+get\+\_\+level@{\+\_\+gpio\+\_\+get\+\_\+level}}
-\index{\+\_\+gpio\+\_\+get\+\_\+level@{\+\_\+gpio\+\_\+get\+\_\+level}!Core@{Core}}
-\subsubsection{\texorpdfstring{\+\_\+gpio\+\_\+get\+\_\+level()}{\_gpio\_get\_level()}}
-{\footnotesize\ttfamily uint32\+\_\+t \+\_\+gpio\+\_\+get\+\_\+level (\begin{DoxyParamCaption}\item[{const enum \hyperlink{group___h_p_l_ga6d50d8c4b17ff573c07340d4d7965bc1}{gpio\+\_\+port}}]{port }\end{DoxyParamCaption})}
-
-
-
-Get input levels on all port pins. 
-
-Get input level on all port pins, will read IN register if configured to input and O\+UT register if configured as output
-
-
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em port} & Ports are grouped into groups of maximum 32 pins, G\+P\+I\+O\+\_\+\+P\+O\+R\+TA = group 0, G\+P\+I\+O\+\_\+\+P\+O\+R\+TB = group 1, etc \\
-\hline
-\end{DoxyParams}
 \mbox{\Hypertarget{group___h_p_l_ga6e226919d4a3ee84599b55a32597e284}\label{group___h_p_l_ga6e226919d4a3ee84599b55a32597e284}} 
 \index{Core@{Core}!\+\_\+gpio\+\_\+init@{\+\_\+gpio\+\_\+init}}
 \index{\+\_\+gpio\+\_\+init@{\+\_\+gpio\+\_\+init}!Core@{Core}}
@@ -679,110 +650,7 @@ Get input level on all port pins, will read IN register if configured to input a
 
 Port initialization function. 
 
-Port initialization function should setup the port module based on a static configuration file, this function should normally not be called directly, but is a part of hal\+\_\+init() \mbox{\Hypertarget{group___h_p_l_gad0c9a05c8d3510204e45f6c292e39996}\label{group___h_p_l_gad0c9a05c8d3510204e45f6c292e39996}} 
-\index{Core@{Core}!\+\_\+gpio\+\_\+set\+\_\+direction@{\+\_\+gpio\+\_\+set\+\_\+direction}}
-\index{\+\_\+gpio\+\_\+set\+\_\+direction@{\+\_\+gpio\+\_\+set\+\_\+direction}!Core@{Core}}
-\subsubsection{\texorpdfstring{\+\_\+gpio\+\_\+set\+\_\+direction()}{\_gpio\_set\_direction()}}
-{\footnotesize\ttfamily void \+\_\+gpio\+\_\+set\+\_\+direction (\begin{DoxyParamCaption}\item[{const enum \hyperlink{group___h_p_l_ga6d50d8c4b17ff573c07340d4d7965bc1}{gpio\+\_\+port}}]{port,  }\item[{const uint32\+\_\+t}]{mask,  }\item[{const enum \hyperlink{group___h_p_l_gaccc7d029df9e5a96151a68e64f4be7e2}{gpio\+\_\+direction}}]{direction }\end{DoxyParamCaption})}
-
-
-
-Set direction on port with mask. 
-
-Set data direction for each pin, or disable the pin
-
-
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em port} & Ports are grouped into groups of maximum 32 pins, G\+P\+I\+O\+\_\+\+P\+O\+R\+TA = group 0, G\+P\+I\+O\+\_\+\+P\+O\+R\+TB = group 1, etc \\
-\hline
-\mbox{\tt in}  & {\em mask} & Bit mask where 1 means apply direction setting to the corresponding pin \\
-\hline
-\mbox{\tt in}  & {\em direction} & G\+P\+I\+O\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+O\+FF = set pin direction to input and disable input buffer to disable the pin G\+P\+I\+O\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+IN = set pin direction to input and enable input buffer to enable the pin G\+P\+I\+O\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+O\+UT = set pin direction to output and disable input buffer \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{group___h_p_l_ga6dfca37dc99595ea4b013a931a35ba7f}\label{group___h_p_l_ga6dfca37dc99595ea4b013a931a35ba7f}} 
-\index{Core@{Core}!\+\_\+gpio\+\_\+set\+\_\+level@{\+\_\+gpio\+\_\+set\+\_\+level}}
-\index{\+\_\+gpio\+\_\+set\+\_\+level@{\+\_\+gpio\+\_\+set\+\_\+level}!Core@{Core}}
-\subsubsection{\texorpdfstring{\+\_\+gpio\+\_\+set\+\_\+level()}{\_gpio\_set\_level()}}
-{\footnotesize\ttfamily void \+\_\+gpio\+\_\+set\+\_\+level (\begin{DoxyParamCaption}\item[{const enum \hyperlink{group___h_p_l_ga6d50d8c4b17ff573c07340d4d7965bc1}{gpio\+\_\+port}}]{port,  }\item[{const uint32\+\_\+t}]{mask,  }\item[{const bool}]{level }\end{DoxyParamCaption})}
-
-
-
-Set output level on port with mask. 
-
-Sets output state on pin to high or low with pin masking
-
-
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em port} & Ports are grouped into groups of maximum 32 pins, G\+P\+I\+O\+\_\+\+P\+O\+R\+TA = group 0, G\+P\+I\+O\+\_\+\+P\+O\+R\+TB = group 1, etc \\
-\hline
-\mbox{\tt in}  & {\em mask} & Bit mask where 1 means apply direction setting to the corresponding pin \\
-\hline
-\mbox{\tt in}  & {\em level} & true = pin level is set to 1 false = pin level is set to 0 \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{group___h_p_l_gac04d9d84160742c076ff2c1063655cee}\label{group___h_p_l_gac04d9d84160742c076ff2c1063655cee}} 
-\index{Core@{Core}!\+\_\+gpio\+\_\+set\+\_\+pin\+\_\+function@{\+\_\+gpio\+\_\+set\+\_\+pin\+\_\+function}}
-\index{\+\_\+gpio\+\_\+set\+\_\+pin\+\_\+function@{\+\_\+gpio\+\_\+set\+\_\+pin\+\_\+function}!Core@{Core}}
-\subsubsection{\texorpdfstring{\+\_\+gpio\+\_\+set\+\_\+pin\+\_\+function()}{\_gpio\_set\_pin\_function()}}
-{\footnotesize\ttfamily void \+\_\+gpio\+\_\+set\+\_\+pin\+\_\+function (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{gpio,  }\item[{const uint32\+\_\+t}]{function }\end{DoxyParamCaption})}
-
-
-
-Set gpio function. 
-
-Select which function a gpio is used for
-
-
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em gpio} & The gpio to set function for \\
-\hline
-\mbox{\tt in}  & {\em function} & The gpio function is given by a 32-\/bit wide bitfield found in the header files for the device\\
-\hline
-\end{DoxyParams}
-Set gpio function. \mbox{\Hypertarget{group___h_p_l_gaa1ce064a63a47651bbb5a0de9faacc86}\label{group___h_p_l_gaa1ce064a63a47651bbb5a0de9faacc86}} 
-\index{Core@{Core}!\+\_\+gpio\+\_\+set\+\_\+pin\+\_\+pull\+\_\+mode@{\+\_\+gpio\+\_\+set\+\_\+pin\+\_\+pull\+\_\+mode}}
-\index{\+\_\+gpio\+\_\+set\+\_\+pin\+\_\+pull\+\_\+mode@{\+\_\+gpio\+\_\+set\+\_\+pin\+\_\+pull\+\_\+mode}!Core@{Core}}
-\subsubsection{\texorpdfstring{\+\_\+gpio\+\_\+set\+\_\+pin\+\_\+pull\+\_\+mode()}{\_gpio\_set\_pin\_pull\_mode()}}
-{\footnotesize\ttfamily void \+\_\+gpio\+\_\+set\+\_\+pin\+\_\+pull\+\_\+mode (\begin{DoxyParamCaption}\item[{const enum \hyperlink{group___h_p_l_ga6d50d8c4b17ff573c07340d4d7965bc1}{gpio\+\_\+port}}]{port,  }\item[{const uint8\+\_\+t}]{pin,  }\item[{const enum \hyperlink{group___h_p_l_gab9959d4bcdc5049e5898d5100ada3197}{gpio\+\_\+pull\+\_\+mode}}]{pull\+\_\+mode }\end{DoxyParamCaption})}
-
-
-
-Set pin pull mode. 
-
-Set pull mode on a single pin
-
-This function will automatically change pin direction to input
-
-
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em port} & Ports are grouped into groups of maximum 32 pins, G\+P\+I\+O\+\_\+\+P\+O\+R\+TA = group 0, G\+P\+I\+O\+\_\+\+P\+O\+R\+TB = group 1, etc \\
-\hline
-\mbox{\tt in}  & {\em pin} & The pin in the group that pull mode should be selected for \\
-\hline
-\mbox{\tt in}  & {\em pull\+\_\+mode} & G\+P\+I\+O\+\_\+\+P\+U\+L\+L\+\_\+\+O\+FF = pull resistor on pin is disabled G\+P\+I\+O\+\_\+\+P\+U\+L\+L\+\_\+\+D\+O\+WN = pull resistor on pin will pull pin level to ground level G\+P\+I\+O\+\_\+\+P\+U\+L\+L\+\_\+\+UP = pull resistor on pin will pull pin level to V\+CC \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{group___h_p_l_ga00df21e108dc46a00f686923d5cd731e}\label{group___h_p_l_ga00df21e108dc46a00f686923d5cd731e}} 
-\index{Core@{Core}!\+\_\+gpio\+\_\+toggle\+\_\+level@{\+\_\+gpio\+\_\+toggle\+\_\+level}}
-\index{\+\_\+gpio\+\_\+toggle\+\_\+level@{\+\_\+gpio\+\_\+toggle\+\_\+level}!Core@{Core}}
-\subsubsection{\texorpdfstring{\+\_\+gpio\+\_\+toggle\+\_\+level()}{\_gpio\_toggle\_level()}}
-{\footnotesize\ttfamily void \+\_\+gpio\+\_\+toggle\+\_\+level (\begin{DoxyParamCaption}\item[{const enum \hyperlink{group___h_p_l_ga6d50d8c4b17ff573c07340d4d7965bc1}{gpio\+\_\+port}}]{port,  }\item[{const uint32\+\_\+t}]{mask }\end{DoxyParamCaption})}
-
-
-
-Change output level to the opposite with mask. 
-
-Change pin output level to the opposite with pin masking
-
-
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em port} & Ports are grouped into groups of maximum 32 pins, G\+P\+I\+O\+\_\+\+P\+O\+R\+TA = group 0, G\+P\+I\+O\+\_\+\+P\+O\+R\+TB = group 1, etc \\
-\hline
-\mbox{\tt in}  & {\em mask} & Bit mask where 1 means apply direction setting to the corresponding pin \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{group___h_p_l_gac10942d1aec3f0ce14117119db5e9555}\label{group___h_p_l_gac10942d1aec3f0ce14117119db5e9555}} 
+Port initialization function should setup the port module based on a static configuration file, this function should normally not be called directly, but is a part of hal\+\_\+init() \mbox{\Hypertarget{group___h_p_l_gac10942d1aec3f0ce14117119db5e9555}\label{group___h_p_l_gac10942d1aec3f0ce14117119db5e9555}} 
 \index{Core@{Core}!\+\_\+init\+\_\+chip@{\+\_\+init\+\_\+chip}}
 \index{\+\_\+init\+\_\+chip@{\+\_\+init\+\_\+chip}!Core@{Core}}
 \subsubsection{\texorpdfstring{\+\_\+init\+\_\+chip()}{\_init\_chip()}}
@@ -1031,7 +899,7 @@ Calculated baud rate register value
 
 
 
-De-\/initialize U\+S\+A\+RT. 
+Deinitialize U\+S\+A\+RT. 
 
 This function closes the given U\+S\+A\+RT by disabling its clock.
 
@@ -1040,7 +908,7 @@ This function closes the given U\+S\+A\+RT by disabling its clock.
 \mbox{\tt in}  & {\em device} & The pointer to U\+S\+A\+RT device instance\\
 \hline
 \end{DoxyParams}
-De-\/initialize U\+S\+A\+RT. \mbox{\Hypertarget{group___h_p_l_gadb6751e5c270eb88eb754f45e7b8a91f}\label{group___h_p_l_gadb6751e5c270eb88eb754f45e7b8a91f}} 
+Deinitialize U\+S\+A\+RT. \mbox{\Hypertarget{group___h_p_l_gadb6751e5c270eb88eb754f45e7b8a91f}\label{group___h_p_l_gadb6751e5c270eb88eb754f45e7b8a91f}} 
 \index{Core@{Core}!\+\_\+usart\+\_\+async\+\_\+disable@{\+\_\+usart\+\_\+async\+\_\+disable}}
 \index{\+\_\+usart\+\_\+async\+\_\+disable@{\+\_\+usart\+\_\+async\+\_\+disable}!Core@{Core}}
 \subsubsection{\texorpdfstring{\+\_\+usart\+\_\+async\+\_\+disable()}{\_usart\_async\_disable()}}
@@ -1383,7 +1251,7 @@ Calculated baud rate register value
 
 
 
-De-\/initialize U\+S\+A\+RT. 
+Deinitialize U\+S\+A\+RT. 
 
 This function closes the given U\+S\+A\+RT by disabling its clock.
 
@@ -1392,7 +1260,7 @@ This function closes the given U\+S\+A\+RT by disabling its clock.
 \mbox{\tt in}  & {\em device} & The pointer to U\+S\+A\+RT device instance\\
 \hline
 \end{DoxyParams}
-De-\/initialize U\+S\+A\+RT. \mbox{\Hypertarget{group___h_p_l_gac021f29c77d8a9bfabfdd7433dbbb024}\label{group___h_p_l_gac021f29c77d8a9bfabfdd7433dbbb024}} 
+Deinitialize U\+S\+A\+RT. \mbox{\Hypertarget{group___h_p_l_gac021f29c77d8a9bfabfdd7433dbbb024}\label{group___h_p_l_gac021f29c77d8a9bfabfdd7433dbbb024}} 
 \index{Core@{Core}!\+\_\+usart\+\_\+sync\+\_\+disable@{\+\_\+usart\+\_\+sync\+\_\+disable}}
 \index{\+\_\+usart\+\_\+sync\+\_\+disable@{\+\_\+usart\+\_\+sync\+\_\+disable}!Core@{Core}}
 \subsubsection{\texorpdfstring{\+\_\+usart\+\_\+sync\+\_\+disable()}{\_usart\_sync\_disable()}}

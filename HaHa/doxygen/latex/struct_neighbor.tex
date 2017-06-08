@@ -6,8 +6,7 @@
 
 
 
-Collaboration diagram for Neighbor\+:
-\nopagebreak
+Collaboration diagram for Neighbor\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -17,30 +16,46 @@ Collaboration diagram for Neighbor\+:
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-unsigned char \hyperlink{struct_neighbor_a6bc80628de6e4c9aeff5110d6deef9d4}{networkaddr} \mbox{[}\hyperlink{packet_8h_a64e48eb75238bd3d7a053f19071044a8}{M\+A\+X\+N\+E\+T\+A\+D\+DR}\mbox{]}
+unsigned char \hyperlink{struct_neighbor_a6bc80628de6e4c9aeff5110d6deef9d4}{networkaddr} \mbox{[}\hyperlink{haha_utils_8h_a64e48eb75238bd3d7a053f19071044a8}{M\+A\+X\+N\+E\+T\+A\+D\+DR}\mbox{]}
+\item 
+char \hyperlink{struct_neighbor_a5a5a3eaf67b27d5db06a3ce56af1082d}{firstname} \mbox{[}\hyperlink{haha_utils_8h_ac3dd1c10edba39fc5737be5b96a91d2a}{M\+A\+X\+F\+I\+R\+S\+T\+N\+A\+ME}\mbox{]}
+\item 
+char \hyperlink{struct_neighbor_ab58656971c71c0fc0cc4610e16f92a47}{lastname} \mbox{[}\hyperlink{haha_utils_8h_ac3dd1c10edba39fc5737be5b96a91d2a}{M\+A\+X\+F\+I\+R\+S\+T\+N\+A\+ME}\mbox{]}
 \item 
 uint16\+\_\+t \hyperlink{struct_neighbor_a18b5cd42623d929f155daa37b6b1bff1}{port}
 \item 
-int \hyperlink{struct_neighbor_ab27726b4b15f950aeba7525de9f5fa02}{lastresponse}
+uint32\+\_\+t \hyperlink{struct_neighbor_a78cd1ddbf02168247647691ccea29602}{lastresponse}
 \item 
-\hyperlink{packet_8h_a22ca626eb8f0deb847d1fae89476e26d}{ttl} \hyperlink{struct_neighbor_a1b3e73523c604b66fb9674dcf1ffade7}{hops}
+\hyperlink{haha_utils_8h_a22ca626eb8f0deb847d1fae89476e26d}{ttl} \hyperlink{struct_neighbor_a1b3e73523c604b66fb9674dcf1ffade7}{hops}
 \item 
 uint8\+\_\+t \hyperlink{struct_neighbor_ae2738c5549836389e9d6c0e8f78df134}{neighbor\+Flags}
 \end{DoxyCompactItemize}
 
 
 \subsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_neighbor_a5a5a3eaf67b27d5db06a3ce56af1082d}\label{struct_neighbor_a5a5a3eaf67b27d5db06a3ce56af1082d}} 
+\index{Neighbor@{Neighbor}!firstname@{firstname}}
+\index{firstname@{firstname}!Neighbor@{Neighbor}}
+\subsubsection{\texorpdfstring{firstname}{firstname}}
+{\footnotesize\ttfamily char Neighbor\+::firstname\mbox{[}\hyperlink{haha_utils_8h_ac3dd1c10edba39fc5737be5b96a91d2a}{M\+A\+X\+F\+I\+R\+S\+T\+N\+A\+ME}\mbox{]}}
+
 \mbox{\Hypertarget{struct_neighbor_a1b3e73523c604b66fb9674dcf1ffade7}\label{struct_neighbor_a1b3e73523c604b66fb9674dcf1ffade7}} 
 \index{Neighbor@{Neighbor}!hops@{hops}}
 \index{hops@{hops}!Neighbor@{Neighbor}}
 \subsubsection{\texorpdfstring{hops}{hops}}
-{\footnotesize\ttfamily \hyperlink{packet_8h_a22ca626eb8f0deb847d1fae89476e26d}{ttl} Neighbor\+::hops}
+{\footnotesize\ttfamily \hyperlink{haha_utils_8h_a22ca626eb8f0deb847d1fae89476e26d}{ttl} Neighbor\+::hops}
 
-\mbox{\Hypertarget{struct_neighbor_ab27726b4b15f950aeba7525de9f5fa02}\label{struct_neighbor_ab27726b4b15f950aeba7525de9f5fa02}} 
+\mbox{\Hypertarget{struct_neighbor_ab58656971c71c0fc0cc4610e16f92a47}\label{struct_neighbor_ab58656971c71c0fc0cc4610e16f92a47}} 
+\index{Neighbor@{Neighbor}!lastname@{lastname}}
+\index{lastname@{lastname}!Neighbor@{Neighbor}}
+\subsubsection{\texorpdfstring{lastname}{lastname}}
+{\footnotesize\ttfamily char Neighbor\+::lastname\mbox{[}\hyperlink{haha_utils_8h_ac3dd1c10edba39fc5737be5b96a91d2a}{M\+A\+X\+F\+I\+R\+S\+T\+N\+A\+ME}\mbox{]}}
+
+\mbox{\Hypertarget{struct_neighbor_a78cd1ddbf02168247647691ccea29602}\label{struct_neighbor_a78cd1ddbf02168247647691ccea29602}} 
 \index{Neighbor@{Neighbor}!lastresponse@{lastresponse}}
 \index{lastresponse@{lastresponse}!Neighbor@{Neighbor}}
 \subsubsection{\texorpdfstring{lastresponse}{lastresponse}}
-{\footnotesize\ttfamily int Neighbor\+::lastresponse}
+{\footnotesize\ttfamily uint32\+\_\+t Neighbor\+::lastresponse}
 
 \mbox{\Hypertarget{struct_neighbor_ae2738c5549836389e9d6c0e8f78df134}\label{struct_neighbor_ae2738c5549836389e9d6c0e8f78df134}} 
 \index{Neighbor@{Neighbor}!neighbor\+Flags@{neighbor\+Flags}}
@@ -52,7 +67,7 @@ uint8\+\_\+t \hyperlink{struct_neighbor_ae2738c5549836389e9d6c0e8f78df134}{neigh
 \index{Neighbor@{Neighbor}!networkaddr@{networkaddr}}
 \index{networkaddr@{networkaddr}!Neighbor@{Neighbor}}
 \subsubsection{\texorpdfstring{networkaddr}{networkaddr}}
-{\footnotesize\ttfamily unsigned char Neighbor\+::networkaddr\mbox{[}\hyperlink{packet_8h_a64e48eb75238bd3d7a053f19071044a8}{M\+A\+X\+N\+E\+T\+A\+D\+DR}\mbox{]}}
+{\footnotesize\ttfamily unsigned char Neighbor\+::networkaddr\mbox{[}\hyperlink{haha_utils_8h_a64e48eb75238bd3d7a053f19071044a8}{M\+A\+X\+N\+E\+T\+A\+D\+DR}\mbox{]}}
 
 \mbox{\Hypertarget{struct_neighbor_a18b5cd42623d929f155daa37b6b1bff1}\label{struct_neighbor_a18b5cd42623d929f155daa37b6b1bff1}} 
 \index{Neighbor@{Neighbor}!port@{port}}

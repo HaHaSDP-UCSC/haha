@@ -3,9 +3,8 @@
 {\ttfamily \#include \char`\"{}driver\+\_\+init.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$utils.\+h$>$}\newline
 {\ttfamily \#include $<$hal\+\_\+init.\+h$>$}\newline
-{\ttfamily \#include $<$hpl\+\_\+irq.\+h$>$}\newline
-Include dependency graph for driver\+\_\+init.\+c\+:
-\nopagebreak
+{\ttfamily \#include $<$hpl\+\_\+aon\+\_\+sleep\+\_\+timer.\+h$>$}\newline
+Include dependency graph for driver\+\_\+init.\+c\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -20,8 +19,6 @@ Include dependency graph for driver\+\_\+init.\+c\+:
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{driver__init_8c_a4e0c522c1bb26af24accaf20e6b87d12}{Default\+\_\+\+Handler} (void)
-\begin{DoxyCompactList}\small\item\em Default interrupt handler for unused I\+R\+Qs. \end{DoxyCompactList}\item 
 void \hyperlink{driver__init_8c_a6b7d62851fc294b7c1a77e0bb6501105}{T\+A\+R\+G\+E\+T\+\_\+\+I\+O\+\_\+\+P\+O\+R\+T\+\_\+init} (void)
 \item 
 void \hyperlink{driver__init_8c_ad2c576f765b266e67221deab332dbcbe}{T\+A\+R\+G\+E\+T\+\_\+\+I\+O\+\_\+\+C\+L\+O\+C\+K\+\_\+init} (void)
@@ -34,15 +31,9 @@ void \hyperlink{driver__init_8c_ac38715a32068c1d7f41021f822114c3b}{U\+S\+A\+R\+T
 \begin{DoxyCompactList}\small\item\em U\+S\+A\+RT pinmux initialization function. \end{DoxyCompactList}\item 
 void \hyperlink{driver__init_8c_a806bd7b8050792e1f8f4545314642779}{U\+S\+A\+R\+T\+\_\+1\+\_\+0\+\_\+init} (void)
 \begin{DoxyCompactList}\small\item\em U\+S\+A\+RT initialization function. \end{DoxyCompactList}\item 
-void \hyperlink{driver__init_8c_a0c0fa1129ce6290862ff42abc5fbafb1}{U\+A\+R\+T0\+\_\+\+R\+X\+\_\+\+Handler} (void)
-\item 
-void \hyperlink{driver__init_8c_adc2c2a592f3d5a5c6b9341cf22266a81}{U\+A\+R\+T0\+\_\+\+T\+X\+\_\+\+Handler} (void)
+void \hyperlink{driver__init_8c_a50e62abd94895dcf64553f69941f004c}{A\+O\+N\+\_\+\+S\+L\+E\+E\+P\+\_\+\+T\+I\+M\+E\+R0\+\_\+register\+\_\+isr} (void)
 \item 
 void \hyperlink{driver__init_8c_a3824fb76b9185bf339248904dbc8bfcf}{U\+A\+R\+T0\+\_\+register\+\_\+isr} (void)
-\item 
-void \hyperlink{driver__init_8c_a8192d7f8c9770ce1683f341ba467a66e}{U\+A\+R\+T1\+\_\+\+R\+X\+\_\+\+Handler} (void)
-\item 
-void \hyperlink{driver__init_8c_a627ce7fd62cdd9e05ee5f3512dfed181}{U\+A\+R\+T1\+\_\+\+T\+X\+\_\+\+Handler} (void)
 \item 
 void \hyperlink{driver__init_8c_ad0871f34a23342edfac140cf45906d47}{U\+A\+R\+T1\+\_\+register\+\_\+isr} (void)
 \item 
@@ -51,8 +42,8 @@ void \hyperlink{driver__init_8c_a43f5e0d6db0fb41a437cc9096b32e9b5}{system\+\_\+i
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-struct \hyperlink{struct__irq__descriptor}{\+\_\+irq\+\_\+descriptor} $\ast$ \hyperlink{driver__init_8c_a7f41f9238e734e44845a3dc9c71d62d2}{\+\_\+irq\+\_\+table} \mbox{[}P\+E\+R\+I\+P\+H\+\_\+\+C\+O\+U\+N\+T\+\_\+\+I\+R\+Qn\mbox{]}
-\begin{DoxyCompactList}\small\item\em The array of interrupt handlers. \end{DoxyCompactList}\item 
+struct timer\+\_\+descriptor \hyperlink{driver__init_8c_a7ed837a0c11bacc33a912a3831379ffc}{T\+I\+M\+E\+R\+\_\+0}
+\item 
 struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} \hyperlink{driver__init_8c_ab2fa8c74f93df5817964273d48139a83}{U\+S\+A\+R\+T\+\_\+1\+\_\+0}
 \item 
 struct \hyperlink{structusart__sync__descriptor}{usart\+\_\+sync\+\_\+descriptor} \hyperlink{driver__init_8c_a3c128fe8fcaee8e036cc1c979ee7b2a1}{T\+A\+R\+G\+E\+T\+\_\+\+IO}
@@ -69,15 +60,11 @@ struct \hyperlink{structusart__sync__descriptor}{usart\+\_\+sync\+\_\+descriptor
 The buffer size for U\+S\+A\+RT 
 
 \subsection{Function Documentation}
-\mbox{\Hypertarget{driver__init_8c_a4e0c522c1bb26af24accaf20e6b87d12}\label{driver__init_8c_a4e0c522c1bb26af24accaf20e6b87d12}} 
-\index{driver\+\_\+init.\+c@{driver\+\_\+init.\+c}!Default\+\_\+\+Handler@{Default\+\_\+\+Handler}}
-\index{Default\+\_\+\+Handler@{Default\+\_\+\+Handler}!driver\+\_\+init.\+c@{driver\+\_\+init.\+c}}
-\subsubsection{\texorpdfstring{Default\+\_\+\+Handler()}{Default\_Handler()}}
-{\footnotesize\ttfamily void Default\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
-
-
-
-Default interrupt handler for unused I\+R\+Qs. 
+\mbox{\Hypertarget{driver__init_8c_a50e62abd94895dcf64553f69941f004c}\label{driver__init_8c_a50e62abd94895dcf64553f69941f004c}} 
+\index{driver\+\_\+init.\+c@{driver\+\_\+init.\+c}!A\+O\+N\+\_\+\+S\+L\+E\+E\+P\+\_\+\+T\+I\+M\+E\+R0\+\_\+register\+\_\+isr@{A\+O\+N\+\_\+\+S\+L\+E\+E\+P\+\_\+\+T\+I\+M\+E\+R0\+\_\+register\+\_\+isr}}
+\index{A\+O\+N\+\_\+\+S\+L\+E\+E\+P\+\_\+\+T\+I\+M\+E\+R0\+\_\+register\+\_\+isr@{A\+O\+N\+\_\+\+S\+L\+E\+E\+P\+\_\+\+T\+I\+M\+E\+R0\+\_\+register\+\_\+isr}!driver\+\_\+init.\+c@{driver\+\_\+init.\+c}}
+\subsubsection{\texorpdfstring{A\+O\+N\+\_\+\+S\+L\+E\+E\+P\+\_\+\+T\+I\+M\+E\+R0\+\_\+register\+\_\+isr()}{AON\_SLEEP\_TIMER0\_register\_isr()}}
+{\footnotesize\ttfamily void A\+O\+N\+\_\+\+S\+L\+E\+E\+P\+\_\+\+T\+I\+M\+E\+R0\+\_\+register\+\_\+isr (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{driver__init_8c_a43f5e0d6db0fb41a437cc9096b32e9b5}\label{driver__init_8c_a43f5e0d6db0fb41a437cc9096b32e9b5}} 
 \index{driver\+\_\+init.\+c@{driver\+\_\+init.\+c}!system\+\_\+init@{system\+\_\+init}}
@@ -113,35 +100,11 @@ Perform system initialization, initialize pins and clocks for peripherals.
 \subsubsection{\texorpdfstring{U\+A\+R\+T0\+\_\+register\+\_\+isr()}{UART0\_register\_isr()}}
 {\footnotesize\ttfamily void U\+A\+R\+T0\+\_\+register\+\_\+isr (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{driver__init_8c_a0c0fa1129ce6290862ff42abc5fbafb1}\label{driver__init_8c_a0c0fa1129ce6290862ff42abc5fbafb1}} 
-\index{driver\+\_\+init.\+c@{driver\+\_\+init.\+c}!U\+A\+R\+T0\+\_\+\+R\+X\+\_\+\+Handler@{U\+A\+R\+T0\+\_\+\+R\+X\+\_\+\+Handler}}
-\index{U\+A\+R\+T0\+\_\+\+R\+X\+\_\+\+Handler@{U\+A\+R\+T0\+\_\+\+R\+X\+\_\+\+Handler}!driver\+\_\+init.\+c@{driver\+\_\+init.\+c}}
-\subsubsection{\texorpdfstring{U\+A\+R\+T0\+\_\+\+R\+X\+\_\+\+Handler()}{UART0\_RX\_Handler()}}
-{\footnotesize\ttfamily void U\+A\+R\+T0\+\_\+\+R\+X\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{driver__init_8c_adc2c2a592f3d5a5c6b9341cf22266a81}\label{driver__init_8c_adc2c2a592f3d5a5c6b9341cf22266a81}} 
-\index{driver\+\_\+init.\+c@{driver\+\_\+init.\+c}!U\+A\+R\+T0\+\_\+\+T\+X\+\_\+\+Handler@{U\+A\+R\+T0\+\_\+\+T\+X\+\_\+\+Handler}}
-\index{U\+A\+R\+T0\+\_\+\+T\+X\+\_\+\+Handler@{U\+A\+R\+T0\+\_\+\+T\+X\+\_\+\+Handler}!driver\+\_\+init.\+c@{driver\+\_\+init.\+c}}
-\subsubsection{\texorpdfstring{U\+A\+R\+T0\+\_\+\+T\+X\+\_\+\+Handler()}{UART0\_TX\_Handler()}}
-{\footnotesize\ttfamily void U\+A\+R\+T0\+\_\+\+T\+X\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
-
 \mbox{\Hypertarget{driver__init_8c_ad0871f34a23342edfac140cf45906d47}\label{driver__init_8c_ad0871f34a23342edfac140cf45906d47}} 
 \index{driver\+\_\+init.\+c@{driver\+\_\+init.\+c}!U\+A\+R\+T1\+\_\+register\+\_\+isr@{U\+A\+R\+T1\+\_\+register\+\_\+isr}}
 \index{U\+A\+R\+T1\+\_\+register\+\_\+isr@{U\+A\+R\+T1\+\_\+register\+\_\+isr}!driver\+\_\+init.\+c@{driver\+\_\+init.\+c}}
 \subsubsection{\texorpdfstring{U\+A\+R\+T1\+\_\+register\+\_\+isr()}{UART1\_register\_isr()}}
 {\footnotesize\ttfamily void U\+A\+R\+T1\+\_\+register\+\_\+isr (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{driver__init_8c_a8192d7f8c9770ce1683f341ba467a66e}\label{driver__init_8c_a8192d7f8c9770ce1683f341ba467a66e}} 
-\index{driver\+\_\+init.\+c@{driver\+\_\+init.\+c}!U\+A\+R\+T1\+\_\+\+R\+X\+\_\+\+Handler@{U\+A\+R\+T1\+\_\+\+R\+X\+\_\+\+Handler}}
-\index{U\+A\+R\+T1\+\_\+\+R\+X\+\_\+\+Handler@{U\+A\+R\+T1\+\_\+\+R\+X\+\_\+\+Handler}!driver\+\_\+init.\+c@{driver\+\_\+init.\+c}}
-\subsubsection{\texorpdfstring{U\+A\+R\+T1\+\_\+\+R\+X\+\_\+\+Handler()}{UART1\_RX\_Handler()}}
-{\footnotesize\ttfamily void U\+A\+R\+T1\+\_\+\+R\+X\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{driver__init_8c_a627ce7fd62cdd9e05ee5f3512dfed181}\label{driver__init_8c_a627ce7fd62cdd9e05ee5f3512dfed181}} 
-\index{driver\+\_\+init.\+c@{driver\+\_\+init.\+c}!U\+A\+R\+T1\+\_\+\+T\+X\+\_\+\+Handler@{U\+A\+R\+T1\+\_\+\+T\+X\+\_\+\+Handler}}
-\index{U\+A\+R\+T1\+\_\+\+T\+X\+\_\+\+Handler@{U\+A\+R\+T1\+\_\+\+T\+X\+\_\+\+Handler}!driver\+\_\+init.\+c@{driver\+\_\+init.\+c}}
-\subsubsection{\texorpdfstring{U\+A\+R\+T1\+\_\+\+T\+X\+\_\+\+Handler()}{UART1\_TX\_Handler()}}
-{\footnotesize\ttfamily void U\+A\+R\+T1\+\_\+\+T\+X\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{driver__init_8c_ae998506a5d950b94dfc20698938359c0}\label{driver__init_8c_ae998506a5d950b94dfc20698938359c0}} 
 \index{driver\+\_\+init.\+c@{driver\+\_\+init.\+c}!U\+S\+A\+R\+T\+\_\+1\+\_\+0\+\_\+\+C\+L\+O\+C\+K\+\_\+init@{U\+S\+A\+R\+T\+\_\+1\+\_\+0\+\_\+\+C\+L\+O\+C\+K\+\_\+init}}
@@ -176,21 +139,17 @@ U\+S\+A\+RT pinmux initialization function.
 Set each required pin to U\+S\+A\+RT functionality 
 
 \subsection{Variable Documentation}
-\mbox{\Hypertarget{driver__init_8c_a7f41f9238e734e44845a3dc9c71d62d2}\label{driver__init_8c_a7f41f9238e734e44845a3dc9c71d62d2}} 
-\index{driver\+\_\+init.\+c@{driver\+\_\+init.\+c}!\+\_\+irq\+\_\+table@{\+\_\+irq\+\_\+table}}
-\index{\+\_\+irq\+\_\+table@{\+\_\+irq\+\_\+table}!driver\+\_\+init.\+c@{driver\+\_\+init.\+c}}
-\subsubsection{\texorpdfstring{\+\_\+irq\+\_\+table}{\_irq\_table}}
-{\footnotesize\ttfamily struct \hyperlink{struct__irq__descriptor}{\+\_\+irq\+\_\+descriptor}$\ast$ \+\_\+irq\+\_\+table\mbox{[}P\+E\+R\+I\+P\+H\+\_\+\+C\+O\+U\+N\+T\+\_\+\+I\+R\+Qn\mbox{]}}
-
-
-
-The array of interrupt handlers. 
-
 \mbox{\Hypertarget{driver__init_8c_a3c128fe8fcaee8e036cc1c979ee7b2a1}\label{driver__init_8c_a3c128fe8fcaee8e036cc1c979ee7b2a1}} 
 \index{driver\+\_\+init.\+c@{driver\+\_\+init.\+c}!T\+A\+R\+G\+E\+T\+\_\+\+IO@{T\+A\+R\+G\+E\+T\+\_\+\+IO}}
 \index{T\+A\+R\+G\+E\+T\+\_\+\+IO@{T\+A\+R\+G\+E\+T\+\_\+\+IO}!driver\+\_\+init.\+c@{driver\+\_\+init.\+c}}
 \subsubsection{\texorpdfstring{T\+A\+R\+G\+E\+T\+\_\+\+IO}{TARGET\_IO}}
 {\footnotesize\ttfamily struct \hyperlink{structusart__sync__descriptor}{usart\+\_\+sync\+\_\+descriptor} T\+A\+R\+G\+E\+T\+\_\+\+IO}
+
+\mbox{\Hypertarget{driver__init_8c_a7ed837a0c11bacc33a912a3831379ffc}\label{driver__init_8c_a7ed837a0c11bacc33a912a3831379ffc}} 
+\index{driver\+\_\+init.\+c@{driver\+\_\+init.\+c}!T\+I\+M\+E\+R\+\_\+0@{T\+I\+M\+E\+R\+\_\+0}}
+\index{T\+I\+M\+E\+R\+\_\+0@{T\+I\+M\+E\+R\+\_\+0}!driver\+\_\+init.\+c@{driver\+\_\+init.\+c}}
+\subsubsection{\texorpdfstring{T\+I\+M\+E\+R\+\_\+0}{TIMER\_0}}
+{\footnotesize\ttfamily struct timer\+\_\+descriptor T\+I\+M\+E\+R\+\_\+0}
 
 \mbox{\Hypertarget{driver__init_8c_ab2fa8c74f93df5817964273d48139a83}\label{driver__init_8c_ab2fa8c74f93df5817964273d48139a83}} 
 \index{driver\+\_\+init.\+c@{driver\+\_\+init.\+c}!U\+S\+A\+R\+T\+\_\+1\+\_\+0@{U\+S\+A\+R\+T\+\_\+1\+\_\+0}}

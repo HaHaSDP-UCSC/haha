@@ -71,32 +71,50 @@ $(function() {
 Collaboration diagram for Message:</div>
 <div class="dyncontent">
 <div class="center"><img src="struct_message__coll__graph.png" border="0" usemap="#_message_coll__map" alt="Collaboration graph"/></div>
-<map name="_message_coll__map" id="_message_coll__map">
-</map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
+<tr class="memitem:a1b33863bc276c3766459cb2199492c89"><td class="memItemLeft" align="right" valign="top"><a class="el" href="haha_utils_8h.html#a5ce68aceddf17a30aa045fc04914e798">opcode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_message.html#a1b33863bc276c3766459cb2199492c89">opcode</a></td></tr>
+<tr class="separator:a1b33863bc276c3766459cb2199492c89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae61f86cd0691a3f02faa414da330a780"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_message.html#ae61f86cd0691a3f02faa414da330a780">id</a></td></tr>
 <tr class="separator:ae61f86cd0691a3f02faa414da330a780"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60e639c0a4a6bce92868038dcd729d83"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_message.html#a60e639c0a4a6bce92868038dcd729d83">networkAddr</a> [<a class="el" href="packet_8h.html#a64e48eb75238bd3d7a053f19071044a8">MAXNETADDR</a>]</td></tr>
-<tr class="separator:a60e639c0a4a6bce92868038dcd729d83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02bae243e9df49d0baaf486c03b908dd"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_message.html#a02bae243e9df49d0baaf486c03b908dd">port</a></td></tr>
-<tr class="separator:a02bae243e9df49d0baaf486c03b908dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32a531677df2b9665eea1d997293688f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_message.html#a32a531677df2b9665eea1d997293688f">expiration</a></td></tr>
-<tr class="separator:a32a531677df2b9665eea1d997293688f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b33863bc276c3766459cb2199492c89"><td class="memItemLeft" align="right" valign="top"><a class="el" href="packet_8h.html#a5ce68aceddf17a30aa045fc04914e798">opcode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_message.html#a1b33863bc276c3766459cb2199492c89">opcode</a></td></tr>
-<tr class="separator:a1b33863bc276c3766459cb2199492c89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68480c18c3f3c0795af5200914696b33"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_message.html#a68480c18c3f3c0795af5200914696b33">permanent</a></td></tr>
+<tr class="separator:a68480c18c3f3c0795af5200914696b33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9760ef38e390bc0be29b4e0add01fd7c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_message.html#a9760ef38e390bc0be29b4e0add01fd7c">broadcast</a></td></tr>
+<tr class="separator:a9760ef38e390bc0be29b4e0add01fd7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4f9c907b7851f2a4f7ed8156b8b4966"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_message.html#af4f9c907b7851f2a4f7ed8156b8b4966">expiration</a></td></tr>
+<tr class="separator:af4f9c907b7851f2a4f7ed8156b8b4966"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a012f65c4847cc68c06ca5630b6652e0b"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_message.html#a012f65c4847cc68c06ca5630b6652e0b">srcAddr</a> [<a class="el" href="haha_utils_8h.html#a64e48eb75238bd3d7a053f19071044a8">MAXNETADDR</a>]</td></tr>
+<tr class="separator:a012f65c4847cc68c06ca5630b6652e0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58696ceb3c9b42f0647843f2c4934d8f"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_message.html#a58696ceb3c9b42f0647843f2c4934d8f">srcid</a></td></tr>
+<tr class="separator:a58696ceb3c9b42f0647843f2c4934d8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37d723043c8f623a2294306e9dd42425"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_message.html#a37d723043c8f623a2294306e9dd42425">numUses</a></td></tr>
+<tr class="separator:a37d723043c8f623a2294306e9dd42425"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a32a531677df2b9665eea1d997293688f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32a531677df2b9665eea1d997293688f">&#9670;&nbsp;</a></span>expiration</h2>
+<a id="a9760ef38e390bc0be29b4e0add01fd7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9760ef38e390bc0be29b4e0add01fd7c">&#9670;&nbsp;</a></span>broadcast</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int Message::expiration</td>
+          <td class="memname">bool Message::broadcast</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af4f9c907b7851f2a4f7ed8156b8b4966"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4f9c907b7851f2a4f7ed8156b8b4966">&#9670;&nbsp;</a></span>expiration</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Message::expiration</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -117,14 +135,14 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a60e639c0a4a6bce92868038dcd729d83"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a60e639c0a4a6bce92868038dcd729d83">&#9670;&nbsp;</a></span>networkAddr</h2>
+<a id="a37d723043c8f623a2294306e9dd42425"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37d723043c8f623a2294306e9dd42425">&#9670;&nbsp;</a></span>numUses</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned char Message::networkAddr[<a class="el" href="packet_8h.html#a64e48eb75238bd3d7a053f19071044a8">MAXNETADDR</a>]</td>
+          <td class="memname">uint8_t Message::numUses</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -138,21 +156,49 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="packet_8h.html#a5ce68aceddf17a30aa045fc04914e798">opcode</a> Message::opcode</td>
+          <td class="memname"><a class="el" href="haha_utils_8h.html#a5ce68aceddf17a30aa045fc04914e798">opcode</a> Message::opcode</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a02bae243e9df49d0baaf486c03b908dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a02bae243e9df49d0baaf486c03b908dd">&#9670;&nbsp;</a></span>port</h2>
+<a id="a68480c18c3f3c0795af5200914696b33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68480c18c3f3c0795af5200914696b33">&#9670;&nbsp;</a></span>permanent</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint16_t Message::port</td>
+          <td class="memname">bool Message::permanent</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a012f65c4847cc68c06ca5630b6652e0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a012f65c4847cc68c06ca5630b6652e0b">&#9670;&nbsp;</a></span>srcAddr</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char Message::srcAddr[<a class="el" href="haha_utils_8h.html#a64e48eb75238bd3d7a053f19071044a8">MAXNETADDR</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a58696ceb3c9b42f0647843f2c4934d8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58696ceb3c9b42f0647843f2c4934d8f">&#9670;&nbsp;</a></span>srcid</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Message::srcid</td>
         </tr>
       </table>
 </div><div class="memdoc">

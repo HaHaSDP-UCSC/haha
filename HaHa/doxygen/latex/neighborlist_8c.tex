@@ -1,11 +1,138 @@
 \hypertarget{neighborlist_8c}{}\section{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/neighbor/neighborlist.c File Reference}
 \label{neighborlist_8c}\index{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/neighbor/neighborlist.\+c@{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/neighbor/neighborlist.\+c}}
 {\ttfamily \#include \char`\"{}neighborlist.\+h\char`\"{}}\newline
-Include dependency graph for neighborlist.\+c\+:
-\nopagebreak
+Include dependency graph for neighborlist.\+c\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=243pt]{neighborlist_8c__incl}
+\includegraphics[width=350pt]{neighborlist_8c__incl}
 \end{center}
 \end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{neighborlist_8c_a837d0ae5c7f3d0fba0984cf24f617750}{write\+To\+Neighbor\+List\+Storage} (\hyperlink{struct_neighbor}{Neighbor} neighbor)
+\begin{DoxyCompactList}\small\item\em Writes to neighbor list to storage. \end{DoxyCompactList}\item 
+bool \hyperlink{neighborlist_8c_a86eebd31e17fc86d30b938c9a8965f7f}{read\+From\+Neighbor\+List\+Storage} (\hyperlink{struct_neighbor}{Neighbor} neighbor)
+\begin{DoxyCompactList}\small\item\em Reads neighbors from neighbor list storage. \end{DoxyCompactList}\item 
+bool \hyperlink{neighborlist_8c_afb2712638cdfdd8c5cdc2981db463e26}{init\+Neighbor\+List} ()
+\begin{DoxyCompactList}\small\item\em Initializes the neighbor list. \end{DoxyCompactList}\item 
+bool \hyperlink{neighborlist_8c_aea9d47b13e8710f8b65ddb1d39de2871}{update\+Neighbor\+List} ()
+\begin{DoxyCompactList}\small\item\em Updates the entire neighbor list. \end{DoxyCompactList}\item 
+bool \hyperlink{neighborlist_8c_aa243e30267ef075f5d2a0aad2c4d3b29}{add\+Neighbor} (\hyperlink{struct_packet}{Packet} $\ast$p, \hyperlink{struct_network}{Network} $\ast$net, int current\+Time)
+\begin{DoxyCompactList}\small\item\em Adds a neighbor to the list if they responded to a neighbor request. \end{DoxyCompactList}\item 
+bool \hyperlink{neighborlist_8c_a55c2d7809fe562e5605aa7c151954d29}{remove\+Neighbor} (int neighbor\+Number)
+\begin{DoxyCompactList}\small\item\em Removes a neighbor from the list. \end{DoxyCompactList}\item 
+bool \hyperlink{neighborlist_8c_a84699db9c8bc02276055d4ac22dba8c4}{check\+For\+Neighbor} (\hyperlink{struct_network}{Network} $\ast$net)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{neighborlist_8c_a0d56f373adcb6a2f48695deaee487e10}{num\+Neighbors} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{neighborlist_8c_aa243e30267ef075f5d2a0aad2c4d3b29}\label{neighborlist_8c_aa243e30267ef075f5d2a0aad2c4d3b29}} 
+\index{neighborlist.\+c@{neighborlist.\+c}!add\+Neighbor@{add\+Neighbor}}
+\index{add\+Neighbor@{add\+Neighbor}!neighborlist.\+c@{neighborlist.\+c}}
+\subsubsection{\texorpdfstring{add\+Neighbor()}{addNeighbor()}}
+{\footnotesize\ttfamily bool add\+Neighbor (\begin{DoxyParamCaption}\item[{\hyperlink{struct_packet}{Packet} $\ast$}]{p,  }\item[{\hyperlink{struct_network}{Network} $\ast$}]{net,  }\item[{int}]{current\+Time }\end{DoxyParamCaption})}
+
+
+
+Adds a neighbor to the list if they responded to a neighbor request. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em net} & \hyperlink{struct_network}{Network} information.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{neighborlist_8c_a84699db9c8bc02276055d4ac22dba8c4}\label{neighborlist_8c_a84699db9c8bc02276055d4ac22dba8c4}} 
+\index{neighborlist.\+c@{neighborlist.\+c}!check\+For\+Neighbor@{check\+For\+Neighbor}}
+\index{check\+For\+Neighbor@{check\+For\+Neighbor}!neighborlist.\+c@{neighborlist.\+c}}
+\subsubsection{\texorpdfstring{check\+For\+Neighbor()}{checkForNeighbor()}}
+{\footnotesize\ttfamily bool check\+For\+Neighbor (\begin{DoxyParamCaption}\item[{\hyperlink{struct_network}{Network} $\ast$}]{net }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{neighborlist_8c_afb2712638cdfdd8c5cdc2981db463e26}\label{neighborlist_8c_afb2712638cdfdd8c5cdc2981db463e26}} 
+\index{neighborlist.\+c@{neighborlist.\+c}!init\+Neighbor\+List@{init\+Neighbor\+List}}
+\index{init\+Neighbor\+List@{init\+Neighbor\+List}!neighborlist.\+c@{neighborlist.\+c}}
+\subsubsection{\texorpdfstring{init\+Neighbor\+List()}{initNeighborList()}}
+{\footnotesize\ttfamily bool init\+Neighbor\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializes the neighbor list. 
+
+\begin{DoxyReturn}{Returns}
+true if successful, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{neighborlist_8c_a86eebd31e17fc86d30b938c9a8965f7f}\label{neighborlist_8c_a86eebd31e17fc86d30b938c9a8965f7f}} 
+\index{neighborlist.\+c@{neighborlist.\+c}!read\+From\+Neighbor\+List\+Storage@{read\+From\+Neighbor\+List\+Storage}}
+\index{read\+From\+Neighbor\+List\+Storage@{read\+From\+Neighbor\+List\+Storage}!neighborlist.\+c@{neighborlist.\+c}}
+\subsubsection{\texorpdfstring{read\+From\+Neighbor\+List\+Storage()}{readFromNeighborListStorage()}}
+{\footnotesize\ttfamily bool read\+From\+Neighbor\+List\+Storage (\begin{DoxyParamCaption}\item[{\hyperlink{struct_neighbor}{Neighbor}}]{neighbor }\end{DoxyParamCaption})}
+
+
+
+Reads neighbors from neighbor list storage. 
+
+\begin{DoxyReturn}{Returns}
+true if successful, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{neighborlist_8c_a55c2d7809fe562e5605aa7c151954d29}\label{neighborlist_8c_a55c2d7809fe562e5605aa7c151954d29}} 
+\index{neighborlist.\+c@{neighborlist.\+c}!remove\+Neighbor@{remove\+Neighbor}}
+\index{remove\+Neighbor@{remove\+Neighbor}!neighborlist.\+c@{neighborlist.\+c}}
+\subsubsection{\texorpdfstring{remove\+Neighbor()}{removeNeighbor()}}
+{\footnotesize\ttfamily bool remove\+Neighbor (\begin{DoxyParamCaption}\item[{int}]{neighbor\+Number }\end{DoxyParamCaption})}
+
+
+
+Removes a neighbor from the list. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em neighbor\+Number} & Number in list.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{neighborlist_8c_aea9d47b13e8710f8b65ddb1d39de2871}\label{neighborlist_8c_aea9d47b13e8710f8b65ddb1d39de2871}} 
+\index{neighborlist.\+c@{neighborlist.\+c}!update\+Neighbor\+List@{update\+Neighbor\+List}}
+\index{update\+Neighbor\+List@{update\+Neighbor\+List}!neighborlist.\+c@{neighborlist.\+c}}
+\subsubsection{\texorpdfstring{update\+Neighbor\+List()}{updateNeighborList()}}
+{\footnotesize\ttfamily bool update\+Neighbor\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Updates the entire neighbor list. 
+
+\begin{DoxyReturn}{Returns}
+true if successful, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{neighborlist_8c_a837d0ae5c7f3d0fba0984cf24f617750}\label{neighborlist_8c_a837d0ae5c7f3d0fba0984cf24f617750}} 
+\index{neighborlist.\+c@{neighborlist.\+c}!write\+To\+Neighbor\+List\+Storage@{write\+To\+Neighbor\+List\+Storage}}
+\index{write\+To\+Neighbor\+List\+Storage@{write\+To\+Neighbor\+List\+Storage}!neighborlist.\+c@{neighborlist.\+c}}
+\subsubsection{\texorpdfstring{write\+To\+Neighbor\+List\+Storage()}{writeToNeighborListStorage()}}
+{\footnotesize\ttfamily bool write\+To\+Neighbor\+List\+Storage (\begin{DoxyParamCaption}\item[{\hyperlink{struct_neighbor}{Neighbor}}]{neighbor }\end{DoxyParamCaption})}
+
+
+
+Writes to neighbor list to storage. 
+
+\begin{DoxyReturn}{Returns}
+true if successful, false otherwise. 
+\end{DoxyReturn}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{neighborlist_8c_a0d56f373adcb6a2f48695deaee487e10}\label{neighborlist_8c_a0d56f373adcb6a2f48695deaee487e10}} 
+\index{neighborlist.\+c@{neighborlist.\+c}!num\+Neighbors@{num\+Neighbors}}
+\index{num\+Neighbors@{num\+Neighbors}!neighborlist.\+c@{neighborlist.\+c}}
+\subsubsection{\texorpdfstring{num\+Neighbors}{numNeighbors}}
+{\footnotesize\ttfamily int num\+Neighbors = 0}
+

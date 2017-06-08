@@ -72,6 +72,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="atmel__start__pins_8h_source.html">atmel_start_pins.h</a>&quot;</code><br />
+<code>#include &lt;hal_timer.h&gt;</code><br />
 <code>#include &lt;<a class="el" href="hal__usart__sync_8h_source.html">hal_usart_sync.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="hal__usart__async_8h_source.html">hal_usart_async.h</a>&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -79,12 +80,12 @@ Include dependency graph for driver_init.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="driver__init_8h__incl.png" border="0" usemap="#_e_1_2_ha_ha_project_2_atmel_xbee_2_a_t_projects_2_ha_ha_2_ha_ha_2driver__init_8h" alt=""/></div>
 <map name="_e_1_2_ha_ha_project_2_atmel_xbee_2_a_t_projects_2_ha_ha_2_ha_ha_2driver__init_8h" id="_e_1_2_ha_ha_project_2_atmel_xbee_2_a_t_projects_2_ha_ha_2_ha_ha_2driver__init_8h">
-<area shape="rect" id="node2" href="atmel__start__pins_8h.html" title="atmel_start_pins.h" alt="" coords="1169,95,1298,121"/>
-<area shape="rect" id="node34" href="hal__usart__sync_8h.html" title="USART related functionality declaration. " alt="" coords="1519,95,1641,121"/>
-<area shape="rect" id="node38" href="hal__usart__async_8h.html" title="USART related functionality declaration. " alt="" coords="1367,95,1495,121"/>
-<area shape="rect" id="node3" href="hal__gpio_8h.html" title="Port. " alt="" coords="1135,169,1217,196"/>
-<area shape="rect" id="node4" href="hpl__gpio_8h.html" title="Port related functionality declaration. " alt="" coords="1133,244,1214,271"/>
-<area shape="rect" id="node33" href="utils__assert_8h.html" title="Asserts related functionality. " alt="" coords="1238,244,1338,271"/>
+<area shape="rect" id="node2" href="atmel__start__pins_8h.html" title="atmel_start_pins.h" alt="" coords="1559,95,1689,121"/>
+<area shape="rect" id="node36" href="hal__usart__sync_8h.html" title="USART related functionality declaration. " alt="" coords="1126,95,1247,121"/>
+<area shape="rect" id="node40" href="hal__usart__async_8h.html" title="USART related functionality declaration. " alt="" coords="1383,95,1511,121"/>
+<area shape="rect" id="node3" href="hal__gpio_8h.html" title="Port. " alt="" coords="1607,169,1689,196"/>
+<area shape="rect" id="node4" href="hpl__gpio_8h.html" title="Port related functionality declaration. " alt="" coords="1610,244,1691,271"/>
+<area shape="rect" id="node34" href="utils__assert_8h.html" title="Asserts related functionality. " alt="" coords="1486,244,1586,271"/>
 <area shape="rect" id="node5" href="compiler_8h.html" title="compiler.h" alt="" coords="1371,319,1453,345"/>
 <area shape="rect" id="node9" href="parts_8h.html" title="Atmel part identification macros. " alt="" coords="1474,393,1537,420"/>
 <area shape="rect" id="node32" href="err__codes_8h.html" title="Error code definitions. " alt="" coords="1561,393,1652,420"/>
@@ -108,12 +109,12 @@ Include dependency graph for driver_init.h:</div>
 <area shape="rect" id="node29" href="hri__timer__b11_8h.html" title="SAM TIMER. " alt="" coords="2633,550,2743,577"/>
 <area shape="rect" id="node30" href="hri__uart__b11_8h.html" title="SAM UART. " alt="" coords="2768,550,2872,577"/>
 <area shape="rect" id="node31" href="hri__wdt__b11_8h.html" title="SAM WDT. " alt="" coords="2897,550,2999,577"/>
-<area shape="rect" id="node35" href="hal__io_8h.html" title="IO related functionality declaration. " alt="" coords="1533,169,1600,196"/>
-<area shape="rect" id="node36" href="hpl__usart__sync_8h.html" title="USART related functionality declaration. " alt="" coords="1625,169,1746,196"/>
-<area shape="rect" id="node37" href="hpl__usart_8h.html" title="USART related functionality declaration. " alt="" coords="1561,244,1647,271"/>
-<area shape="rect" id="node39" href="hpl__usart__async_8h.html" title="USART related functionality declaration. " alt="" coords="1381,169,1509,196"/>
-<area shape="rect" id="node41" href="utils__ringbuffer_8h.html" title="Ringbuffer declaration. " alt="" coords="1241,169,1357,196"/>
-<area shape="rect" id="node40" href="hpl__irq_8h.html" title="IRQ related functionality declaration. " alt="" coords="1414,244,1485,271"/>
+<area shape="rect" id="node37" href="hal__io_8h.html" title="I/O related functionality declaration. " alt="" coords="1224,169,1291,196"/>
+<area shape="rect" id="node38" href="hpl__usart__sync_8h.html" title="USART related functionality declaration. " alt="" coords="1078,169,1199,196"/>
+<area shape="rect" id="node39" href="hpl__usart_8h.html" title="USART related functionality declaration. " alt="" coords="1177,244,1263,271"/>
+<area shape="rect" id="node41" href="hpl__usart__async_8h.html" title="USART related functionality declaration. " alt="" coords="1315,169,1443,196"/>
+<area shape="rect" id="node43" href="utils__ringbuffer_8h.html" title="Ringbuffer declaration. " alt="" coords="1467,169,1583,196"/>
+<area shape="rect" id="node42" href="hpl__irq_8h.html" title="IRQ related functionality declaration. " alt="" coords="1339,244,1410,271"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -138,10 +139,6 @@ This graph shows which files directly or indirectly include this file:</div>
 Macros</h2></td></tr>
 <tr class="memitem:a2ee670e0c85b7a68b38b20fbeef090c9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="driver__init_8h.html#a2ee670e0c85b7a68b38b20fbeef090c9">ISR_RAM_MAP_START_ADDRESS</a>&#160;&#160;&#160;(0x10000000)</td></tr>
 <tr class="separator:a2ee670e0c85b7a68b38b20fbeef090c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a471ffe7d803eb0ce9bc7873739a6b710"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="driver__init_8h.html#a471ffe7d803eb0ce9bc7873739a6b710">CONF_DMAC_MAX_USED_DESC</a>&#160;&#160;&#160;(/*CLOCK*/ 0 + /*UART0*/ 0 + /*UART1*/ 0)</td></tr>
-<tr class="separator:a471ffe7d803eb0ce9bc7873739a6b710"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae425e0999ef4a00672a04ab5bf3b1efb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="driver__init_8h.html#ae425e0999ef4a00672a04ab5bf3b1efb">CONF_DMAC_MAX_USED_CH</a>&#160;&#160;&#160;(/*CLOCK*/ 0 + /*UART0*/ 0 + /*UART1*/ 0)</td></tr>
-<tr class="separator:ae425e0999ef4a00672a04ab5bf3b1efb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -221,40 +218,14 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:a7ed837a0c11bacc33a912a3831379ffc"><td class="memItemLeft" align="right" valign="top">struct timer_descriptor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="driver__init_8h.html#a7ed837a0c11bacc33a912a3831379ffc">TIMER_0</a></td></tr>
+<tr class="separator:a7ed837a0c11bacc33a912a3831379ffc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c128fe8fcaee8e036cc1c979ee7b2a1"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structusart__sync__descriptor.html">usart_sync_descriptor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="driver__init_8h.html#a3c128fe8fcaee8e036cc1c979ee7b2a1">TARGET_IO</a></td></tr>
 <tr class="separator:a3c128fe8fcaee8e036cc1c979ee7b2a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2fa8c74f93df5817964273d48139a83"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structusart__async__descriptor.html">usart_async_descriptor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="driver__init_8h.html#ab2fa8c74f93df5817964273d48139a83">USART_1_0</a></td></tr>
 <tr class="separator:ab2fa8c74f93df5817964273d48139a83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="ae425e0999ef4a00672a04ab5bf3b1efb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae425e0999ef4a00672a04ab5bf3b1efb">&#9670;&nbsp;</a></span>CONF_DMAC_MAX_USED_CH</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define CONF_DMAC_MAX_USED_CH&#160;&#160;&#160;(/*CLOCK*/ 0 + /*UART0*/ 0 + /*UART1*/ 0)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a471ffe7d803eb0ce9bc7873739a6b710"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a471ffe7d803eb0ce9bc7873739a6b710">&#9670;&nbsp;</a></span>CONF_DMAC_MAX_USED_DESC</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define CONF_DMAC_MAX_USED_DESC&#160;&#160;&#160;(/*CLOCK*/ 0 + /*UART0*/ 0 + /*UART1*/ 0)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a2ee670e0c85b7a68b38b20fbeef090c9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2ee670e0c85b7a68b38b20fbeef090c9">&#9670;&nbsp;</a></span>ISR_RAM_MAP_START_ADDRESS</h2>
 
@@ -474,6 +445,20 @@ Variables</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">struct <a class="el" href="structusart__sync__descriptor.html">usart_sync_descriptor</a> TARGET_IO</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7ed837a0c11bacc33a912a3831379ffc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ed837a0c11bacc33a912a3831379ffc">&#9670;&nbsp;</a></span>TIMER_0</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct timer_descriptor TIMER_0</td>
         </tr>
       </table>
 </div><div class="memdoc">
