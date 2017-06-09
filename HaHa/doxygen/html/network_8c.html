@@ -70,28 +70,96 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="network_8h_source.html">network.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="networkdevice_8h_source.html">networkdevice/networkdevice.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="packet_8h_source.html">packet.h</a>&quot;</code><br />
-<code>#include &quot;stdlib.h&quot;</code><br />
-<code>#include &quot;string.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="haha_utils_8h_source.html">utils/hahaUtils.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for network.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="network_8c__incl.png" border="0" usemap="#_e_1_2_ha_ha_project_2_atmel_xbee_2_a_t_projects_2_ha_ha_2_ha_ha_2network_2network_8c" alt=""/></div>
 <map name="_e_1_2_ha_ha_project_2_atmel_xbee_2_a_t_projects_2_ha_ha_2_ha_ha_2network_2network_8c" id="_e_1_2_ha_ha_project_2_atmel_xbee_2_a_t_projects_2_ha_ha_2_ha_ha_2network_2network_8c">
-<area shape="rect" id="node2" href="network_8h.html" title="network.h" alt="" coords="5,109,84,136"/>
-<area shape="rect" id="node6" href="packet_8h.html" title="packet.h" alt="" coords="86,184,158,211"/>
-<area shape="rect" id="node8" href="networkdevice_8h.html" title="XBee Network device implementation. " alt="" coords="160,109,359,136"/>
-<area shape="rect" id="node3" href="haha_utils_8h.html" title="stdlib for HAHA project, contains imports and defines " alt="" coords="63,333,178,360"/>
-<area shape="rect" id="node7" href="flags_8h.html" title="flags.h" alt="" coords="147,259,207,285"/>
+<area shape="rect" id="node2" href="network_8h.html" title="network.h" alt="" coords="106,184,185,211"/>
+<area shape="rect" id="node3" href="haha_utils_8h.html" title="stdlib for HAHA project, contains imports and defines " alt="" coords="88,259,203,285"/>
+<area shape="rect" id="node6" href="networkdevice_8h.html" title="XBee Network device implementation. " alt="" coords="149,109,347,136"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a9e9da433b6b1d4a7412f10325b8617a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="network_8c.html#a9e9da433b6b1d4a7412f10325b8617a3">printNetAddr</a> (<a class="el" href="network_8h.html#a1924fa1e3480e5fb3c72b8ef3e243f57">netaddr</a> *t)</td></tr>
+<tr class="separator:a9e9da433b6b1d4a7412f10325b8617a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53866cf213c2b2ea49bce93552ac766f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="network_8c.html#a53866cf213c2b2ea49bce93552ac766f">network_init</a> ()</td></tr>
 <tr class="separator:a53866cf213c2b2ea49bce93552ac766f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51dd211feefdf127beb8f3a39adfa876"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="network_8c.html#a51dd211feefdf127beb8f3a39adfa876">netArrayAdd</a> (<a class="el" href="struct_network.html">Network</a> *add)</td></tr>
+<tr class="separator:a51dd211feefdf127beb8f3a39adfa876"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e5e3fc129e5e1e37a31a9ea02e78b0b"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="network_8c.html#a3e5e3fc129e5e1e37a31a9ea02e78b0b">netArrayReturn</a> (uint8_t netID)</td></tr>
+<tr class="separator:a3e5e3fc129e5e1e37a31a9ea02e78b0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78842a91032e2f099774ff9782dce9e9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="network_8c.html#a78842a91032e2f099774ff9782dce9e9">netCompare</a> (<a class="el" href="network_8h.html#a1924fa1e3480e5fb3c72b8ef3e243f57">netaddr</a> n1, <a class="el" href="network_8h.html#a1924fa1e3480e5fb3c72b8ef3e243f57">netaddr</a> n2)</td></tr>
+<tr class="separator:a78842a91032e2f099774ff9782dce9e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a51dd211feefdf127beb8f3a39adfa876"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51dd211feefdf127beb8f3a39adfa876">&#9670;&nbsp;</a></span>netArrayAdd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void netArrayAdd </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_network.html">Network</a> *&#160;</td>
+          <td class="paramname"><em>add</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3e5e3fc129e5e1e37a31a9ea02e78b0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e5e3fc129e5e1e37a31a9ea02e78b0b">&#9670;&nbsp;</a></span>netArrayReturn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t netArrayReturn </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>netID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a78842a91032e2f099774ff9782dce9e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78842a91032e2f099774ff9782dce9e9">&#9670;&nbsp;</a></span>netCompare()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool netCompare </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="network_8h.html#a1924fa1e3480e5fb3c72b8ef3e243f57">netaddr</a>&#160;</td>
+          <td class="paramname"><em>n1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="network_8h.html#a1924fa1e3480e5fb3c72b8ef3e243f57">netaddr</a>&#160;</td>
+          <td class="paramname"><em>n2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a53866cf213c2b2ea49bce93552ac766f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a53866cf213c2b2ea49bce93552ac766f">&#9670;&nbsp;</a></span>network_init()</h2>
 
@@ -102,6 +170,24 @@ Functions</h2></td></tr>
           <td class="memname">void network_init </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9e9da433b6b1d4a7412f10325b8617a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e9da433b6b1d4a7412f10325b8617a3">&#9670;&nbsp;</a></span>printNetAddr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printNetAddr </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="network_8h.html#a1924fa1e3480e5fb3c72b8ef3e243f57">netaddr</a> *&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
           <td></td>
         </tr>
       </table>

@@ -1,24 +1,24 @@
-\hypertarget{group__doc__driver__hal__helper__io}{}\section{IO Driver}
-\label{group__doc__driver__hal__helper__io}\index{I\+O Driver@{I\+O Driver}}
+\hypertarget{group__doc__driver__hal__helper__io}{}\section{I/O Driver}
+\label{group__doc__driver__hal__helper__io}\index{I/\+O Driver@{I/\+O Driver}}
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 struct \hyperlink{structio__descriptor}{io\+\_\+descriptor}
-\begin{DoxyCompactList}\small\item\em IO descriptor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em I/O descriptor. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
 typedef int32\+\_\+t($\ast$ \hyperlink{group__doc__driver__hal__helper__io_gacb03c48993a6786f00946c196c40add1}{io\+\_\+write\+\_\+t}) (struct \hyperlink{structio__descriptor}{io\+\_\+descriptor} $\ast$const io\+\_\+descr, const uint8\+\_\+t $\ast$const buf, const uint16\+\_\+t length)
-\begin{DoxyCompactList}\small\item\em IO write function pointer type. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em I/O write function pointer type. \end{DoxyCompactList}\item 
 typedef int32\+\_\+t($\ast$ \hyperlink{group__doc__driver__hal__helper__io_ga4d9ae58de2887289fe09eac6f0aa8be7}{io\+\_\+read\+\_\+t}) (struct \hyperlink{structio__descriptor}{io\+\_\+descriptor} $\ast$const io\+\_\+descr, uint8\+\_\+t $\ast$const buf, const uint16\+\_\+t length)
-\begin{DoxyCompactList}\small\item\em IO read function pointer type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em I/O read function pointer type. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 int32\+\_\+t \hyperlink{group__doc__driver__hal__helper__io_ga81aac60d5ce6feb0c44f8937d7c02f14}{io\+\_\+write} (struct \hyperlink{structio__descriptor}{io\+\_\+descriptor} $\ast$const io\+\_\+descr, const uint8\+\_\+t $\ast$const buf, const uint16\+\_\+t length)
-\begin{DoxyCompactList}\small\item\em IO write interface. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em I/O write interface. \end{DoxyCompactList}\item 
 int32\+\_\+t \hyperlink{group__doc__driver__hal__helper__io_gaf5e8722129933fa8e014144fd7505be6}{io\+\_\+read} (struct \hyperlink{structio__descriptor}{io\+\_\+descriptor} $\ast$const io\+\_\+descr, uint8\+\_\+t $\ast$const buf, const uint16\+\_\+t length)
-\begin{DoxyCompactList}\small\item\em IO read interface. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em I/O read interface. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -26,73 +26,73 @@ int32\+\_\+t \hyperlink{group__doc__driver__hal__helper__io_gaf5e8722129933fa8e0
 
 \subsection{Typedef Documentation}
 \mbox{\Hypertarget{group__doc__driver__hal__helper__io_ga4d9ae58de2887289fe09eac6f0aa8be7}\label{group__doc__driver__hal__helper__io_ga4d9ae58de2887289fe09eac6f0aa8be7}} 
-\index{I\+O Driver@{I\+O Driver}!io\+\_\+read\+\_\+t@{io\+\_\+read\+\_\+t}}
-\index{io\+\_\+read\+\_\+t@{io\+\_\+read\+\_\+t}!I\+O Driver@{I\+O Driver}}
+\index{I/\+O Driver@{I/\+O Driver}!io\+\_\+read\+\_\+t@{io\+\_\+read\+\_\+t}}
+\index{io\+\_\+read\+\_\+t@{io\+\_\+read\+\_\+t}!I/\+O Driver@{I/\+O Driver}}
 \subsubsection{\texorpdfstring{io\+\_\+read\+\_\+t}{io\_read\_t}}
 {\footnotesize\ttfamily typedef int32\+\_\+t($\ast$ io\+\_\+read\+\_\+t) (struct \hyperlink{structio__descriptor}{io\+\_\+descriptor} $\ast$const io\+\_\+descr, uint8\+\_\+t $\ast$const buf, const uint16\+\_\+t length)}
 
 
 
-IO read function pointer type. 
+I/O read function pointer type. 
 
 \mbox{\Hypertarget{group__doc__driver__hal__helper__io_gacb03c48993a6786f00946c196c40add1}\label{group__doc__driver__hal__helper__io_gacb03c48993a6786f00946c196c40add1}} 
-\index{I\+O Driver@{I\+O Driver}!io\+\_\+write\+\_\+t@{io\+\_\+write\+\_\+t}}
-\index{io\+\_\+write\+\_\+t@{io\+\_\+write\+\_\+t}!I\+O Driver@{I\+O Driver}}
+\index{I/\+O Driver@{I/\+O Driver}!io\+\_\+write\+\_\+t@{io\+\_\+write\+\_\+t}}
+\index{io\+\_\+write\+\_\+t@{io\+\_\+write\+\_\+t}!I/\+O Driver@{I/\+O Driver}}
 \subsubsection{\texorpdfstring{io\+\_\+write\+\_\+t}{io\_write\_t}}
 {\footnotesize\ttfamily typedef int32\+\_\+t($\ast$ io\+\_\+write\+\_\+t) (struct \hyperlink{structio__descriptor}{io\+\_\+descriptor} $\ast$const io\+\_\+descr, const uint8\+\_\+t $\ast$const buf, const uint16\+\_\+t length)}
 
 
 
-IO write function pointer type. 
+I/O write function pointer type. 
 
 
 
 \subsection{Function Documentation}
 \mbox{\Hypertarget{group__doc__driver__hal__helper__io_gaf5e8722129933fa8e014144fd7505be6}\label{group__doc__driver__hal__helper__io_gaf5e8722129933fa8e014144fd7505be6}} 
-\index{I\+O Driver@{I\+O Driver}!io\+\_\+read@{io\+\_\+read}}
-\index{io\+\_\+read@{io\+\_\+read}!I\+O Driver@{I\+O Driver}}
+\index{I/\+O Driver@{I/\+O Driver}!io\+\_\+read@{io\+\_\+read}}
+\index{io\+\_\+read@{io\+\_\+read}!I/\+O Driver@{I/\+O Driver}}
 \subsubsection{\texorpdfstring{io\+\_\+read()}{io\_read()}}
 {\footnotesize\ttfamily int32\+\_\+t io\+\_\+read (\begin{DoxyParamCaption}\item[{struct \hyperlink{structio__descriptor}{io\+\_\+descriptor} $\ast$const}]{io\+\_\+descr,  }\item[{uint8\+\_\+t $\ast$const}]{buf,  }\item[{const uint16\+\_\+t}]{length }\end{DoxyParamCaption})}
 
 
 
-IO read interface. 
+I/O read interface. 
 
-This function reads up to {\ttfamily length} bytes from a given IO descriptor, and story it in the buffer pointed to by {\ttfamily buf}. It returns the number of bytes actually read.
+This function reads up to {\ttfamily length} bytes from a given I/O descriptor, and store it in the buffer pointed to by {\ttfamily buf}. It returns the number of bytes actually read.
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em descr} & An IO descriptor to read \\
+\mbox{\tt in}  & {\em descr} & An I/O descriptor to read \\
 \hline
 \mbox{\tt in}  & {\em buf} & The buffer pointer to story the read data \\
 \hline
-\mbox{\tt in}  & {\em length} & number of bytes to read\\
+\mbox{\tt in}  & {\em length} & The number of bytes to read\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-number of bytes actually read. This number can be less than the requested length. E.\+g., in driver that uses ring buffer for reception, it may depend on the availability of data in the ring buffer. 
+The number of bytes actually read. This number can be less than the requested length. E.\+g., in a driver that uses ring buffer for reception, it may depend on the availability of data in the ring buffer. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{group__doc__driver__hal__helper__io_ga81aac60d5ce6feb0c44f8937d7c02f14}\label{group__doc__driver__hal__helper__io_ga81aac60d5ce6feb0c44f8937d7c02f14}} 
-\index{I\+O Driver@{I\+O Driver}!io\+\_\+write@{io\+\_\+write}}
-\index{io\+\_\+write@{io\+\_\+write}!I\+O Driver@{I\+O Driver}}
+\index{I/\+O Driver@{I/\+O Driver}!io\+\_\+write@{io\+\_\+write}}
+\index{io\+\_\+write@{io\+\_\+write}!I/\+O Driver@{I/\+O Driver}}
 \subsubsection{\texorpdfstring{io\+\_\+write()}{io\_write()}}
 {\footnotesize\ttfamily int32\+\_\+t io\+\_\+write (\begin{DoxyParamCaption}\item[{struct \hyperlink{structio__descriptor}{io\+\_\+descriptor} $\ast$const}]{io\+\_\+descr,  }\item[{const uint8\+\_\+t $\ast$const}]{buf,  }\item[{const uint16\+\_\+t}]{length }\end{DoxyParamCaption})}
 
 
 
-IO write interface. 
+I/O write interface. 
 
-This function write up to {\ttfamily length} of bytes to a given IO descriptor, It returns the number of bytes actually write.
+This function writes up to {\ttfamily length} of bytes to a given I/O descriptor. It returns the number of bytes actually write.
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em descr} & An IO descriptor to write \\
+\mbox{\tt in}  & {\em descr} & An I/O descriptor to write \\
 \hline
 \mbox{\tt in}  & {\em buf} & The buffer pointer to story the write data \\
 \hline
-\mbox{\tt in}  & {\em length} & number of bytes to write\\
+\mbox{\tt in}  & {\em length} & The number of bytes to write\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-number of bytes written 
+The number of bytes written 
 \end{DoxyReturn}

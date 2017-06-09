@@ -1,17 +1,14 @@
 \hypertarget{network_8h}{}\section{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/network/network.h File Reference}
 \label{network_8h}\index{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/network/network.\+h@{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/network/network.\+h}}
 {\ttfamily \#include \char`\"{}utils/haha\+Utils.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}packet.\+h\char`\"{}}\newline
-Include dependency graph for network.\+h\+:
-\nopagebreak
+Include dependency graph for network.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=244pt]{network_8h__incl}
+\includegraphics[width=238pt]{network_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:
-\nopagebreak
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -26,9 +23,11 @@ struct \hyperlink{struct_network}{Network}
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{network_8h_a1924fa1e3480e5fb3c72b8ef3e243f57}{netaddr}~char $\ast$
+\#define \hyperlink{network_8h_a1924fa1e3480e5fb3c72b8ef3e243f57}{netaddr}~char$\ast$
 \item 
 \#define \hyperlink{network_8h_af38b31e284de32fbae1ad23e560061c6}{M\+A\+X\+\_\+\+N\+E\+T\+\_\+\+A\+R\+R\+AY}~10
+\item 
+\#define \hyperlink{network_8h_a33bfc1f995233887a0414369c36936b8}{N\+O\+T\+\_\+\+F\+O\+U\+ND}~-\/1
 \end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -36,9 +35,17 @@ struct \hyperlink{struct_network}{Network}
 bool \hyperlink{network_8h_a40445c369fd9852a9da0b6b12c47b928}{network\+Status} ()
 \item 
 void \hyperlink{network_8h_a53866cf213c2b2ea49bce93552ac766f}{network\+\_\+init} ()
+\item 
+void \hyperlink{network_8h_a51dd211feefdf127beb8f3a39adfa876}{net\+Array\+Add} (\hyperlink{struct_network}{Network} $\ast$add)
+\item 
+uint8\+\_\+t \hyperlink{network_8h_a3e5e3fc129e5e1e37a31a9ea02e78b0b}{net\+Array\+Return} (uint8\+\_\+t net\+ID)
+\item 
+bool \hyperlink{network_8h_a78842a91032e2f099774ff9782dce9e9}{net\+Compare} (\hyperlink{network_8h_a1924fa1e3480e5fb3c72b8ef3e243f57}{netaddr} n1, \hyperlink{network_8h_a1924fa1e3480e5fb3c72b8ef3e243f57}{netaddr} n2)
 \end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
+\item 
+\hyperlink{network_8h_a1924fa1e3480e5fb3c72b8ef3e243f57}{netaddr} \hyperlink{network_8h_aeafbfcc5e3bdb2b03c5fc674fd3151fb}{my\+Net\+Addr}
 \item 
 unsigned int \hyperlink{network_8h_ad5876365aad28399b0d509aa94d72d03}{net\+I\+D\+Last}
 \item 
@@ -57,14 +64,35 @@ unsigned int \hyperlink{network_8h_ad5876365aad28399b0d509aa94d72d03}{net\+I\+D\
 \index{network.\+h@{network.\+h}!netaddr@{netaddr}}
 \index{netaddr@{netaddr}!network.\+h@{network.\+h}}
 \subsubsection{\texorpdfstring{netaddr}{netaddr}}
-{\footnotesize\ttfamily \#define netaddr~char $\ast$}
+{\footnotesize\ttfamily \#define netaddr~char$\ast$}
+
+\mbox{\Hypertarget{network_8h_a33bfc1f995233887a0414369c36936b8}\label{network_8h_a33bfc1f995233887a0414369c36936b8}} 
+\index{network.\+h@{network.\+h}!N\+O\+T\+\_\+\+F\+O\+U\+ND@{N\+O\+T\+\_\+\+F\+O\+U\+ND}}
+\index{N\+O\+T\+\_\+\+F\+O\+U\+ND@{N\+O\+T\+\_\+\+F\+O\+U\+ND}!network.\+h@{network.\+h}}
+\subsubsection{\texorpdfstring{N\+O\+T\+\_\+\+F\+O\+U\+ND}{NOT\_FOUND}}
+{\footnotesize\ttfamily \#define N\+O\+T\+\_\+\+F\+O\+U\+ND~-\/1}
 
 
-\begin{DoxyItemize}
-\item Definitions of network types $\ast$/$\ast$ B\+A\+SE C\+O\+M\+M\+U\+N\+I\+C\+A\+T\+I\+ON $\ast$/$\ast$ Application Packets $\ast$/ 
-\end{DoxyItemize}
 
 \subsection{Function Documentation}
+\mbox{\Hypertarget{network_8h_a51dd211feefdf127beb8f3a39adfa876}\label{network_8h_a51dd211feefdf127beb8f3a39adfa876}} 
+\index{network.\+h@{network.\+h}!net\+Array\+Add@{net\+Array\+Add}}
+\index{net\+Array\+Add@{net\+Array\+Add}!network.\+h@{network.\+h}}
+\subsubsection{\texorpdfstring{net\+Array\+Add()}{netArrayAdd()}}
+{\footnotesize\ttfamily void net\+Array\+Add (\begin{DoxyParamCaption}\item[{\hyperlink{struct_network}{Network} $\ast$}]{add }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{network_8h_a3e5e3fc129e5e1e37a31a9ea02e78b0b}\label{network_8h_a3e5e3fc129e5e1e37a31a9ea02e78b0b}} 
+\index{network.\+h@{network.\+h}!net\+Array\+Return@{net\+Array\+Return}}
+\index{net\+Array\+Return@{net\+Array\+Return}!network.\+h@{network.\+h}}
+\subsubsection{\texorpdfstring{net\+Array\+Return()}{netArrayReturn()}}
+{\footnotesize\ttfamily uint8\+\_\+t net\+Array\+Return (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{net\+ID }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{network_8h_a78842a91032e2f099774ff9782dce9e9}\label{network_8h_a78842a91032e2f099774ff9782dce9e9}} 
+\index{network.\+h@{network.\+h}!net\+Compare@{net\+Compare}}
+\index{net\+Compare@{net\+Compare}!network.\+h@{network.\+h}}
+\subsubsection{\texorpdfstring{net\+Compare()}{netCompare()}}
+{\footnotesize\ttfamily bool net\+Compare (\begin{DoxyParamCaption}\item[{\hyperlink{network_8h_a1924fa1e3480e5fb3c72b8ef3e243f57}{netaddr}}]{n1,  }\item[{\hyperlink{network_8h_a1924fa1e3480e5fb3c72b8ef3e243f57}{netaddr}}]{n2 }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{network_8h_a53866cf213c2b2ea49bce93552ac766f}\label{network_8h_a53866cf213c2b2ea49bce93552ac766f}} 
 \index{network.\+h@{network.\+h}!network\+\_\+init@{network\+\_\+init}}
 \index{network\+\_\+init@{network\+\_\+init}!network.\+h@{network.\+h}}
@@ -80,6 +108,12 @@ unsigned int \hyperlink{network_8h_ad5876365aad28399b0d509aa94d72d03}{net\+I\+D\
 
 
 \subsection{Variable Documentation}
+\mbox{\Hypertarget{network_8h_aeafbfcc5e3bdb2b03c5fc674fd3151fb}\label{network_8h_aeafbfcc5e3bdb2b03c5fc674fd3151fb}} 
+\index{network.\+h@{network.\+h}!my\+Net\+Addr@{my\+Net\+Addr}}
+\index{my\+Net\+Addr@{my\+Net\+Addr}!network.\+h@{network.\+h}}
+\subsubsection{\texorpdfstring{my\+Net\+Addr}{myNetAddr}}
+{\footnotesize\ttfamily \hyperlink{network_8h_a1924fa1e3480e5fb3c72b8ef3e243f57}{netaddr} my\+Net\+Addr}
+
 \mbox{\Hypertarget{network_8h_acc27ea853103756faf60d6e18b8f0f25}\label{network_8h_acc27ea853103756faf60d6e18b8f0f25}} 
 \index{network.\+h@{network.\+h}!N\+E\+T\+\_\+\+A\+R\+R\+AY@{N\+E\+T\+\_\+\+A\+R\+R\+AY}}
 \index{N\+E\+T\+\_\+\+A\+R\+R\+AY@{N\+E\+T\+\_\+\+A\+R\+R\+AY}!network.\+h@{network.\+h}}

@@ -11,13 +11,13 @@ struct \hyperlink{structusart__sync__descriptor}{usart\+\_\+sync\+\_\+descriptor
 int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__sync_gaa3cca792d7af7f180c5084af8ffd11c3}{usart\+\_\+sync\+\_\+init} (struct \hyperlink{structusart__sync__descriptor}{usart\+\_\+sync\+\_\+descriptor} $\ast$const descr, void $\ast$const hw, void $\ast$const func)
 \begin{DoxyCompactList}\small\item\em Initialize usart interface. \end{DoxyCompactList}\item 
 int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__sync_gae8076ed0a30199bd526f1da22e2095d3}{usart\+\_\+sync\+\_\+deinit} (struct \hyperlink{structusart__sync__descriptor}{usart\+\_\+sync\+\_\+descriptor} $\ast$const descr)
-\begin{DoxyCompactList}\small\item\em De-\/initialize usart interface. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Deinitialize usart interface. \end{DoxyCompactList}\item 
 int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__sync_ga351aa9c8c94b4e8b0eb5efb1ecd74a82}{usart\+\_\+sync\+\_\+enable} (struct \hyperlink{structusart__sync__descriptor}{usart\+\_\+sync\+\_\+descriptor} $\ast$const descr)
 \begin{DoxyCompactList}\small\item\em Enable usart interface. \end{DoxyCompactList}\item 
 int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__sync_ga76abe691b76e4b95b4e3a7d5bc79b026}{usart\+\_\+sync\+\_\+disable} (struct \hyperlink{structusart__sync__descriptor}{usart\+\_\+sync\+\_\+descriptor} $\ast$const descr)
 \begin{DoxyCompactList}\small\item\em Disable usart interface. \end{DoxyCompactList}\item 
 int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__sync_gaf0b9c8819dc24f75e4f87f050edc81f5}{usart\+\_\+sync\+\_\+get\+\_\+io\+\_\+descriptor} (struct \hyperlink{structusart__sync__descriptor}{usart\+\_\+sync\+\_\+descriptor} $\ast$const descr, struct \hyperlink{structio__descriptor}{io\+\_\+descriptor} $\ast$$\ast$io)
-\begin{DoxyCompactList}\small\item\em Retrieve IO descriptor. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Retrieve I/O descriptor. \end{DoxyCompactList}\item 
 int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__sync_ga23977cbdcabc4a624dde31be5ebba482}{usart\+\_\+sync\+\_\+set\+\_\+flow\+\_\+control} (struct \hyperlink{structusart__sync__descriptor}{usart\+\_\+sync\+\_\+descriptor} $\ast$const descr, const union \hyperlink{unionusart__flow__control__state}{usart\+\_\+flow\+\_\+control\+\_\+state} state)
 \begin{DoxyCompactList}\small\item\em Specify action for flow control pins. \end{DoxyCompactList}\item 
 int32\+\_\+t \hyperlink{group__doc__driver__hal__usart__sync_gaa6c286d38362477d8d11e0d2a46b6b19}{usart\+\_\+sync\+\_\+set\+\_\+baud\+\_\+rate} (struct \hyperlink{structusart__sync__descriptor}{usart\+\_\+sync\+\_\+descriptor} $\ast$const descr, const uint32\+\_\+t baud\+\_\+rate)
@@ -54,9 +54,9 @@ uint32\+\_\+t \hyperlink{group__doc__driver__hal__usart__sync_ga98d59e6800ac84a4
 
 
 
-De-\/initialize usart interface. 
+Deinitialize usart interface. 
 
-This function de-\/initializes the given IO descriptor. It checks if the given hardware is initialized and if the given hardware is permitted to be de-\/initialized.
+This function deinitializes the given I/O descriptor. It checks if the given hardware is initialized and if the given hardware is permitted to be deinitialized.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -66,7 +66,7 @@ This function de-\/initializes the given IO descriptor. It checks if the given h
 \begin{DoxyReturn}{Returns}
 De-\/initialization status.
 \end{DoxyReturn}
-De-\/initialize usart interface. \mbox{\Hypertarget{group__doc__driver__hal__usart__sync_ga76abe691b76e4b95b4e3a7d5bc79b026}\label{group__doc__driver__hal__usart__sync_ga76abe691b76e4b95b4e3a7d5bc79b026}} 
+Deinitialize usart interface. \mbox{\Hypertarget{group__doc__driver__hal__usart__sync_ga76abe691b76e4b95b4e3a7d5bc79b026}\label{group__doc__driver__hal__usart__sync_ga76abe691b76e4b95b4e3a7d5bc79b026}} 
 \index{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+sync@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+sync}!usart\+\_\+sync\+\_\+disable@{usart\+\_\+sync\+\_\+disable}}
 \index{usart\+\_\+sync\+\_\+disable@{usart\+\_\+sync\+\_\+disable}!Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+sync@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+sync}}
 \subsubsection{\texorpdfstring{usart\+\_\+sync\+\_\+disable()}{usart\_sync\_disable()}}
@@ -136,19 +136,19 @@ The status of flow control state reading.
 
 
 
-Retrieve IO descriptor. 
+Retrieve I/O descriptor. 
 
-This function retrieves the IO descriptor of the given U\+S\+A\+RT descriptor.
+This function retrieves the I/O descriptor of the given U\+S\+A\+RT descriptor.
 
 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em descr} & An usart descriptor which is used to communicate via U\+S\+A\+RT \\
 \hline
-\mbox{\tt out}  & {\em io} & An io descriptor to retrieve\\
+\mbox{\tt out}  & {\em io} & An I/O descriptor to retrieve\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-The status of IO descriptor retrieving. 
+The status of I/O descriptor retrieving. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{group__doc__driver__hal__usart__sync_ga98d59e6800ac84a46f7a27e6fb9bb9fd}\label{group__doc__driver__hal__usart__sync_ga98d59e6800ac84a46f7a27e6fb9bb9fd}} 
 \index{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+sync@{Doc\+\_\+driver\+\_\+hal\+\_\+usart\+\_\+sync}!usart\+\_\+sync\+\_\+get\+\_\+version@{usart\+\_\+sync\+\_\+get\+\_\+version}}
@@ -173,7 +173,7 @@ Current driver version
 
 Initialize usart interface. 
 
-This function initializes the given IO descriptor to be used as U\+S\+A\+RT interface descriptor. It checks if the given hardware is not initialized and if the given hardware is permitted to be initialized.
+This function initializes the given I/O descriptor to be used as U\+S\+A\+RT interface descriptor. It checks if the given hardware is not initialized and if the given hardware is permitted to be initialized.
 
 
 \begin{DoxyParams}[1]{Parameters}

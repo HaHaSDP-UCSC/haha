@@ -1,5 +1,5 @@
 <map id="E:/HaHaProject/AtmelXbee/ATProjects/HaHa/HaHa/hal/include/hal_usart_async.h" name="E:/HaHaProject/AtmelXbee/ATProjects/HaHa/HaHa/hal/include/hal_usart_async.h">
-<area shape="rect" id="node2" href="$hal__io_8h.html" title="IO related functionality declaration. " alt="" coords="1195,109,1261,136"/>
+<area shape="rect" id="node2" href="$hal__io_8h.html" title="I/O related functionality declaration. " alt="" coords="1195,109,1261,136"/>
 <area shape="rect" id="node31" href="$hpl__usart__async_8h.html" title="USART related functionality declaration. " alt="" coords="1285,109,1413,136"/>
 <area shape="rect" id="node34" href="$utils__ringbuffer_8h.html" title="Ringbuffer declaration. " alt="" coords="1438,109,1554,136"/>
 <area shape="rect" id="node3" href="$compiler_8h.html" title="compiler.h" alt="" coords="1371,259,1453,285"/>

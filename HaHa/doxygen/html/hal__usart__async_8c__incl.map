@@ -3,7 +3,7 @@
 <area shape="rect" id="node36" href="$utils__assert_8h.html" title="Asserts related functionality. " alt="" coords="1487,259,1587,285"/>
 <area shape="rect" id="node37" href="$hal__atomic_8h.html" title="Critical sections related functionality declaration. " alt="" coords="1583,109,1679,136"/>
 <area shape="rect" id="node38" href="$utils_8h.html" title="Different macros. " alt="" coords="1703,109,1761,136"/>
-<area shape="rect" id="node3" href="$hal__io_8h.html" title="IO related functionality declaration. " alt="" coords="1148,184,1215,211"/>
+<area shape="rect" id="node3" href="$hal__io_8h.html" title="I/O related functionality declaration. " alt="" coords="1148,184,1215,211"/>
 <area shape="rect" id="node32" href="$hpl__usart__async_8h.html" title="USART related functionality declaration. " alt="" coords="1239,184,1367,211"/>
 <area shape="rect" id="node35" href="$utils__ringbuffer_8h.html" title="Ringbuffer declaration. " alt="" coords="1391,184,1507,211"/>
 <area shape="rect" id="node4" href="$compiler_8h.html" title="compiler.h" alt="" coords="1371,333,1453,360"/>

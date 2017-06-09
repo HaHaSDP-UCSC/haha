@@ -180,7 +180,7 @@ HPL functions</h2></td></tr>
 <tr class="memdesc:gad7c12a758c9839e074d1d97d255e09ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize external interrupt module.  <a href="#gad7c12a758c9839e074d1d97d255e09ab">More...</a><br /></td></tr>
 <tr class="separator:gad7c12a758c9839e074d1d97d255e09ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad29f685cb658b260303c55fb7a88cdb0"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h_p_l.html#gad29f685cb658b260303c55fb7a88cdb0">_ext_irq_deinit</a> (void)</td></tr>
-<tr class="memdesc:gad29f685cb658b260303c55fb7a88cdb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">De-initialize external interrupt module.  <a href="#gad29f685cb658b260303c55fb7a88cdb0">More...</a><br /></td></tr>
+<tr class="memdesc:gad29f685cb658b260303c55fb7a88cdb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitialize external interrupt module.  <a href="#gad29f685cb658b260303c55fb7a88cdb0">More...</a><br /></td></tr>
 <tr class="separator:gad29f685cb658b260303c55fb7a88cdb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac2fa4b43da6356425b0188b744b6f4cc"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h_p_l.html#gac2fa4b43da6356425b0188b744b6f4cc">_ext_irq_enable</a> (const uint32_t pin, const bool enable)</td></tr>
 <tr class="memdesc:gac2fa4b43da6356425b0188b744b6f4cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable / disable external irq.  <a href="#gac2fa4b43da6356425b0188b744b6f4cc">More...</a><br /></td></tr>
@@ -191,24 +191,6 @@ HPL functions</h2></td></tr>
 <tr class="memitem:ga6e226919d4a3ee84599b55a32597e284"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h_p_l.html#ga6e226919d4a3ee84599b55a32597e284">_gpio_init</a> (void)</td></tr>
 <tr class="memdesc:ga6e226919d4a3ee84599b55a32597e284"><td class="mdescLeft">&#160;</td><td class="mdescRight">Port initialization function.  <a href="#ga6e226919d4a3ee84599b55a32597e284">More...</a><br /></td></tr>
 <tr class="separator:ga6e226919d4a3ee84599b55a32597e284"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad0c9a05c8d3510204e45f6c292e39996"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h_p_l.html#gad0c9a05c8d3510204e45f6c292e39996">_gpio_set_direction</a> (const enum <a class="el" href="group___h_p_l.html#ga6d50d8c4b17ff573c07340d4d7965bc1">gpio_port</a> port, const uint32_t mask, const enum <a class="el" href="group___h_p_l.html#gaccc7d029df9e5a96151a68e64f4be7e2">gpio_direction</a> direction)</td></tr>
-<tr class="memdesc:gad0c9a05c8d3510204e45f6c292e39996"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set direction on port with mask.  <a href="#gad0c9a05c8d3510204e45f6c292e39996">More...</a><br /></td></tr>
-<tr class="separator:gad0c9a05c8d3510204e45f6c292e39996"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6dfca37dc99595ea4b013a931a35ba7f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h_p_l.html#ga6dfca37dc99595ea4b013a931a35ba7f">_gpio_set_level</a> (const enum <a class="el" href="group___h_p_l.html#ga6d50d8c4b17ff573c07340d4d7965bc1">gpio_port</a> port, const uint32_t mask, const bool level)</td></tr>
-<tr class="memdesc:ga6dfca37dc99595ea4b013a931a35ba7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set output level on port with mask.  <a href="#ga6dfca37dc99595ea4b013a931a35ba7f">More...</a><br /></td></tr>
-<tr class="separator:ga6dfca37dc99595ea4b013a931a35ba7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga00df21e108dc46a00f686923d5cd731e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h_p_l.html#ga00df21e108dc46a00f686923d5cd731e">_gpio_toggle_level</a> (const enum <a class="el" href="group___h_p_l.html#ga6d50d8c4b17ff573c07340d4d7965bc1">gpio_port</a> port, const uint32_t mask)</td></tr>
-<tr class="memdesc:ga00df21e108dc46a00f686923d5cd731e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change output level to the opposite with mask.  <a href="#ga00df21e108dc46a00f686923d5cd731e">More...</a><br /></td></tr>
-<tr class="separator:ga00df21e108dc46a00f686923d5cd731e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaaa9499706a1ad34050473faacabc89af"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h_p_l.html#gaaa9499706a1ad34050473faacabc89af">_gpio_get_level</a> (const enum <a class="el" href="group___h_p_l.html#ga6d50d8c4b17ff573c07340d4d7965bc1">gpio_port</a> port)</td></tr>
-<tr class="memdesc:gaaa9499706a1ad34050473faacabc89af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get input levels on all port pins.  <a href="#gaaa9499706a1ad34050473faacabc89af">More...</a><br /></td></tr>
-<tr class="separator:gaaa9499706a1ad34050473faacabc89af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa1ce064a63a47651bbb5a0de9faacc86"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h_p_l.html#gaa1ce064a63a47651bbb5a0de9faacc86">_gpio_set_pin_pull_mode</a> (const enum <a class="el" href="group___h_p_l.html#ga6d50d8c4b17ff573c07340d4d7965bc1">gpio_port</a> port, const uint8_t pin, const enum <a class="el" href="group___h_p_l.html#gab9959d4bcdc5049e5898d5100ada3197">gpio_pull_mode</a> pull_mode)</td></tr>
-<tr class="memdesc:gaa1ce064a63a47651bbb5a0de9faacc86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set pin pull mode.  <a href="#gaa1ce064a63a47651bbb5a0de9faacc86">More...</a><br /></td></tr>
-<tr class="separator:gaa1ce064a63a47651bbb5a0de9faacc86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac04d9d84160742c076ff2c1063655cee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h_p_l.html#gac04d9d84160742c076ff2c1063655cee">_gpio_set_pin_function</a> (const uint32_t gpio, const uint32_t function)</td></tr>
-<tr class="memdesc:gac04d9d84160742c076ff2c1063655cee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set gpio function.  <a href="#gac04d9d84160742c076ff2c1063655cee">More...</a><br /></td></tr>
-<tr class="separator:gac04d9d84160742c076ff2c1063655cee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 HPL functions</h2></td></tr>
@@ -276,7 +258,7 @@ HPL functions</h2></td></tr>
 <tr class="memdesc:ga11745e0bd0c9d636afbefae8e209665e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize asynchronous USART.  <a href="#ga11745e0bd0c9d636afbefae8e209665e">More...</a><br /></td></tr>
 <tr class="separator:ga11745e0bd0c9d636afbefae8e209665e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga57e2ef9f6ec11c53a9d88bdb7a82aac4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h_p_l.html#ga57e2ef9f6ec11c53a9d88bdb7a82aac4">_usart_async_deinit</a> (struct <a class="el" href="struct__usart__async__device.html">_usart_async_device</a> *const device)</td></tr>
-<tr class="memdesc:ga57e2ef9f6ec11c53a9d88bdb7a82aac4"><td class="mdescLeft">&#160;</td><td class="mdescRight">De-initialize USART.  <a href="#ga57e2ef9f6ec11c53a9d88bdb7a82aac4">More...</a><br /></td></tr>
+<tr class="memdesc:ga57e2ef9f6ec11c53a9d88bdb7a82aac4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitialize USART.  <a href="#ga57e2ef9f6ec11c53a9d88bdb7a82aac4">More...</a><br /></td></tr>
 <tr class="separator:ga57e2ef9f6ec11c53a9d88bdb7a82aac4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga86c4101798d9dbc584f1e56615140d6f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h_p_l.html#ga86c4101798d9dbc584f1e56615140d6f">_usart_async_enable</a> (struct <a class="el" href="struct__usart__async__device.html">_usart_async_device</a> *const device)</td></tr>
 <tr class="memdesc:ga86c4101798d9dbc584f1e56615140d6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable usart module.  <a href="#ga86c4101798d9dbc584f1e56615140d6f">More...</a><br /></td></tr>
@@ -339,7 +321,7 @@ HPL functions</h2></td></tr>
 <tr class="memdesc:gad1cc7b8e72fd67fdeec8062c802eb25a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize synchronous USART.  <a href="#gad1cc7b8e72fd67fdeec8062c802eb25a">More...</a><br /></td></tr>
 <tr class="separator:gad1cc7b8e72fd67fdeec8062c802eb25a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac046761a56aaedeba5acad135cab707c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h_p_l.html#gac046761a56aaedeba5acad135cab707c">_usart_sync_deinit</a> (struct <a class="el" href="struct__usart__sync__device.html">_usart_sync_device</a> *const device)</td></tr>
-<tr class="memdesc:gac046761a56aaedeba5acad135cab707c"><td class="mdescLeft">&#160;</td><td class="mdescRight">De-initialize USART.  <a href="#gac046761a56aaedeba5acad135cab707c">More...</a><br /></td></tr>
+<tr class="memdesc:gac046761a56aaedeba5acad135cab707c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitialize USART.  <a href="#gac046761a56aaedeba5acad135cab707c">More...</a><br /></td></tr>
 <tr class="separator:gac046761a56aaedeba5acad135cab707c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5ca07057bde212b46f6547e5bdb876de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h_p_l.html#ga5ca07057bde212b46f6547e5bdb876de">_usart_sync_enable</a> (struct <a class="el" href="struct__usart__sync__device.html">_usart_sync_device</a> *const device)</td></tr>
 <tr class="memdesc:ga5ca07057bde212b46f6547e5bdb876de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable usart module.  <a href="#ga5ca07057bde212b46f6547e5bdb876de">More...</a><br /></td></tr>
@@ -743,11 +725,11 @@ Revision History</h1>
       </table>
 </div><div class="memdoc">
 
-<p>De-initialize external interrupt module. </p>
+<p>Deinitialize external interrupt module. </p>
 <dl class="section return"><dt>Returns</dt><dd>Initialization status. </dd></dl>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
-    <tr><td class="paramname">-1</td><td>External irq module is already de-initialized </td></tr>
+    <tr><td class="paramname">-1</td><td>External irq module is already deinitialized </td></tr>
     <tr><td class="paramname">0</td><td>The de-initialization is completed successfully </td></tr>
   </table>
   </dd>
@@ -855,33 +837,6 @@ Revision History</h1>
 
 </div>
 </div>
-<a id="gaaa9499706a1ad34050473faacabc89af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaaa9499706a1ad34050473faacabc89af">&#9670;&nbsp;</a></span>_gpio_get_level()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t _gpio_get_level </td>
-          <td>(</td>
-          <td class="paramtype">const enum <a class="el" href="group___h_p_l.html#ga6d50d8c4b17ff573c07340d4d7965bc1">gpio_port</a>&#160;</td>
-          <td class="paramname"><em>port</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get input levels on all port pins. </p>
-<p>Get input level on all port pins, will read IN register if configured to input and OUT register if configured as output</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">port</td><td>Ports are grouped into groups of maximum 32 pins, GPIO_PORTA = group 0, GPIO_PORTB = group 1, etc </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="ga6e226919d4a3ee84599b55a32597e284"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga6e226919d4a3ee84599b55a32597e284">&#9670;&nbsp;</a></span>_gpio_init()</h2>
 
@@ -900,219 +855,6 @@ Revision History</h1>
 
 <p>Port initialization function. </p>
 <p>Port initialization function should setup the port module based on a static configuration file, this function should normally not be called directly, but is a part of hal_init() </p>
-
-</div>
-</div>
-<a id="gad0c9a05c8d3510204e45f6c292e39996"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad0c9a05c8d3510204e45f6c292e39996">&#9670;&nbsp;</a></span>_gpio_set_direction()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void _gpio_set_direction </td>
-          <td>(</td>
-          <td class="paramtype">const enum <a class="el" href="group___h_p_l.html#ga6d50d8c4b17ff573c07340d4d7965bc1">gpio_port</a>&#160;</td>
-          <td class="paramname"><em>port</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const uint32_t&#160;</td>
-          <td class="paramname"><em>mask</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const enum <a class="el" href="group___h_p_l.html#gaccc7d029df9e5a96151a68e64f4be7e2">gpio_direction</a>&#160;</td>
-          <td class="paramname"><em>direction</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set direction on port with mask. </p>
-<p>Set data direction for each pin, or disable the pin</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">port</td><td>Ports are grouped into groups of maximum 32 pins, GPIO_PORTA = group 0, GPIO_PORTB = group 1, etc </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mask</td><td>Bit mask where 1 means apply direction setting to the corresponding pin </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">direction</td><td>GPIO_DIRECTION_OFF = set pin direction to input and disable input buffer to disable the pin GPIO_DIRECTION_IN = set pin direction to input and enable input buffer to enable the pin GPIO_DIRECTION_OUT = set pin direction to output and disable input buffer </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ga6dfca37dc99595ea4b013a931a35ba7f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga6dfca37dc99595ea4b013a931a35ba7f">&#9670;&nbsp;</a></span>_gpio_set_level()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void _gpio_set_level </td>
-          <td>(</td>
-          <td class="paramtype">const enum <a class="el" href="group___h_p_l.html#ga6d50d8c4b17ff573c07340d4d7965bc1">gpio_port</a>&#160;</td>
-          <td class="paramname"><em>port</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const uint32_t&#160;</td>
-          <td class="paramname"><em>mask</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>level</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set output level on port with mask. </p>
-<p>Sets output state on pin to high or low with pin masking</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">port</td><td>Ports are grouped into groups of maximum 32 pins, GPIO_PORTA = group 0, GPIO_PORTB = group 1, etc </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mask</td><td>Bit mask where 1 means apply direction setting to the corresponding pin </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">level</td><td>true = pin level is set to 1 false = pin level is set to 0 </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="gac04d9d84160742c076ff2c1063655cee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gac04d9d84160742c076ff2c1063655cee">&#9670;&nbsp;</a></span>_gpio_set_pin_function()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void _gpio_set_pin_function </td>
-          <td>(</td>
-          <td class="paramtype">const uint32_t&#160;</td>
-          <td class="paramname"><em>gpio</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const uint32_t&#160;</td>
-          <td class="paramname"><em>function</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set gpio function. </p>
-<p>Select which function a gpio is used for</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">gpio</td><td>The gpio to set function for </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">function</td><td>The gpio function is given by a 32-bit wide bitfield found in the header files for the device</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>Set gpio function. </p>
-
-</div>
-</div>
-<a id="gaa1ce064a63a47651bbb5a0de9faacc86"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaa1ce064a63a47651bbb5a0de9faacc86">&#9670;&nbsp;</a></span>_gpio_set_pin_pull_mode()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void _gpio_set_pin_pull_mode </td>
-          <td>(</td>
-          <td class="paramtype">const enum <a class="el" href="group___h_p_l.html#ga6d50d8c4b17ff573c07340d4d7965bc1">gpio_port</a>&#160;</td>
-          <td class="paramname"><em>port</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const uint8_t&#160;</td>
-          <td class="paramname"><em>pin</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const enum <a class="el" href="group___h_p_l.html#gab9959d4bcdc5049e5898d5100ada3197">gpio_pull_mode</a>&#160;</td>
-          <td class="paramname"><em>pull_mode</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set pin pull mode. </p>
-<p>Set pull mode on a single pin</p>
-<p>This function will automatically change pin direction to input</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">port</td><td>Ports are grouped into groups of maximum 32 pins, GPIO_PORTA = group 0, GPIO_PORTB = group 1, etc </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">pin</td><td>The pin in the group that pull mode should be selected for </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">pull_mode</td><td>GPIO_PULL_OFF = pull resistor on pin is disabled GPIO_PULL_DOWN = pull resistor on pin will pull pin level to ground level GPIO_PULL_UP = pull resistor on pin will pull pin level to VCC </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ga00df21e108dc46a00f686923d5cd731e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga00df21e108dc46a00f686923d5cd731e">&#9670;&nbsp;</a></span>_gpio_toggle_level()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void _gpio_toggle_level </td>
-          <td>(</td>
-          <td class="paramtype">const enum <a class="el" href="group___h_p_l.html#ga6d50d8c4b17ff573c07340d4d7965bc1">gpio_port</a>&#160;</td>
-          <td class="paramname"><em>port</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const uint32_t&#160;</td>
-          <td class="paramname"><em>mask</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Change output level to the opposite with mask. </p>
-<p>Change pin output level to the opposite with pin masking</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">port</td><td>Ports are grouped into groups of maximum 32 pins, GPIO_PORTA = group 0, GPIO_PORTB = group 1, etc </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mask</td><td>Bit mask where 1 means apply direction setting to the corresponding pin </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>
@@ -1589,7 +1331,7 @@ Revision History</h1>
       </table>
 </div><div class="memdoc">
 
-<p>De-initialize USART. </p>
+<p>Deinitialize USART. </p>
 <p>This function closes the given USART by disabling its clock.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1597,7 +1339,7 @@ Revision History</h1>
   </table>
   </dd>
 </dl>
-<p>De-initialize USART. </p>
+<p>Deinitialize USART. </p>
 
 </div>
 </div>
@@ -2271,7 +2013,7 @@ Revision History</h1>
       </table>
 </div><div class="memdoc">
 
-<p>De-initialize USART. </p>
+<p>Deinitialize USART. </p>
 <p>This function closes the given USART by disabling its clock.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -2279,7 +2021,7 @@ Revision History</h1>
   </table>
   </dd>
 </dl>
-<p>De-initialize USART. </p>
+<p>Deinitialize USART. </p>
 
 </div>
 </div>

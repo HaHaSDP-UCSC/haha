@@ -7,16 +7,15 @@ stdlib for H\+A\+HA project, contains imports and defines
 
 {\ttfamily \#include $<$stdbool.\+h$>$}\newline
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
-Include dependency graph for haha\+Utils.\+h\+:
-\nopagebreak
+{\ttfamily \#include \char`\"{}network/network.\+h\char`\"{}}\newline
+Include dependency graph for haha\+Utils.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=223pt]{haha_utils_8h__incl}
+\includegraphics[width=314pt]{haha_utils_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:
-\nopagebreak
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -26,7 +25,7 @@ This graph shows which files directly or indirectly include this file\+:
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{haha_utils_8h_a6dc8f5f6cd3fb1bdf454fe905019a666}{C\+O\+L\+O\+R\+ED}~true /$\ast$ Set this to false to disable terminal colors.  $\ast$/
+\#define \hyperlink{haha_utils_8h_a6dc8f5f6cd3fb1bdf454fe905019a666}{C\+O\+L\+O\+R\+ED}~false /$\ast$ Set this to false to disable terminal colors.  $\ast$/
 \item 
 \#define \hyperlink{haha_utils_8h_ab0bdd8bad8700ee39fe1dc8c408d8ed9}{D\+E\+B\+U\+G\+M\+ES}~true /$\ast$ Set this to false to disable debug messages.   $\ast$/
 \item 
@@ -59,6 +58,42 @@ This graph shows which files directly or indirectly include this file\+:
 \#define \hyperlink{haha_utils_8h_aa68d15b6b79a3dfcdb44c9da43a5b999}{printv}(...)~(void)0;
 \item 
 \#define \hyperlink{haha_utils_8h_a4f2705df522fd01ea20cea002f2d4304}{printd}(...)~(void)0;
+\item 
+\#define \hyperlink{haha_utils_8h_ac3dd1c10edba39fc5737be5b96a91d2a}{M\+A\+X\+F\+I\+R\+S\+T\+N\+A\+ME}~17
+\item 
+\#define \hyperlink{haha_utils_8h_a7c5521a06048b7d49bb5d77b631530e7}{M\+A\+X\+L\+A\+S\+T\+N\+A\+ME}~17
+\item 
+\#define \hyperlink{haha_utils_8h_a2f035f148b6abcc902e7711997c031d7}{M\+A\+X\+P\+H\+O\+NE}~16
+\item 
+\#define \hyperlink{haha_utils_8h_acc141dd006defc06f8e58a57259526f9}{M\+A\+X\+H\+O\+M\+E\+A\+D\+DR}~45
+\item 
+\#define \hyperlink{haha_utils_8h_a64e48eb75238bd3d7a053f19071044a8}{M\+A\+X\+N\+E\+T\+A\+D\+DR}~8
+\item 
+\#define \hyperlink{haha_utils_8h_ad5e30d36d01ca3de049aa58f3e37dfc3}{M\+A\+X\+P\+O\+RT}~2
+\item 
+\#define \hyperlink{haha_utils_8h_a151df695f2cac50d287b876c85a96841}{S\+T\+A\+R\+T\+\_\+\+O\+P\+C\+O\+DE}~0x01
+\item 
+\#define \hyperlink{haha_utils_8h_aa7be7b66f5e5c14463a0f09790fbfbd5}{M\+A\+X\+\_\+\+O\+P\+C\+O\+DE}~0x0C
+\item 
+\#define \hyperlink{haha_utils_8h_a142287b2552d8354d673374eb4da4232}{streq}(a,  b)~!strcmp(a, b)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uint8\+\_\+t \hyperlink{haha_utils_8h_a5ce68aceddf17a30aa045fc04914e798}{opcode}
+\item 
+typedef uint8\+\_\+t \hyperlink{haha_utils_8h_a22ca626eb8f0deb847d1fae89476e26d}{ttl}
+\item 
+typedef uint16\+\_\+t \hyperlink{haha_utils_8h_ac065f913fb79988aec421b0f5eebbc77}{uid}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{haha_utils_8h_a315655b1bb5848c063491adffde62b15}{Priority} \{ \hyperlink{haha_utils_8h_a315655b1bb5848c063491adffde62b15af2e9a4220e9145c0fdfa55ef10cfad2a}{P\+R\+I\+\_\+\+O\+FF} = 0, 
+\hyperlink{haha_utils_8h_a315655b1bb5848c063491adffde62b15a9e154032e09b5863a90249eab5088d2e}{P\+R\+I\+\_\+\+I\+N\+FO}, 
+\hyperlink{haha_utils_8h_a315655b1bb5848c063491adffde62b15a9ef9a4debb7ed1ce86dad1b00da95648}{P\+R\+I\+\_\+\+A\+L\+E\+RT}, 
+\hyperlink{haha_utils_8h_a315655b1bb5848c063491adffde62b15a1761629abd9a16909892d2c0d1aaf029}{P\+R\+I\+\_\+\+R\+E\+D\+A\+L\+E\+RT}
+ \}
 \end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -69,7 +104,16 @@ void \hyperlink{haha_utils_8h_ada9e8340bd19f1dd65b4862295e6b0a3}{print\+Buff} (c
 \begin{DoxyCompactList}\small\item\em \{ Print a buffer to stdout \} \end{DoxyCompactList}\item 
 uint8\+\_\+t \hyperlink{haha_utils_8h_aa74dea5951b0fe8a0afab70b3c83cbb3}{asciihex\+\_\+to\+\_\+byte} (uint8\+\_\+t d1, uint8\+\_\+t d2)
 \begin{DoxyCompactList}\small\item\em \{ Takes two char and converts to Hex \} \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{haha_utils_8h_a25ca3055e915be5594006a9165696760}{convert\+\_\+asciihex\+\_\+to\+\_\+byte} (char $\ast$addr)
+\item 
 uint64\+\_\+t \hyperlink{haha_utils_8h_af4ffcf442beeb20b004279ba81a35a1a}{byte\+\_\+array\+\_\+to\+\_\+64} (uint8\+\_\+t $\ast$s)
+\item 
+void \hyperlink{haha_utils_8h_ae48c9be443824b156735ad1497d168c1}{add\+Test\+Users} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{haha_utils_8h_ac3bce01751b123852b2026f978f8e7ce}{toglight}
 \end{DoxyCompactItemize}
 
 
@@ -122,7 +166,7 @@ August, Kevin, Brian
 \index{haha\+Utils.\+h@{haha\+Utils.\+h}!C\+O\+L\+O\+R\+ED@{C\+O\+L\+O\+R\+ED}}
 \index{C\+O\+L\+O\+R\+ED@{C\+O\+L\+O\+R\+ED}!haha\+Utils.\+h@{haha\+Utils.\+h}}
 \subsubsection{\texorpdfstring{C\+O\+L\+O\+R\+ED}{COLORED}}
-{\footnotesize\ttfamily \#define C\+O\+L\+O\+R\+ED~true /$\ast$ Set this to false to disable terminal colors.  $\ast$/}
+{\footnotesize\ttfamily \#define C\+O\+L\+O\+R\+ED~false /$\ast$ Set this to false to disable terminal colors.  $\ast$/}
 
 \mbox{\Hypertarget{haha_utils_8h_ab93994c82cc32f5aaa86dc9fe39b3942}\label{haha_utils_8h_ab93994c82cc32f5aaa86dc9fe39b3942}} 
 \index{haha\+Utils.\+h@{haha\+Utils.\+h}!C\+R\+ED@{C\+R\+ED}}
@@ -166,6 +210,48 @@ August, Kevin, Brian
 \subsubsection{\texorpdfstring{H\+A\+H\+A\+D\+E\+B\+UG}{HAHADEBUG}}
 {\footnotesize\ttfamily \#define H\+A\+H\+A\+D\+E\+B\+UG(\begin{DoxyParamCaption}\item[{}]{format,  }\item[{}]{args... }\end{DoxyParamCaption})~printf(format, \#\# args)}
 
+\mbox{\Hypertarget{haha_utils_8h_aa7be7b66f5e5c14463a0f09790fbfbd5}\label{haha_utils_8h_aa7be7b66f5e5c14463a0f09790fbfbd5}} 
+\index{haha\+Utils.\+h@{haha\+Utils.\+h}!M\+A\+X\+\_\+\+O\+P\+C\+O\+DE@{M\+A\+X\+\_\+\+O\+P\+C\+O\+DE}}
+\index{M\+A\+X\+\_\+\+O\+P\+C\+O\+DE@{M\+A\+X\+\_\+\+O\+P\+C\+O\+DE}!haha\+Utils.\+h@{haha\+Utils.\+h}}
+\subsubsection{\texorpdfstring{M\+A\+X\+\_\+\+O\+P\+C\+O\+DE}{MAX\_OPCODE}}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+O\+P\+C\+O\+DE~0x0C}
+
+\mbox{\Hypertarget{haha_utils_8h_ac3dd1c10edba39fc5737be5b96a91d2a}\label{haha_utils_8h_ac3dd1c10edba39fc5737be5b96a91d2a}} 
+\index{haha\+Utils.\+h@{haha\+Utils.\+h}!M\+A\+X\+F\+I\+R\+S\+T\+N\+A\+ME@{M\+A\+X\+F\+I\+R\+S\+T\+N\+A\+ME}}
+\index{M\+A\+X\+F\+I\+R\+S\+T\+N\+A\+ME@{M\+A\+X\+F\+I\+R\+S\+T\+N\+A\+ME}!haha\+Utils.\+h@{haha\+Utils.\+h}}
+\subsubsection{\texorpdfstring{M\+A\+X\+F\+I\+R\+S\+T\+N\+A\+ME}{MAXFIRSTNAME}}
+{\footnotesize\ttfamily \#define M\+A\+X\+F\+I\+R\+S\+T\+N\+A\+ME~17}
+
+\mbox{\Hypertarget{haha_utils_8h_acc141dd006defc06f8e58a57259526f9}\label{haha_utils_8h_acc141dd006defc06f8e58a57259526f9}} 
+\index{haha\+Utils.\+h@{haha\+Utils.\+h}!M\+A\+X\+H\+O\+M\+E\+A\+D\+DR@{M\+A\+X\+H\+O\+M\+E\+A\+D\+DR}}
+\index{M\+A\+X\+H\+O\+M\+E\+A\+D\+DR@{M\+A\+X\+H\+O\+M\+E\+A\+D\+DR}!haha\+Utils.\+h@{haha\+Utils.\+h}}
+\subsubsection{\texorpdfstring{M\+A\+X\+H\+O\+M\+E\+A\+D\+DR}{MAXHOMEADDR}}
+{\footnotesize\ttfamily \#define M\+A\+X\+H\+O\+M\+E\+A\+D\+DR~45}
+
+\mbox{\Hypertarget{haha_utils_8h_a7c5521a06048b7d49bb5d77b631530e7}\label{haha_utils_8h_a7c5521a06048b7d49bb5d77b631530e7}} 
+\index{haha\+Utils.\+h@{haha\+Utils.\+h}!M\+A\+X\+L\+A\+S\+T\+N\+A\+ME@{M\+A\+X\+L\+A\+S\+T\+N\+A\+ME}}
+\index{M\+A\+X\+L\+A\+S\+T\+N\+A\+ME@{M\+A\+X\+L\+A\+S\+T\+N\+A\+ME}!haha\+Utils.\+h@{haha\+Utils.\+h}}
+\subsubsection{\texorpdfstring{M\+A\+X\+L\+A\+S\+T\+N\+A\+ME}{MAXLASTNAME}}
+{\footnotesize\ttfamily \#define M\+A\+X\+L\+A\+S\+T\+N\+A\+ME~17}
+
+\mbox{\Hypertarget{haha_utils_8h_a64e48eb75238bd3d7a053f19071044a8}\label{haha_utils_8h_a64e48eb75238bd3d7a053f19071044a8}} 
+\index{haha\+Utils.\+h@{haha\+Utils.\+h}!M\+A\+X\+N\+E\+T\+A\+D\+DR@{M\+A\+X\+N\+E\+T\+A\+D\+DR}}
+\index{M\+A\+X\+N\+E\+T\+A\+D\+DR@{M\+A\+X\+N\+E\+T\+A\+D\+DR}!haha\+Utils.\+h@{haha\+Utils.\+h}}
+\subsubsection{\texorpdfstring{M\+A\+X\+N\+E\+T\+A\+D\+DR}{MAXNETADDR}}
+{\footnotesize\ttfamily \#define M\+A\+X\+N\+E\+T\+A\+D\+DR~8}
+
+\mbox{\Hypertarget{haha_utils_8h_a2f035f148b6abcc902e7711997c031d7}\label{haha_utils_8h_a2f035f148b6abcc902e7711997c031d7}} 
+\index{haha\+Utils.\+h@{haha\+Utils.\+h}!M\+A\+X\+P\+H\+O\+NE@{M\+A\+X\+P\+H\+O\+NE}}
+\index{M\+A\+X\+P\+H\+O\+NE@{M\+A\+X\+P\+H\+O\+NE}!haha\+Utils.\+h@{haha\+Utils.\+h}}
+\subsubsection{\texorpdfstring{M\+A\+X\+P\+H\+O\+NE}{MAXPHONE}}
+{\footnotesize\ttfamily \#define M\+A\+X\+P\+H\+O\+NE~16}
+
+\mbox{\Hypertarget{haha_utils_8h_ad5e30d36d01ca3de049aa58f3e37dfc3}\label{haha_utils_8h_ad5e30d36d01ca3de049aa58f3e37dfc3}} 
+\index{haha\+Utils.\+h@{haha\+Utils.\+h}!M\+A\+X\+P\+O\+RT@{M\+A\+X\+P\+O\+RT}}
+\index{M\+A\+X\+P\+O\+RT@{M\+A\+X\+P\+O\+RT}!haha\+Utils.\+h@{haha\+Utils.\+h}}
+\subsubsection{\texorpdfstring{M\+A\+X\+P\+O\+RT}{MAXPORT}}
+{\footnotesize\ttfamily \#define M\+A\+X\+P\+O\+RT~2}
+
 \mbox{\Hypertarget{haha_utils_8h_a4f2705df522fd01ea20cea002f2d4304}\label{haha_utils_8h_a4f2705df522fd01ea20cea002f2d4304}} 
 \index{haha\+Utils.\+h@{haha\+Utils.\+h}!printd@{printd}}
 \index{printd@{printd}!haha\+Utils.\+h@{haha\+Utils.\+h}}
@@ -184,6 +270,18 @@ August, Kevin, Brian
 \subsubsection{\texorpdfstring{printv}{printv}}
 {\footnotesize\ttfamily \#define printv(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~(void)0;}
 
+\mbox{\Hypertarget{haha_utils_8h_a151df695f2cac50d287b876c85a96841}\label{haha_utils_8h_a151df695f2cac50d287b876c85a96841}} 
+\index{haha\+Utils.\+h@{haha\+Utils.\+h}!S\+T\+A\+R\+T\+\_\+\+O\+P\+C\+O\+DE@{S\+T\+A\+R\+T\+\_\+\+O\+P\+C\+O\+DE}}
+\index{S\+T\+A\+R\+T\+\_\+\+O\+P\+C\+O\+DE@{S\+T\+A\+R\+T\+\_\+\+O\+P\+C\+O\+DE}!haha\+Utils.\+h@{haha\+Utils.\+h}}
+\subsubsection{\texorpdfstring{S\+T\+A\+R\+T\+\_\+\+O\+P\+C\+O\+DE}{START\_OPCODE}}
+{\footnotesize\ttfamily \#define S\+T\+A\+R\+T\+\_\+\+O\+P\+C\+O\+DE~0x01}
+
+\mbox{\Hypertarget{haha_utils_8h_a142287b2552d8354d673374eb4da4232}\label{haha_utils_8h_a142287b2552d8354d673374eb4da4232}} 
+\index{haha\+Utils.\+h@{haha\+Utils.\+h}!streq@{streq}}
+\index{streq@{streq}!haha\+Utils.\+h@{haha\+Utils.\+h}}
+\subsubsection{\texorpdfstring{streq}{streq}}
+{\footnotesize\ttfamily \#define streq(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b }\end{DoxyParamCaption})~!strcmp(a, b)}
+
 \mbox{\Hypertarget{haha_utils_8h_ad8634d556daf48dd56c6428d5440b427}\label{haha_utils_8h_ad8634d556daf48dd56c6428d5440b427}} 
 \index{haha\+Utils.\+h@{haha\+Utils.\+h}!V\+E\+R\+B\+O\+S\+E\+M\+ES@{V\+E\+R\+B\+O\+S\+E\+M\+ES}}
 \index{V\+E\+R\+B\+O\+S\+E\+M\+ES@{V\+E\+R\+B\+O\+S\+E\+M\+ES}!haha\+Utils.\+h@{haha\+Utils.\+h}}
@@ -192,7 +290,61 @@ August, Kevin, Brian
 
 
 
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{haha_utils_8h_a5ce68aceddf17a30aa045fc04914e798}\label{haha_utils_8h_a5ce68aceddf17a30aa045fc04914e798}} 
+\index{haha\+Utils.\+h@{haha\+Utils.\+h}!opcode@{opcode}}
+\index{opcode@{opcode}!haha\+Utils.\+h@{haha\+Utils.\+h}}
+\subsubsection{\texorpdfstring{opcode}{opcode}}
+{\footnotesize\ttfamily typedef uint8\+\_\+t \hyperlink{haha_utils_8h_a5ce68aceddf17a30aa045fc04914e798}{opcode}}
+
+\mbox{\Hypertarget{haha_utils_8h_a22ca626eb8f0deb847d1fae89476e26d}\label{haha_utils_8h_a22ca626eb8f0deb847d1fae89476e26d}} 
+\index{haha\+Utils.\+h@{haha\+Utils.\+h}!ttl@{ttl}}
+\index{ttl@{ttl}!haha\+Utils.\+h@{haha\+Utils.\+h}}
+\subsubsection{\texorpdfstring{ttl}{ttl}}
+{\footnotesize\ttfamily typedef uint8\+\_\+t \hyperlink{haha_utils_8h_a22ca626eb8f0deb847d1fae89476e26d}{ttl}}
+
+\mbox{\Hypertarget{haha_utils_8h_ac065f913fb79988aec421b0f5eebbc77}\label{haha_utils_8h_ac065f913fb79988aec421b0f5eebbc77}} 
+\index{haha\+Utils.\+h@{haha\+Utils.\+h}!uid@{uid}}
+\index{uid@{uid}!haha\+Utils.\+h@{haha\+Utils.\+h}}
+\subsubsection{\texorpdfstring{uid}{uid}}
+{\footnotesize\ttfamily typedef uint16\+\_\+t \hyperlink{haha_utils_8h_ac065f913fb79988aec421b0f5eebbc77}{uid}}
+
+
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{haha_utils_8h_a315655b1bb5848c063491adffde62b15}\label{haha_utils_8h_a315655b1bb5848c063491adffde62b15}} 
+\index{haha\+Utils.\+h@{haha\+Utils.\+h}!Priority@{Priority}}
+\index{Priority@{Priority}!haha\+Utils.\+h@{haha\+Utils.\+h}}
+\subsubsection{\texorpdfstring{Priority}{Priority}}
+{\footnotesize\ttfamily enum \hyperlink{haha_utils_8h_a315655b1bb5848c063491adffde62b15}{Priority}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+R\+I\+\_\+\+O\+FF@{P\+R\+I\+\_\+\+O\+FF}!haha\+Utils.\+h@{haha\+Utils.\+h}}\index{haha\+Utils.\+h@{haha\+Utils.\+h}!P\+R\+I\+\_\+\+O\+FF@{P\+R\+I\+\_\+\+O\+FF}}}\mbox{\Hypertarget{haha_utils_8h_a315655b1bb5848c063491adffde62b15af2e9a4220e9145c0fdfa55ef10cfad2a}\label{haha_utils_8h_a315655b1bb5848c063491adffde62b15af2e9a4220e9145c0fdfa55ef10cfad2a}} 
+P\+R\+I\+\_\+\+O\+FF&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+R\+I\+\_\+\+I\+N\+FO@{P\+R\+I\+\_\+\+I\+N\+FO}!haha\+Utils.\+h@{haha\+Utils.\+h}}\index{haha\+Utils.\+h@{haha\+Utils.\+h}!P\+R\+I\+\_\+\+I\+N\+FO@{P\+R\+I\+\_\+\+I\+N\+FO}}}\mbox{\Hypertarget{haha_utils_8h_a315655b1bb5848c063491adffde62b15a9e154032e09b5863a90249eab5088d2e}\label{haha_utils_8h_a315655b1bb5848c063491adffde62b15a9e154032e09b5863a90249eab5088d2e}} 
+P\+R\+I\+\_\+\+I\+N\+FO&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+R\+I\+\_\+\+A\+L\+E\+RT@{P\+R\+I\+\_\+\+A\+L\+E\+RT}!haha\+Utils.\+h@{haha\+Utils.\+h}}\index{haha\+Utils.\+h@{haha\+Utils.\+h}!P\+R\+I\+\_\+\+A\+L\+E\+RT@{P\+R\+I\+\_\+\+A\+L\+E\+RT}}}\mbox{\Hypertarget{haha_utils_8h_a315655b1bb5848c063491adffde62b15a9ef9a4debb7ed1ce86dad1b00da95648}\label{haha_utils_8h_a315655b1bb5848c063491adffde62b15a9ef9a4debb7ed1ce86dad1b00da95648}} 
+P\+R\+I\+\_\+\+A\+L\+E\+RT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+R\+I\+\_\+\+R\+E\+D\+A\+L\+E\+RT@{P\+R\+I\+\_\+\+R\+E\+D\+A\+L\+E\+RT}!haha\+Utils.\+h@{haha\+Utils.\+h}}\index{haha\+Utils.\+h@{haha\+Utils.\+h}!P\+R\+I\+\_\+\+R\+E\+D\+A\+L\+E\+RT@{P\+R\+I\+\_\+\+R\+E\+D\+A\+L\+E\+RT}}}\mbox{\Hypertarget{haha_utils_8h_a315655b1bb5848c063491adffde62b15a1761629abd9a16909892d2c0d1aaf029}\label{haha_utils_8h_a315655b1bb5848c063491adffde62b15a1761629abd9a16909892d2c0d1aaf029}} 
+P\+R\+I\+\_\+\+R\+E\+D\+A\+L\+E\+RT&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
 \subsection{Function Documentation}
+\mbox{\Hypertarget{haha_utils_8h_ae48c9be443824b156735ad1497d168c1}\label{haha_utils_8h_ae48c9be443824b156735ad1497d168c1}} 
+\index{haha\+Utils.\+h@{haha\+Utils.\+h}!add\+Test\+Users@{add\+Test\+Users}}
+\index{add\+Test\+Users@{add\+Test\+Users}!haha\+Utils.\+h@{haha\+Utils.\+h}}
+\subsubsection{\texorpdfstring{add\+Test\+Users()}{addTestUsers()}}
+{\footnotesize\ttfamily void add\+Test\+Users (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{haha_utils_8h_aa74dea5951b0fe8a0afab70b3c83cbb3}\label{haha_utils_8h_aa74dea5951b0fe8a0afab70b3c83cbb3}} 
 \index{haha\+Utils.\+h@{haha\+Utils.\+h}!asciihex\+\_\+to\+\_\+byte@{asciihex\+\_\+to\+\_\+byte}}
 \index{asciihex\+\_\+to\+\_\+byte@{asciihex\+\_\+to\+\_\+byte}!haha\+Utils.\+h@{haha\+Utils.\+h}}
@@ -218,6 +370,12 @@ August, Kevin, Brian
 \index{byte\+\_\+array\+\_\+to\+\_\+64@{byte\+\_\+array\+\_\+to\+\_\+64}!haha\+Utils.\+h@{haha\+Utils.\+h}}
 \subsubsection{\texorpdfstring{byte\+\_\+array\+\_\+to\+\_\+64()}{byte\_array\_to\_64()}}
 {\footnotesize\ttfamily uint64\+\_\+t byte\+\_\+array\+\_\+to\+\_\+64 (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{s }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{haha_utils_8h_a25ca3055e915be5594006a9165696760}\label{haha_utils_8h_a25ca3055e915be5594006a9165696760}} 
+\index{haha\+Utils.\+h@{haha\+Utils.\+h}!convert\+\_\+asciihex\+\_\+to\+\_\+byte@{convert\+\_\+asciihex\+\_\+to\+\_\+byte}}
+\index{convert\+\_\+asciihex\+\_\+to\+\_\+byte@{convert\+\_\+asciihex\+\_\+to\+\_\+byte}!haha\+Utils.\+h@{haha\+Utils.\+h}}
+\subsubsection{\texorpdfstring{convert\+\_\+asciihex\+\_\+to\+\_\+byte()}{convert\_asciihex\_to\_byte()}}
+{\footnotesize\ttfamily char$\ast$ convert\+\_\+asciihex\+\_\+to\+\_\+byte (\begin{DoxyParamCaption}\item[{char $\ast$}]{addr }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{haha_utils_8h_a7f2dfce1046bdd2a2b753643726c2346}\label{haha_utils_8h_a7f2dfce1046bdd2a2b753643726c2346}} 
 \index{haha\+Utils.\+h@{haha\+Utils.\+h}!delay@{delay}}
@@ -253,3 +411,12 @@ August, Kevin, Brian
  & {\em specifier} & The specifier \\
 \hline
 \end{DoxyParams}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{haha_utils_8h_ac3bce01751b123852b2026f978f8e7ce}\label{haha_utils_8h_ac3bce01751b123852b2026f978f8e7ce}} 
+\index{haha\+Utils.\+h@{haha\+Utils.\+h}!toglight@{toglight}}
+\index{toglight@{toglight}!haha\+Utils.\+h@{haha\+Utils.\+h}}
+\subsubsection{\texorpdfstring{toglight}{toglight}}
+{\footnotesize\ttfamily int toglight}
+

@@ -2,20 +2,18 @@
 \label{hal__io_8h}\index{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/hal/include/hal\+\_\+io.\+h@{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/hal/include/hal\+\_\+io.\+h}}
 
 
-IO related functionality declaration.  
+I/O related functionality declaration.  
 
 
 {\ttfamily \#include $<$compiler.\+h$>$}\newline
-Include dependency graph for hal\+\_\+io.\+h\+:
-\nopagebreak
+Include dependency graph for hal\+\_\+io.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{hal__io_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:
-\nopagebreak
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -26,24 +24,24 @@ This graph shows which files directly or indirectly include this file\+:
 \begin{DoxyCompactItemize}
 \item 
 struct \hyperlink{structio__descriptor}{io\+\_\+descriptor}
-\begin{DoxyCompactList}\small\item\em IO descriptor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em I/O descriptor. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
 typedef int32\+\_\+t($\ast$ \hyperlink{group__doc__driver__hal__helper__io_gacb03c48993a6786f00946c196c40add1}{io\+\_\+write\+\_\+t}) (struct \hyperlink{structio__descriptor}{io\+\_\+descriptor} $\ast$const io\+\_\+descr, const uint8\+\_\+t $\ast$const buf, const uint16\+\_\+t length)
-\begin{DoxyCompactList}\small\item\em IO write function pointer type. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em I/O write function pointer type. \end{DoxyCompactList}\item 
 typedef int32\+\_\+t($\ast$ \hyperlink{group__doc__driver__hal__helper__io_ga4d9ae58de2887289fe09eac6f0aa8be7}{io\+\_\+read\+\_\+t}) (struct \hyperlink{structio__descriptor}{io\+\_\+descriptor} $\ast$const io\+\_\+descr, uint8\+\_\+t $\ast$const buf, const uint16\+\_\+t length)
-\begin{DoxyCompactList}\small\item\em IO read function pointer type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em I/O read function pointer type. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 int32\+\_\+t \hyperlink{group__doc__driver__hal__helper__io_ga81aac60d5ce6feb0c44f8937d7c02f14}{io\+\_\+write} (struct \hyperlink{structio__descriptor}{io\+\_\+descriptor} $\ast$const io\+\_\+descr, const uint8\+\_\+t $\ast$const buf, const uint16\+\_\+t length)
-\begin{DoxyCompactList}\small\item\em IO write interface. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em I/O write interface. \end{DoxyCompactList}\item 
 int32\+\_\+t \hyperlink{group__doc__driver__hal__helper__io_gaf5e8722129933fa8e014144fd7505be6}{io\+\_\+read} (struct \hyperlink{structio__descriptor}{io\+\_\+descriptor} $\ast$const io\+\_\+descr, uint8\+\_\+t $\ast$const buf, const uint16\+\_\+t length)
-\begin{DoxyCompactList}\small\item\em IO read interface. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em I/O read interface. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-IO related functionality declaration. 
+I/O related functionality declaration. 
 
 Copyright (C) 2014 -\/ 2016 Atmel Corporation. All rights reserved.

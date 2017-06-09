@@ -1,6 +1,7 @@
 <map id="E:/HaHaProject/AtmelXbee/ATProjects/HaHa/HaHa/neighbor/neighborlist.c" name="E:/HaHaProject/AtmelXbee/ATProjects/HaHa/HaHa/neighbor/neighborlist.c">
-<area shape="rect" id="node2" href="$neighborlist_8h.html" title="neighborlist.h" alt="" coords="63,109,162,136"/>
-<area shape="rect" id="node3" href="$haha_utils_8h.html" title="stdlib for HAHA project, contains imports and defines " alt="" coords="57,333,171,360"/>
-<area shape="rect" id="node6" href="$packet_8h.html" title="network/packet.h" alt="" coords="101,184,223,211"/>
-<area shape="rect" id="node7" href="$flags_8h.html" title="flags.h" alt="" coords="152,259,212,285"/>
+<area shape="rect" id="node2" href="$neighborlist_8h.html" title="neighborlist.h" alt="" coords="197,109,296,136"/>
+<area shape="rect" id="node3" href="$haha_utils_8h.html" title="stdlib for HAHA project, contains imports and defines " alt="" coords="156,333,271,360"/>
+<area shape="rect" id="node6" href="$network_8h.html" title="network/network.h" alt="" coords="273,408,399,435"/>
+<area shape="rect" id="node7" href="$packet_8h.html" title="network/packet.h" alt="" coords="186,184,307,211"/>
+<area shape="rect" id="node8" href="$flags_8h.html" title="flags.h" alt="" coords="183,259,243,285"/>
 </map>

@@ -61,29 +61,65 @@ $(function() {
 &#160;
 
 <h3><a id="index_s"></a>- s -</h3><ul>
-<li>sendPacket()
-: <a class="el" href="basecomm_8c.html#a0efcd5c5e2ff45dfd8c4172bb397492c">basecomm.c</a>
-, <a class="el" href="basecomm_8h.html#a72859353609b2baf3e9a8bb2e8dad99a">basecomm.h</a>
+<li>send_find_neighbors_request()
+: <a class="el" href="packet_8c.html#a7bcf4b10b2565ca007361d8b1bf43afb">packet.c</a>
 </li>
-<li>setAlarm()
-: <a class="el" href="alarm_8h.html#a1f3b9f59712b48ab186b60997617e4d6">alarm.h</a>
-, <a class="el" href="alarm_8c.html#a1f3b9f59712b48ab186b60997617e4d6">alarm.c</a>
+<li>send_find_neighbors_response()
+: <a class="el" href="packet_8c.html#a6bab95d04db5015eb7d1978394caf554">packet.c</a>
 </li>
-<li>setLighting()
-: <a class="el" href="lighting_8c.html#a156a5e504fd6bccf70c31b4feb1e27bf">lighting.c</a>
-, <a class="el" href="lighting_8h.html#a156a5e504fd6bccf70c31b4feb1e27bf">lighting.h</a>
+<li>send_find_neighbors_response_ack()
+: <a class="el" href="packet_8c.html#a0a0f817c2daf1ba7f9223c44bb9bf86f">packet.c</a>
 </li>
-<li>setSound()
-: <a class="el" href="sound_8h.html#a8454724bebdd82faf38232f37c37af8a">sound.h</a>
-, <a class="el" href="sound_8c.html#aa59ccd8ef2961f0d9dadc42790866368">sound.c</a>
+<li>send_friend_request()
+: <a class="el" href="packet_8c.html#a07a7cc760a99a8c5ff3a056289798842">packet.c</a>
+, <a class="el" href="packet_8h.html#a07a7cc760a99a8c5ff3a056289798842">packet.h</a>
+</li>
+<li>send_friend_request_ack()
+: <a class="el" href="packet_8c.html#aa2465726c84220d2489bf1f88bfbdbe4">packet.c</a>
+</li>
+<li>send_friend_response()
+: <a class="el" href="packet_8c.html#a80ffe9d47a41b85d6afdb4e7a6478f17">packet.c</a>
+</li>
+<li>send_friend_response_ack()
+: <a class="el" href="packet_8c.html#ae0b16360af42be2f9040837f8fcf0109">packet.c</a>
+</li>
+<li>send_help_request()
+: <a class="el" href="packet_8c.html#aa92652028759c2dbea41841976d63016">packet.c</a>
+</li>
+<li>send_help_request_ack()
+: <a class="el" href="packet_8c.html#a89bd4e5d6f2ba1bbe2690041788e1b0b">packet.c</a>
+</li>
+<li>send_help_request_anyone()
+: <a class="el" href="packet_8c.html#a082d006a621515a0b14c5ca3067b6a28">packet.c</a>
+</li>
+<li>send_help_response()
+: <a class="el" href="packet_8c.html#af1fb14286aee4b3dcc7f9e60359c7703">packet.c</a>
+, <a class="el" href="packet_8h.html#af1fb14286aee4b3dcc7f9e60359c7703">packet.h</a>
+</li>
+<li>send_help_response_ack()
+: <a class="el" href="packet_8c.html#a352cc385005e7851dfd43c0ded42111a">packet.c</a>
+</li>
+<li>send_ping_request()
+: <a class="el" href="packet_8h.html#a5aa25d6545489fdd01be9fbec8a3cfb5">packet.h</a>
+, <a class="el" href="packet_8c.html#a5aa25d6545489fdd01be9fbec8a3cfb5">packet.c</a>
+</li>
+<li>send_unfriend_request()
+: <a class="el" href="packet_8c.html#a9419901491369843ce1cb4a30e707a42">packet.c</a>
+</li>
+<li>send_unfriend_request_ack()
+: <a class="el" href="packet_8c.html#ac1d03e4498287fc9a5b23c2fdce46581">packet.c</a>
+</li>
+<li>setSettingsByOpcode()
+: <a class="el" href="messagequeue_8c.html#a3738bb4b771769a14728e7b56e710691">messagequeue.c</a>
+, <a class="el" href="messagequeue_8h.html#a3738bb4b771769a14728e7b56e710691">messagequeue.h</a>
 </li>
 <li>stdio_io_init()
 : <a class="el" href="stdio__io_8c.html#a832670dfdc8f3deb3b9b0a725c636409">stdio_io.c</a>
 , <a class="el" href="stdio__io_8h.html#a832670dfdc8f3deb3b9b0a725c636409">stdio_io.h</a>
 </li>
 <li>stdio_io_read()
-: <a class="el" href="stdio__io_8c.html#ac791b192543d77c693e6ad6d63ce8a45">stdio_io.c</a>
-, <a class="el" href="stdio__io_8h.html#ac791b192543d77c693e6ad6d63ce8a45">stdio_io.h</a>
+: <a class="el" href="stdio__io_8h.html#ac791b192543d77c693e6ad6d63ce8a45">stdio_io.h</a>
+, <a class="el" href="stdio__io_8c.html#ac791b192543d77c693e6ad6d63ce8a45">stdio_io.c</a>
 </li>
 <li>stdio_io_set_io()
 : <a class="el" href="stdio__io_8c.html#a31d48bd5f32a5ae99cc00a6ea7991a25">stdio_io.c</a>
@@ -94,16 +130,16 @@ $(function() {
 , <a class="el" href="stdio__io_8c.html#a01a0bad87561dd4fb0fef82f0419b1e1">stdio_io.c</a>
 </li>
 <li>STDIO_REDIRECT_0_example()
-: <a class="el" href="stdio__start_8c.html#abccb4411a7b672e5b3cd96904994f265">stdio_start.c</a>
-, <a class="el" href="stdio__start_8h.html#abccb4411a7b672e5b3cd96904994f265">stdio_start.h</a>
+: <a class="el" href="stdio__start_8h.html#abccb4411a7b672e5b3cd96904994f265">stdio_start.h</a>
+, <a class="el" href="stdio__start_8c.html#abccb4411a7b672e5b3cd96904994f265">stdio_start.c</a>
 </li>
 <li>stdio_redirect_init()
-: <a class="el" href="stdio__start_8c.html#ad95daed3f23cee3e1ccdf90e0e3eb5a1">stdio_start.c</a>
-, <a class="el" href="stdio__start_8h.html#ad95daed3f23cee3e1ccdf90e0e3eb5a1">stdio_start.h</a>
+: <a class="el" href="stdio__start_8h.html#ad95daed3f23cee3e1ccdf90e0e3eb5a1">stdio_start.h</a>
+, <a class="el" href="stdio__start_8c.html#ad95daed3f23cee3e1ccdf90e0e3eb5a1">stdio_start.c</a>
 </li>
 <li>system_init()
-: <a class="el" href="driver__init_8h.html#a43f5e0d6db0fb41a437cc9096b32e9b5">driver_init.h</a>
-, <a class="el" href="driver__init_8c.html#a43f5e0d6db0fb41a437cc9096b32e9b5">driver_init.c</a>
+: <a class="el" href="driver__init_8c.html#a43f5e0d6db0fb41a437cc9096b32e9b5">driver_init.c</a>
+, <a class="el" href="driver__init_8h.html#a43f5e0d6db0fb41a437cc9096b32e9b5">driver_init.h</a>
 </li>
 </ul>
 </div><!-- contents -->

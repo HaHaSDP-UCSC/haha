@@ -2,54 +2,55 @@
 \label{packet_8c}\index{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/network/packet.\+c@{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/network/packet.\+c}}
 {\ttfamily \#include \char`\"{}packet.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}network.\+h\char`\"{}}\newline
-Include dependency graph for packet.\+c\+:
-\nopagebreak
+{\ttfamily \#include \char`\"{}flags.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}neighbor/responseflags.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}messagequeue/messagequeue.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}basecomm.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}neighbor/friendlist.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utils/haha\+Utils.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}lcd/lcd.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}menu/menu.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}menu/ui.\+h\char`\"{}}\newline
+Include dependency graph for packet.\+c\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=242pt]{packet_8c__incl}
+\includegraphics[width=350pt]{packet_8c__incl}
 \end{center}
 \end{figure}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+void \hyperlink{packet_8c_a0e0fd03121d6f529f535daa0bf6de3aa}{print\+Net\+Addr1} (\hyperlink{network_8h_a1924fa1e3480e5fb3c72b8ef3e243f57}{netaddr} $\ast$t)
+\item 
 void \hyperlink{packet_8c_a27804d644d71f9589d59c455d4dc8a01}{opcodes\+\_\+init} ()
 \item 
-void \hyperlink{packet_8c_a0a04475199321b7fb18100ecec4b9c74}{app\+\_\+packet\+\_\+handler} (char $\ast$data, uint16\+\_\+t len, uint8\+\_\+t $\ast$src, uint8\+\_\+t id)
+void \hyperlink{packet_8c_a2629e003442366a1fb98e86161d84282}{app\+\_\+packet\+\_\+handler} (\hyperlink{struct_network}{Network} $\ast$info)
 \item 
-void \hyperlink{packet_8c_a5ec5d2a7acb004e014bea80fedd1a117}{register\+\_\+opcode\+\_\+handler\+\_\+function} (\hyperlink{packet_8h_a6159984579dde9f4a9ce474f3d1229db}{opcode\+\_\+handler\+\_\+fn\+\_\+t} t, \hyperlink{packet_8h_a588e6b56097e045c733b60d25c4d45ab}{Op} \hyperlink{packet_8h_a5ce68aceddf17a30aa045fc04914e798}{opcode})
+void \hyperlink{packet_8c_a2b262aa6e4e32e8be961240158e39b8e}{register\+\_\+opcode\+\_\+handler\+\_\+function} (\hyperlink{packet_8h_a9b356014c1c5616c899e95e068f4d918}{opcode\+\_\+handler\+\_\+fn\+\_\+t} t, \hyperlink{packet_8h_a99a30df0f2488360cdd46b4b88e5f5f0}{op} \hyperlink{haha_utils_8h_a5ce68aceddf17a30aa045fc04914e798}{opcode})
 \begin{DoxyCompactList}\small\item\em \{ Register opcode functions \} \end{DoxyCompactList}\item 
-void \hyperlink{packet_8c_afa71fa2cbfec0d0c932e950de1bdd455}{register\+\_\+opcode\+\_\+parser\+\_\+function} (\hyperlink{packet_8h_a78c1d5d4faa906b018c7d6d7a1a195b8}{opcode\+\_\+parser\+\_\+fn\+\_\+t} t, \hyperlink{packet_8h_a588e6b56097e045c733b60d25c4d45ab}{Op} \hyperlink{packet_8h_a5ce68aceddf17a30aa045fc04914e798}{opcode})
+void \hyperlink{packet_8c_ab762e4a60c0b36106c264624223b8e25}{copy\+\_\+friend\+\_\+to\+\_\+packet} (Friend $\ast$f, Local\+User $\ast$self, \hyperlink{struct_packet}{Packet} $\ast$p)
 \item 
-void \hyperlink{packet_8c_a0bbfbd567f04dc890e1e50b7d78464e6}{ping\+\_\+request\+\_\+parse} (char $\ast$data, uint16\+\_\+t len, uint64\+\_\+t src, uint8\+\_\+t id)
+bool \hyperlink{packet_8c_a881c223187728b9a8fc4adf60efb50c9}{get\+Net\+Info} (\hyperlink{struct_packet}{Packet} $\ast$p, \hyperlink{struct_network}{Network} $\ast$net)
 \item 
-void \hyperlink{packet_8c_a55acb8c4af247f16fc4660c9d52eecb2}{help\+\_\+request\+\_\+parse} (char $\ast$data, uint16\+\_\+t len, uint8\+\_\+t id)
-\item 
-void \hyperlink{packet_8c_a1d55b4d29abc1c037b5e0afcc1df65ba}{help\+\_\+response\+\_\+parse} (char $\ast$data, uint16\+\_\+t len, uint8\+\_\+t id)
-\item 
-void \hyperlink{packet_8c_abd570e90251258969929dc07e0c07bec}{help\+\_\+request\+\_\+anyone\+\_\+parse} (char $\ast$data, uint16\+\_\+t len, uint8\+\_\+t id)
-\item 
-void \hyperlink{packet_8c_a4bc015b25825055561314f0042150384}{help\+\_\+response\+\_\+anyone\+\_\+parse} (char $\ast$data, uint16\+\_\+t len, uint8\+\_\+t id)
-\item 
-void \hyperlink{packet_8c_a21d43ba6452d263918f6663839cd879b}{find\+\_\+hops\+\_\+request\+\_\+parse} (char $\ast$data, uint16\+\_\+t len, uint8\+\_\+t id)
-\item 
-void \hyperlink{packet_8c_a59096913c0dad0f8ade35659a96338d5}{find\+\_\+hops\+\_\+response\+\_\+parse} (char $\ast$data, uint16\+\_\+t len, uint8\+\_\+t id)
-\item 
-void \hyperlink{packet_8c_a24e0dce0fc2c0b4fdc3729d9275973b2}{find\+\_\+neighbors\+\_\+request\+\_\+parse} (char $\ast$data, uint16\+\_\+t len, uint8\+\_\+t id)
-\item 
-void \hyperlink{packet_8c_a0f06bd8baf1ab400be90f493d48d0080}{find\+\_\+neighbors\+\_\+response\+\_\+parse} (char $\ast$data, uint16\+\_\+t len, uint8\+\_\+t id)
-\item 
-void \hyperlink{packet_8c_a10910306490b1a91c973cb687359a808}{friend\+\_\+request\+\_\+parse} (char $\ast$data, uint16\+\_\+t len, uint8\+\_\+t id)
-\item 
-void \hyperlink{packet_8c_a8a24473329f81e4d1439790fac5d4061}{friend\+\_\+response\+\_\+parse} (char $\ast$data, uint16\+\_\+t len, uint8\+\_\+t id)
-\item 
-void \hyperlink{packet_8c_a390fe2fac86b8be220c53cbf52fd5d1a}{unfriend\+\_\+request\+\_\+parse} (char $\ast$data, uint16\+\_\+t len, uint8\+\_\+t id)
+void \hyperlink{packet_8c_a5aa25d6545489fdd01be9fbec8a3cfb5}{send\+\_\+ping\+\_\+request} (Friend $\ast$f)
 \item 
 void \hyperlink{packet_8c_afd4458683fd5410ba43aa1df5890869f}{ping\+\_\+request\+\_\+handler} (\hyperlink{struct_packet}{Packet} $\ast$p)
 \item 
+void \hyperlink{packet_8c_aa92652028759c2dbea41841976d63016}{send\+\_\+help\+\_\+request} (Friend $\ast$f, Local\+User $\ast$self)
+\item 
+void \hyperlink{packet_8c_a89bd4e5d6f2ba1bbe2690041788e1b0b}{send\+\_\+help\+\_\+request\+\_\+ack} (Friend $\ast$f, Local\+User $\ast$self)
+\item 
 void \hyperlink{packet_8c_a10cf0c848add90e0e8e0604754874f5c}{help\+\_\+request\+\_\+handler} (\hyperlink{struct_packet}{Packet} $\ast$p)
 \item 
+void \hyperlink{packet_8c_af1fb14286aee4b3dcc7f9e60359c7703}{send\+\_\+help\+\_\+response} (Friend $\ast$f, Local\+User $\ast$self, bool accept)
+\item 
+void \hyperlink{packet_8c_a352cc385005e7851dfd43c0ded42111a}{send\+\_\+help\+\_\+response\+\_\+ack} (Friend $\ast$f, Local\+User $\ast$self, bool accept)
+\item 
 void \hyperlink{packet_8c_a5bab532cc3c60053b81dd4563907d725}{help\+\_\+response\+\_\+handler} (\hyperlink{struct_packet}{Packet} $\ast$p)
+\item 
+void \hyperlink{packet_8c_a082d006a621515a0b14c5ca3067b6a28}{send\+\_\+help\+\_\+request\+\_\+anyone} (Local\+User $\ast$self)
 \item 
 void \hyperlink{packet_8c_a990ed9b70092b7fe947bd51278ebd43a}{help\+\_\+request\+\_\+anyone\+\_\+handler} (\hyperlink{struct_packet}{Packet} $\ast$p)
 \item 
@@ -59,24 +60,48 @@ void \hyperlink{packet_8c_a9f9556653600fce0819c44b3039eb1f7}{find\+\_\+hops\+\_\
 \item 
 void \hyperlink{packet_8c_a7d708e3e4bffcbc38a5cdd4fa75d5d49}{find\+\_\+hops\+\_\+response\+\_\+handler} (\hyperlink{struct_packet}{Packet} $\ast$p)
 \item 
+void \hyperlink{packet_8c_a7bcf4b10b2565ca007361d8b1bf43afb}{send\+\_\+find\+\_\+neighbors\+\_\+request} ()
+\item 
 void \hyperlink{packet_8c_a0f4c40dcf71a96d4467127f093bdbe1a}{find\+\_\+neighbors\+\_\+request\+\_\+handler} (\hyperlink{struct_packet}{Packet} $\ast$p)
+\item 
+void \hyperlink{packet_8c_a6bab95d04db5015eb7d1978394caf554}{send\+\_\+find\+\_\+neighbors\+\_\+response} (Friend $\ast$f, Local\+User $\ast$self, \hyperlink{haha_utils_8h_a22ca626eb8f0deb847d1fae89476e26d}{ttl} \hyperlink{haha_utils_8h_a22ca626eb8f0deb847d1fae89476e26d}{ttl})
+\item 
+void \hyperlink{packet_8c_a0a0f817c2daf1ba7f9223c44bb9bf86f}{send\+\_\+find\+\_\+neighbors\+\_\+response\+\_\+ack} (Friend $\ast$f, Local\+User $\ast$self)
 \item 
 void \hyperlink{packet_8c_a30f560d459e1e8d2e5a92f7e8861b609}{find\+\_\+neighbors\+\_\+response\+\_\+handler} (\hyperlink{struct_packet}{Packet} $\ast$p)
 \item 
+void \hyperlink{packet_8c_a07a7cc760a99a8c5ff3a056289798842}{send\+\_\+friend\+\_\+request} (Friend $\ast$f, Local\+User $\ast$self)
+\item 
+void \hyperlink{packet_8c_aa2465726c84220d2489bf1f88bfbdbe4}{send\+\_\+friend\+\_\+request\+\_\+ack} (Friend $\ast$f, Local\+User $\ast$self)
+\item 
 void \hyperlink{packet_8c_a754f0581b5ec79d684f2628cb2449848}{friend\+\_\+request\+\_\+handler} (\hyperlink{struct_packet}{Packet} $\ast$p)
 \item 
+void \hyperlink{packet_8c_a80ffe9d47a41b85d6afdb4e7a6478f17}{send\+\_\+friend\+\_\+response} (Friend $\ast$f, Local\+User $\ast$self, bool accept)
+\item 
+void \hyperlink{packet_8c_ae0b16360af42be2f9040837f8fcf0109}{send\+\_\+friend\+\_\+response\+\_\+ack} (Friend $\ast$f, Local\+User $\ast$self, bool accept)
+\item 
 void \hyperlink{packet_8c_a5db9bf5b8892b1fc85a9f71ef46034ef}{friend\+\_\+response\+\_\+handler} (\hyperlink{struct_packet}{Packet} $\ast$p)
+\item 
+void \hyperlink{packet_8c_a9419901491369843ce1cb4a30e707a42}{send\+\_\+unfriend\+\_\+request} (Friend $\ast$f, Local\+User $\ast$self)
+\item 
+void \hyperlink{packet_8c_ac1d03e4498287fc9a5b23c2fdce46581}{send\+\_\+unfriend\+\_\+request\+\_\+ack} (Friend $\ast$f, Local\+User $\ast$self)
 \item 
 void \hyperlink{packet_8c_a9556d59a4c5a7d83ee2fa507ec7441cb}{unfriend\+\_\+request\+\_\+handler} (\hyperlink{struct_packet}{Packet} $\ast$p)
 \end{DoxyCompactItemize}
 
 
 \subsection{Function Documentation}
-\mbox{\Hypertarget{packet_8c_a0a04475199321b7fb18100ecec4b9c74}\label{packet_8c_a0a04475199321b7fb18100ecec4b9c74}} 
+\mbox{\Hypertarget{packet_8c_a2629e003442366a1fb98e86161d84282}\label{packet_8c_a2629e003442366a1fb98e86161d84282}} 
 \index{packet.\+c@{packet.\+c}!app\+\_\+packet\+\_\+handler@{app\+\_\+packet\+\_\+handler}}
 \index{app\+\_\+packet\+\_\+handler@{app\+\_\+packet\+\_\+handler}!packet.\+c@{packet.\+c}}
 \subsubsection{\texorpdfstring{app\+\_\+packet\+\_\+handler()}{app\_packet\_handler()}}
-{\footnotesize\ttfamily void app\+\_\+packet\+\_\+handler (\begin{DoxyParamCaption}\item[{char $\ast$}]{data,  }\item[{uint16\+\_\+t}]{len,  }\item[{uint8\+\_\+t $\ast$}]{src,  }\item[{uint8\+\_\+t}]{id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void app\+\_\+packet\+\_\+handler (\begin{DoxyParamCaption}\item[{\hyperlink{struct_network}{Network} $\ast$}]{info }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{packet_8c_ab762e4a60c0b36106c264624223b8e25}\label{packet_8c_ab762e4a60c0b36106c264624223b8e25}} 
+\index{packet.\+c@{packet.\+c}!copy\+\_\+friend\+\_\+to\+\_\+packet@{copy\+\_\+friend\+\_\+to\+\_\+packet}}
+\index{copy\+\_\+friend\+\_\+to\+\_\+packet@{copy\+\_\+friend\+\_\+to\+\_\+packet}!packet.\+c@{packet.\+c}}
+\subsubsection{\texorpdfstring{copy\+\_\+friend\+\_\+to\+\_\+packet()}{copy\_friend\_to\_packet()}}
+{\footnotesize\ttfamily void copy\+\_\+friend\+\_\+to\+\_\+packet (\begin{DoxyParamCaption}\item[{Friend $\ast$}]{f,  }\item[{Local\+User $\ast$}]{self,  }\item[{\hyperlink{struct_packet}{Packet} $\ast$}]{p }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{packet_8c_a9f9556653600fce0819c44b3039eb1f7}\label{packet_8c_a9f9556653600fce0819c44b3039eb1f7}} 
 \index{packet.\+c@{packet.\+c}!find\+\_\+hops\+\_\+request\+\_\+handler@{find\+\_\+hops\+\_\+request\+\_\+handler}}
@@ -84,23 +109,11 @@ void \hyperlink{packet_8c_a9556d59a4c5a7d83ee2fa507ec7441cb}{unfriend\+\_\+reque
 \subsubsection{\texorpdfstring{find\+\_\+hops\+\_\+request\+\_\+handler()}{find\_hops\_request\_handler()}}
 {\footnotesize\ttfamily void find\+\_\+hops\+\_\+request\+\_\+handler (\begin{DoxyParamCaption}\item[{\hyperlink{struct_packet}{Packet} $\ast$}]{p }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{packet_8c_a21d43ba6452d263918f6663839cd879b}\label{packet_8c_a21d43ba6452d263918f6663839cd879b}} 
-\index{packet.\+c@{packet.\+c}!find\+\_\+hops\+\_\+request\+\_\+parse@{find\+\_\+hops\+\_\+request\+\_\+parse}}
-\index{find\+\_\+hops\+\_\+request\+\_\+parse@{find\+\_\+hops\+\_\+request\+\_\+parse}!packet.\+c@{packet.\+c}}
-\subsubsection{\texorpdfstring{find\+\_\+hops\+\_\+request\+\_\+parse()}{find\_hops\_request\_parse()}}
-{\footnotesize\ttfamily void find\+\_\+hops\+\_\+request\+\_\+parse (\begin{DoxyParamCaption}\item[{char $\ast$}]{data,  }\item[{uint16\+\_\+t}]{len,  }\item[{uint8\+\_\+t}]{id }\end{DoxyParamCaption})}
-
 \mbox{\Hypertarget{packet_8c_a7d708e3e4bffcbc38a5cdd4fa75d5d49}\label{packet_8c_a7d708e3e4bffcbc38a5cdd4fa75d5d49}} 
 \index{packet.\+c@{packet.\+c}!find\+\_\+hops\+\_\+response\+\_\+handler@{find\+\_\+hops\+\_\+response\+\_\+handler}}
 \index{find\+\_\+hops\+\_\+response\+\_\+handler@{find\+\_\+hops\+\_\+response\+\_\+handler}!packet.\+c@{packet.\+c}}
 \subsubsection{\texorpdfstring{find\+\_\+hops\+\_\+response\+\_\+handler()}{find\_hops\_response\_handler()}}
 {\footnotesize\ttfamily void find\+\_\+hops\+\_\+response\+\_\+handler (\begin{DoxyParamCaption}\item[{\hyperlink{struct_packet}{Packet} $\ast$}]{p }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{packet_8c_a59096913c0dad0f8ade35659a96338d5}\label{packet_8c_a59096913c0dad0f8ade35659a96338d5}} 
-\index{packet.\+c@{packet.\+c}!find\+\_\+hops\+\_\+response\+\_\+parse@{find\+\_\+hops\+\_\+response\+\_\+parse}}
-\index{find\+\_\+hops\+\_\+response\+\_\+parse@{find\+\_\+hops\+\_\+response\+\_\+parse}!packet.\+c@{packet.\+c}}
-\subsubsection{\texorpdfstring{find\+\_\+hops\+\_\+response\+\_\+parse()}{find\_hops\_response\_parse()}}
-{\footnotesize\ttfamily void find\+\_\+hops\+\_\+response\+\_\+parse (\begin{DoxyParamCaption}\item[{char $\ast$}]{data,  }\item[{uint16\+\_\+t}]{len,  }\item[{uint8\+\_\+t}]{id }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{packet_8c_a0f4c40dcf71a96d4467127f093bdbe1a}\label{packet_8c_a0f4c40dcf71a96d4467127f093bdbe1a}} 
 \index{packet.\+c@{packet.\+c}!find\+\_\+neighbors\+\_\+request\+\_\+handler@{find\+\_\+neighbors\+\_\+request\+\_\+handler}}
@@ -108,23 +121,11 @@ void \hyperlink{packet_8c_a9556d59a4c5a7d83ee2fa507ec7441cb}{unfriend\+\_\+reque
 \subsubsection{\texorpdfstring{find\+\_\+neighbors\+\_\+request\+\_\+handler()}{find\_neighbors\_request\_handler()}}
 {\footnotesize\ttfamily void find\+\_\+neighbors\+\_\+request\+\_\+handler (\begin{DoxyParamCaption}\item[{\hyperlink{struct_packet}{Packet} $\ast$}]{p }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{packet_8c_a24e0dce0fc2c0b4fdc3729d9275973b2}\label{packet_8c_a24e0dce0fc2c0b4fdc3729d9275973b2}} 
-\index{packet.\+c@{packet.\+c}!find\+\_\+neighbors\+\_\+request\+\_\+parse@{find\+\_\+neighbors\+\_\+request\+\_\+parse}}
-\index{find\+\_\+neighbors\+\_\+request\+\_\+parse@{find\+\_\+neighbors\+\_\+request\+\_\+parse}!packet.\+c@{packet.\+c}}
-\subsubsection{\texorpdfstring{find\+\_\+neighbors\+\_\+request\+\_\+parse()}{find\_neighbors\_request\_parse()}}
-{\footnotesize\ttfamily void find\+\_\+neighbors\+\_\+request\+\_\+parse (\begin{DoxyParamCaption}\item[{char $\ast$}]{data,  }\item[{uint16\+\_\+t}]{len,  }\item[{uint8\+\_\+t}]{id }\end{DoxyParamCaption})}
-
 \mbox{\Hypertarget{packet_8c_a30f560d459e1e8d2e5a92f7e8861b609}\label{packet_8c_a30f560d459e1e8d2e5a92f7e8861b609}} 
 \index{packet.\+c@{packet.\+c}!find\+\_\+neighbors\+\_\+response\+\_\+handler@{find\+\_\+neighbors\+\_\+response\+\_\+handler}}
 \index{find\+\_\+neighbors\+\_\+response\+\_\+handler@{find\+\_\+neighbors\+\_\+response\+\_\+handler}!packet.\+c@{packet.\+c}}
 \subsubsection{\texorpdfstring{find\+\_\+neighbors\+\_\+response\+\_\+handler()}{find\_neighbors\_response\_handler()}}
 {\footnotesize\ttfamily void find\+\_\+neighbors\+\_\+response\+\_\+handler (\begin{DoxyParamCaption}\item[{\hyperlink{struct_packet}{Packet} $\ast$}]{p }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{packet_8c_a0f06bd8baf1ab400be90f493d48d0080}\label{packet_8c_a0f06bd8baf1ab400be90f493d48d0080}} 
-\index{packet.\+c@{packet.\+c}!find\+\_\+neighbors\+\_\+response\+\_\+parse@{find\+\_\+neighbors\+\_\+response\+\_\+parse}}
-\index{find\+\_\+neighbors\+\_\+response\+\_\+parse@{find\+\_\+neighbors\+\_\+response\+\_\+parse}!packet.\+c@{packet.\+c}}
-\subsubsection{\texorpdfstring{find\+\_\+neighbors\+\_\+response\+\_\+parse()}{find\_neighbors\_response\_parse()}}
-{\footnotesize\ttfamily void find\+\_\+neighbors\+\_\+response\+\_\+parse (\begin{DoxyParamCaption}\item[{char $\ast$}]{data,  }\item[{uint16\+\_\+t}]{len,  }\item[{uint8\+\_\+t}]{id }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{packet_8c_a754f0581b5ec79d684f2628cb2449848}\label{packet_8c_a754f0581b5ec79d684f2628cb2449848}} 
 \index{packet.\+c@{packet.\+c}!friend\+\_\+request\+\_\+handler@{friend\+\_\+request\+\_\+handler}}
@@ -132,23 +133,17 @@ void \hyperlink{packet_8c_a9556d59a4c5a7d83ee2fa507ec7441cb}{unfriend\+\_\+reque
 \subsubsection{\texorpdfstring{friend\+\_\+request\+\_\+handler()}{friend\_request\_handler()}}
 {\footnotesize\ttfamily void friend\+\_\+request\+\_\+handler (\begin{DoxyParamCaption}\item[{\hyperlink{struct_packet}{Packet} $\ast$}]{p }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{packet_8c_a10910306490b1a91c973cb687359a808}\label{packet_8c_a10910306490b1a91c973cb687359a808}} 
-\index{packet.\+c@{packet.\+c}!friend\+\_\+request\+\_\+parse@{friend\+\_\+request\+\_\+parse}}
-\index{friend\+\_\+request\+\_\+parse@{friend\+\_\+request\+\_\+parse}!packet.\+c@{packet.\+c}}
-\subsubsection{\texorpdfstring{friend\+\_\+request\+\_\+parse()}{friend\_request\_parse()}}
-{\footnotesize\ttfamily void friend\+\_\+request\+\_\+parse (\begin{DoxyParamCaption}\item[{char $\ast$}]{data,  }\item[{uint16\+\_\+t}]{len,  }\item[{uint8\+\_\+t}]{id }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{packet_8c_a5db9bf5b8892b1fc85a9f71ef46034ef}\label{packet_8c_a5db9bf5b8892b1fc85a9f71ef46034ef}} 
+\hyperlink{struct_message}{Message} user that someone wants to be a friend.\mbox{\Hypertarget{packet_8c_a5db9bf5b8892b1fc85a9f71ef46034ef}\label{packet_8c_a5db9bf5b8892b1fc85a9f71ef46034ef}} 
 \index{packet.\+c@{packet.\+c}!friend\+\_\+response\+\_\+handler@{friend\+\_\+response\+\_\+handler}}
 \index{friend\+\_\+response\+\_\+handler@{friend\+\_\+response\+\_\+handler}!packet.\+c@{packet.\+c}}
 \subsubsection{\texorpdfstring{friend\+\_\+response\+\_\+handler()}{friend\_response\_handler()}}
 {\footnotesize\ttfamily void friend\+\_\+response\+\_\+handler (\begin{DoxyParamCaption}\item[{\hyperlink{struct_packet}{Packet} $\ast$}]{p }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{packet_8c_a8a24473329f81e4d1439790fac5d4061}\label{packet_8c_a8a24473329f81e4d1439790fac5d4061}} 
-\index{packet.\+c@{packet.\+c}!friend\+\_\+response\+\_\+parse@{friend\+\_\+response\+\_\+parse}}
-\index{friend\+\_\+response\+\_\+parse@{friend\+\_\+response\+\_\+parse}!packet.\+c@{packet.\+c}}
-\subsubsection{\texorpdfstring{friend\+\_\+response\+\_\+parse()}{friend\_response\_parse()}}
-{\footnotesize\ttfamily void friend\+\_\+response\+\_\+parse (\begin{DoxyParamCaption}\item[{char $\ast$}]{data,  }\item[{uint16\+\_\+t}]{len,  }\item[{uint8\+\_\+t}]{id }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{packet_8c_a881c223187728b9a8fc4adf60efb50c9}\label{packet_8c_a881c223187728b9a8fc4adf60efb50c9}} 
+\index{packet.\+c@{packet.\+c}!get\+Net\+Info@{get\+Net\+Info}}
+\index{get\+Net\+Info@{get\+Net\+Info}!packet.\+c@{packet.\+c}}
+\subsubsection{\texorpdfstring{get\+Net\+Info()}{getNetInfo()}}
+{\footnotesize\ttfamily bool get\+Net\+Info (\begin{DoxyParamCaption}\item[{\hyperlink{struct_packet}{Packet} $\ast$}]{p,  }\item[{\hyperlink{struct_network}{Network} $\ast$}]{net }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{packet_8c_a990ed9b70092b7fe947bd51278ebd43a}\label{packet_8c_a990ed9b70092b7fe947bd51278ebd43a}} 
 \index{packet.\+c@{packet.\+c}!help\+\_\+request\+\_\+anyone\+\_\+handler@{help\+\_\+request\+\_\+anyone\+\_\+handler}}
@@ -156,23 +151,11 @@ void \hyperlink{packet_8c_a9556d59a4c5a7d83ee2fa507ec7441cb}{unfriend\+\_\+reque
 \subsubsection{\texorpdfstring{help\+\_\+request\+\_\+anyone\+\_\+handler()}{help\_request\_anyone\_handler()}}
 {\footnotesize\ttfamily void help\+\_\+request\+\_\+anyone\+\_\+handler (\begin{DoxyParamCaption}\item[{\hyperlink{struct_packet}{Packet} $\ast$}]{p }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{packet_8c_abd570e90251258969929dc07e0c07bec}\label{packet_8c_abd570e90251258969929dc07e0c07bec}} 
-\index{packet.\+c@{packet.\+c}!help\+\_\+request\+\_\+anyone\+\_\+parse@{help\+\_\+request\+\_\+anyone\+\_\+parse}}
-\index{help\+\_\+request\+\_\+anyone\+\_\+parse@{help\+\_\+request\+\_\+anyone\+\_\+parse}!packet.\+c@{packet.\+c}}
-\subsubsection{\texorpdfstring{help\+\_\+request\+\_\+anyone\+\_\+parse()}{help\_request\_anyone\_parse()}}
-{\footnotesize\ttfamily void help\+\_\+request\+\_\+anyone\+\_\+parse (\begin{DoxyParamCaption}\item[{char $\ast$}]{data,  }\item[{uint16\+\_\+t}]{len,  }\item[{uint8\+\_\+t}]{id }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{packet_8c_a10cf0c848add90e0e8e0604754874f5c}\label{packet_8c_a10cf0c848add90e0e8e0604754874f5c}} 
+Add a corresponding message $\ast$$\ast$ \mbox{\Hypertarget{packet_8c_a10cf0c848add90e0e8e0604754874f5c}\label{packet_8c_a10cf0c848add90e0e8e0604754874f5c}} 
 \index{packet.\+c@{packet.\+c}!help\+\_\+request\+\_\+handler@{help\+\_\+request\+\_\+handler}}
 \index{help\+\_\+request\+\_\+handler@{help\+\_\+request\+\_\+handler}!packet.\+c@{packet.\+c}}
 \subsubsection{\texorpdfstring{help\+\_\+request\+\_\+handler()}{help\_request\_handler()}}
 {\footnotesize\ttfamily void help\+\_\+request\+\_\+handler (\begin{DoxyParamCaption}\item[{\hyperlink{struct_packet}{Packet} $\ast$}]{p }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{packet_8c_a55acb8c4af247f16fc4660c9d52eecb2}\label{packet_8c_a55acb8c4af247f16fc4660c9d52eecb2}} 
-\index{packet.\+c@{packet.\+c}!help\+\_\+request\+\_\+parse@{help\+\_\+request\+\_\+parse}}
-\index{help\+\_\+request\+\_\+parse@{help\+\_\+request\+\_\+parse}!packet.\+c@{packet.\+c}}
-\subsubsection{\texorpdfstring{help\+\_\+request\+\_\+parse()}{help\_request\_parse()}}
-{\footnotesize\ttfamily void help\+\_\+request\+\_\+parse (\begin{DoxyParamCaption}\item[{char $\ast$}]{data,  }\item[{uint16\+\_\+t}]{len,  }\item[{uint8\+\_\+t}]{id }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{packet_8c_a2378ed65b081f0894fc4f4a77227bdd4}\label{packet_8c_a2378ed65b081f0894fc4f4a77227bdd4}} 
 \index{packet.\+c@{packet.\+c}!help\+\_\+response\+\_\+anyone\+\_\+handler@{help\+\_\+response\+\_\+anyone\+\_\+handler}}
@@ -180,23 +163,11 @@ void \hyperlink{packet_8c_a9556d59a4c5a7d83ee2fa507ec7441cb}{unfriend\+\_\+reque
 \subsubsection{\texorpdfstring{help\+\_\+response\+\_\+anyone\+\_\+handler()}{help\_response\_anyone\_handler()}}
 {\footnotesize\ttfamily void help\+\_\+response\+\_\+anyone\+\_\+handler (\begin{DoxyParamCaption}\item[{\hyperlink{struct_packet}{Packet} $\ast$}]{p }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{packet_8c_a4bc015b25825055561314f0042150384}\label{packet_8c_a4bc015b25825055561314f0042150384}} 
-\index{packet.\+c@{packet.\+c}!help\+\_\+response\+\_\+anyone\+\_\+parse@{help\+\_\+response\+\_\+anyone\+\_\+parse}}
-\index{help\+\_\+response\+\_\+anyone\+\_\+parse@{help\+\_\+response\+\_\+anyone\+\_\+parse}!packet.\+c@{packet.\+c}}
-\subsubsection{\texorpdfstring{help\+\_\+response\+\_\+anyone\+\_\+parse()}{help\_response\_anyone\_parse()}}
-{\footnotesize\ttfamily void help\+\_\+response\+\_\+anyone\+\_\+parse (\begin{DoxyParamCaption}\item[{char $\ast$}]{data,  }\item[{uint16\+\_\+t}]{len,  }\item[{uint8\+\_\+t}]{id }\end{DoxyParamCaption})}
-
 \mbox{\Hypertarget{packet_8c_a5bab532cc3c60053b81dd4563907d725}\label{packet_8c_a5bab532cc3c60053b81dd4563907d725}} 
 \index{packet.\+c@{packet.\+c}!help\+\_\+response\+\_\+handler@{help\+\_\+response\+\_\+handler}}
 \index{help\+\_\+response\+\_\+handler@{help\+\_\+response\+\_\+handler}!packet.\+c@{packet.\+c}}
 \subsubsection{\texorpdfstring{help\+\_\+response\+\_\+handler()}{help\_response\_handler()}}
 {\footnotesize\ttfamily void help\+\_\+response\+\_\+handler (\begin{DoxyParamCaption}\item[{\hyperlink{struct_packet}{Packet} $\ast$}]{p }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{packet_8c_a1d55b4d29abc1c037b5e0afcc1df65ba}\label{packet_8c_a1d55b4d29abc1c037b5e0afcc1df65ba}} 
-\index{packet.\+c@{packet.\+c}!help\+\_\+response\+\_\+parse@{help\+\_\+response\+\_\+parse}}
-\index{help\+\_\+response\+\_\+parse@{help\+\_\+response\+\_\+parse}!packet.\+c@{packet.\+c}}
-\subsubsection{\texorpdfstring{help\+\_\+response\+\_\+parse()}{help\_response\_parse()}}
-{\footnotesize\ttfamily void help\+\_\+response\+\_\+parse (\begin{DoxyParamCaption}\item[{char $\ast$}]{data,  }\item[{uint16\+\_\+t}]{len,  }\item[{uint8\+\_\+t}]{id }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{packet_8c_a27804d644d71f9589d59c455d4dc8a01}\label{packet_8c_a27804d644d71f9589d59c455d4dc8a01}} 
 \index{packet.\+c@{packet.\+c}!opcodes\+\_\+init@{opcodes\+\_\+init}}
@@ -210,17 +181,17 @@ void \hyperlink{packet_8c_a9556d59a4c5a7d83ee2fa507ec7441cb}{unfriend\+\_\+reque
 \subsubsection{\texorpdfstring{ping\+\_\+request\+\_\+handler()}{ping\_request\_handler()}}
 {\footnotesize\ttfamily void ping\+\_\+request\+\_\+handler (\begin{DoxyParamCaption}\item[{\hyperlink{struct_packet}{Packet} $\ast$}]{p }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{packet_8c_a0bbfbd567f04dc890e1e50b7d78464e6}\label{packet_8c_a0bbfbd567f04dc890e1e50b7d78464e6}} 
-\index{packet.\+c@{packet.\+c}!ping\+\_\+request\+\_\+parse@{ping\+\_\+request\+\_\+parse}}
-\index{ping\+\_\+request\+\_\+parse@{ping\+\_\+request\+\_\+parse}!packet.\+c@{packet.\+c}}
-\subsubsection{\texorpdfstring{ping\+\_\+request\+\_\+parse()}{ping\_request\_parse()}}
-{\footnotesize\ttfamily void ping\+\_\+request\+\_\+parse (\begin{DoxyParamCaption}\item[{char $\ast$}]{data,  }\item[{uint16\+\_\+t}]{len,  }\item[{uint64\+\_\+t}]{src,  }\item[{uint8\+\_\+t}]{id }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{packet_8c_a0e0fd03121d6f529f535daa0bf6de3aa}\label{packet_8c_a0e0fd03121d6f529f535daa0bf6de3aa}} 
+\index{packet.\+c@{packet.\+c}!print\+Net\+Addr1@{print\+Net\+Addr1}}
+\index{print\+Net\+Addr1@{print\+Net\+Addr1}!packet.\+c@{packet.\+c}}
+\subsubsection{\texorpdfstring{print\+Net\+Addr1()}{printNetAddr1()}}
+{\footnotesize\ttfamily void print\+Net\+Addr1 (\begin{DoxyParamCaption}\item[{\hyperlink{network_8h_a1924fa1e3480e5fb3c72b8ef3e243f57}{netaddr} $\ast$}]{t }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{packet_8c_a5ec5d2a7acb004e014bea80fedd1a117}\label{packet_8c_a5ec5d2a7acb004e014bea80fedd1a117}} 
+\mbox{\Hypertarget{packet_8c_a2b262aa6e4e32e8be961240158e39b8e}\label{packet_8c_a2b262aa6e4e32e8be961240158e39b8e}} 
 \index{packet.\+c@{packet.\+c}!register\+\_\+opcode\+\_\+handler\+\_\+function@{register\+\_\+opcode\+\_\+handler\+\_\+function}}
 \index{register\+\_\+opcode\+\_\+handler\+\_\+function@{register\+\_\+opcode\+\_\+handler\+\_\+function}!packet.\+c@{packet.\+c}}
 \subsubsection{\texorpdfstring{register\+\_\+opcode\+\_\+handler\+\_\+function()}{register\_opcode\_handler\_function()}}
-{\footnotesize\ttfamily void register\+\_\+opcode\+\_\+handler\+\_\+function (\begin{DoxyParamCaption}\item[{\hyperlink{packet_8h_a6159984579dde9f4a9ce474f3d1229db}{opcode\+\_\+handler\+\_\+fn\+\_\+t}}]{t,  }\item[{\hyperlink{packet_8h_a588e6b56097e045c733b60d25c4d45ab}{Op}}]{opcode }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void register\+\_\+opcode\+\_\+handler\+\_\+function (\begin{DoxyParamCaption}\item[{\hyperlink{packet_8h_a9b356014c1c5616c899e95e068f4d918}{opcode\+\_\+handler\+\_\+fn\+\_\+t}}]{t,  }\item[{\hyperlink{packet_8h_a99a30df0f2488360cdd46b4b88e5f5f0}{op}}]{opcode }\end{DoxyParamCaption})}
 
 
 
@@ -231,21 +202,99 @@ void \hyperlink{packet_8c_a9556d59a4c5a7d83ee2fa507ec7441cb}{unfriend\+\_\+reque
 \mbox{\tt in}  & {\em t} & \{ Function to call for opcode \} \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{packet_8c_afa71fa2cbfec0d0c932e950de1bdd455}\label{packet_8c_afa71fa2cbfec0d0c932e950de1bdd455}} 
-\index{packet.\+c@{packet.\+c}!register\+\_\+opcode\+\_\+parser\+\_\+function@{register\+\_\+opcode\+\_\+parser\+\_\+function}}
-\index{register\+\_\+opcode\+\_\+parser\+\_\+function@{register\+\_\+opcode\+\_\+parser\+\_\+function}!packet.\+c@{packet.\+c}}
-\subsubsection{\texorpdfstring{register\+\_\+opcode\+\_\+parser\+\_\+function()}{register\_opcode\_parser\_function()}}
-{\footnotesize\ttfamily void register\+\_\+opcode\+\_\+parser\+\_\+function (\begin{DoxyParamCaption}\item[{\hyperlink{packet_8h_a78c1d5d4faa906b018c7d6d7a1a195b8}{opcode\+\_\+parser\+\_\+fn\+\_\+t}}]{t,  }\item[{\hyperlink{packet_8h_a588e6b56097e045c733b60d25c4d45ab}{Op}}]{opcode }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{packet_8c_a7bcf4b10b2565ca007361d8b1bf43afb}\label{packet_8c_a7bcf4b10b2565ca007361d8b1bf43afb}} 
+\index{packet.\+c@{packet.\+c}!send\+\_\+find\+\_\+neighbors\+\_\+request@{send\+\_\+find\+\_\+neighbors\+\_\+request}}
+\index{send\+\_\+find\+\_\+neighbors\+\_\+request@{send\+\_\+find\+\_\+neighbors\+\_\+request}!packet.\+c@{packet.\+c}}
+\subsubsection{\texorpdfstring{send\+\_\+find\+\_\+neighbors\+\_\+request()}{send\_find\_neighbors\_request()}}
+{\footnotesize\ttfamily void send\+\_\+find\+\_\+neighbors\+\_\+request (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{packet_8c_a6bab95d04db5015eb7d1978394caf554}\label{packet_8c_a6bab95d04db5015eb7d1978394caf554}} 
+\index{packet.\+c@{packet.\+c}!send\+\_\+find\+\_\+neighbors\+\_\+response@{send\+\_\+find\+\_\+neighbors\+\_\+response}}
+\index{send\+\_\+find\+\_\+neighbors\+\_\+response@{send\+\_\+find\+\_\+neighbors\+\_\+response}!packet.\+c@{packet.\+c}}
+\subsubsection{\texorpdfstring{send\+\_\+find\+\_\+neighbors\+\_\+response()}{send\_find\_neighbors\_response()}}
+{\footnotesize\ttfamily void send\+\_\+find\+\_\+neighbors\+\_\+response (\begin{DoxyParamCaption}\item[{Friend $\ast$}]{f,  }\item[{Local\+User $\ast$}]{self,  }\item[{\hyperlink{haha_utils_8h_a22ca626eb8f0deb847d1fae89476e26d}{ttl}}]{ttl }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{packet_8c_a0a0f817c2daf1ba7f9223c44bb9bf86f}\label{packet_8c_a0a0f817c2daf1ba7f9223c44bb9bf86f}} 
+\index{packet.\+c@{packet.\+c}!send\+\_\+find\+\_\+neighbors\+\_\+response\+\_\+ack@{send\+\_\+find\+\_\+neighbors\+\_\+response\+\_\+ack}}
+\index{send\+\_\+find\+\_\+neighbors\+\_\+response\+\_\+ack@{send\+\_\+find\+\_\+neighbors\+\_\+response\+\_\+ack}!packet.\+c@{packet.\+c}}
+\subsubsection{\texorpdfstring{send\+\_\+find\+\_\+neighbors\+\_\+response\+\_\+ack()}{send\_find\_neighbors\_response\_ack()}}
+{\footnotesize\ttfamily void send\+\_\+find\+\_\+neighbors\+\_\+response\+\_\+ack (\begin{DoxyParamCaption}\item[{Friend $\ast$}]{f,  }\item[{Local\+User $\ast$}]{self }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{packet_8c_a07a7cc760a99a8c5ff3a056289798842}\label{packet_8c_a07a7cc760a99a8c5ff3a056289798842}} 
+\index{packet.\+c@{packet.\+c}!send\+\_\+friend\+\_\+request@{send\+\_\+friend\+\_\+request}}
+\index{send\+\_\+friend\+\_\+request@{send\+\_\+friend\+\_\+request}!packet.\+c@{packet.\+c}}
+\subsubsection{\texorpdfstring{send\+\_\+friend\+\_\+request()}{send\_friend\_request()}}
+{\footnotesize\ttfamily void send\+\_\+friend\+\_\+request (\begin{DoxyParamCaption}\item[{Friend $\ast$}]{f,  }\item[{Local\+User $\ast$}]{self }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{packet_8c_aa2465726c84220d2489bf1f88bfbdbe4}\label{packet_8c_aa2465726c84220d2489bf1f88bfbdbe4}} 
+\index{packet.\+c@{packet.\+c}!send\+\_\+friend\+\_\+request\+\_\+ack@{send\+\_\+friend\+\_\+request\+\_\+ack}}
+\index{send\+\_\+friend\+\_\+request\+\_\+ack@{send\+\_\+friend\+\_\+request\+\_\+ack}!packet.\+c@{packet.\+c}}
+\subsubsection{\texorpdfstring{send\+\_\+friend\+\_\+request\+\_\+ack()}{send\_friend\_request\_ack()}}
+{\footnotesize\ttfamily void send\+\_\+friend\+\_\+request\+\_\+ack (\begin{DoxyParamCaption}\item[{Friend $\ast$}]{f,  }\item[{Local\+User $\ast$}]{self }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{packet_8c_a80ffe9d47a41b85d6afdb4e7a6478f17}\label{packet_8c_a80ffe9d47a41b85d6afdb4e7a6478f17}} 
+\index{packet.\+c@{packet.\+c}!send\+\_\+friend\+\_\+response@{send\+\_\+friend\+\_\+response}}
+\index{send\+\_\+friend\+\_\+response@{send\+\_\+friend\+\_\+response}!packet.\+c@{packet.\+c}}
+\subsubsection{\texorpdfstring{send\+\_\+friend\+\_\+response()}{send\_friend\_response()}}
+{\footnotesize\ttfamily void send\+\_\+friend\+\_\+response (\begin{DoxyParamCaption}\item[{Friend $\ast$}]{f,  }\item[{Local\+User $\ast$}]{self,  }\item[{bool}]{accept }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{packet_8c_ae0b16360af42be2f9040837f8fcf0109}\label{packet_8c_ae0b16360af42be2f9040837f8fcf0109}} 
+\index{packet.\+c@{packet.\+c}!send\+\_\+friend\+\_\+response\+\_\+ack@{send\+\_\+friend\+\_\+response\+\_\+ack}}
+\index{send\+\_\+friend\+\_\+response\+\_\+ack@{send\+\_\+friend\+\_\+response\+\_\+ack}!packet.\+c@{packet.\+c}}
+\subsubsection{\texorpdfstring{send\+\_\+friend\+\_\+response\+\_\+ack()}{send\_friend\_response\_ack()}}
+{\footnotesize\ttfamily void send\+\_\+friend\+\_\+response\+\_\+ack (\begin{DoxyParamCaption}\item[{Friend $\ast$}]{f,  }\item[{Local\+User $\ast$}]{self,  }\item[{bool}]{accept }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{packet_8c_aa92652028759c2dbea41841976d63016}\label{packet_8c_aa92652028759c2dbea41841976d63016}} 
+\index{packet.\+c@{packet.\+c}!send\+\_\+help\+\_\+request@{send\+\_\+help\+\_\+request}}
+\index{send\+\_\+help\+\_\+request@{send\+\_\+help\+\_\+request}!packet.\+c@{packet.\+c}}
+\subsubsection{\texorpdfstring{send\+\_\+help\+\_\+request()}{send\_help\_request()}}
+{\footnotesize\ttfamily void send\+\_\+help\+\_\+request (\begin{DoxyParamCaption}\item[{Friend $\ast$}]{f,  }\item[{Local\+User $\ast$}]{self }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{packet_8c_a89bd4e5d6f2ba1bbe2690041788e1b0b}\label{packet_8c_a89bd4e5d6f2ba1bbe2690041788e1b0b}} 
+\index{packet.\+c@{packet.\+c}!send\+\_\+help\+\_\+request\+\_\+ack@{send\+\_\+help\+\_\+request\+\_\+ack}}
+\index{send\+\_\+help\+\_\+request\+\_\+ack@{send\+\_\+help\+\_\+request\+\_\+ack}!packet.\+c@{packet.\+c}}
+\subsubsection{\texorpdfstring{send\+\_\+help\+\_\+request\+\_\+ack()}{send\_help\_request\_ack()}}
+{\footnotesize\ttfamily void send\+\_\+help\+\_\+request\+\_\+ack (\begin{DoxyParamCaption}\item[{Friend $\ast$}]{f,  }\item[{Local\+User $\ast$}]{self }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{packet_8c_a082d006a621515a0b14c5ca3067b6a28}\label{packet_8c_a082d006a621515a0b14c5ca3067b6a28}} 
+\index{packet.\+c@{packet.\+c}!send\+\_\+help\+\_\+request\+\_\+anyone@{send\+\_\+help\+\_\+request\+\_\+anyone}}
+\index{send\+\_\+help\+\_\+request\+\_\+anyone@{send\+\_\+help\+\_\+request\+\_\+anyone}!packet.\+c@{packet.\+c}}
+\subsubsection{\texorpdfstring{send\+\_\+help\+\_\+request\+\_\+anyone()}{send\_help\_request\_anyone()}}
+{\footnotesize\ttfamily void send\+\_\+help\+\_\+request\+\_\+anyone (\begin{DoxyParamCaption}\item[{Local\+User $\ast$}]{self }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{packet_8c_af1fb14286aee4b3dcc7f9e60359c7703}\label{packet_8c_af1fb14286aee4b3dcc7f9e60359c7703}} 
+\index{packet.\+c@{packet.\+c}!send\+\_\+help\+\_\+response@{send\+\_\+help\+\_\+response}}
+\index{send\+\_\+help\+\_\+response@{send\+\_\+help\+\_\+response}!packet.\+c@{packet.\+c}}
+\subsubsection{\texorpdfstring{send\+\_\+help\+\_\+response()}{send\_help\_response()}}
+{\footnotesize\ttfamily void send\+\_\+help\+\_\+response (\begin{DoxyParamCaption}\item[{Friend $\ast$}]{f,  }\item[{Local\+User $\ast$}]{self,  }\item[{bool}]{accept }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{packet_8c_a352cc385005e7851dfd43c0ded42111a}\label{packet_8c_a352cc385005e7851dfd43c0ded42111a}} 
+\index{packet.\+c@{packet.\+c}!send\+\_\+help\+\_\+response\+\_\+ack@{send\+\_\+help\+\_\+response\+\_\+ack}}
+\index{send\+\_\+help\+\_\+response\+\_\+ack@{send\+\_\+help\+\_\+response\+\_\+ack}!packet.\+c@{packet.\+c}}
+\subsubsection{\texorpdfstring{send\+\_\+help\+\_\+response\+\_\+ack()}{send\_help\_response\_ack()}}
+{\footnotesize\ttfamily void send\+\_\+help\+\_\+response\+\_\+ack (\begin{DoxyParamCaption}\item[{Friend $\ast$}]{f,  }\item[{Local\+User $\ast$}]{self,  }\item[{bool}]{accept }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{packet_8c_a5aa25d6545489fdd01be9fbec8a3cfb5}\label{packet_8c_a5aa25d6545489fdd01be9fbec8a3cfb5}} 
+\index{packet.\+c@{packet.\+c}!send\+\_\+ping\+\_\+request@{send\+\_\+ping\+\_\+request}}
+\index{send\+\_\+ping\+\_\+request@{send\+\_\+ping\+\_\+request}!packet.\+c@{packet.\+c}}
+\subsubsection{\texorpdfstring{send\+\_\+ping\+\_\+request()}{send\_ping\_request()}}
+{\footnotesize\ttfamily void send\+\_\+ping\+\_\+request (\begin{DoxyParamCaption}\item[{Friend $\ast$}]{f }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{packet_8c_a9419901491369843ce1cb4a30e707a42}\label{packet_8c_a9419901491369843ce1cb4a30e707a42}} 
+\index{packet.\+c@{packet.\+c}!send\+\_\+unfriend\+\_\+request@{send\+\_\+unfriend\+\_\+request}}
+\index{send\+\_\+unfriend\+\_\+request@{send\+\_\+unfriend\+\_\+request}!packet.\+c@{packet.\+c}}
+\subsubsection{\texorpdfstring{send\+\_\+unfriend\+\_\+request()}{send\_unfriend\_request()}}
+{\footnotesize\ttfamily void send\+\_\+unfriend\+\_\+request (\begin{DoxyParamCaption}\item[{Friend $\ast$}]{f,  }\item[{Local\+User $\ast$}]{self }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{packet_8c_ac1d03e4498287fc9a5b23c2fdce46581}\label{packet_8c_ac1d03e4498287fc9a5b23c2fdce46581}} 
+\index{packet.\+c@{packet.\+c}!send\+\_\+unfriend\+\_\+request\+\_\+ack@{send\+\_\+unfriend\+\_\+request\+\_\+ack}}
+\index{send\+\_\+unfriend\+\_\+request\+\_\+ack@{send\+\_\+unfriend\+\_\+request\+\_\+ack}!packet.\+c@{packet.\+c}}
+\subsubsection{\texorpdfstring{send\+\_\+unfriend\+\_\+request\+\_\+ack()}{send\_unfriend\_request\_ack()}}
+{\footnotesize\ttfamily void send\+\_\+unfriend\+\_\+request\+\_\+ack (\begin{DoxyParamCaption}\item[{Friend $\ast$}]{f,  }\item[{Local\+User $\ast$}]{self }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{packet_8c_a9556d59a4c5a7d83ee2fa507ec7441cb}\label{packet_8c_a9556d59a4c5a7d83ee2fa507ec7441cb}} 
 \index{packet.\+c@{packet.\+c}!unfriend\+\_\+request\+\_\+handler@{unfriend\+\_\+request\+\_\+handler}}
 \index{unfriend\+\_\+request\+\_\+handler@{unfriend\+\_\+request\+\_\+handler}!packet.\+c@{packet.\+c}}
 \subsubsection{\texorpdfstring{unfriend\+\_\+request\+\_\+handler()}{unfriend\_request\_handler()}}
 {\footnotesize\ttfamily void unfriend\+\_\+request\+\_\+handler (\begin{DoxyParamCaption}\item[{\hyperlink{struct_packet}{Packet} $\ast$}]{p }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{packet_8c_a390fe2fac86b8be220c53cbf52fd5d1a}\label{packet_8c_a390fe2fac86b8be220c53cbf52fd5d1a}} 
-\index{packet.\+c@{packet.\+c}!unfriend\+\_\+request\+\_\+parse@{unfriend\+\_\+request\+\_\+parse}}
-\index{unfriend\+\_\+request\+\_\+parse@{unfriend\+\_\+request\+\_\+parse}!packet.\+c@{packet.\+c}}
-\subsubsection{\texorpdfstring{unfriend\+\_\+request\+\_\+parse()}{unfriend\_request\_parse()}}
-{\footnotesize\ttfamily void unfriend\+\_\+request\+\_\+parse (\begin{DoxyParamCaption}\item[{char $\ast$}]{data,  }\item[{uint16\+\_\+t}]{len,  }\item[{uint8\+\_\+t}]{id }\end{DoxyParamCaption})}
 

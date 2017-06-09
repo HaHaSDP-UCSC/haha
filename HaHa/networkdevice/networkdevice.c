@@ -43,7 +43,7 @@ void xbee_init(){
     //_rxFrame_clear(&recvBuff[1]);
 }
 
-void xbee_register_callback(xbee_cb_t t, frameResponseType type){
+void netdevice_register_callback(netdevice_cb_t t, frameResponseType type){
     switch (type){
         case FRAME_MODEM_STATUS:
         case FRAME_TX_STATUS:
@@ -131,12 +131,12 @@ uint8_t calc_checksum(char *data, uint16_t len){
 }
 
 /* Exposed send function */
-uint8_t xbee_send(uint64_t dst, char* data, uint8_t datalen){
-    xbee_send_radius(dst, data, datalen, HOPS_NO_MAX);
+uint8_t netdevice_send(uint64_t dst, char* data, uint8_t datalen){
+    netdevice_send_radius(dst, data, datalen, HOPS_NO_MAX);
 }
 
-uint8_t xbee_send_radius(uint64_t dst, char* data, uint8_t datalen, uint8_t radius){
-    HAHADEBUG("In xbee_send\n");
+uint8_t netdevice_send_radius(uint64_t dst, char* data, uint8_t datalen, uint8_t radius){
+    HAHADEBUG("In netdevice_send\n");
     txData.dst[0] = (dst >> 56) & 0xFF;
     txData.dst[1] = (dst >> 48) & 0xFF;
     txData.dst[2] = (dst >> 40) & 0xFF;
@@ -150,12 +150,12 @@ uint8_t xbee_send_radius(uint64_t dst, char* data, uint8_t datalen, uint8_t radi
     _xbee_send(data, datalen, radius);
 }
 
-uint8_t xbee_send_hex(char* dst, char* data, uint8_t datalen)
+uint8_t netdevice_send_hex(char* dst, char* data, uint8_t datalen)
 {
-    xbee_send_hex_radius(dst, data, datalen, HOPS_NO_MAX);
+    netdevice_send_hex_radius(dst, data, datalen, HOPS_NO_MAX);
 }
 
-uint8_t xbee_send_hex_radius(char* dst, char* data, uint8_t datalen, uint8_t radius)
+uint8_t netdevice_send_hex_radius(char* dst, char* data, uint8_t datalen, uint8_t radius)
 {
     HAHADEBUG("In xbee_send_hex\n");
     uint8_t len2 = 0, len = 16;// strlen(dst);
@@ -174,12 +174,12 @@ uint8_t xbee_send_hex_radius(char* dst, char* data, uint8_t datalen, uint8_t rad
     return 0;
 }
 
-uint8_t xbee_send_byte(char* dst, char* data, uint8_t len)
+uint8_t netdevice_send_byte(char* dst, char* data, uint8_t len)
 {
-    xbee_send_byte_radius(dst, data, len, HOPS_NO_MAX);
+    netdevice_send_byte_radius(dst, data, len, HOPS_NO_MAX);
 }
 
-uint8_t xbee_send_byte_radius(char* dst, char* data, uint8_t len, uint8_t radius)
+uint8_t netdevice_send_byte_radius(char* dst, char* data, uint8_t len, uint8_t radius)
 {
     HAHADEBUG("In xbee_send_hex\n");
     //uint8_t len2 = 0, len = 16;// strlen(dst);
@@ -314,8 +314,8 @@ uint8_t xbee_setAPI(uint8_t type){
 //}rxPacketXbee;
 */
 
-uint8_t xbee_recv(char* data, uint8_t len){
-     printf("xbee_recv processing %d->%c bytes:[", len, len);
+uint8_t netdevice_recv(char* data, uint8_t len){
+     printf("netdevice_recv processing %d->%c bytes:[", len, len);
      printBuff(data, len, "%c");
      printf("]\n");
      frameIncoming *incoming = &recvBuff[RXBUFF_CUR];
@@ -372,7 +372,7 @@ uint8_t xbee_recv(char* data, uint8_t len){
                     RXBUFF_CUR = !RXBUFF_CUR;
                     state = 0;
                     HAHADEBUG("Chksum:%c->%c\n",incoming->checksum, data[count-1]);
-                    HAHADEBUG("xbee_recv CurrentBuff:%d[%x]->%d[%x]\n", !RXBUFF_CUR,!RXBUFF_CUR, RXBUFF_CUR,RXBUFF_CUR);
+                    HAHADEBUG("netdevice_recv CurrentBuff:%d[%x]->%d[%x]\n", !RXBUFF_CUR,!RXBUFF_CUR, RXBUFF_CUR,RXBUFF_CUR);
                     #ifdef DEBUG_PRINT
                         _print_FrameIncoming(incoming);
                     #endif

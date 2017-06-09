@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['data',['data',['../structframe_incoming.html#a7540149370e29f6b639bffc0f18b3b07',1,'frameIncoming::data()'],['../structframe_r_x.html#afdb061e4b3b406bf4890e95de2fbf474',1,'frameRX::data()'],['../structframe_t_x.html#a03427b6b3acbd35f51927438a3366cb5',1,'frameTX::data()']]],
+  ['data',['data',['../struct_network.html#af7fa8b4f2478521145ff17044e9915ad',1,'Network::data()'],['../structframe_incoming.html#a7540149370e29f6b639bffc0f18b3b07',1,'frameIncoming::data()'],['../structframe_r_x.html#afdb061e4b3b406bf4890e95de2fbf474',1,'frameRX::data()'],['../structframe_t_x.html#a03427b6b3acbd35f51927438a3366cb5',1,'frameTX::data()']]],
   ['data_5fbits',['data_bits',['../structuart__config.html#a93ee24cf6669fb4cfece78a53d3ec6c5',1,'uart_config']]],
   ['data_5flen',['data_len',['../structframe_t_x.html#ae97c6c32cae2233e9a532f3f18acb87a',1,'frameTX']]],
   ['data_5flength',['data_length',['../structframe_incoming.html#a74bdada5ea5e72403e6d350c7ce100b7',1,'frameIncoming']]],
@@ -10,11 +10,20 @@ var searchData=
   ['debughooks_2epy',['debughooks.py',['../debughooks_8py.html',1,'']]],
   ['debugmes',['DEBUGMES',['../haha_utils_8h.html#ab0bdd8bad8700ee39fe1dc8c408d8ed9',1,'hahaUtils.h']]],
   ['debugoutofram',['debugOutOfRam',['../namespacedebughooks.html#a4453080c049b935096a9399726aaff65',1,'debughooks']]],
-  ['default_5fhandler',['Default_Handler',['../hpl__core__m0__base_8c.html#a4e0c522c1bb26af24accaf20e6b87d12',1,'Default_Handler(void):&#160;hpl_core_m0_base.c'],['../driver__init_8c.html#a4e0c522c1bb26af24accaf20e6b87d12',1,'Default_Handler(void):&#160;hpl_core_m0_base.c']]],
+  ['default_5fhandler',['Default_Handler',['../hpl__core__m0__base_8c.html#a4e0c522c1bb26af24accaf20e6b87d12',1,'hpl_core_m0_base.c']]],
+  ['default_5fttl',['DEFAULT_TTL',['../messagequeue_8h.html#aa9b73542f958f4edfe5ebea8efe0ff8b',1,'messagequeue.h']]],
+  ['defmessagetimeout',['DEFMESSAGETIMEOUT',['../messagequeue_8h.html#a241ec29f758a3880bf497892389f745e',1,'messagequeue.h']]],
   ['delay',['delay',['../haha_utils_8c.html#a7f2dfce1046bdd2a2b753643726c2346',1,'delay(uint32_t ms):&#160;hahaUtils.c'],['../haha_utils_8h.html#a7f2dfce1046bdd2a2b753643726c2346',1,'delay(uint32_t ms):&#160;hahaUtils.c']]],
+  ['deliverystatus',['deliverystatus',['../structframe_t_x_status.html#a15cdc821dba6981011e5543c84691149',1,'frameTXStatus']]],
   ['dest',['dest',['../struct_network.html#afdd665550f4249de0fe44a6873c106d5',1,'Network']]],
-  ['destuid',['DESTUID',['../struct_packet.html#ad4f0e5f73729e408a82f9792c67680d2',1,'Packet::DESTUID()'],['../structset_packet_fields.html#a78f4fb2c908993b9dd61b87ad9ff4a8d',1,'setPacketFields::destuid()']]],
+  ['destuid',['DESTUID',['../struct_packet.html#ad4f0e5f73729e408a82f9792c67680d2',1,'Packet']]],
   ['device',['device',['../structusart__async__descriptor.html#a48ab054cada0897a439c0889ff769bbf',1,'usart_async_descriptor::device()'],['../structusart__sync__descriptor.html#a825cfcdd7f23413952a2a198b8a07ad5',1,'usart_sync_descriptor::device()']]],
+  ['disp_5fb4',['DISP_B4',['../atmel__start__pins_8h.html#a44f3489ff0dcf538b69fcf7762c8097f',1,'atmel_start_pins.h']]],
+  ['disp_5fb5',['DISP_B5',['../atmel__start__pins_8h.html#ac75b06d62758b0a0c773c83c2e38131f',1,'atmel_start_pins.h']]],
+  ['disp_5fb6',['DISP_B6',['../atmel__start__pins_8h.html#ad0f72d5eb7614c9735dc805314fc5b24',1,'atmel_start_pins.h']]],
+  ['disp_5fb7',['DISP_B7',['../atmel__start__pins_8h.html#a82f5a003aca4ae96de0c2fa608f9644a',1,'atmel_start_pins.h']]],
+  ['disp_5fe',['DISP_E',['../atmel__start__pins_8h.html#a9dfa968199de8a8f7e4599ee00fb3f96',1,'atmel_start_pins.h']]],
+  ['disp_5frs',['DISP_RS',['../atmel__start__pins_8h.html#a7c37b1da10431d22e3dc900b135db401',1,'atmel_start_pins.h']]],
   ['doc_5fdriver_5fhal_5fhelper_5fatomic',['Doc_driver_hal_helper_atomic',['../group__doc__driver__hal__helper__atomic.html',1,'']]],
   ['doc_5fdriver_5fhal_5fusart_5fasync',['Doc_driver_hal_usart_async',['../group__doc__driver__hal__usart__async.html',1,'']]],
   ['doc_5fdriver_5fhal_5fusart_5fsync',['Doc_driver_hal_usart_sync',['../group__doc__driver__hal__usart__sync.html',1,'']]],
@@ -26,5 +35,5 @@ var searchData=
   ['driver_5finit_2ec',['driver_init.c',['../driver__init_8c.html',1,'']]],
   ['driver_5finit_2eh',['driver_init.h',['../driver__init_8h.html',1,'']]],
   ['driver_5fversion',['DRIVER_VERSION',['../hal__atomic_8c.html#ae578001fe043b4cca7a0edd801cfe9c4',1,'DRIVER_VERSION():&#160;hal_atomic.c'],['../hal__gpio_8c.html#ae578001fe043b4cca7a0edd801cfe9c4',1,'DRIVER_VERSION():&#160;hal_gpio.c'],['../hal__io_8c.html#ae578001fe043b4cca7a0edd801cfe9c4',1,'DRIVER_VERSION():&#160;hal_io.c'],['../hal__usart__async_8c.html#ae578001fe043b4cca7a0edd801cfe9c4',1,'DRIVER_VERSION():&#160;hal_usart_async.c'],['../hal__usart__sync_8c.html#ae578001fe043b4cca7a0edd801cfe9c4',1,'DRIVER_VERSION():&#160;hal_usart_sync.c']]],
-  ['dst',['dst',['../structframe_t_x.html#ac6af0f89587bfdd91eabbc1664ed0b18',1,'frameTX']]]
+  ['dst',['dst',['../structframe_t_x.html#ac6af0f89587bfdd91eabbc1664ed0b18',1,'frameTX::dst()'],['../structframe_t_x_status.html#ac26df6ebfb20996a2bd97c0fcf92b564',1,'frameTXStatus::dst()']]]
 ];

@@ -1,4 +1,4 @@
 <map id="usart_sync_descriptor" name="usart_sync_descriptor">
-<area shape="rect" id="node2" href="$structio__descriptor.html" title="IO descriptor. " alt="" coords="5,145,101,223"/>
+<area shape="rect" id="node2" href="$structio__descriptor.html" title="I/O descriptor. " alt="" coords="5,145,101,223"/>
 <area shape="rect" id="node3" href="$struct__usart__sync__device.html" title="USART descriptor device structure. " alt="" coords="189,145,325,223"/>
 </map>

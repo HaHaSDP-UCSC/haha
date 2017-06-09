@@ -5,18 +5,16 @@
 X\+Bee \hyperlink{struct_network}{Network} device implementation.  
 
 
-{\ttfamily \#include \char`\"{}network/packet.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}network/network.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
-Include dependency graph for networkdevice.\+h\+:
-\nopagebreak
+Include dependency graph for networkdevice.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=265pt]{networkdevice_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:
-\nopagebreak
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -31,11 +29,13 @@ struct \hyperlink{structframe_incoming}{frame\+Incoming}
 struct \hyperlink{structframe_r_x}{frame\+RX}
 \item 
 struct \hyperlink{structframe_t_x}{frame\+TX}
+\item 
+struct \hyperlink{structframe_t_x_status}{frame\+T\+X\+Status}
 \end{DoxyCompactItemize}
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{networkdevice_8h_a5b237b75e2f90c55a45ad1f4ad83f165}{O\+P\+T\+\_\+\+D\+I\+G\+I\+M\+E\+SH}~0x11000000
+\#define \hyperlink{networkdevice_8h_a5b237b75e2f90c55a45ad1f4ad83f165}{O\+P\+T\+\_\+\+D\+I\+G\+I\+M\+E\+SH}~0x\+C0
 \item 
 \#define \hyperlink{networkdevice_8h_af7cb64fe769d0d673825fb7c59c0148f}{O\+P\+T\+\_\+\+P\+A\+C\+K\+E\+T\+A\+CK}~0x00000001
 \item 
@@ -48,7 +48,7 @@ struct \hyperlink{structframe_t_x}{frame\+TX}
 \subsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-typedef void($\ast$ \hyperlink{networkdevice_8h_ad9c31236eed062640b6135a37fba175a}{xbee\+\_\+cb\+\_\+t}) (char $\ast$data, uint16\+\_\+t len, char $\ast$src, uint8\+\_\+t id)
+typedef void($\ast$ \hyperlink{networkdevice_8h_a277c582bc58d68b7ff8ac21b18eac041}{netdevice\+\_\+cb\+\_\+t}) (\hyperlink{struct_network}{Network} $\ast$info)
 \end{DoxyCompactItemize}
 \subsection*{Enumerations}
 \begin{DoxyCompactItemize}
@@ -90,15 +90,27 @@ uint8\+\_\+t \hyperlink{networkdevice_8h_ab3edf7678352a2730e7db4b261e472f7}{xbee
 \begin{DoxyCompactList}\small\item\em \{ Set X\+Bee to A\+PI Mode \} \end{DoxyCompactList}\item 
 uint8\+\_\+t \hyperlink{networkdevice_8h_ad6952b379ed10e46c55fe16e28bfe4b2}{xbee\+\_\+get\+Own\+Net} ()
 \begin{DoxyCompactList}\small\item\em \{ \hyperlink{struct_network}{Network} address high bytes\} \end{DoxyCompactList}\item 
-uint8\+\_\+t \hyperlink{networkdevice_8h_a6741192ba83fe40d588db7d303465148}{xbee\+\_\+send\+\_\+} (uint64\+\_\+t dst, char $\ast$data, uint8\+\_\+t len)
+uint8\+\_\+t \hyperlink{networkdevice_8h_af4908969c389d5c0b5b82fdbd806f5c7}{netdevice\+\_\+send} (uint64\+\_\+t dst, char $\ast$data, uint8\+\_\+t len)
 \begin{DoxyCompactList}\small\item\em \{ Send a packet to another X\+Bee node \} \end{DoxyCompactList}\item 
-uint8\+\_\+t \hyperlink{networkdevice_8h_ac4de389c192783ef198ead80117dd95a}{xbee\+\_\+send\+\_\+hex} (char $\ast$dst, char $\ast$data, uint8\+\_\+t len)
+uint8\+\_\+t \hyperlink{networkdevice_8h_af988614195ea4ef5c07a7ec9d4f30957}{netdevice\+\_\+send\+\_\+radius} (uint64\+\_\+t dst, char $\ast$data, uint8\+\_\+t len, uint8\+\_\+t radius)
+\item 
+uint8\+\_\+t \hyperlink{networkdevice_8h_aa4ccd03ba59175d21c054f14efde00a4}{netdevice\+\_\+send\+\_\+hex} (char $\ast$dst, char $\ast$data, uint8\+\_\+t len)
 \begin{DoxyCompactList}\small\item\em \{ Send a packet to another X\+Bee node \} \end{DoxyCompactList}\item 
-uint8\+\_\+t \hyperlink{networkdevice_8h_a93c06be36f503ab82dd1d129f525aadd}{xbee\+\_\+recv} (char $\ast$data, uint8\+\_\+t len)
+uint8\+\_\+t \hyperlink{networkdevice_8h_affbb26556b295beae36da0fdea6189aa}{netdevice\+\_\+send\+\_\+hex\+\_\+radius} (char $\ast$dst, char $\ast$data, uint8\+\_\+t len, uint8\+\_\+t radius)
+\item 
+uint8\+\_\+t \hyperlink{networkdevice_8h_ac8c5cb2e4927f28cf96469b15e9e0c3c}{netdevice\+\_\+send\+\_\+byte} (char $\ast$dst, char $\ast$data, uint8\+\_\+t len)
+\item 
+uint8\+\_\+t \hyperlink{networkdevice_8h_ad87ef0e04b1957a4486ecb5f357f85e6}{netdevice\+\_\+send\+\_\+byte\+\_\+radius} (char $\ast$dst, char $\ast$data, uint8\+\_\+t len, uint8\+\_\+t radius)
+\item 
+uint8\+\_\+t \hyperlink{networkdevice_8h_afd83b7cb11dcc38ed0c7c2b763fb2671}{netdevice\+\_\+recv} (char $\ast$data, uint8\+\_\+t len)
 \begin{DoxyCompactList}\small\item\em \{ Receives U\+A\+RT data and parses into frame packets\} \end{DoxyCompactList}\item 
-uint8\+\_\+t \hyperlink{networkdevice_8h_aba4a7346cafadb637b38e2ecb1895a82}{gen\+\_\+checksum} (char $\ast$data)
-\begin{DoxyCompactList}\small\item\em \{ Calculate the X\+Bee checksum \} \end{DoxyCompactList}\item 
-void \hyperlink{networkdevice_8h_ab9f3bc7f7054591e2f08ff60779a8b8b}{xbee\+\_\+register\+\_\+callback} (\hyperlink{networkdevice_8h_ad9c31236eed062640b6135a37fba175a}{xbee\+\_\+cb\+\_\+t} t, \hyperlink{networkdevice_8h_ac11adbe796bddac0eb8ca4f69a33e537}{frame\+Response\+Type} type)
+uint8\+\_\+t \hyperlink{networkdevice_8h_a6c9d23ce71917144b4226949ce693839}{cmd\+\_\+\+A\+T\+\_\+set} (char $\ast$cmd, uint8\+\_\+t $\ast$value, uint8\+\_\+t len)
+\item 
+uint8\+\_\+t \hyperlink{networkdevice_8h_a63cc60d33b59e170e4cba1871937cd8d}{cmd\+\_\+\+A\+T\+\_\+get} (char $\ast$cmd)
+\item 
+uint8\+\_\+t \hyperlink{networkdevice_8h_a442d79fdaf86ffc0f4f872321ceb305b}{calc\+\_\+checksum} (char $\ast$data, uint16\+\_\+t len)
+\item 
+void \hyperlink{networkdevice_8h_a88575cef259498fb9894225b1928bb3c}{netdevice\+\_\+register\+\_\+callback} (\hyperlink{networkdevice_8h_a277c582bc58d68b7ff8ac21b18eac041}{netdevice\+\_\+cb\+\_\+t} t, \hyperlink{networkdevice_8h_ac11adbe796bddac0eb8ca4f69a33e537}{frame\+Response\+Type} type)
 \begin{DoxyCompactList}\small\item\em \{ Register the function to send received payload \} \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -124,7 +136,7 @@ X\+Bee \hyperlink{struct_network}{Network} device implementation.
 \index{networkdevice.\+h@{networkdevice.\+h}!O\+P\+T\+\_\+\+D\+I\+G\+I\+M\+E\+SH@{O\+P\+T\+\_\+\+D\+I\+G\+I\+M\+E\+SH}}
 \index{O\+P\+T\+\_\+\+D\+I\+G\+I\+M\+E\+SH@{O\+P\+T\+\_\+\+D\+I\+G\+I\+M\+E\+SH}!networkdevice.\+h@{networkdevice.\+h}}
 \subsubsection{\texorpdfstring{O\+P\+T\+\_\+\+D\+I\+G\+I\+M\+E\+SH}{OPT\_DIGIMESH}}
-{\footnotesize\ttfamily \#define O\+P\+T\+\_\+\+D\+I\+G\+I\+M\+E\+SH~0x11000000}
+{\footnotesize\ttfamily \#define O\+P\+T\+\_\+\+D\+I\+G\+I\+M\+E\+SH~0x\+C0}
 
 \{ X\+Bee TX frame send type\+: Digi\+Mesh \} \mbox{\Hypertarget{networkdevice_8h_af7cb64fe769d0d673825fb7c59c0148f}\label{networkdevice_8h_af7cb64fe769d0d673825fb7c59c0148f}} 
 \index{networkdevice.\+h@{networkdevice.\+h}!O\+P\+T\+\_\+\+P\+A\+C\+K\+E\+T\+A\+CK@{O\+P\+T\+\_\+\+P\+A\+C\+K\+E\+T\+A\+CK}}
@@ -141,11 +153,11 @@ X\+Bee \hyperlink{struct_network}{Network} device implementation.
 \{ X\+Bee TX frame send type\+: \hyperlink{struct_packet}{Packet} Broadcast \} 
 
 \subsection{Typedef Documentation}
-\mbox{\Hypertarget{networkdevice_8h_ad9c31236eed062640b6135a37fba175a}\label{networkdevice_8h_ad9c31236eed062640b6135a37fba175a}} 
-\index{networkdevice.\+h@{networkdevice.\+h}!xbee\+\_\+cb\+\_\+t@{xbee\+\_\+cb\+\_\+t}}
-\index{xbee\+\_\+cb\+\_\+t@{xbee\+\_\+cb\+\_\+t}!networkdevice.\+h@{networkdevice.\+h}}
-\subsubsection{\texorpdfstring{xbee\+\_\+cb\+\_\+t}{xbee\_cb\_t}}
-{\footnotesize\ttfamily typedef void($\ast$ xbee\+\_\+cb\+\_\+t) (char $\ast$data, uint16\+\_\+t len, char $\ast$src, uint8\+\_\+t id)}
+\mbox{\Hypertarget{networkdevice_8h_a277c582bc58d68b7ff8ac21b18eac041}\label{networkdevice_8h_a277c582bc58d68b7ff8ac21b18eac041}} 
+\index{networkdevice.\+h@{networkdevice.\+h}!netdevice\+\_\+cb\+\_\+t@{netdevice\+\_\+cb\+\_\+t}}
+\index{netdevice\+\_\+cb\+\_\+t@{netdevice\+\_\+cb\+\_\+t}!networkdevice.\+h@{networkdevice.\+h}}
+\subsubsection{\texorpdfstring{netdevice\+\_\+cb\+\_\+t}{netdevice\_cb\_t}}
+{\footnotesize\ttfamily typedef void($\ast$ netdevice\+\_\+cb\+\_\+t) (\hyperlink{struct_network}{Network} $\ast$info)}
 
 \{ Xbee callback function type \} 
 
@@ -229,24 +241,127 @@ F\+R\+A\+M\+E\+\_\+\+R\+E\+M\+O\+T\+E\+\_\+\+R\+E\+SP&\\
 
 
 \subsection{Function Documentation}
-\mbox{\Hypertarget{networkdevice_8h_aba4a7346cafadb637b38e2ecb1895a82}\label{networkdevice_8h_aba4a7346cafadb637b38e2ecb1895a82}} 
-\index{networkdevice.\+h@{networkdevice.\+h}!gen\+\_\+checksum@{gen\+\_\+checksum}}
-\index{gen\+\_\+checksum@{gen\+\_\+checksum}!networkdevice.\+h@{networkdevice.\+h}}
-\subsubsection{\texorpdfstring{gen\+\_\+checksum()}{gen\_checksum()}}
-{\footnotesize\ttfamily uint8\+\_\+t gen\+\_\+checksum (\begin{DoxyParamCaption}\item[{char $\ast$}]{data }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{networkdevice_8h_a442d79fdaf86ffc0f4f872321ceb305b}\label{networkdevice_8h_a442d79fdaf86ffc0f4f872321ceb305b}} 
+\index{networkdevice.\+h@{networkdevice.\+h}!calc\+\_\+checksum@{calc\+\_\+checksum}}
+\index{calc\+\_\+checksum@{calc\+\_\+checksum}!networkdevice.\+h@{networkdevice.\+h}}
+\subsubsection{\texorpdfstring{calc\+\_\+checksum()}{calc\_checksum()}}
+{\footnotesize\ttfamily uint8\+\_\+t calc\+\_\+checksum (\begin{DoxyParamCaption}\item[{char $\ast$}]{data,  }\item[{uint16\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{networkdevice_8h_a63cc60d33b59e170e4cba1871937cd8d}\label{networkdevice_8h_a63cc60d33b59e170e4cba1871937cd8d}} 
+\index{networkdevice.\+h@{networkdevice.\+h}!cmd\+\_\+\+A\+T\+\_\+get@{cmd\+\_\+\+A\+T\+\_\+get}}
+\index{cmd\+\_\+\+A\+T\+\_\+get@{cmd\+\_\+\+A\+T\+\_\+get}!networkdevice.\+h@{networkdevice.\+h}}
+\subsubsection{\texorpdfstring{cmd\+\_\+\+A\+T\+\_\+get()}{cmd\_AT\_get()}}
+{\footnotesize\ttfamily uint8\+\_\+t cmd\+\_\+\+A\+T\+\_\+get (\begin{DoxyParamCaption}\item[{char $\ast$}]{cmd }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{networkdevice_8h_a6c9d23ce71917144b4226949ce693839}\label{networkdevice_8h_a6c9d23ce71917144b4226949ce693839}} 
+\index{networkdevice.\+h@{networkdevice.\+h}!cmd\+\_\+\+A\+T\+\_\+set@{cmd\+\_\+\+A\+T\+\_\+set}}
+\index{cmd\+\_\+\+A\+T\+\_\+set@{cmd\+\_\+\+A\+T\+\_\+set}!networkdevice.\+h@{networkdevice.\+h}}
+\subsubsection{\texorpdfstring{cmd\+\_\+\+A\+T\+\_\+set()}{cmd\_AT\_set()}}
+{\footnotesize\ttfamily uint8\+\_\+t cmd\+\_\+\+A\+T\+\_\+set (\begin{DoxyParamCaption}\item[{char $\ast$}]{cmd,  }\item[{uint8\+\_\+t $\ast$}]{value,  }\item[{uint8\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{networkdevice_8h_afd83b7cb11dcc38ed0c7c2b763fb2671}\label{networkdevice_8h_afd83b7cb11dcc38ed0c7c2b763fb2671}} 
+\index{networkdevice.\+h@{networkdevice.\+h}!netdevice\+\_\+recv@{netdevice\+\_\+recv}}
+\index{netdevice\+\_\+recv@{netdevice\+\_\+recv}!networkdevice.\+h@{networkdevice.\+h}}
+\subsubsection{\texorpdfstring{netdevice\+\_\+recv()}{netdevice\_recv()}}
+{\footnotesize\ttfamily uint8\+\_\+t netdevice\+\_\+recv (\begin{DoxyParamCaption}\item[{char $\ast$}]{data,  }\item[{uint8\+\_\+t}]{len }\end{DoxyParamCaption})}
 
 
 
-\{ Calculate the X\+Bee checksum \} 
+\{ Receives U\+A\+RT data and parses into frame packets\} 
 
 
-\begin{DoxyParams}{Parameters}
-{\em data} & The data\\
+\begin{DoxyParams}[1]{Parameters}
+ & {\em data} & The data \\
+\hline
+\mbox{\tt in}  & {\em len} & The length\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-\{ returns 0 on success \} 
+\{ returns 0 if packet is processed \} 
 \end{DoxyReturn}
+\mbox{\Hypertarget{networkdevice_8h_a88575cef259498fb9894225b1928bb3c}\label{networkdevice_8h_a88575cef259498fb9894225b1928bb3c}} 
+\index{networkdevice.\+h@{networkdevice.\+h}!netdevice\+\_\+register\+\_\+callback@{netdevice\+\_\+register\+\_\+callback}}
+\index{netdevice\+\_\+register\+\_\+callback@{netdevice\+\_\+register\+\_\+callback}!networkdevice.\+h@{networkdevice.\+h}}
+\subsubsection{\texorpdfstring{netdevice\+\_\+register\+\_\+callback()}{netdevice\_register\_callback()}}
+{\footnotesize\ttfamily void netdevice\+\_\+register\+\_\+callback (\begin{DoxyParamCaption}\item[{\hyperlink{networkdevice_8h_a277c582bc58d68b7ff8ac21b18eac041}{netdevice\+\_\+cb\+\_\+t}}]{t,  }\item[{\hyperlink{networkdevice_8h_ac11adbe796bddac0eb8ca4f69a33e537}{frame\+Response\+Type}}]{type }\end{DoxyParamCaption})}
+
+
+
+\{ Register the function to send received payload \} 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em t} & \{ Function to call when app data is received \} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{networkdevice_8h_af4908969c389d5c0b5b82fdbd806f5c7}\label{networkdevice_8h_af4908969c389d5c0b5b82fdbd806f5c7}} 
+\index{networkdevice.\+h@{networkdevice.\+h}!netdevice\+\_\+send@{netdevice\+\_\+send}}
+\index{netdevice\+\_\+send@{netdevice\+\_\+send}!networkdevice.\+h@{networkdevice.\+h}}
+\subsubsection{\texorpdfstring{netdevice\+\_\+send()}{netdevice\_send()}}
+{\footnotesize\ttfamily uint8\+\_\+t netdevice\+\_\+send (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{dst,  }\item[{char $\ast$}]{data,  }\item[{uint8\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+
+
+\{ Send a packet to another X\+Bee node \} 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em dst} & The destination \\
+\hline
+ & {\em data} & The data \\
+\hline
+\mbox{\tt in}  & {\em len} & The length\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{ returns 0 if sucessful \} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{networkdevice_8h_ac8c5cb2e4927f28cf96469b15e9e0c3c}\label{networkdevice_8h_ac8c5cb2e4927f28cf96469b15e9e0c3c}} 
+\index{networkdevice.\+h@{networkdevice.\+h}!netdevice\+\_\+send\+\_\+byte@{netdevice\+\_\+send\+\_\+byte}}
+\index{netdevice\+\_\+send\+\_\+byte@{netdevice\+\_\+send\+\_\+byte}!networkdevice.\+h@{networkdevice.\+h}}
+\subsubsection{\texorpdfstring{netdevice\+\_\+send\+\_\+byte()}{netdevice\_send\_byte()}}
+{\footnotesize\ttfamily uint8\+\_\+t netdevice\+\_\+send\+\_\+byte (\begin{DoxyParamCaption}\item[{char $\ast$}]{dst,  }\item[{char $\ast$}]{data,  }\item[{uint8\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{networkdevice_8h_ad87ef0e04b1957a4486ecb5f357f85e6}\label{networkdevice_8h_ad87ef0e04b1957a4486ecb5f357f85e6}} 
+\index{networkdevice.\+h@{networkdevice.\+h}!netdevice\+\_\+send\+\_\+byte\+\_\+radius@{netdevice\+\_\+send\+\_\+byte\+\_\+radius}}
+\index{netdevice\+\_\+send\+\_\+byte\+\_\+radius@{netdevice\+\_\+send\+\_\+byte\+\_\+radius}!networkdevice.\+h@{networkdevice.\+h}}
+\subsubsection{\texorpdfstring{netdevice\+\_\+send\+\_\+byte\+\_\+radius()}{netdevice\_send\_byte\_radius()}}
+{\footnotesize\ttfamily uint8\+\_\+t netdevice\+\_\+send\+\_\+byte\+\_\+radius (\begin{DoxyParamCaption}\item[{char $\ast$}]{dst,  }\item[{char $\ast$}]{data,  }\item[{uint8\+\_\+t}]{len,  }\item[{uint8\+\_\+t}]{radius }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{networkdevice_8h_aa4ccd03ba59175d21c054f14efde00a4}\label{networkdevice_8h_aa4ccd03ba59175d21c054f14efde00a4}} 
+\index{networkdevice.\+h@{networkdevice.\+h}!netdevice\+\_\+send\+\_\+hex@{netdevice\+\_\+send\+\_\+hex}}
+\index{netdevice\+\_\+send\+\_\+hex@{netdevice\+\_\+send\+\_\+hex}!networkdevice.\+h@{networkdevice.\+h}}
+\subsubsection{\texorpdfstring{netdevice\+\_\+send\+\_\+hex()}{netdevice\_send\_hex()}}
+{\footnotesize\ttfamily uint8\+\_\+t netdevice\+\_\+send\+\_\+hex (\begin{DoxyParamCaption}\item[{char $\ast$}]{dst,  }\item[{char $\ast$}]{data,  }\item[{uint8\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+
+
+\{ Send a packet to another X\+Bee node \} 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em dst} & The destination \\
+\hline
+ & {\em data} & The data \\
+\hline
+\mbox{\tt in}  & {\em len} & The length\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{ returns 0 if sucessful \} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{networkdevice_8h_affbb26556b295beae36da0fdea6189aa}\label{networkdevice_8h_affbb26556b295beae36da0fdea6189aa}} 
+\index{networkdevice.\+h@{networkdevice.\+h}!netdevice\+\_\+send\+\_\+hex\+\_\+radius@{netdevice\+\_\+send\+\_\+hex\+\_\+radius}}
+\index{netdevice\+\_\+send\+\_\+hex\+\_\+radius@{netdevice\+\_\+send\+\_\+hex\+\_\+radius}!networkdevice.\+h@{networkdevice.\+h}}
+\subsubsection{\texorpdfstring{netdevice\+\_\+send\+\_\+hex\+\_\+radius()}{netdevice\_send\_hex\_radius()}}
+{\footnotesize\ttfamily uint8\+\_\+t netdevice\+\_\+send\+\_\+hex\+\_\+radius (\begin{DoxyParamCaption}\item[{char $\ast$}]{dst,  }\item[{char $\ast$}]{data,  }\item[{uint8\+\_\+t}]{len,  }\item[{uint8\+\_\+t}]{radius }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{networkdevice_8h_af988614195ea4ef5c07a7ec9d4f30957}\label{networkdevice_8h_af988614195ea4ef5c07a7ec9d4f30957}} 
+\index{networkdevice.\+h@{networkdevice.\+h}!netdevice\+\_\+send\+\_\+radius@{netdevice\+\_\+send\+\_\+radius}}
+\index{netdevice\+\_\+send\+\_\+radius@{netdevice\+\_\+send\+\_\+radius}!networkdevice.\+h@{networkdevice.\+h}}
+\subsubsection{\texorpdfstring{netdevice\+\_\+send\+\_\+radius()}{netdevice\_send\_radius()}}
+{\footnotesize\ttfamily uint8\+\_\+t netdevice\+\_\+send\+\_\+radius (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{dst,  }\item[{char $\ast$}]{data,  }\item[{uint8\+\_\+t}]{len,  }\item[{uint8\+\_\+t}]{radius }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{networkdevice_8h_a650aef3c3b2711d48e9160fb240cdb8a}\label{networkdevice_8h_a650aef3c3b2711d48e9160fb240cdb8a}} 
 \index{networkdevice.\+h@{networkdevice.\+h}!xbee\+\_\+enter\+Cmd\+Mode@{xbee\+\_\+enter\+Cmd\+Mode}}
 \index{xbee\+\_\+enter\+Cmd\+Mode@{xbee\+\_\+enter\+Cmd\+Mode}!networkdevice.\+h@{networkdevice.\+h}}
@@ -290,85 +405,6 @@ F\+R\+A\+M\+E\+\_\+\+R\+E\+M\+O\+T\+E\+\_\+\+R\+E\+SP&\\
 
 \{ Leave X\+Bee command mode \} 
 
-\mbox{\Hypertarget{networkdevice_8h_a93c06be36f503ab82dd1d129f525aadd}\label{networkdevice_8h_a93c06be36f503ab82dd1d129f525aadd}} 
-\index{networkdevice.\+h@{networkdevice.\+h}!xbee\+\_\+recv@{xbee\+\_\+recv}}
-\index{xbee\+\_\+recv@{xbee\+\_\+recv}!networkdevice.\+h@{networkdevice.\+h}}
-\subsubsection{\texorpdfstring{xbee\+\_\+recv()}{xbee\_recv()}}
-{\footnotesize\ttfamily uint8\+\_\+t xbee\+\_\+recv (\begin{DoxyParamCaption}\item[{char $\ast$}]{data,  }\item[{uint8\+\_\+t}]{len }\end{DoxyParamCaption})}
-
-
-
-\{ Receives U\+A\+RT data and parses into frame packets\} 
-
-
-\begin{DoxyParams}[1]{Parameters}
- & {\em data} & The data \\
-\hline
-\mbox{\tt in}  & {\em len} & The length\\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-\{ returns 0 if packet is processed \} 
-\end{DoxyReturn}
-\mbox{\Hypertarget{networkdevice_8h_ab9f3bc7f7054591e2f08ff60779a8b8b}\label{networkdevice_8h_ab9f3bc7f7054591e2f08ff60779a8b8b}} 
-\index{networkdevice.\+h@{networkdevice.\+h}!xbee\+\_\+register\+\_\+callback@{xbee\+\_\+register\+\_\+callback}}
-\index{xbee\+\_\+register\+\_\+callback@{xbee\+\_\+register\+\_\+callback}!networkdevice.\+h@{networkdevice.\+h}}
-\subsubsection{\texorpdfstring{xbee\+\_\+register\+\_\+callback()}{xbee\_register\_callback()}}
-{\footnotesize\ttfamily void xbee\+\_\+register\+\_\+callback (\begin{DoxyParamCaption}\item[{\hyperlink{networkdevice_8h_ad9c31236eed062640b6135a37fba175a}{xbee\+\_\+cb\+\_\+t}}]{t,  }\item[{\hyperlink{networkdevice_8h_ac11adbe796bddac0eb8ca4f69a33e537}{frame\+Response\+Type}}]{type }\end{DoxyParamCaption})}
-
-
-
-\{ Register the function to send received payload \} 
-
-
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em t} & \{ Function to call when app data is received \} \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{networkdevice_8h_a6741192ba83fe40d588db7d303465148}\label{networkdevice_8h_a6741192ba83fe40d588db7d303465148}} 
-\index{networkdevice.\+h@{networkdevice.\+h}!xbee\+\_\+send\+\_\+@{xbee\+\_\+send\+\_\+}}
-\index{xbee\+\_\+send\+\_\+@{xbee\+\_\+send\+\_\+}!networkdevice.\+h@{networkdevice.\+h}}
-\subsubsection{\texorpdfstring{xbee\+\_\+send\+\_\+()}{xbee\_send\_()}}
-{\footnotesize\ttfamily uint8\+\_\+t xbee\+\_\+send\+\_\+ (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{dst,  }\item[{char $\ast$}]{data,  }\item[{uint8\+\_\+t}]{len }\end{DoxyParamCaption})}
-
-
-
-\{ Send a packet to another X\+Bee node \} 
-
-
-\begin{DoxyParams}[1]{Parameters}
- & {\em dst} & The destination \\
-\hline
- & {\em data} & The data \\
-\hline
-\mbox{\tt in}  & {\em len} & The length\\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-\{ returns 0 if sucessful \} 
-\end{DoxyReturn}
-\mbox{\Hypertarget{networkdevice_8h_ac4de389c192783ef198ead80117dd95a}\label{networkdevice_8h_ac4de389c192783ef198ead80117dd95a}} 
-\index{networkdevice.\+h@{networkdevice.\+h}!xbee\+\_\+send\+\_\+hex@{xbee\+\_\+send\+\_\+hex}}
-\index{xbee\+\_\+send\+\_\+hex@{xbee\+\_\+send\+\_\+hex}!networkdevice.\+h@{networkdevice.\+h}}
-\subsubsection{\texorpdfstring{xbee\+\_\+send\+\_\+hex()}{xbee\_send\_hex()}}
-{\footnotesize\ttfamily uint8\+\_\+t xbee\+\_\+send\+\_\+hex (\begin{DoxyParamCaption}\item[{char $\ast$}]{dst,  }\item[{char $\ast$}]{data,  }\item[{uint8\+\_\+t}]{len }\end{DoxyParamCaption})}
-
-
-
-\{ Send a packet to another X\+Bee node \} 
-
-
-\begin{DoxyParams}[1]{Parameters}
- & {\em dst} & The destination \\
-\hline
- & {\em data} & The data \\
-\hline
-\mbox{\tt in}  & {\em len} & The length\\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-\{ returns 0 if sucessful \} 
-\end{DoxyReturn}
 \mbox{\Hypertarget{networkdevice_8h_ab3edf7678352a2730e7db4b261e472f7}\label{networkdevice_8h_ab3edf7678352a2730e7db4b261e472f7}} 
 \index{networkdevice.\+h@{networkdevice.\+h}!xbee\+\_\+set\+A\+PI@{xbee\+\_\+set\+A\+PI}}
 \index{xbee\+\_\+set\+A\+PI@{xbee\+\_\+set\+A\+PI}!networkdevice.\+h@{networkdevice.\+h}}

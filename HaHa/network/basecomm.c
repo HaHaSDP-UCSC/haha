@@ -58,7 +58,7 @@ bool sendPacketRadius(Packet *p, Network *netdest, uint8_t radius) {
     printd("Sending to:");
     printBuff(netdest->dest, 8, "%c");
     printf("computed data len:%d", datalen);
-    uint8_t sentBytes = xbee_send_byte_radius(netdest->dest, data, datalen, radius);
+    uint8_t sentBytes = netdevice_send_byte_radius(netdest->dest, data, datalen, radius);
     if( sentBytes <=0){
         printe("Error sending packet.\n");
         return false;

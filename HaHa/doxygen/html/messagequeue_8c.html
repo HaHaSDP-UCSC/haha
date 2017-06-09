@@ -63,49 +63,94 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">messagequeue.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="messagequeue_8h_source.html">messagequeue.h</a>&quot;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for messagequeue.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="messagequeue_8c__incl.png" border="0" usemap="#_e_1_2_ha_ha_project_2_atmel_xbee_2_a_t_projects_2_ha_ha_2_ha_ha_2messagequeue_2messagequeue_8c" alt=""/></div>
 <map name="_e_1_2_ha_ha_project_2_atmel_xbee_2_a_t_projects_2_ha_ha_2_ha_ha_2messagequeue_2messagequeue_8c" id="_e_1_2_ha_ha_project_2_atmel_xbee_2_a_t_projects_2_ha_ha_2_ha_ha_2messagequeue_2messagequeue_8c">
-<area shape="rect" id="node2" href="messagequeue_8h.html" title="messagequeue.h" alt="" coords="97,109,218,136"/>
-<area shape="rect" id="node3" href="haha_utils_8h.html" title="stdlib for HAHA project, contains imports and defines " alt="" coords="116,483,231,509"/>
-<area shape="rect" id="node6" href="friendlist_8h.html" title="friend/friendlist.h" alt="" coords="99,184,215,211"/>
-<area shape="rect" id="node10" href="neighborlist_8h.html" title="neighbor/neighborlist.h" alt="" coords="296,259,448,285"/>
-<area shape="rect" id="node7" href="packet_8h.html" title="network/packet.h" alt="" coords="198,333,319,360"/>
-<area shape="rect" id="node9" href="network_8h.html" title="network/network.h" alt="" coords="94,259,221,285"/>
-<area shape="rect" id="node8" href="flags_8h.html" title="flags.h" alt="" coords="237,408,297,435"/>
+<area shape="rect" id="node2" href="messagequeue_8h.html" title="messagequeue.h" alt="" coords="163,109,285,136"/>
+<area shape="rect" id="node3" href="haha_utils_8h.html" title="stdlib for HAHA project, contains imports and defines " alt="" coords="77,408,192,435"/>
+<area shape="rect" id="node8" href="neighborlist_8h.html" title="neighbor/neighborlist.h" alt="" coords="148,184,300,211"/>
+<area shape="rect" id="node6" href="network_8h.html" title="network/network.h" alt="" coords="190,483,317,509"/>
+<area shape="rect" id="node9" href="packet_8h.html" title="network/packet.h" alt="" coords="163,259,285,285"/>
+<area shape="rect" id="node10" href="flags_8h.html" title="flags.h" alt="" coords="105,333,165,360"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ab16338596d257a6f5812ddfec69071ab"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messagequeue_8c.html#ab16338596d257a6f5812ddfec69071ab">generateMessage</a> (<a class="el" href="struct_friend.html">Friend</a> friend, bool permanent, <a class="el" href="struct_message.html">Message</a> *mes)</td></tr>
-<tr class="separator:ab16338596d257a6f5812ddfec69071ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17e8ddcc203c9e51d77950067ad73476"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messagequeue_8c.html#a17e8ddcc203c9e51d77950067ad73476">_compactQueue</a> ()</td></tr>
+<tr class="separator:a17e8ddcc203c9e51d77950067ad73476"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3738bb4b771769a14728e7b56e710691"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messagequeue_8c.html#a3738bb4b771769a14728e7b56e710691">setSettingsByOpcode</a> (<a class="el" href="struct_message.html">Message</a> *mes, <a class="el" href="haha_utils_8h.html#a5ce68aceddf17a30aa045fc04914e798">opcode</a> <a class="el" href="haha_utils_8h.html#a5ce68aceddf17a30aa045fc04914e798">opcode</a>)</td></tr>
+<tr class="separator:a3738bb4b771769a14728e7b56e710691"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcaa88f4a08d1d2eeef30cc27c020c27"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messagequeue_8c.html#adcaa88f4a08d1d2eeef30cc27c020c27">generateFriendMessage</a> (Friend *friend, <a class="el" href="struct_message.html">Message</a> *mes, <a class="el" href="haha_utils_8h.html#a5ce68aceddf17a30aa045fc04914e798">opcode</a> <a class="el" href="packet_8h.html#a99a30df0f2488360cdd46b4b88e5f5f0">op</a>)</td></tr>
+<tr class="memdesc:adcaa88f4a08d1d2eeef30cc27c020c27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a message based on friend parameters.  <a href="#adcaa88f4a08d1d2eeef30cc27c020c27">More...</a><br /></td></tr>
+<tr class="separator:adcaa88f4a08d1d2eeef30cc27c020c27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f97f506165e5a4a2a76682f0042b171"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messagequeue_8c.html#a3f97f506165e5a4a2a76682f0042b171">generateMessage</a> (<a class="el" href="struct_message.html">Message</a> *mes, <a class="el" href="haha_utils_8h.html#a5ce68aceddf17a30aa045fc04914e798">opcode</a> <a class="el" href="packet_8h.html#a99a30df0f2488360cdd46b4b88e5f5f0">op</a>, <a class="el" href="network_8h.html#a1924fa1e3480e5fb3c72b8ef3e243f57">netaddr</a> addr, uint16_t srcuid)</td></tr>
+<tr class="memdesc:a3f97f506165e5a4a2a76682f0042b171"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a normal message to allow into the message queue.  <a href="#a3f97f506165e5a4a2a76682f0042b171">More...</a><br /></td></tr>
+<tr class="separator:a3f97f506165e5a4a2a76682f0042b171"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2fbe18023092eca48ff30ffb1b477363"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messagequeue_8c.html#a2fbe18023092eca48ff30ffb1b477363">initPendingMessages</a> ()</td></tr>
+<tr class="memdesc:a2fbe18023092eca48ff30ffb1b477363"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the message queue with pending friend messages.  <a href="#a2fbe18023092eca48ff30ffb1b477363">More...</a><br /></td></tr>
 <tr class="separator:a2fbe18023092eca48ff30ffb1b477363"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67a1de79c9fc6b8bbaaeb986d519b6ec"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messagequeue_8c.html#a67a1de79c9fc6b8bbaaeb986d519b6ec">initPermanentMessages</a> ()</td></tr>
-<tr class="separator:a67a1de79c9fc6b8bbaaeb986d519b6ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a10da23c3b49d85684fe77cc6cb0c19"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messagequeue_8c.html#a9a10da23c3b49d85684fe77cc6cb0c19">checkPermanentMessages</a> ()</td></tr>
+<tr class="memdesc:a9a10da23c3b49d85684fe77cc6cb0c19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks for permanent messages.  <a href="#a9a10da23c3b49d85684fe77cc6cb0c19">More...</a><br /></td></tr>
+<tr class="separator:a9a10da23c3b49d85684fe77cc6cb0c19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16c87307c6fa91ee8efbcfd2dd78f14e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messagequeue_8c.html#a16c87307c6fa91ee8efbcfd2dd78f14e">initMessageQueue</a> ()</td></tr>
+<tr class="memdesc:a16c87307c6fa91ee8efbcfd2dd78f14e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the message queue.  <a href="#a16c87307c6fa91ee8efbcfd2dd78f14e">More...</a><br /></td></tr>
 <tr class="separator:a16c87307c6fa91ee8efbcfd2dd78f14e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2dbd5929bc3bf587187fb724aec4906"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messagequeue_8c.html#ad2dbd5929bc3bf587187fb724aec4906">addToQueue</a> (<a class="el" href="struct_message.html">Message</a> mes)</td></tr>
-<tr class="separator:ad2dbd5929bc3bf587187fb724aec4906"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba80587693ceebf09034cb8a9eb754b4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messagequeue_8c.html#aba80587693ceebf09034cb8a9eb754b4">removeFromQueue</a> (<a class="el" href="struct_message.html">Message</a> mes)</td></tr>
-<tr class="separator:aba80587693ceebf09034cb8a9eb754b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc46a5a224f5e27a22d773ca574cd3fe"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messagequeue_8c.html#afc46a5a224f5e27a22d773ca574cd3fe">checkQueue</a> (<a class="el" href="struct_message.html">Message</a> mes)</td></tr>
-<tr class="separator:afc46a5a224f5e27a22d773ca574cd3fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30396ad69474e5aa824e35c2c00a575b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messagequeue_8c.html#a30396ad69474e5aa824e35c2c00a575b">addToQueue</a> (<a class="el" href="struct_message.html">Message</a> *mes)</td></tr>
+<tr class="memdesc:a30396ad69474e5aa824e35c2c00a575b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a message to the queue.  <a href="#a30396ad69474e5aa824e35c2c00a575b">More...</a><br /></td></tr>
+<tr class="separator:a30396ad69474e5aa824e35c2c00a575b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a058126838902162b322a5c5f38a28b9f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messagequeue_8c.html#a058126838902162b322a5c5f38a28b9f">removeFromQueue</a> (int queuenumber)</td></tr>
+<tr class="memdesc:a058126838902162b322a5c5f38a28b9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes message from queue.  <a href="#a058126838902162b322a5c5f38a28b9f">More...</a><br /></td></tr>
+<tr class="separator:a058126838902162b322a5c5f38a28b9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62bd058af0a69ab07467610ebd94ee56"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messagequeue_8c.html#a62bd058af0a69ab07467610ebd94ee56">removeFromQueueEvents</a> (<a class="el" href="struct_event.html">Event</a> *e, uint8_t len)</td></tr>
+<tr class="separator:a62bd058af0a69ab07467610ebd94ee56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fbad7f962645128155ff14ef8c850a6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messagequeue_8c.html#a1fbad7f962645128155ff14ef8c850a6">checkQueue</a> (<a class="el" href="haha_utils_8h.html#a5ce68aceddf17a30aa045fc04914e798">opcode</a> <a class="el" href="packet_8h.html#a99a30df0f2488360cdd46b4b88e5f5f0">op</a>, <a class="el" href="flags_8h.html#a261da8bdf9ce262f07bc17c9b2834bb5">flags</a> f, <a class="el" href="struct_network.html">Network</a> *net, <a class="el" href="struct_event.html">Event</a> eventList[])</td></tr>
+<tr class="memdesc:a1fbad7f962645128155ff14ef8c850a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check queue for a certain message.  <a href="#a1fbad7f962645128155ff14ef8c850a6">More...</a><br /></td></tr>
+<tr class="separator:a1fbad7f962645128155ff14ef8c850a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8479d6b0d962af3cd60c4a2506542b93"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messagequeue_8c.html#a8479d6b0d962af3cd60c4a2506542b93">flushOldMessages</a> ()</td></tr>
+<tr class="memdesc:a8479d6b0d962af3cd60c4a2506542b93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks for old messages to be deleted.  <a href="#a8479d6b0d962af3cd60c4a2506542b93">More...</a><br /></td></tr>
 <tr class="separator:a8479d6b0d962af3cd60c4a2506542b93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88569583fc3110b787ec80151d3ef7ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messagequeue_8c.html#a88569583fc3110b787ec80151d3ef7ad">printMessageQueue</a> ()</td></tr>
+<tr class="memdesc:a88569583fc3110b787ec80151d3ef7ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test program to print out entire message queue.  <a href="#a88569583fc3110b787ec80151d3ef7ad">More...</a><br /></td></tr>
+<tr class="separator:a88569583fc3110b787ec80151d3ef7ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:aacd18cab70c945f30acbe7cc49992b90"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messagequeue_8c.html#aacd18cab70c945f30acbe7cc49992b90">m_lastID</a></td></tr>
+<tr class="separator:aacd18cab70c945f30acbe7cc49992b90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23e70257b4725afbbd5ca24f6089b27b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_message.html">Message</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messagequeue_8c.html#a23e70257b4725afbbd5ca24f6089b27b">messageQueue</a> [<a class="el" href="messagequeue_8h.html#a8064615b9f07036146ddba2d78ab43ac">MAXQUEUESIZE</a>]</td></tr>
+<tr class="separator:a23e70257b4725afbbd5ca24f6089b27b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ad2dbd5929bc3bf587187fb724aec4906"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad2dbd5929bc3bf587187fb724aec4906">&#9670;&nbsp;</a></span>addToQueue()</h2>
+<a id="a17e8ddcc203c9e51d77950067ad73476"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17e8ddcc203c9e51d77950067ad73476">&#9670;&nbsp;</a></span>_compactQueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool _compactQueue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a30396ad69474e5aa824e35c2c00a575b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30396ad69474e5aa824e35c2c00a575b">&#9670;&nbsp;</a></span>addToQueue()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -113,30 +158,90 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">bool addToQueue </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_message.html">Message</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_message.html">Message</a> *&#160;</td>
           <td class="paramname"><em>mes</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Adds a message to the queue. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">mes</td><td>The message to be added.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if successful, false otherwise. </dd></dl>
+
 </div>
 </div>
-<a id="afc46a5a224f5e27a22d773ca574cd3fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afc46a5a224f5e27a22d773ca574cd3fe">&#9670;&nbsp;</a></span>checkQueue()</h2>
+<a id="a9a10da23c3b49d85684fe77cc6cb0c19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a10da23c3b49d85684fe77cc6cb0c19">&#9670;&nbsp;</a></span>checkPermanentMessages()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool checkQueue </td>
+          <td class="memname">bool checkPermanentMessages </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_message.html">Message</a>&#160;</td>
-          <td class="paramname"><em>mes</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Checks for permanent messages. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if successful, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a1fbad7f962645128155ff14ef8c850a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fbad7f962645128155ff14ef8c850a6">&#9670;&nbsp;</a></span>checkQueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int checkQueue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="haha_utils_8h.html#a5ce68aceddf17a30aa045fc04914e798">opcode</a>&#160;</td>
+          <td class="paramname"><em>op</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="flags_8h.html#a261da8bdf9ce262f07bc17c9b2834bb5">flags</a>&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_network.html">Network</a> *&#160;</td>
+          <td class="paramname"><em>net</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_event.html">Event</a>&#160;</td>
+          <td class="paramname"><em>eventList</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check queue for a certain message. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">mes</td><td>The message, based on some of the params in the struct.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of opcodes present, or negative if failure. </dd></dl>
 
 </div>
 </div>
@@ -155,31 +260,34 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Checks for old messages to be deleted. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns number of messages removed. Negative if problem occurs. </dd></dl>
+
 </div>
 </div>
-<a id="ab16338596d257a6f5812ddfec69071ab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab16338596d257a6f5812ddfec69071ab">&#9670;&nbsp;</a></span>generateMessage()</h2>
+<a id="adcaa88f4a08d1d2eeef30cc27c020c27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adcaa88f4a08d1d2eeef30cc27c020c27">&#9670;&nbsp;</a></span>generateFriendMessage()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool generateMessage </td>
+          <td class="memname">bool generateFriendMessage </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_friend.html">Friend</a>&#160;</td>
+          <td class="paramtype">Friend *&#160;</td>
           <td class="paramname"><em>friend</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>permanent</em>, </td>
+          <td class="paramtype"><a class="el" href="struct_message.html">Message</a> *&#160;</td>
+          <td class="paramname"><em>mes</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="struct_message.html">Message</a> *&#160;</td>
-          <td class="paramname"><em>mes</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="haha_utils_8h.html#a5ce68aceddf17a30aa045fc04914e798">opcode</a>&#160;</td>
+          <td class="paramname"><em>op</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -188,6 +296,68 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Generates a message based on friend parameters. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">Friend</td><td>Input friend </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">permanent</td><td>The permanent tag to the message. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">mes</td><td>A pointer to the message to be created. Needs to be allocated</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if successful, false otherwise, <a class="el" href="struct_message.html">Message</a> mes. </dd></dl>
+
+</div>
+</div>
+<a id="a3f97f506165e5a4a2a76682f0042b171"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f97f506165e5a4a2a76682f0042b171">&#9670;&nbsp;</a></span>generateMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool generateMessage </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_message.html">Message</a> *&#160;</td>
+          <td class="paramname"><em>mes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="haha_utils_8h.html#a5ce68aceddf17a30aa045fc04914e798">opcode</a>&#160;</td>
+          <td class="paramname"><em>op</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="network_8h.html#a1924fa1e3480e5fb3c72b8ef3e243f57">netaddr</a>&#160;</td>
+          <td class="paramname"><em>addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>srcuid</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generates a normal message to allow into the message queue. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">mes</td><td>A pointer to the message to be created. Needs to be allocated </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">broadcast</td><td>Any address is accepted. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">permanent</td><td>The permanent tag to the message.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if successful, false otherwise, <a class="el" href="struct_message.html">Message</a> mes. </dd></dl>
 
 </div>
 </div>
@@ -206,6 +376,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Initializes the message queue. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if successful, false otherwise. </dd></dl>
+
 </div>
 </div>
 <a id="a2fbe18023092eca48ff30ffb1b477363"></a>
@@ -223,16 +396,19 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Initializes the message queue with pending friend messages. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if successful, false otherwise. </dd></dl>
+
 </div>
 </div>
-<a id="a67a1de79c9fc6b8bbaaeb986d519b6ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67a1de79c9fc6b8bbaaeb986d519b6ec">&#9670;&nbsp;</a></span>initPermanentMessages()</h2>
+<a id="a88569583fc3110b787ec80151d3ef7ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88569583fc3110b787ec80151d3ef7ad">&#9670;&nbsp;</a></span>printMessageQueue()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool initPermanentMessages </td>
+          <td class="memname">void printMessageQueue </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -240,10 +416,12 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Test program to print out entire message queue. </p>
+
 </div>
 </div>
-<a id="aba80587693ceebf09034cb8a9eb754b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aba80587693ceebf09034cb8a9eb754b4">&#9670;&nbsp;</a></span>removeFromQueue()</h2>
+<a id="a058126838902162b322a5c5f38a28b9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a058126838902162b322a5c5f38a28b9f">&#9670;&nbsp;</a></span>removeFromQueue()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -251,9 +429,103 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">bool removeFromQueue </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_message.html">Message</a>&#160;</td>
-          <td class="paramname"><em>mes</em></td><td>)</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>queuenumber</em></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Removes message from queue. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">queuenumber</td><td>The number of the message to be removed.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if successful, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a62bd058af0a69ab07467610ebd94ee56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62bd058af0a69ab07467610ebd94ee56">&#9670;&nbsp;</a></span>removeFromQueueEvents()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool removeFromQueueEvents </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_event.html">Event</a> *&#160;</td>
+          <td class="paramname"><em>e</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3738bb4b771769a14728e7b56e710691"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3738bb4b771769a14728e7b56e710691">&#9670;&nbsp;</a></span>setSettingsByOpcode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool setSettingsByOpcode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_message.html">Message</a> *&#160;</td>
+          <td class="paramname"><em>mes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="haha_utils_8h.html#a5ce68aceddf17a30aa045fc04914e798">opcode</a>&#160;</td>
+          <td class="paramname"><em>opcode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="aacd18cab70c945f30acbe7cc49992b90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacd18cab70c945f30acbe7cc49992b90">&#9670;&nbsp;</a></span>m_lastID</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t m_lastID</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a23e70257b4725afbbd5ca24f6089b27b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23e70257b4725afbbd5ca24f6089b27b">&#9670;&nbsp;</a></span>messageQueue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_message.html">Message</a>* messageQueue[<a class="el" href="messagequeue_8h.html#a8064615b9f07036146ddba2d78ab43ac">MAXQUEUESIZE</a>]</td>
         </tr>
       </table>
 </div><div class="memdoc">

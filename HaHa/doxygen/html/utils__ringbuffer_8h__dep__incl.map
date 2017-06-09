@@ -1,7 +1,7 @@
 <map id="E:/HaHaProject/AtmelXbee/ATProjects/HaHa/HaHa/hal/utils/include/utils_ringbuffer.h" name="E:/HaHaProject/AtmelXbee/ATProjects/HaHa/HaHa/hal/utils/include/utils_ringbuffer.h">
 <area shape="rect" id="node2" href="$hal__usart__async_8h.html" title="USART related functionality declaration. " alt="" coords="135,109,317,165"/>
 <area shape="rect" id="node13" href="$utils__ringbuffer_8c.html" title="Ringbuffer functionality implementation. " alt="" coords="341,109,524,165"/>
-<area shape="rect" id="node3" href="$hal__usart__async_8c.html" title="IO USART related functionality implementation. " alt="" coords="5,213,188,269"/>
+<area shape="rect" id="node3" href="$hal__usart__async_8c.html" title="I/O USART related functionality implementation. " alt="" coords="5,213,188,269"/>
 <area shape="rect" id="node4" href="$uart_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/uart/uart.c" alt="" coords="113,325,339,366"/>
 <area shape="rect" id="node5" href="$driver__init_8h.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/driver_init.h" alt="" coords="264,221,495,262"/>
 <area shape="rect" id="node6" href="$driver__examples_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/examples\l/driver_examples.c" alt="" coords="340,525,563,581"/>

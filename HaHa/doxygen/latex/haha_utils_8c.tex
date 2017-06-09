@@ -10,8 +10,10 @@ stdlib for H\+A\+HA project, contains imports and defines implementation
 {\ttfamily \#include $<$ctype.\+h$>$}\newline
 {\ttfamily \#include $<$stdint.\+h$>$}\newline
 {\ttfamily \#include $<$inttypes.\+h$>$}\newline
-Include dependency graph for haha\+Utils.\+c\+:
-\nopagebreak
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}neighbor/friendlist.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}network/network.\+h\char`\"{}}\newline
+Include dependency graph for haha\+Utils.\+c\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -27,8 +29,12 @@ void \hyperlink{haha_utils_8c_ada9e8340bd19f1dd65b4862295e6b0a3}{print\+Buff} (c
 \begin{DoxyCompactList}\small\item\em \{ Print a buffer to stdout \} \end{DoxyCompactList}\item 
 uint64\+\_\+t \hyperlink{haha_utils_8c_af4ffcf442beeb20b004279ba81a35a1a}{byte\+\_\+array\+\_\+to\+\_\+64} (uint8\+\_\+t $\ast$s)
 \item 
+char $\ast$ \hyperlink{haha_utils_8c_a25ca3055e915be5594006a9165696760}{convert\+\_\+asciihex\+\_\+to\+\_\+byte} (char $\ast$addr)
+\item 
 uint8\+\_\+t \hyperlink{haha_utils_8c_aa74dea5951b0fe8a0afab70b3c83cbb3}{asciihex\+\_\+to\+\_\+byte} (uint8\+\_\+t d1, uint8\+\_\+t d2)
-\begin{DoxyCompactList}\small\item\em \{ Takes two char and converts to Hex \} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em \{ Takes two char and converts to Hex \} \end{DoxyCompactList}\item 
+void \hyperlink{haha_utils_8c_ae48c9be443824b156735ad1497d168c1}{add\+Test\+Users} ()
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -46,6 +52,12 @@ Brian
 
 
 \subsection{Function Documentation}
+\mbox{\Hypertarget{haha_utils_8c_ae48c9be443824b156735ad1497d168c1}\label{haha_utils_8c_ae48c9be443824b156735ad1497d168c1}} 
+\index{haha\+Utils.\+c@{haha\+Utils.\+c}!add\+Test\+Users@{add\+Test\+Users}}
+\index{add\+Test\+Users@{add\+Test\+Users}!haha\+Utils.\+c@{haha\+Utils.\+c}}
+\subsubsection{\texorpdfstring{add\+Test\+Users()}{addTestUsers()}}
+{\footnotesize\ttfamily void add\+Test\+Users (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{haha_utils_8c_aa74dea5951b0fe8a0afab70b3c83cbb3}\label{haha_utils_8c_aa74dea5951b0fe8a0afab70b3c83cbb3}} 
 \index{haha\+Utils.\+c@{haha\+Utils.\+c}!asciihex\+\_\+to\+\_\+byte@{asciihex\+\_\+to\+\_\+byte}}
 \index{asciihex\+\_\+to\+\_\+byte@{asciihex\+\_\+to\+\_\+byte}!haha\+Utils.\+c@{haha\+Utils.\+c}}
@@ -71,6 +83,12 @@ Brian
 \index{byte\+\_\+array\+\_\+to\+\_\+64@{byte\+\_\+array\+\_\+to\+\_\+64}!haha\+Utils.\+c@{haha\+Utils.\+c}}
 \subsubsection{\texorpdfstring{byte\+\_\+array\+\_\+to\+\_\+64()}{byte\_array\_to\_64()}}
 {\footnotesize\ttfamily uint64\+\_\+t byte\+\_\+array\+\_\+to\+\_\+64 (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{s }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{haha_utils_8c_a25ca3055e915be5594006a9165696760}\label{haha_utils_8c_a25ca3055e915be5594006a9165696760}} 
+\index{haha\+Utils.\+c@{haha\+Utils.\+c}!convert\+\_\+asciihex\+\_\+to\+\_\+byte@{convert\+\_\+asciihex\+\_\+to\+\_\+byte}}
+\index{convert\+\_\+asciihex\+\_\+to\+\_\+byte@{convert\+\_\+asciihex\+\_\+to\+\_\+byte}!haha\+Utils.\+c@{haha\+Utils.\+c}}
+\subsubsection{\texorpdfstring{convert\+\_\+asciihex\+\_\+to\+\_\+byte()}{convert\_asciihex\_to\_byte()}}
+{\footnotesize\ttfamily char$\ast$ convert\+\_\+asciihex\+\_\+to\+\_\+byte (\begin{DoxyParamCaption}\item[{char $\ast$}]{addr }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{haha_utils_8c_a7f2dfce1046bdd2a2b753643726c2346}\label{haha_utils_8c_a7f2dfce1046bdd2a2b753643726c2346}} 
 \index{haha\+Utils.\+c@{haha\+Utils.\+c}!delay@{delay}}

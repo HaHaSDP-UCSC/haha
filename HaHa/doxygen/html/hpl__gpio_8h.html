@@ -73,6 +73,7 @@ $(function() {
 <p>Port related functionality declaration.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;<a class="el" href="compiler_8h_source.html">compiler.h</a>&gt;</code><br />
+<code>#include &lt;hpl_gpio_base.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for hpl_gpio.h:</div>
 <div class="dyncontent">
@@ -110,7 +111,6 @@ This graph shows which files directly or indirectly include this file:</div>
 <map name="_e_1_2_ha_ha_project_2_atmel_xbee_2_a_t_projects_2_ha_ha_2_ha_ha_2hal_2include_2hpl__gpio_8hdep" id="_e_1_2_ha_ha_project_2_atmel_xbee_2_a_t_projects_2_ha_ha_2_ha_ha_2hal_2include_2hpl__gpio_8hdep">
 <area shape="rect" id="node2" href="hal__gpio_8h.html" title="Port. " alt="" coords="112,109,295,165"/>
 <area shape="rect" id="node14" href="hpl__init_8c.html" title="HPL initialization related functionality implementation. " alt="" coords="319,109,501,165"/>
-<area shape="rect" id="node15" href="hpl__gpio_8c.html" title="SAM GPIO. " alt="" coords="525,109,708,165"/>
 <area shape="rect" id="node3" href="hal__gpio_8c.html" title="Port. " alt="" coords="5,213,188,269"/>
 <area shape="rect" id="node4" href="atmel__start__pins_8h.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/atmel\l_start_pins.h" alt="" coords="212,213,411,269"/>
 <area shape="rect" id="node5" href="driver__init_8h.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/driver_init.h" alt="" coords="196,317,427,359"/>
@@ -171,24 +171,6 @@ Functions</h2></td></tr>
 <tr class="memitem:ga6e226919d4a3ee84599b55a32597e284"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h_p_l.html#ga6e226919d4a3ee84599b55a32597e284">_gpio_init</a> (void)</td></tr>
 <tr class="memdesc:ga6e226919d4a3ee84599b55a32597e284"><td class="mdescLeft">&#160;</td><td class="mdescRight">Port initialization function.  <a href="group___h_p_l.html#ga6e226919d4a3ee84599b55a32597e284">More...</a><br /></td></tr>
 <tr class="separator:ga6e226919d4a3ee84599b55a32597e284"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad0c9a05c8d3510204e45f6c292e39996"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h_p_l.html#gad0c9a05c8d3510204e45f6c292e39996">_gpio_set_direction</a> (const enum <a class="el" href="group___h_p_l.html#ga6d50d8c4b17ff573c07340d4d7965bc1">gpio_port</a> port, const uint32_t mask, const enum <a class="el" href="group___h_p_l.html#gaccc7d029df9e5a96151a68e64f4be7e2">gpio_direction</a> direction)</td></tr>
-<tr class="memdesc:gad0c9a05c8d3510204e45f6c292e39996"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set direction on port with mask.  <a href="group___h_p_l.html#gad0c9a05c8d3510204e45f6c292e39996">More...</a><br /></td></tr>
-<tr class="separator:gad0c9a05c8d3510204e45f6c292e39996"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6dfca37dc99595ea4b013a931a35ba7f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h_p_l.html#ga6dfca37dc99595ea4b013a931a35ba7f">_gpio_set_level</a> (const enum <a class="el" href="group___h_p_l.html#ga6d50d8c4b17ff573c07340d4d7965bc1">gpio_port</a> port, const uint32_t mask, const bool level)</td></tr>
-<tr class="memdesc:ga6dfca37dc99595ea4b013a931a35ba7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set output level on port with mask.  <a href="group___h_p_l.html#ga6dfca37dc99595ea4b013a931a35ba7f">More...</a><br /></td></tr>
-<tr class="separator:ga6dfca37dc99595ea4b013a931a35ba7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga00df21e108dc46a00f686923d5cd731e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h_p_l.html#ga00df21e108dc46a00f686923d5cd731e">_gpio_toggle_level</a> (const enum <a class="el" href="group___h_p_l.html#ga6d50d8c4b17ff573c07340d4d7965bc1">gpio_port</a> port, const uint32_t mask)</td></tr>
-<tr class="memdesc:ga00df21e108dc46a00f686923d5cd731e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change output level to the opposite with mask.  <a href="group___h_p_l.html#ga00df21e108dc46a00f686923d5cd731e">More...</a><br /></td></tr>
-<tr class="separator:ga00df21e108dc46a00f686923d5cd731e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaaa9499706a1ad34050473faacabc89af"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h_p_l.html#gaaa9499706a1ad34050473faacabc89af">_gpio_get_level</a> (const enum <a class="el" href="group___h_p_l.html#ga6d50d8c4b17ff573c07340d4d7965bc1">gpio_port</a> port)</td></tr>
-<tr class="memdesc:gaaa9499706a1ad34050473faacabc89af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get input levels on all port pins.  <a href="group___h_p_l.html#gaaa9499706a1ad34050473faacabc89af">More...</a><br /></td></tr>
-<tr class="separator:gaaa9499706a1ad34050473faacabc89af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa1ce064a63a47651bbb5a0de9faacc86"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h_p_l.html#gaa1ce064a63a47651bbb5a0de9faacc86">_gpio_set_pin_pull_mode</a> (const enum <a class="el" href="group___h_p_l.html#ga6d50d8c4b17ff573c07340d4d7965bc1">gpio_port</a> port, const uint8_t pin, const enum <a class="el" href="group___h_p_l.html#gab9959d4bcdc5049e5898d5100ada3197">gpio_pull_mode</a> pull_mode)</td></tr>
-<tr class="memdesc:gaa1ce064a63a47651bbb5a0de9faacc86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set pin pull mode.  <a href="group___h_p_l.html#gaa1ce064a63a47651bbb5a0de9faacc86">More...</a><br /></td></tr>
-<tr class="separator:gaa1ce064a63a47651bbb5a0de9faacc86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac04d9d84160742c076ff2c1063655cee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h_p_l.html#gac04d9d84160742c076ff2c1063655cee">_gpio_set_pin_function</a> (const uint32_t gpio, const uint32_t function)</td></tr>
-<tr class="memdesc:gac04d9d84160742c076ff2c1063655cee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set gpio function.  <a href="group___h_p_l.html#gac04d9d84160742c076ff2c1063655cee">More...</a><br /></td></tr>
-<tr class="separator:gac04d9d84160742c076ff2c1063655cee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Port related functionality declaration. </p>

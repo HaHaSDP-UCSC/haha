@@ -64,7 +64,6 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a> &#124;
@@ -75,13 +74,16 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="flags_8h_source.html">flags.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="haha_utils_8h_source.html">utils/hahaUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="network_8h_source.html">network.h</a>&quot;</code><br />
+<code>#include &quot;neighbor/friendlist.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for packet.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="packet_8h__incl.png" border="0" usemap="#_e_1_2_ha_ha_project_2_atmel_xbee_2_a_t_projects_2_ha_ha_2_ha_ha_2network_2packet_8h" alt=""/></div>
 <map name="_e_1_2_ha_ha_project_2_atmel_xbee_2_a_t_projects_2_ha_ha_2_ha_ha_2network_2packet_8h" id="_e_1_2_ha_ha_project_2_atmel_xbee_2_a_t_projects_2_ha_ha_2_ha_ha_2network_2packet_8h">
-<area shape="rect" id="node2" href="flags_8h.html" title="flags.h" alt="" coords="47,109,107,136"/>
-<area shape="rect" id="node3" href="haha_utils_8h.html" title="stdlib for HAHA project, contains imports and defines " alt="" coords="53,184,168,211"/>
+<area shape="rect" id="node2" href="flags_8h.html" title="flags.h" alt="" coords="105,109,165,136"/>
+<area shape="rect" id="node3" href="haha_utils_8h.html" title="stdlib for HAHA project, contains imports and defines " alt="" coords="89,184,204,211"/>
+<area shape="rect" id="node6" href="network_8h.html" title="network/network.h" alt="" coords="190,259,317,285"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -89,21 +91,12 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="packet_8h__dep__incl.png" border="0" usemap="#_e_1_2_ha_ha_project_2_atmel_xbee_2_a_t_projects_2_ha_ha_2_ha_ha_2network_2packet_8hdep" alt=""/></div>
 <map name="_e_1_2_ha_ha_project_2_atmel_xbee_2_a_t_projects_2_ha_ha_2_ha_ha_2network_2packet_8hdep" id="_e_1_2_ha_ha_project_2_atmel_xbee_2_a_t_projects_2_ha_ha_2_ha_ha_2network_2packet_8hdep">
-<area shape="rect" id="node2" href="friendlist_8h.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/friend\l/friendlist.h" alt="" coords="347,213,545,269"/>
-<area shape="rect" id="node6" href="basecomm_8h.html" title="Base communication. " alt="" coords="1033,213,1288,269"/>
-<area shape="rect" id="node8" href="neighborlist_8h.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/neighbor\l/neighborlist.h" alt="" coords="108,109,323,165"/>
-<area shape="rect" id="node10" href="network_8h.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/network\l/network.h" alt="" coords="801,109,1011,165"/>
-<area shape="rect" id="node11" href="network_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/network\l/network.c" alt="" coords="1562,213,1773,269"/>
-<area shape="rect" id="node12" href="packet_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/network\l/packet.c" alt="" coords="569,213,779,269"/>
-<area shape="rect" id="node14" href="networkdevice_8h.html" title="XBee Network device implementation. " alt="" coords="1221,109,1468,165"/>
-<area shape="rect" id="node3" href="friendlist_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/friend\l/friendlist.c" alt="" coords="347,317,545,373"/>
-<area shape="rect" id="node4" href="messagequeue_8h.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/messagequeue\l/messagequeue.h" alt="" coords="5,317,260,373"/>
-<area shape="rect" id="node5" href="messagequeue_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/messagequeue\l/messagequeue.c" alt="" coords="5,421,260,477"/>
-<area shape="rect" id="node7" href="basecomm_8c.html" title="Application layer packet creation and parsing. " alt="" coords="1033,317,1288,373"/>
-<area shape="rect" id="node9" href="neighborlist_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/neighbor\l/neighborlist.c" alt="" coords="108,213,323,269"/>
-<area shape="rect" id="node13" href="main_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/main.c" alt="" coords="803,221,1009,262"/>
-<area shape="rect" id="node15" href="networkdevice_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/networkdevice\l/networkdevice.c" alt="" coords="1797,213,2044,269"/>
-<area shape="rect" id="node16" href="uart_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/uart/uart.c" alt="" coords="1312,221,1537,262"/>
+<area shape="rect" id="node2" href="neighborlist_8h.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/neighbor\l/neighborlist.h" alt="" coords="495,109,709,165"/>
+<area shape="rect" id="node5" href="packet_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/network\l/packet.c" alt="" coords="557,317,767,373"/>
+<area shape="rect" id="node3" href="messagequeue_8h.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/messagequeue\l/messagequeue.h" alt="" coords="216,213,471,269"/>
+<area shape="rect" id="node7" href="neighborlist_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/neighbor\l/neighborlist.c" alt="" coords="495,213,709,269"/>
+<area shape="rect" id="node4" href="messagequeue_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/messagequeue\l/messagequeue.c" alt="" coords="5,317,260,373"/>
+<area shape="rect" id="node6" href="main_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/main.c" alt="" coords="285,325,490,366"/>
 </map>
 </div>
 </div>
@@ -114,66 +107,39 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_packet.html">Packet</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:ac3dd1c10edba39fc5737be5b96a91d2a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8h.html#ac3dd1c10edba39fc5737be5b96a91d2a">MAXFIRSTNAME</a>&#160;&#160;&#160;17</td></tr>
-<tr class="separator:ac3dd1c10edba39fc5737be5b96a91d2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c5521a06048b7d49bb5d77b631530e7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8h.html#a7c5521a06048b7d49bb5d77b631530e7">MAXLASTNAME</a>&#160;&#160;&#160;17</td></tr>
-<tr class="separator:a7c5521a06048b7d49bb5d77b631530e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f035f148b6abcc902e7711997c031d7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8h.html#a2f035f148b6abcc902e7711997c031d7">MAXPHONE</a>&#160;&#160;&#160;2</td></tr>
-<tr class="separator:a2f035f148b6abcc902e7711997c031d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc141dd006defc06f8e58a57259526f9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8h.html#acc141dd006defc06f8e58a57259526f9">MAXHOMEADDR</a>&#160;&#160;&#160;2</td></tr>
-<tr class="separator:acc141dd006defc06f8e58a57259526f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64e48eb75238bd3d7a053f19071044a8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8h.html#a64e48eb75238bd3d7a053f19071044a8">MAXNETADDR</a>&#160;&#160;&#160;4</td></tr>
-<tr class="separator:a64e48eb75238bd3d7a053f19071044a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5e30d36d01ca3de049aa58f3e37dfc3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8h.html#ad5e30d36d01ca3de049aa58f3e37dfc3">MAXPORT</a>&#160;&#160;&#160;2</td></tr>
-<tr class="separator:ad5e30d36d01ca3de049aa58f3e37dfc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a151df695f2cac50d287b876c85a96841"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8h.html#a151df695f2cac50d287b876c85a96841">START_OPCODE</a>&#160;&#160;&#160;0x01</td></tr>
-<tr class="separator:a151df695f2cac50d287b876c85a96841"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7be7b66f5e5c14463a0f09790fbfbd5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8h.html#aa7be7b66f5e5c14463a0f09790fbfbd5">MAX_OPCODE</a>&#160;&#160;&#160;0x0C</td></tr>
-<tr class="separator:aa7be7b66f5e5c14463a0f09790fbfbd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a5ce68aceddf17a30aa045fc04914e798"><td class="memItemLeft" align="right" valign="top">typedef uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8h.html#a5ce68aceddf17a30aa045fc04914e798">opcode</a></td></tr>
-<tr class="separator:a5ce68aceddf17a30aa045fc04914e798"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22ca626eb8f0deb847d1fae89476e26d"><td class="memItemLeft" align="right" valign="top">typedef uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8h.html#a22ca626eb8f0deb847d1fae89476e26d">ttl</a></td></tr>
-<tr class="separator:a22ca626eb8f0deb847d1fae89476e26d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac065f913fb79988aec421b0f5eebbc77"><td class="memItemLeft" align="right" valign="top">typedef uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8h.html#ac065f913fb79988aec421b0f5eebbc77">uid</a></td></tr>
-<tr class="separator:ac065f913fb79988aec421b0f5eebbc77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6159984579dde9f4a9ce474f3d1229db"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8h.html#a6159984579dde9f4a9ce474f3d1229db">opcode_handler_fn_t</a>) (char *data, uint8_t len)</td></tr>
-<tr class="separator:a6159984579dde9f4a9ce474f3d1229db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78c1d5d4faa906b018c7d6d7a1a195b8"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8h.html#a78c1d5d4faa906b018c7d6d7a1a195b8">opcode_parser_fn_t</a>) (char *data, uint16_t len, uint64_t src, uint8_t id)</td></tr>
-<tr class="separator:a78c1d5d4faa906b018c7d6d7a1a195b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b356014c1c5616c899e95e068f4d918"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8h.html#a9b356014c1c5616c899e95e068f4d918">opcode_handler_fn_t</a>) (<a class="el" href="struct_packet.html">Packet</a> *p)</td></tr>
+<tr class="separator:a9b356014c1c5616c899e95e068f4d918"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a588e6b56097e045c733b60d25c4d45ab"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8h.html#a588e6b56097e045c733b60d25c4d45ab">Op</a> { <br />
-&#160;&#160;<a class="el" href="packet_8h.html#a588e6b56097e045c733b60d25c4d45abaa601cb89d53ca73b00553088042434c1">PING_REQUEST</a> = START_OPCODE, 
-<a class="el" href="packet_8h.html#a588e6b56097e045c733b60d25c4d45abaf49eb2fcf22f60c3c2c7acc92fc2da95">HELP_REQUEST</a>, 
-<a class="el" href="packet_8h.html#a588e6b56097e045c733b60d25c4d45aba174ff094aefa9f2820985be30334ae45">HELP_RESPONSE</a>, 
-<a class="el" href="packet_8h.html#a588e6b56097e045c733b60d25c4d45abae292118e47735716549a03e4bab0b90c">HELP_FROM_ANYONE_REQUEST</a>, 
+<tr class="memitem:a99a30df0f2488360cdd46b4b88e5f5f0"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8h.html#a99a30df0f2488360cdd46b4b88e5f5f0">op</a> { <br />
+&#160;&#160;<a class="el" href="packet_8h.html#a99a30df0f2488360cdd46b4b88e5f5f0aa601cb89d53ca73b00553088042434c1">PING_REQUEST</a> = START_OPCODE, 
+<a class="el" href="packet_8h.html#a99a30df0f2488360cdd46b4b88e5f5f0af49eb2fcf22f60c3c2c7acc92fc2da95">HELP_REQUEST</a>, 
+<a class="el" href="packet_8h.html#a99a30df0f2488360cdd46b4b88e5f5f0a174ff094aefa9f2820985be30334ae45">HELP_RESPONSE</a>, 
+<a class="el" href="packet_8h.html#a99a30df0f2488360cdd46b4b88e5f5f0ae292118e47735716549a03e4bab0b90c">HELP_FROM_ANYONE_REQUEST</a>, 
 <br />
-&#160;&#160;<a class="el" href="packet_8h.html#a588e6b56097e045c733b60d25c4d45aba29e0f4916e7f11724687d0e9c747fcf8">HELP_FROM_ANYONE_RESPONSE</a>, 
-<a class="el" href="packet_8h.html#a588e6b56097e045c733b60d25c4d45aba41f97daf58881051ed56680b7679a759">FIND_HOPS_REQUEST</a>, 
-<a class="el" href="packet_8h.html#a588e6b56097e045c733b60d25c4d45abaa0f46a83f8422e93b9d7b0c3b7d5d923">FIND_HOPS_RESPONSE</a>, 
-<a class="el" href="packet_8h.html#a588e6b56097e045c733b60d25c4d45aba0ba71e48a0658faa11ac5a45844f0dad">FIND_NEIGHBORS_REQUEST</a>, 
+&#160;&#160;<a class="el" href="packet_8h.html#a99a30df0f2488360cdd46b4b88e5f5f0a29e0f4916e7f11724687d0e9c747fcf8">HELP_FROM_ANYONE_RESPONSE</a>, 
+<a class="el" href="packet_8h.html#a99a30df0f2488360cdd46b4b88e5f5f0a41f97daf58881051ed56680b7679a759">FIND_HOPS_REQUEST</a>, 
+<a class="el" href="packet_8h.html#a99a30df0f2488360cdd46b4b88e5f5f0aa0f46a83f8422e93b9d7b0c3b7d5d923">FIND_HOPS_RESPONSE</a>, 
+<a class="el" href="packet_8h.html#a99a30df0f2488360cdd46b4b88e5f5f0a0ba71e48a0658faa11ac5a45844f0dad">FIND_NEIGHBORS_REQUEST</a>, 
 <br />
-&#160;&#160;<a class="el" href="packet_8h.html#a588e6b56097e045c733b60d25c4d45abac0148d28d7c48f0085963cd6482b2c18">FIND_NEIGHBORS_RESPONSE</a>, 
-<a class="el" href="packet_8h.html#a588e6b56097e045c733b60d25c4d45abad5f1d5a927fcda6781bbd0c434497351">FRIEND_REQUEST</a>, 
-<a class="el" href="packet_8h.html#a588e6b56097e045c733b60d25c4d45aba736ebb3ba9e706cf080e3aefd175bd3b">FRIEND_RESPONSE</a>, 
-<a class="el" href="packet_8h.html#a588e6b56097e045c733b60d25c4d45aba15fe38198b73b617db3b51d7acae9d3a">UNFRIEND_REQUEST</a>
+&#160;&#160;<a class="el" href="packet_8h.html#a99a30df0f2488360cdd46b4b88e5f5f0ac0148d28d7c48f0085963cd6482b2c18">FIND_NEIGHBORS_RESPONSE</a>, 
+<a class="el" href="packet_8h.html#a99a30df0f2488360cdd46b4b88e5f5f0ad5f1d5a927fcda6781bbd0c434497351">FRIEND_REQUEST</a>, 
+<a class="el" href="packet_8h.html#a99a30df0f2488360cdd46b4b88e5f5f0a736ebb3ba9e706cf080e3aefd175bd3b">FRIEND_RESPONSE</a>, 
+<a class="el" href="packet_8h.html#a99a30df0f2488360cdd46b4b88e5f5f0a15fe38198b73b617db3b51d7acae9d3a">UNFRIEND_REQUEST</a>
 <br />
  }</td></tr>
-<tr class="separator:a588e6b56097e045c733b60d25c4d45ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a99a30df0f2488360cdd46b4b88e5f5f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a3e617bb5f319e0987cf16ca28cd06080"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8h.html#a3e617bb5f319e0987cf16ca28cd06080">app_packet_handler</a> (char *data, uint16_t len, uint64_t src, uint8_t id)</td></tr>
-<tr class="separator:a3e617bb5f319e0987cf16ca28cd06080"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ec5d2a7acb004e014bea80fedd1a117"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8h.html#a5ec5d2a7acb004e014bea80fedd1a117">register_opcode_handler_function</a> (<a class="el" href="packet_8h.html#a6159984579dde9f4a9ce474f3d1229db">opcode_handler_fn_t</a> t, <a class="el" href="packet_8h.html#a588e6b56097e045c733b60d25c4d45ab">Op</a> <a class="el" href="packet_8h.html#a5ce68aceddf17a30aa045fc04914e798">opcode</a>)</td></tr>
-<tr class="memdesc:a5ec5d2a7acb004e014bea80fedd1a117"><td class="mdescLeft">&#160;</td><td class="mdescRight">{ Register opcode functions }  <a href="#a5ec5d2a7acb004e014bea80fedd1a117">More...</a><br /></td></tr>
-<tr class="separator:a5ec5d2a7acb004e014bea80fedd1a117"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2629e003442366a1fb98e86161d84282"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8h.html#a2629e003442366a1fb98e86161d84282">app_packet_handler</a> (<a class="el" href="struct_network.html">Network</a> *info)</td></tr>
+<tr class="separator:a2629e003442366a1fb98e86161d84282"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b262aa6e4e32e8be961240158e39b8e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8h.html#a2b262aa6e4e32e8be961240158e39b8e">register_opcode_handler_function</a> (<a class="el" href="packet_8h.html#a9b356014c1c5616c899e95e068f4d918">opcode_handler_fn_t</a> t, <a class="el" href="packet_8h.html#a99a30df0f2488360cdd46b4b88e5f5f0">op</a> <a class="el" href="haha_utils_8h.html#a5ce68aceddf17a30aa045fc04914e798">opcode</a>)</td></tr>
+<tr class="memdesc:a2b262aa6e4e32e8be961240158e39b8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">{ Register opcode functions }  <a href="#a2b262aa6e4e32e8be961240158e39b8e">More...</a><br /></td></tr>
+<tr class="separator:a2b262aa6e4e32e8be961240158e39b8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27804d644d71f9589d59c455d4dc8a01"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8h.html#a27804d644d71f9589d59c455d4dc8a01">opcodes_init</a> ()</td></tr>
 <tr class="separator:a27804d644d71f9589d59c455d4dc8a01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd4458683fd5410ba43aa1df5890869f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8h.html#afd4458683fd5410ba43aa1df5890869f">ping_request_handler</a> (<a class="el" href="struct_packet.html">Packet</a> *p)</td></tr>
@@ -200,192 +166,27 @@ Functions</h2></td></tr>
 <tr class="separator:a5db9bf5b8892b1fc85a9f71ef46034ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9556d59a4c5a7d83ee2fa507ec7441cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8h.html#a9556d59a4c5a7d83ee2fa507ec7441cb">unfriend_request_handler</a> (<a class="el" href="struct_packet.html">Packet</a> *p)</td></tr>
 <tr class="separator:a9556d59a4c5a7d83ee2fa507ec7441cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1fb14286aee4b3dcc7f9e60359c7703"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8h.html#af1fb14286aee4b3dcc7f9e60359c7703">send_help_response</a> (Friend *f, LocalUser *self, bool accept)</td></tr>
+<tr class="separator:af1fb14286aee4b3dcc7f9e60359c7703"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07a7cc760a99a8c5ff3a056289798842"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8h.html#a07a7cc760a99a8c5ff3a056289798842">send_friend_request</a> (Friend *f, LocalUser *self)</td></tr>
+<tr class="separator:a07a7cc760a99a8c5ff3a056289798842"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5aa25d6545489fdd01be9fbec8a3cfb5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8h.html#a5aa25d6545489fdd01be9fbec8a3cfb5">send_ping_request</a> (Friend *f)</td></tr>
+<tr class="separator:a5aa25d6545489fdd01be9fbec8a3cfb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a07a1875b165d0d9f96e5f0851b24f903"><td class="memItemLeft" align="right" valign="top"><a class="el" href="packet_8h.html#a6159984579dde9f4a9ce474f3d1229db">opcode_handler_fn_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8h.html#a07a1875b165d0d9f96e5f0851b24f903">haha_packet_handlers</a> [12]</td></tr>
+<tr class="memitem:a07a1875b165d0d9f96e5f0851b24f903"><td class="memItemLeft" align="right" valign="top"><a class="el" href="packet_8h.html#a9b356014c1c5616c899e95e068f4d918">opcode_handler_fn_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8h.html#a07a1875b165d0d9f96e5f0851b24f903">haha_packet_handlers</a> [12]</td></tr>
 <tr class="separator:a07a1875b165d0d9f96e5f0851b24f903"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a861c758b8d170db9a233c36350c1cf82"><td class="memItemLeft" align="right" valign="top"><a class="el" href="packet_8h.html#a78c1d5d4faa906b018c7d6d7a1a195b8">opcode_parser_fn_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8h.html#a861c758b8d170db9a233c36350c1cf82">haha_packet_parsers</a> [12]</td></tr>
-<tr class="separator:a861c758b8d170db9a233c36350c1cf82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="aa7be7b66f5e5c14463a0f09790fbfbd5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa7be7b66f5e5c14463a0f09790fbfbd5">&#9670;&nbsp;</a></span>MAX_OPCODE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MAX_OPCODE&#160;&#160;&#160;0x0C</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac3dd1c10edba39fc5737be5b96a91d2a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac3dd1c10edba39fc5737be5b96a91d2a">&#9670;&nbsp;</a></span>MAXFIRSTNAME</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MAXFIRSTNAME&#160;&#160;&#160;17</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="acc141dd006defc06f8e58a57259526f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc141dd006defc06f8e58a57259526f9">&#9670;&nbsp;</a></span>MAXHOMEADDR</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MAXHOMEADDR&#160;&#160;&#160;2</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7c5521a06048b7d49bb5d77b631530e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7c5521a06048b7d49bb5d77b631530e7">&#9670;&nbsp;</a></span>MAXLASTNAME</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MAXLASTNAME&#160;&#160;&#160;17</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a64e48eb75238bd3d7a053f19071044a8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a64e48eb75238bd3d7a053f19071044a8">&#9670;&nbsp;</a></span>MAXNETADDR</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MAXNETADDR&#160;&#160;&#160;4</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a2f035f148b6abcc902e7711997c031d7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f035f148b6abcc902e7711997c031d7">&#9670;&nbsp;</a></span>MAXPHONE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MAXPHONE&#160;&#160;&#160;2</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad5e30d36d01ca3de049aa58f3e37dfc3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad5e30d36d01ca3de049aa58f3e37dfc3">&#9670;&nbsp;</a></span>MAXPORT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MAXPORT&#160;&#160;&#160;2</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a151df695f2cac50d287b876c85a96841"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a151df695f2cac50d287b876c85a96841">&#9670;&nbsp;</a></span>START_OPCODE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define START_OPCODE&#160;&#160;&#160;0x01</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <h2 class="groupheader">Typedef Documentation</h2>
-<a id="a5ce68aceddf17a30aa045fc04914e798"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5ce68aceddf17a30aa045fc04914e798">&#9670;&nbsp;</a></span>opcode</h2>
+<a id="a9b356014c1c5616c899e95e068f4d918"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b356014c1c5616c899e95e068f4d918">&#9670;&nbsp;</a></span>opcode_handler_fn_t</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef uint8_t <a class="el" href="packet_8h.html#a5ce68aceddf17a30aa045fc04914e798">opcode</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6159984579dde9f4a9ce474f3d1229db"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6159984579dde9f4a9ce474f3d1229db">&#9670;&nbsp;</a></span>opcode_handler_fn_t</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef void(* opcode_handler_fn_t) (char *data, uint8_t len)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a78c1d5d4faa906b018c7d6d7a1a195b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a78c1d5d4faa906b018c7d6d7a1a195b8">&#9670;&nbsp;</a></span>opcode_parser_fn_t</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef void(* opcode_parser_fn_t) (char *data, uint16_t len, uint64_t src, uint8_t id)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a22ca626eb8f0deb847d1fae89476e26d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a22ca626eb8f0deb847d1fae89476e26d">&#9670;&nbsp;</a></span>ttl</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef uint8_t <a class="el" href="packet_8h.html#a22ca626eb8f0deb847d1fae89476e26d">ttl</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac065f913fb79988aec421b0f5eebbc77"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac065f913fb79988aec421b0f5eebbc77">&#9670;&nbsp;</a></span>uid</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef uint16_t <a class="el" href="packet_8h.html#ac065f913fb79988aec421b0f5eebbc77">uid</a></td>
+          <td class="memname">typedef void(* opcode_handler_fn_t) (<a class="el" href="struct_packet.html">Packet</a> *p)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -393,37 +194,37 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="a588e6b56097e045c733b60d25c4d45ab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a588e6b56097e045c733b60d25c4d45ab">&#9670;&nbsp;</a></span>Op</h2>
+<a id="a99a30df0f2488360cdd46b4b88e5f5f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99a30df0f2488360cdd46b4b88e5f5f0">&#9670;&nbsp;</a></span>op</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="packet_8h.html#a588e6b56097e045c733b60d25c4d45ab">Op</a></td>
+          <td class="memname">enum <a class="el" href="packet_8h.html#a99a30df0f2488360cdd46b4b88e5f5f0">op</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a588e6b56097e045c733b60d25c4d45abaa601cb89d53ca73b00553088042434c1"></a>PING_REQUEST&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a588e6b56097e045c733b60d25c4d45abaf49eb2fcf22f60c3c2c7acc92fc2da95"></a>HELP_REQUEST&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a588e6b56097e045c733b60d25c4d45aba174ff094aefa9f2820985be30334ae45"></a>HELP_RESPONSE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a588e6b56097e045c733b60d25c4d45abae292118e47735716549a03e4bab0b90c"></a>HELP_FROM_ANYONE_REQUEST&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a588e6b56097e045c733b60d25c4d45aba29e0f4916e7f11724687d0e9c747fcf8"></a>HELP_FROM_ANYONE_RESPONSE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a588e6b56097e045c733b60d25c4d45aba41f97daf58881051ed56680b7679a759"></a>FIND_HOPS_REQUEST&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a588e6b56097e045c733b60d25c4d45abaa0f46a83f8422e93b9d7b0c3b7d5d923"></a>FIND_HOPS_RESPONSE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a588e6b56097e045c733b60d25c4d45aba0ba71e48a0658faa11ac5a45844f0dad"></a>FIND_NEIGHBORS_REQUEST&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a588e6b56097e045c733b60d25c4d45abac0148d28d7c48f0085963cd6482b2c18"></a>FIND_NEIGHBORS_RESPONSE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a588e6b56097e045c733b60d25c4d45abad5f1d5a927fcda6781bbd0c434497351"></a>FRIEND_REQUEST&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a588e6b56097e045c733b60d25c4d45aba736ebb3ba9e706cf080e3aefd175bd3b"></a>FRIEND_RESPONSE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a588e6b56097e045c733b60d25c4d45aba15fe38198b73b617db3b51d7acae9d3a"></a>UNFRIEND_REQUEST&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a99a30df0f2488360cdd46b4b88e5f5f0aa601cb89d53ca73b00553088042434c1"></a>PING_REQUEST&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a99a30df0f2488360cdd46b4b88e5f5f0af49eb2fcf22f60c3c2c7acc92fc2da95"></a>HELP_REQUEST&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a99a30df0f2488360cdd46b4b88e5f5f0a174ff094aefa9f2820985be30334ae45"></a>HELP_RESPONSE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a99a30df0f2488360cdd46b4b88e5f5f0ae292118e47735716549a03e4bab0b90c"></a>HELP_FROM_ANYONE_REQUEST&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a99a30df0f2488360cdd46b4b88e5f5f0a29e0f4916e7f11724687d0e9c747fcf8"></a>HELP_FROM_ANYONE_RESPONSE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a99a30df0f2488360cdd46b4b88e5f5f0a41f97daf58881051ed56680b7679a759"></a>FIND_HOPS_REQUEST&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a99a30df0f2488360cdd46b4b88e5f5f0aa0f46a83f8422e93b9d7b0c3b7d5d923"></a>FIND_HOPS_RESPONSE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a99a30df0f2488360cdd46b4b88e5f5f0a0ba71e48a0658faa11ac5a45844f0dad"></a>FIND_NEIGHBORS_REQUEST&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a99a30df0f2488360cdd46b4b88e5f5f0ac0148d28d7c48f0085963cd6482b2c18"></a>FIND_NEIGHBORS_RESPONSE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a99a30df0f2488360cdd46b4b88e5f5f0ad5f1d5a927fcda6781bbd0c434497351"></a>FRIEND_REQUEST&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a99a30df0f2488360cdd46b4b88e5f5f0a736ebb3ba9e706cf080e3aefd175bd3b"></a>FRIEND_RESPONSE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a99a30df0f2488360cdd46b4b88e5f5f0a15fe38198b73b617db3b51d7acae9d3a"></a>UNFRIEND_REQUEST&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a3e617bb5f319e0987cf16ca28cd06080"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3e617bb5f319e0987cf16ca28cd06080">&#9670;&nbsp;</a></span>app_packet_handler()</h2>
+<a id="a2629e003442366a1fb98e86161d84282"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2629e003442366a1fb98e86161d84282">&#9670;&nbsp;</a></span>app_packet_handler()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -431,31 +232,9 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void app_packet_handler </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="struct_network.html">Network</a> *&#160;</td>
+          <td class="paramname"><em>info</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>len</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint64_t&#160;</td>
-          <td class="paramname"><em>src</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>id</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -549,6 +328,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p><a class="el" href="struct_message.html">Message</a> user that someone wants to be a friend.</p>
 
 </div>
 </div>
@@ -585,6 +365,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Add a corresponding message ** </p>
 
 </div>
 </div>
@@ -677,8 +458,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a5ec5d2a7acb004e014bea80fedd1a117"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5ec5d2a7acb004e014bea80fedd1a117">&#9670;&nbsp;</a></span>register_opcode_handler_function()</h2>
+<a id="a2b262aa6e4e32e8be961240158e39b8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b262aa6e4e32e8be961240158e39b8e">&#9670;&nbsp;</a></span>register_opcode_handler_function()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -686,13 +467,13 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void register_opcode_handler_function </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="packet_8h.html#a6159984579dde9f4a9ce474f3d1229db">opcode_handler_fn_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="packet_8h.html#a9b356014c1c5616c899e95e068f4d918">opcode_handler_fn_t</a>&#160;</td>
           <td class="paramname"><em>t</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="packet_8h.html#a588e6b56097e045c733b60d25c4d45ab">Op</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="packet_8h.html#a99a30df0f2488360cdd46b4b88e5f5f0">op</a>&#160;</td>
           <td class="paramname"><em>opcode</em>&#160;</td>
         </tr>
         <tr>
@@ -710,6 +491,86 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a07a7cc760a99a8c5ff3a056289798842"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07a7cc760a99a8c5ff3a056289798842">&#9670;&nbsp;</a></span>send_friend_request()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_friend_request </td>
+          <td>(</td>
+          <td class="paramtype">Friend *&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">LocalUser *&#160;</td>
+          <td class="paramname"><em>self</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af1fb14286aee4b3dcc7f9e60359c7703"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1fb14286aee4b3dcc7f9e60359c7703">&#9670;&nbsp;</a></span>send_help_response()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_help_response </td>
+          <td>(</td>
+          <td class="paramtype">Friend *&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">LocalUser *&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>accept</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5aa25d6545489fdd01be9fbec8a3cfb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5aa25d6545489fdd01be9fbec8a3cfb5">&#9670;&nbsp;</a></span>send_ping_request()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_ping_request </td>
+          <td>(</td>
+          <td class="paramtype">Friend *&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -739,21 +600,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="packet_8h.html#a6159984579dde9f4a9ce474f3d1229db">opcode_handler_fn_t</a> haha_packet_handlers[12]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a861c758b8d170db9a233c36350c1cf82"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a861c758b8d170db9a233c36350c1cf82">&#9670;&nbsp;</a></span>haha_packet_parsers</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="packet_8h.html#a78c1d5d4faa906b018c7d6d7a1a195b8">opcode_parser_fn_t</a> haha_packet_parsers[12]</td>
+          <td class="memname"><a class="el" href="packet_8h.html#a9b356014c1c5616c899e95e068f4d918">opcode_handler_fn_t</a> haha_packet_handlers[12]</td>
         </tr>
       </table>
 </div><div class="memdoc">

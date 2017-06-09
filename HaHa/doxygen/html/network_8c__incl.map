@@ -1,7 +1,5 @@
 <map id="E:/HaHaProject/AtmelXbee/ATProjects/HaHa/HaHa/network/network.c" name="E:/HaHaProject/AtmelXbee/ATProjects/HaHa/HaHa/network/network.c">
-<area shape="rect" id="node2" href="$network_8h.html" title="network.h" alt="" coords="5,109,84,136"/>
-<area shape="rect" id="node6" href="$packet_8h.html" title="packet.h" alt="" coords="86,184,158,211"/>
-<area shape="rect" id="node8" href="$networkdevice_8h.html" title="XBee Network device implementation. " alt="" coords="160,109,359,136"/>
-<area shape="rect" id="node3" href="$haha_utils_8h.html" title="stdlib for HAHA project, contains imports and defines " alt="" coords="63,333,178,360"/>
-<area shape="rect" id="node7" href="$flags_8h.html" title="flags.h" alt="" coords="147,259,207,285"/>
+<area shape="rect" id="node2" href="$network_8h.html" title="network.h" alt="" coords="106,184,185,211"/>
+<area shape="rect" id="node3" href="$haha_utils_8h.html" title="stdlib for HAHA project, contains imports and defines " alt="" coords="88,259,203,285"/>
+<area shape="rect" id="node6" href="$networkdevice_8h.html" title="XBee Network device implementation. " alt="" coords="149,109,347,136"/>
 </map>

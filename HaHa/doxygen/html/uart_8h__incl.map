@@ -1,7 +1,7 @@
 <map id="E:/HaHaProject/AtmelXbee/ATProjects/HaHa/HaHa/uart/uart.h" name="E:/HaHaProject/AtmelXbee/ATProjects/HaHa/HaHa/uart/uart.h">
 <area shape="rect" id="node2" href="$stdio__start_8h.html" title="stdio_start.h" alt="" coords="1317,95,1411,121"/>
 <area shape="rect" id="node4" href="$stdio__io_8h.html" title="STDIO redirection terminal. " alt="" coords="1373,169,1451,196"/>
-<area shape="rect" id="node5" href="$hal__io_8h.html" title="IO related functionality declaration. " alt="" coords="1379,244,1445,271"/>
+<area shape="rect" id="node5" href="$hal__io_8h.html" title="I/O related functionality declaration. " alt="" coords="1379,244,1445,271"/>
 <area shape="rect" id="node6" href="$compiler_8h.html" title="compiler.h" alt="" coords="1371,319,1453,345"/>
 <area shape="rect" id="node10" href="$parts_8h.html" title="Atmel part identification macros. " alt="" coords="1474,393,1537,420"/>
 <area shape="rect" id="node33" href="$err__codes_8h.html" title="Error code definitions. " alt="" coords="1561,393,1652,420"/>

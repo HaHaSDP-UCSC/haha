@@ -1,11 +1,16 @@
 <map id="E:/HaHaProject/AtmelXbee/ATProjects/HaHa/HaHa/network/network.h" name="E:/HaHaProject/AtmelXbee/ATProjects/HaHa/HaHa/network/network.h">
-<area shape="rect" id="node2" href="$friendlist_8h.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/friend\l/friendlist.h" alt="" coords="256,109,453,165"/>
-<area shape="rect" id="node6" href="$basecomm_8h.html" title="Base communication. " alt="" coords="491,109,746,165"/>
-<area shape="rect" id="node8" href="$network_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/network\l/network.c" alt="" coords="771,109,981,165"/>
-<area shape="rect" id="node9" href="$packet_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/network\l/packet.c" alt="" coords="1005,109,1216,165"/>
-<area shape="rect" id="node10" href="$main_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/main.c" alt="" coords="1240,117,1445,158"/>
-<area shape="rect" id="node3" href="$friendlist_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/friend\l/friendlist.c" alt="" coords="5,213,203,269"/>
-<area shape="rect" id="node4" href="$messagequeue_8h.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/messagequeue\l/messagequeue.h" alt="" coords="227,213,482,269"/>
-<area shape="rect" id="node5" href="$messagequeue_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/messagequeue\l/messagequeue.c" alt="" coords="227,317,482,373"/>
-<area shape="rect" id="node7" href="$basecomm_8c.html" title="Application layer packet creation and parsing. " alt="" coords="506,213,761,269"/>
+<area shape="rect" id="node2" href="$neighborlist_8h.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/neighbor\l/neighborlist.h" alt="" coords="1062,421,1277,477"/>
+<area shape="rect" id="node5" href="$packet_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/network\l/packet.c" alt="" coords="1217,629,1428,685"/>
+<area shape="rect" id="node8" href="$network_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/network\l/network.c" alt="" coords="568,213,779,269"/>
+<area shape="rect" id="node9" href="$packet_8h.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/network\l/packet.h" alt="" coords="1064,317,1275,373"/>
+<area shape="rect" id="node10" href="$networkdevice_8h.html" title="XBee Network device implementation. " alt="" coords="307,109,554,165"/>
+<area shape="rect" id="node11" href="$networkdevice_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/networkdevice\l/networkdevice.c" alt="" coords="47,213,294,269"/>
+<area shape="rect" id="node13" href="$haha_utils_8c.html" title="stdlib for HAHA project, contains imports and defines implementation " alt="" coords="1291,213,1482,269"/>
+<area shape="rect" id="node14" href="$haha_utils_8h.html" title="stdlib for HAHA project, contains imports and defines " alt="" coords="822,109,1013,165"/>
+<area shape="rect" id="node3" href="$messagequeue_8h.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/messagequeue\l/messagequeue.h" alt="" coords="739,525,994,581"/>
+<area shape="rect" id="node7" href="$neighborlist_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/neighbor\l/neighborlist.c" alt="" coords="1070,525,1285,581"/>
+<area shape="rect" id="node4" href="$messagequeue_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/messagequeue\l/messagequeue.c" alt="" coords="783,629,1038,685"/>
+<area shape="rect" id="node6" href="$main_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/main.c" alt="" coords="553,637,759,678"/>
+<area shape="rect" id="node12" href="$uart_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/uart/uart.c" alt="" coords="318,221,543,262"/>
+<area shape="rect" id="node15" href="$flags_8h.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/network\l/flags.h" alt="" coords="1056,213,1267,269"/>
 </map>

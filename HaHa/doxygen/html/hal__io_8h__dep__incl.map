@@ -1,9 +1,9 @@
 <map id="E:/HaHaProject/AtmelXbee/ATProjects/HaHa/HaHa/hal/include/hal_io.h" name="E:/HaHaProject/AtmelXbee/ATProjects/HaHa/HaHa/hal/include/hal_io.h">
 <area shape="rect" id="node2" href="$hal__usart__async_8h.html" title="USART related functionality declaration. " alt="" coords="276,109,459,165"/>
 <area shape="rect" id="node13" href="$hal__usart__sync_8h.html" title="USART related functionality declaration. " alt="" coords="680,109,863,165"/>
-<area shape="rect" id="node15" href="$hal__io_8c.html" title="IO functionality implementation. " alt="" coords="1232,109,1415,165"/>
+<area shape="rect" id="node15" href="$hal__io_8c.html" title="I/O functionality implementation. " alt="" coords="1232,109,1415,165"/>
 <area shape="rect" id="node16" href="$stdio__io_8h.html" title="STDIO redirection terminal. " alt="" coords="1013,109,1207,165"/>
-<area shape="rect" id="node3" href="$hal__usart__async_8c.html" title="IO USART related functionality implementation. " alt="" coords="5,213,188,269"/>
+<area shape="rect" id="node3" href="$hal__usart__async_8c.html" title="I/O USART related functionality implementation. " alt="" coords="5,213,188,269"/>
 <area shape="rect" id="node4" href="$uart_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/uart/uart.c" alt="" coords="164,429,389,470"/>
 <area shape="rect" id="node5" href="$driver__init_8h.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/driver_init.h" alt="" coords="393,221,624,262"/>
 <area shape="rect" id="node6" href="$driver__examples_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/examples\l/driver_examples.c" alt="" coords="488,525,711,581"/>
@@ -13,7 +13,7 @@
 <area shape="rect" id="node9" href="$atmel__start_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/atmel\l_start.c" alt="" coords="809,421,1008,477"/>
 <area shape="rect" id="node10" href="$main_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/main.c" alt="" coords="1251,429,1457,470"/>
 <area shape="rect" id="node11" href="$stdio__start_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/stdio\l_start.c" alt="" coords="1033,421,1227,477"/>
-<area shape="rect" id="node14" href="$hal__usart__sync_8c.html" title="IO USART related functionality implementation. " alt="" coords="680,213,863,269"/>
+<area shape="rect" id="node14" href="$hal__usart__sync_8c.html" title="I/O USART related functionality implementation. " alt="" coords="680,213,863,269"/>
 <area shape="rect" id="node17" href="$read_8c.html" title="STDIO redirection. " alt="" coords="1122,213,1317,269"/>
 <area shape="rect" id="node18" href="$write_8c.html" title="STDIO redirection. " alt="" coords="1341,213,1535,269"/>
 <area shape="rect" id="node19" href="$stdio__io_8c.html" title="STDIO redirection terminal. " alt="" coords="1559,213,1754,269"/>

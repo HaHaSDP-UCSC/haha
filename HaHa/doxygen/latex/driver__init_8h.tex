@@ -1,18 +1,17 @@
 \hypertarget{driver__init_8h}{}\section{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/driver\+\_\+init.h File Reference}
 \label{driver__init_8h}\index{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/driver\+\_\+init.\+h@{E\+:/\+Ha\+Ha\+Project/\+Atmel\+Xbee/\+A\+T\+Projects/\+Ha\+Ha/\+Ha\+Ha/driver\+\_\+init.\+h}}
 {\ttfamily \#include \char`\"{}atmel\+\_\+start\+\_\+pins.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$hal\+\_\+timer.\+h$>$}\newline
 {\ttfamily \#include $<$hal\+\_\+usart\+\_\+sync.\+h$>$}\newline
 {\ttfamily \#include $<$hal\+\_\+usart\+\_\+async.\+h$>$}\newline
-Include dependency graph for driver\+\_\+init.\+h\+:
-\nopagebreak
+Include dependency graph for driver\+\_\+init.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{driver__init_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:
-\nopagebreak
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -23,10 +22,6 @@ This graph shows which files directly or indirectly include this file\+:
 \begin{DoxyCompactItemize}
 \item 
 \#define \hyperlink{driver__init_8h_a2ee670e0c85b7a68b38b20fbeef090c9}{I\+S\+R\+\_\+\+R\+A\+M\+\_\+\+M\+A\+P\+\_\+\+S\+T\+A\+R\+T\+\_\+\+A\+D\+D\+R\+E\+SS}~(0x10000000)
-\item 
-\#define \hyperlink{driver__init_8h_a471ffe7d803eb0ce9bc7873739a6b710}{C\+O\+N\+F\+\_\+\+D\+M\+A\+C\+\_\+\+M\+A\+X\+\_\+\+U\+S\+E\+D\+\_\+\+D\+E\+SC}~(/$\ast$C\+L\+O\+CK$\ast$/ 0 + /$\ast$U\+A\+R\+T0$\ast$/ 0 + /$\ast$U\+A\+R\+T1$\ast$/ 0)
-\item 
-\#define \hyperlink{driver__init_8h_ae425e0999ef4a00672a04ab5bf3b1efb}{C\+O\+N\+F\+\_\+\+D\+M\+A\+C\+\_\+\+M\+A\+X\+\_\+\+U\+S\+E\+D\+\_\+\+CH}~(/$\ast$C\+L\+O\+CK$\ast$/ 0 + /$\ast$U\+A\+R\+T0$\ast$/ 0 + /$\ast$U\+A\+R\+T1$\ast$/ 0)
 \end{DoxyCompactItemize}
 \subsection*{Enumerations}
 \begin{DoxyCompactItemize}
@@ -101,6 +96,8 @@ void \hyperlink{driver__init_8h_a43f5e0d6db0fb41a437cc9096b32e9b5}{system\+\_\+i
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
+struct timer\+\_\+descriptor \hyperlink{driver__init_8h_a7ed837a0c11bacc33a912a3831379ffc}{T\+I\+M\+E\+R\+\_\+0}
+\item 
 struct \hyperlink{structusart__sync__descriptor}{usart\+\_\+sync\+\_\+descriptor} \hyperlink{driver__init_8h_a3c128fe8fcaee8e036cc1c979ee7b2a1}{T\+A\+R\+G\+E\+T\+\_\+\+IO}
 \item 
 struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descriptor} \hyperlink{driver__init_8h_ab2fa8c74f93df5817964273d48139a83}{U\+S\+A\+R\+T\+\_\+1\+\_\+0}
@@ -108,18 +105,6 @@ struct \hyperlink{structusart__async__descriptor}{usart\+\_\+async\+\_\+descript
 
 
 \subsection{Macro Definition Documentation}
-\mbox{\Hypertarget{driver__init_8h_ae425e0999ef4a00672a04ab5bf3b1efb}\label{driver__init_8h_ae425e0999ef4a00672a04ab5bf3b1efb}} 
-\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!C\+O\+N\+F\+\_\+\+D\+M\+A\+C\+\_\+\+M\+A\+X\+\_\+\+U\+S\+E\+D\+\_\+\+CH@{C\+O\+N\+F\+\_\+\+D\+M\+A\+C\+\_\+\+M\+A\+X\+\_\+\+U\+S\+E\+D\+\_\+\+CH}}
-\index{C\+O\+N\+F\+\_\+\+D\+M\+A\+C\+\_\+\+M\+A\+X\+\_\+\+U\+S\+E\+D\+\_\+\+CH@{C\+O\+N\+F\+\_\+\+D\+M\+A\+C\+\_\+\+M\+A\+X\+\_\+\+U\+S\+E\+D\+\_\+\+CH}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}
-\subsubsection{\texorpdfstring{C\+O\+N\+F\+\_\+\+D\+M\+A\+C\+\_\+\+M\+A\+X\+\_\+\+U\+S\+E\+D\+\_\+\+CH}{CONF\_DMAC\_MAX\_USED\_CH}}
-{\footnotesize\ttfamily \#define C\+O\+N\+F\+\_\+\+D\+M\+A\+C\+\_\+\+M\+A\+X\+\_\+\+U\+S\+E\+D\+\_\+\+CH~(/$\ast$C\+L\+O\+CK$\ast$/ 0 + /$\ast$U\+A\+R\+T0$\ast$/ 0 + /$\ast$U\+A\+R\+T1$\ast$/ 0)}
-
-\mbox{\Hypertarget{driver__init_8h_a471ffe7d803eb0ce9bc7873739a6b710}\label{driver__init_8h_a471ffe7d803eb0ce9bc7873739a6b710}} 
-\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!C\+O\+N\+F\+\_\+\+D\+M\+A\+C\+\_\+\+M\+A\+X\+\_\+\+U\+S\+E\+D\+\_\+\+D\+E\+SC@{C\+O\+N\+F\+\_\+\+D\+M\+A\+C\+\_\+\+M\+A\+X\+\_\+\+U\+S\+E\+D\+\_\+\+D\+E\+SC}}
-\index{C\+O\+N\+F\+\_\+\+D\+M\+A\+C\+\_\+\+M\+A\+X\+\_\+\+U\+S\+E\+D\+\_\+\+D\+E\+SC@{C\+O\+N\+F\+\_\+\+D\+M\+A\+C\+\_\+\+M\+A\+X\+\_\+\+U\+S\+E\+D\+\_\+\+D\+E\+SC}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}
-\subsubsection{\texorpdfstring{C\+O\+N\+F\+\_\+\+D\+M\+A\+C\+\_\+\+M\+A\+X\+\_\+\+U\+S\+E\+D\+\_\+\+D\+E\+SC}{CONF\_DMAC\_MAX\_USED\_DESC}}
-{\footnotesize\ttfamily \#define C\+O\+N\+F\+\_\+\+D\+M\+A\+C\+\_\+\+M\+A\+X\+\_\+\+U\+S\+E\+D\+\_\+\+D\+E\+SC~(/$\ast$C\+L\+O\+CK$\ast$/ 0 + /$\ast$U\+A\+R\+T0$\ast$/ 0 + /$\ast$U\+A\+R\+T1$\ast$/ 0)}
-
 \mbox{\Hypertarget{driver__init_8h_a2ee670e0c85b7a68b38b20fbeef090c9}\label{driver__init_8h_a2ee670e0c85b7a68b38b20fbeef090c9}} 
 \index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!I\+S\+R\+\_\+\+R\+A\+M\+\_\+\+M\+A\+P\+\_\+\+S\+T\+A\+R\+T\+\_\+\+A\+D\+D\+R\+E\+SS@{I\+S\+R\+\_\+\+R\+A\+M\+\_\+\+M\+A\+P\+\_\+\+S\+T\+A\+R\+T\+\_\+\+A\+D\+D\+R\+E\+SS}}
 \index{I\+S\+R\+\_\+\+R\+A\+M\+\_\+\+M\+A\+P\+\_\+\+S\+T\+A\+R\+T\+\_\+\+A\+D\+D\+R\+E\+SS@{I\+S\+R\+\_\+\+R\+A\+M\+\_\+\+M\+A\+P\+\_\+\+S\+T\+A\+R\+T\+\_\+\+A\+D\+D\+R\+E\+SS}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}
@@ -362,6 +347,12 @@ Set each required pin to U\+S\+A\+RT functionality
 \index{T\+A\+R\+G\+E\+T\+\_\+\+IO@{T\+A\+R\+G\+E\+T\+\_\+\+IO}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}
 \subsubsection{\texorpdfstring{T\+A\+R\+G\+E\+T\+\_\+\+IO}{TARGET\_IO}}
 {\footnotesize\ttfamily struct \hyperlink{structusart__sync__descriptor}{usart\+\_\+sync\+\_\+descriptor} T\+A\+R\+G\+E\+T\+\_\+\+IO}
+
+\mbox{\Hypertarget{driver__init_8h_a7ed837a0c11bacc33a912a3831379ffc}\label{driver__init_8h_a7ed837a0c11bacc33a912a3831379ffc}} 
+\index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!T\+I\+M\+E\+R\+\_\+0@{T\+I\+M\+E\+R\+\_\+0}}
+\index{T\+I\+M\+E\+R\+\_\+0@{T\+I\+M\+E\+R\+\_\+0}!driver\+\_\+init.\+h@{driver\+\_\+init.\+h}}
+\subsubsection{\texorpdfstring{T\+I\+M\+E\+R\+\_\+0}{TIMER\_0}}
+{\footnotesize\ttfamily struct timer\+\_\+descriptor T\+I\+M\+E\+R\+\_\+0}
 
 \mbox{\Hypertarget{driver__init_8h_ab2fa8c74f93df5817964273d48139a83}\label{driver__init_8h_ab2fa8c74f93df5817964273d48139a83}} 
 \index{driver\+\_\+init.\+h@{driver\+\_\+init.\+h}!U\+S\+A\+R\+T\+\_\+1\+\_\+0@{U\+S\+A\+R\+T\+\_\+1\+\_\+0}}

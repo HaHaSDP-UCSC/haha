@@ -1,13 +1,13 @@
 <map id="E:/HaHaProject/AtmelXbee/ATProjects/HaHa/HaHa/examples/driver_examples.h" name="E:/HaHaProject/AtmelXbee/ATProjects/HaHa/HaHa/examples/driver_examples.h">
-<area shape="rect" id="node2" href="$atmel__start_8h.html" title="atmel_start.h" alt="" coords="1595,109,1693,136"/>
-<area shape="rect" id="node3" href="$driver__init_8h.html" title="driver_init.h" alt="" coords="1469,184,1555,211"/>
-<area shape="rect" id="node44" href="$stdio__start_8h.html" title="stdio_start.h" alt="" coords="1663,184,1758,211"/>
-<area shape="rect" id="node4" href="$atmel__start__pins_8h.html" title="atmel_start_pins.h" alt="" coords="1169,259,1298,285"/>
-<area shape="rect" id="node36" href="$hal__usart__sync_8h.html" title="USART related functionality declaration. " alt="" coords="1534,259,1655,285"/>
-<area shape="rect" id="node40" href="$hal__usart__async_8h.html" title="USART related functionality declaration. " alt="" coords="1381,259,1509,285"/>
+<area shape="rect" id="node2" href="$atmel__start_8h.html" title="atmel_start.h" alt="" coords="1532,109,1631,136"/>
+<area shape="rect" id="node3" href="$driver__init_8h.html" title="driver_init.h" alt="" coords="1402,184,1489,211"/>
+<area shape="rect" id="node46" href="$stdio__start_8h.html" title="stdio_start.h" alt="" coords="1671,184,1766,211"/>
+<area shape="rect" id="node4" href="$atmel__start__pins_8h.html" title="atmel_start_pins.h" alt="" coords="1114,259,1243,285"/>
+<area shape="rect" id="node38" href="$hal__usart__sync_8h.html" title="USART related functionality declaration. " alt="" coords="1534,259,1655,285"/>
+<area shape="rect" id="node42" href="$hal__usart__async_8h.html" title="USART related functionality declaration. " alt="" coords="1381,259,1509,285"/>
 <area shape="rect" id="node5" href="$hal__gpio_8h.html" title="Port. " alt="" coords="1135,333,1217,360"/>
 <area shape="rect" id="node6" href="$hpl__gpio_8h.html" title="Port related functionality declaration. " alt="" coords="1133,408,1214,435"/>
-<area shape="rect" id="node35" href="$utils__assert_8h.html" title="Asserts related functionality. " alt="" coords="1238,408,1338,435"/>
+<area shape="rect" id="node36" href="$utils__assert_8h.html" title="Asserts related functionality. " alt="" coords="1238,408,1338,435"/>
 <area shape="rect" id="node7" href="$compiler_8h.html" title="compiler.h" alt="" coords="1371,483,1453,509"/>
 <area shape="rect" id="node11" href="$parts_8h.html" title="Atmel part identification macros. " alt="" coords="1474,557,1537,584"/>
 <area shape="rect" id="node34" href="$err__codes_8h.html" title="Error code definitions. " alt="" coords="1561,557,1652,584"/>
@@ -31,11 +31,11 @@
 <area shape="rect" id="node31" href="$hri__timer__b11_8h.html" title="SAM TIMER. " alt="" coords="2633,714,2743,741"/>
 <area shape="rect" id="node32" href="$hri__uart__b11_8h.html" title="SAM UART. " alt="" coords="2768,714,2872,741"/>
 <area shape="rect" id="node33" href="$hri__wdt__b11_8h.html" title="SAM WDT. " alt="" coords="2897,714,2999,741"/>
-<area shape="rect" id="node37" href="$hal__io_8h.html" title="IO related functionality declaration. " alt="" coords="1680,333,1747,360"/>
-<area shape="rect" id="node38" href="$hpl__usart__sync_8h.html" title="USART related functionality declaration. " alt="" coords="1534,333,1655,360"/>
-<area shape="rect" id="node39" href="$hpl__usart_8h.html" title="USART related functionality declaration. " alt="" coords="1509,408,1595,435"/>
-<area shape="rect" id="node41" href="$hpl__usart__async_8h.html" title="USART related functionality declaration. " alt="" coords="1381,333,1509,360"/>
-<area shape="rect" id="node43" href="$utils__ringbuffer_8h.html" title="Ringbuffer declaration. " alt="" coords="1241,333,1357,360"/>
-<area shape="rect" id="node42" href="$hpl__irq_8h.html" title="IRQ related functionality declaration. " alt="" coords="1414,408,1485,435"/>
-<area shape="rect" id="node46" href="$stdio__io_8h.html" title="STDIO redirection terminal. " alt="" coords="1766,259,1845,285"/>
+<area shape="rect" id="node39" href="$hal__io_8h.html" title="I/O related functionality declaration. " alt="" coords="1680,333,1747,360"/>
+<area shape="rect" id="node40" href="$hpl__usart__sync_8h.html" title="USART related functionality declaration. " alt="" coords="1534,333,1655,360"/>
+<area shape="rect" id="node41" href="$hpl__usart_8h.html" title="USART related functionality declaration. " alt="" coords="1509,408,1595,435"/>
+<area shape="rect" id="node43" href="$hpl__usart__async_8h.html" title="USART related functionality declaration. " alt="" coords="1381,333,1509,360"/>
+<area shape="rect" id="node45" href="$utils__ringbuffer_8h.html" title="Ringbuffer declaration. " alt="" coords="1241,333,1357,360"/>
+<area shape="rect" id="node44" href="$hpl__irq_8h.html" title="IRQ related functionality declaration. " alt="" coords="1414,408,1485,435"/>
+<area shape="rect" id="node48" href="$stdio__io_8h.html" title="STDIO redirection terminal. " alt="" coords="1679,259,1758,285"/>
 </map>

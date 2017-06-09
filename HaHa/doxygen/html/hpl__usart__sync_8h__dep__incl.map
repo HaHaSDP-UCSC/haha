@@ -1,7 +1,7 @@
 <map id="E:/HaHaProject/AtmelXbee/ATProjects/HaHa/HaHa/hal/include/hpl_usart_sync.h" name="E:/HaHaProject/AtmelXbee/ATProjects/HaHa/HaHa/hal/include/hpl_usart_sync.h">
 <area shape="rect" id="node2" href="$hal__usart__sync_8h.html" title="USART related functionality declaration. " alt="" coords="120,109,303,165"/>
 <area shape="rect" id="node13" href="$hpl__uart_8c.html" title="SAM Serial Communication Interface. " alt="" coords="327,109,509,165"/>
-<area shape="rect" id="node3" href="$hal__usart__sync_8c.html" title="IO USART related functionality implementation. " alt="" coords="5,213,188,269"/>
+<area shape="rect" id="node3" href="$hal__usart__sync_8c.html" title="I/O USART related functionality implementation. " alt="" coords="5,213,188,269"/>
 <area shape="rect" id="node4" href="$driver__init_8h.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/driver_init.h" alt="" coords="212,221,443,262"/>
 <area shape="rect" id="node5" href="$driver__examples_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/examples\l/driver_examples.c" alt="" coords="23,525,245,581"/>
 <area shape="rect" id="node6" href="$uart_8c.html" title="E:/HaHaProject/AtmelXbee\l/ATProjects/HaHa/HaHa/uart/uart.c" alt="" coords="97,325,323,366"/>

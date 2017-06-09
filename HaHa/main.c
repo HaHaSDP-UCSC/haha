@@ -50,9 +50,9 @@ int main(void)
 	lcd_init();
 	lcd_clear();
 	ui_init();
-	uart_register_netdev_callback(xbee_recv);
+	uart_register_netdev_callback(netdevice_recv);
 	SET_SEND_NETDEV(true);
-	xbee_register_callback(app_packet_handler, FRAME_RX);
+	netdevice_register_callback(app_packet_handler, FRAME_RX);
 	//
 	// Start screen
 	lcd_set_line(0, "UCSC/BASKIN ENGR");

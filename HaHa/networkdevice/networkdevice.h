@@ -55,9 +55,9 @@ uint8_t xbee_getOwnNet();
  *
  * @return     { returns 0 if sucessful }
  */
-uint8_t xbee_send(uint64_t dst, char* data, uint8_t len);
+uint8_t netdevice_send(uint64_t dst, char* data, uint8_t len);
 
-uint8_t xbee_send_radius(uint64_t dst, char* data, uint8_t len, uint8_t radius);
+uint8_t netdevice_send_radius(uint64_t dst, char* data, uint8_t len, uint8_t radius);
 
 /**
  * @brief      { Send a packet to another XBee node }
@@ -68,13 +68,13 @@ uint8_t xbee_send_radius(uint64_t dst, char* data, uint8_t len, uint8_t radius);
  *
  * @return     { returns 0 if sucessful }
  */
-uint8_t xbee_send_hex(char* dst, char* data, uint8_t len);
+uint8_t netdevice_send_hex(char* dst, char* data, uint8_t len);
 
-uint8_t xbee_send_hex_radius(char* dst, char* data, uint8_t len, uint8_t radius);
+uint8_t netdevice_send_hex_radius(char* dst, char* data, uint8_t len, uint8_t radius);
 
-uint8_t xbee_send_byte(char* dst, char* data, uint8_t len);
+uint8_t netdevice_send_byte(char* dst, char* data, uint8_t len);
 
-uint8_t xbee_send_byte_radius(char* dst, char* data, uint8_t len, uint8_t radius);
+uint8_t netdevice_send_byte_radius(char* dst, char* data, uint8_t len, uint8_t radius);
 
 /**
  * @brief      { Receives UART data and parses into frame packets}
@@ -84,7 +84,7 @@ uint8_t xbee_send_byte_radius(char* dst, char* data, uint8_t len, uint8_t radius
  *
  * @return     { returns 0 if packet is processed }
  */
-uint8_t xbee_recv(char* data, uint8_t len);
+uint8_t netdevice_recv(char* data, uint8_t len);
 
 uint8_t cmd_AT_set(char* cmd, uint8_t* value, uint8_t len);
 uint8_t cmd_AT_get(char* cmd);
@@ -144,13 +144,13 @@ typedef enum {
  * { Xbee callback function type }
  */
 //typedef void (*xbee_cb_t)(char *data, uint16_t len, char* src, uint8_t id);
-typedef void (*xbee_cb_t)(Network* info);
+typedef void (*netdevice_cb_t)(Network* info);
 /**
  * @brief      { Register the function to send received payload }
  *
  * @param[in]  t     { Function to call when app data is received }
  */
-void xbee_register_callback(xbee_cb_t t, frameResponseType type);
+void netdevice_register_callback(netdevice_cb_t t, frameResponseType type);
 
 /* Incoming Frames from Xbee */
 /**
@@ -182,7 +182,7 @@ typedef struct {
     uint8_t		data[100];
     uint8_t		checksum;
     uint8_t		payload_length;
-    xbee_cb_t	callback;
+    netdevice_cb_t	callback;
 }frameRX;
 
 /* TX */
@@ -219,7 +219,7 @@ typedef struct {
     uint8_t		deliverystatus;
     uint8_t		checksum;
     uint8_t		payload_length;
-    xbee_cb_t	callback;
+    netdevice_cb_t	callback;
 }frameTXStatus;
 
 
