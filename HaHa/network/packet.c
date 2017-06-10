@@ -116,7 +116,7 @@ bool getNetInfo(Packet *p, Network *net) {
 	//net = &NET_ARRAY[i];
 	printd("Addr of Netarray:%d\n", NET_ARRAY);
 	printd("Returning pointer: %d", NET_ARRAY + i);
-	net = NET_ARRAY + i;
+	*net = NET_ARRAY[i];
 	return true;
 }
 
@@ -507,6 +507,12 @@ void find_neighbors_request_handler(Packet *p) {
 		Friend f; //Incomplete f. TODO this is probably okay.
 		f.port = p->ORIGINUID; //Return UID;
 		printd("FIND NEIGHBORS req SEND ADDR:");
+		int i = netArrayReturn(p->id);
+		if(i == NOT_FOUND){
+			HAHADEBUG("net item not found\n");
+			return;
+		}
+		net = &NET_ARRAY[i];
 		printNetAddr(net->src);
 		printd("End of address\n");
 		memcpy(f.networkaddr, net->src, MAXNETADDR); //TODO @brian is this correct src? want to send to other station.
