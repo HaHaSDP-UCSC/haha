@@ -353,6 +353,7 @@ void help_response_handler(Packet *p) {
 			//If accepted, all good, otherwise, do a send to the next friend,
 			printd("HELP RESPONSE PACKET RECV! accept: %d\n", accept);
 			if (accept) {
+				printd("Request Accepted.\n");
 				lcd_clear();
 				lcd_set_line(0, "REQUEST ACCEPTED");
 				char buf[64];
@@ -360,6 +361,7 @@ void help_response_handler(Packet *p) {
 				isFriend->lastname);
 				lcd_set_line_overflow(1, buf);
 			} else {
+				printd("Request Denied.\n");
 				lcd_clear();
 				lcd_set_line(0, "REQUEST DENIED");
 				char buf[64];
@@ -536,7 +538,7 @@ void send_find_neighbors_response(Friend *f, LocalUser *self, ttl ttl) {
 }
 
 void send_find_neighbors_response_ack(Friend *f, LocalUser *self) {
-	printv("Send Friend Request ACK\n");
+	printv("Send Find Neighbors Response ACK\n");
 	Network* n = malloc(sizeof(Network));
 	Packet* p = malloc(sizeof(Packet));
 	
