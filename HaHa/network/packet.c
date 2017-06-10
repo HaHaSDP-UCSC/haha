@@ -534,7 +534,7 @@ void send_find_neighbors_response(Friend *f, LocalUser *self, ttl ttl) {
 }
 
 void send_find_neighbors_response_ack(Friend *f, LocalUser *self) {
-	printv("Send Friend Request ACK\n");
+	printv("Send Find Neighbors Request ACK\n");
 	Network* n = malloc(sizeof(Network));
 	Packet* p = malloc(sizeof(Packet));
 	
