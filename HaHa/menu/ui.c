@@ -54,8 +54,8 @@ void ui_init(void) {
   ui_item_init(temp, "Update info");
   ui_item_init(ui_item_settings, "Pair button");
   ui_item_init(ui_item_settings, "Disable system");
-  MenuItem* demo = ui_item_init(ui_item_settings, "Configure demo");
-  //MenuItem* demo = ui_item_init(ui_item_root, "Configure demo");
+  //MenuItem* demo = ui_item_init(ui_item_settings, "Configure demo");
+  MenuItem* demo = ui_item_init(ui_item_root, "Configure demo");
   temp = ui_item_init(demo, "August");
   temp->onClick = ui_demo_onclick;
   ui_item_init(temp, "__DEMO_TEMP__");
