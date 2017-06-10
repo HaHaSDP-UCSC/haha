@@ -14,6 +14,8 @@
 void printNetAddr(netaddr *t) {
 	printf("NetAddr:[");
 	printBuff(t, 8, "%c");
+	printf("][");
+	printBuff(t, 8, "%x");
 	printf("]\n");
 	}
 
@@ -25,7 +27,7 @@ void network_init(){
 
 void netArrayAdd(Network* add){
 	printd("Adding NetInfo id %d with src:", add->id);
-	printNetAddr(add);
+	printNetAddr(add->src);
 	printd("\n");
     NET_ARRAY[netIDLast] = *add;
     netIDLast = (netIDLast + 1) % MAX_NET_ARRAY;
@@ -33,7 +35,13 @@ void netArrayAdd(Network* add){
 
 /* Return index of net array with id netID */
 uint8_t netArrayReturn(uint8_t netID){
+	printd("Searching Net Array\n");
     for(int i=0; i<MAX_NET_ARRAY; ++i){
+		printd("Searching id: %d addr: [", i);
+		printNetAddr(NET_ARRAY[i].src);
+		printd(",dst:");
+		printNetAddr(NET_ARRAY[i].dest);
+		printd("]\n");
         if(NET_ARRAY[i].id == netID)
             return i;
     }

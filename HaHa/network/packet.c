@@ -20,11 +20,7 @@
 #include "menu/ui.h"
 
 static int friendReq = 0;
-void printNetAddr1(netaddr *t) {
-	printf("NetAddr:[");
-	printBuff(t, 8, "%c");
-	printf("]\n");
-}
+
 void opcodes_init() {
 	haha_packet_handlers[PING_REQUEST] = ping_request_handler;
 	haha_packet_handlers[HELP_REQUEST] = help_request_handler;
@@ -45,7 +41,7 @@ void app_packet_handler(Network *info) {
 	HAHADEBUG("In app packet handler\n");
 	opcode opcode = info->data[0];
 	printd("Have Packet id %d with src:", info->id);
-	printNetAddr1(info->src);
+	printNetAddr(info->src);
 	printd("\n");
 	HAHADEBUG("Found opcode: 0x%x\n", opcode);
 	flags flag = info->data[1];
@@ -74,6 +70,8 @@ void app_packet_handler(Network *info) {
 	}
 	p->id = info->id;
 	netArrayAdd(info);
+	printf("after netarrayadd\n");
+	printNetAddr(info->src);
 	(haha_packet_handlers[p->opcode])(p);
 	free(p); //TODO @brian free(p); //Is this the end of the packet?
 }
@@ -115,7 +113,10 @@ bool getNetInfo(Packet *p, Network *net) {
 		return false;
 	}
 	printd("Returning id %d\n", p->id);
-	net = &NET_ARRAY[i];
+	//net = &NET_ARRAY[i];
+	printd("Addr of Netarray:%d\n", NET_ARRAY);
+	printd("Returning pointer: %d", NET_ARRAY + i);
+	net = NET_ARRAY + i;
 	return true;
 }
 
@@ -498,6 +499,7 @@ void find_neighbors_request_handler(Packet *p) {
 		printe("Received unexpected ACK\n");
 		//That is an error. Do nothing.
 	} else {
+		printNetAddr(net->src);
 		printd("FIND_NEIGHBORS_REQ_HANDLER\n");
 		LocalUser *self = &localUsers[0]; //TODO Set this to something scalable.
 		Friend f; //Incomplete f. TODO this is probably okay.
@@ -511,7 +513,7 @@ void find_neighbors_request_handler(Packet *p) {
 }
 
 void send_find_neighbors_response(Friend *f, LocalUser *self, ttl ttl) {
-	printv("Send Find Neighbors Request\n");
+	printv("Send Find Neighbors Response\n");
 	Network* n = malloc(sizeof(Network));
 	Packet* p = malloc(sizeof(Packet));
 	
