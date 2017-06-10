@@ -282,6 +282,7 @@ void* ui_listneighbor_onclick(Menu* menu) {
 	printd("Sending Find Neighbor Request\n");
 	send_find_neighbors_request();
 	MenuItem* temp;
+	delay(400);
 	for(int i = 0; i < numNeighbors; i++) {
 		sprintf(name, "%d:%s %s", i, neighborList[i].firstname, neighborList[i].lastname);
 		temp = ui_item_init(neighborRoot, name);
