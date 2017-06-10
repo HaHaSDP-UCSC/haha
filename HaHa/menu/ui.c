@@ -416,7 +416,7 @@ void* ui_demo_onclick(Menu* menu) {
 		strcpy(p.SRCLASTNAME, aug.lastname);
 		memcpy(net.src, aug.networkaddr, MAXNETADDR);
 		addNeighbor(&p, &net, globalTimer);
-		addFriend(&kev);
+		//addFriend(&kev);
 	} else if(streq(value, "Kevin")) {
 		self.friend = kev;
 		strcpy(p.SRCFIRSTNAME, aug.firstname);
@@ -427,7 +427,7 @@ void* ui_demo_onclick(Menu* menu) {
 		strcpy(p.SRCLASTNAME, brian.lastname);
 		memcpy(net.src, brian.networkaddr, 8);
 		addNeighbor(&p, &net, globalTimer);
-		addFriend(&brian);
+		//addFriend(&brian);
 	}
 	printd("Test2");
 	memcpy(self.friend.networkaddr,t, 8);
