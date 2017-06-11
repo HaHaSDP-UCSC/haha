@@ -758,8 +758,7 @@ void send_friend_response_ack(Friend *f, LocalUser *self, bool accept) {
 	
 	p->opcode = FRIEND_RESPONSE;
 	CLR_FLAGS(p->flags);
-	if (accept)
-		SET_ACCEPT(p->flags);
+	SET_ACK(p->flags);
 	copy_friend_to_packet(f, self, p);
 	sendPacket(p, n);
 	
