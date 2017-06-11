@@ -131,13 +131,15 @@ bool removeFriend(Friend *f) {
  *
  * @return     true if successful, false otherwise.
  */
-Friend * checkForFriend(Network* net) {
+Friend * checkForFriend(netaddr *n2) {
     printd("Searching for friend with addr:");
-    printBuff(net->src, 8, "%x");
+    //printBuff(net.src, 8, "%x");
+	printNetAddr(n2);
+	printd("addr:%d", n2);
     printd("\n");
     for(int i=0; i<numFriends; ++i){
         printd("searching entry %d", i);
-        if(netCompare(friendList[i].networkaddr, net->src))
+        if(netCompare(friendList[i].networkaddr, n2))
 	        return &friendList[i];
     }            
     return NULL;
