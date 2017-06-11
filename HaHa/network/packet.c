@@ -63,8 +63,7 @@ void app_packet_handler(Network *info) {
 		printe("Packet Malloc Error.");
 		return;
 	}
-	int success = convertFromDataToPacket(p, (unsigned char) info->data, 
-	(int) info->len);
+	int success = convertFromDataToPacket(p, info->data, info->len);
 	if(!success){
 		HAHADEBUG("Error in packet.");
 		free(p);
