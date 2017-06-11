@@ -38,6 +38,7 @@ int main(void)
 	init_sys();
 	toglight = 0;
 	int lighton = 0;
+	
 	//Set PWM
 	//pwm_sync_disable(&PWM_0);
 	//pwm_sync_set_parameters(&PWM_0, 4, 50);
@@ -78,60 +79,6 @@ int main(void)
 		}
 	}
 	
-	//xbee_send(0x0013a200414F50EA, "Test Data", 9);
-	
-	//delay(5000);
-	//cmd_AT_get("SH");
-	//delay(500);
-	//cmd_AT_get("NH");
-	/* Main Application Loop */
-	char buff[80]; // large enough
-	int count = 0;
-	char c;
-    
-    //sendTestReq();
-	
-    //addTestFriend("Brian", "Nichols","0013A200414F50EA");
-    //addTestLocalUser("Kevin", "Lee", 0x1);
-    //send_ping_request(&friendList[0]);
-    
-    //send_help_request(friendList[0]);
-	//addTestFriend("Brian", "Nichols","0013A200414F50EA");
-	//addTestLocalUser("Kevin", "Lee", 0x1);
-	////send_ping_request(&friendList[0]);
-	//
-	///* Testing Application code */
-	//LocalUser self;
-	//strcpy(self.friend.firstname, "Kevin");
-	//strcpy(self.friend.lastname, "Lee");
-    //uint8_t* t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50E9");
-    //memcpy(self.friend.networkaddr,t, 8);
-	//self.friend.port = 0x0001;
-	//
-	//Friend f;
-	//strcpy(f.firstname, "Brian");
-	//strcpy(f.lastname, "Nichols");
-    //t = (uint8_t *) convert_asciihex_to_byte("0013A200414F50EA");
-	//memcpy(f.networkaddr, t, 8);
-	//f.port = 0x0002;
-	//
-	//send_help_request(&f, &self);
-	////send_help_request_ack(Friend *f, LocalUser *self);
-	//
-	//bool accept = true;
-	
-	//send_help_request(&friendList[0]);
-	
-	/*
-    send_help_response(&f, &self, accept);
-	//next accept should come from the help response.
-    send_help_response_ack(&f, &self, accept);
-	*/
-	
-	while (1) {
-		uart_read();
-		ui_update();
-	}
 	return 1;
 }
 

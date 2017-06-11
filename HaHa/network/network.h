@@ -38,6 +38,6 @@ void netArrayAdd(Network* add);
 uint8_t netArrayReturn(uint8_t netID);
 bool netCompare(netaddr n1, netaddr n2);
 
-void printNetAddr(netaddr *t);
+void printNetAddr(netaddr t);
 
 #endif /* NETWORK_H_ */

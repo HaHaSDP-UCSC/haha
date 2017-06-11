@@ -11,6 +11,7 @@
 
 #include "utils/hahaUtils.h"
 #include "lcd/lcd.h"
+#include <stdlib.h>
 
 #define MENU_MAXLEN 32
 #define MENU_WRAP true
