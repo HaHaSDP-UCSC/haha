@@ -36,6 +36,7 @@ typedef struct {
 
 Friend friendList[FRIENDLISTSIZE];
 LocalUser localUsers[MAXLOCAL];
+Friend awaitingAccept;
 
 uint8_t numFriends;
 
