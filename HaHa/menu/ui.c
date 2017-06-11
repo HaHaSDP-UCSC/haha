@@ -285,7 +285,7 @@ void* ui_listneighbor_onclick(Menu* menu) {
 	lcd_clear();
 	lcd_set_line(0, "  Scanning...   ");
 	lcd_update();
-	delay(1500);
+	delay(800);
 
 	for(int i = 0; i < numNeighbors; i++) {
 		sprintf(name, "%d:%s %s", i, neighborList[i].firstname, neighborList[i].lastname);
