@@ -13,10 +13,13 @@
 #include "neighbor/responseflags.h"
 #include "network/packet.h"
 
+#define TSU 175 //0xAF
+#define SHI 188 //0xBC
+
 // Character sets
-char* ui_charset_alpha = "_ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-char* ui_charset_alphacase = "_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-char* ui_charset_alphanum = "_ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+char* ui_charset_alpha = "_ABCDEFGHIJKLMNOPQRSTUVWXYZ\xBC\xAF";
+char* ui_charset_alphacase = "_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\xBC\xAF";
+char* ui_charset_alphanum = "_ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789\xBC\xAF";
 char* ui_charset_num = "0123456789";
 
 int globalTimer = 0; //TODO create a TIMER to increment this every second in a better place.
