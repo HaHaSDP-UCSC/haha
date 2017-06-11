@@ -160,7 +160,7 @@ void ping_request_handler(Packet *p){
 			printd("Found %d message for opcode %d\n", numEntries, p->opcode);
 			printNetAddr(net->src);
 			//update friendlist last response
-			uint8_t index = checkForFriend(net);
+			uint8_t index = checkForFriend(net->src);
 			friendList[index].lastresponse = queueTime;
 		}
 		removeFromQueueEvents(e, numEntries);
@@ -255,7 +255,15 @@ void help_request_handler(Packet *p) {
 		} else {
 		printd("HELP_REQ_HANDLER\n");
 		//Check if friend
-		Friend *isFriend = checkForFriend(net);
+		int i = netArrayReturn(p->id);
+		if(i == NOT_FOUND){
+			HAHADEBUG("net item not found\n");
+			return;
+		}
+		net = &NET_ARRAY[i];
+		printd("INside of friedn req handler");
+		printNetAddr(net->src);
+		Friend *isFriend = checkForFriend(net->src);
 		if (isFriend != NULL) {
 			printd("Is a friend.\n");
 			toglight =1;
@@ -342,8 +350,15 @@ void help_response_handler(Packet *p) {
 		//Do not need to do anything.
 		} else {
 		printd("HELP_RESP_HANDLER\n");
-		
-		Friend *isFriend = checkForFriend(net);
+		int i = netArrayReturn(p->id);
+		if(i == NOT_FOUND){
+			HAHADEBUG("net item not found\n");
+			return;
+		}
+		net = &NET_ARRAY[i];
+		printd("printing from helpreqhandler:");
+		printNetAddr(net->src);
+		Friend *isFriend = checkForFriend(net->src);
 		if (isFriend != NULL) {
 			printd("Is a friend.\n");
 			bool accept = IS_ACCEPT(p->flags);
@@ -639,7 +654,7 @@ void friend_request_handler(Packet *p) {
 	if (IS_ACK(p->flags)) {
 		printd("FRIEND_REQ_HANDLER ACK\n");
 		//Check if already friend, and confirmed.
-		Friend *isFriend = checkForFriend(net);
+		Friend *isFriend = checkForFriend(net->src);
 		if (isFriend != NULL) {
 			printd("Is a friend.\n");
 			//Add message/event for a FRIEND_RESPONSE.
@@ -659,7 +674,8 @@ void friend_request_handler(Packet *p) {
 			return;
 		}
 		net = &NET_ARRAY[i];
-		Friend *isFriend = checkForFriend(net);
+		printNetAddr(net->src);
+		Friend *isFriend = checkForFriend(net->src);
 		if (isFriend != NULL) {
 			//Already a friend.
 			printd("Is a friend. returning\n");
@@ -766,7 +782,7 @@ void friend_response_handler(Packet *p) {
 		} else {
 		printv("FRIEND_RESP_HANDLER\n");
 		//Check if already a friend
-		Friend *f = checkForFriend(net);
+		Friend *f = checkForFriend(net->src);
 		if (f != NULL) {
 			//Is sorta friend.
 			SET_RESACCEPT(f->responseflag); //Now a full friend.
@@ -835,7 +851,7 @@ void unfriend_request_handler(Packet *p) {
 		} else {
 		printd("UNFRIEND_REQ_HANDLER\n");
 		//Check if already a friend
-		Friend *f = checkForFriend(net);
+		Friend *f = checkForFriend(net->src);
 		//Message user that someone has unfriended them LCD @brian @august
 		
 		//Send ACK packet back.
