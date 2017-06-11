@@ -682,7 +682,7 @@ void friend_request_handler(Packet *p) {
 		printd("awaiting friend\n");
 		awaitingAccept = f;
 		printd("getting ready menu\n");
-		menu->current = ui_friendresp_onview;
+		menu->current = ui_item_friendresp;
 		printd("menu set\n");
 		menu->current->onView();
 		printd("menu return\n");

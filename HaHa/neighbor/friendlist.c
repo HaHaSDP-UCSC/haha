@@ -135,9 +135,9 @@ Friend * checkForFriend(Network* net) {
     printd("Searching for friend with addr:");
     printBuff(net->src, 8, "%x");
     printd("\n");
-    for(int i=0; i<FRIENDLISTSIZE; ++i){
+    for(int i=0; i<numFriends; ++i){
         printd("searching entry %d", i);
-        if(netCompare(&friendList[i].networkaddr, &net->src))
+        if(netCompare(friendList[i].networkaddr, net->src))
 	        return &friendList[i];
     }            
     return NULL;
