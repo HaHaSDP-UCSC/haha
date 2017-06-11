@@ -10,6 +10,7 @@
 #define _HA_LCDDEVICE_H_
 
 #include "utils/hahaUtils.h"
+#include <string.h>
 
 // Required info for lcd module
 

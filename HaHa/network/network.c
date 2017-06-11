@@ -11,7 +11,7 @@
 //#include "stdlib.h"
 //#include "string.h"
 
-void printNetAddr(netaddr *t) {
+void printNetAddr(netaddr t) {
 	printf("NetAddr:[");
 	printBuff(t, 8, "%c");
 	printf("][");

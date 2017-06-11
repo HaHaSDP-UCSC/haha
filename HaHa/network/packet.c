@@ -18,6 +18,7 @@
 #include "lcd/lcd.h"
 #include "menu/menu.h"
 #include "menu/ui.h"
+#include "lightsound/alarm/alarm.h"
 
 static int friendReq = 0;
 
@@ -62,7 +63,8 @@ void app_packet_handler(Network *info) {
 		printe("Packet Malloc Error.");
 		return;
 	}
-	int success = convertFromDataToPacket(p, info->data, info->len);
+	int success = convertFromDataToPacket(p, (unsigned char) info->data, 
+	(int) info->len);
 	if(!success){
 		HAHADEBUG("Error in packet.");
 		free(p);
@@ -73,7 +75,7 @@ void app_packet_handler(Network *info) {
 	printf("after netarrayadd\n");
 	printNetAddr(info->src);
 	(haha_packet_handlers[p->opcode])(p);
-	free(p); //TODO @brian free(p); //Is this the end of the packet?
+	free(p);
 }
 
 void register_opcode_handler_function(opcode_handler_fn_t t, op opcode) {
@@ -94,7 +96,7 @@ void copy_friend_to_packet(Friend *f, LocalUser *self, Packet* p) {
 	//p->flags = flag; //Should already be passed in.
 	p->SRCUID = self->friend.port;
 	p->DESTUID = f->port;
-	p->ORIGINUID == f->port; //These are not used in friends packets.
+	p->ORIGINUID = f->port; //These are not used in friends packets.
 	strcpy(p->SRCFIRSTNAME, self->friend.firstname);
 	strcpy(p->SRCLASTNAME, self->friend.lastname);
 	strcpy(p->SRCHOMEADDR, self->homeaddr);
@@ -159,9 +161,8 @@ void ping_request_handler(Packet *p){
 		if(numEntries){
 			printd("Found %d message for opcode %d\n", numEntries, p->opcode);
 			printNetAddr(net->src);
-			//update friendlist last response
-			uint8_t index = checkForFriend(net->src);
-			friendList[index].lastresponse = queueTime;
+			Friend *f = checkForFriend(net->src);
+			f->lastresponse = queueTime;
 		}
 		removeFromQueueEvents(e, numEntries);
 		free(e);
@@ -504,6 +505,29 @@ void send_find_neighbors_request() {
 	
 }
 
+void send_find_neighbors_response(Friend *f, LocalUser *self, ttl ttl) {
+	printv("Send Find Neighbors Response\n");
+	Network* n = malloc(sizeof(Network));
+	Packet* p = malloc(sizeof(Packet));
+	
+	n->dest = f->networkaddr;
+	printNetAddr(n->dest);
+	
+	p->opcode = FIND_NEIGHBORS_RESPONSE;
+	CLR_FLAGS(p->flags);
+	copy_friend_to_packet(f, self, p);
+	p->ttl = ttl; // Set the TTL TODO eventually put in better place.
+	sendPacket(p, n);
+	
+	//Add a corresponding message
+	Message *m = malloc(sizeof(Message));
+	setSettingsByOpcode(m, p->opcode);
+	memcpy(m->srcAddr, n->dest, 8);
+	addToQueue(m);
+	free(n);
+	free(p);
+}
+
 void find_neighbors_request_handler(Packet *p) {
 	printv("Find Neighbors Request Handler\n");
 	Network *net = NULL;
@@ -533,29 +557,6 @@ void find_neighbors_request_handler(Packet *p) {
 		memcpy(f.networkaddr, net->src, MAXNETADDR); //TODO @brian is this correct src? want to send to other station.
 		send_find_neighbors_response(&f, self, net->ttl); //Sends this devices ttl so other can calculate.
 	}
-}
-
-void send_find_neighbors_response(Friend *f, LocalUser *self, ttl ttl) {
-	printv("Send Find Neighbors Response\n");
-	Network* n = malloc(sizeof(Network));
-	Packet* p = malloc(sizeof(Packet));
-	
-	n->dest = f->networkaddr;
-	printNetAddr(n->dest);
-	
-	p->opcode = FIND_NEIGHBORS_RESPONSE;
-	CLR_FLAGS(p->flags);
-	copy_friend_to_packet(f, self, p);
-	p->ttl = ttl; // Set the TTL TODO eventually put in better place.
-	sendPacket(p, n);
-	
-	//Add a corresponding message
-	Message *m = malloc(sizeof(Message));
-	setSettingsByOpcode(m, p->opcode);
-	memcpy(m->srcAddr, n->dest, 8);
-	addToQueue(m);
-	free(n);
-	free(p);
 }
 
 void send_find_neighbors_response_ack(Friend *f, LocalUser *self) {
