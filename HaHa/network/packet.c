@@ -373,6 +373,7 @@ void help_response_handler(Packet *p) {
 				sprintf(buf, "%s %s is on their way.", isFriend->firstname, 
 				isFriend->lastname);
 				lcd_set_line_overflow(1, buf);
+				lcd_update();
 			} else {
 				printd("Request Denied.\n");
 				lcd_clear();
@@ -393,6 +394,7 @@ void help_response_handler(Packet *p) {
 					lcd_set_line_overflow(0, "NO FRIENDS AVAILABLE");
 					friendReq = 0;
 				}
+				lcd_update();
 			}
 			
 			//or HELP_REQUEST_ANYONE
