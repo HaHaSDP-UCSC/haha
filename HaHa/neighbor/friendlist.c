@@ -58,7 +58,7 @@ bool initFriendList() {
 bool addFriend(Friend *f) {
     friendList[numFriends] = *f;
     Friend* ftemp = &friendList[numFriends];
-    printd("Added friend: %s %s", ftemp->firstname, ftemp->lastname);
+    printd("Added friend: %s %s\n", ftemp->firstname, ftemp->lastname);
     printd("netaddr:[");
     printBuff(f->networkaddr, 8, "%c");
     printd("]\n");
@@ -69,7 +69,7 @@ bool addFriend(Friend *f) {
 bool addLocalUser(LocalUser *f) {
 	localUsers[numLocal] = *f;
 	LocalUser* ftemp = &localUsers[numLocal];
-	printd("Added local user: %s %s", ftemp->friend.firstname, ftemp->friend.lastname);
+	printd("Added local user: %s %s\n", ftemp->friend.firstname, ftemp->friend.lastname);
 	printd("netaddr:[");
 	printBuff(f->friend.networkaddr, 8, "%c");
 	printd("]\n");
