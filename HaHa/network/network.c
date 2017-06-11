@@ -51,17 +51,19 @@ uint8_t netArrayReturn(uint8_t netID){
 bool netCompare(netaddr n1, netaddr n2){
     printd("Comparing ");
     //printBuff(n1, 8, "%x");
+	printNetAddr(n1);
     printd(" to ");
     //printBuff(n2, 8, "%x");
+	printNetAddr(n2);
     printd("\n");
-    //for(int i=0; i<MAXNETADDR; ++i){
-        //printd("testing %d", i);
-        //printd("testing %d %d", n1[i], n2[i]);
-        ////if(n1[i] != n2[i]){
-        ////    printd("index %d no match\n", i);
-        ////    return false;
-        ////}            
-    //}
+    for(int i=0; i<MAXNETADDR; ++i){
+        printd("testing %d", i);
+        printd("testing %d %d", n1[i], n2[i]);
+        if(n1[i] != n2[i]){
+            printd("index %d no match\n", i);
+            return false;
+        }            
+    }
     printd("netCompare true\n");
     return true;
 }

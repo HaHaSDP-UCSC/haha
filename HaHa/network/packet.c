@@ -653,12 +653,19 @@ void friend_request_handler(Packet *p) {
 	} else {
 		printd("FRIEND_REQ_HANDLER\n");
 		//Check if already friend. If already friend, drop packet.
+		int i = netArrayReturn(p->id);
+		if(i == NOT_FOUND){
+			HAHADEBUG("net item not found\n");
+			return;
+		}
+		net = &NET_ARRAY[i];
 		Friend *isFriend = checkForFriend(net);
 		if (isFriend != NULL) {
 			//Already a friend.
+			printd("Is a friend. returning\n");
 			return;
 		}
-		
+		printd("Not a friend continuing\n");
 		Friend f;
 		f.id = numFriends; //TODO fix
 		f.port = p->SRCUID;
@@ -672,10 +679,13 @@ void friend_request_handler(Packet *p) {
 		LocalUser *self = &localUsers[0]; //TODO Set this to something scalable.
 		
 		//addFriend(&f); //Add a friend that is not registered yet.
+		printd("awaiting friend\n");
 		awaitingAccept = f;
+		printd("getting ready menu\n");
 		menu->current = ui_friendresp_onview;
+		printd("menu set\n");
 		menu->current->onView();
-		
+		printd("menu return\n");
 		//Send ACK back.
 		send_friend_request_ack(&f, self);
 		/**
