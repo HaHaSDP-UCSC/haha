@@ -75,6 +75,12 @@ void ui_init(void) {
   ui_item_helpresp = ui_item_init(ui_item_helpdeny, "_HELP_RESP_");
   ui_item_helpresp->onView = ui_helpresp_onview;
   ui_item_helpresp->onClick = ui_helpresp_onclick;
+  ui_item_frienddeny = ui_item_init(ui_item_root, "_FRIEND_DENY_");
+  ui_item_frienddeny->active = false;
+  ui_item_frienddeny->onView = ui_frienddeny_onview;
+  ui_item_friendresp = ui_item_init(ui_item_frienddeny, "_FRIEND_RESP_");
+  ui_item_friendresp->onView = ui_friendresp_onview;
+  ui_item_friendresp->onClick = ui_friendresp_onclick;
   menu->current = menu->root->child;
 }
 
@@ -135,7 +141,7 @@ void* ui_userinfo_onview(Menu* menu) {
 		sprintf(addr, "%x", localUsers[0].friend.networkaddr);
 		lcd_set_line(0, "Your Base ID");
 		lcd_set_line_overflow(1, addr);
-		lcd_set_line(3, "vMORE");
+		if(LCD_ROWS > 2) lcd_set_line(LCD_ROWS - 1, "vMORE");
 	} else {
 		if(streq(menu->current->value, "__USERFIRST__")) {
 			lcd_set_line(0, "Your First Name");
@@ -150,16 +156,14 @@ void* ui_userinfo_onview(Menu* menu) {
 			lcd_set_line(0, "Your Phone #");
 			lcd_set_line_overflow(1, &localUsers[0].phoneaddr);
 		}
-		lcd_set_line(3, "vMORE      EDIT>");
+		if(LCD_ROWS > 2) lcd_set_line(LCD_ROWS - 1, "vMORE      EDIT>");
 	}
 	lcd_update();
 }
 
 void* ui_userinfo_onclick(Menu* menu) {
-	printd("ui_onclick_userinfo\n");
-	if(streq(menu->current->value, "__USERPORT__")) {
-    // Not implemented
-	} else if(streq(menu->current->value, "__USERFIRST__")) {
+	printv("ui_onclick_userinfo\n");
+	if(streq(menu->current->value, "__USERFIRST__")) {
 		ui_input_init(menu, "Edit First Name:", ui_charset_alphacase, &localUsers[0].friend.firstname);
 	} else if(streq(menu->current->value, "__USERLAST__")) {
 		ui_input_init(menu, "Edit Last Name:", ui_charset_alphacase, &localUsers[0].friend.lastname);
@@ -171,7 +175,7 @@ void* ui_userinfo_onclick(Menu* menu) {
 }
 
 void ui_input_init(Menu* menu, char* value, char* letters, char** output) {
-	printd("ui_input_init\n");
+	printv("ui_input_init\n");
 	MenuItem* inputRoot = ui_item_init(menu->current, value);
 	inputRoot->onView = ui_input_onview;
 	char letterValue[2];
@@ -191,18 +195,18 @@ void ui_input_init(Menu* menu, char* value, char* letters, char** output) {
 	menu->outputBuffer = output;
 	menu->current = inputRoot->child;
 	menu->current->onView();
-	lcd_set_line(LCD_ROWS - 1, "Edit with v/^");
+	if(LCD_ROWS > 2) lcd_set_line(LCD_ROWS - 1, "Edit with v/^");
 }
 
 void ui_input_save(Menu* menu) {
-	printd("ui_input_save\n");
-	printd("src: '%s', dest: '%s'\n", menu->inputBuffer, menu->outputBuffer);
+	printv("ui_input_save\n");
+	//printd("src: '%s', dest: '%s'\n", menu->inputBuffer, menu->outputBuffer);
 	strcpy(menu->outputBuffer, menu->inputBuffer);
 	ui_input_destroy(menu);
 }
 
 void ui_input_delete(Menu* menu) {
-	printd("ui_input_delete\n");
+	printv("ui_input_delete\n");
 	char* inputBuffer = menu->inputBuffer;
 	int inputLen = strlen(inputBuffer);
 	if(strlen(inputBuffer) > 0) {
@@ -212,7 +216,7 @@ void ui_input_delete(Menu* menu) {
 }
 
 void ui_input_destroy(Menu* menu) {
-	 printd("ui_input_destroy\n");
+	 printv("ui_input_destroy\n");
 	 MenuItem* inputRoot = menu->current;
 	 free(menu->inputBuffer);
 	 menu->inputBuffer = NULL;
@@ -222,7 +226,7 @@ void ui_input_destroy(Menu* menu) {
 }
 
 void* ui_input_onview(Menu* menu) {
-	printd("ui_input_onview\n");
+	printv("ui_input_onview\n");
 	char* currentValue = menu->current->value;
 	if(strlen(currentValue) == 1) {
 		char* inputBuffer = menu->inputBuffer;
@@ -241,7 +245,7 @@ void* ui_input_onview(Menu* menu) {
 }
 
 void* ui_input_onclick(Menu* menu) {
-	printd("ui_input_onclick\n");
+	printv("ui_input_onclick\n");
 	char currentLetter = menu->current->value[0];
 	char* inputBuffer = menu->inputBuffer;
 	int inputLen = strlen(inputBuffer);
@@ -257,7 +261,7 @@ void* ui_input_onclick(Menu* menu) {
 }
 
 void* ui_listfriend_onclick(Menu* menu) {
-	printd("ui_listfriend_onclick\n");
+	printv("ui_listfriend_onclick\n");
 	MenuItem* friendRoot = menu->current;
 	menu_item_sterilize(friendRoot);
 	char name[256];
@@ -275,7 +279,7 @@ void* ui_listfriend_onclick(Menu* menu) {
 }
 
 void* ui_listneighbor_onclick(Menu* menu) {
-	printd("ui_listneighbor_onclick\n");
+	printv("ui_listneighbor_onclick\n");
 	MenuItem* neighborRoot = menu->current;
 	menu_item_sterilize(neighborRoot);
 	char name[256];
@@ -317,7 +321,7 @@ void* ui_neighbor_onclick(Menu* menu) {
 }
 
 void ui_helpreq_onclick(Menu *menu){
-	printd("ui_helpreq_onclick\n");
+	printv("ui_helpreq_onclick\n");
 	//addTestFriend("Brian", "Nichols","0013A200414F50EA");
 	//addTestLocalUser("Kevin", "Lee", 0x1);
 	//send_ping_request(&friendList[0]);
@@ -331,8 +335,8 @@ void ui_helpreq_onclick(Menu *menu){
 }
 
 void* ui_helpdeny_onview(Menu* menu) {
-	printd("ui_helpdeny_onview\n");
-	printd("HELP REQUEST DENY!");
+	printv("ui_helpdeny_onview\n");
+	//printd("HELP REQUEST DENY!");
 	send_help_response(&friendList[0], &localUsers[0], false); //TODO not zero
 	menu->current = ui_item_root->child;
 	menu->current->onView();
@@ -342,14 +346,14 @@ void* ui_helpdeny_onview(Menu* menu) {
 
 void* ui_helpresp_onview(Menu* menu) {
 	static uint8_t count = 0;
-	printd("In helpresp onview\n");
+	printv("In helpresp onview\n");
 	lcd_clear();
 	lcd_set_line(0, "! HELP REQUEST !");
-	printf("before");
-	printf("'%s'\n", menu->txtSrc1);
+	//printf("before");
+	//printf("'%s'\n", menu->txtSrc1);
 	printBuff(menu->txtSrc1, 3, "%c");
 	lcd_set_line(1, menu->txtSrc1);
-	lcd_set_line(LCD_ROWS - 1, "<BACK   RESPOND>");
+	if(LCD_ROWS > 2) lcd_set_line(LCD_ROWS - 1, "<BACK   RESPOND>");
 	lcd_update();
 	if(count++ > 0)
 	menu->current->onView();
@@ -358,7 +362,7 @@ void* ui_helpresp_onview(Menu* menu) {
 }
 
 void* ui_helpresp_onclick(Menu* menu) {
-	printd("IN HELPRESP ON CLICK!\n");
+	printv("IN HELPRESP ON CLICK!\n");
 	menu->current = ui_item_root->child;
 	menu->current->onView();
 	send_help_response(&friendList[0], &localUsers[0], true); //TODO not zero
@@ -445,4 +449,25 @@ void* ui_demo_onclick(Menu* menu) {
 	printv("UI_DEMO_ONCLICK END\n");
 	menu->current->onView();
 	printd("Test3");
+}
+
+void* ui_friendresp_onview(Menu* menu) {
+	printv("ui_friendresp_onview");
+	lcd_clear();
+	lcd_set_line(0, "FRIEND REQUEST !");
+	lcd_set_line(1, "<<placeholder for friend's name>>");
+	if(LCD_ROWS > 2) lcd_set_line(LCD_ROWS - 1, "<DENY    ACCEPT>");
+	lcd_update();
+}
+
+void* ui_friendresp_onclick(Menu* menu) {
+	printv("ui_friendresp_onclick");
+	menu->current = ui_item_root->child;
+	menu->current->onView();
+}
+
+void* ui_frienddeny_onview(Menu* menu) {
+	printv("ui_frienddeny_onview");
+	menu->current = ui_item_root->child;
+	menu->current->onView();
 }

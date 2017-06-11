@@ -26,6 +26,8 @@ MenuItem* ui_item_settings;
 MenuItem* ui_item_helpreq;
 MenuItem* ui_item_helpdeny;
 MenuItem* ui_item_helpresp;
+MenuItem* ui_item_frienddeny;
+MenuItem* ui_item_friendresp;
 
 /**
  * @brief initializes the user interface
@@ -161,5 +163,11 @@ void* ui_helpresp_onview(Menu* menu);
 void* ui_helpresp_onclick(Menu* menu);
 
 void* ui_demo_onclick(Menu* menu);
+
+void* ui_friendresp_onview(Menu* menu);
+
+void* ui_friendresp_onclick(Menu* menu);
+
+void* ui_frienddeny_onview(Menu* menu);
 
 #endif // _HA_INIT_
