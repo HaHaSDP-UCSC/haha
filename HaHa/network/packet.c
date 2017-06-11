@@ -691,12 +691,12 @@ void friend_request_handler(Packet *p) {
 		/**
 		Message user that someone wants to be a friend.
 		*/
-		lcd_clear();
-		lcd_set_line(0, "Friend Req");
-		char buff[16];
-		sprintf(buff, "%s", p->SRCFIRSTNAME);
-		lcd_set_line(1, buff);
-		lcd_update();
+		//lcd_clear();
+		//lcd_set_line(0, "Friend Req");
+		//char buff[16];
+		//sprintf(buff, "%s", p->SRCFIRSTNAME);
+		//lcd_set_line(1, buff);
+		//lcd_update();
 		/*
 		TODO @brian@august LCD Prompt	//Add message/event for a FRIEND_RESPONSE ACK (Only after user accepts) //TODO NOT HERE.
 		If they accept, send a packet to them.

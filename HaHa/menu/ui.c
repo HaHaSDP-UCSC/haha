@@ -486,10 +486,12 @@ void* ui_friendresp_onclick(Menu* menu) {
 	menu->current = ui_item_root->child;
 	menu->current->onView();
 	addFriend(&awaitingAccept);
+	send_friend_response(&awaitingAccept, &localUsers[0], true);
 }
 
 void* ui_frienddeny_onview(Menu* menu) {
 	printv("ui_frienddeny_onview");
 	menu->current = ui_item_root->child;
 	menu->current->onView();
+	send_friend_response(&awaitingAccept, &localUsers[0], false);
 }
