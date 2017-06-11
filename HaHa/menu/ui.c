@@ -266,6 +266,9 @@ void* ui_listfriend_onclick(Menu* menu) {
 	printv("ui_listfriend_onclick\n");
 	MenuItem* friendRoot = menu->current;
 	menu_item_sterilize(friendRoot);
+	numNeighbors = 0;
+	printd("Sending Find Neighbor Request\n");
+	send_find_neighbors_request();
 	char name[256];
 	MenuItem* temp;
 	for(int i = 0; i < numFriends; i++) {
@@ -285,8 +288,6 @@ void* ui_listneighbor_onclick(Menu* menu) {
 	MenuItem* neighborRoot = menu->current;
 	menu_item_sterilize(neighborRoot);
 	char name[256];
-	printd("Sending Find Neighbor Request\n");
-	send_find_neighbors_request();
 	MenuItem* temp;
 	lcd_clear();
 	lcd_set_line(0, "  Scanning...   ");

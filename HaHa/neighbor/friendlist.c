@@ -137,7 +137,7 @@ Friend * checkForFriend(Network* net) {
     printd("\n");
     for(int i=0; i<FRIENDLISTSIZE; ++i){
         printd("searching entry %d", i);
-        if(netCompare(friendList[i].networkaddr, &net->src))
+        if(netCompare(&friendList[i].networkaddr, &net->src))
 	        return &friendList[i];
     }            
     return NULL;
