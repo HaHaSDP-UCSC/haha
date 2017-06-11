@@ -573,6 +573,12 @@ void find_neighbors_response_handler(Packet *p) {
 		//Do nothing. Just confirmation message.
 	} else {
 		printd("FIND_NEIGHBORS_HANDLER\n");
+		int i = netArrayReturn(p->id);
+		if(i == NOT_FOUND){
+			HAHADEBUG("net item not found\n");
+			return;
+		}
+		net = &NET_ARRAY[i];
 		addNeighbor(p, net, queueTime);
 		
 		LocalUser *self = &localUsers[0]; //TODO Set this to something scalable.
