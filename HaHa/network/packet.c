@@ -365,21 +365,20 @@ void help_response_handler(Packet *p) {
 			//Display to user whether they accepted or not.
 			//If accepted, all good, otherwise, do a send to the next friend,
 			printd("HELP RESPONSE PACKET RECV! accept: %d\n", accept);
+			lcd_clear();
 			if (accept) {
 				printd("Request Accepted.\n");
-				lcd_clear();
 				lcd_set_line(0, "REQUEST ACCEPTED");
 				char buf[64];
 				sprintf(buf, "%s %s is on their way.", isFriend->firstname, 
 				isFriend->lastname);
 				lcd_set_line_overflow(1, buf);
-				lcd_update();
+				
 			} else {
 				printd("Request Denied.\n");
-				lcd_clear();
-				lcd_set_line(0, "REQUEST DENIED");
+				lcd_set_line(0, "!    WARNING   !");
 				char buf[64];
-				sprintf(buf, "%s %s is on their way.", isFriend->firstname, 
+				sprintf(buf, "%s %s couldn't come.", isFriend->firstname, 
 				isFriend->lastname);
 				lcd_set_line_overflow(1, buf);
 				//Send to next friend.
@@ -391,11 +390,12 @@ void help_response_handler(Packet *p) {
 				} else {
 					printd("NO FRIENDS WERE AVAILABLE.\n");
 					lcd_clear();
-					lcd_set_line_overflow(0, "NO FRIENDS AVAILABLE");
+					lcd_set_line(0, "!    DANGER    !");
+					lcd_set_line_overflow(1, "None of your    friends could   come help you!");
 					friendReq = 0;
 				}
-				lcd_update();
 			}
+			lcd_update();
 			
 			//or HELP_REQUEST_ANYONE
 			//Different light/alarm pattern
