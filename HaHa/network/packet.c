@@ -673,6 +673,8 @@ void friend_request_handler(Packet *p) {
 		
 		//addFriend(&f); //Add a friend that is not registered yet.
 		awaitingAccept = f;
+		menu->current = ui_friendresp_onview;
+		menu->current->onView();
 		
 		//Send ACK back.
 		send_friend_request_ack(&f, self);

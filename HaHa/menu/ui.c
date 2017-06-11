@@ -475,7 +475,7 @@ void* ui_friendresp_onview(Menu* menu) {
 	printv("ui_friendresp_onview");
 	lcd_clear();
 	lcd_set_line(0, "FRIEND REQUEST !");
-	lcd_set_line(1, "<<placeholder for friend's name>>");
+	lcd_set_line(1, awaitingAccept.firstname);
 	if(LCD_ROWS > 2) lcd_set_line(LCD_ROWS - 1, "<DENY    ACCEPT>");
 	lcd_update();
 }
@@ -484,6 +484,7 @@ void* ui_friendresp_onclick(Menu* menu) {
 	printv("ui_friendresp_onclick");
 	menu->current = ui_item_root->child;
 	menu->current->onView();
+	addFriend(&awaitingAccept);
 }
 
 void* ui_frienddeny_onview(Menu* menu) {
