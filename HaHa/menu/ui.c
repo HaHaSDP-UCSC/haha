@@ -9,6 +9,8 @@
 #include "ui.h"
 #include "messagequeue/messagequeue.h"
 #include "neighbor/friendlist.h"
+#include "neighbor/neighborlist.h"
+#include "neighbor/responseflags.h"
 #include "network/packet.h"
 
 // Character sets
@@ -307,12 +309,30 @@ void* ui_listneighbor_onclick(Menu* menu) {
 	}
 }
 
+bool generateFriendFromNeighbor(Friend *f, Neighbor *n) {
+	f->id = numFriends; //TODO fix
+	f->port = n->port; //TODO FIX
+	f->priority = numFriends; //TODO fix
+	CLR_RESACCEPT(f->responseflag);
+	strcpy(f->firstname, n->firstname);
+	strcpy(f->lastname, n->lastname);
+	memcpy(f->networkaddr, n->networkaddr, MAXNETADDR); //TODO @brian is this correct src? want to send to other station.
+	f->lastresponse = 0; //TODO set to current time
+
+	return true;
+}
+
 void* ui_neighbor_onclick(Menu* menu) {
 	int i;
 	if(sscanf(menu->current->value, "%d:", &i) == 1) {
 		Neighbor n = neighborList[i];
 		printd("I want to be friends with friend %d: %s\n", i, n.firstname);
 		menu->current = menu->current->parent;
+		LocalUser *self = &localUsers[0]; //TODO MAKE NOT ZERO
+		Friend f;
+		generateFriendFromNeighbor(&f, &n);
+		addFriend(&f);
+		send_friend_request(&f, self);
 	}
 }
 

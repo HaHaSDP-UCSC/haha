@@ -47,6 +47,7 @@ bool addFriend(Friend *f);
 bool removeFriend(Friend *f); //Remove based on friend netaddr and srcuid
 Friend * checkForFriend(Network* net);
 bool addLocalUser(LocalUser *f);
+//bool generateFriendFromNeighbor(Friend *f, Neighbor *n);
 
 void addTestFriend(char *fname, char*lname, char* addr);
 void addTestLocalUser(char *fname, char*lname, uint16_t port);
