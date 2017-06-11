@@ -671,7 +671,8 @@ void friend_request_handler(Packet *p) {
 		
 		LocalUser *self = &localUsers[0]; //TODO Set this to something scalable.
 		
-		addFriend(&f); //Add a friend that is not registered yet.
+		//addFriend(&f); //Add a friend that is not registered yet.
+		awaitingAccept = f;
 		
 		//Send ACK back.
 		send_friend_request_ack(&f, self);
