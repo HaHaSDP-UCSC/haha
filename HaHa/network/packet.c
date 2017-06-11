@@ -251,9 +251,7 @@ void help_request_handler(Packet *p) {
 		
 		//Display to user that device was able to connect, pending response.
 		//Add message/event for a HELP_RESPONSE ACK (Only after user accepts) //TODO NOT HERE.
-		//
 		//DISPLAY USERNAME
-		//lcd(p->SRCFIRSTNAME);
 		lcd_set_line(0, "Help Req Recv");
 		} else {
 		printd("HELP_REQ_HANDLER\n");
@@ -401,8 +399,7 @@ void send_help_request_anyone(LocalUser *self){
 	printv("Send Help Request\n");
 	Network* n = malloc(sizeof(Network));
 	Packet* p = malloc(sizeof(Packet));
-	//printf("PACKET:");
-	//memcpy(n->dest, f->networkaddr, 8);
+	
 	n->dest = BROADCAST_ADDRESS();
 	printNetAddr(n->dest);
 	
