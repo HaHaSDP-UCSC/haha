@@ -5,6 +5,8 @@
 *  Author: Brian, Kevin
 */
 
+#include <stdlib.h>
+#include <string.h>
 #include "packet.h"
 #include "network.h"
 #include "flags.h"
@@ -13,8 +15,6 @@
 #include "basecomm.h"
 #include "neighbor/friendlist.h"
 #include "utils/hahaUtils.h"
-#include <stdlib.h>
-#include <string.h>
 #include "lcd/lcd.h"
 #include "menu/menu.h"
 #include "menu/ui.h"
@@ -85,7 +85,6 @@ void register_opcode_handler_function(opcode_handler_fn_t t, op opcode) {
 /* Given a Friend, Local User, and Packet, with packet having opcode and flags
 already pre-registered. Friend is another user base station user. */
 void copy_friend_to_packet(Friend *f, LocalUser *self, Packet* p) {
-	
 	//TODO set up to work for each case. (switch case)
 	//TODO or we can be lazy and copy everything to the packet,
 	//and have the packet sender handle it.
@@ -115,8 +114,6 @@ bool getNetInfo(Packet *p, Network *net) {
 	}
 	printd("Returning id %d\n", p->id);
 	//net = &NET_ARRAY[i];
-	printd("Addr of Netarray:%d\n", NET_ARRAY);
-	printd("Returning pointer: %d", NET_ARRAY + i);
 	*net = NET_ARRAY[i];
 	return true;
 }
@@ -138,7 +135,6 @@ void send_ping_request(Friend *f) {
 	//Add a corresponding message
 	Message *m = malloc(sizeof(Message));
 	setSettingsByOpcode(m, PING_REQUEST);
-	//generateFriendMessage(f, m, PING_REQUEST);
 	memcpy(m->srcAddr, n->dest, 8);
 	addToQueue(m);
 }
@@ -420,7 +416,7 @@ void send_help_request_anyone(LocalUser *self){
 	p->opcode = HELP_FROM_ANYONE_REQUEST;
 	CLR_FLAGS(p->flags);
 	//copy_friend_to_packet(f, self, p);
-	sendPacket(p, n);
+	sendPacketRadius(p, n, 5); //TODO Set radius to a proper number.
 	
 	//Add a corresponding message
 	Message *m = malloc(sizeof(Message));
@@ -432,27 +428,7 @@ void send_help_request_anyone(LocalUser *self){
 }
 
 //No acks needed for help_request_anyone
-//void send_help_request_anyone_ack(LocalUser *self, uint8_t radius) {
-	//printv("Send Help Request ACK\n");
-	//Network* n = malloc(sizeof(Network));
-	//Packet* p = malloc(sizeof(Packet));
-	////printf("PACKET:");
-	////printBuff(f->networkaddr, 8, "%c");
-	////memcpy(n->dest, f->networkaddr, 8);
-	//
-	//n->src = self->friend.networkaddr;
-	//n->dest = f->networkaddr;
-	//printNetAddr(n->dest);
-	//
-	//p->opcode = HELP_FROM_ANYONE_REQUEST;
-	//CLR_FLAGS(p->flags);
-	//SET_ACK(p->flags);
-	//copy_friend_to_packet(f, self, p);
-	//sendPacket(p, n);
-	//
-	////Add a corresponding message
-	///**
-//}
+//void send_help_request_anyone_ack(LocalUser *self, uint8_t radius);
 
 void help_request_anyone_handler(Packet *p){
 	printv("Help Request ANYONE Handler\n");
@@ -463,16 +439,19 @@ void help_request_anyone_handler(Packet *p){
 	}
 	
 	if (IS_ACK(p->flags)) {
-    	printd("FRIEND_REQ_ANYONE_HANLDER ACK\n");
-        	//send_help_request_anyone_ack(&localUsers[0], DEFAULT_BCAST_RAD); //TODO not zero
-        	//Display to user that friend is in need.
-        	
-        	//Turn on lights/siren
-        	setAlarm(true);
-    	}
+		printd("HELP_REQ_ANYONE_HANDLER ACK\n");
+		printe("Received unexpected ACK\n");
+		return;
+    } else {
+		printd("HELP_REQ_ANYONE_HANDLER\n");
+		//send_help_request_anyone_ack(&localUsers[0], DEFAULT_BCAST_RAD); //TODO not zero
+		//TODO @brian@august Display to user that somebody is in need.
+    
+		//Turn on lights/siren
+		setAlarm(true);
+		
+	}
 }
-
-
 
 void help_response_anyone_handler(Packet *p);
 void find_hops_request_handler(Packet *p);
@@ -694,6 +673,11 @@ void friend_request_handler(Packet *p) {
 		LocalUser *self = &localUsers[0]; //TODO Set this to something scalable.
 		
 		//addFriend(&f); //Add a friend that is not registered yet.
+		//Message user that someone wants to be a friend.
+		/*
+		TODO @brian@august LCD Prompt	//Add message/event for a FRIEND_RESPONSE ACK (Only if user accepts) //TODO NOT HERE.
+		If they accept, send a packet to them.
+		*/
 		printd("awaiting friend\n");
 		awaitingAccept = f;
 		printd("getting ready menu\n");
@@ -703,19 +687,12 @@ void friend_request_handler(Packet *p) {
 		printd("menu return\n");
 		//Send ACK back.
 		send_friend_request_ack(&f, self);
-		/**
-		Message user that someone wants to be a friend.
-		*/
 		//lcd_clear();
 		//lcd_set_line(0, "Friend Req");
 		//char buff[16];
 		//sprintf(buff, "%s", p->SRCFIRSTNAME);
 		//lcd_set_line(1, buff);
 		//lcd_update();
-		/*
-		TODO @brian@august LCD Prompt	//Add message/event for a FRIEND_RESPONSE ACK (Only after user accepts) //TODO NOT HERE.
-		If they accept, send a packet to them.
-		*/
 		Message *m = malloc(sizeof(Message));
 		setSettingsByOpcode(m, FRIEND_RESPONSE);
 		//m->srcid = p->SRCUID;
@@ -791,6 +768,7 @@ void friend_response_handler(Packet *p) {
 	}
 }
 
+//TODO @brian @august call this in a menu item.
 void send_unfriend_request(Friend *f, LocalUser *self) {
 	//Send the request
 	printv("Send Unfriend Request\n");
@@ -805,7 +783,7 @@ void send_unfriend_request(Friend *f, LocalUser *self) {
 	copy_friend_to_packet(f, self, p);
 	sendPacket(p, n);
 	
-	//Unfriend friend. //TODO @brian @august put this in the callback menu function.
+	//Unfriend friend.
 	removeFriend(f);
 	
 	//Add a corresponding message
